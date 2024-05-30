@@ -1,0 +1,157 @@
+---
+user-guide-title: "[!DNL Marketo] Guía para desarrolladores"
+user-guide-description: '"Esta guía proporciona instrucciones para utilizar [!DNL Marketo] API".'
+breadcrumb-title: "[!DNL Marketo] Guía para desarrolladores"
+role: Admin
+feature-set: "Marketo Engage"
+hide: true
+source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+workflow-type: tm+mt
+source-wordcount: '249'
+ht-degree: 28%
+
+---
+
+
+# [!DNL Marketo] Desarrollador {#marketo}
+
+- [Inicio](home.md)
+- [Introducción](getting-started.md)
+- API de JavaScript {#javascriptapi}
+   - [Configuración](javascript-api/configuration.md)
+   - [Eventos de datos personalizados](javascript-api/custom-data-events.md)
+   - [Ejemplos](javascript-api/examples.md)
+   - [Referencia de API de Forms](javascript-api/forms-api-reference.md)
+   - [Obtener datos del visitante](javascript-api/get-visitor-data.md)
+   - [API de JavaScript](javascript-api/javascript-api.md)
+   - [Seguimiento de leads](javascript-api/lead-tracking.md)
+   - [Coincidencia de motivo](javascript-api/pattern-match.md)
+   - [Predictive Content](javascript-api/predictive-content.md)
+   - [Redirecciones](javascript-api/redirect.md)
+   - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Social](javascript-api/social.md)
+   - [Desencadenadores](javascript-api/triggers.md)
+   - [Personalización web](javascript-api/web-personalization.md)
+- Móvil {#mobile}
+   - [Instalar [!DNL Adobe Launch] Extensión](mobile/adobe-launch-extension-installation.md)
+   - [[!DNL Adobe Launch] Extensión](mobile/adobe-launch-extension.md)
+   - [Modo de seguridad avanzado](mobile/advanced-security-access-mode.md)
+   - [Acciones personalizadas](mobile/custom-actions.md)
+   - [Vínculos profundos](mobile/enabling-deep-links-in-your-app.md)
+   - [Mensajería en la aplicación](mobile/in-app-messages.md)
+   - [Instalación](mobile/installation.md)
+   - [Iónico](mobile/ionic.md)
+   - [Teléfono móvil](mobile/mobile.md)
+   - [PhoneGap](mobile/phonegap.md)
+   - [Insertar notificaciones](mobile/push-notifications.md)
+   - [Reaccionar nativo](mobile/react-native.md)
+   - [Perfiles de usuario](mobile/user-profiles.md)
+- REST{#rest}
+   - [API de REST](rest-api/rest-api.md)
+   - Assets {#assets}
+      - [Recursos](rest-api/assets.md)
+      - [Contenido dinámico](rest-api/dynamic-content.md)
+      - [Emails](rest-api/emails.md)
+      - [Plantillas de email](rest-api/email-templates.md)
+      - [Archivos](rest-api/files.md)
+      - [Carpetas](rest-api/folders.md)
+      - [Formularios](rest-api/forms.md)
+      - [Páginas de destino](rest-api/landing-pages.md)
+      - [Plantillas de la página de destino](rest-api/landing-page-templates.md)
+      - [Reglas de redireccionamiento de la página de destino](rest-api/landing-page-redirect-rules.md)
+      - [Lista de campos estándar](rest-api/list-of-standard-fields.md)
+      - [Programas](rest-api/programs.md)
+      - [Campañas inteligentes](rest-api/smart-campaigns.md)
+      - [Listas inteligentes](rest-api/smart-lists.md)
+      - [Fragmentos](rest-api/snippets.md)
+      - [Listas estáticas](rest-api/static-lists.md)
+      - [Tokens](rest-api/tokens.md)
+      - [Correo electrónico transaccional](rest-api/transactional-email.md)
+   - [Autenticación](rest-api/authentication.md)
+   - [Firma de autenticación](rest-api/authentication-signature.md)
+   - [URL básica](rest-api/base-url.md)
+   - [Mejores prácticas](rest-api/marketo-integration-best-practices.md)
+   - Extracción en lote {#bulk-extract}
+      - [Actividad masiva](rest-api/bulk-activity-extract.md)
+      - [Objeto personalizado en bloque](rest-api/bulk-custom-object-extract.md)
+      - [Extracción en lote](rest-api/bulk-extract.md)
+      - [Posible cliente](rest-api/bulk-lead-extract.md)
+      - [Miembro de programa en masa](rest-api/bulk-program-member-extract.md)
+   - Importación masiva {#bulk-import}
+      - [Objeto personalizado en bloque](rest-api/bulk-custom-object-import.md)
+      - [Importación masiva](rest-api/bulk-import.md)
+      - [Posible cliente](rest-api/bulk-lead-import.md)
+      - [Miembro de programa en masa](rest-api/bulk-program-member-import.md)
+   - [Canales](rest-api/channels.md)
+   - [Servicios personalizados](rest-api/custom-services.md)
+   - [Referencia de extremo](rest-api/endpoint-reference.md)
+   - [Códigos de error](rest-api/error-codes.md)
+   - Base de datos de posibles clientes {#lead-database}
+      - [Compañías](rest-api/companies.md)
+      - [Lista de campos](rest-api/fields.md)
+      - [Tipos de campo](rest-api/field-types.md)
+      - [Base de datos de leads](rest-api/lead-database.md)
+      - [Cuentas nombradas](rest-api/named-accounts.md)
+      - [Listas de cuentas con nombre](rest-api/named-account-lists.md)
+      - [Oportunidades](rest-api/opportunities.md)
+      - [Funciones de oportunidad](rest-api/opportunity-roles.md)
+      - [Miembros del programa](rest-api/program-members.md)
+      - [Vendedores](rest-api/sales-persons.md)
+   - [Tokens de paginación](rest-api/paging-tokens.md)
+   - [Desempeño](rest-api/performance.md)
+   - [Arquitecturas de referencia](rest-api/reference-architectures.md)
+   - [Código de ejemplo](https://github.com/Marketo/REST-Sample-Code)
+   - [Etiquetas](rest-api/tags.md)
+   - [Contexto de usuario](rest-api/user-context.md)
+   - [Gestión de usuarios](rest-api/user-management.md)
+- JABÓN {#soap}
+   - Actividades {#activities}
+      - [Actividades](soap-api/activities.md)
+      - [getLeadActivity](soap-api/getleadactivity.md)
+      - [getLeadChanges](soap-api/getleadchanges.md)
+   - [Filtros de tipo de actividad](soap-api/activity-type-filters.md)
+   - [Firma de autenticación](soap-api/authentication-signature.md)
+   - Campañas {#campaigns}
+      - [getCampaignsForSource](soap-api/getcampaignsforsource.md)
+      - [requestCampaign](soap-api/requestcampaign.md)
+      - [scheduleCampaign](soap-api/schedulecampaign.md)
+   - Objetos personalizados {#custom-objects}
+      - [Objetos personalizados](soap-api/custom-objects.md)
+      - [deleteCustomObjects](soap-api/deletecustomobjects.md)
+      - [getCustomObjects](soap-api/getcustomobjects.md)
+      - [syncCustomObjects](soap-api/synccustomobjects.md)
+   - [Códigos de error](soap-api/error-codes.md)
+   - Posibles clientes {#leads}
+      - [getLead](soap-api/getlead.md)
+      - [getMultipleLeads](soap-api/getmultipleleads.md)
+      - [mergeLeads](soap-api/mergeleads.md)
+      - [Clientes potenciales](soap-api/leads.md)
+      - [syncLead](soap-api/synclead.md)
+      - [syncMultipleLeads](soap-api/syncmultipleleads.md)
+   - Objetos Marketo {#marketo-objects}
+      - [deleteMObjects](soap-api/deletemobjects.md)
+      - [describeMObjects](soap-api/describemobject.md)
+      - [getMObjects](soap-api/getmobjects.md)
+      - [listMObjects](soap-api/listmobjects.md)
+      - [Objetos Marketo](soap-api/marketo-objects.md)
+      - [syncMObjects](soap-api/syncmobjects.md)
+   - Programas {#programs}
+      - [getChannels](soap-api/getchannels.md)
+      - [getTags](soap-api/gettags.md)
+   - [SOAP API](soap-api/soap-api.md)
+   - [PREGUNTAS FRECUENTES SOAP](soap-api/soap-faq.md)
+   - Listas estáticas {#static-lists}
+      - [getImportToListStatus](soap-api/getimporttoliststatus.md)
+      - [importToList](soap-api/importtolist.md)
+      - [listOperation](soap-api/listoperation.md)
+   - [Posición del flujo](soap-api/stream-position.md)
+- Webhooks {#webhooks}
+   - [Errores](webhooks/errors.md)
+   - [Asignaciones de respuesta](webhooks/response-mappings.md)
+   - [Webhooks](webhooks/webhooks.md)
+- [Bibliotecas de cliente](https://github.com/Marketo/Community-Supported-Client-Libraries)
+- [Flujos de datos](data-streams.md)
+- [Scripts de correo electrónico](email-scripting.md)
+- [Licencia](api-license.md)
+- [Entorno aislado de Partner](partner-sandbox.md)
+- [Pasos del flujo de autoservicio](self-service-flow-steps.md)

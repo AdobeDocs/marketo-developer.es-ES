@@ -1,0 +1,246 @@
+---
+title: Importación masiva de miembros del programa
+feature: REST API
+description: '"Importación por lotes de datos de miembros".'
+source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+workflow-type: tm+mt
+source-wordcount: '838'
+ht-degree: 0%
+
+---
+
+
+# Importación masiva de miembros del programa
+
+[Referencia de extremo de importación masiva de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
+
+Para grandes cantidades de registros de miembros de programa, los miembros de programa se pueden importar de forma asíncrona con el [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Esto permite importar una lista de registros en Marketo mediante un archivo plano con delimitadores (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que el tamaño total del archivo sea inferior a 10 MB. La operación de registro es sólo &quot;insertar o actualizar&quot;.
+
+## Límites de procesamiento
+
+Se le permite enviar más de una solicitud de importación masiva, con limitaciones. Cada solicitud se agrega como un trabajo a una cola FIFO para su procesamiento. Se procesan un máximo de dos trabajos al mismo tiempo. Se permite un máximo de diez trabajos en cola en un momento determinado (incluidos los dos que se están procesando actualmente). Si supera el máximo de diez trabajos, se devuelve el error &quot;1016, Demasiadas importaciones&quot;.
+
+## Importar archivo
+
+La primera fila del archivo debe ser un encabezado que enumere los nombres de API de REST correspondientes como campos para asignar los valores de cada fila a. Los nombres de API de REST se pueden recuperar mediante [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) y/o [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET) puntos finales. Los registros pueden contener campos de posibles clientes, campos de posibles clientes personalizados y campos de miembros de programa personalizados.
+
+Un archivo típico seguiría este patrón básico:
+
+```
+email,firstName,lastName
+test@example.com,John,Doe
+```
+
+La llamada en sí se realiza mediante la variable `multipart/form-data` content-type.
+
+Este tipo de solicitud puede ser difícil de implementar, por lo que se recomienda encarecidamente que utilice una implementación de biblioteca existente.
+
+## Creación de un trabajo
+
+El [Importar miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) el extremo lee un archivo que contiene registros de miembros del programa y los agrega a un programa con un estado determinado. Los registros pueden contener tanto campos de posibles clientes como campos personalizados de miembros del programa. Todos los registros deben incluir el campo de correo electrónico, que se utiliza con fines de deduplicación.
+
+El `programId` parámetro path especifica el programa al que se agregan los miembros.
+
+Se requieren tres parámetros de consulta. El `format` especifica el formato de archivo de importación (CSV, TSV o SSV), el parámetro `programMemberStatus` especifica el estado del programa para los miembros que se agregan al programa y el parámetro `file` parámetro contiene el nombre del archivo de importación que contiene registros de miembros del programa.
+
+```
+POST /bulk/v1/program/{programId}/members/import.json?format=csv&programMemberStatus=On List
+```
+
+```
+Content-Type: multipart/form-data; boundary=--------------------------118046853683028616211319
+Content-Length: 772
+Host: <munchkinId>.mktorest.com
+```
+
+```
+----------------------------118046853683028616211319
+Content-Disposition: form-data; name="file"; filename="Lead-House-Lannister.csv"
+Content-Type: text/csv
+
+firstName,lastName,email,title,company,leadScore
+Joanna,Lannister,Joanna@Lannister.com,Lannister,House Lannister,0
+Tywin,Lannister,Tywin@Lannister.com,Lannister,House Lannister,0
+Cersei,Lannister,Cersei@Lannister.com,Lannister,House Lannister,0
+Jamie,Lannister,Jamie@Lannister.com,Lannister,House Lannister,0
+Tyrion,Lannister,Tyrion@Lannister.com,Lannister,House Lannister,0
+Kevan,Lannister,Kevan@Lannister.com,Lannister,House Lannister,0
+Dorna,Lannister,Dorna@Lannister.com,Lannister,House Lannister,0
+Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
+
+----------------------------118046853683028616211319--
+```
+
+```json
+{
+    "requestId": "17f4a#16f87f87325",
+    "result": [
+        {
+            "batchId": 1040,
+            "importId": "1040",
+            "status": "Queued"
+        }
+    ],
+    "success": true
+}
+```
+
+Observe en la respuesta a nuestra llamada que hay un `batchId` y una `status` para el registro en la matriz de resultados. Dado que este extremo es asincrónico, puede devolver el estado En cola, Importando o Error. Debe conservar la variable `batchId` para obtener el estado del trabajo de importación y para recuperar errores o advertencias al finalizar. El `batchId` sigue siendo válido durante siete días.
+
+En el ejemplo anterior, una manera sencilla de llamar al extremo es utilizar cURL desde la línea de comandos:
+
+```bash
+curl -i -F format='csv' -F programMemberStatus='On List' -F file='@Lead-House-Lannister.csv' -F access_token='<Access Token>' <REST API Endpoint Base URL>/bulk/v1/program/{programId}/members/import.json
+```
+
+Cuando el archivo de importación &quot;Lead-House-Lannister.csv&quot; contenga lo siguiente:
+
+```
+firstName,lastName,email,title,company,leadScore
+Joanna,Lannister,Joanna@Lannister.com,Lannister,House Lannister,0
+Tywin,Lannister,Tywin@Lannister.com,Lannister,House Lannister,0
+Cersei,Lannister,Cersei@Lannister.com,Lannister,House Lannister,0
+Jamie,Lannister,Jamie@Lannister.com,Lannister,House Lannister,0
+Tyrion,Lannister,Tyrion@Lannister.com,Lannister,House Lannister,0
+Kevan,Lannister,Kevan@Lannister.com,Lannister,House Lannister,0
+Dorna,Lannister,Dorna@Lannister.com,Lannister,House Lannister,0
+Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
+```
+
+## Estado del trabajo de sondeo
+
+Una vez creado el trabajo de importación, debe consultar su estado. Se recomienda sondear el trabajo de importación cada 5-30 segundos. Para ello, pase el `batchId` parámetro de ruta al [Obtener estado de miembro del programa de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) punto final.
+
+```
+GET /bulk/v1/program/members/import/{batchId}/status.json
+```
+
+```json
+{
+    "requestId": "e0cb#16f87f8b177",
+    "result": [
+        {
+            "batchId": 1040,
+            "importId": "1040",
+            "status": "Complete",
+            "numOfLeadsProcessed": 8,
+            "numOfRowsFailed": 0,
+            "numOfRowsWithWarning": 0,
+            "message": "Import succeeded, 8 records imported (8 members)"
+        }
+    ],
+    "success": true
+}
+```
+
+Esta respuesta muestra una importación completada. El estado puede ser uno de los siguientes: Completado, En cola, Importando, Fallido.
+
+Si el trabajo se ha completado, tiene un listado del número de filas procesadas, con errores o con advertencias. El parámetro message también puede proporcionar el mensaje de error si el estado es Failed.
+
+## Errores de
+
+Los errores se indican mediante la variable `numOfRowsFailed` atributo en [Obtener estado de miembro del programa de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) respuesta. Si numOfRowsFailed es mayor que cero, ese valor indica el número de errores que se produjeron.
+
+Utilice el [Obtener errores de miembros del programa de importación](http://TODO) extremo para recuperar registros y causas de filas fallidas pasando el `batchId` parámetro de ruta.
+
+```
+GET /bulk/v1/program/members/import/{batchId}/failures.json
+```
+
+El extremo responde con un archivo que indica qué filas fallaron, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que se especifica en `format` durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción del error.
+
+Por ejemplo, supongamos que importa el siguiente archivo con una puntuación de posible cliente no válida:
+
+```
+firstName,lastName,email,title,company,leadScore
+Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD
+```
+
+Cuando compruebe el estado del trabajo, verá lo siguiente `numOfRowsFailed` es 1, que indica que se ha producido un error:
+
+```
+GET /bulk/v1/program/members/import/{batchId}/status.json
+```
+
+```json
+{
+    "requestId": "4c2d#16f8b32c8ef",
+    "result": [
+        {
+            "batchId": 1046,
+            "importId": "1046",
+            "status": "Complete",
+            "numOfLeadsProcessed": 0,
+            "numOfRowsFailed": 1,
+            "numOfRowsWithWarning": 0,
+            "message": "Import completed with errors, 0 records imported (0 members), 1 failed"
+        }
+    ],
+    "success": true
+}
+```
+
+A continuación, recupere el archivo de errores para obtener más detalles sobre el error:
+
+```
+GET /bulk/v1/program/members/import/{batchId}/failures.json
+```
+
+```
+firstName,lastName,email,title,company,leadScore,Import Failure Reason
+Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD,Invalid data type in field Lead Score
+```
+
+## Advertencias
+
+Las advertencias se indican mediante la variable `numOfRowsWithWarning` atributo en [Obtener estado de miembro del programa de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) respuesta. If `numOfRowsWithWarning` es mayor que cero, ese valor indica el número de advertencias que se produjeron.
+
+Utilice el [Obtener advertencias de miembros del programa de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) punto final para recuperar registros y causas de filas de advertencia pasando el `batchId` parámetro de ruta.
+
+```
+GET /bulk/v1/program/members/import/{batchId}/warnings.json
+```
+
+El extremo responde con un archivo que indica qué filas produjeron advertencias, junto con un mensaje que indica por qué el registro produjo una advertencia. El formato del archivo es el mismo que se especifica en `format` durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción de la advertencia.
+
+Por ejemplo, supongamos que importa el siguiente archivo con una dirección de correo electrónico no válida:
+
+```
+firstName,lastName,email,title,company,leadScore
+Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0
+```
+
+Cuando compruebe el estado del trabajo, verá lo siguiente `numOfRowsWithWarning` es 1, que indica que se ha producido una advertencia:
+
+```
+GET /bulk/v1/program/members/import/{batchId}/status.json
+```
+
+```json
+{
+   "requestId":"4ca1#16f883c2003",
+   "result":[
+      {
+         "batchId":1041,
+         "importId":"1041",
+         "status":"Complete",
+         "numOfLeadsProcessed":1,
+         "numOfRowsFailed":0,
+         "numOfRowsWithWarning":1,
+         "message":"Import succeeded, 1 records imported (1 members), 1 warning."
+      }
+   ],
+   "success":true
+}
+```
+
+A continuación, recupere el archivo de advertencias para obtener más detalles sobre la advertencia:
+
+```
+GET /bulk/v1/program/members/import/{batchId}/warnings.json
+```
+
+```
+firstName,lastName,email,title,company,leadScore,Import Warning Reason
+Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0,Invalid email address
+```
