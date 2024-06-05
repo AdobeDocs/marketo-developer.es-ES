@@ -1,17 +1,17 @@
 ---
-title: "Primeros pasos"
-description: "Introducción a las API de Marketo"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Introducción
+description: Introducción a las API de Marketo Engage
+exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
+source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
 workflow-type: tm+mt
-source-wordcount: '1242'
-ht-degree: 0%
+source-wordcount: '1246'
+ht-degree: 1%
 
 ---
 
-
 # Introducción
 
-Marketo es una plataforma de automatización de marketing que permite a los especialistas en marketing administrar programas y campañas multicanal personalizados a clientes y posibles clientes. La plataforma Marketo se puede ampliar utilizando puntos de integración. A continuación se encuentran las entidades principales y sus relaciones.
+Marketo Engage es una plataforma de automatización de marketing que permite a los especialistas en marketing administrar programas y campañas multicanal personalizados a clientes y posibles clientes. La plataforma de Marketo Engage se puede ampliar utilizando puntos de integración. A continuación se encuentran las entidades principales y sus relaciones.
 
 Los siguientes objetos no están disponibles mediante la API de REST cuando la sincronización nativa está habilitada: Empresa, Oportunidad, Función de oportunidad, Vendedor
 
@@ -19,7 +19,7 @@ Los siguientes objetos no están disponibles mediante la API de REST cuando la s
 
 ## Persona (posibles clientes)
 
-Las personas son la base de cualquier plataforma de automatización de marketing. En Marketo, todos los registros de personas no vendedoras se denominan posibles clientes, independientemente de si están designados como posibles clientes, posibles clientes, sospechosos, contactos, etc., desde el punto de vista de las ventas. El objeto de posible cliente viene con un conjunto de [campos estándar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET) como correo electrónico, nombre y apellidos. Se pueden agregar campos adicionales al tipo de objeto de posible cliente para ampliar los tipos de información asociados con los registros del sistema. Los atributos personalizados se pueden leer y escribir en igual que los campos estándar. Puede encontrar una lista completa de campos en Marketo **[!UICONTROL Administrador]** > **[!UICONTROL Administración de campos]** menú. Los posibles clientes se identifican de forma exclusiva en Marketo mediante el campo ID. Otras claves únicas deben aplicarse externamente desde el sistema.
+Las personas son la base de cualquier plataforma de automatización de marketing. En Marketo, todos los registros de no vendedores se denominan posibles clientes, independientemente de si se designan como posibles clientes, posibles clientes, sospechosos, contactos, etc., desde el punto de vista de las ventas. El objeto de posible cliente viene con un conjunto de [campos estándar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET) como correo electrónico, nombre y apellidos. Se pueden agregar campos adicionales al tipo de objeto de posible cliente para ampliar los tipos de información asociados con los registros del sistema. Los atributos personalizados se pueden leer y escribir en igual que los campos estándar. Puede encontrar una lista completa de campos en Marketo **[!UICONTROL Administrador]** > **[!UICONTROL Administración de campos]** menú. Los posibles clientes se identifican de forma exclusiva en Marketo mediante el campo ID. Otras claves únicas deben aplicarse externamente desde el sistema.
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [JABÓN](soap-api/leads.md), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
