@@ -2,10 +2,10 @@
 title: Inicio
 description: Página principal de API de Marketo Engage
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
+source-git-commit: aea2812730fa5f6054e69dfa9d8045329aa724c7
 workflow-type: tm+mt
-source-wordcount: '144'
-ht-degree: 0%
+source-wordcount: '128'
+ht-degree: 6%
 
 ---
 
@@ -13,12 +13,39 @@ ht-degree: 0%
 
 Documentación detallada que le ayudará a dominar la API de Marketo Engage
 
-| ![Primeros pasos](assets/Smock_Book_18_N.svg){align=center} | [**Primeros pasos**](getting-started.md)  Familiarícese con las API de Marketo Engage. |
-|---|---|
-| ![Bibliotecas de cliente](assets/Smock_Code_18_N.svg){align=center} | [**Bibliotecas de cliente**](https://github.com/Marketo/Community-Supported-Client-Libraries) Utilice código abierto para expandir las capacidades de Marketo Engage. |
-| ![Scripts de correo electrónico](assets/Smock_EmailGear_18_N.svg){align=center} | [**Scripts de correo electrónico**](rest-api/emails.md) Utilice las API de Marketo Engage para crear y editar correos electrónicos y plantillas de correo electrónico. |
-| ![Seguimiento de posibles clientes](assets/Smock_PeopleGroup_18_N.svg){align=center} | [**Seguimiento de posibles clientes**](javascript-api/lead-tracking.md) Administre los posibles clientes. |
-| ![Mobile Marketo](assets/Smock_MobileServices_18_N.svg){align=center} | [**Mobile Marketo**](mobile/mobile.md) Utilice Marketo Mobile para escuchar y responder a los clientes en sus dispositivos móviles. |
-| ![API de REST](assets/Smock_AppleFiles_18_N.svg){align=center} | [**API DE REST**](https://developer.adobe.com/marketo-apis/) Lea, escriba y actualice los datos de su Marketo Engage a través de la API de REST. |
-| ![Webhooks](assets/Smock_SocialNetwork_18_N.svg){align=center} | [**Webhooks**](webhooks/webhooks.md) Comunicarse con servicios web de terceros mediante Webhooks. |
-| ![Personalización web](assets/Smock_PersonalizationField_18_N.svg){align=center} | [**Personalización web**](javascript-api/web-personalization.md) Utilice la API de javascript para el seguimiento de eventos y la personalización dinámica de una página web. |
+<table>
+<tbody>
+<tr>
+<th><img src="assets/Smock_Book_18_N.svg" alt="Introducción"></th>
+<th><a href="getting-started.md"><strong>Primeros pasos</strong></a>  Familiarícese con las API de Marketo Engage.</th>
+</tr>
+<tr>
+<td><img src="assets/Smock_Code_18_N.svg" alt="Bibliotecas de cliente"></td>
+<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong>Bibliotecas de cliente</strong></a> Utilice código abierto para expandir las capacidades de Marketo Engage.</td>
+</tr>
+<tr>
+<td><img src="assets/Smock_EmailGear_18_N.svg" alt="Scripts de correo electrónico"></td>
+<td><a href="rest-api/emails.md"><strong>Scripts de correo electrónico</strong></a> Utilice las API de Marketo Engage para crear y editar correos electrónicos y plantillas de correo electrónico.</td>
+</tr>
+<tr>
+<td><img src="assets/Smock_PeopleGroup_18_N.svg" alt="Seguimiento de leads"></td>
+<td><a href="javascript-api/lead-tracking.md"><strong>Seguimiento de posibles clientes</strong></a> Administre los posibles clientes.</td>
+</tr>
+<tr>
+<td><img src="assets/Smock_MobileServices_18_N.svg" alt="Mobile Marketo"></td>
+<td><a href="mobile/mobile.md"><strong>Mobile Marketo</strong></a> Utilice Marketo Mobile para escuchar y responder a los clientes en sus dispositivos móviles.</td>
+</tr>
+<tr>
+<td><img src="assets/Smock_AppleFiles_18_N.svg" alt="API de REST"></td>
+<td><a href="https://developer.adobe.com/marketo-apis/"><strong>API DE REST</strong></a> Lea, escriba y actualice los datos de su Marketo Engage a través de la API de REST.</td>
+</tr>
+<tr>
+<td><img src="assets/Smock_SocialNetwork_18_N.svg" alt="Webhooks"></td>
+<td><a href="webhooks/webhooks.md"><strong>Webhooks</strong></a> Comunicarse con servicios web de terceros mediante Webhooks.</td>
+</tr>
+<tr>
+<td><img src="assets/Smock_PersonalizationField_18_N.svg" alt="Personalización web"></td>
+<td><a href="javascript-api/web-personalization.md"><strong>Personalización web</strong></a> Utilice la API de javascript para el seguimiento de eventos y la personalización dinámica de una página web.</td>
+</tr>
+</tbody>
+</table>
