@@ -3,7 +3,7 @@ title: '[!DNL Adobe Launch] Instalación de extensión'
 feature: Mobile Marketing
 description: '''[!DNL Adobe Launch] resumen de instalación de extensiones'
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 2b6fd22becb0eb692dbcf48686c23f7a878cd812
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '726'
 ht-degree: 0%
@@ -25,11 +25,11 @@ Instrucciones de instalación para [!DNL Adobe Launch] Extensión de Marketo. Se
 
 ### Configurar encabezado de puente de Swift
 
-1. Vaya a Archivo > Nuevo > Archivo y seleccione &quot;Archivo de encabezado&quot;.
+1. Ir a [!UICONTROL Archivo] > [!UICONTROL Nuevo] > [!UICONTROL Archivo] y seleccione **[!UICONTROL Archivo de encabezado]**.
 
 1. Asigne un nombre al archivo &quot;&lt;_ProjectName_>-Bridging-Header&quot;.
 
-1. Vaya a Proyecto > Target > Configuración de compilación > Compilador Swift > Generación de código. Añada la siguiente ruta al encabezado &quot;Objective-Bridging&quot;:
+1. Ir a [!UICONTROL Proyecto] > [!UICONTROL Target] > [!UICONTROL Configuración de compilación] > [!UICONTROL Compilador Swift] > [!UICONTROL Generación de código]. Añada la siguiente ruta al encabezado &quot;Objective-Bridging&quot;:
 
 `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
@@ -63,7 +63,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ## Dispositivos de prueba iOS
 
-1. Seleccionar [!UICONTROL Proyecto] > [!UICONTROL Target] > [!UICONTROL Información] > Tipos de URL.
+1. Seleccionar **[!UICONTROL Proyecto]** > **[!UICONTROL Target]** > **[!UICONTROL Información]** > **[!UICONTROL Tipos de URL]**.
 1. Agregar identificador: ${PRODUCT_NAME}
 1. Definir esquemas de URL: mkto-&lt;s_ecret key_=&quot;&quot;>
 1. Incluir `application:openURL:sourceApplication:annotation:` hasta `AppDelegate.m file` (Objective-C)
@@ -160,15 +160,15 @@ Los desarrolladores de aplicaciones de Android Google ahora pueden utilizar dire
 1. Integre el SDK Android de Marketo más reciente en la aplicación Android.  Los pasos están disponibles en [GitHub](https://github.com/Marketo/android-sdk).
 1. Configure la aplicación Firebase en la consola de Firebase.
    1. Crear/agregar un proyecto en [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Consola Firebase.
-      1. En el [Consola Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), seleccione [!UICONTROL Agregar proyecto].
-      1. Seleccione el proyecto GCM de la lista de proyectos existentes de Google Cloud y seleccione [!UICONTROL Añadir Firebase].
-      1. En la pantalla de bienvenida de Firebase, seleccione &quot;Añadir Firebase a su aplicación de Android&quot;.
-      1. Proporcione el nombre del paquete y SHA-1, y seleccione [!UICONTROL Agregar aplicación]. Un nuevo `google-services.json` para su aplicación Firebase descargada.
-      1. Seleccionar [!UICONTROL Continuar] y siga las instrucciones detalladas para agregar el complemento Google Services en Android Studio.
+      1. En el [Consola Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), seleccione **[!UICONTROL Agregar proyecto]**.
+      1. Seleccione el proyecto GCM de la lista de proyectos existentes de Google Cloud y seleccione **[!UICONTROL Añadir Firebase]**.
+      1. En la pantalla de bienvenida de Firebase, seleccione **[!UICONTROL Añadir Firebase a la aplicación de Android]**.
+      1. Proporcione el nombre del paquete y SHA-1, y seleccione **[!UICONTROL Agregar aplicación]**. Un nuevo `google-services.json` para su aplicación Firebase descargada.
+      1. Seleccionar **[!UICONTROL Continuar]** y siga las instrucciones detalladas para agregar el complemento Google Services en Android Studio.
 
-   1. Vaya a &quot;Configuración del proyecto&quot; en Información general del proyecto
-      1. Haga clic en la pestaña General. Descargue la `google-services.json` archivo.
-      1. Haga clic en la pestaña &quot;Mensajería en la nube&quot;. Copie &quot;Clave de servidor&quot; e &quot;ID de remitente&quot;. Proporcione estas opciones &quot;Clave de servidor&quot; e &quot;ID de remitente&quot; a Marketo.
+   1. Vaya a **[!UICONTROL Configuración de proyecto]** in [!UICONTROL Resumen del proyecto]
+      1. Clic **[!UICONTROL General]** pestaña. Descargue la `google-services.json` archivo.
+      1. Haga clic en **[!UICONTROL Mensajería en nube]** pestaña. Copiar [!UICONTROL Clave de servidor] &amp; [!UICONTROL ID de remitente]. Proporcionar estos [!UICONTROL Clave de servidor] &amp; [!UICONTROL ID de remitente] a Marketo.
    1. Configuración de cambios de FCM en la aplicación de Android
       1. Cambie a la vista Proyecto en Android Studio para ver el directorio raíz del proyecto
          1. Mover el archivo descargado `google-services.json` en el directorio raíz del módulo de la aplicación de Android
@@ -192,7 +192,7 @@ Los desarrolladores de aplicaciones de Android Google ahora pueden utilizar dire
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Finalmente, haga clic en &quot;[!UICONTROL Sincronizar ahora]&quot; en la barra que aparece en el ID
+         1. Finalmente, haga clic en **[!UICONTROL Sincronizar ahora]** en la barra que aparece en el ID
    1. Editar el manifiesto de la aplicación El SDK de FCM agrega automáticamente todos los permisos necesarios y la funcionalidad del receptor requerida. Asegúrese de eliminar los siguientes elementos obsoletos (y potencialmente dañinos, ya que pueden provocar la duplicación de mensajes) del manifiesto de la aplicación:
 
       ```xml
@@ -224,7 +224,7 @@ Preguntas frecuentes sobre la compatibilidad con Firebase Cloud Messaging.
 
 **P: ¿Cómo afecta a los clientes de MME existentes que han publicado aplicaciones de Android integradas con el SDK de Android de Marketo?** Pueden migrar una aplicación cliente GCM existente en Android a Firebase Cloud Messaging (FCM) de la siguiente manera:
 
-1. En el [Consola Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), seleccione [!UICONTROL Agregar proyecto].
+1. En el [Consola Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), seleccione **[!UICONTROL Agregar proyecto]**.
 1. Seleccione el proyecto GCM de la lista de proyectos existentes de Google Cloud y seleccione **[!UICONTROL Añadir Firebase]**.
 1. En la pantalla de bienvenida de Firebase, seleccione **[!UICONTROL Añadir Firebase a la aplicación de Android]**.
 1. Proporcione el nombre del paquete y SHA-1, y seleccione **[!UICONTROL Agregar aplicación]**. Un nuevo archivo google-services.json para su

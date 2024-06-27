@@ -1,14 +1,14 @@
 ---
-title: "API DE REST"
+title: API de REST
 feature: REST API
-description: "Resumen de la API de REST"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Resumen de API de REST
+exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '664'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # API de REST
 
@@ -30,15 +30,15 @@ Para la primera llamada a Marketo, recuperará un registro de posibles clientes.
 
 ![Usuarios y funciones de administrador](assets/admin-users-and-roles.png)
 
-Haga clic en [!UICONTROL Funciones] y, a continuación, Nuevo rol y asigne al menos el permiso &quot;Solo lectura de posible cliente&quot; (o &quot;Persona de solo lectura&quot;) al rol en el grupo de API de acceso. Asegúrese de darle un nombre descriptivo y haga clic en [!UICONTROL Crear].
+Haga clic en **[!UICONTROL Funciones]** y, a continuación, Nuevo rol y asigne al menos el permiso &quot;Solo lectura de posible cliente&quot; (o &quot;Persona de solo lectura&quot;) al rol en el grupo de API de acceso. Asegúrese de darle un nombre descriptivo y haga clic en **[!UICONTROL Crear]**.
 
 ![Nuevo rol](assets/new-role.png)
 
-A continuación, vuelva a la pestaña Usuarios y haga clic en Invitar a nuevo usuario. Asigne un nombre descriptivo al usuario que indique que es un usuario de API y una dirección de correo electrónico, y haga clic en **[!UICONTROL Siguiente]**.
+Ahora, vuelva a la [!UICONTROL Usuarios] y haga clic en **[!UICONTROL Invitar nuevo usuario]**. Asigne un nombre descriptivo al usuario que indique que es un usuario de API y una dirección de correo electrónico, y haga clic en **[!UICONTROL Siguiente]**.
 
 ![Información del nuevo usuario](assets/new-user-info.png)
 
-A continuación, marque la opción Solo API, asigne al usuario la función de API que ha creado y haga clic en **[!UICONTROL Siguiente]**.
+A continuación, compruebe la [!UICONTROL Solo API] y asigne al usuario la función de API que ha creado y haga clic en **[!UICONTROL Siguiente]**.
 
 ![Nuevos permisos de usuario](assets/new-user-permissions.png)
 
@@ -46,23 +46,23 @@ Para completar el proceso de creación de usuarios, haga clic en **[!UICONTROL E
 
 ![Mensaje de nuevo usuario](assets/new-user-message.png)
 
-A continuación, vaya al menú Administración y haga clic en **[!UICONTROL LaunchPoint]**.
+A continuación, vaya a [!UICONTROL Administrador] y haga clic en **[!UICONTROL LaunchPoint]**.
 
 ![Launchpoint](assets/admin-launchpoint.png)
 
-Haga clic en el menú New y seleccione [!UICONTROL Nuevo servicio]. Asigne un nombre descriptivo al servicio y seleccione &quot;Personalizado&quot; en el menú desplegable Servicio. Proporcione una descripción y, a continuación, seleccione el nuevo usuario en el menú desplegable Usuario solo de API y haga clic en [!UICONTROL Crear].
+Haga clic en **[!UICONTROL Nuevo]** y seleccione **[!UICONTROL Nuevo servicio]**. Asigne un nombre descriptivo al servicio y seleccione **[!UICONTROL Personalizado]** desde el [!UICONTROL Servicio] menú desplegable. Proporciónele una descripción y, a continuación, seleccione el nuevo usuario en la [!UICONTROL Usuario solo de API] y haga clic en **[!UICONTROL Crear]**.
 
 ![Nuevo servicio de Launchpoint](assets/admin-launchpoint-new-service.png)
 
-Haga clic en Ver detalles del nuevo servicio para acceder al ID de cliente y al secreto de cliente. Por ahora, puede hacer clic en [!UICONTROL Obtener token] para generar un token de acceso válido durante una hora. Guarde el token en una nota por ahora.
+Clic **[!UICONTROL Ver detalles]** para que el nuevo servicio acceda al ID de cliente y al Secreto de cliente. Por ahora, puede hacer clic en **[!UICONTROL Obtener token]** para generar un token de acceso válido durante una hora. Guarde el token en una nota por ahora.
 
 ![Obtener token](assets/get-token.png)
 
-A continuación, vaya al menú Administración y, a continuación, a **[!UICONTROL Servicios web]**.
+A continuación, vaya a **[!UICONTROL Administrador]** y, a continuación, a **[!UICONTROL Servicios web]**.
 
 ![Servicios web](assets/admin-web-services.png)
 
-Busque el extremo en el cuadro API de REST y guárdelo en una nota por ahora.
+Busque el [!UICONTROL Extremo] en el cuadro API de REST y guárdelo en una nota por ahora.
 
 ![Punto final REST](assets/admin-web-services-rest-endpoint-1.png)
 

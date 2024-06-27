@@ -5,10 +5,10 @@ breadcrumb-title: "[!DNL Marketo] Guía para desarrolladores"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 15ac16ab4f8153ee069335951a84cf1691469c6d
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '255'
-ht-degree: 27%
+source-wordcount: '231'
+ht-degree: 30%
 
 ---
 
@@ -40,11 +40,11 @@ ht-degree: 27%
    - [Vínculos profundos](mobile/enabling-deep-links-in-your-app.md)
    - [Mensajería en la aplicación](mobile/in-app-messages.md)
    - [Instalación](mobile/installation.md)
-   - [Iónico](mobile/ionic.md)
+   - [[!DNL Ionic]](mobile/ionic.md)
    - [Teléfono móvil](mobile/mobile.md)
    - [PhoneGap](mobile/phonegap.md)
    - [Insertar notificaciones](mobile/push-notifications.md)
-   - [Reaccionar nativo](mobile/react-native.md)
+   - [React Native](mobile/react-native.md)
    - [Perfiles de usuario](mobile/user-profiles.md)
 - REST{#rest}
    - [Resumen de API de REST](rest-api/rest-api.md)
@@ -106,46 +106,46 @@ ht-degree: 27%
    - [Etiquetas](rest-api/tags.md)
    - [Contexto de usuario](rest-api/user-context.md)
    - [Gestión de usuarios](rest-api/user-management.md)
-- JABÓN {#soap}
+- SOAP {#soap}
    - Actividades {#activities}
       - [Actividades](soap-api/activities.md)
-      - [getLeadActivity](soap-api/getleadactivity.md)
-      - [getLeadChanges](soap-api/getleadchanges.md)
+      - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
+      - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
    - [Filtros de tipo de actividad](soap-api/activity-type-filters.md)
    - [Firma de autenticación](soap-api/authentication-signature.md)
    - Campañas {#campaigns}
-      - [getCampaignsForSource](soap-api/getcampaignsforsource.md)
-      - [requestCampaign](soap-api/requestcampaign.md)
-      - [scheduleCampaign](soap-api/schedulecampaign.md)
+      - [[!DNL getCampaignsForSource]](soap-api/getcampaignsforsource.md)
+      - [[!DNL requestCampaign]](soap-api/requestcampaign.md)
+      - [[!DNL scheduleCampaign]](soap-api/schedulecampaign.md)
    - Objetos personalizados {#custom-objects}
       - [Objetos personalizados](soap-api/custom-objects.md)
-      - [deleteCustomObjects](soap-api/deletecustomobjects.md)
-      - [getCustomObjects](soap-api/getcustomobjects.md)
-      - [syncCustomObjects](soap-api/synccustomobjects.md)
+      - [[!DNL deleteCustomObjects]](soap-api/deletecustomobjects.md)
+      - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
+      - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
    - [Códigos de error](soap-api/error-codes.md)
    - Posibles clientes {#leads}
-      - [getLead](soap-api/getlead.md)
-      - [getMultipleLeads](soap-api/getmultipleleads.md)
-      - [mergeLeads](soap-api/mergeleads.md)
+      - [[!DNL getLead]](soap-api/getlead.md)
+      - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
+      - [[!DNL mergeLeads]](soap-api/mergeleads.md)
       - [Clientes potenciales](soap-api/leads.md)
-      - [syncLead](soap-api/synclead.md)
-      - [syncMultipleLeads](soap-api/syncmultipleleads.md)
+      - [[!DNL syncLead]](soap-api/synclead.md)
+      - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
    - Objetos Marketo {#marketo-objects}
-      - [deleteMObjects](soap-api/deletemobjects.md)
-      - [describeMObjects](soap-api/describemobject.md)
-      - [getMObjects](soap-api/getmobjects.md)
-      - [listMObjects](soap-api/listmobjects.md)
+      - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
+      - [[!DNL describeMObjects]](soap-api/describemobject.md)
+      - [[!DNL getMObjects]](soap-api/getmobjects.md)
+      - [[!DNL listMObjects]](soap-api/listmobjects.md)
       - [Objetos Marketo](soap-api/marketo-objects.md)
-      - [syncMObjects](soap-api/syncmobjects.md)
+      - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
    - Programas {#programs}
-      - [getChannels](soap-api/getchannels.md)
-      - [getTags](soap-api/gettags.md)
+      - [[!DNL getChannels]](soap-api/getchannels.md)
+      - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
-   - [PREGUNTAS FRECUENTES SOAP](soap-api/soap-faq.md)
+   - [SOAP PREGUNTAS MÁS FRECUENTES](soap-api/soap-faq.md)
    - Listas estáticas {#static-lists}
-      - [getImportToListStatus](soap-api/getimporttoliststatus.md)
-      - [importToList](soap-api/importtolist.md)
-      - [listOperation](soap-api/listoperation.md)
+      - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
+      - [[!DNL importToList]](soap-api/importtolist.md)
+      - [[!DNL listOperation]](soap-api/listoperation.md)
    - [Posición del flujo](soap-api/stream-position.md)
 - Webhooks {#webhooks}
    - [Errores](webhooks/errors.md)

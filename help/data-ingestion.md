@@ -1,10 +1,10 @@
 ---
 title: "Ingesta de datos"
 description: "Resumen de API de ingesta de datos"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '952'
-ht-degree: 10%
+source-wordcount: '945'
+ht-degree: 11%
 
 ---
 
@@ -132,7 +132,7 @@ Punto final utilizado para actualizar registros de persona.
 
 | Ruta |
 |---|
-| /subscriptions/{munchkinId}/personas |
+| `/subscriptions/{munchkinId}/persons` |
 
 | HeadersKey | Valor |
 |---|---|
@@ -201,7 +201,7 @@ Punto final utilizado para actualizar registros de objeto personalizados.
 
 | Ruta |
 |---|
-| /subscriptions/{munchkinId}/customobjects/{customObjectAPIName} |
+| `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
 Encabezados
 
@@ -210,7 +210,13 @@ Encabezados
 | Content-Type | application/json |
 | X-Mkto-User-Token | {accessToken} |
 
-Cuerpo de solicitud | Clave | Tipo de datos | Requerido | Valor | Valor predeterminado | |—|—|—|—|—| | priority | Cadena | No | Prioridad de la solicitud: normal alta | normal | | dedupeBy | Cadena | No | Atributos para anular la duplicación en:dedupeFieldsmarketoGUID | deduplicarCampos | | customObjects | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo para el objeto. | - |
+Cuerpo de solicitud
+
+| Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
+|---|---|---|---|---|
+| prioridad | Cadena | No | Prioridad de la solicitud: normal alta | normal |
+| dedupeBy | Cadena | No | Atributos para anular la duplicación en:dedupeFieldsmarketoGUID | deduplicarCampos |
+| customObjects | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo para el objeto. | - |
 
 | Permiso |
 |---|

@@ -1,14 +1,14 @@
 ---
-title: "Webhooks"
+title: Webhooks
 feature: Webhooks
-description: "Descripción general de los webhooks"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Descripción general de los webhooks
+exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '586'
 ht-degree: 0%
 
 ---
-
 
 # Webhooks
 
@@ -20,12 +20,12 @@ Marketo permite el uso de webhooks para comunicarse con servicios web de tercero
 
 Cada webhook individual tiene las siguientes propiedades:
 
-- URL: introduzca la URL que utiliza para enviar la solicitud al servicio web.
-- Tipo de solicitud: método HTTP.
-- Plantilla de carga útil: si desea transmitir información en el cuerpo del POST, introduzca la plantilla. Utilice cualquier formato de datos que admita el POST HTTP, incluidos XML, JSON o SOAP. El formato de serialización debe permitir comillas dobles alrededor de las cadenas. Para insertar un token en la plantilla, haga clic en Insertar token.  Los tokens de tipo cadena se encierran automáticamente entre comillas dobles.
-- Codificación de token de solicitud: si los valores de token incluyen caracteres especiales (como un signo &amp;), indique el formato de la solicitud (JSON o formulario/URL). Debe seleccionarse la codificación correcta para el cuerpo para asegurarse de que el webhook se comunica correctamente con el servicio web.
-- Tipo de respuesta: seleccione el formato de la respuesta que recibe del servicio (JSON o XML). Se debe seleccionar el tipo de respuesta correcto para asignar las propiedades de la respuesta a los campos de posible cliente en Marketo
-- Encabezados personalizados: accesible a través de Acciones de Webhooks -> Definir encabezado personalizado, este menú permite añadir cualquier número de pares clave-valor personalizados como encabezados HTTP.
+- [!UICONTROL URL] : introduzca la dirección URL que utiliza para enviar la solicitud al servicio web.
+- [!UICONTROL Tipo de solicitud] - El método HTTP.
+- [!UICONTROL Plantilla de carga útil] - Si desea transmitir información en el cuerpo del POST, introduzca la plantilla. Utilice cualquier formato de datos que admita el POST SOAP HTTP, incluidos XML, JSON o. El formato de serialización debe permitir comillas dobles alrededor de las cadenas. Para insertar un token en la plantilla, haga clic en **[!UICONTROL Insertar token]**.  Los tokens de tipo cadena se encierran automáticamente entre comillas dobles.
+- [!UICONTROL Codificación de token de solicitud] : Si los valores de token incluyen caracteres especiales (como un signo &amp;), indique el formato de la solicitud (JSON o formulario/URL). Debe seleccionarse la codificación correcta para el cuerpo para asegurarse de que el webhook se comunica correctamente con el servicio web.
+- [!UICONTROL Tipo de respuesta] : seleccione el formato de la respuesta que recibe del servicio (JSON o XML). Se debe seleccionar el tipo de respuesta correcto para asignar las propiedades de la respuesta a los campos de posible cliente en Marketo
+- [!UICONTROL Encabezados personalizados] - Se accede mediante [!UICONTROL Acciones de webhooks] -> [!UICONTROL Definir encabezado personalizado], este menú permite agregar cualquier número de pares clave-valor personalizados como encabezados HTTP.
 
 Los datos se pueden escribir de nuevo en posibles clientes a partir de respuestas de servicios web mediante [Asignaciones de respuestas](response-mappings.md)
 

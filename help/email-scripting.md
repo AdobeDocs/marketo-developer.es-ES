@@ -1,14 +1,14 @@
 ---
-title: "Scripts de correo electrónico"
+title: Scripts de correo electrónico
 feature: Email Programs
-description: "Resumen de scripts de correo electrónico"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Resumen de scripts de correo electrónico
+exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '963'
 ht-degree: 0%
 
 ---
-
 
 # Scripts de correo electrónico
 
@@ -98,7 +98,7 @@ El script de Velocity se incluye en los correos electrónicos mediante tokens de
 
 ![Token de script](assets/script-token.png)
 
-Desde aquí, puede editar el nombre del token y abrir el editor mediante la opción Haga clic para editar:
+Desde aquí, puede editar el nombre del token y abrir el editor mediante la variable [!UICONTROL Haga clic para editar] opción:
 
 ![Editar script](assets/script-edit.png)
 
@@ -112,11 +112,11 @@ Una vez que la secuencia de comandos esté definida dentro de un programa mi tok
 
 ![Script de correo electrónico](assets/email-script-marketo-email.png)
 
-Puede probar el script con la acción de correo electrónico Enviar correo electrónico de muestra del diseñador de correo electrónico de Marketo. Para que el script se procese correctamente, debe seleccionar un posible cliente existente para suplantar en el campo Posible cliente. Si realiza la prueba con `$TriggerObject`, puede seleccionar el objeto de activación mediante el parámetro &quot;Déclencheur&quot;. Utiliza los datos del objeto de ese tipo actualizado más recientemente como `$TriggerObject` variable.
+Puede probar la secuencia de comandos utilizando [!UICONTROL Enviar correo electrónico de muestra] acción de correo electrónico en el diseñador de correo electrónico de Marketo. Para que el script se procese correctamente, debe seleccionar un posible cliente existente para suplantar en [!UICONTROL Posible cliente] field. Si realiza la prueba con `$TriggerObject`, puede seleccionar el objeto de activación mediante el [!UICONTROL Déclencheur] parámetro. Utiliza los datos del objeto de ese tipo actualizado más recientemente como `$TriggerObject` variable.
 
 ![Probar script de correo electrónico](assets/velocity-test.png)
 
-También puede utilizar la vista previa del correo electrónico para probar el script. Para ello, debe seleccionar Ver como: Detalle del posible cliente y seleccionar un posible cliente de una lista estática disponible. Esto tiene la ventaja añadida de generar cualquier excepción que se pueda haber producido durante la ejecución del script:
+También puede utilizar la variable [!UICONTROL Previsualización de correo electrónico] para probar el script. Para ello, debe seleccionar **[!UICONTROL Ver como: Detalle del posible cliente]** y seleccione un posible cliente de una lista estática disponible. Esto tiene la ventaja añadida de generar cualquier excepción que se pueda haber producido durante la ejecución del script:
 
 ![Ver correo electrónico como](assets/view-as.png)
 
@@ -126,7 +126,7 @@ La longitud combinada de todos los tokens de script de correo electrónico de un
 
 - Las variables a las que se hace referencia en el script de correo electrónico deben existir en Marketo en uno de los objetos disponibles para el script.
 - Puede hacer referencia a objetos personalizados de primer y segundo nivel que se originan en su CRM integrado de forma nativa y que están conectados directamente al cliente potencial o contacto, pero no a objetos personalizados de tercer nivel. Los objetos personalizados no pueden ser elementos primarios del posible cliente o de la compañía
-- Para los objetos personalizados de Marketo, puede hacer referencia a objetos personalizados de segundo nivel con relación principal-secundario. Por ejemplo `Lead <- Parent <- Child`. No se puede hacer referencia a objetos personalizados de segundo nivel con relación de Edge-Bridge. Por ejemplo,.  `Lead <- Bridge -> Edge`
+- Para los objetos personalizados de Marketo, puede hacer referencia a objetos personalizados de segundo nivel con relación principal-secundario. Por ejemplo `Lead <- Parent <- Child`. No se puede hacer referencia a objetos personalizados de segundo nivel con la relación Edge-Bridge. Por ejemplo,.  `Lead <- Bridge -> Edge`
 - Puede hacer referencia a objetos personalizados conectados a un posible cliente, contacto o cuenta, pero no a más de uno.
 - Solo se puede hacer referencia a los objetos personalizados a través de una única conexión, posible cliente, contacto o cuenta
 - Debe marcar la casilla en el editor de scripts de los campos que está utilizando o no se procesarán
