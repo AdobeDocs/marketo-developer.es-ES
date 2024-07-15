@@ -1,6 +1,6 @@
 ---
 user-guide-title: "[!DNL Marketo] Guía para desarrolladores"
-user-guide-description: '"Esta guía proporciona instrucciones para utilizar [!DNL Marketo] API".'
+user-guide-description: "Esta guía proporciona instrucciones para usar  [!DNL Marketo] API."
 breadcrumb-title: "[!DNL Marketo] Guía para desarrolladores"
 role: Admin
 feature-set: "Marketo Engage"
@@ -13,7 +13,7 @@ ht-degree: 29%
 ---
 
 
-# [!DNL Marketo] Desarrollador {#marketo}
+# Desarrollador de [!DNL Marketo] {#marketo}
 
 - [Inicio](home.md)
 - [Introducción](getting-started.md)
@@ -33,8 +33,8 @@ ht-degree: 29%
    - [Desencadenadores](javascript-api/triggers.md)
    - [Personalización web](javascript-api/web-personalization.md)
 - Móvil {#mobile}
-   - [Instalar [!DNL Adobe Launch] Extensión](mobile/adobe-launch-extension-installation.md)
-   - [[!DNL Adobe Launch] Extensión](mobile/adobe-launch-extension.md)
+   - [Instalar [!DNL Adobe Launch] extensión](mobile/adobe-launch-extension-installation.md)
+   - [Extensión [!DNL Adobe Launch]](mobile/adobe-launch-extension.md)
    - [Modo de seguridad avanzado](mobile/advanced-security-access-mode.md)
    - [Acciones personalizadas](mobile/custom-actions.md)
    - [Vínculos profundos](mobile/enabling-deep-links-in-your-app.md)
@@ -72,7 +72,7 @@ ht-degree: 29%
    - [Firma de autenticación](rest-api/authentication-signature.md)
    - [URL básica](rest-api/base-url.md)
    - [Mejores prácticas](rest-api/marketo-integration-best-practices.md)
-   - Extracción en lote {#bulk-extract}
+   - Extracción en lotes {#bulk-extract}
       - [Actividad masiva](rest-api/bulk-activity-extract.md)
       - [Objeto personalizado en bloque](rest-api/bulk-custom-object-extract.md)
       - [Extracción en lote](rest-api/bulk-extract.md)
@@ -131,7 +131,7 @@ ht-degree: 29%
       - [Clientes potenciales](soap-api/leads.md)
       - [[!DNL syncLead]](soap-api/synclead.md)
       - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
-   - Objetos Marketo {#marketo-objects}
+   - Objetos de Marketo {#marketo-objects}
       - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
       - [[!DNL describeMObjects]](soap-api/describemobject.md)
       - [[!DNL getMObjects]](soap-api/getmobjects.md)
