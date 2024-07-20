@@ -1,18 +1,18 @@
 ---
-title: "deleteMObjects"
+title: deleteMObjects
 feature: SOAP
-description: "deleteMObjects llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP llamadas a deleteMObjects de
+exl-id: 31511584-5366-4af1-975b-94417680c4d9
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '58'
 ht-degree: 10%
 
 ---
 
-
 # deleteMObjects
 
-Elimina una o más [MObjects](marketo-objects.md) y devuelve el resultado de la operación (DELETED, UNCHANGED, FAILED).
+Elimina uno o más [MObjects](marketo-objects.md) y devuelve el resultado de la operación (DELETED, UNCHANGED, FAILED).
 
 ## Solicitud
 

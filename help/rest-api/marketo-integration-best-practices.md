@@ -1,33 +1,33 @@
 ---
-title: "Prácticas recomendadas de integración de Marketo"
+title: Prácticas recomendadas de integración de Marketo
 feature: REST API
-description: '"Prácticas recomendadas para usar las API de Marketo".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Prácticas recomendadas para usar las API de Marketo.
+exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '952'
 ht-degree: 0%
 
 ---
 
-
 # Prácticas recomendadas de integración de Marketo
 
 ## Límites de API
 
-- **Cuota diaria:** A la mayoría de las suscripciones se les asignan 50 000 llamadas de API al día (que se restablecen todos los días a las 12:00 h CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
-- **Límite de velocidad:** Acceso a la API por instancia limitado a 100 llamadas por 20 segundos.
-- **Límite de concurrencia:**  Máximo de diez llamadas API simultáneas.
-- **Tamaño del lote:** Base de datos de posibles clientes - 300 registros; Consulta de recursos - 200 registros
-- **Tamaño de carga útil de API REST:** 1 MB
-- **Tamaño de archivo de importación masiva:** 10 MB
-- **Tamaño máximo de lote SOAP:** 300 registros
-- **Trabajos de extracción masiva:** 2 en ejecución; 10 en cola (incluido)
+- **Cuota diaria:** A la mayoría de las suscripciones se les asignan 50.000 llamadas API al día (que se restablecen diariamente a las 12:00 horas CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
+- **Límite de velocidad:** Acceso a API por instancia limitado a 100 llamadas por 20 segundos.
+- **Límite de simultaneidad:**  Máximo de diez llamadas API simultáneas.
+- **Tamaño del lote:** Base de datos de posibles clientes - 300 registros; Consulta de recursos - 200 registros
+- **Tamaño de carga útil de API de REST:** 1 MB
+- **Tamaño de archivo de importación masiva:** 10 MB
+- SOAP **Tamaño máximo del lote de datos:** 300 registros
+- **Trabajos de extracción masiva:** 2 en ejecución; 10 en cola (inclusive)
 
 ## Sugerencias rápidas
 
 - Supongamos que su aplicación va a competir por recursos de cuota, tasa y concurrencia con otras aplicaciones, y establezca límites de uso conservadores.
 - Utilice los métodos por lotes y por lotes de Marketo cuando estén disponibles y sean adecuados. Utilice únicamente llamadas de un solo registro o de un solo resultado cuando sea necesario.
-- Uso [retroceso exponencial](https://en.wikipedia.org/wiki/Exponential_backoff) para reintentar las llamadas de API que fallan debido a límites de tasa o concurrencia.
+- Use [retroceso exponencial](https://en.wikipedia.org/wiki/Exponential_backoff) para reintentar las llamadas a la API que fallan debido a los límites de velocidad o concurrencia.
 - Evite realizar llamadas de API simultáneas si su caso de uso no se beneficia de él.
 
 ## Lotes
@@ -41,14 +41,14 @@ La determinación de las tolerancias de latencia o de la cantidad máxima de tie
 | Latencia aceptable | Métodos preferidos | Notas |
 |---|---|---|
 | Baja (&lt;10 s) | API sincrónicas (por lotes o sin lotes) | Asegúrese de que su caso de uso lo requiera. El envío de llamadas inmediatas y sincrónicas para casos de uso de alto volumen puede consumir rápidamente una cuota de API diaria y superar potencialmente los límites de tasa y concurrencia. |
-| Medio (10 - 60 m) | API sincrónicas (por lotes) | Para integraciones de datos entrantes con Marketo, se recomienda utilizar una cola con un límite de edad y de tamaño. Cuando se alcance cualquiera de los límites, vacíe la cola y envíe la solicitud de API con los registros acumulados. Se trata de un compromiso sólido entre velocidad y eficacia, que garantiza que las solicitudes se produzcan en la cadencia requerida y, al mismo tiempo, agrupa tantos registros como la edad de la cola permita. |
+| Medium(10 - 60 m) | API sincrónicas (por lotes) | Para integraciones de datos entrantes con Marketo, se recomienda utilizar una cola con un límite de edad y de tamaño. Cuando se alcance cualquiera de los límites, vacíe la cola y envíe la solicitud de API con los registros acumulados. Se trata de un compromiso sólido entre velocidad y eficacia, que garantiza que las solicitudes se produzcan en la cadencia requerida y, al mismo tiempo, agrupa tantos registros como la edad de la cola permita. |
 | Alto(>60 m) | Importación/Exportación masiva (si es compatible) | Para integraciones de datos entrantes, los registros deben colocarse en cola y enviarse mediante las API por lotes de Marketo siempre que estén disponibles. |
 
 ## Límites diarios
 
 Cada instancia de Marketo habilitada para la API tiene una asignación diaria de al menos 10 000 llamadas de API REST al día, pero normalmente 50 000 o más, y 500 MB o más de capacidad de extracción masiva. Aunque se puede adquirir capacidad diaria adicional como parte de una suscripción a Marketo, el diseño de la aplicación debe tener en cuenta los límites comunes de las suscripciones a Marketo.
 
-Como la capacidad se comparte entre todos los servicios de API y los usuarios de una instancia, la práctica recomendada es eliminar llamadas redundantes y agrupar registros en el menor número posible de llamadas. La forma más eficaz de importar registros es mediante las API de importación masiva de Marketo, que están disponibles para [Posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) y [Objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo también proporciona Extracción en lote para [Posibles clientes](bulk-lead-extract.md) y [Actividades](bulk-activity-extract.md).
+Como la capacidad se comparte entre todos los servicios de API y los usuarios de una instancia, la práctica recomendada es eliminar llamadas redundantes y agrupar registros en el menor número posible de llamadas. La manera más eficiente de importar registros es usando las API de importación masiva de Marketo, que están disponibles para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
 
 ### Almacenamiento en caché
 

@@ -1,18 +1,18 @@
 ---
-title: "listOperation"
+title: listOperation
 feature: SOAP
-description: "listOperation llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP listOperation llamadas de
+exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '187'
 ht-degree: 8%
 
 ---
 
-
 # listOperation
 
-Este método se utiliza para realizar operaciones en una lista estática definida en la base de datos de posibles clientes de Marketo. Para agregar o quitar miembros de una lista estática definida dentro de un programa, utilice [importToList](importtolist.md). Cada llamada a este extremo tiene un límite de 1000 posibles clientes por llamada.
+Este método se utiliza para realizar operaciones en una lista estática definida en la base de datos de posibles clientes de Marketo. Para agregar o quitar miembros de una lista estática definida dentro de un programa, use [importToList](importtolist.md). Cada llamada a este extremo tiene un límite de 1000 posibles clientes por llamada.
 
 Los tipos de operación incluyen:
 

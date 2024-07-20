@@ -1,24 +1,24 @@
 ---
-title: "Plantillas de correo electrónico"
+title: Plantillas de email
 feature: REST API
-description: '"Crear plantillas de correo electrónico con las API de Marketo".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Cree plantillas de correo electrónico con las API de Marketo.
+exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '569'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
-
 
 # Plantillas de email
 
 [Referencia de extremo de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-Las plantillas de correo electrónico forman la base de cada nuevo correo electrónico en Marketo.  Aunque los correos electrónicos se pueden desvincular de las plantillas mediante el reemplazo del HTML, los correos electrónicos deben crearse inicialmente con una plantilla como base.  Las plantillas se crean como documentos de HTML puro en Marketo con metadatos como nombres y descripciones.  Hay pocas restricciones en el contenido, pero el HTML de la plantilla debe ser válido y contener al menos una sección editable, que cumpla los requisitos [esbozado aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Las plantillas de correo electrónico forman la base de cada nuevo correo electrónico en Marketo.  Aunque los correos electrónicos se pueden desvincular de las plantillas mediante el reemplazo del HTML, los correos electrónicos deben crearse inicialmente con una plantilla como base.  Las plantillas se crean como documentos de HTML puro en Marketo con metadatos como nombres y descripciones.  Hay pocas restricciones en el contenido, pero el HTML de la plantilla debe ser válido y debe contener al menos una sección editable, que cumpla los requisitos [descritos aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Consulta
 
-La consulta de plantillas de correo electrónico sigue el patrón estándar para los recursos, lo que permite realizar consultas [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) una carpeta determinada.
+La consulta de plantillas de correo electrónico sigue el patrón estándar para los recursos, lo que permite realizar consultas [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) y [explorando](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) una carpeta determinada.
 
 ### Por ID
 
@@ -192,7 +192,7 @@ Si se consulta el registro en sí, solo se devuelven metadatos sobre el registro
 
 ## Crear y actualizar
 
-[Creando](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) o [actualización](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) una plantilla es bastante sencilla. El contenido de cada plantilla se almacena como un documento de HTML y debe pasarse a Marketo mediante un tipo de datos de varias partes/formularios de POST. Debe pasar el encabezado de Content-Type correspondiente que incluya un límite como se describe en las RFC para [de varias partes](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) y [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
+[Crear](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) o [actualizar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) una plantilla es bastante sencillo. El contenido de cada plantilla se almacena como un documento de HTML y debe pasarse a Marketo mediante un tipo de datos de varias partes/formularios de POST. Debe pasar el encabezado Content-Type apropiado que incluya un límite como se describe en las RFC para [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) y [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
 
 La creación de una plantilla requiere que incluya tres parámetros: nombre, carpeta, contenido. Se puede incluir un parámetro de descripción opcional.  El documento de HTML se pasa en el parámetro content, que también debe incluir el parámetro filename convencional como parte de su encabezado Content-Disposition.
 
@@ -257,7 +257,7 @@ Create email template using API
 }
 ```
 
-La actualización del contenido se realiza mediante una [punto final independiente](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) que requiere el id de la plantilla de correo electrónico. Este punto de conexión solo permite enviar el parámetro de contenido en el cuerpo. Cuando se realiza una actualización, lo que se pase en el parámetro de contenido reemplazará completamente el contenido existente del correo electrónico en un nuevo borrador si se actualiza una versión aprobada, o reemplazará el borrador actual si el recurso está en estado de solo borrador.
+La actualización del contenido se realiza mediante un [extremo independiente](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) que requiere el ID de la plantilla de correo electrónico. Este punto de conexión solo permite enviar el parámetro de contenido en el cuerpo. Cuando se realiza una actualización, lo que se pase en el parámetro de contenido reemplazará completamente el contenido existente del correo electrónico en un nuevo borrador si se actualiza una versión aprobada, o reemplazará el borrador actual si el recurso está en estado de solo borrador.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/content.json
@@ -299,7 +299,7 @@ Content-Type: text/html
 
 ## Actualizar metadatos
 
-Hasta [actualización de los metadatos de una plantilla](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), nombre y descripción, puede utilizar el mismo punto de conexión que para actualizar el contenido, pero pase un POST application/x-www-url-formencoded en su lugar, con los parámetros name y description.
+Para [actualizar los metadatos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), el nombre y la descripción de una plantilla, puede usar el mismo extremo que para actualizar el contenido, pero pasar un POST application/x-www-url-formencoded en su lugar, con los parámetros name y description.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -459,7 +459,7 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## Clonar
 
-Marketo proporciona un método sencillo para [clonación de una plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). A diferencia de la creación de, este tipo de solicitud se realiza con un POST application/x-www-url-formencoded y toma dos parámetros, name y folder, un objeto JSON incrustado con id y type.  La descripción también es un parámetro opcional.
+Marketo proporciona un método sencillo para [clonar una plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). A diferencia de la creación de, este tipo de solicitud se realiza con un POST application/x-www-url-formencoded y toma dos parámetros, name y folder, un objeto JSON incrustado con id y type.  La descripción también es un parámetro opcional.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/clone.json
@@ -501,9 +501,9 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Consultar dependencias de correo electrónico
 
-Utilice el [Obtener plantilla de correo electrónico utilizada por](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) extremo para recuperar una lista de correos electrónicos que dependen de una plantilla de correo electrónico determinada.  El `id` El parámetro path especifica la plantilla de correo electrónico principal.
+Use la plantilla de obtención de correo electrónico [utilizada por el extremo ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) para recuperar una lista de correos electrónicos que dependen de una plantilla de correo electrónico determinada.  El parámetro de ruta de acceso `id` especifica la plantilla de correo electrónico principal.
 
-Hay 2 parámetros opcionales. `maxReturn`  es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200), y `offset` es un entero que se puede utilizar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
+Hay 2 parámetros opcionales. `maxReturn`  es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200) y `offset` es un entero que se puede usar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
 
 ```
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json

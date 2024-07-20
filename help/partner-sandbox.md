@@ -1,19 +1,19 @@
 ---
-title: "Entorno aislado de Partner"
-description: "Información general de zona protegida de socios"
-source-git-commit: e141ed1178019339640986fb7e6fa95ca7b35fe7
+title: Entorno aislado de Partner
+description: Información general de zona protegida para socios
+exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '184'
 ht-degree: 0%
 
 ---
 
-
 # Entorno aislado de Partner
 
-Una zona protegida de socios es una instancia de Marketo Engage que utilizan los socios durante el ciclo de vida del desarrollo de software. Los socios utilizan su zona protegida para conocer los detalles de la interfaz de usuario de Marketo Engage y para obtener acceso a los servicios de la API de Marketo Engage.
+Una zona protegida de socios es una instancia de Marketo Engage que utilizan los socios durante el ciclo de vida del desarrollo de software. Los socios utilizan su zona protegida para conocer los detalles  y de la IU de Marketo Engage, y para obtener acceso a los servicios de API de Marketo Engage.
 
-Se aprovisiona una zona protegida después de que se haya aceptado un socio en el [Programa de socios de Adobe Exchange, Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). En la mayoría de los aspectos, las zonas protegidas de socios son equivalentes funcionalmente a una instancia de producción. Las zonas protegidas de los socios no tienen módulos de complementos instalados y tienen límites de capacidad fijos. A continuación se muestra una sección de preguntas frecuentes seguida de un resumen de las capacidades de los socios.
+Se aprovisiona una zona protegida después de que un socio se haya aceptado en  el [Programa de Socios de Adobe Exchange, Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). En la mayoría de los aspectos, las zonas protegidas de socios son equivalentes funcionalmente a una instancia de producción. Las zonas protegidas de los socios no tienen módulos de complementos instalados y tienen límites de capacidad fijos. A continuación se muestra una sección de preguntas frecuentes seguida de un resumen de las capacidades de los socios.
 
 ## Resumen de capacidades
 

@@ -1,20 +1,20 @@
 ---
-title: "Importación masiva de posibles clientes"
+title: Importación masiva de posibles clientes
 feature: REST API
-description: '"Importación por lotes de datos de posibles clientes".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Importación por lotes de datos de posibles clientes.
+exl-id: 615f158b-35f9-425a-b568-0a7041262504
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '803'
 ht-degree: 0%
 
 ---
 
-
 # Importación masiva de posibles clientes
 
 [Referencia de extremo de importación masiva de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
-Para grandes cantidades de registros de posibles clientes, los posibles clientes se pueden importar de forma asíncrona con [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Esto permite importar una lista de registros en Marketo mediante un archivo plano con delimitadores (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que el tamaño total del archivo sea inferior a 10 MB. La operación de registro es sólo &quot;insertar o actualizar&quot;.
+Para grandes cantidades de registros de posibles clientes, los posibles clientes se pueden importar asincrónicamente con la [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Esto permite importar una lista de registros en Marketo mediante un archivo plano con delimitadores (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que el tamaño total del archivo sea inferior a 10 MB. La operación de registro es sólo &quot;insertar o actualizar&quot;.
 
 ## Límites de procesamiento
 
@@ -29,9 +29,9 @@ email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-El `externalCompanyId` Este campo se puede utilizar para vincular el registro de posibles clientes a un registro de empresa. El `externalSalesPersonId` Este campo se puede utilizar para vincular el registro de posibles clientes a un registro de vendedor.
+El campo `externalCompanyId` se puede usar para vincular el registro de posible cliente a un registro de empresa. El campo `externalSalesPersonId` se puede usar para vincular el registro de cliente potencial a un registro de vendedor.
 
-La llamada en sí se realiza mediante la variable `multipart/form-data` content-type.
+La llamada en sí se realiza con el tipo de contenido `multipart/form-data`.
 
 Este tipo de solicitud puede ser difícil de implementar, por lo que se recomienda encarecidamente que utilice una implementación de biblioteca existente.
 
@@ -75,7 +75,7 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Este extremo utiliza [multipart/form-data como content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Esto puede resultar difícil de hacer correctamente, por lo que la práctica recomendada es utilizar una biblioteca de compatibilidad con HTTP en el idioma que elija. Una forma sencilla de hacerlo con cURL desde la línea de comandos es la siguiente:
+Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Esto puede resultar difícil de hacer correctamente, por lo que la práctica recomendada es utilizar una biblioteca de compatibilidad con HTTP en el idioma que elija. Una forma sencilla de hacerlo con cURL desde la línea de comandos es la siguiente:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
@@ -90,7 +90,7 @@ Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
 ```
 
-También puede incluir de forma opcional la variable `lookupField`, `listId`, y `partitionName` parámetros en la solicitud. `lookupField` le permite seleccionar un campo específico en el que deduplicar, igual que Sincronizar posibles clientes, y establece el valor predeterminado Correo electrónico. Puede especificar `id` as `lookupField` para indicar una operación de &quot;solo actualización&quot;. `listId` permite seleccionar una lista estática a la que importar la lista de posibles clientes; esto hará que los posibles clientes de la lista se conviertan en miembros de esta lista estática, además de las creaciones o actualizaciones causadas por la importación. `partitionName` selecciona una partición específica para importar. Consulte la sección Espacios de trabajo y particiones para obtener más información.
+Opcionalmente, también puede incluir los parámetros `lookupField`, `listId` y `partitionName` en su solicitud. `lookupField` le permite seleccionar un campo específico en el que deduplicar, al igual que Sincronizar posibles clientes, y el valor predeterminado es correo electrónico. Puede especificar `id` como `lookupField` para indicar una operación de &quot;solo actualización&quot;. `listId` le permite seleccionar una lista estática a la que importar la lista de posibles clientes; esto hará que los posibles clientes de la lista se conviertan en miembros de esta lista estática, además de las creaciones o actualizaciones causadas por la importación. `partitionName` selecciona una partición específica a la cual importar. Consulte la sección Espacios de trabajo y particiones para obtener más información.
 
 Observe en la respuesta a nuestra llamada que no hay un listado de éxitos o errores como con Sincronizar posibles clientes, sino un batchId y un campo de estado para el registro en la matriz de resultados. Esto se debe a que esta API es asíncrona y puede devolver el estado En cola, Importando o Error. Debe conservar batchId para obtener el estado del trabajo de importación y para recuperar errores y/o advertencias tras la finalización. batchId sigue siendo válido durante siete días.
 

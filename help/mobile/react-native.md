@@ -16,23 +16,23 @@ Este artículo proporciona información sobre cómo instalar y configurar el SDK
 
 ## Prerrequisitos
 
-[Añadir una aplicación en el administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtener la clave secreta de la aplicación y el ID de Munchkin).
+[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
 
 ## Integración de SDK
 
 ### Integración del SDK de Android
 
-**Configurar con Gradle**
+**Configuración mediante Gradle**
 
-Agregue la dependencia del SDK de Marketo con la última versión: En el nivel de aplicación `build.gradle` , en la sección de dependencias, agregue (incluida la versión adecuada del SDK de Marketo).
+Agregue la dependencia del SDK de Marketo con la última versión: En el archivo de nivel de aplicación `build.gradle`, en la sección de dependencias, agregue (incluida la versión adecuada del SDK de Marketo)
 
 ```
 implementation 'com.marketo:MarketoSDK:0.x.x'
 ```
 
-**Añadir repositorio de mavencentral**
+**Agregar repositorio mavencentral**
 
-El SDK de Marketo está disponible en [repositorio central de maven](https://mvnrepository.com/). Para sincronizar esos archivos, agregue `mavencentral` repositorio a raíz `build.gradle`
+El SDK de Marketo está disponible en el [repositorio central de maven](https://mvnrepository.com/). Para sincronizar esos archivos, agregue el repositorio `mavencentral` a la raíz `build.gradle`
 
 ```
 build script {
@@ -53,7 +53,7 @@ Antes de crear un puente para el proyecto de React Native, es importante configu
 
 Usar el SDK de iOS en la aplicación es fácil. Realice los siguientes pasos para configurarlo en el proyecto Xcode de su aplicación mediante CocoaPods, de modo que pueda integrar su plataforma con la aplicación.
 
-Descargar [CocoaPods](https://cocoapods.org/) : Distribuido como una joya de Ruby, es un administrador de dependencias para Objective-C y Swift que simplifica el proceso de uso de bibliotecas de terceros en su código, como el SDK de iOS.
+Descargar [CocoaPods](https://cocoapods.org/): distribuido como una joya de Ruby, es un administrador de dependencias para Objective-C y Swift que simplifica el proceso de usar bibliotecas de terceros en tu código, como el SDK de iOS.
 
 Para descargarlo e instalarlo, inicie un terminal de línea de comandos en su Mac y ejecute el siguiente comando en él:
 
@@ -81,7 +81,7 @@ Para descargarlo e instalarlo, inicie un terminal de línea de comandos en su Ma
 
 ## Instrucciones de instalación del módulo nativo
 
-A veces, una aplicación de React Native necesita acceder a una API nativa de plataforma que no está disponible de forma predeterminada en JavaScript; por ejemplo, las API nativas para acceder a Apple o Google Pay. Tal vez quiera reutilizar algunas bibliotecas Objective-C, Swift, Java o C++ existentes sin tener que volver a implementarlas en JavaScript o escribir código de alto rendimiento con subprocesos múltiples para tareas como el procesamiento de imágenes.
+A veces, una aplicación de React Native necesita acceder a una API nativa de plataforma que no está disponible de forma predeterminada en JavaScript, por ejemplo, las API nativas para acceder a Apple o Google Pay. Tal vez quiera reutilizar algunas bibliotecas Objective-C, Swift, Java o C++ existentes sin tener que volver a implementarlas en JavaScript o escribir código de alto rendimiento con subprocesos múltiples para tareas como el procesamiento de imágenes.
 
 El sistema NativeModule expone instancias de clases Java/Objective-C/C++ (nativas) a JavaScript (JS) como objetos JS, lo que permite ejecutar código nativo arbitrario desde JS. Aunque no esperamos que esta característica forme parte del proceso de desarrollo habitual, es esencial que exista. Si React Native no exporta una API nativa que su aplicación JS necesita, debe poder exportarla usted mismo.
 
@@ -224,7 +224,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### iOS
 
-En la siguiente guía creará un módulo nativo, _RNMarketoModule_, que le permiten acceder a las API de Marketo desde JavaScript.
+En la siguiente guía, creará un módulo nativo, _RNMarketoModule_, que le permitirá acceder a las API de Marketo desde JavaScript.
 
 Para empezar, abra el proyecto de iOS dentro de la aplicación de React Native en Xcode. Puede encontrar el proyecto de iOS aquí, dentro de una aplicación de React Native. Se recomienda utilizar Xcode para escribir el código nativo. Xcode está diseñado para el desarrollo de iOS y su uso le ayudará a resolver rápidamente errores más pequeños, como la sintaxis de código.
 
@@ -344,7 +344,7 @@ const NewModuleButton = () => {
 export default NewModuleButton;
 ```
 
-Este archivo JavaScript carga el módulo nativo en la capa JavaScript.
+Este archivo JavaScript carga el módulo nativo en la capa de JavaScript.
 
 ```javascript
 import React from 'react';
@@ -387,7 +387,7 @@ Inicializar push con ID de proyecto y nombre de canal
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
-Añadir el siguiente servicio a `AndroidManifest.xml`
+Agregar el siguiente servicio a `AndroidManifest.xml`
 
 
 ```xml
@@ -401,7 +401,7 @@ Añadir el siguiente servicio a `AndroidManifest.xml`
 </activity/>
 ```
 
-Cree una clase con el nombre `FirebaseMessagingService.java` y Agregue el siguiente código
+Cree una clase con el nombre `FirebaseMessagingService.java` y agregue el código siguiente
 
 ```java
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -427,15 +427,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 Los permisos deben habilitarse en el proyecto Xcode para enviar notificaciones push al dispositivo del usuario.
 
-Para enviar notificaciones push, [añadir notificaciones push](push-notifications.md).
+Para enviar notificaciones push, [agregue notificaciones push](push-notifications.md).
 
-Ahora en su `AppDelegate.m` archivo en XCode, importar Marketo
+Ahora en su archivo `AppDelegate.m` en XCode, importe Marketo
 
 ```
 #import <MarketoFramework/MarketoFramework.h> 
 ```
 
-Añadir `UNUserNotificationCenterDelegate` a la interfaz AppDelegate de la siguiente manera para controlar los delegados
+Agregue `UNUserNotificationCenterDelegate` a la interfaz AppDelegate como se indica a continuación para controlar los delegados
 
 ```
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
@@ -443,7 +443,7 @@ Añadir `UNUserNotificationCenterDelegate` a la interfaz AppDelegate de la sigui
 @end
 ```
 
-Registro para notificaciones remotas en `didFinishLaunchingWithOptions` método.
+Regístrese para recibir notificaciones remotas en el método `didFinishLaunchingWithOptions`.
 
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -485,7 +485,7 @@ Registro para notificaciones remotas en `didFinishLaunchingWithOptions` método.
 }
 ```
 
-Incluir lo siguiente `UNUserNotificationCenter` delegar notificaciones necesarias en métodos delegados.
+Incluya los siguientes `UNUserNotificationCenter` métodos delegados de notificaciones requeridos delegados.
 
 ```
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
@@ -516,7 +516,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 **Android**
 
-Añadir &quot;MarketoActivity&quot; a `AndroidManifest.xml` archivo dentro de etiqueta de aplicación.
+Agregue &quot;MarketoActivity&quot; al archivo `AndroidManifest.xml` dentro de la etiqueta de la aplicación.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity" android:configChanges="orientation|screenSize" android:exported="true">
@@ -535,11 +535,11 @@ Añadir &quot;MarketoActivity&quot; a `AndroidManifest.xml` archivo dentro de et
 
 1. Agregar identificador: ${PRODUCT_NAME}
 
-1. Definir esquemas de URL: `mkto-<S_ecret Key_>`
+1. Establecer esquemas de URL: `mkto-<S_ecret Key_>`
 
-1. Incluir `application:openURL:sourceApplication:annotation:` hasta `AppDelegate.m` archivo (Objective-C)
+1. Incluir `application:openURL:sourceApplication:annotation:` en `AppDelegate.m` archivo (Objective-C)
 
-**iOS: Administrar tipo de URL personalizada/vínculos profundos en AppDelegate** 
+**iOS - Administrar tipo de URL personalizado/vínculos profundos en AppDelegate** 
 
 ```
 - (BOOL)application:(UIApplication *)app

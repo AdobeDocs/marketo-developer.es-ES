@@ -1,14 +1,14 @@
 ---
-title: "Importación masiva"
+title: Importación masiva
 feature: REST API
-description: '"Importación por lotes de datos de persona".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Importación por lotes de datos de personas.
+exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '554'
 ht-degree: 2%
 
 ---
-
 
 # Importación masiva
 
@@ -24,7 +24,7 @@ Los extremos de API en lote no tienen el prefijo &#39;/rest&#39; como otros extr
 
 ## Autenticación
 
-Las API de importación masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo.  Esto requiere que se incruste un token de acceso válido como parámetro de cadena de consulta `access_token={_AccessToken_}`, o como encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+Las API de importación masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo.  Esto requiere que se incruste un token de acceso válido como parámetro de cadena de consulta `access_token={_AccessToken_}` o como encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
 
 ## Límites
 
@@ -42,7 +42,7 @@ La importación masiva es una operación de registro de &quot;inserción o actua
 
 ## Creación de un trabajo
 
-Las API de importación masiva de Marketo utilizan el concepto de trabajo para ejecutar la importación de datos. Veamos la creación de un trabajo de importación de posibles clientes simple con la variable [Importar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) punto final.  Tenga en cuenta que este extremo utiliza [multipart/form-data como content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Esto puede resultar difícil de hacer correctamente, por lo que la práctica recomendada es utilizar una biblioteca de compatibilidad con HTTP en el idioma que elija.  Si solo se está mojando los pies, le sugerimos que utilice [rizar](https://curl.se/).
+Las API de importación masiva de Marketo utilizan el concepto de trabajo para ejecutar la importación de datos. Veamos cómo crear un trabajo de importación de posibles clientes simple con el punto de conexión [Importar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST).  Tenga en cuenta que este extremo utiliza [multipart/form-data como content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Esto puede resultar difícil de hacer correctamente, por lo que la práctica recomendada es utilizar una biblioteca de compatibilidad con HTTP en el idioma que elija.  Si te estás mojando los pies, te recomendamos que uses [curl](https://curl.se/).
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -96,7 +96,7 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 
 ## Estado del trabajo de sondeo
 
-La determinación del estado del trabajo es sencilla mediante [Obtener estado de cliente potencial de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) punto final.
+La determinación del estado del trabajo es sencilla mediante el punto de conexión [Obtener estado del posible cliente de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
 
 ```
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -120,13 +120,13 @@ GET /bulk/v1/leads/batch/{batchId}.json
 }
 ```
 
-El interior `status` indicará el progreso del trabajo y puede ser uno de los siguientes valores: En cola, Importando, Completado, Error. En este caso, nuestro trabajo ha finalizado, así que podemos dejar de votar.
+El miembro interno `status` indicará el progreso del trabajo y puede ser uno de los siguientes valores: En cola, Importando, Completado, Error. En este caso, nuestro trabajo ha finalizado, así que podemos dejar de votar.
 
 ## Errores de
 
-Los errores se indican mediante la variable `numOfRowsFailed` en Obtener respuesta de estado de cliente potencial de importación. If `numOfRowsFailed` es mayor que cero, ese valor indica el número de errores que se produjeron.
+Los errores se indican mediante el atributo `numOfRowsFailed` en la respuesta Obtener estado del posible cliente de importación. Si `numOfRowsFailed` es mayor que cero, ese valor indica el número de errores que se produjeron.
 
-Para recuperar los registros y las causas de las filas fallidas, debe recuperar el archivo de error mediante el [Obtener errores de importación de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) punto final.
+Para recuperar los registros y las causas de las filas con errores, debe recuperar el archivo de errores mediante el punto de conexión [Obtener errores de importación de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET).
 
 ```
 GET /bulk/v1/leads/batch/{batchId}/failures.json

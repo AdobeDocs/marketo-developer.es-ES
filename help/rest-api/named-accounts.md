@@ -1,14 +1,14 @@
 ---
-title: "Cuentas con nombre"
+title: Cuentas nombradas
 feature: REST API
-description: '"Manipulación de cuentas con nombre mediante la API".'
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Manipule las cuentas con nombre mediante la API.
+exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '679'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # Cuentas nombradas
 
@@ -20,7 +20,7 @@ Actualmente, las únicas funciones relacionadas con ABM disponibles a través de
 
 ## Describir
 
-La descripción de cuentas con nombre devuelve metadatos relacionados con el uso de cuentas con nombre mediante las API de Marketo, incluida una lista de los campos válidos que se pueden buscar al consultar y una lista de todos los campos disponibles para el uso de API. El `idField` de una cuenta con nombre es siempre `marketoGUID`y el único disponible `dedupeField`, y la clave para la creación es la `name` del objeto.
+La descripción de cuentas con nombre devuelve metadatos relacionados con el uso de cuentas con nombre mediante las API de Marketo, incluida una lista de los campos válidos que se pueden buscar al consultar y una lista de todos los campos disponibles para el uso de API. El `idField` de una cuenta con nombre siempre es `marketoGUID`, y el único disponible `dedupeField`, y la clave para la creación es el campo `name` del objeto.
 
 ```
 GET /rest/v1/namedaccounts/describe.json
@@ -135,7 +135,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 ### Consulta
 
-La consulta de cuentas con nombre se basa en el uso de un filterType y un conjunto de hasta 300 filterValues separados por comas. `filterType` puede ser cualquier campo único devuelto en la variable `searchableFields` miembro del resultado describe para cuentas con nombre, mientras que filterValues puede ser cualquier entrada válida para el tipo de datos del campo. Para devolver un conjunto específico de campos de, se debe pasar un parámetro fields, donde el valor es una lista de campos separados por comas que se van a devolver en la respuesta. Al igual que otras opciones de consulta, el número máximo de registros para una sola página de consulta es 300 y se deben solicitar registros adicionales en el conjunto con el uso del nextPageToken devuelto por la llamada.
+La consulta de cuentas con nombre se basa en el uso de un filterType y un conjunto de hasta 300 filterValues separados por comas. `filterType` puede ser cualquier campo único devuelto en el miembro `searchableFields` del resultado de descripción para cuentas con nombre, mientras que filterValues puede ser cualquier entrada válida para el tipo de datos del campo. Para devolver un conjunto específico de campos de, se debe pasar un parámetro fields, donde el valor es una lista de campos separados por comas que se van a devolver en la respuesta. Al igual que otras opciones de consulta, el número máximo de registros para una sola página de consulta es 300 y se deben solicitar registros adicionales en el conjunto con el uso del nextPageToken devuelto por la llamada.
 
 ```
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
@@ -224,7 +224,7 @@ La consulta de campos de cuenta con nombre es sencilla. Puede consultar un únic
 
 #### Por nombre
 
-El [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) el extremo recupera los metadatos de un único campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo. La respuesta es como el extremo de Describir cuenta con nombre, pero contiene metadatos adicionales como el atributo isCustom que indica si el campo es un campo personalizado.
+El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo. La respuesta es como el extremo de Describir cuenta con nombre, pero contiene metadatos adicionales como el atributo isCustom que indica si el campo es un campo personalizado.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Examinar
 
-El [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) el extremo recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, se devuelve un máximo de 300 registros. Puede utilizar el parámetro de consulta batchSize para reducir este número. Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El nextPageToken devuelto desde esta API siempre debe reutilizarse para la siguiente iteración de esta llamada.
+El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, se devuelve un máximo de 300 registros. Puede utilizar el parámetro de consulta batchSize para reducir este número. Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El nextPageToken devuelto desde esta API siempre debe reutilizarse para la siguiente iteración de esta llamada.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

@@ -1,14 +1,14 @@
 ---
-title: "getTags"
+title: getTags
 feature: SOAP, Tags
-description: "getTags llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP llamadas a getTags para la
+exl-id: 4fd9de1a-9362-479a-afe1-09ef0aaf5e6e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '94'
 ht-degree: 7%
 
 ---
-
 
 # getTags
 
@@ -23,7 +23,7 @@ Puede obtener información sobre todas las etiquetas que no sean de canal o espe
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 | --- | --- | --- |
-| tagList->tag | opcional | Lista de etiquetas que desea consultar. Cada etiqueta puede tener un tipo y una matriz de valores como cadenas. If `<tagList>` se omite, recibirá información sobre todos los canales |
+| tagList->tag | opcional | Lista de etiquetas que desea consultar. Cada etiqueta puede tener un tipo y una matriz de valores como cadenas. Si se omite `<tagList>`, recibirá información sobre todos los canales |
 
 ## Solicitar XML
 

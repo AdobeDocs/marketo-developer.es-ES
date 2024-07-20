@@ -1,14 +1,14 @@
 ---
-title: "Firma de autenticación"
+title: Firma de autenticación
 feature: SOAP
-description: "Seguridad de API con firmas de autenticación"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Seguridad de API con firmas de autenticación
+exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 3%
 
 ---
-
 
 # Firma de autenticación
 
@@ -19,8 +19,8 @@ Las firmas HMAC-SHA1 requieren lo siguiente:
 * Firma que se calcula mediante una clave secreta compartida y contenido de mensaje y que se transmite con la solicitud de servicio
 * Una clave secreta compartida (también denominada clave de cifrado) que no se transmite con la solicitud de servicio
 
-Esta información de seguridad se confirma mediante Administración > API de SOAP en Marketo.
-El programa cliente calculará la firma HMAC-SHA1 utilizando la clave secreta compartida y parte del contenido del mensaje de solicitud. El cliente debe incluir un encabezado SOAP, AuthenticationHeaderInfo, para pasar la información de autenticación con el mensaje SOAP.
+SOAP Esta información de seguridad se confirma a través de Administración > API de en Marketo.
+El programa cliente calculará la firma HMAC-SHA1 utilizando la clave secreta compartida y parte del contenido del mensaje de solicitud. SOAP SOAP Para pasar la información de autenticación con el mensaje de autenticación, el cliente debe incluir un encabezado de autenticación, AuthenticationHeaderInfo, que es el encabezado de la.
 El siguiente pseudocódigo muestra el algoritmo:
 
 ```
@@ -42,7 +42,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 |--- |--- |--- |
-| mktowsUserId | Obligatorio | El ID de acceso de cliente de Marketo se encuentra en el panel de API SOAP de administración de Marketo, en Integración. |
+| mktowsUserId | Obligatorio | El ID de acceso de cliente de Marketo se encuentra en el panel de API de Marketo SOAP Admin, en Integración. |
 | requestSignature | Obligatorio | Firma HMAC-SHA1 basada en clave secreta compartida, requestTimestamp e ID de usuario de Marketo |
 | requestTimestamp | Obligatorio | Solicitar marca de tiempo (formato de fecha W3C WSDL, p. ej. &quot;2013-06-09T14:04:54-08:00&quot;) |
 | partnerId | opcional | Clave de API de socio tecnológico de LaunchPoint. |

@@ -1,13 +1,13 @@
 ---
-title: "Flujos de datos"
-description: "Resumen de Data Streams"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Flujos de datos
+description: Resumen de Data Streams
+exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1594'
 ht-degree: 2%
 
 ---
-
 
 # Flujos de datos
 
@@ -19,7 +19,7 @@ Además de las ventajas de los datos casi en tiempo real, existen ventajas relac
 - Reduce el escenario de límites de API y genera menos mensajes de alerta.
 - Ahora debe realizar exportaciones masivas para extraer datos gracias a la capacidad de flujo de datos.
 
-Los flujos de datos están disponibles para los que han comprado un [Paquete de nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Hay flujos de datos disponibles para quienes hayan adquirido un [paquete de nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Resumen del flujo de datos de actividad de clientes potenciales
 
@@ -185,14 +185,14 @@ Para implementar el flujo de datos de actividad de clientes potenciales, estos s
    1. La URL del punto de conexión en el paso 1
    1. Los tipos de actividad que desean recibir (lista completa arriba)
    1. Un medio de autenticación, para que el cliente pueda verificar que las solicitudes son legítimas. O bien:
-      1. Una URL de proveedor de identidad, un ID de cliente y un secreto de cliente para OAuth [Autenticación de credenciales de cliente](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. Una URL de proveedor de identidad, un ID de cliente y un secreto de cliente para la autenticación de credenciales de cliente [OAuth](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Un token de API, que se puede incluir en solicitudes enviadas por el conjunto de datos de actividad de posibles clientes en parámetros de consulta o en un encabezado de autorización (a elección del cliente)
 
 A continuación, Adobe habilita el flujo de datos, momento en el que los clientes empiezan a recibir datos.
 
 Diagrama de UML de una llamada de flujo de datos de actividad de posibles clientes típica:
 
-![Diagrama del flujo de datos de actividad del posible cliente](assets/lead-activity-data-stream.png)
+![Diagrama del flujo de datos de la actividad del posible cliente](assets/lead-activity-data-stream.png)
 
 Ejemplo de creación de extremo de URL:
 
@@ -239,7 +239,7 @@ app.listen(port,()=>{
 })
 ```
 
-Se puede encontrar un ejemplo de código para una aplicación que consume la secuencia de datos de actividad de clientes potenciales de Marketo [aquí](https://github.com/ihgrant/activity-stream-consumer-example).
+Se puede encontrar [aquí](https://github.com/ihgrant/activity-stream-consumer-example) un ejemplo de código para una aplicación que consume la secuencia de datos de actividad de clientes potenciales de Marketo.
 
 ### Flujo de datos de auditoría de usuarios y flujo de datos de notificaciones
 
@@ -254,26 +254,26 @@ Los eventos de auditoría de usuarios se envían a E/S de Adobe y se pueden cons
    1. Este paso requiere una organización de Adobe
    1. Requiere que el usuario de organización de Adobe tenga la función Desarrollador o Administrador del sistema
 
-Para configurar la E/S de Adobe, consulte [Configuración de flujos de datos de auditoría de usuarios de Marketo con Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) en la sección Documentación pública.
+Para configurar la E/S de Adobe, consulte [Configuración de flujos de datos de auditoría de usuarios de Marketo con E/S de Adobe](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) en la sección Documentación pública.
 
 ### Configuración del flujo de datos de auditoría de usuarios en Marketo
 
-El flujo de datos de auditoría de usuarios está disponible actualmente como parte de los paquetes de rendimiento junto con los otros 3 flujos de datos. Para obtener más información, consulte la [Página de descripción del producto](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) para límites y funciones del producto.
+El flujo de datos de auditoría de usuarios está disponible actualmente como parte de los paquetes de rendimiento junto con los otros 3 flujos de datos. Para obtener más información sobre los paquetes, consulte la [Página de descripción del producto](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) para conocer los límites y características del producto.
 
 ### Configuración del Adobe I/O
 
 [Consulte Introducción a los eventos de Adobe I/O](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
-Para obtener instrucciones básicas sobre este caso de uso, comience por [console.adobe.io](https://developer.adobe.com/console):
+Para obtener instrucciones básicas sobre este caso de uso, a partir de [console.adobe.io](https://developer.adobe.com/console):
 
-Cuando se le solicite, seleccione **[!UICONTROL Crear nuevo proyecto]** o **[!UICONTROL Añadir evento]**.
+Cuando se le solicite, seleccione **[!UICONTROL Crear nuevo proyecto]** o **[!UICONTROL Agregar evento]**.
 
 ### Introducción a su nuevo proyecto
 
-Para empezar a utilizar los servicios de Adobe, añada una API, eventos o tiempo de ejecución, consulte nuestra [documentación](https://developer.adobe.com/runtime/docs/).
+Para empezar a usar los servicios de Adobe, agregue una API, eventos o tiempo de ejecución, y vea nuestra [documentación](https://developer.adobe.com/runtime/docs/).
 
 ## Documentación pública
 
-- [Marketo Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
-- [Introducción a los eventos y webhooks de Adobe IO](https://developer.adobe.com/events/docs/guides/)
+- [Flujos de datos Marketo](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
+- [Introducción a los eventos y webhooks de E/S de Adobe](https://developer.adobe.com/events/docs/guides/)
 - [Blog de flujos de datos](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

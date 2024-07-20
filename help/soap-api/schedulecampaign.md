@@ -1,14 +1,14 @@
 ---
-title: "scheduleCampaign"
+title: scheduleCampaign
 feature: SOAP, Smart Campaigns
-description: "scheduleCampaign llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP programaciónLlamadas a la de Campaign
+exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 4%
 
 ---
-
 
 # scheduleCampaign
 
@@ -18,7 +18,7 @@ Esta función establece la programación de una campaña inteligente por lotes p
 
 De forma similar a la función requestCampaign, puede pasar una matriz de Mis tokens a esta llamada de API, que anulará los tokens existentes. Después de ejecutar la campaña, los tokens se descartan.
 
-Si utiliza este parámetro opcional con [importToList](importtolist.md), los tokens se priorizan en este orden:
+Si usa este parámetro opcional con [importToList](importtolist.md), la prioridad de los tokens será la siguiente:
 
 1. importToList por tokens de posible cliente
 1. scheduleCampaign por tokens de campaña

@@ -1,14 +1,14 @@
 ---
-title: "Base de datos de posibles clientes"
+title: Base de datos de leads
 feature: REST API, Database
-description: '"Manipulación de la base de datos de posibles clientes principal".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Manipular la base de datos de posibles clientes principal.
+exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1345'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # Base de datos de leads
 
@@ -32,7 +32,7 @@ La mayoría de estos objetos incluyen al menos los métodos Create, Read, Update
 
 ## API
 
-Para obtener una lista completa de los extremos de la API de la base de datos de posibles clientes, incluidos los parámetros y la información de modelado, consulte la [Referencia de extremo de API de base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/).
+Para obtener una lista completa de los extremos de la API de la base de datos de posibles clientes, incluidos los parámetros y la información de modelado, consulte la [Referencia de extremo de la API de la base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/).
 
 En las instancias con una integración nativa de CRM habilitada (Microsoft Dynamics o Salesforce.com), las API Compañía, Oportunidad, Rol de oportunidad y Vendedor están deshabilitadas. Los registros se administran mediante el CRM cuando están habilitados y no se puede acceder ni actualizar a través de las API de Marketo.
 
@@ -44,7 +44,7 @@ En las instancias con una integración nativa de CRM habilitada (Microsoft Dynam
 
 ## Describir
 
-Se proporciona una descripción de la API de para posibles clientes, empresas, oportunidades, funciones, vendedores y objetos personalizados. Al llamar a esto, se recuperan los metadatos del objeto y una lista de campos disponibles para actualizar y consultar. Describir es una parte crucial del diseño de una integración adecuada con Marketo. Proporciona metadatos enriquecidos sobre cómo se puede interactuar con los objetos y cómo no, así como sobre cómo se pueden crear, actualizar y consultar. Aparte de Describir posibles clientes, cada uno de ellos devuelve una lista de claves disponibles para `deduplication` en el `dedupeFields` parámetro de respuesta. Una lista de campos está disponible como claves para consultar en la `searchableFields` parámetro de respuesta.
+Se proporciona una descripción de la API de para posibles clientes, empresas, oportunidades, funciones, vendedores y objetos personalizados. Al llamar a esto, se recuperan los metadatos del objeto y una lista de campos disponibles para actualizar y consultar. Describir es una parte crucial del diseño de una integración adecuada con Marketo. Proporciona metadatos enriquecidos sobre cómo se puede interactuar con los objetos y cómo no, así como sobre cómo se pueden crear, actualizar y consultar. Aparte de Describir posibles clientes, cada uno de ellos devuelve una lista de claves disponibles para `deduplication` en el parámetro de respuesta `dedupeFields`. Hay disponible una lista de campos como claves para consultar en el parámetro de respuesta `searchableFields`.
 
 ```
 GET /rest/v1/opportunities/roles/describe.json
@@ -128,9 +128,9 @@ GET /rest/v1/opportunities/roles/describe.json
 }
 ```
 
-En este ejemplo, `dedupeFields` es en realidad una clave compuesta. Esto significa que, en futuras actualizaciones y creaciones, al utilizar el `dedupeFields` modo, debe incluir los tres de `externalOpportunityId`, `leadId`, y `role` para cada función. El `searchableFields` , también proporciona la lista de campos disponibles para consultar registros de funciones. Esto también incluye la clave compuesta de `externalOpportunityId`, `leadId`, y `role`.
+En este ejemplo, `dedupeFields` es en realidad una clave compuesta. Esto significa que en futuras actualizaciones y creaciones, al usar el modo `dedupeFields`, debe incluir los tres de `externalOpportunityId`, `leadId` y `role` para cada rol. La matriz `searchableFields` también proporciona la lista de campos disponibles para consultar registros de roles. Esto también incluye la clave compuesta de `externalOpportunityId`, `leadId` y `role`.
 
-También hay un parámetro de respuesta de campos, que proporciona el nombre de cada campo, el `displayName` tal como aparece en la interfaz de usuario de Marketo, el tipo de datos del campo, si se puede actualizar después de la creación y la longitud del campo si corresponde.
+También hay un parámetro de respuesta de campos, que proporcionará el nombre de cada campo, el `displayName` tal como aparece en la interfaz de usuario de Marketo, el tipo de datos del campo, si se puede actualizar después de la creación y la longitud del campo si corresponde.
 
 ## Consulta
 
@@ -142,10 +142,10 @@ GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separat
 
 Para todos los objetos, excepto los posibles clientes, puede seleccionar su {field to query} de los searchableFields de la llamada descrita correspondiente y componer una lista separada por comas de hasta 300 valores. También existen estos parámetros de consulta opcionales:
 
-- `batchSize` : un recuento entero del número de resultados que se van a devolver. El valor predeterminado y máximo es 300.
-- `nextPageToken` : token devuelto desde una llamada anterior para la paginación. Consulte [Tokens de paginación](paging-tokens.md) para obtener más información.
-- `fields` - Una lista de nombres de campo separados por comas que se devolverán para cada registro. Consulte la descripción correspondiente para obtener una lista de los campos válidos. Si se solicita un campo en particular, pero no se devuelve, el valor se entiende como nulo.
-- `_method` : se utiliza para enviar consultas mediante el método HTTP del POST. Consulte _method=GET para ver su uso.
+- `batchSize`: un recuento entero del número de resultados que se van a devolver. El valor predeterminado y máximo es 300.
+- `nextPageToken`: token devuelto por una llamada anterior para paginación. Consulte [Tokens de paginación](paging-tokens.md) para obtener más información.
+- `fields`: lista de nombres de campo separados por comas que se devolverán para cada registro. Consulte la descripción correspondiente para obtener una lista de los campos válidos. Si se solicita un campo en particular, pero no se devuelve, el valor se entiende como nulo.
+- `_method`: se usa para enviar consultas mediante el método HTTP del POST. Consulte _method=GET para ver su uso.
 
 Para ver un ejemplo rápido, veamos las oportunidades de consulta:
 
@@ -180,9 +180,9 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 }
 ```
 
-El `filterType` especificado en esta llamada es &quot;idField&quot; y no &quot;marketoGUID&quot;. Tanto este como &quot;dedupeFields&quot; son casos especiales, en los que el campo correspondiente al idField o dedupeFields se puede asignar un alias de este modo. &quot;marketoGUID&quot; sigue siendo el campo de búsqueda resultante en la llamada, pero no se establece explícitamente en la llamada. Los campos o conjuntos de campos indicados por el `idField` y `dedupeFields` La descripción de un objeto siempre será válida `filterTypes` para una consulta. Esta llamada busca los registros que coinciden con los GUID incluidos en filterValues y devuelve todos los registros coincidentes. Si no se encuentran registros utilizando este método, la respuesta indicará éxito. Sin embargo, la matriz de resultados estará vacía, ya que la búsqueda se ejecutó correctamente, pero no hubo registros que devolver.
+El `filterType` especificado en esta llamada es &quot;idField&quot; y no &quot;marketoGUID&quot;. Tanto este como &quot;dedupeFields&quot; son casos especiales, en los que el campo correspondiente al idField o dedupeFields se puede asignar un alias de este modo. &quot;marketoGUID&quot; sigue siendo el campo de búsqueda resultante en la llamada, pero no se establece explícitamente en la llamada. Los campos o conjuntos de campos indicados por `idField` y `dedupeFields` de una descripción de objeto siempre serán válidos `filterTypes` para una consulta. Esta llamada busca los registros que coinciden con los GUID incluidos en filterValues y devuelve todos los registros coincidentes. Si no se encuentran registros utilizando este método, la respuesta indicará éxito. Sin embargo, la matriz de resultados estará vacía, ya que la búsqueda se ejecutó correctamente, pero no hubo registros que devolver.
 
-Si el conjunto de registros de la consulta supera los 300 o la variable `batchSize` que se especificó, el que sea menor, entonces la respuesta tiene un miembro `moreResult` con un valor true y un `nextPageToken`, que se puede incluir en una llamada posterior para recuperar más del conjunto. Consulte [Tokens de paginación](paging-tokens.md) para obtener más información.
+Si el conjunto de registros de la consulta supera los 300 o el `batchSize` que se especificó, el que sea menor, la respuesta tendrá un miembro `moreResult` con un valor true y un `nextPageToken`, que se pueden incluir en una llamada posterior para recuperar más del conjunto. Consulte [Tokens de paginación](paging-tokens.md) para obtener más información.
 
 ### URI largos
 
@@ -204,7 +204,7 @@ Además de los URI largos, este parámetro también es necesario al consultar cl
 
 ### Claves compuestas
 
-El patrón para consultar claves compuestas es diferente de las claves simples, ya que requiere enviar un POST con un cuerpo JSON. Esto no es necesario en todos los casos, solo en aquellos en los que `dedupeFields` La opción con varios campos se utiliza como `filterType`. Actualmente, las claves compuestas solo se utilizan en funciones de oportunidad y en algunos objetos personalizados. Veamos un ejemplo de una consulta para funciones de oportunidad con la clave compuesta de `dedupeFields`:
+El patrón para consultar claves compuestas es diferente de las claves simples, ya que requiere enviar un POST con un cuerpo JSON. Esto no es necesario en todos los casos, solo en aquellos en los que se usa la opción `dedupeFields` con varios campos como `filterType`. Actualmente, las claves compuestas solo se utilizan en funciones de oportunidad y en algunos objetos personalizados. Veamos un ejemplo de una consulta para roles de oportunidad con la clave compuesta de `dedupeFields`:
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -239,15 +239,15 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-La estructura del objeto JSON es principalmente plana y todos los parámetros de consulta de consultas con claves simples son miembros válidos, excepto `filterValues`. En lugar de un valor de filtro, existe una matriz de &quot;entrada&quot; de objetos JSON, cada uno de los cuales debe tener un miembro para cada uno de los campos de la clave compuesta; en este caso, son `externalOpportunityId`, `leadId`, y `role`. Esto ejecuta una consulta para `roles`, con las entradas proporcionadas y devuelven los resultados coincidentes. Si la respuesta devuelve un parámetro con `moreResult=true`, y a `nextPageToken`, debe incluir todas las entradas originales y el `nextPageToken` para que la consulta se ejecute correctamente.
+La estructura del objeto JSON es básicamente plana y todos los parámetros de consulta de consultas con claves simples son miembros válidos, excepto `filterValues`. En lugar de un valor de filtro, existe una matriz de &quot;entrada&quot; de objetos JSON, cada uno de los cuales debe tener un miembro para cada uno de los campos de la clave compuesta; en este caso, son `externalOpportunityId`, `leadId` y `role`. Esto ejecuta una consulta para `roles`, contra las entradas proporcionadas y devuelve los resultados coincidentes. Si la respuesta devuelve un parámetro con `moreResult=true` y un `nextPageToken`, debe incluir todas las entradas originales y el `nextPageToken` para que la consulta se ejecute correctamente.
 
 ## Crear y actualizar
 
 Las creaciones y actualizaciones para los registros de la base de datos de posibles clientes se realizan mediante publicaciones con cuerpos JSON. La interfaz de Oportunidades, Funciones, Objetos personalizados, Compañías y Vendedores es la misma. La interfaz del posible cliente es un poco diferente y puede leer más sobre ella específicamente.
 
-El único parámetro requerido es una matriz llamada `input` que contenga hasta 300 objetos, cada uno con los campos que desee insertar o actualizar como miembros. También puede incluir de forma opcional un `action` parámetro que puede ser uno de: `createOnly`, `updateOnly`, o `createOrUpdate`. Si se omite la acción, el modo predeterminado es `createOrUpdate`. `dedupeBy` es otro parámetro opcional que se puede utilizar cuando action se establece en createOnly o `createOrUpdate`. ` dedupeBy` puede ser `idField`, o `dedupeFields`. If `idField` se selecciona y, a continuación, la variable `idField` mencionado en la descripción se utiliza para la deduplicación y debe incluirse en cada registro. `idField` El modo no es compatible con `createOnly` modo. If `dedupeFields` se seleccionan y, a continuación, la variable `dedupeFields` se enumeran en la descripción del objeto utilizada y cada uno de ellos debe incluirse en cada registro. Si la variable `dedupeBy` se omite, el modo predeterminado es `dedupeFields`.
+El único parámetro requerido es una matriz denominada `input` que contiene hasta 300 objetos, cada uno con los campos que desea insertar o actualizar como miembros. Opcionalmente, también puede incluir un parámetro `action` que puede ser uno de: `createOnly`, `updateOnly` o `createOrUpdate`. Si se omite la acción, el modo predeterminado es `createOrUpdate`. `dedupeBy` es otro parámetro opcional que se puede usar cuando action se establece en createOnly o `createOrUpdate`. ` dedupeBy` puede ser `idField` o `dedupeFields`. Si se selecciona `idField`, entonces el `idField` que aparece en la descripción se usa para la deduplicación y debe incluirse en cada registro. El modo `idField` no es compatible con el modo `createOnly`. Si se seleccionan `dedupeFields`, entonces se usan los `dedupeFields` enumerados en la descripción del objeto, y cada uno debe incluirse en cada registro. Si se omite el parámetro `dedupeBy`, el modo predeterminado es `dedupeFields`.
 
-Al pasar una lista de valores de campo, un valor de `null`, o una cadena vacía, se escribe en la base de datos como `null`.
+Al pasar una lista de valores de campo, se escribe un valor de `null` o una cadena vacía en la base de datos como `null`.
 
 ```
 POST /rest/v1/opportunities.json
@@ -295,11 +295,11 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-Aparte de la API de posibles clientes, las llamadas para crear o actualizar objetos de base de datos de posibles clientes devuelven un `seq` en cada objeto del campo `result` matriz. El número que aparece corresponde al orden del registro actualizado en la solicitud realizada. Cada elemento devuelve el valor del `idField` para el tipo de objeto y un `status`. El campo de estado indica uno de &quot;creado&quot;, &quot;actualizado&quot; o &quot;omitido&quot;.  Si se omite el estado, también habrá una matriz correspondiente de &quot;motivos&quot; con uno o más objetos de motivo que incluya un código y un mensaje, lo que indica por qué se omitió un registro. Consulte [códigos de error](error-codes.md) para obtener más información.
+Aparte de la API de posibles clientes, las llamadas para crear o actualizar objetos de base de datos de posibles clientes devuelven un campo `seq` en cada objeto de la matriz `result`. El número que aparece corresponde al orden del registro actualizado en la solicitud realizada. Cada elemento devuelve el valor de `idField` para el tipo de objeto y un `status`. El campo de estado indica uno de &quot;creado&quot;, &quot;actualizado&quot; o &quot;omitido&quot;.  Si se omite el estado, también habrá una matriz correspondiente de &quot;motivos&quot; con uno o más objetos de motivo que incluya un código y un mensaje, lo que indica por qué se omitió un registro. Consulte [códigos de error](error-codes.md) para obtener más información.
 
 ### Eliminar
 
-La interfaz para las eliminaciones es estándar para los objetos de base de datos de posibles clientes, además de los posibles clientes. Aparte de la entrada, solo hay un parámetro requerido `deleteBy,` que pueden tener un valor de idField o dedupeFields. Veamos cómo se eliminan algunos objetos personalizados.
+La interfaz para las eliminaciones es estándar para los objetos de base de datos de posibles clientes, además de los posibles clientes. Aparte de la entrada, solo hay un parámetro obligatorio `deleteBy,` que puede tener un valor de idField o dedupeFields. Veamos cómo se eliminan algunos objetos personalizados.
 
 ```
 POST /rest/v1/customobjects/{name}/delete.json
@@ -351,6 +351,6 @@ POST /rest/v1/customobjects/{name}/delete.json
 }
 ```
 
-El `seq`, `status`, `marketoGUID`, y `reasons` Ya deberían estar todos familiarizados con usted.
+`seq`, `status`, `marketoGUID` y `reasons` ya deberían estar familiarizados con usted.
 
 Para obtener más información sobre cómo trabajar con operaciones CRUD para cada tipo de objeto individual, consulte sus páginas respectivas.

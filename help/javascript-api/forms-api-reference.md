@@ -1,18 +1,18 @@
 ---
-title: "Referencia de la API de Forms"
-description: "Referencia de la API de Forms"
+title: Referencia de API de Forms
+description: Referencia de API de Forms
 feature: Forms, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 2%
 
 ---
 
-
 # Referencia de API de Forms
 
-Existen dos objetos principales con los que interactuará mediante la API de Forms 2.0. El `MktoForms2` y el objeto `Form` objeto. El `MktoForms2` es el espacio de nombres visible públicamente de nivel superior para la funcionalidad de Forms2 y contiene funciones para crear, cargar y recuperar objetos Form.
+Existen dos objetos principales con los que interactuará mediante la API de Forms 2.0. Los objetos `MktoForms2` y `Form`. El objeto `MktoForms2` es el espacio de nombres visible públicamente de nivel superior para la funcionalidad de Forms2 y contiene funciones para crear, cargar y recuperar objetos de formulario.
 
 ## Métodos MktoForms2
 

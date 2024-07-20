@@ -1,24 +1,24 @@
 ---
-title: "Extensión de Marketo Mobile para [!DNL Adobe Launch]"
+title: Extensión de Marketo Mobile para  [!DNL Adobe Launch]
 feature: Mobile Marketing
-description: "Extensión de Marketo Mobile para [!DNL Adobe Launch] descripción general"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Información general sobre la extensión de Marketo Mobile para  [!DNL Adobe Launch]
+exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '269'
 ht-degree: 1%
 
 ---
 
-
 # Extensión de Marketo Mobile para [!DNL Adobe Launch]
 
-Instrucciones de instalación de la extensión SDK para Marketo Mobile en [!DNL Adobe Launch]. Se requieren los pasos siguientes para enviar notificaciones push o mensajes en la aplicación.
+Instrucciones de instalación de la extensión del SDK de Marketo Mobile en [!DNL Adobe Launch]. Se requieren los pasos siguientes para enviar notificaciones push o mensajes en la aplicación.
 
 ## Prerrequisitos
 
-- [Añadir una aplicación en el administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtener la clave secreta de la aplicación y el ID de Munchkin)
-- Siga las instrucciones proporcionadas en la [!DNL Adobe Launch] portal para instalación
-- [Configuración de notificaciones push](push-notifications.md) (opcional)
+- [Agregar una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtener la clave secreta de la aplicación y el identificador de Munchkin)
+- Siga las instrucciones proporcionadas en el portal [!DNL Adobe Launch] para la instalación
+- [Configurar notificaciones push](push-notifications.md) (opcional)
 
 ## iOS
 
@@ -36,7 +36,7 @@ Para usuarios de Swift: Elimine la siguiente instrucción import, ya que el enca
 
 ### Dispositivos de prueba iOS
 
-Siga las instrucciones en [Añadir dispositivos de prueba de iOS](installation.md#ios_test_devices)
+Siga las instrucciones en [Agregar dispositivos de prueba de iOS](installation.md#ios_test_devices)
 
 ### Administrar el tipo de URL personalizada en AppDelegate
 
@@ -44,13 +44,13 @@ Siga las instrucciones [aquí](installation.md#ios_test_devices)
 
 ### Configuración de notificaciones push en iOS
 
-Siga las instrucciones [aquí](push-notifications.md) y utilice el nombre de clase &quot;ALMarketo&quot; en lugar de &quot;Marketo&quot;
+Siga las instrucciones [aquí](push-notifications.md) y use el nombre de clase &quot;ALMarketo&quot; en lugar de &quot;Marketo&quot;
 
 ## Android
 
 ### Configuración de permisos
 
-Abrir `AndroidManifest.xml` y agregue los siguientes permisos. La aplicación debe solicitar los permisos &quot;INTERNET&quot; y &quot;ACCESS_NETWORK_STATE&quot;. Si la aplicación ya solicita estos permisos, omita este paso.
+Abra `AndroidManifest.xml` y agregue los siguientes permisos. La aplicación debe solicitar los permisos &quot;INTERNET&quot; y &quot;ACCESS_NETWORK_STATE&quot;. Si la aplicación ya solicita estos permisos, omita este paso.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -59,7 +59,7 @@ Abrir `AndroidManifest.xml` y agregue los siguientes permisos. La aplicación de
 
 ### Configuración de ProGuard (opcional)
 
-Si utiliza ProGuard para su aplicación, agregue las siguientes líneas en su `proguard.cfg` archivo. El archivo se encuentra en la carpeta del proyecto. Añadir este código excluye el SDK de Marketo del proceso de ofuscación.
+Si usa ProGuard para su aplicación, agregue las líneas siguientes al archivo `proguard.cfg`. El archivo se encuentra en la carpeta del proyecto. Añadir este código excluye el SDK de Marketo del proceso de ofuscación.
 
 ```
 -dontwarn com.marketo.*
@@ -73,6 +73,6 @@ Siga las instrucciones [aquí](installation.md#android_test_devices)
 
 ## Configuración de notificaciones push en Android
 
-Siga las instrucciones [aquí](installation.md#android_firebase_cloud_messaging_support) y utilice el nombre de clase &quot;ALMarketo&quot; en lugar de &quot;Marketo&quot;
+Siga las instrucciones [aquí](installation.md#android_firebase_cloud_messaging_support) y use el nombre de clase &quot;ALMarketo&quot; en lugar de &quot;Marketo&quot;
 
-Para configurar perfiles de usuario, siga las instrucciones [aquí](user-profiles.md) y para las acciones personalizadas, siga las instrucciones [aquí](custom-actions.md#android_custom_action). En las instrucciones siguientes, utilice el nombre de clase &quot;ALMarketo&quot; en lugar de &quot;Marketo&quot;
+Para configurar perfiles de usuario, siga las instrucciones [aquí](user-profiles.md) y para acciones personalizadas, siga las instrucciones [aquí](custom-actions.md#android_custom_action). En las instrucciones siguientes, utilice el nombre de clase &quot;ALMarketo&quot; en lugar de &quot;Marketo&quot;

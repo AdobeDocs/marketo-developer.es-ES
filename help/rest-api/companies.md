@@ -1,22 +1,22 @@
 ---
-title: "Compañías"
+title: Compañías
 feature: REST API
-description: '"Configuración de los datos de la empresa con las API de Marketo".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Configure los datos de la empresa con las API de Marketo.
+exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '564'
 ht-degree: 1%
 
 ---
 
-
 # Compañías
 
 [Referencia de extremo de compañías](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
-Las compañías representan la organización a la que pertenecen los registros de posibles clientes. Los posibles clientes se añaden a una compañía rellenando su correspondiente `externalCompanyId` field using [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) o [Importación masiva de posibles clientes](bulk-lead-import.md) puntos finales. Una vez agregado un posible cliente a una compañía, no puede eliminarlo de esa compañía (a menos que agregue el posible cliente a una compañía diferente). Los posibles clientes vinculados a un registro de compañía heredarán directamente los valores de un registro de compañía como si los valores existieran en el propio registro del posible cliente.
+Las compañías representan la organización a la que pertenecen los registros de posibles clientes. Los posibles clientes se agregan a una compañía rellenando su campo `externalCompanyId` correspondiente con [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) o [Importación masiva de posibles clientes](bulk-lead-import.md) puntos finales. Una vez agregado un posible cliente a una compañía, no puede eliminarlo de esa compañía (a menos que agregue el posible cliente a una compañía diferente). Los posibles clientes vinculados a un registro de compañía heredarán directamente los valores de un registro de compañía como si los valores existieran en el propio registro del posible cliente.
 
-Las API de compañía son de solo lectura para las suscripciones que tienen [Sincronización de SFDC](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Sincronización de Microsoft Dynamics](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) están activadas.
+Las API de compañía son de solo lectura para las suscripciones que tienen [Sincronización de SFDC](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Sincronización de Microsoft Dynamics](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitadas.
 
 ## Describir
 
@@ -98,9 +98,9 @@ GET /rest/v1/companies/describe.json
 
 ## Consulta
 
-El patrón para [consultar compañías](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompaniesUsingGET) sigue de cerca la de la API de posibles clientes con la restricción añadida de que la variable `filterType` Este parámetro acepta los campos enumerados en la matriz searchableFields de la llamada Describir compañías o deduplicar campos.
+El patrón para [consultar compañías](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompaniesUsingGET) sigue de cerca el de la API de posibles clientes con la restricción agregada de que el parámetro `filterType` acepta los campos enumerados en la matriz searchableFields de la llamada a Describir compañías, o dedupeFields.
 
-`filterType` y `filterValues` son parámetros de consulta obligatorios.  `fields`, `nextPageToken`, y `batchSize` son parámetros opcionales.  Los parámetros funcionan igual que los parámetros correspondientes en las API de posibles clientes y oportunidades. Al solicitar una lista de `fields`Sin embargo, si se solicita un campo en particular, pero no se devuelve, el valor se entiende como nulo.
+`filterType` y `filterValues` son parámetros de consulta requeridos.  `fields`, `nextPageToken` y `batchSize` son parámetros opcionales.  Los parámetros funcionan igual que los parámetros correspondientes en las API de posibles clientes y oportunidades. Al solicitar una lista de `fields`, si se solicita un campo en particular, pero no se devuelve, el valor se considera nulo.
 
 Si se omite el parámetro fields, se devuelve el conjunto predeterminado de campos:
 
@@ -136,7 +136,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## Crear y actualizar
 
-El [Sincronizar compañías](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) el punto final acepta el requerido `input` parámetro que contiene una matriz de objetos de compañía. Al igual que las oportunidades, existen tres modos para crear y actualizar compañías: createOnly, updateOnly y createOrUpdate.  Los modos se especifican en `action` parámetro de la solicitud. Tanto la `dedupeBy` y `action` Los parámetros son opcionales y, de forma predeterminada, los modos deduplicarCampos y crearOrActualizar respectivamente.
+El extremo [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) acepta el parámetro `input` necesario que contiene una matriz de objetos de la compañía. Al igual que las oportunidades, existen tres modos para crear y actualizar compañías: createOnly, updateOnly y createOrUpdate.  Los modos se especifican en el parámetro `action` de la solicitud. Los parámetros `dedupeBy` y `action` son opcionales, y los predeterminados son los modos deduplicarFields y crearOrUpdate, respectivamente.
 
 ```
 POST /rest/v1/companies.json
@@ -186,7 +186,7 @@ Content-Type: application/json
 
 El objeto de compañía contiene un conjunto de campos. Cada definición de campo está compuesta por un conjunto de atributos que describen el campo. Algunos ejemplos de atributos son nombre para mostrar, nombre de API y dataType. Estos atributos se conocen colectivamente como metadatos.
 
-Los siguientes extremos permiten consultar campos en el objeto de compañía. Estas API requieren que el usuario de la API propietaria tenga una función con uno o ambos `Read-Write Schema Standard Field` o `Read-Write Schema Custom Field` permisos.
+Los siguientes extremos permiten consultar campos en el objeto de compañía. Estas API requieren que el usuario de la API propietaria tenga una función con uno o ambos permisos `Read-Write Schema Standard Field` o `Read-Write Schema Custom Field`.
 
 ### Campos de consulta
 
@@ -194,7 +194,7 @@ La consulta de campos de empresa es sencilla. Puede consultar un único campo de
 
 #### Por nombre
 
-El [Obtener campo de empresa por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET) el extremo recupera los metadatos de un único campo en el objeto de empresa. El requerido `fieldApiName` El parámetro path especifica el nombre de API del campo. La respuesta es como el extremo de Describir compañía, pero contiene metadatos adicionales como la variable `isCustom` atributo que indica si el campo es un campo personalizado.
+El extremo [Obtener campo de la compañía por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de la compañía. El parámetro de ruta de acceso obligatorio `fieldApiName` especifica el nombre de API del campo. La respuesta es como el extremo Describir compañía, pero contiene metadatos adicionales como el atributo `isCustom` que indica si el campo es un campo personalizado.
 
 ```
 GET /rest/v1/companies/schema/fields/industry.json
@@ -223,7 +223,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### Examinar
 
-El [Obtener campos de empresa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET) el extremo recupera los metadatos de todos los campos del objeto de empresa. De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el complemento `batchSize` parámetro de consulta para reducir este número. Si la variable `moreResult` el atributo es true, lo que significa que hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El `nextPageToken` Los resultados devueltos por esta API siempre deben reutilizarse para la siguiente iteración de esta llamada.
+El extremo [Obtener campos de empresa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa. De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el parámetro de consulta `batchSize` para reducir este número. Si el atributo `moreResult` es true, significa que hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. Los `nextPageToken` devueltos por esta API siempre se deben reutilizar para la siguiente iteración de esta llamada.
 
 ```
 GET /rest/v1/companies/schema/fields.json?batchSize=5
@@ -301,7 +301,7 @@ GET /rest/v1/companies/schema/fields.json?batchSize=5
 
 ### Eliminar
 
-Los criterios de eliminación se especifican en la variable `input` matriz, que contiene una lista de valores de búsqueda.  El método de eliminación se especifica en la `deleteBy` parámetro.  Los valores permitidos son: dedupeFields, idField.  El valor predeterminado es dedupeFields.
+Los criterios de eliminación se especifican en la matriz `input`, que contiene una lista de valores de búsqueda.  El método de eliminación se ha especificado en el parámetro `deleteBy`.  Los valores permitidos son: dedupeFields, idField.  El valor predeterminado es dedupeFields.
 
 ```
 Content-Type: application/json

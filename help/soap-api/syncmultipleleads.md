@@ -1,28 +1,28 @@
 ---
-title: "syncMultipleLeads"
+title: syncMultipleLeads
 feature: SOAP
-description: "syncMultipleLeads llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP syncMultipleLeads Llamadas a la
+exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '221'
 ht-degree: 4%
 
 ---
 
-
 # syncMultipleLeads
 
-Esta función solicita una operación de inserción o actualización (actualización) para _múltiple_ registros de posibles clientes. Al actualizar un posible cliente existente, este se puede identificar con una de las siguientes claves:
+Esta función solicita una operación de inserción o actualización (actualización) para _varios_ registros de posibles clientes. Al actualizar un posible cliente existente, este se puede identificar con una de las siguientes claves:
 
 - Identificación de Marketo
 - ID de sistema externo
 - Correo electrónico
 
-Si hay más de una clave, el Marketo ID tiene prioridad sobre `ForeignSysPersonId`, y se actualizará esta última. Sin embargo, si el correo electrónico también está presente como clave, no se actualizará a menos que se especifique en la lista de atributos.
+Si hay más de una clave, el ID de Marketo tiene prioridad sobre `ForeignSysPersonId` y se actualizará esta última. Sin embargo, si el correo electrónico también está presente como clave, no se actualizará a menos que se especifique en la lista de atributos.
 
 Nuestra recomendación es que los tamaños de lote no sean superiores a 300. Los tamaños más altos no son compatibles y pueden provocar tiempos de espera y, en casos extremos, restricciones.
 
-Puede desactivar la función de deduplicación con esta llamada a la función. Si dedupEnabled se establece en true y no se proporciona ningún otro identificador único (`foreignSysPersonId` o ID de posible cliente de Marketo) y, a continuación, se anula la duplicación del registro de posibles clientes mediante la dirección de correo electrónico. Tenga en cuenta que pasar false creará duplicados dentro de Marketo.
+Puede desactivar la función de deduplicación con esta llamada a la función. Si dedupEnabled se establece en true y no se proporciona ningún otro identificador único (`foreignSysPersonId` o ID de posible cliente de Marketo), se anula la duplicación del registro de posibles clientes mediante la dirección de correo electrónico. Tenga en cuenta que pasar false creará duplicados dentro de Marketo.
 
 ## Solicitud
 

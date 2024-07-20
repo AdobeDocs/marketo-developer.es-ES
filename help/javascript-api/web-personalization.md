@@ -1,20 +1,20 @@
 ---
-title: "Personalización web"
-description: "Personalización web"
+title: Personalización web
+description: Personalización web
 feature: Web Personalization, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '401'
-ht-degree: 5%
+ht-degree: 6%
 
 ---
 
-
 # Personalización web
 
-La API de JavaScript de personalización web amplía la capacidad de personalización automatizada de la plataforma. Permite el seguimiento de eventos y la personalización dinámica de una página web. Funciones adicionales: [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md), [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
+La API de JavaScript de Web Personalization amplía la capacidad de personalización automatizada de la plataforma. Permite el seguimiento de eventos y la personalización dinámica de una página web. Funciones adicionales: [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md), [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
 
-- Debe convertirse en cliente de Web Personalization y tener la [Etiqueta RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de utilizar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Configuración de etiquetas
@@ -71,9 +71,9 @@ rtp('send', 'view', page);
 
 ## Excluir etiqueta para bots específicos (agentes de usuario)
 
-Para excluir exploradores específicos del envío de datos a la plataforma de personalización web (en el caso de bots identificados), agregue la siguiente instrucción IF al script de la etiqueta.
+Para excluir exploradores específicos del envío de datos a la plataforma Web Personalization (en el caso de bots identificados), agregue la siguiente instrucción IF al script de la etiqueta.
 
-En el ejemplo de código siguiente, &quot;Googlebot|msnbot&quot; se utiliza como ejemplos de bots para excluir de las actividades de personalización web.
+En el ejemplo de código siguiente, &quot;Googlebot|msnbot&quot; se utiliza como ejemplos de bots para excluir de las actividades de Web Personalization.
 
 ```javascript
 <!-- RTP tag --> 
@@ -93,7 +93,7 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 
 ## Llamadas de JavaScript explicadas
 
-Descripción de JavaScript que se añade a un sitio web al utilizar la personalización web y el contenido predictivo.
+Descripción de JavaScript que se añade a un sitio web al utilizar Personalization web y contenido predictivo.
 
 ### JavaScript principal/dependiente
 
@@ -107,7 +107,7 @@ Descripción de JavaScript que se añade a un sitio web al utilizar la personali
 
 *Se utiliza solo si falta el cuadro de diálogo de la IU de jQuery
 
-### JavaScript bajo demanda
+### On Demand JavaScript
 
 | Nombre | Descripción | Control |
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
@@ -115,4 +115,3 @@ Descripción de JavaScript que se añade a un sitio web al utilizar la personali
 | insightera-bar-2.1.js | Se utiliza si la barra de recomendaciones de contenido predictivo está habilitada | Controlado por Marketo |
 | froogaloop2.min.js | Se utiliza si el seguimiento de contenido está habilitado y el reproductor Vimeo existe en la página | - |
 | iframe-api-v1.js | Se utiliza si el seguimiento de contenido está habilitado y el reproductor de YouTube existe en la página | - |
-

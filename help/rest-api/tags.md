@@ -1,14 +1,14 @@
 ---
-title: "Etiquetas"
+title: Etiquetas
 feature: REST API, Tags
-description: '"Administrar etiquetas para programas en Marketo".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Administre etiquetas para programas en Marketo.
+exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '205'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
-
 
 # Etiquetas
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Actualización
 
-El [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) El punto de conexión permite actualizar el valor de un tipo de etiqueta determinado. El punto final toma un `id` y `tagType` parámetros de ruta que especifican el id de programa y el tipo de etiqueta que se actualizará. A `tagValue` El parámetro query se utiliza para especificar el nuevo valor del tipo de etiqueta. Todos los parámetros son obligatorios.
+El punto de conexión [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) le permite actualizar el valor de un tipo de etiqueta determinado. El extremo toma un parámetro de ruta de acceso `id` y `tagType` que especifican el identificador de programa y el tipo de etiqueta que se va a actualizar. Se usa un parámetro de consulta `tagValue` para especificar el nuevo valor del tipo de etiqueta. Todos los parámetros son obligatorios.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Las etiquetas se pueden actualizar en masa utilizando [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) punto final. Se puede encontrar un ejemplo de esto [aquí](programs.md#update).
+Las etiquetas se pueden actualizar de forma masiva mediante el punto de conexión [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST). Se puede encontrar un ejemplo de esto [aquí](programs.md#update).
 
 ## Eliminar
 
-El [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) el punto de conexión permite eliminar un tipo de etiqueta no obligatorio. El punto final toma `id` y `tagType` parámetros de ruta que especifican el id de programa y el tipo de etiqueta que se va a eliminar.
+El punto de conexión [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) le permite eliminar un tipo de etiqueta no obligatorio. El extremo toma `id` y `tagType` parámetros de ruta que especifican el id. de programa y el tipo de etiqueta que se va a eliminar.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

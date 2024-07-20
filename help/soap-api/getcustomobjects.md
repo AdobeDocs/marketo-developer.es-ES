@@ -1,30 +1,30 @@
 ---
-title: "getCustomObjects"
+title: getCustomObjects
 feature: SOAP, Custom Objects
-description: "llamadas SOAP getCustomObjects"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP llamadas a getCustomObjects
+exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 5%
 
 ---
 
-
 # getCustomObjects
 
 Recupera uno o varios objetos personalizados mediante una combinación de criterios formada por cero o una clave de objeto personalizada.
 
-Devuelve una lista de objetos personalizados coincidentes, todos de un solo tipo, hasta 100 en un lote y un [posición del flujo](stream-position.md) token para recuperar lotes sucesivos.
+Devuelve una lista de objetos personalizados coincidentes, todos de un solo tipo, hasta 100 en un lote y un token de [posición de flujo](stream-position.md) para recuperar lotes sucesivos.
 
 ## Solicitud
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 | --- | --- | --- |
 | objTypeName | Obligatorio | Nombre del objeto personalizado |
-| customObjKeyLists->keyList->attribute | Obligatorio | El atributo es un par clave/valor que se utiliza para identificar los objetos personalizados que desea recuperar. Puede especificar varios atributos en la `customObjKeyLists` |
+| customObjKeyLists->keyList->attribute | Obligatorio | El atributo es un par clave/valor que se utiliza para identificar los objetos personalizados que desea recuperar. Puede especificar varios atributos en `customObjKeyLists` |
 | includeAttributes | Obligatorio | La lista de los campos de un objeto personalizado que desea recuperar. Si se pasa ninguno, se devuelven todos los valores. |
 | batchSize | opcional | El número de objetos que se van a devolver (máximo de 100) |
-| streamPosition | opcional | Se utiliza para paginar varios conjuntos de resultados. El valor pasado es el valor devuelto por el anterior `getCustomObjects` llamada. |
+| streamPosition | opcional | Se utiliza para paginar varios conjuntos de resultados. El valor pasado es el valor devuelto por la llamada anterior `getCustomObjects`. |
 
 ## Solicitar XML
 

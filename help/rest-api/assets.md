@@ -1,14 +1,14 @@
 ---
-title: "Recursos"
+title: Recursos
 feature: REST API
-description: '"Una API para trabajar con recursos de Marketo".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Una API para trabajar con recursos de Marketo.
+exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '876'
 ht-degree: 2%
 
 ---
-
 
 # Recursos
 
@@ -31,11 +31,11 @@ Los recursos de Marketo incluyen:
 
 ## API
 
-Para obtener una lista completa de los extremos de la API de recursos, incluidos los parámetros y la información de modelado, consulte la [Referencia de extremo de Asset API](endpoint-reference.md).
+Para obtener una lista completa de los extremos de Asset API, incluidos los parámetros y la información de modelado, consulte [Referencia del extremo de Asset API](endpoint-reference.md).
 
 ## Consulta
 
-Los recursos suelen tener tres patrones mediante los cuales se pueden recuperar: por ID, por nombre y por navegación.  Por ID y por nombre recuperarán un solo recurso para un parámetro determinado, mientras que la exploración devolverá y permitirá la paginación a través de toda la lista de recursos de ese tipo.  Los tipos de recursos individuales tienen parámetros variables por los que se pueden filtrar, por lo que asegúrese de consultar sus documentos individuales para ver información específica.
+Assets suele tener tres patrones con los que se pueden recuperar: por id, por nombre y por navegación.  Por ID y por nombre recuperarán un solo recurso para un parámetro determinado, mientras que la exploración devolverá y permitirá la paginación a través de toda la lista de recursos de ese tipo.  Los tipos de recursos individuales tienen parámetros variables por los que se pueden filtrar, por lo que asegúrese de consultar sus documentos individuales para ver información específica.
 
 En determinados casos, el extremo de exploración para algunos tipos de recursos no devolverá recursos secundarios, como los valores permitidos para una etiqueta y deben recuperarse individualmente mediante el extremo By Name o By Id para devolver el conjunto completo de metadatos.  Otros pueden tener puntos finales independientes por completo para recuperar objetos dependientes como campos de formulario.
 
@@ -174,7 +174,7 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## Crear y actualizar
 
-Para tipos de recursos simples como carpetas, tokens y archivos, normalmente solo hay un único punto de conexión para la creación y, a continuación, un punto de conexión adicional para actualizar registros por ID.  Los recursos se crean con un nombre que siempre es necesario y, a continuación, la respuesta de creación o actualización devuelve todos los metadatos y los ID.
+Para tipos de recursos simples como carpetas, tokens y archivos, normalmente solo hay un único punto de conexión para la creación y, a continuación, un punto de conexión adicional para actualizar registros por ID.  Assets se crean con un nombre que siempre es obligatorio y, a continuación, la respuesta de creación o actualización devuelve todos los metadatos y los ID.
 
 Por ejemplo, así es como se crea un token:
 
@@ -433,7 +433,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-Los recursos también se pueden desaprobar si están en un estado de solo aprobación.  Esto eliminará cualquier versión activa del recurso y devolverá el recurso a un estado de solo borrador, al tiempo que descartará cualquier borrador asociado.  Esta acción solo se puede realizar en la mayoría de los recursos si no se está utilizando en ninguna parte de Marketo, como un correo electrónico al que se hace referencia en un paso de flujo de envío de correo electrónico o un fragmento incrustado en un correo electrónico.
+Assets también se puede desaprobar si está en un estado de solo aprobación.  Esto eliminará cualquier versión activa del recurso y devolverá el recurso a un estado de solo borrador, al tiempo que descartará cualquier borrador asociado.  Esta acción solo se puede realizar en la mayoría de los recursos si no se está utilizando en ninguna parte de Marketo, como un correo electrónico al que se hace referencia en un paso de flujo de envío de correo electrónico o un fragmento incrustado en un correo electrónico.
 
 ```
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -455,7 +455,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## Eliminar
 
-Los recursos con estados de aprobación y borrador, excepto los formularios, no se pueden eliminar durante la aprobación y deben desaprobarse antes de la eliminación.  Por lo general, las eliminaciones solo se pueden realizar cuando un recurso no está aprobado y está fuera de uso, y en el caso de las carpetas, está vacío de recursos.  Una excepción notable son los programas, que pueden ser eliminados junto con todo su contenido secundario, siempre y cuando el programa y su contenido no estén en uso en ningún lugar fuera de los límites del programa.
+Assets con estados de aprobación y borrador, excepto para formularios, no se puede eliminar mientras se aprueba y debe desaprobarse antes de eliminarse.  Por lo general, las eliminaciones solo se pueden realizar cuando un recurso no está aprobado y está fuera de uso, y en el caso de las carpetas, está vacío de recursos.  Una excepción notable son los programas, que pueden ser eliminados junto con todo su contenido secundario, siempre y cuando el programa y su contenido no estén en uso en ningún lugar fuera de los límites del programa.
 
 ```
 POST /rest/asset/v1/program/{id}/delete.json

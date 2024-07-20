@@ -1,14 +1,14 @@
 ---
-title: "Errores"
+title: Errores
 feature: Webhooks
-description: "Códigos de error para webhooks"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Códigos de error para webhooks
+exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '235'
 ht-degree: 2%
 
 ---
-
 
 # Errores
 
@@ -25,9 +25,9 @@ Para que Marketo vuelva a asignar valores a un campo, el código de respuesta de
 
 ## Error de captura de webhook
 
-Los errores de los webhooks los puede detectar y gestionar el [!UICONTROL Se llama al webhook] déclencheur:
+El déclencheur [!UICONTROL Se llama al webhook] puede detectar y controlar los errores de los webhooks:
 
-![Se llama al webhook](assets/webhook-called.png)
+Se llama al webhook ![1}](assets/webhook-called.png)
 
 * Respuesta: la respuesta es la carga útil de respuesta literal que recibió la solicitud.
 * Tipo de error: corresponde a la frase Motivo del mensaje de estado HTTP.

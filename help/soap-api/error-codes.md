@@ -1,26 +1,26 @@
 ---
-title: "Códigos de error"
+title: Códigos de error
 feature: SOAP
-description: "Códigos de error para llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP Códigos de error para llamadas de
+exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '390'
 ht-degree: 11%
 
 ---
 
-
 # Códigos de error
 
 Al desarrollar para Marketo, es muy importante que las solicitudes y respuestas se registren cuando se encuentra una excepción inesperada.  Aunque algunos tipos de excepciones, como la autenticación caducada, se pueden controlar de forma segura mediante la reautenticación, otros pueden requerir interacciones de soporte, y las solicitudes y respuestas siempre se solicitarán en este escenario.
 
-A continuación se muestra una lista de códigos de error de API de SOAP.
+SOAP A continuación se muestra una lista de códigos de error de API de.
 
 | Código | Mensaje | Notas |
 |--- |--- |--- |
 | 10001 | Error interno | Fallo grave del sistema |
 | 20011 | Error interno | Error del servicio API |
-| 20012 | Solicitud no entendida | Mensaje SOAP inesperado |
+| 20012 | Solicitud no entendida | SOAP Mensaje inesperado |
 | 20013 | Acceso denegado | El cliente está bloqueado para acceder a la API |
 | 20014 | Error de autenticación | El cliente no ha proporcionado credenciales válidas |
 | 20015 | Límite de solicitudes superado | El número de llamadas hoy ha superado la cuota de la suscripción. La cuota de suscripción predeterminada es de 10 000 al día. |

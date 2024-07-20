@@ -1,34 +1,34 @@
 ---
-title: "getLeadActivity"
+title: getLeadActivity
 feature: SOAP
-description: "llamadas SOAP getLeadActivity"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP llamadas a getLeadActivity
+exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 3%
 
 ---
 
-
 # getLeadActivity
 
 Esta función recupera el historial de actividad de un único posible cliente identificado por la clave proporcionada. Puede especificar qué tipos de actividad desea que se devuelvan en el resultado. Si desea todos los tipos de actividades, debe pasar un valor en blanco. Para más de un tipo de actividad, pase una lista de tipos de actividad. Al solicitar varias actividades, el recuento restante no es un número preciso, pero debe tratarse como un indicador que indique que hay más actividades cuando el recuento restante > 0.
 
-A [posición del flujo](stream-position.md) se puede utilizar para paginar por grandes conjuntos de resultados.
+Se puede usar una [posición de flujo](stream-position.md) para paginar a través de grandes conjuntos de resultados.
 
 ## Solicitud
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 | --- | --- | --- |
-| leadKey->keyType | Obligatorio | keyType permite especificar el campo por el que desea consultar el posible cliente. Los valores posibles incluyen:`IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadKey->keyType | Obligatorio | keyType permite especificar el campo por el que desea consultar el posible cliente. Los valores posibles incluyen: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Obligatorio | `keyValue` es el valor por el que desea consultar al posible cliente. |
 | activityFilter->includeAttributes->activityType | opcional | Limita la respuesta para incluir solo los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. |
-| activityFilter->excludeAttributes->activityType | opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar ambos `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |
-| batchSize | opcional | Número máximo de registros que se devolverán. El sistema limitará a 100 o `batchSize`, el que sea menor. |
-| startPosition->offset | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El valor de desplazamiento se devuelve mediante el campo de respuesta de llamadas anterior `newStartPosition->offset`. |
-| startPosition->activityCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta de la llamada anterior devuelve activityCreatedAt `newStartPosition->activityCreatedAt`. (Formato de fecha WSDL de W3C). |
-| startPosition->latestCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta de la llamada anterior devuelve el latestCreatedAt `newStartPosition->latestCreatedAt`. (Formato de fecha WSDL de W3C). |
-| startPosition->olderCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta de la llamada anterior devuelve el valor más antiguo de CreatedAt `newStartPosition->oldestCreatedAt`. (Formato de fecha WSDL de W3C). |
+| activityFilter->excludeAttributes->activityType | opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |
+| batchSize | opcional | Número máximo de registros que se devolverán. El sistema limitará a 100 o `batchSize`, el valor que sea menor. |
+| startPosition->offset | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta de llamadas anterior `newStartPosition->offset` devuelve el valor de desplazamiento. |
+| startPosition->activityCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->activityCreatedAt` de la llamada anterior devuelve activityCreatedAt. (Formato de fecha WSDL de W3C). |
+| startPosition->latestCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->latestCreatedAt` de la llamada anterior devuelve el latestCreatedAt. (Formato de fecha WSDL de W3C). |
+| startPosition->olderCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->oldestCreatedAt` de la llamada anterior devuelve el valor de más antiguoCreatedAt. (Formato de fecha WSDL de W3C). |
 
 ## Solicitar XML
 
@@ -668,7 +668,7 @@ A [posición del flujo](stream-position.md) se puede utilizar para paginar por g
 </SOAP-ENV:Envelope>
 ```
 
-Tenga en cuenta que en `activityRecord` elementos, el `id` se está reemplazando por el elemento `marketoGUID` como identificador único.  Este cambio se producirá en la versión de primavera de 2017.
+Tenga en cuenta que dentro de `activityRecord` elementos, el elemento `id` se reemplaza por el elemento `marketoGUID` como identificador único.  Este cambio se producirá en la versión de primavera de 2017.
 
 ## Código de muestra: PHP
 

@@ -1,14 +1,14 @@
 ---
-title: "Extracción en lote"
+title: Extracción en lote
 feature: REST API
-description: '"Operaciones por lotes para extraer datos de Marketo".'
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Operaciones por lotes para extraer datos de Marketo.
+exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1643'
 ht-degree: 0%
 
 ---
-
 
 # Extracción en lote
 
@@ -21,11 +21,11 @@ Marketo proporciona interfaces para la recuperación de grandes conjuntos de dat
 
 La extracción masiva se realiza creando un trabajo, definiendo el conjunto de datos que se van a recuperar, poniendo el trabajo en cola, esperando a que el trabajo complete la escritura de un archivo y, a continuación, recuperando el archivo a través de HTTP. Estos trabajos se ejecutan de forma asíncrona y se pueden sondear para recuperar el estado de la exportación.
 
-`Note:` Los extremos de API en lote no tienen el prefijo &#39;/rest&#39; como otros extremos.
+`Note:` Los extremos de API en lotes no tienen el prefijo &#39;/rest&#39; como otros extremos.
 
 ## Autenticación
 
-Las API de extracción masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo. Esto requiere que se incruste un token de acceso válido como parámetro de cadena de consulta `access_token={_AccessToken_}`, o como encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+Las API de extracción masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo. Esto requiere que se incruste un token de acceso válido como parámetro de cadena de consulta `access_token={_AccessToken_}` o como encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
 
 ## Límites
 
@@ -45,13 +45,13 @@ El número máximo de trabajos en cola es 10. Si intenta poner un trabajo en col
 
 ### Tamaño de archivo
 
-Las API de extracción masiva se miden en función del tamaño en disco de los datos recuperados por un trabajo de extracción masiva. El tamaño explícito en bytes de un trabajo se puede determinar leyendo el `fileSize` de la respuesta de estado completada de un trabajo de exportación.
+Las API de extracción masiva se miden en función del tamaño en disco de los datos recuperados por un trabajo de extracción masiva. El tamaño explícito en bytes de un trabajo se puede determinar leyendo el atributo `fileSize` de la respuesta de estado completada de un trabajo de exportación.
 
-La cuota diaria es de un máximo de 500 MB por día, que se comparten entre posibles clientes, actividades, miembros de programa y objetos personalizados. Cuando se supera la cuota, no puede crear ni poner en cola otro trabajo hasta que la cuota diaria se restablezca a medianoche [Hora central](https://en.wikipedia.org/wiki/Central_Time_Zone). Hasta ese momento, se devuelve el error &quot;1029, Export daily quota expanded&quot;. Aparte de la cuota diaria, no hay un tamaño de archivo máximo.
+La cuota diaria es de un máximo de 500 MB por día, que se comparten entre posibles clientes, actividades, miembros de programa y objetos personalizados. Cuando se supera la cuota, no puede crear ni poner en cola otro trabajo hasta que la cuota diaria se restablezca a medianoche [hora central](https://en.wikipedia.org/wiki/Central_Time_Zone). Hasta ese momento, se devuelve el error &quot;1029, Export daily quota expanded&quot;. Aparte de la cuota diaria, no hay un tamaño de archivo máximo.
 
 Una vez que un trabajo se pone en cola o se procesa, se ejecuta hasta su finalización (salvo error o cancelación del trabajo). Si un trabajo falla por algún motivo, debe volver a crearlo. Los archivos sólo se escriben completamente cuando un trabajo alcanza el estado completado (los archivos parciales nunca se escriben). Puede verificar que un archivo se escribió completamente calculando su hash SHA-256 y comparándolo con la suma de comprobación que devuelven los extremos de estado del trabajo.
 
-Puede determinar la cantidad total de disco utilizado para el día actual llamando a Obtener resultados de cliente potencial/Actividad/Trabajos de miembro del programa. Estos extremos devuelven una lista de todos los trabajos de los últimos siete días. Puede filtrar esa lista hasta solo los trabajos que se completaron en el día actual (mediante `status` y `finishedAt` atributos). A continuación, sume los tamaños de archivo de esos trabajos para obtener la cantidad total utilizada. No hay forma de eliminar un archivo para recuperar espacio en disco.
+Puede determinar la cantidad total de disco utilizado para el día actual llamando a Obtener resultados de cliente potencial/Actividad/Trabajos de miembro del programa. Estos extremos devuelven una lista de todos los trabajos de los últimos siete días. Puede filtrar esa lista para que solo se muestren los trabajos que se completaron en el día actual (con los atributos `status` y `finishedAt`). A continuación, sume los tamaños de archivo de esos trabajos para obtener la cantidad total utilizada. No hay forma de eliminar un archivo para recuperar espacio en disco.
 
 ## Permisos
 
@@ -107,7 +107,7 @@ Esta solicitud simple construirá un trabajo que devolverá los valores contenid
 }
 ```
 
-Cuando creamos el trabajo, devuelve un ID de trabajo en `exportId` atributo. A continuación, podemos utilizar este ID de trabajo para poner el trabajo en cola, cancelarlo, comprobar su estado o recuperar el archivo completado.
+Cuando creamos el trabajo, devuelve un id. de trabajo en el atributo `exportId`. A continuación, podemos utilizar este ID de trabajo para poner el trabajo en cola, cancelarlo, comprobar su estado o recuperar el archivo completado.
 
 ### Parámetros comunes
 
@@ -122,7 +122,7 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 
 ## Recuperando trabajos
 
-A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un `status` campo de filtro, a  `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
+A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un campo de filtro `status`, un  `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
 
 ```
 GET /bulk/v1/leads/export.json?status=Completed,Failed
@@ -150,7 +150,7 @@ GET /bulk/v1/leads/export.json?status=Completed,Failed
 }
 ```
 
-El punto final responde con `status` respuesta de cada trabajo creado en los últimos siete días para ese tipo de objeto en la matriz de resultados. La respuesta solo incluirá resultados para trabajos propiedad del usuario de API que realiza la llamada.
+El extremo responde con `status` respuesta de cada trabajo creado en los últimos siete días para ese tipo de objeto en la matriz de resultados. La respuesta solo incluirá resultados para trabajos propiedad del usuario de API que realiza la llamada.
 
 ## Inicio de trabajos
 
@@ -193,7 +193,7 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 }
 ```
 
-El interior `status` indica el progreso del trabajo y puede ser uno de los siguientes valores: Creado, En cola, Procesando, Cancelado, Completado, Error. En este caso, nuestro trabajo se ha completado, por lo que podemos detener el sondeo y continuar con la recuperación del archivo. Una vez finalizado, la variable `fileSize` miembro indica la longitud total del archivo en bytes y la variable `fileChecksum` el miembro contiene el hash SHA-256 del archivo. El estado del trabajo está disponible durante 30 días después de alcanzar el estado Completado o Error.
+El miembro interno `status` indica el progreso del trabajo y puede ser uno de los siguientes valores: Creado, En cola, Procesando, Cancelado, Completado, Fallido. En este caso, nuestro trabajo se ha completado, por lo que podemos detener el sondeo y continuar con la recuperación del archivo. Cuando se completa, el miembro `fileSize` indica la longitud total del archivo en bytes, y el miembro `fileChecksum` contiene el hash SHA-256 del archivo. El estado del trabajo está disponible durante 30 días después de alcanzar el estado Completado o Error.
 
 ## Recuperación de datos
 
@@ -205,7 +205,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 La respuesta contiene un archivo con el formato que tenía el trabajo configurado. El punto final responde con el contenido del archivo. Si no se ha completado un trabajo o se ha pasado un ID de trabajo incorrecto, los extremos de archivo responden con un estado de 404 No encontrado y un mensaje de error de texto sin formato como carga útil, a diferencia de la mayoría de los demás extremos REST de Marketo.
 
-Para admitir la recuperación parcial y fácil de reanudar de los datos extraídos, el extremo del archivo admite opcionalmente el encabezado HTTP `Range` del tipo `bytes` (por [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Si no se establece el encabezado, se devuelve todo el contenido. Para recuperar los primeros 10 000 bytes de un archivo, pasaría el siguiente encabezado como parte de la solicitud de GET al extremo, empezando por el byte 0:
+Para admitir la recuperación parcial y fácil de reanudar de los datos extraídos, el extremo de archivo admite opcionalmente el encabezado HTTP `Range` del tipo `bytes` (según [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Si no se establece el encabezado, se devuelve todo el contenido. Para recuperar los primeros 10 000 bytes de un archivo, pasaría el siguiente encabezado como parte de la solicitud de GET al extremo, empezando por el byte 0:
 
 ```
 Range: bytes=0-9999
@@ -221,7 +221,7 @@ Content-Range: bytes 0-9999/123424
 
 ### Recuperación y reanudación parciales
 
-Los archivos se pueden recuperar en parte o reanudar más tarde mediante el `Range` encabezado. El intervalo para un archivo comienza en el byte 0 y termina en el valor de `fileSize` menos 1. La longitud del archivo también se indica como denominador en el valor del `Content-Range` encabezado de respuesta al llamar a un extremo de Obtener archivo de exportación. Si una recuperación falla parcialmente, se puede reanudar más adelante. Por ejemplo, si intenta recuperar un archivo de 1000 bytes de longitud, pero solo se recibieron los primeros 725 bytes, la recuperación se puede volver a intentar desde el punto del error llamando de nuevo al extremo y pasando un nuevo intervalo:
+Los archivos se pueden recuperar en parte o reanudar más tarde mediante el encabezado `Range`. El intervalo de un archivo comienza en el byte 0 y finaliza en el valor de `fileSize` menos 1. La longitud del archivo también se indica como denominador en el valor del encabezado de respuesta `Content-Range` al llamar a un extremo de Obtener archivo de exportación. Si una recuperación falla parcialmente, se puede reanudar más adelante. Por ejemplo, si intenta recuperar un archivo de 1000 bytes de longitud, pero solo se recibieron los primeros 725 bytes, la recuperación se puede volver a intentar desde el punto del error llamando de nuevo al extremo y pasando un nuevo intervalo:
 
 ```
 Range: bytes 724-999
@@ -231,7 +231,7 @@ Devuelve los 275 bytes restantes del archivo.
 
 #### Comprobación de integridad de archivos
 
-Los extremos de estado del trabajo devuelven una suma de comprobación en el `fileChecksum` atributo cuando `status` es &quot;Completado&quot;. La suma de comprobación es un hash SHA-256 del archivo exportado. Puede comparar la suma de comprobación con el hash SHA-256 del archivo recuperado para comprobar que está completo.
+Los extremos de estado del trabajo devuelven una suma de comprobación en el atributo `fileChecksum` cuando `status` está &quot;Completado&quot;. La suma de comprobación es un hash SHA-256 del archivo exportado. Puede comparar la suma de comprobación con el hash SHA-256 del archivo recuperado para comprobar que está completo.
 
 Esta es una respuesta de ejemplo que contiene la suma de comprobación:
 

@@ -1,20 +1,20 @@
 ---
-title: "importToList"
+title: importToList
 feature: SOAP
-description: "importToList llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP Llamadas a importToList de
+exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '317'
 ht-degree: 5%
 
 ---
 
-
 # importToList
 
 Esta función permite importar una lista de posibles clientes en una lista estática existente en Marketo, de forma similar a la función Importar lista de la interfaz de usuario de Marketo.
 
-**Formato de importación:** Estos valores son idénticos a la estructura de un CSV utilizado en una importación de lista.
+**Formato de importación:** Estos valores son idénticos a la estructura de un archivo CSV utilizado en una importación de lista.
 
 **Ejemplo:**
 
@@ -24,9 +24,9 @@ Esta función permite importar una lista de posibles clientes en una lista está
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Nota:** `displayName` Los valores deben usarse en la variable `importFileHeader` en lugar de la `name` valores.
+**Nota:** Los valores de `displayName` deben usarse en los valores de `importFileHeader` en lugar de en los valores de `name`.
 
-**Contenido dinámico de correo electrónico:** De forma opcional, puede pasar valores por posible cliente que actúen como sustitutos de Mis tokens en un mensaje de correo electrónico.
+**Contenido dinámico de correo electrónico:** De forma opcional, puede pasar valores por posible cliente que actúen como reemplazos de Mis tokens en un mensaje de correo electrónico.
 
 | Correo electrónico | Primer/a | Último/a | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
@@ -36,7 +36,7 @@ Esta función permite importar una lista de posibles clientes en una lista está
 
 **Importante:** Si agrega tokens para los posibles clientes, debe especificar la campaña inteligente que los utiliza. La próxima vez que se ejecute la campaña inteligente especificada, utilizará los valores de la lista, en lugar de los valores normales de Mi token. Después de ejecutar una sola campaña, los tokens se descartan.
 
-**NOTA:** `importToList` puede tardar un tiempo en completarse, especialmente en el caso de listas grandes. Si planea utilizar la lista recién importada en otras llamadas a la API, debe utilizar `importToListStatus` para comprobar que la operación ha finalizado.
+**NOTA:** `importToList` puede tardar un tiempo en completarse, especialmente en listas grandes. Si planea usar la lista recién importada en otras llamadas a la API, debe usar `importToListStatus` para comprobar que la operación se haya completado.
 
 ## Solicitud
 

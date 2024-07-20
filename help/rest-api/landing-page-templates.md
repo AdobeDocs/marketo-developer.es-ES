@@ -1,14 +1,14 @@
 ---
-title: "Plantillas de página de aterrizaje"
+title: Plantillas de la página de destino
 feature: REST API, Landing Pages
-description: '"Cree y edite plantillas de página de aterrizaje".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Cree y edite plantillas de página de aterrizaje.
+exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '533'
 ht-degree: 1%
 
 ---
-
 
 # Plantillas de la página de destino
 
@@ -18,11 +18,11 @@ Las plantillas de página de aterrizaje son un recurso principal y una dependenc
 
 ## Tipos de plantilla
 
-Marketo tiene dos tipos de plantillas de página de aterrizaje, de forma libre y guiadas. Las plantillas de página de aterrizaje de forma libre proporcionan una experiencia de edición ligeramente estructurada para las páginas que se derivan de ellas. Las plantillas guiadas proporcionan una experiencia muy estructurada, en la que los tipos de elementos y las ubicaciones se pueden restringir en el nivel de plantilla. Para obtener más información sobre las diferencias, consulte [este documento](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo tiene dos tipos de plantillas de página de aterrizaje, de forma libre y guiadas. Las plantillas de página de aterrizaje de forma libre proporcionan una experiencia de edición ligeramente estructurada para las páginas que se derivan de ellas. Las plantillas guiadas proporcionan una experiencia muy estructurada, en la que los tipos de elementos y las ubicaciones se pueden restringir en el nivel de plantilla. Para obtener más información sobre las diferencias, vea [este documento](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Consulta
 
-Las plantillas de página de aterrizaje admiten los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Estos extremos devuelven metadatos para las plantillas. La recuperación del contenido del HTML de las plantillas debe realizarse por plantilla a través de su ID.
+Las plantillas de página de aterrizaje admiten los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Estos extremos devuelven metadatos para las plantillas. La recuperación del contenido del HTML de las plantillas debe realizarse por plantilla a través de su ID.
 
 ## Crear y actualizar
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-El contenido de la plantilla debe rellenarse por separado mediante la variable [Actualizar contenido de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) punto final.
+El contenido de la plantilla debe rellenarse por separado mediante el punto de conexión [Actualizar contenido de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST).
 
 ### Actualizar metadatos
 
-Los metadatos de las plantillas de página de aterrizaje se pueden actualizar mediante el [Actualizar metadatos de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) punto final. El nombre, la descripción y la configuración de enableMunchkin pueden actualizarse de esta manera.
+Los metadatos de las plantillas de página de aterrizaje se pueden actualizar a través del punto de conexión [Actualizar metadatos de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST). El nombre, la descripción y la configuración de enableMunchkin pueden actualizarse de esta manera.
 
 ### Actualizar contenido
 
@@ -114,13 +114,13 @@ Content-Type: text/plain
 
 Marketo proporciona un método sencillo para clonar plantillas de página de aterrizaje. Esta es una solicitud de POST application/x-www-url-formencoded.
 
-El `id` El parámetro de ruta especifica el ID de la plantilla de página de aterrizaje de origen que se va a clonar.
+El parámetro de ruta de acceso `id` especifica el identificador de la plantilla de página de aterrizaje de origen que se va a clonar.
 
-El `name` para especificar el nombre de la nueva plantilla de página de aterrizaje.
+El parámetro `name` se usa para especificar el nombre de la nueva plantilla de página de aterrizaje.
 
-El `folder` se utiliza para especificar la carpeta principal donde residirá la nueva plantilla de página de aterrizaje. Tiene la forma de un objeto JSON incrustado que contiene  `id` y `type`.
+El parámetro `folder` se usa para especificar la carpeta principal donde residirá la nueva plantilla de página de aterrizaje. Tiene la forma de un objeto JSON incrustado que contiene  `id` y `type`.
 
-El opcional `description` para describir la nueva plantilla de página de aterrizaje.
+El parámetro opcional `description` se usa para describir la nueva plantilla de página de aterrizaje.
 
 ```
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
@@ -167,7 +167,7 @@ Las plantillas de página de aterrizaje siguen el modelo estándar de borrador a
 
 Para que una plantilla se apruebe, debe cumplir las reglas de su tipo, ya sea guiada por la forma libre. Para obtener más información sobre los requisitos para crear y aprobar plantillas de sus respectivos tipos, consulte sus respectivos documentos de creación:
 
-- [Plantillas de página de aterrizaje de forma libre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Plantillas de página de aterrizaje de forma gratuita](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
 - [Plantillas de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
 - [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 

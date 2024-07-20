@@ -1,27 +1,27 @@
 ---
-title: "syncLead"
+title: syncLead
 feature: SOAP
-description: "syncLead llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP syncLead llamadas a la
+exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 2%
 
 ---
 
-
 # syncLean
 
 Esta función inserta o actualiza un único registro de posibles clientes. Al actualizar un posible cliente existente, este se identifica con una de las siguientes claves:
 
 - Identificación de Marketo
-- ID de sistema externo (implementado como) `foreignSysPersonId`)
+- ID de sistema externo (implementado como `foreignSysPersonId`)
 - Cookie de Marketo (creada por el script JS de Munchkin)
 - Correo electrónico
 
 Si se encuentra una coincidencia existente, la llamada realiza una actualización. Si no es así, inserta y crea un posible cliente. Los posibles clientes anónimos se pueden actualizar con el ID de cookie de Marketo y se conocerán tras la actualización.
 
-Excepto el correo electrónico, todos estos identificadores se tratan como claves únicas. El ID de Marketo tiene prioridad sobre el resto de claves. Si ambos `foreignSysPersonId` y el Marketo ID están presentes en el registro de posibles clientes, el Marketo ID tiene prioridad y la variable `foreignSysPersonId` se actualizará para ese posible cliente. Si la variable `foreignSysPersonId` se proporciona y luego se utiliza como identificador único. Si ambos `foreignSysPersonId` y el correo electrónico están presentes, pero el Marketo ID no, el `foreignSysPersonId` tiene prioridad y el correo electrónico se actualizará para ese posible cliente.
+Excepto el correo electrónico, todos estos identificadores se tratan como claves únicas. El ID de Marketo tiene prioridad sobre el resto de claves. Si tanto `foreignSysPersonId` como el Marketo ID están presentes en el registro de posibles clientes, el Marketo ID tiene prioridad y `foreignSysPersonId` se actualizará para ese posible cliente. Si se proporciona el único `foreignSysPersonId`, se utiliza como identificador único. Si tanto `foreignSysPersonId` como el correo electrónico están presentes pero el Marketo ID no está presente, el `foreignSysPersonId` tiene prioridad y el correo electrónico se actualizará para ese posible cliente.
 
 De forma opcional, se puede especificar una cabecera de contexto para asignar un nombre al espacio de trabajo de destino.
 
@@ -42,14 +42,14 @@ Si los espacios de trabajo de Marketo NO están activados, el espacio de trabajo
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 | --- | --- | --- |
-| leadRecord->Id | Obligatorio: solo cuando se envía por correo electrónico o `foreignSysPersonId` no está presente | El ID de Marketo del registro de posibles clientes |
-| leadRecord->Correo electrónico | Obligatorio: Solo cuando el ID o el `foreignSysPersonId` no está presente | La dirección de correo electrónico asociada al registro de posibles clientes |
+| leadRecord->Id | Obligatorio: solo cuando el correo electrónico o `foreignSysPersonId` no están presentes | El ID de Marketo del registro de posibles clientes |
+| leadRecord->Correo electrónico | Obligatorio: solo cuando el identificador o `foreignSysPersonId` no están presentes | La dirección de correo electrónico asociada al registro de posibles clientes |
 | leadRecord->`foreignSysPersonId` | Obligatorio: Solo cuando el ID o el correo electrónico no están presentes | Identificador del sistema externo asociado al registro de posibles clientes |
 | leadRecord->ForeignSysType | Opcional: solo es necesario cuando `foreignSysPersonId` está presente | El tipo de sistema externo. Valores posibles: CUSTOM, SFDC, NETSUITE |
 | leadRecord->leadAttributeList->attribute->attrName | Obligatorio | El nombre del atributo de posible cliente cuyo valor desea actualizar. |
 | leadRecord->leadAttributeList->attribute->attrValue | Obligatorio | El valor que desea establecer en el atributo de posible cliente especificado en attrName. |
 | returnLead | Obligatorio | Cuando es true, devuelve el registro de posibles clientes actualizado completo tras la actualización. |
-| marketoCookie | opcional | El [Javascript de Munchkin](../javascript-api/lead-tracking.md) cookie |
+| marketoCookie | opcional | La cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
 
 ## Solicitar XML
 

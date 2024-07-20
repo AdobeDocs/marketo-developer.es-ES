@@ -1,18 +1,18 @@
 ---
-title: "listMObjects"
+title: listMObjects
 feature: SOAP
-description: "listMObjects llamadas SOAP"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP llamadas a listMObjects de
+exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '48'
 ht-degree: 2%
 
 ---
 
-
 # listMObjects
 
-Esta función devuelve los nombres de los objetos Marketo que pueden utilizarse como entrada en la variable [describeMObjects](./describemobject.md) para operaciones de detección de esquemas.
+Esta función devuelve los nombres de los objetos Marketo que pueden utilizarse como entrada en la función [describeMObjects](./describemobject.md) para las operaciones de detección de esquemas.
 
 ## Solicitud
 

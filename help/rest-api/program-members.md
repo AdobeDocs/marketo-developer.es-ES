@@ -1,24 +1,24 @@
 ---
-title: "Miembros del programa"
+title: Miembros del programa
 feature: REST API
-description: '"Crear y administrar miembros del programa".'
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Crear y administrar miembros del programa.
+exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1712'
 ht-degree: 0%
 
 ---
 
-
 # Miembros del programa
 
-[Referencia de extremo de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
+[Referencia de extremo de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo expone las API para leer, crear, actualizar y eliminar registros de miembros del programa. Los registros de miembros del programa están relacionados con los registros de posibles clientes a través del campo de ID de posible cliente. Los registros están compuestos por un conjunto de campos estándar y, opcionalmente, hasta 20 campos personalizados adicionales. Los campos contienen datos específicos del programa para cada miembro y se pueden utilizar en formularios, filtros, déclencheur y acciones de flujo. Estos datos se pueden ver en el [Pestaña Miembros](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) en la interfaz de usuario de Marketo Engage.
+Marketo expone las API para leer, crear, actualizar y eliminar registros de miembros del programa. Los registros de miembros del programa están relacionados con los registros de posibles clientes a través del campo de ID de posible cliente. Los registros están compuestos por un conjunto de campos estándar y, opcionalmente, hasta 20 campos personalizados adicionales. Los campos contienen datos específicos del programa para cada miembro y se pueden utilizar en formularios, filtros, déclencheur y acciones de flujo. Estos datos se pueden ver en la [ficha Miembros](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) del programa en la interfaz de usuario de Marketo Engage.
 
 ## Describir
 
-El [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) El punto de conexión sigue el patrón estándar para objetos de base de datos de posibles clientes. El `searchableFields` matriz proporciona el conjunto de campos válidos para la consulta. El `fields` La matriz contiene metadatos de campo, incluido el nombre de la API de REST, el nombre para mostrar y la capacidad de actualización de campos.
+El extremo [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) sigue el patrón estándar para los objetos de la base de datos de posibles clientes. La matriz `searchableFields` le proporciona el conjunto de campos válidos para la consulta. La matriz `fields` contiene metadatos de campo, incluido el nombre de la API de REST, el nombre para mostrar y la capacidad de actualización de campos.
 
 ```
 GET /rest/v1/programs/members/describe.json
@@ -209,26 +209,26 @@ GET /rest/v1/programs/members/describe.json
 
 ## Consulta
 
-El [Obtener miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) El punto de conexión permite recuperar miembros de un programa. Requiere un `programId` parámetro de ruta y `filterType` y `filterValues` parámetros de consulta.
+El extremo [Obtener miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) le permite recuperar miembros de un programa. Requiere un parámetro de ruta de acceso `programId` y `filterType` y `filterValues` parámetros de consulta.
 
-`programId` se utiliza para especificar qué programa buscar.
+`programId` se usa para especificar qué programa buscar.
 
-`filterType` se utiliza para especificar qué campo utilizar como filtro de búsqueda. Acepta cualquier campo de la lista &quot;searchableFields&quot; devuelta por el [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) punto final. Si especifica un filterType que es un campo personalizado, el dataType del campo personalizado debe ser &quot;string&quot; o &quot;integer&quot;. Si especifica un filterType distinto de &quot;leadId&quot;, la solicitud puede procesar un máximo de 100 000 registros de miembros del programa. Según la configuración de la instancia de Marketo, recibirá uno de los siguientes errores:
+`filterType` se usa para especificar qué campo usar como filtro de búsqueda. Acepta cualquier campo de la lista &quot;searchableFields&quot; devuelta por el extremo [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2). Si especifica un filterType que es un campo personalizado, el dataType del campo personalizado debe ser &quot;string&quot; o &quot;integer&quot;. Si especifica un filterType distinto de &quot;leadId&quot;, la solicitud puede procesar un máximo de 100 000 registros de miembros del programa. Según la configuración de la instancia de Marketo, recibirá uno de los siguientes errores:
 
 - Si el número total de miembros del programa supera los 100 000, se devuelve un error: &quot;1003, Total de miembros: 100 001 supera el límite permitido de 100 000 para el filtro&quot;.
-- Si el número total de miembros del programa _que coinciden con el filtro_ supera los 100 000, se devuelve un error: &quot;1003, Tamaño del abono coincidente: 100 001 supera el límite permitido (100 000) para esta api&quot;.
+- Si el número total de miembros del programa _que coinciden con el filtro_ supera los 100 000, se devuelve el siguiente error: &quot;1003, Tamaño de pertenencia coincidente: 100 001 supera el límite permitido (100 000) para esta API&quot;.
 
-Para consultar un programa cuyo recuento de miembros supere el límite, utilice el [API de extracción de miembro de programa en masa](bulk-program-member-extract.md) en su lugar.
+Para consultar un programa cuyo recuento de miembros exceda el límite, use la [API de extracción masiva de miembros del programa](bulk-program-member-extract.md) en su lugar.
 
-`filterValues` se utiliza para especificar qué valores buscar y acepta hasta 300 valores en un formato separado por comas. La llamada busca los registros en los que el campo del miembro del programa coincide con uno de los filterValues incluidos.
+`filterValues` se usa para especificar qué valores buscar y acepta hasta 300 valores en un formato separado por comas. La llamada busca los registros en los que el campo del miembro del programa coincide con uno de los filterValues incluidos.
 
-También puede filtrar por intervalo de fechas especificando `updatedAt` as filterType with `startAt` y `endAt` parámetros datetime. El intervalo debe ser de siete días o menos. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos.
+Como alternativa, puede filtrar por intervalo de fechas especificando `updatedAt` como filterType con `startAt` y `endAt` parámetros datetime. El intervalo debe ser de siete días o menos. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos.
 
-El opcional `fields` El parámetro de consulta acepta una lista separada por comas de nombres de API de campo que devuelve el [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) punto final. Cuando se incluye, cada registro de la respuesta incluye los campos especificados. Si se omite, el conjunto predeterminado de campos que se devuelve es `acquiredBy`, `leadId`, `membershipDate`, `programId`, y `reachedSuccess`.
+El parámetro de consulta opcional `fields` acepta una lista separada por comas de nombres de API de campo que devolvió el extremo [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2). Cuando se incluye, cada registro de la respuesta incluye los campos especificados. Si se omite, se devuelve el conjunto predeterminado de campos: `acquiredBy`, `leadId`, `membershipDate`, `programId` y `reachedSuccess`.
 
-De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el complemento `batchSize` parámetro de consulta para reducir este número. Si la variable **moreResult** el atributo es true, lo que significa que hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El `nextPageToken` Los resultados devueltos por esta API siempre deben reutilizarse para la siguiente iteración de esta llamada.
+De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el parámetro de consulta `batchSize` para reducir este número. Si el atributo **moreResult** es true, hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. Los `nextPageToken` devueltos por esta API siempre se deben reutilizar para la siguiente iteración de esta llamada.
 
-Si la longitud total de la solicitud de GET supera los 8 KB, se devuelve un error HTTP: &quot;414, URI too long&quot; (per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc72316.5.12)). Como solución alternativa, puede cambiar el GET a POST y agregar lo siguiente `_method=GET` y coloque la cadena de consulta en el cuerpo de la solicitud.
+Si la longitud total de la solicitud de GET excede los 8 KB, se devuelve el siguiente error HTTP: &quot;414, URI too long&quot; (por [RFC 7231](https://datatracker.ietf.org/doc/html/rfc72316.5.12)). Como solución alternativa, puede cambiar el GET a POST, agregar el parámetro `_method=GET` y colocar la cadena de consulta en el cuerpo de la solicitud.
 
 ```
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced
@@ -346,15 +346,15 @@ Existen dos extremos que admiten la operación de creación o actualización en 
 
 ### Estado de miembro del programa
 
-El [Estado de miembro del programa de sincronización](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) extremo se utiliza para crear o actualizar el estado del programa para uno o varios miembros.
+El punto de conexión [Estado de miembro del programa de sincronización](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) se usa para crear o actualizar el estado del programa para uno o varios miembros.
 
-El requerido `programId` parámetro path especifica el programa que contiene los miembros que se van a crear o actualizar.
+El parámetro de ruta de acceso `programId` requerido especifica el programa que contiene los miembros que se van a crear o actualizar.
 
-El requerido `statusName` parámetro especifica el estado del programa que se aplicará a una lista de posibles clientes. El statusName debe coincidir con un estado disponible para el canal del programa. Los estados válidos se pueden recuperar mediante la variable [Obtener canales](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels/operation/getAllChannelsUsingGET) punto final. Si el estado de un posible cliente tiene un valor de paso mayor que el statusName designado, ese posible cliente se omitirá.
+El parámetro `statusName` requerido especifica el estado del programa que se aplicará a una lista de posibles clientes. El statusName debe coincidir con un estado disponible para el canal del programa. Se pueden recuperar los estados válidos mediante el extremo [Get Channels](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels/operation/getAllChannelsUsingGET). Si el estado de un posible cliente tiene un valor de paso mayor que el statusName designado, ese posible cliente se omitirá.
 
-El requerido `input` El parámetro es una matriz de `leadId` que corresponden a miembros del programa. Puede enviar hasta 300 leadIds por llamada. Se realiza una operación de actualización en cada registro. Si el leadId está asociado con un miembro del programa, se actualiza su estado de pertenencia. Si no es así, se crea un nuevo registro de miembro del programa, el registro se asocia al leadId y se asigna el estado de pertenencia.
+El parámetro `input` requerido es una matriz de `leadId` que corresponde a miembros del programa. Puede enviar hasta 300 leadIds por llamada. Se realiza una operación de actualización en cada registro. Si el leadId está asociado con un miembro del programa, se actualiza su estado de pertenencia. Si no es así, se crea un nuevo registro de miembro del programa, el registro se asocia al leadId y se asigna el estado de pertenencia.
 
-El punto final responde con una `status` de &quot;actualizado&quot;, &quot;creado&quot; u &quot;omitido&quot;. Si se omite, a `reasons` también se incluirá la matriz. El extremo también responderá con una `seq` field, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
+El extremo responde con un `status` de &quot;actualizado&quot;, &quot;creado&quot; u &quot;omitido&quot;. Si se omite, también se incluirá una matriz `reasons`. El extremo también responderá con un campo `seq`, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
 
 Si la llamada se realiza correctamente, se escribe la actividad &quot;Cambiar estado del programa&quot; en el registro de actividades del posible cliente.
 
@@ -414,13 +414,13 @@ Content-Type: application/json
 
 ### Datos de miembros del programa
 
-El [Sincronizar datos de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) el punto de conexión se utiliza para actualizar los datos del campo de miembro del programa para uno o varios miembros. Puede modificar cualquier campo personalizado o campos estándar que sean &quot;actualizables&quot; (consulte [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) punto final).
+El punto de conexión [Sincronizar datos de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) se usa para actualizar los datos de campo de miembros del programa para uno o varios miembros. Puede modificar cualquier campo personalizado o campos estándar que sean &quot;actualizables&quot; (consulte [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) punto de conexión).
 
-El requerido `programId` parámetro de ruta especifica el programa que contiene los miembros que se van a actualizar.
+El parámetro de ruta de acceso `programId` requerido especifica el programa que contiene los miembros que se van a actualizar.
 
-El requerido `input` El parámetro es una matriz. Cada elemento de matriz contiene un `leadId` y uno o más campos para actualizar (con el nombre de la API). Se realiza una operación de actualización en cada registro. El leadId debe estar asociado con un miembro del programa. Los campos deben ser actualizables. Puede enviar hasta 300 leadIds por llamada.
+El parámetro `input` requerido es una matriz. Cada elemento de matriz contiene un `leadId` y uno o más campos que se van a actualizar (mediante el nombre de la API). Se realiza una operación de actualización en cada registro. El leadId debe estar asociado con un miembro del programa. Los campos deben ser actualizables. Puede enviar hasta 300 leadIds por llamada.
 
-El punto final responde con una `status` de &quot;actualizado&quot; u &quot;omitido&quot;. Si se omite, a `reasons` también se incluirá la matriz. El extremo también responderá con una `seq` field, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
+El extremo responde con un `status` de &quot;actualizado&quot; u &quot;omitido&quot;. Si se omite, también se incluirá una matriz `reasons`. El extremo también responderá con un campo `seq`, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
 
 Si la llamada se realiza correctamente, se escribe la actividad &quot;Cambiar datos de miembros del programa&quot; en el registro de actividades del posible cliente.
 
@@ -484,7 +484,7 @@ Content-Type: application/json
 
 El objeto de miembro de programa contiene campos estándar y campos personalizados opcionales. Los campos estándar están presentes en cada suscripción de Marketo Engage, mientras que el usuario crea los campos personalizados según sea necesario. Cada definición de campo está compuesta por un conjunto de atributos que describen el campo. Algunos ejemplos de atributos son nombre para mostrar, nombre de API y dataType. Estos atributos se conocen colectivamente como metadatos.
 
-Los siguientes extremos permiten consultar, crear y actualizar campos en el objeto de miembro de programa. Estas API requieren que el usuario de la API propietaria tenga una función con uno o ambos **Campo estándar de esquema de lectura-escritura** o **Campo personalizado de esquema de lectura-escritura** permisos.
+Los siguientes extremos permiten consultar, crear y actualizar campos en el objeto de miembro de programa. Estas API requieren que el usuario de la API propietaria tenga una función con uno o ambos de los permisos **Campo estándar de esquema de lectura-escritura** o **Campo personalizado de esquema de lectura-escritura**.
 
 ### Campos de consulta
 
@@ -492,7 +492,7 @@ La consulta de los campos de miembros del programa es sencilla. Puede consultar 
 
 #### Por nombre
 
-El [Obtener campo de miembro del programa por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) extremo recupera los metadatos de un único campo en el objeto de miembro de programa. El requerido `fieldApiName` El parámetro path especifica el nombre de API del campo. La respuesta es como el punto final Describir miembro del programa, pero contiene metadatos adicionales como `isCustom` atributo que indica si el campo es un campo personalizado.
+El extremo [Obtener campo de miembro del programa por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de miembro del programa. El parámetro de ruta de acceso obligatorio `fieldApiName` especifica el nombre de API del campo. La respuesta es como el extremo Describir miembro del programa, pero contiene metadatos adicionales como el atributo `isCustom` que indica si el campo es un campo personalizado.
 
 ```
 GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
@@ -521,7 +521,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 #### Examinar
 
-El [Obtener campos de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) extremo recupera los metadatos de todos los campos del objeto miembro del programa. De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el complemento `batchSize` parámetro de consulta para reducir este número. Si la variable `moreResult` el atributo es true, lo que significa que hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El `nextPageToken` Los resultados devueltos por esta API siempre deben reutilizarse para la siguiente iteración de esta llamada.
+El extremo [Obtener campos de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) recupera los metadatos de todos los campos del objeto de miembro del programa. De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el parámetro de consulta `batchSize` para reducir este número. Si el atributo `moreResult` es true, significa que hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. Los `nextPageToken` devueltos por esta API siempre se deben reutilizar para la siguiente iteración de esta llamada.
 
 ```
 GET /rest/v1/programs/members/schema/fields.json?batchSize=5
@@ -597,13 +597,13 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Crear campos
 
-El [Crear campos de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) extremo crea uno o varios campos personalizados en el objeto de miembro de programa. Este extremo proporciona una funcionalidad comparable a la [disponible en la interfaz de usuario de Marketo Engage](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Puede crear un máximo de 20 campos personalizados con este extremo.
+El extremo [Crear campos de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) crea uno o varios campos personalizados en el objeto de miembro de programa. Este extremo proporciona una funcionalidad comparable a la que está [disponible en la interfaz de usuario del Marketo Engage](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Puede crear un máximo de 20 campos personalizados con este extremo.
 
-Tenga en cuenta cuidadosamente cada campo que cree en la instancia de producción de Marketo Engage mediante la API. Una vez creado un campo, no se puede eliminar ([sólo puede ocultarlo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). La proliferación de campos no utilizados es una mala práctica que añadirá desorden a su instancia.
+Tenga en cuenta cuidadosamente cada campo que cree en la instancia de producción de Marketo Engage mediante la API. Una vez creado un campo, no se puede eliminar ([sólo se puede ocultar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). La proliferación de campos no utilizados es una mala práctica que añadirá desorden a su instancia.
 
-El requerido `input` parameter es una matriz de objetos de campo de miembros de programa. Cada objeto contiene uno o más atributos. Los atributos requeridos son `displayName`, `name`, y `dataType` que corresponden al nombre para mostrar del campo en la interfaz de usuario, al nombre de API del campo y al tipo de campo respectivamente. Si lo desea, puede especificar `description`, `isHidden`, `isHtmlEncodingInEmail`,y `isSensitive`.
+El parámetro `input` requerido es una matriz de objetos de campo de miembros de programa. Cada objeto contiene uno o más atributos. Los atributos requeridos son `displayName`, `name` y `dataType`, que corresponden al nombre para mostrar del campo en la interfaz de usuario, el nombre de API del campo y el tipo de campo respectivamente. Opcionalmente, puede especificar `description`, `isHidden`, `isHtmlEncodingInEmail` y `isSensitive`.
 
-Hay algunas reglas asociadas con `name` y `displayName` nombre. El `name` el atributo debe ser único, comenzar con una letra y contener solo letras, números o guiones bajos. El *`isplayName` debe ser único y no puede contener caracteres especiales. Se debe aplicar una convención de nombres común [maleta de camello](https://en.wikipedia.org/wiki/Camel_case#) hasta `displayName` para producir `name`. Por ejemplo, una `displayName` de &quot;Mi campo personalizado&quot; produciría un `name` de myCustomField.
+Hay algunas reglas asociadas con el nombre de `name` y `displayName`. El atributo `name` debe ser único, comenzar con una letra y contener solo letras, números o guiones bajos. *`isplayName` debe ser único y no puede contener caracteres especiales. Una convención de nombres común es aplicar [minúscula](https://en.wikipedia.org/wiki/Camel_case#) a `displayName` para generar `name`. Por ejemplo, un `displayName` de &quot;Mi campo personalizado&quot; produciría un `name` de &quot;myCustomField&quot;.
 
 ```
 POST /rest/v1/programs/members/schema/fields.json
@@ -637,7 +637,7 @@ POST /rest/v1/programs/members/schema/fields.json
 
 ### Actualizar campo
 
-El [Actualizar campo de miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) el punto de conexión actualiza un único campo personalizado en el objeto de miembro de programa. Por lo general, las operaciones de actualización de campos realizadas con la IU de Marketo Engage se pueden realizar mediante la API. En la tabla siguiente se resumen algunas diferencias.
+El extremo [Actualizar campo de miembro de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) actualiza un único campo personalizado en el objeto de miembro de programa. Por lo general, las operaciones de actualización de campos realizadas con la IU de Marketo Engage se pueden realizar mediante la API. En la tabla siguiente se resumen algunas diferencias.
 
 | Atributo | ¿Actualizable por API? | ¿Actualizable por IU? | ¿Actualizable por API? | ¿Actualizable por IU? |
 |---|---|---|---|---|
@@ -651,7 +651,7 @@ El [Actualizar campo de miembro del programa](https://developer.adobe.com/marke
 | length | no | no | no | no |
 | name | no | no | no | no |
 
-El requerido `fieldApiName` El parámetro path especifica el nombre de API del campo que se va a actualizar. El requerido `input` parameter es una matriz que contiene un solo objeto de campo de posible cliente. El objeto de campo contiene uno o varios atributos.
+El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de API del campo que se va a actualizar. El parámetro `input` requerido es una matriz que contiene un solo objeto de campo de posible cliente. El objeto de campo contiene uno o varios atributos.
 
 ```
 POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
@@ -684,9 +684,9 @@ POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 
 ## Eliminar
 
-El [Eliminar miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/deleteProgramMemberUsingPOST) el extremo se utiliza para eliminar registros de miembros del programa. El requerido `programId` parámetro de ruta especifica el programa que contiene los miembros que se van a eliminar. El cuerpo de la solicitud contiene un `input` matriz de id de posibles clientes. Se permite un máximo de 300 ID de posible cliente por llamada.
+El punto de conexión [Eliminar miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/deleteProgramMemberUsingPOST) se usa para eliminar registros de miembros del programa. El parámetro de ruta de acceso `programId` requerido especifica el programa que contiene los miembros que se van a eliminar. El cuerpo de la solicitud contiene una matriz `input` de identificadores de posibles clientes. Un máximo de 300 ID de posibles clientes  se permiten por llamada.
 
-El punto final responde con una `status` de &quot;eliminado&quot; o &quot;omitido&quot;. Si se omite, a `reasons` también se incluirá la matriz. El extremo también responderá con una `seq` field, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
+El extremo responde con un `status` de &quot;eliminado&quot; u &quot;omitido&quot;. Si se omite, también se incluirá una matriz `reasons`. El extremo también responderá con un campo `seq`, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
 
 ```
 POST /rest/v1/programs/{programId}/members/delete.json

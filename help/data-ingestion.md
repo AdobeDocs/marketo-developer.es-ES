@@ -13,11 +13,11 @@ ht-degree: 11%
 
 La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad diseñado para gestionar de forma eficaz y con mínimos retrasos la ingesta de grandes cantidades de datos relacionados con personas y personas. 
 
-Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos del [Flujo de datos de observabilidad Marketo](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/).&#x200B;
+Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/).&#x200B;
 
 Las interfaces se ofrecen para dos tipos de objetos: Personas y Objetos personalizados. La operación de registro es sólo &quot;insertar o actualizar&quot;.
 
-La API de ingesta de datos está en versión beta privada. Los invitados deben tener un derecho para [Paquete de nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+La API de ingesta de datos está en versión beta privada. Los invitados deben tener derecho a [Paquete de nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Autenticación
 
@@ -61,7 +61,7 @@ La representación de datos se incluye en el cuerpo de la solicitud como applica
 
 El nombre de dominio es: `mkto-ingestion-api.adobe.io`
 
-La ruta comienza por `/subscriptions/_MunchkinId_` donde `_MunchkinId_` es específico de la instancia de Marketo. Puede encontrar su ID de Munchkin en la interfaz de usuario de Marketo Engage en **Administrador** >**Mi cuenta** > **Información de soporte**. El resto de la ruta se utiliza para especificar el recurso de interés.
+La ruta de acceso comienza por `/subscriptions/_MunchkinId_`, donde `_MunchkinId_` es específico de la instancia de Marketo. Puede encontrar su ID de Munchkin en la interfaz de usuario de Marketo Engage en **Administración** >**Mi cuenta** > **Información de asistencia**. El resto de la ruta se utiliza para especificar el recurso de interés.
 
 Ejemplo de URL para personas:
 
@@ -73,7 +73,7 @@ Ejemplo de URL para objetos personalizados:
 
 ## Respuestas
 
-Todas las respuestas devuelven un ID de solicitud único a través de `X-Request-Id` encabezado.
+Todas las respuestas devuelven un identificador de solicitud único a través del encabezado `X-Request-Id`.
 
 Ejemplo de ID de solicitud mediante encabezado:
 
@@ -89,7 +89,7 @@ Ejemplo de respuesta de éxito:
 
 ### Error
 
-Cuando una llamada produce un error, se devuelve un estado que no es 202 junto con un cuerpo de respuesta con detalles de error adicionales. El cuerpo de respuesta es application/json y contiene un único objeto con miembros `error_code` y `message`.
+Cuando una llamada produce un error, se devuelve un estado que no es 202 junto con un cuerpo de respuesta con detalles de error adicionales. El cuerpo de la respuesta es application/json y contiene un único objeto con los miembros `error_code` y `message`.
 
 A continuación se muestran códigos de error reutilizados de Adobe Developer Gateway.
 
@@ -145,7 +145,7 @@ Cuerpo de solicitud
 |---|---|---|---|---|
 | prioridad | Cadena | No | Prioridad de la solicitud: normal alta | normal |
 | partitionName | Cadena | No | Nombre de la partición de persona | Predeterminado |
-| deduplicarCampos | Objeto | No | Atributos en los que deduplicar. Se permiten uno o dos nombres de atributo. En una operación AND se utilizan dos atributos. Por ejemplo, si tanto `email` y `firstName` se especifican y se utilizan para buscar una persona mediante la operación AND. Los atributos admitidos son:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` atributos (&quot;cadena&quot; y &quot;entero&quot; solo) | correo electrónico |
+| deduplicarCampos | Objeto | No | Atributos en los que deduplicar. Se permiten uno o dos nombres de atributo. En una operación AND se utilizan dos atributos. Por ejemplo, si se especifican `email` y `firstName`, ambos se utilizarán para buscar a una persona mediante la operación AND. Los atributos admitidos son: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` atributos (solo de tipo &quot;cadena&quot; y &quot;entero&quot;) | correo electrónico |
 | personas | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo de la persona | - |
 
 | Permiso |
@@ -224,7 +224,7 @@ Cuerpo de solicitud
 
 #### Persona No Presente
 
-Si se especifica un campo de vínculo a una persona en la solicitud y esa persona no existe, se producen varios reintentos. Si esa persona se añade durante la ventana de reintento (65 minutos), la actualización se realiza correctamente. Por ejemplo, si el campo de vínculo es `email` en Persona, y la Persona no existe, y luego se producen reintentos.
+Si se especifica un campo de vínculo a una persona en la solicitud y esa persona no existe, se producen varios reintentos. Si esa persona se añade durante la ventana de reintento (65 minutos), la actualización se realiza correctamente. Por ejemplo, si el campo de vínculo es `email` en Persona y la persona no existe, se producen reintentos.
 
 #### Ejemplo de objetos personalizados
 
@@ -279,10 +279,10 @@ Esta es una lista de uso de protecciones:
 Esta es una lista de diferencias entre la API de ingesta de datos y otras API de REST de Marketo:
 
 - Esta no es una interfaz CRUD completa, solo admite &quot;upsert&quot;
-- Para autenticarse, debe pasar el token de acceso utilizando `X-Mkto-User-Token` encabezado
+- Para autenticarse, debe pasar el token de acceso mediante el encabezado `X-Mkto-User-Token`
 - El nombre de dominio de URL es `mkto-ingestion-api.adobe.io`
-- La ruta de la URL empieza por `/subscriptions/_MunchkinId_`
+- La ruta de la dirección URL comienza por `/subscriptions/_MunchkinId_`
 - No hay parámetros de consulta
 - Si la llamada se realiza correctamente, devuelve un estado 202 y el cuerpo de la respuesta está vacío
-- Si la llamada falla, se devuelve un estado que no es 202 y el cuerpo de la respuesta contiene `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
-- El ID de solicitud se devuelve mediante `X-Request-Id` encabezado
+- Si falla la llamada, se devuelve un estado que no es 202 y el cuerpo de la respuesta contiene `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
+- El identificador de solicitud se devuelve a través del encabezado `X-Request-Id`

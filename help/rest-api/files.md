@@ -1,14 +1,14 @@
 ---
-title: "Archivos"
+title: Archivos
 feature: REST API
-description: '"Almacenamiento y manipulación de archivos de Marketo".'
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Almacenar y manipular archivos de Marketo.
+exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '267'
 ht-degree: 1%
 
 ---
-
 
 # Archivos
 
@@ -18,7 +18,7 @@ Las suscripciones a Marketo permiten el almacenamiento de archivos arbitrarios c
 
 ## Consulta
 
-La consulta de archivos es sencilla y sigue los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+La consulta de archivos es sencilla y sigue los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
 
 ### Por ID
 
@@ -53,7 +53,7 @@ GET /rest/asset/v1/file/{id}.json
 
 ### Por nombre
 
-Especifique el nombre del archivo con el requerido `name` parámetro.
+Especifique el nombre del archivo utilizando el parámetro `name` requerido.
 
 ```
 GET /rest/asset/v1/file/byName.json?name=foo.png
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Crear y actualizar
 
-[Creación de un archivo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) se realiza con un tipo de solicitud multipart/form-data. Como mínimo, el nombre, la carpeta y el archivo son obligatorios en la solicitud, con una descripción opcional y un indicador insertOnly, que impide que una llamada de creación actualice un archivo existente con el mismo nombre. Para el parámetro de archivo, se requiere un &quot;nombre de archivo&quot; en el encabezado Content-Disposition, además del parámetro name. También debe pasar un encabezado de tipo de contenido para el archivo, que será el tipo MIME que Marketo utilizará para entregar el archivo.
+[La creación de un archivo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) se completó con una solicitud de tipo multipart/form-data. Como mínimo, el nombre, la carpeta y el archivo son obligatorios en la solicitud, con una descripción opcional y un indicador insertOnly, que impide que una llamada de creación actualice un archivo existente con el mismo nombre. Para el parámetro de archivo, se requiere un &quot;nombre de archivo&quot; en el encabezado Content-Disposition, además del parámetro name. También debe pasar un encabezado de tipo de contenido para el archivo, que será el tipo MIME que Marketo utilizará para entregar el archivo.
 
 ```
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[Actualización de un archivo](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) se puede hacer en función de su id. El único parámetro es un parámetro de archivo que tiene los mismos requisitos que la creación.
+[La actualización de un archivo](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) se puede realizar según su identificador. El único parámetro es un parámetro de archivo que tiene los mismos requisitos que la creación.
 
 ```
 POST /rest/asset/v1/file/{id}/content.json

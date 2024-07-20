@@ -1,18 +1,18 @@
 ---
 title: Social
-description: "Social"
+description: Social
 feature: Social, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 4%
 
 ---
 
-
 # Social
 
-[Marketo Social Marketing](https://business.adobe.com/products/marketo/social-marketing.html) permite a los especialistas en marketing incrustar widgets sociales en sitios web y páginas de aterrizaje. Los widgets sociales incluyen encuestas, botones para compartir en redes sociales, vídeos, sorteos y promociones como ofertas de referencia.
+[Marketo Social Marketing](https://business.adobe.com/products/marketo/social-marketing.html) permite a los especialistas en mercadotecnia incrustar widgets sociales en sitios web y páginas de aterrizaje. Los widgets sociales incluyen encuestas, botones para compartir en redes sociales, vídeos, sorteos y promociones como ofertas de referencia.
 
 ## Widget de recursos compartidos incrustados de muestra
 
@@ -28,7 +28,7 @@ ht-degree: 4%
 </divclass='cf_widgetloader'>
 ```
 
-![social-share-widget](assets/social-share-widget.png)
+![widget para compartir en redes sociales](assets/social-share-widget.png)
 
 Existen dos métodos básicos para la personalización de un widget social:
 
@@ -37,7 +37,7 @@ Existen dos métodos básicos para la personalización de un widget social:
 
 ## Adjuntar eventos a la IU normal
 
-Existen dos formas de suscribirse a eventos en la biblioteca JavaScript de CF, globalmente o para un solo widget. Los eventos se documentan a continuación en la tabla de eventos.
+Existen dos formas de suscribirse a eventos en la biblioteca JavaScript de CF, a nivel global o para un solo widget. Los eventos se documentan a continuación en la tabla de eventos.
 
 ### Suscripción a evento global
 
@@ -92,16 +92,16 @@ Este ejemplo muestra un elemento oculto anteriormente con el ID &quot;signedUp&q
 | --- | --- | --- | --- | 
 | share_sent | Se activa cada vez que se envía una solicitud compartida al servidor para su procesamiento | Todos los widgets que tienen la capacidad de compartir | 1&quot;.share_sent&quot; (String)<br>2. Parameters sent (objeto) |
 | share_success | Se activa cuando la solicitud de uso compartido se procesa correctamente. | Todos los widgets que tienen la capacidad de compartir. | 1&quot;.share_success&quot; (String)<br>2. Objeto de respuesta Compartir, que contiene el mensaje enviado y la URL abreviada (objeto) |
-| vote_success | Se activa cuando un usuario ha votado correctamente en una encuesta. | Widgets de encuesta, VS y voto | 1. &quot;vote_success&quot; (cadena)<br>2. Elemento votado, incluido título, descripción, identificador de entidad (objeto) |
-| offer_enrolled | Se activa cuando un usuario se ha inscrito correctamente en una oferta | Todos los widgets de oferta | 1&quot;.offer_enrolled&quot; (cadena)<br>2. Propiedades de usuario modificadas (objeto),<br>3. Atributos de usuario modificados (objeto) |
-| profile_saved | Se activa cuando un usuario ha actualizado su perfil a partir de la captura de perfil | Todos los widgets que no son de oferta y que tienen la captura de perfil habilitada | 1&quot;.profile_saved&quot; (String)<br>2. Changed user properties (objeto)<br>3. Atributos de usuario modificados (objeto) |
+| vote_success | Se activa cuando un usuario ha votado correctamente en una encuesta. | Widgets de encuesta, VS y voto | 1. &quot;vote_success&quot; (String)<br>2. Elemento votado, incluido título, descripción, identificador de entidad (objeto) |
+| offer_enrolled | Se activa cuando un usuario se ha inscrito correctamente en una oferta | Todos los widgets de oferta | 1&quot;.offer_enrolled&quot; (String)<br>2. Se cambiaron las propiedades de usuario (objeto),<br>3. Atributos de usuario modificados (objeto) |
+| profile_saved | Se activa cuando un usuario ha actualizado su perfil a partir de la captura de perfil | Todos los widgets que no son de oferta y que tienen la captura de perfil habilitada | 1&quot;.profile_saved&quot; (String)<br>2. Se cambiaron las propiedades de usuario (objeto)<br>3. Atributos de usuario modificados (objeto) |
 | video_loaded | Se activa cuando un vídeo incrustado está completamente cargado e inicializado. | Widget de VideoShare | 1. &quot;video_loaded&quot; (String) 2. Elemento &quot;.cf_videoshare_wrap&quot; que contiene el vídeo (objeto jQuery) |
 
 ## Reemplazar la interfaz de usuario con una interfaz de usuario personalizada
 
-Para reemplazar la interfaz de usuario con una interfaz de usuario personalizada, primero debe desactivar la interfaz de usuario normal. Para ello, establezca la opción _popupUIOnly_ hasta _true_. Con esta opción establecida, la IU estándar no se procesará al cargar la página, sino que el widget recuperará sus datos y esperará a que inicie una de sus fases emergentes llamando a _CF.widget.activate_ y proporcionar opciones sobre lo que debe hacer.
+Para reemplazar la interfaz de usuario con una interfaz personalizada, primero debe desactivar la interfaz de usuario normal. Para ello, establezca la opción _popupUIOnly_ en _true_. Con esta opción establecida, la IU estándar no se representará al cargar la página; en su lugar, el widget recupera sus datos y espera a que inicie una de sus fases emergentes llamando a la función _CF.widget.activate_ y proporcionando opciones sobre lo que debe hacer.
 
-A continuación, se muestra un ejemplo de creación de un botón personalizado que inicia el flujo de registro de la oferta de referencia para un widget de oferta de referencia denominado _reference_SignUp_.
+A continuación se muestra un ejemplo de cómo crear un botón personalizado que inicie el flujo de registro de ofertas de referencia para un widget de ofertas de referencia denominado _reference_SignUp_.
 
 ```html
 <button id="myNewSignUpButton">My newSign Up button</button>
@@ -139,9 +139,9 @@ cf_scripts.afterload(function($, CF){
 
 ## Obtención de datos de la IU de widgets para colocarlos en la IU de reemplazo
 
-Si necesita datos sobre el widget para dibujar la interfaz de usuario de reemplazo, puede obtener los datos del evento especial _ui_data_. Puede escuchar este evento con la función normal `CF.widget.listen` , pero esto puede provocar una posible condición de carrera en la que el detector de eventos se añada después de que el widget ya haya activado el evento_ui_data_, por lo que nunca recibirá datos. Para evitar esta carrera, utilice el `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data` se activa siempre que se realiza una acción que hubiera provocado que se redibujara la interfaz de usuario estándar del widget, aunque haya desactivado esa interfaz con `popupUIOnly` opción.
+Si necesita datos sobre el widget para dibujar la interfaz de usuario de reemplazo, puede obtener los datos del evento especial _ui_data_. Puede escuchar este evento con la función normal `CF.widget.listen`, pero hacerlo puede causar una posible condición de carrera en la que el oyente de eventos se agregue después de que el widget ya haya activado el evento_ui_data_, por lo que nunca recibirá datos. Para evitar esta carrera, use el evento `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data` que se activa siempre que se realice una acción que hubiera causado que se redibujara la interfaz de usuario estándar del widget, aunque haya deshabilitado esa interfaz con la opción `popupUIOnly`.
 
-Un ejemplo que utiliza `uiData` para mostrar el número de entradas que un usuario tiene para un sorteo con el nombre de un widget _sweeps_Sweepstakes_.
+Ejemplo que utiliza la función `uiData` para mostrar el número de entradas que un usuario tiene para un sorteo con el nombre de widget _sweeps_Sweepstakes_.
 
 ```html
 <span>You have <span id="entryCount">?</span> entries.</span>

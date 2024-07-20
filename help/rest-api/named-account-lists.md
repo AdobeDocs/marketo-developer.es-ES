@@ -1,14 +1,14 @@
 ---
-title: "Listas de cuentas con nombre"
+title: Listas de cuentas con nombre
 feature: REST API
-description: '"Configurar listas de cuentas con nombre".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Configure listas de cuentas con nombre.
+exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 3%
 
 ---
-
 
 # Listas de cuentas con nombre
 
@@ -37,7 +37,7 @@ Las listas de cuentas con nombre tienen un número limitado de campos estándar 
 
 ## Consulta
 
-La consulta de listas de cuentas es sencilla y sencilla. Actualmente, solo hay dos filterTypes válidos para consultar listas de cuentas con nombre: &quot;dedupeFields&quot; e &quot;idField&quot;. El campo por el que filtrar se establece en la variable `filterType` de la consulta, y los valores se establecen en `filterValues as` una lista separada por comas. El `nextPageToken` y `batchSize` Los filtros también son parámetros opcionales.
+La consulta de listas de cuentas es sencilla y sencilla. Actualmente, solo hay dos filterTypes válidos para consultar listas de cuentas con nombre: &quot;dedupeFields&quot; e &quot;idField&quot;. El campo por el que filtrar se establece en el parámetro `filterType` de la consulta, y los valores se establecen en `filterValues as` en una lista separada por comas. Los filtros `nextPageToken` y `batchSize` también son parámetros opcionales.
 
 ```
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
@@ -74,9 +74,9 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 La creación y actualización de registros de lista de cuentas con nombre sigue los patrones establecidos para otras operaciones de creación y actualización de la base de datos de posibles clientes. Tenga en cuenta que las listas de cuentas con nombre solo tienen un campo actualizable, `name`.
 
-El punto de conexión permite los dos tipos de acción estándar: &quot;createOnly&quot; y &quot;updateOnly&quot;.  El `action defaults` para &quot;createOnly&quot;.
+El punto de conexión permite los dos tipos de acción estándar: &quot;createOnly&quot; y &quot;updateOnly&quot;.  El `action defaults` a &quot;createOnly&quot;.
 
-El opcional `dedupeBy parameter` se puede especificar si la acción es `updateOnly`.  Los valores permitidos son &quot;dedupeFields&quot; (correspondiente a &quot;name&quot;) o &quot;idField&quot; (correspondiente a &quot;marketoGUID&quot;).  Entrada `createOnly` modos, solo se permite &quot;name&quot; como `dedupeBy` field. Puede enviar hasta 300 registros a la vez.
+Se puede especificar el elemento opcional `dedupeBy parameter` si la acción es `updateOnly`.  Los valores permitidos son &quot;dedupeFields&quot; (correspondiente a &quot;name&quot;) o &quot;idField&quot; (correspondiente a &quot;marketoGUID&quot;).  En los modos `createOnly`, solo se permite &quot;name&quot; como campo `dedupeBy`. Puede enviar hasta 300 registros a la vez.
 
 ```
 POST /rest/v1/namedAccountLists.json
@@ -118,7 +118,7 @@ POST /rest/v1/namedAccountLists.json
 
 ## Eliminar
 
-La eliminación de las listas de cuentas con nombre es sencilla y se puede realizar en función de las siguientes opciones `name`, o el `marketoGUID` de la lista. Para seleccionar la clave que desea utilizar, pase &quot;dedupeFields&quot; para name o &quot;idField&quot; para marketoGUID en`deleteB` miembro de su solicitud. Si no se configura, se desduplicará de forma predeterminada. Puede eliminar hasta 300 registros a la vez.
+La eliminación de las listas de cuentas con nombre es sencilla y se puede realizar en función de `name` o de `marketoGUID` de la lista. Para seleccionar la clave que desea utilizar, pase &quot;dedupeFields&quot; para name o &quot;idField&quot; para marketoGUID en el miembro `deleteB` de su solicitud. Si no se configura, se desduplicará de forma predeterminada. Puede eliminar hasta 300 registros a la vez.
 
 ```
 POST /rest/v1/namedAccountLists/delete.json
@@ -170,17 +170,19 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-En caso de que no se encuentre un registro para una clave determinada, el elemento de resultado correspondiente tendrá un`status` de &quot;omitido&quot; y un motivo con un código y un mensaje que describen el error, como se muestra en el ejemplo anterior.
+En caso de que no se encuentre un registro para una clave determinada, el elemento de resultado correspondiente tendrá un `status` de &quot;omitido&quot; y un motivo con un código y un mensaje que describan el error, como se muestra en el ejemplo anterior.
 
 ## Administración de suscripciones
 
 ### Suscripción a consulta
 
-Consultar la pertenencia a una lista de cuentas con nombre es sencillo y requiere únicamente el`i` de la lista de cuentas. Los parámetros opcionales son:
+Consultar la pertenencia a una lista de cuentas con nombre es sencillo y requiere solamente el `i` de la lista de cuentas. Los parámetros opcionales son:
 
--`field` - una lista de campos separados por comas para incluir en los registros de respuesta -`nextPageToke` - para paginar el conjunto de resultados -`batchSiz` - para especificar el número de registros que se van a devolver
+-`field` - una lista de campos separados por comas para incluir en los registros de respuesta
+-`nextPageToke` - para paginar a través del conjunto de resultados
+-`batchSiz` - para especificar el número de registros que se van a devolver
 
-If`field` no está configurado, entonces`marketoGUI`,`nam`, `createdA`, y`updatedA` se devolverán. `batchSiz` tiene un valor máximo y predeterminado de 300.
+Si `field` no está establecido, se devolverán `marketoGUI`,`nam`, `createdA` y`updatedA`. `batchSiz` tiene un valor máximo y predeterminado de 300.
 
 ```
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
@@ -251,7 +253,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Eliminar miembros
 
-La eliminación de registros de una lista de cuentas tiene una ruta diferente, pero la misma interfaz, que requiere un`marketoGUI` para cada registro que desee eliminar. Puede quitar hasta 300 registros a la vez.
+La eliminación de registros de una lista de cuentas tiene una ruta diferente, pero la misma interfaz, que requiere un`marketoGUI` para cada registro que desea eliminar. Puede quitar hasta 300 registros a la vez.
 
 ```
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json

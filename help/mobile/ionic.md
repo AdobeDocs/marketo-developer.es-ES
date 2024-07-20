@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Uso de [!DNL Ionic] con Marketo para dispositivos móviles
+description: Usando  [!DNL Ionic] con Marketo para dispositivos móviles
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -12,19 +12,19 @@ ht-degree: 1%
 
 # Iónico
 
-En este tema se describe cómo integrar el complemento Marketo Cordova. [!DNL Ionic] El condensador no es compatible actualmente.
+En este tema se describe cómo integrar el complemento Marketo Cordova. Actualmente no se admite el condensador [!DNL Ionic].
 
 ## Prerrequisitos
 
-1. [Añadir una aplicación en el administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtener la clave secreta de la aplicación y el ID de Munchkin).
-1. Configuración de notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
-1. Instalar [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [CLI de Cordova](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
+1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
+1. Instalar [[!DNL Ionic]](https://ionicframework.com/getting-started/) y [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Instrucciones de instalación
 
-### Configuración de Marketo [!DNL Ionic] Complemento
+### Configurar el complemento de Marketo [!DNL Ionic]
 
-1. Si la CLI de Cordova está instalada, vaya a su [!DNL Ionic] y ejecute el siguiente comando para añadir el complemento de Marketo a la aplicación:
+1. Si la CLI de Cordova está instalada, vaya al directorio de aplicaciones [!DNL Ionic] y ejecute el siguiente comando para agregar el complemento de Marketo a la aplicación:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -48,7 +48,7 @@ En este tema se describe cómo integrar el complemento Marketo Cordova. [!DNL Io
 
 ### Seguimiento de notificaciones push
 
-Pegue el siguiente código dentro de la variable `application:didFinishLaunchingWithOptions:` función.
+Pegue el siguiente código dentro de la función `application:didFinishLaunchingWithOptions:`.
 
 >[!BEGINTABS]
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Inicializar Marketo Framework
 
-Para asegurarse de que el marco de trabajo de Marketo se inicia al iniciar la aplicación, agregue el siguiente código en `onDeviceReady` en el archivo JavaScript principal.
+Para asegurarse de que el marco de trabajo de Marketo se inicia al iniciar la aplicación, agregue el siguiente código en la función `onDeviceReady` de su archivo JavaScript principal.
 
-Debe pasar `ionicCordova` como tipo de módulo para [!DNL Ionic] Aplicaciones Cordova.
+Debe pasar `ionicCordova` como tipo de módulo para [!DNL Ionic] aplicaciones Cordova.
 
 #### Sintaxis
 
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Llamada de retorno de éxito : función que se ejecuta si la notificación push de Marketo se inicializa correctamente.
 - Función de devolución de llamada de error : que se ejecuta si la notificación push de Marketo no se inicializa.
-- GCM_PROJECT_ID : ID del proyecto GCM encontrado en [Consola de desarrolladores de Google](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) después de crear la aplicación.
+- GCM_PROJECT_ID : Se encontró el ID del proyecto GCM en [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) después de crear la aplicación.
 
 También se puede anular el registro del token al cerrar la sesión.
 
@@ -177,7 +177,7 @@ marketo.associateLead(
 
 ## Acción de informe
 
-Puede informar de cualquier acción realizada por un usuario llamando a la función `reportaction` función.
+Puede informar de cualquier acción realizada por un usuario llamando a la función `reportaction`.
 
 ### Sintaxis
 

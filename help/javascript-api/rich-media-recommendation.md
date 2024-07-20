@@ -1,14 +1,14 @@
 ---
-title: "Recomendación de medios enriquecidos"
-description: "Recomendación de medios enriquecidos"
+title: Recomendación de medios enriquecidos
+description: Recomendación de medios enriquecidos
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 4%
 
 ---
-
 
 # Recomendación de medios enriquecidos
 
@@ -28,7 +28,7 @@ Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs
 | Atributo | Opcional/Requerida | Descripción |
 |---|---|---|
 | clase | Obligatorio | Especifique que este elemento del HTML div es un div de recomendación RTP. |
-| data-rtp-template-id | Obligatorio | ID de la plantilla. Esto determina la alineación de la recomendación. Utilice &quot;template1&quot; para la alineación horizontal, &quot;template2&quot; para la alineación vertical o &quot;template3&quot; para la alineación vertical que incluya únicamente el título y la descripción. La secuencia de comandos inserta la plantilla coincidente en esta `div.Permissible` values: template1, template2, template3. |
+| data-rtp-template-id | Obligatorio | ID de la plantilla. Esto determina la alineación de la recomendación. Utilice &quot;template1&quot; para la alineación horizontal, &quot;template2&quot; para la alineación vertical o &quot;template3&quot; para la alineación vertical que incluya únicamente el título y la descripción. El script inserta la plantilla coincidente en estos `div.Permissible` valores: template1, template2, template3. |
 
 ### Ejemplos
 
@@ -50,11 +50,11 @@ Para mostrar las recomendaciones en alineación vertical solo con título y desc
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Ver capturas de pantalla de alineaciones de plantilla [aquí](#example_of_rich_media_recommendation_template_1).
+Vea capturas de pantalla de las alineaciones de plantilla [aquí](#example_of_rich_media_recommendation_template_1).
 
 ## Rellenar recomendación
 
-Este método rellena todos los medios enriquecidos `<divs>` en la página con recomendaciones.
+Este método rellena todos los medios enriquecidos `<divs>` de la página con recomendaciones.
 
 ### Uso
 
@@ -244,4 +244,4 @@ rtp('get','rcmd', 'richmedia');
 
 #### Ejemplo de #3 de plantilla de recomendación de medios enriquecidos
 
-**Nombre**: plantilla3 **Descripción**: contenido vertical que incluye solo título y descripción. Al pasar el ratón por encima, el encabezado cambia de color y aparece un hipervínculo a la dirección URL de contenido. La descripción también vincula al contenido sin cambiar el color. ![Plantilla de medios enriquecidos](assets/rich-media-template3.png)
+**Nombre**: plantilla3 **Descripción**: contenido vertical que solo incluye título y descripción. Al pasar el ratón por encima, el encabezado cambia de color y aparece un hipervínculo a la dirección URL de contenido. La descripción también vincula al contenido sin cambiar el color. ![Plantilla de medios enriquecidos](assets/rich-media-template3.png)
