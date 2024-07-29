@@ -2,7 +2,7 @@
 title: Ingesta de datos
 feature: REST API, Dynamic Content
 description: Consumir datos con las API de Marketo.
-source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
+source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
 workflow-type: tm+mt
 source-wordcount: '968'
 ht-degree: 11%
@@ -50,7 +50,7 @@ La ingesta de datos utiliza los siguientes encabezados HTTP personalizados.
 ### Respuesta
 
 | Clave | Valor | Requerido |
-| - | - |
+| - | - | - |
 | X-Request-Id | ID único de solicitud. | Sí |
 
 ## Solicitudes
