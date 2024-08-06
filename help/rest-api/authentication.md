@@ -3,9 +3,9 @@ title: Autenticación
 feature: REST API
 description: Autenticación de usuarios de Marketo para el uso de API.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e0fc654efe4501f734ab5158ce0bfd3ed08896ce
 workflow-type: tm+mt
-source-wordcount: '540'
+source-wordcount: '588'
 ht-degree: 0%
 
 ---
@@ -61,6 +61,10 @@ Existen dos métodos que puede utilizar para incluir un token en las llamadas, c
 1. Parámetro de consulta
 
    `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
+
+   >[!IMPORTANT]
+   >
+   >La compatibilidad con la autenticación mediante el parámetro de consulta **access_token** se eliminará en una versión posterior. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
 ## Sugerencias y prácticas recomendadas
 
