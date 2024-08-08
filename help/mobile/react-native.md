@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: Instalación de React Native para Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Este artículo proporciona información sobre cómo instalar y configurar el SDK nativo de Marketo para integrar su aplicación móvil con nuestra plataforma.
 
-## Prerrequisitos
+## Requisitos previos
 
 [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
 
@@ -380,7 +380,6 @@ RNMarketoModule.uninitializeMarketoPush()
 
 #### Configuración de notificaciones push
 
-
 Inicializar push con ID de proyecto y nombre de canal
 
 ```
@@ -388,7 +387,6 @@ RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
 Agregar el siguiente servicio a `AndroidManifest.xml`
-
 
 ```xml
 <service android:exported="true" android:name=".MyFirebaseMessagingService" android:stopWithTask="true">

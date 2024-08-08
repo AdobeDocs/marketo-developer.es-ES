@@ -3,10 +3,10 @@ title: Clientes potenciales
 feature: REST API
 description: Detalles de las llamadas a la API de posibles clientes
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 2c125161cf06be8ebb44ae8212f15fbbe5c1f6b7
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
-source-wordcount: '3308'
-ht-degree: 2%
+source-wordcount: '3343'
+ht-degree: 3%
 
 ---
 
@@ -152,11 +152,19 @@ Tanto el Obtener posible cliente por ID como el Obtener posibles clientes por ti
 
 ## ADOBE ECID
 
-Cuando se habilita la función Compartir audiencias de Adobe Experience Cloud, se produce un proceso de sincronización de cookies que asocia el Adobe Experience Cloud ID (ECID) con posibles clientes de Marketo.  Los métodos de recuperación de posibles clientes mencionados anteriormente se pueden utilizar para recuperar valores ECID asociados.  Para ello, especifique &quot;ecids&quot; en el parámetro fields. Por ejemplo, &quot;&amp;fields=email,firstName,lastName,ecids&quot;.
+Cuando se habilita la función Compartir audiencias de Adobe Experience Cloud, se produce un proceso de sincronización de cookies que asocia el Adobe Experience Cloud ID (ECID) con posibles clientes de Marketo.  Los métodos de recuperación de posibles clientes mencionados anteriormente se pueden utilizar para recuperar valores ECID asociados.  Para ello, especifique `ecids` en el parámetro fields. Por ejemplo, `&fields=email,firstName,lastName,ecids`.
 
 ## Crear y actualizar
 
 Además de recuperar los datos de posibles clientes, puede crear, actualizar y eliminar el registro de posibles clientes a través de la API. La creación y actualización de posibles clientes comparten el mismo punto de conexión con el tipo de operación que se define en la solicitud y se pueden crear o actualizar hasta 300 registros al mismo tiempo.
+
+>[!NOTE]
+>
+> No se admite la actualización de los campos de la compañía mediante el extremo [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST). En su lugar, use el punto de conexión [Compañías de sincronización](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST).
+
+>[!NOTE]
+>
+> Al crear o actualizar el valor de correo electrónico en un registro de persona, solo se admiten caracteres ASCII en el campo de dirección de correo electrónico.
 
 ### Solicitud
 
@@ -486,21 +494,21 @@ El punto final Actualizar campo de posible cliente actualiza un único campo per
 <td style="width: 17.449%;">no</td>
 <td style="width: 17.551%;">no</td>
 <td style="width: 19.3878%;">no</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 18.8776%;">sí</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">Descripción</td>
-<td style="width: 17.449%;">yes</td>
-<td style="width: 17.551%;">yes</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">sí</td>
+<td style="width: 17.551%;">sí</td>
+<td style="width: 19.3878%;">sí</td>
+<td style="width: 18.8776%;">sí</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">displayName</td>
 <td style="width: 17.449%;">no</td>
 <td style="width: 17.551%;">no</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 19.3878%;">sí</td>
+<td style="width: 18.8776%;">sí</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isCustom</td>
@@ -512,23 +520,23 @@ El punto final Actualizar campo de posible cliente actualiza un único campo per
 <tr>
 <td style="width: 26.5306%;">isHidden</td>
 <td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">yes</td>
+<td style="width: 17.551%;">sí</td>
 <td style="width: 19.3878%;">sí (si lo crea la API)</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 18.8776%;">sí</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isHtmlEncodingInEmail</td>
-<td style="width: 17.449%;">yes</td>
-<td style="width: 17.551%;">yes</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">sí</td>
+<td style="width: 17.551%;">sí</td>
+<td style="width: 19.3878%;">sí</td>
+<td style="width: 18.8776%;">sí</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isSensitive</td>
-<td style="width: 17.449%;">yes</td>
-<td style="width: 17.551%;">yes</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">sí</td>
+<td style="width: 17.551%;">sí</td>
+<td style="width: 19.3878%;">sí</td>
+<td style="width: 18.8776%;">sí</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">length</td>
