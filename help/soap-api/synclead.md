@@ -3,14 +3,14 @@ title: syncLead
 feature: SOAP
 description: SOAP syncLead llamadas a la
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: ebe8faf41dff0e0ba5f4323f5909cc3c9813fd10
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 2%
 
 ---
 
-# syncLean
+# syncLead
 
 Esta función inserta o actualiza un único registro de posibles clientes. Al actualizar un posible cliente existente, este se identifica con una de las siguientes claves:
 
@@ -46,10 +46,10 @@ Si los espacios de trabajo de Marketo NO están activados, el espacio de trabajo
 | leadRecord->Correo electrónico | Obligatorio: solo cuando el identificador o `foreignSysPersonId` no están presentes | La dirección de correo electrónico asociada al registro de posibles clientes |
 | leadRecord->`foreignSysPersonId` | Obligatorio: Solo cuando el ID o el correo electrónico no están presentes | Identificador del sistema externo asociado al registro de posibles clientes |
 | leadRecord->ForeignSysType | Opcional: solo es necesario cuando `foreignSysPersonId` está presente | El tipo de sistema externo. Valores posibles: CUSTOM, SFDC, NETSUITE |
-| leadRecord->leadAttributeList->attribute->attrName | Obligatorio | El nombre del atributo de posible cliente cuyo valor desea actualizar. |
-| leadRecord->leadAttributeList->attribute->attrValue | Obligatorio | El valor que desea establecer en el atributo de posible cliente especificado en attrName. |
-| returnLead | Obligatorio | Cuando es true, devuelve el registro de posibles clientes actualizado completo tras la actualización. |
-| marketoCookie | opcional | La cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
+| leadRecord->leadAttributeList->attribute->attrName | Requerido | El nombre del atributo de posible cliente cuyo valor desea actualizar. |
+| leadRecord->leadAttributeList->attribute->attrValue | Requerido | El valor que desea establecer en el atributo de posible cliente especificado en attrName. |
+| returnLead | Requerido | Cuando es true, devuelve el registro de posibles clientes actualizado completo tras la actualización. |
+| marketoCookie | Opcional | La cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
 
 ## Solicitar XML
 
