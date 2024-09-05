@@ -3,9 +3,9 @@ title: Configuración
 description: Utilice la API de JavaScript de configuración para definir los valores de configuración al utilizar Munchkin.
 feature: Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 257478ecb76b5908c2f623192f37be25bff1a02a
 workflow-type: tm+mt
-source-wordcount: '618'
+source-wordcount: '554'
 ht-degree: 3%
 
 ---
@@ -29,7 +29,7 @@ El objeto de configuración puede contener cualquier número de propiedades de l
 | Nombre | Tipo de datos | Descripción |
 |---|---|---|
 | altIds | Matriz | Acepta una matriz de cadenas de ID de Munchkin. Cuando está habilitada, esta opción duplica toda la actividad web en las suscripciones de destino, según su ID de Munchkin. |
-| anonymizeIP | Booleano | Anonimiza la dirección IP registrada en Marketo para nuevos visitantes. Puede determinar si su suscripción está aprovisionada con Munchkin V2 comprobando si su dominio `{Munchkin-Id}.mktoresp.com` tiene una de las siguientes direcciones: `192.28.144.124` `134.213.193.62` `192.28.147.68` `103.237.104.82`. También puede ejecutar la secuencia de comandos siguiente desde un shell unix: nslookup {munchkin-id}.mktoresp.com | grep -E -c -e &quot;(192.28.144.124,134.213.193.62,192.28.147.68,103.237.104.82)&quot; Si el comando genera &#39;0&#39;, su suscripción no se aprovisiona con Munchkin V2; si genera 1 o más, entonces se aprovisiona. |
+| anonymizeIP | Booleano | Anonimiza la dirección IP registrada en Marketo para los nuevos visitantes. |
 | apiOnly | Booleano | Si se establece en true, la función `Munchkin.Init()` no llamará a `visitsWebPage`. Esto es útil para aplicaciones web de una sola página que necesitan control total sobre cada evento de `visitsWebPage`. |
 | asyncOnly | Booleano | Si se establece en true, envía el objeto XMLHttpRequest de forma asincrónica. El valor predeterminado es false. |
 | clickTime | Entero | Establece la cantidad de tiempo que se debe bloquear después de un clic para permitir la solicitud de rastreo de clics (en milisegundos). Al reducir esto, se reduce la precisión del rastreo de clics. El valor predeterminado es 350 ms. |
