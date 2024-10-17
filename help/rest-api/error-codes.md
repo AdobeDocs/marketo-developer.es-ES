@@ -3,9 +3,9 @@ title: Códigos de error
 feature: REST API
 description: Descripciones de código de error de Marketo.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
 workflow-type: tm+mt
-source-wordcount: '2272'
+source-wordcount: '2273'
 ht-degree: 3%
 
 ---
@@ -224,7 +224,7 @@ Una llamada de API que devuelva este código de respuesta no se contará en su c
     <tr>
       <td><a name="712"></a>712</td>
       <td>La operación de cuenta de fusión a persona no es válida</td>
-      <td>Error en una llamada de combinación de posibles clientes debido a un intento de combinar posibles clientes que son cuentas de persona de Salesforce.  Las cuentas de persona de Salesforce deben fusionarse en Salesforce.</td>
+      <td>Error en una llamada de combinación de posibles clientes debido a un intento de combinar posibles clientes que son cuentas de persona de Salesforce.  Las cuentas personales de Salesforce deben fusionarse en Salesforce.</td>
     </tr>
     <tr>
       <td><a name="713"></a>713</td>
@@ -352,8 +352,8 @@ Cada registro de una solicitud correcta puede tener éxito o fallar de forma ind
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Valor de cookie '%s' no válido</td>
-      <td>Se puede producir al llamar a <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Asociar posible cliente</a> con un valor no válido para el parámetro de cookie.
-        Esto también ocurre al llamar a <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Obtener posibles clientes por tipo de filtro</a> con filterType=cookies y un valor no válido para el parámetro filterValues.</td>
+      <td>Se puede producir al llamar al <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">posible cliente asociado</a> con un valor no válido para el parámetro "cookie".
+        Esto también ocurre al llamar a <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Obtener posibles clientes por tipo de filtro</a> con "filterType=cookies" y un valor no válido para el parámetro "filterValues".</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -476,7 +476,7 @@ Cada registro de una solicitud correcta puede tener éxito o fallar de forma ind
     <tr>
       <td><a name="1077"></a>1077</td>
       <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a la longitud del campo SFDC</td>
-      <td>Error en una llamada a MergeLeads con mergeInCRM establecido en true debido a que "SFDC Field" supera el límite de caracteres permitidos. Para corregirlo, reduzca la longitud de "Campo SFDC" o establezca mergeInCRM en false.</td>
+      <td>Error en una llamada a MergeLeads con mergeInCRM establecido en true debido a que SFDC Field superaba el límite de caracteres permitidos. Para corregirlo, reduzca la longitud de SFDC Field o establezca mergeInCRM en false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
