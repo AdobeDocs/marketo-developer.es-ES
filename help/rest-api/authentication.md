@@ -3,9 +3,9 @@ title: Autenticación
 feature: REST API
 description: Autenticación de usuarios de Marketo para el uso de API.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 2bea5277a80ca99d98eb9b774f8cbea24cb6705f
+source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
 workflow-type: tm+mt
-source-wordcount: '588'
+source-wordcount: '569'
 ht-degree: 0%
 
 ---
@@ -52,19 +52,13 @@ Definición de respuesta
 
 Al realizar llamadas a métodos de API de REST, se debe incluir un token de acceso en cada llamada para que la llamada se realice correctamente.
 
-Existen dos métodos que puede utilizar para incluir un token en las llamadas, como encabezado HTTP o como parámetro de cadena de consulta:
+El token de acceso debe enviarse como un encabezado HTTP.
 
-1. Encabezado HTTP
+`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
 
-   `Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-1. Parámetro de consulta
-
-   `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-   >[!IMPORTANT]
-   >
-   >El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
+>[!IMPORTANT]
+>
+>El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
 ## Sugerencias y prácticas recomendadas
 
