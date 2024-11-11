@@ -3,9 +3,9 @@ title: Autenticación
 feature: REST API
 description: Autenticación de usuarios de Marketo para el uso de API.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
+source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
 workflow-type: tm+mt
-source-wordcount: '569'
+source-wordcount: '567'
 ht-degree: 0%
 
 ---
@@ -64,7 +64,7 @@ El token de acceso debe enviarse como un encabezado HTTP.
 
 La administración de la caducidad del token de acceso es importante para garantizar que la integración funcione correctamente y evitar que se produzcan errores de autenticación inesperados durante el funcionamiento normal. Al diseñar la autenticación para la integración, asegúrese de almacenar el token y el periodo de caducidad contenidos en la respuesta de identidad.
 
-Antes de realizar cualquier llamada a REST, debe comprobar la validez del token en función de su vida útil restante. Si el token ha caducado, renuévelo llamando a [Identity](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)extremo. Esto ayuda a garantizar que la llamada de REST nunca falle debido a un token caducado. Esto le ayuda a administrar la latencia de sus llamadas REST de una manera predecible, lo que es crucial para las aplicaciones del usuario final.
+Antes de realizar cualquier llamada a REST, debe comprobar la validez del token en función de su vida útil restante. Si el token ha caducado, renuévelo llamando al extremo [Identity](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Esto ayuda a garantizar que la llamada de REST nunca falle debido a un token caducado. Esto le ayuda a administrar la latencia de sus llamadas REST de una manera predecible, lo que es crucial para las aplicaciones del usuario final.
 
 Si se utiliza un token caducado para autenticar una llamada REST, la llamada REST fallará y devolverá un código de error 602. Si se utiliza un token no válido para autenticar una llamada de REST, se devuelve un código de error 601. Si se recibe cualquiera de estos códigos, el cliente debe renovar el token llamando al extremo de identidad.
 
