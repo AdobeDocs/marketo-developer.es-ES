@@ -3,9 +3,9 @@ title: API de REST
 feature: REST API
 description: Resumen de API de REST
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: ade3216f04c822de14dc0bbcbc08bfa3a4b17cb3
 workflow-type: tm+mt
-source-wordcount: '664'
+source-wordcount: '744'
 ht-degree: 1%
 
 ---
@@ -14,10 +14,10 @@ ht-degree: 1%
 
 Marketo expone una API de REST que permite la ejecución remota de muchas de las funcionalidades del sistema. Desde la creación de programas hasta la importación masiva de posibles clientes, hay muchas opciones que permiten un control preciso de una instancia de Marketo.
 
-Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset/). Las API de base de datos de posibles clientes permiten recuperar e interactuar con registros de personas de Marketo y tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
+Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset/). Las API de base de datos de posibles clientes permiten recuperar e interactuar con los registros de personas de Marketo y los tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
 
 - **Cuota diaria:** a las suscripciones se les asignan 50 000 llamadas API al día (se restablece diariamente a las 12:00 horas CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
-- **Límite de velocidad:** Acceso a API por instancia limitado a 100 llamadas por 20 segundos.
+- **Límite de velocidad:** El acceso a la API por instancia está limitado a 100 llamadas por 20 segundos.
 - **Límite de simultaneidad:**  Máximo de diez llamadas API simultáneas.
 
 El tamaño de las llamadas estándar está limitado a una longitud URI de 8 KB y un tamaño de cuerpo de 1 MB, aunque el cuerpo puede ser de 10 MB para nuestras API masivas. Si hay un error en con la llamada, la API generalmente devolverá un código de estado de 200, pero la respuesta JSON contendrá un miembro &quot;success&quot; con un valor de `false`, y una matriz de errores en el miembro &quot;errors&quot;. Más información sobre los errores [aquí](error-codes.md).
@@ -26,7 +26,7 @@ El tamaño de las llamadas estándar está limitado a una longitud URI de 8 KB y
 
 Los siguientes pasos requieren privilegios de administrador en la instancia de Marketo.
 
-Para la primera llamada a Marketo, recuperará un registro de posibles clientes. Para empezar a trabajar con Marketo, debe obtener credenciales de API para realizar llamadas autenticadas a su instancia. Inicie sesión en su instancia y vaya a **[!UICONTROL Administrador]** -> **[!UICONTROL Usuarios y funciones]**.
+Para la primera llamada a Marketo, recupera un registro de posibles clientes. Para empezar a trabajar con Marketo, debe obtener credenciales de API para realizar llamadas autenticadas a su instancia. Inicie sesión en su instancia de y vaya a **[!UICONTROL Administrador]** -> **[!UICONTROL Usuarios y funciones]**.
 
 ![Usuarios y roles de administrador](assets/admin-users-and-roles.png)
 
@@ -34,7 +34,7 @@ Haga clic en la ficha **[!UICONTROL Roles]** y, a continuación, en Nuevo rol y 
 
 ![Nuevo rol](assets/new-role.png)
 
-Ahora vuelve a la ficha [!UICONTROL Usuarios] y haz clic en **[!UICONTROL Invitar a nuevo usuario]**. Asigne un nombre descriptivo al usuario que indique que es un usuario de API y una dirección de correo electrónico. Luego, haga clic en **[!UICONTROL Siguiente]**.
+Ahora, vuelve a la ficha [!UICONTROL Usuarios] y haz clic en **[!UICONTROL Invitar nuevo usuario]**. Asigne un nombre descriptivo al usuario que indique que es un usuario de API y una dirección de correo electrónico. Luego, haga clic en **[!UICONTROL Siguiente]**.
 
 ![Nueva información de usuario](assets/new-user-info.png)
 
@@ -66,10 +66,20 @@ Busque el [!UICONTROL extremo] en el cuadro de la API de REST y guárdelo en una
 
 ![Punto final REST](assets/admin-web-services-rest-endpoint-1.png)
 
-Abra una nueva ficha del explorador e introduzca lo siguiente, con la información apropiada para llamar a [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET):
+Al realizar llamadas a métodos de API de REST, se debe incluir un token de acceso en cada llamada para que la llamada se realice correctamente. El token de acceso debe enviarse como un encabezado HTTP.
 
 ```
-<Your Endpoint URL>/rest/v1/leads.json?access_token=<Your Access Token>&filterType=email&filterValues=<Your Email Address>
+Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
+```
+
+>[!IMPORTANT]
+>
+>El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
+
+Abra una nueva ficha del explorador e introduzca lo siguiente, con la información apropiada para llamar a [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
+
+```
+<Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>
 ```
 
 Si no tiene un registro de posibles clientes con su dirección de correo electrónico en la base de datos, cámbiela por una que sepa que está allí. Pulse Intro en la barra URL y obtenga una respuesta JSON similar a la siguiente:
