@@ -3,9 +3,9 @@ title: Extracción en lote
 feature: REST API
 description: Operaciones por lotes para extraer datos de Marketo.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '1643'
+source-wordcount: '1683'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,11 @@ La extracción masiva se realiza creando un trabajo, definiendo el conjunto de d
 
 ## Autenticación
 
-Las API de extracción masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo. Esto requiere que se incruste un token de acceso válido como parámetro de cadena de consulta `access_token={_AccessToken_}` o como encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+Las API de extracción masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo. Esto requiere que se envíe un token de acceso válido como un encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+
+>[!IMPORTANT]
+>
+>El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
 ## Límites
 
@@ -117,7 +121,7 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 |---|---|---|
 | formato | Cadena | Determina el formato de archivo de los datos extraídos con opciones para valores separados por comas, valores separados por tabulaciones y valores separados por punto y coma. Acepta uno de: CSV, SSV, TSV. El formato predeterminado es CSV. |
 | columnHeaderNames | Objeto | Permite establecer los nombres de los encabezados de columna en el archivo devuelto. Cada clave de miembro es el nombre del encabezado de columna cuyo nombre se va a cambiar, y el valor es el nuevo nombre del encabezado de columna. Por ejemplo, &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
-| filtro | Objeto | Filtro aplicado al trabajo de extracción. Los tipos y las opciones varían según el tipo de trabajo. |
+| filter | Objeto | Filtro aplicado al trabajo de extracción. Los tipos y las opciones varían según el tipo de trabajo. |
 
 
 ## Recuperando trabajos

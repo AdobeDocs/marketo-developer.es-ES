@@ -3,9 +3,9 @@ title: Importación masiva
 feature: REST API
 description: Importación por lotes de datos de personas.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '592'
 ht-degree: 2%
 
 ---
@@ -24,7 +24,11 @@ Los extremos de API en lote no tienen el prefijo &#39;/rest&#39; como otros extr
 
 ## Autenticación
 
-Las API de importación masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo.  Esto requiere que se incruste un token de acceso válido como parámetro de cadena de consulta `access_token={_AccessToken_}` o como encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+Las API de importación masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo.  Esto requiere un token de acceso válido enviado como un encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+
+>[!IMPORTANT]
+>
+>El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
 ## Límites
 
