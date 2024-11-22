@@ -3,9 +3,9 @@ title: Gestión de usuarios
 feature: REST API
 description: Realizar operaciones de CRUD en registros de usuario.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+source-git-commit: 159c3fe29c26ea0fff718bf582a7e4c9a1740831
 workflow-type: tm+mt
-source-wordcount: '1185'
+source-wordcount: '1180'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ A diferencia de otras API de REST de Marketo, al utilizar las API de administrac
    1. Permiso &quot;Acceder a usuarios&quot; del grupo [Administrador de acceso](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
    1. &quot;Acceder a la API de administración de usuarios&quot; desde el grupo [API de acceso](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
 - Los cuerpos de respuesta no contienen el atributo booleano &quot;success&quot; que indica el éxito o el error de una llamada. En su lugar, debe evaluar el código de estado de respuesta HTTP. Si una llamada se realiza correctamente, se devuelve un código de estado 200. Si falla una llamada, se devuelve un código de estado de nivel distinto de 200 y el cuerpo de la respuesta contiene la matriz de &quot;errores&quot; estándar con un código de error y un mensaje de error descriptivo.
-- El formato de las cadenas de fecha y hora es &quot;aaaaMMdd&#39;T&#39;HH:mm:ss.SS&#39;t&#39;+|-hhmm&quot;. Esto se aplica a los siguientes atributos: createdAt, updatedAt, expiresAt.
+- El formato de las cadenas de fecha y hora es `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`. Esto se aplica a los atributos siguientes: `createdAt`, `updatedAt`, `expiresAt`.
 - Los extremos de la API de administración de usuarios no tienen el prefijo &quot;/rest&quot; como otros extremos.
 
 ## Consulta
