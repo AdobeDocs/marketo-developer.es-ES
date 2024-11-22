@@ -1,16 +1,16 @@
 ---
 title: API de JavaScript
 description: API de JavaScript
-feature: Munchkin Tracking Code, Javascript
+feature: Munchkin Tracking Code, Forms, Web Personalization, Predictive Content, Social, Javascript
 exl-id: 6129a467-be44-44bd-9e02-62009070c318
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e63db409981d10cfea6206cf91340428e5d0b17f
 workflow-type: tm+mt
 source-wordcount: '337'
 ht-degree: 1%
 
 ---
 
-# API de Javascript
+# API de JavaScript
 
 A continuación se ofrece una descripción general de las funciones de integración de JavaScript del lado del cliente de Marketo. Debe tener una cuenta de Marketo para poder utilizar estas funciones. Normalmente, la implementación simplemente implica agregar un &quot;código incrustado&quot; a la propiedad web. Opcionalmente, puede utilizar funcionalidad adicional llamando a funciones de JavaScript que se exponen mediante el código incrustado. Estas funciones están completamente documentadas aquí.
 
@@ -18,7 +18,7 @@ El código incrustado es único para la instancia de Marketo porque contiene un 
 
 ## Seguimiento de posibles clientes (Munchkin)
 
-El [código de seguimiento JavaScript Munchkin](lead-tracking.md) de Marketo es clave para las capacidades de Marketo. Le permite generar posibles clientes a partir de las visitas a su sitio web. Incluso rastrea visitantes que aún no le han dado su información personal, creando posibles clientes anónimos que incluyen la dirección IP del usuario y otra información. Puede configurar Munchkin en la página de Munchkin del área de Administración de Marketo.
+El [código de seguimiento JavaScript de Munchkin](lead-tracking.md) de Marketo es clave para las capacidades de Marketo. Le permite generar posibles clientes a partir de las visitas a su sitio web. Incluso rastrea visitantes que aún no le han dado su información personal, creando posibles clientes anónimos que incluyen la dirección IP del usuario y otra información. La configuración de Munchkin se realiza en la página de Munchkin, en el área de Administración de Marketo.
 
 ## Formularios 2.0
 

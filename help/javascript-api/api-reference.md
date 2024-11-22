@@ -1,14 +1,14 @@
 ---
 title: Referencia de API de Munchkin
-description: Utilice la API de Javascript de Munchkin para personalizar los datos de Munchkin.
-feature: Javascript
-source-git-commit: c6c0a492ede415471e10efb6213eb3f590e63ebe
+description: Utilice la API de JavaScript de Munchkin para personalizar los datos de Munchkin.
+feature: Munchkin Tracking Code, Javascript
+exl-id: e9727691-5501-4223-bc98-2b4bacc33513
+source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 9%
 
 ---
-
 
 # Referencia de API de Munchkin
 
@@ -18,14 +18,16 @@ Munchkin proporciona varias funciones a las que se puede llamar manualmente medi
 
 La API de Munchkin consta de las siguientes funciones: `init`, `createTrackingCookie`, `munchkinFunction`.
 
+<a name="munchkin_init"></a>
+
 ### Munchkin.init()
 
 Se debe llamar a `Munchkin.init()` antes que a cualquier otra función. Configura Munchkin en la página actual para enviar actividades a una instancia específica y genera una actividad &quot;Visitas a página web&quot; para la página actual.
 
 | Nombre del parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| Identificación de Munchkin | Requerido | Cadena | Encontrará el ID de cuenta de Munchkin en el menú Administración > Integración > Menú de Munchkin. Establece la instancia de destino a la que se enviarán las actividades. |
-| [Ajustes de configuración](configuration.md) | Opcional | Objeto | Activa la configuración de comportamiento alternativa para Munchkin. |
+| Identificación de Munchkin | Requerido | Cadena | El ID de cuenta de Munchkin se encuentra en el menú Administración > Integración > Munchkin. Establece la instancia de destino a la que se enviarán las actividades. |
+| [Ajustes de configuración](configuration.md) | Opcional | Objeto | Habilita la configuración de comportamiento alternativa para Munchkin. |
 
 ```javascript
 Munchkin.init('299-BYM-827');
