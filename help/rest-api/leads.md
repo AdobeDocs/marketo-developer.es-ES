@@ -3,9 +3,9 @@ title: Clientes potenciales
 feature: REST API
 description: Detalles de las llamadas a la API de posibles clientes
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '3343'
+source-wordcount: '3338'
 ht-degree: 3%
 
 ---
@@ -18,10 +18,10 @@ La API del posible cliente de Marketo proporciona un gran conjunto de funcionali
 
 ## Describir
 
-Una de las funciones clave de la API de posibles clientes es el método Describir. SOAP Utilice Describir posibles clientes para recuperar una lista completa de los campos disponibles para la interacción mediante la API de REST y la API de, así como metadatos para cada uno:
+Una de las funciones clave de la API de posibles clientes es el método Describir. Utilice Describir posibles clientes para recuperar una lista completa de los campos disponibles para la interacción mediante la API de REST, así como metadatos para cada uno:
 
 * Tipo de datos
-* SOAP Nombres de API de REST y
+* Nombres de API de REST
 * Longitud (si corresponde)
 * Solo lectura
 * Etiqueta descriptiva
@@ -95,7 +95,7 @@ Para este método, siempre habrá un único registro en la primera posición de 
 
 Obtener posibles clientes por tipo de filtro devolverá el mismo tipo de registros, pero puede devolver hasta 300 por página. Requiere los parámetros de consulta `filterType` y `filterValues`.
 
-`filterType` acepta cualquier campo personalizado o la mayoría de los campos utilizados con frecuencia. Llame al extremo `Describe2` para obtener una lista completa de los campos en los que se pueden realizar búsquedas que se pueden usar en `filterType`. Al buscar por campo personalizado, solo se admiten los siguientes tipos de datos: `string`, `email`, `integer`. Puede obtener detalles de campo (descripción, tipo, etc.) mediante el método mencionado Describir.
+`filterType` acepta cualquier campo personalizado o la mayoría de los campos utilizados con frecuencia. Llame al extremo `Describe2` para obtener una lista completa de los campos en los que se pueden realizar búsquedas que se pueden usar en `filterType`. Al buscar por campo personalizado, solo se admiten los siguientes tipos de datos: `string`, `email`, `integer`. Puede obtener detalles de campo (descripción, tipo, etc.) utilizando el método mencionado Describir.
 
 `filterValues` acepta hasta 300 valores en formato separado por comas. La llamada busca los registros donde el campo del posible cliente coincide con uno de los `filterValues` incluidos. Si el número de posibles clientes que coinciden con el filtro de posibles clientes es mayor que 1000, se devuelve el siguiente error: &quot;1003, Demasiados resultados coinciden con el filtro&quot;.
 
@@ -789,7 +789,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 
 El posible cliente especificado en el parámetro de ruta es el posible cliente ganador, por lo que si hay algún campo en conflicto entre los registros que se combinan, se tomará el valor del ganador, excepto si el campo del registro ganador está vacío y el campo correspondiente del registro perdedor no. Los posibles clientes especificados en el parámetro `leadId` o `leadIds` son los posibles clientes perdedores.
 
-Si tiene una suscripción habilitada para la sincronización de SFDC, también puede usar el parámetro `mergeInCRM` en la solicitud. Si se establece en true, también se realizará la combinación correspondiente en el CRM. Si ambos posibles clientes están en SFDC y uno es un posible cliente de CRM y el otro es un contacto de CRM, el ganador es el contacto de CRM (independientemente del posible cliente especificado como ganador). Si uno de los posibles clientes está en SFDC y el otro es solo Marketo, el ganador es el posible cliente de SFDC (independientemente del posible cliente especificado como ganador).
+Si tiene una suscripción habilitada para la sincronización con SFDC, también puede usar el parámetro `mergeInCRM` en la solicitud. Si se establece en true, también se realizará la combinación correspondiente en el CRM. Si ambos posibles clientes están en SFDC y uno es un posible cliente de CRM y el otro es un contacto de CRM, el ganador es el contacto de CRM (independientemente del posible cliente especificado como ganador). Si uno de los posibles clientes está en SFDC y el otro solo en Marketo, el ganador es el posible cliente de SFDC (independientemente del posible cliente especificado como ganador).
 
 ## Asociar actividad web
 
