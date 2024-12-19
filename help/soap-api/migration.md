@@ -2,15 +2,15 @@
 title: Migración a la API de REST
 feature: SOAP
 description: SOAP Migración de las API de REST a las de
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 4c410afbe8ccfff644376670b8990fac671459eb
 workflow-type: tm+mt
-source-wordcount: '643'
+source-wordcount: '646'
 ht-degree: 1%
 
 ---
 
 
-# Información general
+# Migración a la API de REST
 
 La API de Marketo Engage SOAP se eliminará a partir del 31 de octubre de 2025. SOAP Todas las integraciones existentes que usan la API de deben retirarse o migrarse a la [API de REST de Marketo Engage](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/rest-api) en esta fecha para evitar interrupciones en el servicio.
 
