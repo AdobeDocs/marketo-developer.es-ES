@@ -3,10 +3,10 @@ title: API de REST
 feature: REST API
 description: Resumen de API de REST
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: ade3216f04c822de14dc0bbcbc08bfa3a4b17cb3
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '744'
-ht-degree: 1%
+source-wordcount: '808'
+ht-degree: 0%
 
 ---
 
@@ -15,6 +15,10 @@ ht-degree: 1%
 Marketo expone una API de REST que permite la ejecución remota de muchas de las funcionalidades del sistema. Desde la creación de programas hasta la importación masiva de posibles clientes, hay muchas opciones que permiten un control preciso de una instancia de Marketo.
 
 Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset/). Las API de base de datos de posibles clientes permiten recuperar e interactuar con los registros de personas de Marketo y los tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
+
+>[!NOTE]
+>SOAP La API de está en desuso y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. SOAP SOAP Si cuenta con un servicio que usa la API de, consulte la [Guía de migración](../soap-api/migration.md) de la API de para obtener información sobre cómo migrar.
+>
 
 - **Cuota diaria:** a las suscripciones se les asignan 50 000 llamadas API al día (se restablece diariamente a las 12:00 horas CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
 - **Límite de velocidad:** El acceso a la API por instancia está limitado a 100 llamadas por 20 segundos.

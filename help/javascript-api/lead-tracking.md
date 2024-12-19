@@ -3,9 +3,9 @@ title: Seguimiento de leads
 description: API de seguimiento de posibles clientes
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '769'
+source-wordcount: '766'
 ht-degree: 0%
 
 ---
@@ -74,7 +74,7 @@ En la primera visita de un posible cliente a una página de su dominio, se crea 
 
 - El posible cliente debe visitar una página con seguimiento de Munchkin con un parámetro `mkt_tok` en la cadena de consulta desde un vínculo de correo electrónico de Marketo al que se ha hecho un seguimiento.
 - El posible cliente debe rellenar un formulario de Marketo.
-- SOAP Se debe enviar una llamada a [syncLead](../soap-api/leads.md) o REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) de la línea de comandos.
+- Se debe enviar una llamada de REST [Asociar posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST).
 
 Una vez que se cumpla una de estas condiciones, la cookie y toda la actividad web asociada se asociarán al posible cliente conocido.
 
