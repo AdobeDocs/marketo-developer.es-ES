@@ -3,10 +3,10 @@ title: importToList
 feature: SOAP
 description: SOAP Llamadas a importToList de
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
 workflow-type: tm+mt
-source-wordcount: '317'
-ht-degree: 5%
+source-wordcount: '393'
+ht-degree: 4%
 
 ---
 
@@ -24,7 +24,7 @@ Esta función permite importar una lista de posibles clientes en una lista está
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Nota:** Los valores de `displayName` deben usarse en los valores de `importFileHeader` en lugar de en los valores de `name`.
+Los valores de `displayName` deben usarse en los valores de `importFileHeader` en lugar de en los valores de `name`.
 
 **Contenido dinámico de correo electrónico:** De forma opcional, puede pasar valores por posible cliente que actúen como reemplazos de Mis tokens en un mensaje de correo electrónico.
 
@@ -36,19 +36,21 @@ Esta función permite importar una lista de posibles clientes en una lista está
 
 **Importante:** Si agrega tokens para los posibles clientes, debe especificar la campaña inteligente que los utiliza. La próxima vez que se ejecute la campaña inteligente especificada, utilizará los valores de la lista, en lugar de los valores normales de Mi token. Después de ejecutar una sola campaña, los tokens se descartan.
 
-**NOTA:** `importToList` puede tardar un tiempo en completarse, especialmente en listas grandes. Si planea usar la lista recién importada en otras llamadas a la API, debe usar `importToListStatus` para comprobar que la operación se haya completado.
+`importToList` puede tardar un tiempo en completarse, especialmente en el caso de listas grandes. Si planea usar la lista recién importada en otras llamadas a la API, debe usar `importToListStatus` para comprobar que la operación se haya completado.
+
+**Nota:** La importación de valores NULL para campos numéricos en un archivo CSV puede generar una actividad &quot;Cambiar valor de datos&quot; para esos campos, incluso si el campo ya está en blanco. Cualquier campaña inteligente que utilice un Déclencheur &quot;Valor de datos cambiado&quot; o &quot;Cambios en el valor de datos&quot; puede provocar que los posibles clientes califiquen para esas campañas aunque los datos no estén cambiando realmente. Utilice restricciones en estos filtros o déclencheur para asegurarse de que los posibles clientes no cumplen los requisitos para las campañas incorrectas al realizar importaciones.
 
 ## Solicitud
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 | --- | --- | --- |
-| programName | Obligatorio | Nombre del programa que contiene la lista estática |
-| campaignName | opcional | Si se anula el uso de Mi token, este es el nombre de la campaña en la que se utilizarán esos tokens. La campaña debe estar dentro del programa especificado. |
-| listName | Obligatorio | Nombre de la lista estática de Marketo a la que se agregan los posibles clientes |
-| importFileHeader | Obligatorio | Encabezados de columna para los posibles clientes que se van a importar, incluidos los nombres de atributos de posibles clientes y mis tokens. |
-| importFileRows->stringItem | Obligatorio | Valores separados por comas, con una fila por posible cliente |
-| importListMode | Obligatorio | Opciones válidas: `UPSERTLEADS` y `LISTONLY` |
-| clearList | opcional | Si es true, la lista estática se borra antes de la importación; si se anexan falsos posibles clientes. |
+| programName | Requerido | Nombre del programa que contiene la lista estática |
+| campaignName | Opcional | Si se anula el uso de Mi token, este es el nombre de la campaña en la que se utilizarán esos tokens. La campaña debe estar dentro del programa especificado. |
+| listName | Requerido | Nombre de la lista estática de Marketo a la que se agregan los posibles clientes |
+| importFileHeader | Requerido | Encabezados de columna para los posibles clientes que se van a importar, incluidos los nombres de atributos de posibles clientes y mis tokens. |
+| importFileRows->stringItem | Requerido | Valores separados por comas, con una fila por posible cliente |
+| importListMode | Requerido | Opciones válidas: `UPSERTLEADS` y `LISTONLY` |
+| clearList | Opcional | Si es true, la lista estática se borra antes de la importación; si se anexan falsos posibles clientes. |
 
 ## Solicitar XML
 
