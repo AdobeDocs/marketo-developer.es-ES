@@ -3,9 +3,9 @@ title: Programas
 feature: REST API, Programs
 description: Crear y editar información del programa.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
 workflow-type: tm+mt
-source-wordcount: '843'
+source-wordcount: '848'
 ht-degree: 2%
 
 ---
@@ -320,9 +320,12 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Crear y actualizar
 
-[Al crear]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) y [actualizar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) programas se sigue el patrón de recursos estándar y tiene `folder`, `name`, `type` y `channel` como parámetros necesarios, siendo `description`, `costs` y `tags` opcionales. El canal y el tipo solo se pueden configurar al crear el programa. Solo la descripción, el nombre, `tags` y `costs` se pueden actualizar después de la creación, con un parámetro `costsDestructiveUpdate` adicional permitido. Si se pasa `costsDestructiveUpdate` como verdadero, todos los costos existentes se borrarán y se reemplazarán con los costos incluidos en la llamada. Tenga en cuenta que las etiquetas pueden ser necesarias para algunos tipos de programas en algunas suscripciones, pero esto depende de la configuración y primero debe comprobarse con Obtener etiquetas para ver si hay requisitos específicos de instancias.
+[Al crear](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) y [actualizar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) programas se sigue el patrón de recursos estándar y tiene `folder`, `name`, `type` y `channel` como parámetros necesarios, siendo `description`, `costs` y `tags` opcionales. El canal y el tipo solo se pueden configurar al crear el programa. Solo la descripción, el nombre, `tags` y `costs` se pueden actualizar después de la creación, con un parámetro `costsDestructiveUpdate` adicional permitido. Si se pasa `costsDestructiveUpdate` como verdadero, todos los costos existentes se borrarán y se reemplazarán con los costos incluidos en la llamada. Tenga en cuenta que las etiquetas pueden ser necesarias para algunos tipos de programas en algunas suscripciones, pero esto depende de la configuración y primero debe comprobarse con Obtener etiquetas para ver si hay requisitos específicos de instancias.
 
-Al crear o actualizar un programa de correo electrónico, también se pueden pasar `startDate` y `endDate`.
+Al crear o actualizar un programa de correo electrónico, `startDate` y `endDate` también se pueden pasar como fecha/hora UTC:
+
+`"startDate": "2022-10-19T15:00:00.000Z"`
+`"endDate": "2022-10-19T15:00:00.000Z"`
 
 ### Crear
 
