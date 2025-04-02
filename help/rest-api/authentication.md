@@ -3,9 +3,9 @@ title: Autenticación
 feature: REST API
 description: Autenticación de usuarios de Marketo para el uso de API.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
 workflow-type: tm+mt
-source-wordcount: '573'
+source-wordcount: '619'
 ht-degree: 0%
 
 ---
@@ -51,15 +51,27 @@ Definición de respuesta
 ## Uso de un token de acceso
 
 Al realizar llamadas a métodos de API de REST, se debe incluir un token de acceso en cada llamada para que la llamada se realice correctamente.
+El token de acceso debe enviarse como un encabezado HTTP.
 
 >[!IMPORTANT]
 >
 >El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
-El token de acceso debe enviarse como un encabezado HTTP. Por ejemplo, en una solicitud CURL:
+### Cambio al encabezado Autorización
+
+
+Para dejar de usar el parámetro de consulta `access_token` y cambiar al encabezado Autorización, se requiere un pequeño cambio de código.
+
+Utilizando CURL como ejemplo, este código envía el valor `access_token` como parámetro de formulario (indicador -F):
 
 ```bash
-$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+curl ...  -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/apiCall.json
+```
+
+Este código envía el mismo valor que el encabezado http `Authorization: Bearer` (indicador -H):
+
+```bash
+curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/bulk/v1/apiCall.json
 ```
 
 ## Sugerencias y prácticas recomendadas
