@@ -258,7 +258,7 @@ Para configurar Adobe IO, consulte [Configuración de flujos de datos de auditor
 
 ### Configuración del flujo de datos de auditoría de usuarios en Marketo
 
-El flujo de datos de auditoría de usuarios está disponible actualmente como parte de los paquetes de rendimiento junto con los otros 3 flujos de datos. Para obtener más información sobre los paquetes, consulte la [Página de descripción del producto](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) para conocer los límites y características del producto.
+El flujo de datos de auditoría de usuarios está disponible actualmente como parte de los paquetes de rendimiento junto con los otros 3 flujos de datos. Para obtener más información sobre los paquetes, consulte la [Página de descripción del producto](https://helpx.adobe.com/es/legal/product-descriptions/adobe-marketo-engage---product-description.html) para conocer los límites y características del producto.
 
 ### Configuración de Adobe I/O
 

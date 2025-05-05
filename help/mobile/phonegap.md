@@ -16,7 +16,7 @@ Integración del complemento PhoneGap de Marketo
 
 ## Prerrequisitos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
 1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [Instalar PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 

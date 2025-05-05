@@ -156,7 +156,7 @@ El parámetro `redirectTo` especifica la página de aterrizaje de destino. Es un
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | No es de Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Encontrará más información sobre la creación de reglas de redireccionamiento de páginas de aterrizaje [aquí](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
+Encontrará más información sobre la creación de reglas de redireccionamiento de páginas de aterrizaje [aquí](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=es).
 
 ```
 POST /rest/asset/v1/redirectRules.json

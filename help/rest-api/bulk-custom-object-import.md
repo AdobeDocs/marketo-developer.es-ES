@@ -22,7 +22,7 @@ Se le permite enviar más de una solicitud de importación masiva, dentro de los
 
 ## Ejemplo de objeto personalizado
 
-Antes de usar la API en bloque, primero debes usar la IU de administración de Marketo para [crear tu objeto personalizado](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Por ejemplo, supongamos que hemos creado un objeto personalizado &quot;Coche&quot; con los campos &quot;Color&quot;, &quot;Marca&quot;, &quot;Modelo&quot; y &quot;VIN&quot;. A continuación se muestran las pantallas de la IU de administración que muestran el objeto personalizado. Puede ver que hemos utilizado el campo VIN para la deduplicación. Los nombres de las API se resaltan, ya que deben utilizarse al llamar a extremos relacionados con API masivas.
+Antes de usar la API en bloque, primero debes usar la IU de administración de Marketo para [crear tu objeto personalizado](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Por ejemplo, supongamos que hemos creado un objeto personalizado &quot;Coche&quot; con los campos &quot;Color&quot;, &quot;Marca&quot;, &quot;Modelo&quot; y &quot;VIN&quot;. A continuación se muestran las pantallas de la IU de administración que muestran el objeto personalizado. Puede ver que hemos utilizado el campo VIN para la deduplicación. Los nombres de las API se resaltan, ya que deben utilizarse al llamar a extremos relacionados con API masivas.
 
 ![Insertar objeto personalizado](assets/bulk-insert-co-car-1.png)
 
