@@ -5,10 +5,10 @@ breadcrumb-title: Guía para desarrolladores de [!DNL Marketo]
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
 workflow-type: tm+mt
-source-wordcount: '247'
-ht-degree: 35%
+source-wordcount: '249'
+ht-degree: 39%
 
 ---
 
@@ -23,18 +23,18 @@ ht-degree: 35%
    - [Referencia de API de Forms](javascript-api/forms-api-reference.md)
    - [Obtener datos del visitante](javascript-api/get-visitor-data.md)
    - [API de JavaScript](javascript-api/javascript-api.md)
-   - Seguimiento de posibles clientes {#leadtracking}
+   - Seguimiento de leads {#leadtracking}
       - [Seguimiento de leads](javascript-api/lead-tracking.md)
       - [Configuración](javascript-api/configuration.md)
       - [Referencia de API de Munchkin](javascript-api/api-reference.md)
    - [Coincidencia de motivo](javascript-api/pattern-match.md)
    - [Predictive Content](javascript-api/predictive-content.md)
    - [Redirecciones](javascript-api/redirect.md)
-   - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Recomendaciones de medios enriquecidos](javascript-api/rich-media-recommendation.md)
    - [Social](javascript-api/social.md)
    - [Activadores](javascript-api/triggers.md)
    - [Personalización web](javascript-api/web-personalization.md)
-- Mobile {#mobile}
+- Dispositivo móvil {#mobile}
    - [Instalar [!DNL Adobe Launch] extensión](mobile/adobe-launch-extension-installation.md)
    - [Extensión de [!DNL Adobe Launch]](mobile/adobe-launch-extension.md)
    - [Modo de seguridad avanzado](mobile/advanced-security-access-mode.md)
@@ -73,7 +73,7 @@ ht-degree: 35%
    - [Autenticación](rest-api/authentication.md)
    - [Dirección URL base](rest-api/base-url.md)
    - [Mejores prácticas](rest-api/marketo-integration-best-practices.md)
-   - Extracción en lotes {#bulk-extract}
+   - Extracción en lote {#bulk-extract}
       - [Actividad masiva](rest-api/bulk-activity-extract.md)
       - [Objeto personalizado en bloque](rest-api/bulk-custom-object-extract.md)
       - [Extracción en lote](rest-api/bulk-extract.md)
@@ -90,7 +90,7 @@ ht-degree: 35%
    - [Descargar definiciones de Swagger](rest-api/swagger.md)
    - [Referencia de extremo](rest-api/endpoint-reference.md)
    - [Códigos de error](rest-api/error-codes.md)
-   - Base de datos de posibles clientes {#lead-database}
+   - Base de datos de leads {#lead-database}
       - [Actividades](rest-api/activities.md)
       - [Compañías](rest-api/companies.md)
       - [Objetos personalizados](rest-api/custom-objects.md)
@@ -128,14 +128,14 @@ ht-degree: 35%
       - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
       - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
    - [Códigos de error](soap-api/error-codes.md)
-   - Posibles clientes {#leads}
+   - Clientes potenciales {#leads}
       - [[!DNL getLead]](soap-api/getlead.md)
       - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
       - [[!DNL mergeLeads]](soap-api/mergeleads.md)
       - [Clientes potenciales](soap-api/leads.md)
       - [[!DNL syncLead]](soap-api/synclead.md)
       - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
-   - Objetos de Marketo {#marketo-objects}
+   - Objetos Marketo {#marketo-objects}
       - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
       - [[!DNL describeMObjects]](soap-api/describemobject.md)
       - [[!DNL getMObjects]](soap-api/getmobjects.md)
@@ -147,7 +147,7 @@ ht-degree: 35%
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
-   - [SOAP PREGUNTAS MÁS FRECUENTES](soap-api/soap-faq.md)
+   - [Preguntas frecuentes sobre SOAP](soap-api/soap-faq.md)
    - Listas estáticas {#static-lists}
       - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
       - [[!DNL importToList]](soap-api/importtolist.md)
@@ -163,3 +163,4 @@ ht-degree: 35%
 - [Licencia](api-license.md)
 - [Entorno aislado de Partner](partner-sandbox.md)
 - [Pasos del flujo de autoservicio](self-service-flow-steps.md)
+- [Archivo de blog](blog.md)
