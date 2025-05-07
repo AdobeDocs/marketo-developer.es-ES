@@ -3,9 +3,9 @@ title: Extracción de actividades en lotes
 feature: REST API
 description: Datos de actividad de procesamiento por lotes de Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: a5b855691e7fb9e628e2d68fd14a8a6c689d6750
 workflow-type: tm+mt
-source-wordcount: '1342'
+source-wordcount: '1332'
 ht-degree: 7%
 
 ---
@@ -22,7 +22,7 @@ Las API de extracción masiva requieren que el usuario de la API tenga los permi
 
 ## Filtros
 
-| Tipo de filtro | Tipo de datos | Requerido | Notas |
+| Tipo de filtro | Tipo de datos | Obligatorio | Notas |
 | --- | --- | --- | --- |
 | createdAt | Date Range | Sí | Acepta un objeto JSON con los miembros `startAt` y `endAt`. `startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que se crearon dentro del intervalo de fechas. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. |
 | activityTypeIds | Matriz\[Entero\] | No | Acepta un objeto JSON con un miembro, `activityTypeIds`. El valor debe ser una matriz de enteros, correspondientes a los tipos de actividad deseados. No se admite la actividad &quot;Eliminar posible cliente&quot; (use el extremo [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) en su lugar). Recupere los identificadores de tipo de actividad usando el extremo [Obtener tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
@@ -99,12 +99,12 @@ Al usar `primaryAttributeValues`, el filtro `activityTypeIds` debe estar present
 
 ## Opciones
 
-| Parámetro | Tipo de datos | Requerido | Notas |
+| Parámetro | Tipo de datos | Obligatorio | Notas |
 |---|---|---|---|
 | filter | Matriz[Objeto] | Sí | Acepta una matriz de filtros. Se debe incluir exactamente un filtro `createdAt` en la matriz. Se puede incluir un filtro `activityTypeIds` opcional. Los filtros se aplican al conjunto de actividades accesibles y el conjunto de actividades resultante se devuelve mediante el trabajo de exportación. |
 | formato | Cadena | No | Acepta uno de: CSV, TSV, SSV El archivo exportado se representa como un archivo de valores separados por comas, valores separados por tabulaciones o valores separados por espacios, respectivamente, si se establece. Si no se establece, el valor predeterminado es CSV. |
 | columnHeaderNames | Objeto | No | Objeto JSON que contiene pares de clave-valor de nombres de campo y encabezado de columna. La clave debe ser el nombre de un campo incluido en el trabajo de exportación. El valor es el nombre del encabezado de columna exportado para ese campo. |
-| campos | Matriz[Cadena] | No | Matriz opcional de cadenas que contienen valores de campo. Los campos enumerados se incluyen en el archivo exportado. De forma predeterminada, se devuelven los campos siguientes: `marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes`. Este parámetro se puede utilizar para reducir el número de campos que se devuelven especificando un subconjunto de la lista anterior. Ejemplo:&quot;fields&quot;: [&quot;leadId&quot;, &quot;activityDate&quot;, &quot;activityTypeId&quot;]Se puede especificar un campo adicional &quot;actionResult&quot; para incluir la acción de actividad (&quot;succeeded&quot;, &quot;skipped&quot; o &quot;failed&quot;). |
+| campos | Matriz[Cadena] | No | Matriz opcional de cadenas que contienen valores de campo. Los campos enumerados se incluyen en el archivo exportado. De forma predeterminada, se devuelven los campos siguientes: <ul><li>`marketoGUIDleadId`</li><li> `activityDate` </li><li>`activityTypeId` </li><li>`campaignId`</li><li> `primaryAttributeValueId` </li><li>`primaryAttributeValue`</li><li> `attributes`</li></ul>. Este parámetro se puede usar para reducir el número de campos devueltos especificando un subconjunto de la lista anterior:`"fields": ["leadId", "activityDate", "activityTypeId"]`. Se puede especificar un campo adicional `actionResult` para incluir la acción de la actividad: `("succeeded", "skipped", or "failed")`. |
 
 
 ## Creación de un trabajo
