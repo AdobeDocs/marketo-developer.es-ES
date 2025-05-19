@@ -1,13 +1,13 @@
 ---
 title: Archivo de blog
 description: Un archivo del blog de desarrolladores de Marketo de 2014-2023
-source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
+exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
+source-git-commit: 206724e5177eb9040fa36202d91b2ed9daa734c3
 workflow-type: tm+mt
 source-wordcount: '61742'
 ht-degree: 0%
 
 ---
-
 
 # Archivo de blog
 
@@ -18,11 +18,11 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de REST de Marketo, y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración de API de SOAP](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/migration) para obtener información sobre cómo migrar.
+>La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de REST de Marketo, y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración de API de SOAP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) para obtener información sobre cómo migrar.
 >
 
 >[!IMPORTANT]
->La compatibilidad con la autenticación mediante el parámetro de consulta access_token se eliminará el 30 de junio de 2025. Si el proyecto utiliza un parámetro de consulta para pasar el token de acceso, debe actualizarse para utilizar el encabezado Autorización lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado Autorización.
+>La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminará el 31 de octubre de 2025. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado Autorización.
 >
 
 ## Bienvenido al blog para desarrolladores de Marketo
@@ -35,20 +35,20 @@ Publicado el _06-03-2014_ por _David_
 
 ### Formularios 2.0
 
-Forms 2.0 permite a los especialistas en marketing crear formularios web hermosos, estables y flexibles sin conocimientos de programación. Además del editor muy mejorado, la lógica condicional y el diseño robusto, ahora es más fácil que nunca incrustar formularios de Marketo en cualquier Página de su sitio web. Los desarrolladores pueden usar JavaScript para ampliar el funcionalidad central; Algunos casos de uso son:
+Forms 2.0 permite a los especialistas en marketing crear formularios web hermosos, estables y flexibles sin conocimientos de programación. Además del editor, la lógica condicional y el diseño sólido, que han mejorado en gran medida, ahora es más fácil que nunca incrustar formularios Marketo en cualquier página del sitio web. Los desarrolladores pueden utilizar JavaScript para ampliar la funcionalidad principal; entre los casos de uso se incluyen:
 
-* Ocultar un formulario después de enviarlo correctamente para que el visitante permanezca en el Página después de haber completado el formulario
-* Mostrar un mensaje de error personalizado en el envío basado en lógica empresarial personalizada
-* Visualización del formulario en un cuadro de diálogo estilo lightbox
+* Al ocultar un formulario después de enviarlo correctamente, el visitante permanece en la página después de haber rellenado el formulario
+* Mostrar un mensaje de error personalizado al enviar basado en la lógica empresarial personalizada
+* Mostrar el formulario en un cuadro de diálogo de estilo Lightbox
 
-Aquí encontrará documentación para [&#128279;](/help/javascript-api/forms-api-reference.md)desarrolladores.
+La documentación para desarrolladores está disponible [aquí](/help/javascript-api/forms-api-reference.md).
 
 ### Ya está disponible la versión 2_3 de la API de SOAP
 
 * [getLeadChanges:](/help/soap-api/getleadchanges.md) introdujo el campo de solicitud `activityNameFilter`
 * [ListOperation:](/help/soap-api/listoperation.md) eliminó el campo de solicitud `skipActivityLog`
 
-**Nota:** Las revisiones de la API SOAP son compatibles con versiones anteriores
+**Nota:** Las revisiones de la API de SOAP son compatibles con versiones anteriores
 
 Publicado el _2014-01-26_ por _Travis Kaufman_
 
@@ -56,12 +56,12 @@ Publicado el _2014-01-26_ por _Travis Kaufman_
 
 En un post anterior, discutimos cómo se podía usar Zapier para integrar fuentes de datos externas con Marketo. La publicación presentó un enfoque práctico para construir su propio flujo de trabajo Zapier (o &quot;Zap&quot;) desde cero para integrar Marketo y otras aplicaciones. Por lo tanto, le gusta la idea de utilizar Zapier con Marketo, pero ¿necesita ayuda para empezar? ¡Buenas noticias! Zapier acaba de lanzar una serie de ejemplos de Zaps para Marketo que le permiten ponerse en marcha rápidamente:
 
-* Capture Nuevo posibles clientes
-* Nutre a tus clientes
+* Capturar nuevos posibles clientes
+* Nutre a sus clientes
 * Distribuir información de contacto
-* Reaccionar ante Nuevo perspectivas
+* Reaccionar ante nuevos clientes potenciales
 
-Además de estos ejemplos, puede navegar por las [integraciones de](https://zapier.com/apps/marketo/integrations) Marketo Página con cientos de otras aplicaciones en Zapier y versión su propia flujos de trabajo automatizada en minutos. No se requiere codificación. Ahorre tiempo y deje que la automatización haga su trabajo manual. Pónganse creativos. ¡El cielo es el límite!
+Además de estos ejemplos, puede navegar por la página de [integraciones de Marketo](https://zapier.com/apps/marketo/integrations) con cientos de otras aplicaciones en Zapier y crear sus propios flujos de trabajo automatizados en minutos. No se requiere codificación. Ahorre tiempo y deje que la automatización haga su trabajo manual. Pónganse creativos. ¡El cielo es el límite!
 
 Publicado el _01-06-2016_ por _David_
 
@@ -282,13 +282,13 @@ Al extraer grandes volúmenes de contactos fuera de Marketo, se recomienda ajust
 * `<batchSize/>`: la API admite devolver hasta 1000 registros en una sola llamada. Ajustar este valor a 500 registros también reduce la carga útil de la respuesta.
 * `<LastUpdatedAtSelector/>`: se recomienda establecer `<oldestUpdatedAt/>` junto con el parámetro `<latestUpdatedAt/>` para limitar el intervalo de fecha. Por ejemplo, en lugar de realizar una sola solicitud de datos de un año. Desglose las llamadas de API para solicitar intervalos de fechas más pequeños.
 
-Este artículo contiene código utilizado para implementar integraciones personalizadas. Debido a su naturaleza personalizada, el equipo de soporte técnico de Marketo no puede solucionar problemas de trabajo personalizado. No intente implementar el siguiente ejemplo de código sin el experiencia técnico adecuado ni acceso a un desarrollador experimentado.
+Este artículo contiene el código utilizado para implementar integraciones personalizadas. Debido a su naturaleza personalizada, el equipo de soporte técnico de Marketo no puede solucionar problemas del trabajo personalizado. No intente implementar el siguiente código de ejemplo sin tener la experiencia técnica adecuada o sin tener acceso a un desarrollador experimentado.
 
 Publicado el _2014-03-05_ por _Travis Kaufman_
 
 ## Actualizaciones de la versión de febrero de 2014
 
-### Actualización de la API SOAP:
+### Actualización de la API de SOAP:
 
 * [syncMObjects](/help/soap-api/syncmobjects.md): ahora puede agregar y actualizar etiquetas y canales para los programas existentes.
 
@@ -328,7 +328,7 @@ Publicado el _2014-04-22_ por _Murta_
 
 ### Marketo Forms Security Update:
 
-Hemos introducido un límite en el número y la frecuencia de los envíos de formularios posteriores desde una sola dirección IP. Este límite ahora se aplica a 30 publicaciones por minuto para proteger a nuestros clientes del uso malintencionado de envíos de formularios programáticos. La [API syncLead](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/leads/synclead) es el vehículo de integración recomendado para el envío mediante programación de nuevos contactos en Marketo.    
+Hemos introducido un límite en el número y la frecuencia de los envíos de formularios posteriores desde una sola dirección IP. Este límite ahora se aplica a 30 publicaciones por minuto para proteger a nuestros clientes del uso malintencionado de envíos de formularios programáticos. La [API syncLead](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) es el vehículo de integración recomendado para el envío mediante programación de nuevos contactos en Marketo.    
 
 Publicado el _2014-04-29_ por _Travis Kaufman_
 
@@ -497,7 +497,7 @@ En primer lugar, se muestra cómo generar el código de seguimiento de Munchkin 
 1. Haga clic en Admin en la parte superior derecha de la aplicación.
 1. Haga clic en Munchkin en el árbol de la izquierda.
 1. Seleccione Asincrónica para el tipo de código de seguimiento.
-1. Haga clic y copie el JavaScript código de seguimiento para colocar en el sitio web. **Code de** YouTube <https://developers.google.com/youtube/js_api_reference#EventHandlers> <https://developers.google.com/youtube/iframe_api_reference> jugador.
+1. Haga clic en y copie el código de seguimiento de JavaScript que desea colocar en el sitio web. **Código YouTube** <https://developers.google.com/youtube/js_api_reference#EventHandlers> <https://developers.google.com/youtube/iframe_api_reference> jugador.
 
 `getCurrentTime()` Devuelve el tiempo transcurrido en segundos desde que comenzó a reproducirse el vídeo. `player.getDuration()` Devuelve la duración en segundos del vídeo que se está reproduciendo. Tenga en cuenta que `getDuration()` devolverá 0 hasta que se carguen los metadatos del vídeo, lo que normalmente sucede justo después de que comience la reproducción del vídeo. Cuando un usuario sin cookies va a una página con el código de seguimiento de Munchkin, se crea una nueva cookie en el explorador del usuario y se crea un nuevo posible cliente anónimo en Marketo. Si el usuario ya tiene cookies y ya es un posible cliente de Marketo, la visita a la página se registrará en el registro de actividad del usuario en Marketo. **Ejemplo de código para rastrear eventos y usuarios de cookies** Coloque el código de seguimiento en sus páginas web justo antes de la etiqueta `</body>`. Las páginas de aterrizaje creadas en Marketo contienen automáticamente código de seguimiento, por lo que no es necesario colocarlo. Este ejemplo de código llamaría a la API de Munchkin después de cargar el script:
 
@@ -568,7 +568,7 @@ $(function(){
 
 **Cómo verificar que la visita a la página de un usuario anónimo se haya registrado en Marketo**
 
-1. Haga clic en Analytics en el menú superior y, a continuación, haga clic en Nuevo informe. Seleccione Actividad Página web como Tipo de informe y, a continuación, asigne un nombre al informe.
+1. Haga clic en Analytics en el menú superior y, a continuación, haga clic en Nuevo informe. Elija Actividad de página web como tipo de informe y asigne un nombre al informe.
 1. Después de crear un informe, haga clic en Lista inteligente. A continuación, seleccione el filtro Página web visitada en el cuadro de la derecha. Introduzca la página web donde colocó el código de seguimiento de Munchkin.
 1. Haga clic en Configuración. Seleccione Visitantes anónimos de los ISP y cambie la opción a Mostrado.
 1. Haga clic en Informe. Ahora verá la actividad rastreada en la página web que seleccionó.
@@ -779,10 +779,10 @@ Publicado el _2014-06-20_ por _Travis Kaufman_
 Al sincronizar registros de contactos y posibles clientes entre sistemas, como un CRM propietario o un almacén de datos, es un requisito común asociar un registro de posibles clientes con un identificador de sistema único. En Marketo, puede crear o actualizar un registro de posibles clientes a través de una llamada de la API [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) usando su identificador único del sistema. Para ello, almacenaría el identificador único del sistema (clave principal) como una clave externa en Marketo. El nombre de este campo en Marketo para almacenar una clave externa es ForeignSysPersonId. Hay tres cosas importantes que hay que tener en cuenta:
 
 1. ForeignSysPersonId no está visible en la interfaz de usuario de Marketo. Por lo tanto, se recomienda rellenar también un campo de atributo personalizado con este valor.
-1. foreignSysPersonId es exclusivo de un posible cliente, pero un posible cliente puede tener más de un foreignSysPersonId.
-1. foreignSysPersonId no se puede actualizar ni eliminar, pero se puede reasignar a otro registro.
+1. ForeignSysPersonId es único para un posible cliente, pero un posible cliente puede tener más de un ForeignSysPersonId.
+1. ForeignSysPersonId no se puede actualizar ni eliminar, pero se puede reasignar a otro registro.
 
-Mostramos cómo realizar una llamada a la API[&#128279;](/help/soap-api/syncmultipleleads.md) syncMultipleLeads para escribir un valor foreignSysPersonId en dos registros de posible cliente existentes en Marketo. **Cómo escribir ForeignSysPersonId mediante la API syncMultipleLeads** Puede insertar un nuevo registro de posibles clientes y especificar ForeignSysPersonId. También puede agregarlo a un posible cliente existente especificando Marketo ID y ForeignSysPersonId. Le guiaremos a través del último caso. **Solicitar XML para la llamada a la API de SOAP syncMultipleLeads**
+Se muestra cómo realizar una llamada a la API [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) para escribir un valor ForeignSysPersonId en dos registros de posibles clientes existentes en Marketo. **Cómo escribir ForeignSysPersonId mediante la API syncMultipleLeads** Puede insertar un nuevo registro de posibles clientes y especificar ForeignSysPersonId. También puede agregarlo a un posible cliente existente especificando Marketo ID y ForeignSysPersonId. Le guiaremos a través del último caso. **Solicitar XML para la llamada a la API de SOAP syncMultipleLeads**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -921,7 +921,6 @@ response = client.call(:sync_multiple_leads, message: request)
 
 puts response
 ```
-
  
 
 Este artículo contiene el código utilizado para implementar integraciones personalizadas. Debido a su naturaleza personalizada, el equipo de soporte técnico de Marketo no puede solucionar problemas del trabajo personalizado. No intente implementar el siguiente código de ejemplo sin tener la experiencia técnica adecuada o sin tener acceso a un desarrollador experimentado.
@@ -1052,14 +1051,14 @@ Publicado el _2015-02-20_ por _Murta_
 
 ## Cree un campo personalizado en Marketo y actualice este campo mediante AP
 
-Supongamos que tiene datos adicionales sobre los posibles clientes que no se ajustan a los campos estándar de Marketo. Por ejemplo, este campo personalizado podría ser una puntuación de terceros. Puede crear un campo personalizado en Marketo para la puntuación de terceros y, a continuación, actualizar el valor de este campo mediante las API de Marketo [REST](https://developer.adobe.com/marketo-apis/) o [SOAP](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/activity-type-filters). En primer lugar, se muestra cómo crear un campo personalizado en Marketo y, en segundo, cómo actualizar este campo mediante la API de REST.
+Supongamos que tiene datos adicionales sobre los posibles clientes que no se ajustan a los campos estándar de Marketo. Por ejemplo, este campo personalizado podría ser una puntuación de terceros. Puede crear un campo personalizado en Marketo para la puntuación de terceros y, a continuación, actualizar el valor de este campo mediante las API de Marketo [REST](https://developer.adobe.com/marketo-apis/) o [SOAP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/activity-type-filters). En primer lugar, se muestra cómo crear un campo personalizado en Marketo y, en segundo, cómo actualizar este campo mediante la API de REST.
 
 ### Cómo crear un campo personalizado en Marketo
 
 1. En Administración, haga clic en Administración de campos.
 1. Haga clic en el botón Nuevo campo personalizado.
 1. Elija el campo Type. Esto cambia la forma en que se representa en las listas inteligentes y en Forms en Marketo.
-1. Introduzca el nombre tal y como desea que aparezca en Marketo. Elija el nombre y el nombre de API con cuidado, ya que cambiar el nombre de los campos puede ser difícil y, en algunas situaciones, no es posible.
+1. Introduzca el nombre tal como desea que aparezca en Marketo. Elija el Nombre y el Nombre de la API cuidadosamente, ya que cambiar el nombre de los campos puede resultar difícil y, en algunas situaciones, no es posible.
 1. Ahora se puede acceder al campo personalizado que ha creado a través de las API.
 
 ### Cómo actualizar el campo personalizado mediante la API de REST
@@ -1560,7 +1559,7 @@ Supongamos que envía un correo electrónico diario y desea incluir automáticam
 
 `$current_date`
 
-1. Haga referencia al token en la plantilla de correo electrónico.** Tenga en cuenta el nombre del token. Vaya al borrador del correo electrónico. Incluya el token.  Cuando se envía el correo electrónico, se rellena el valor del token. Para obtener más información, consulte la [documentación para desarrolladores de scripts de correo electrónico](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/email-scripting).
+1. Haga referencia al token en la plantilla de correo electrónico.** Tenga en cuenta el nombre del token. Vaya al borrador del correo electrónico. Incluya el token.  Cuando se envía el correo electrónico, se rellena el valor del token. Para obtener más información, consulte la [documentación para desarrolladores de scripts de correo electrónico](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/email-scripting).
 
 Publicado el _2014-11-22_ por _Murta_
 
@@ -1755,7 +1754,7 @@ Publicado el _2014-11-06_ por _Josh_
 
 ## Integración de Slack con Marketo
 
-[Slack es una plataforma](https://slack.com/) de colaboración empresarial. Si tu equipo está en Slack, puedes llevar fácilmente las notificaciones de Marketo a tu flujo de trabajo. Este entrada muestra cómo añadir un notificación a su registro de chat cuando se produce un actividad posible cliente específico en Marketo. Los posibles casos de uso incluyen notificar a todo su equipo sobre el llenado de un formulario, un visita a un Página de precios o un posible cliente que no ha sido contactado en 30 días. El captura de pantalla siguiente muestra cómo se verá la notificación de Marketo gustar en Slack después de seguir los pasos de este artículo de ayuda.
+[Slack es una plataforma de colaboración empresarial](https://slack.com/). Si su equipo está en Slack, puede incorporar fácilmente notificaciones de Marketo al flujo de trabajo. Esta publicación muestra cómo agregar una notificación al registro de chat cuando se produce una actividad de posible cliente específica en Marketo. Los casos de uso potenciales incluyen notificar a todo el equipo sobre un rellenado de formulario, una visita a una página de precios o un posible cliente con el que no se haya contactado en 30 días. La captura de pantalla siguiente muestra el aspecto que tendrá la notificación de Marketo en Slack después de seguir los pasos de este artículo de ayuda.
 
 1. Inicie sesión en Slack. Haga clic en Integraciones en Slack
 1. Haga clic en el botón Añadir para los webhooks entrantes
@@ -1766,7 +1765,7 @@ Publicado el _2014-11-06_ por _Josh_
 1. Haga clic en Nuevo webhook
 1. Introduzca un nombre para el webhook. Introduzca la URL del webhook desde el paso cuatro. Introduzca Contabilizar como tipo de solicitud. Introduzca una plantilla de carga útil.
 
-Este es el plantilla de carga útil del captura de pantalla. Utiliza token de nombre, compañía y dirección correo electrónico de nivel posible cliente.
+Esta es la plantilla de carga útil de la captura de pantalla. Utiliza tokens de nombre, empresa y dirección de correo electrónico de nivel de posible cliente.
 
 `payload={"text": "DEVELOPER SITE ALERT: {{lead.First Name:default=edit me}} {{lead.Company=edit me}}, {{lead.Email Address:default=no email address}}" }`
 
@@ -2271,9 +2270,9 @@ Publicado el _2014-12-05_ por _Murta_
 
 ## Envío de datos de formulario Marketo a Google Analytics
 
-En Google Analytics, puede enviar eventos de datos personalizados y, a continuación, utilizar los datos para segmentar y analizar el rendimiento del sitio web. El siguiente fragmento de código de JavaScript le permite insertar automáticamente datos de formulario de Marketo 2.0 en Google Analytics después de que un visitante envíe un formulario web. Aquí se explica cómo configurarlo.
+En Google Analytics, puede enviar eventos de datos personalizados y, a continuación, utilizar los datos para segmentar y analizar el rendimiento del sitio web. El siguiente fragmento de código de JavaScript le permite insertar automáticamente datos de formulario de Marketo 2.0 en Google Analytics después de que un visitante envíe un formulario web. A continuación se indica cómo configurarlo.
 
-**Paso uno** Inserte el etiqueta de JavaScript en cualquier Página que incluya Marketo Forms en la parte inferior del código (antes del etiqueta). El JavaScript solo envía campos que no sean oculta (sendHiddenFields : false). Esto se puede ajustar cambiando sendHiddenFields de false a true. También puede seleccionar campos que desee excluir añadiendo ID de campo adicionales en la matriz &quot;fieldsToExclude&quot;.
+**Paso uno** Inserte la etiqueta JavaScript en cualquier página que incluya Marketo Forms en la parte inferior del código (antes de la etiqueta ). JavaScript solo envía campos no ocultos (sendHiddenFields : false). Esto se puede ajustar cambiando sendHiddenFields de false a true. También puede seleccionar campos que desee excluir añadiendo ID de campo adicionales en la matriz &quot;fieldsToExclude&quot;.
 
 ```javascript
 function pushFormDataToGa(a){
@@ -2305,9 +2304,9 @@ pushFormDataToGa({
 
 Publicado el _16-12-2014_ por _Yanir_
 
-## añadir un campo de nombre completo en un formulario de Marketo
+## Agregar un campo de nombre completo a un formulario de Marketo
 
-Sabemos que los formularios web más cortos mejoran las tasas de Conversión. El ejemplo de código JavaScript siguiente le permite hacer sus formularios igualado más cortos combinando los campos Nombre y Apellido en un campo Nombre completo. Cuando los visitantes escriben su nombre completo, la secuencia de comandos dividirá automáticamente el texto en campos de nombre y apellido. Para los visitantes conocidos, la secuencia de comandos une el nombre y los apellidos y, a continuación, cópielos en el nuevo campo para que no tengan que rellenar el campo de nuevo. A continuación se indica cómo configurarlo.
+Sabemos que los formularios web más cortos mejoran las tasas de conversión. El ejemplo de código JavaScript siguiente le permite reducir aún más los formularios combinando los campos Nombre y Apellido en un campo Nombre completo. Cuando los visitantes escriben su nombre completo, la secuencia de comandos divide automáticamente el texto en campos de nombre y apellido. Para los visitantes conocidos, la secuencia de comandos une el nombre y los apellidos y, a continuación, cópielos en el nuevo campo para que no tengan que rellenar el campo de nuevo. A continuación se indica cómo configurarlo.
 
 **Paso uno**: cree un nuevo campo personalizado en Marketo llamado Nombre completo. No es necesario crearlo en la plataforma CRM, ya que el script solo utilizará este campo para mostrar el nombre completo.
 **Paso dos** Agregue este campo a todos sus formularios web. Establezca los campos de nombre y apellido como ocultos. En JavaScript, cambie la configuración &quot;splitFullName&quot; para que contenga los 3 nombres de campo. Nota: Asegúrese de que estos nombres no aparezcan en ninguna otra parte de la página.
@@ -2744,7 +2743,7 @@ Definir propiedades: antes de empezar a llamar a REST, es importante externaliza
 * ClientID: Obtenga esto desde su servicio de REST Launchpoint
 * Secreto del cliente: obténgalo desde el servicio REST de LaunchPoint
 * AccessToken: lo obtenemos de una llamada de REST
-* Static ListID: El ID de LIST del lista estático en el que operaremos. Obtenga esto de la URL de Marketo
+* ListID estático: el ID de LISTA de la lista estática en la que operaremos. Obtenga esto desde la dirección URL en Marketo
 * Campos: Una lista separada por comas de los campos que el resto del servicio obtiene de Marketo para cada posible cliente. El mío es &quot;id, email, firstName, lastName&quot; * IDStringToDelete: contendrá finalmente el ID de todos los posibles clientes de la lista estática que se utilizarán en su eliminación de la lista
 * ActivityTypes: Se utilizará en la parte 2 de este blog, donde me expando en esto!
 * SinceDateTime: Se utilizará en la parte 2 de este blog, donde me expando en esto!
@@ -3801,8 +3800,8 @@ por esto:
 
 iOS 0.3.5
 
-* Se corrigió un problema por el cual el cuadro de diálogo Definir prueba dispositivos se ejecutaba en el subproceso principal. [MOB-638]
-* Se ha agregado el manejo de errores en caso de que no se registrara el dispositivos de prueba. [MOB-639]
+* Se ha corregido un problema por el cual el cuadro de diálogo Establecer dispositivo de prueba se ejecutaba en el subproceso principal. [MOB-638]
+* Se ha añadido la administración de errores en caso de que no se registre el dispositivo de prueba. [MOB-639]
 
 Android 0.3.3
 
@@ -3845,7 +3844,7 @@ Hay algunos requisitos de configuración en Marketo para ejecutar la llamada nec
 * Debe haber un correo electrónico transaccional creado y aprobado en la instancia de Marketo.
 * Debe haber una campaña de déclencheur activa con la API Campaign is Requested, Source: Web Service configurada para enviar el correo electrónico
 
-Primero [crea y aprueba tu correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/home). Si el correo electrónico es realmente transaccional, es probable que necesite ponerlo en funcionamiento, pero asegúrese de que cumpla los requisitos legales para ser operativo. Se configura desde con la pantalla Editar en Acciones de correo electrónico > Configuración de correo electrónico. Apruébelo y estaremos listos para crear nuestra campaña. Si no tienes experiencia en la creación de campañas, consulta el artículo [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign) en docs.marketo.com. Una vez creada la campaña, se deben seguir estos pasos. Configure la lista inteligente con el déclencheur Campaign is Requested: Ahora necesitamos configurar el flujo para que apunte un paso Send Email a nuestro correo electrónico. Antes de la activación, debe decidir algunos ajustes en la pestaña Programación. Si este correo electrónico en particular solo debe enviarse una vez a un registro determinado, deje la configuración de calificación tal cual. Sin embargo, si es necesario que reciban el correo electrónico varias veces, debe ajustarlo a cada vez o a una de las cadencias disponibles. Ahora estamos listos para activarlos.
+Primero [crea y aprueba tu correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/home). Si el correo electrónico es realmente transaccional, es probable que necesite ponerlo en funcionamiento, pero asegúrese de que cumpla los requisitos legales para ser operativo. Se configura desde con la pantalla Editar en Acciones de correo electrónico > Configuración de correo electrónico. Apruébelo y estaremos listos para crear nuestra campaña. Si no tienes experiencia en la creación de campañas, consulta el artículo [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign) en docs.marketo.com. Una vez creada la campaña, se deben seguir estos pasos. Configure la lista inteligente con el déclencheur Campaign is Requested: Ahora necesitamos configurar el flujo para que apunte un paso Send Email a nuestro correo electrónico. Antes de la activación, debe decidir algunos ajustes en la pestaña Programación. Si este correo electrónico en particular solo debe enviarse una vez a un registro determinado, deje la configuración de calificación tal cual. Sin embargo, si es necesario que reciban el correo electrónico varias veces, debe ajustarlo a cada vez o a una de las cadencias disponibles. Ahora estamos listos para activarlos.
 
 ### Envío de llamadas de API
 
@@ -3986,7 +3985,7 @@ Publicado el _2015-07-17_ por _Kenny_
 
 ## Autenticación y recuperación de datos de posibles clientes de Marketo con la API de REST
 
-**Nota:** En los ejemplos de Java siguientes, estamos usando el paquete minimal-json para manejar las representaciones de JSON en nuestro código. Puede leer más sobre este proyecto aquí: [https://github.com/ralfstx/minimal-json](https://github.com/ralfstx/minimal-json) Uno de los requisitos más comunes al integrarse con Marketo es la recuperación de datos de posibles clientes. La mayoría, si no todas, las integraciones requerirán la recuperación o el envío de datos posible cliente de una suscripción de Marketo, por lo que hoy echaremos un vistazo a un tarea básico de recuperación de información posible cliente, autenticando [&#128279;](/help/rest-api/authentication.md) con una suscripción y luego recuperando posible cliente datos de ella. Para recuperar nuestros posibles clientes, primero debemos autenticarnos con el instancia de destino Marketo mediante OAuth 2.0. Hay tres datos que necesitamos autenticar con Marketo: el ID de cliente, el secreto de cliente y el host del instancia de Marketo. Esta es la clase que estamos usando para autenticar:
+**Nota:** En los ejemplos de Java siguientes, estamos usando el paquete minimal-json para manejar las representaciones de JSON en nuestro código. Puede leer más sobre este proyecto aquí: [https://github.com/ralfstx/minimal-json](https://github.com/ralfstx/minimal-json) Uno de los requisitos más comunes al integrarse con Marketo es la recuperación de datos de posibles clientes. La mayoría de las integraciones, si no todas, requerirán la recuperación o el envío de datos de posibles clientes desde una suscripción de Marketo, por lo que hoy daremos un vistazo a una tarea básica de recuperación de información de posibles clientes, [autenticándonos](/help/rest-api/authentication.md) con una suscripción y luego recuperando los datos de posibles clientes de la misma. Para recuperar los posibles clientes, primero debemos autenticarnos con la instancia de Marketo de destino mediante OAuth 2.0. Hay tres partes de información que necesitamos para autenticarnos con Marketo, el ID de cliente, el secreto de cliente y el host de la instancia de Marketo. Esta es la clase que utilizamos para autenticarnos:
 
 ```java
 package dev.marketo.blog_leads;
@@ -4054,7 +4053,7 @@ public class Auth {
 }
 ```
 
-Este código le permite crear un instancia de Auth con nuestro ID de cliente, secreto de cliente y host (como marketoInstance) desde Admin -> Launchpoint (ID y Secret) y Admin -> Web Services (Host). Expone el método getToken, que comprueba si el token almacenado actualmente es nulo o ha caducado y, a continuación, devuelve el token existente o realiza una nueva autenticación solicitud devuelve el nuevo token del miembro &quot;access_token&quot; de la respuesta JSON. Ahora que puede autenticarse con su instancia de Marketo, el siguiente paso es recuperar nuestros clientes potenciales. Estamos usando esta clase:
+Este código le permite crear una instancia de autenticación con su ID de cliente, secreto de cliente y host (como marketoInstance) desde Administración -> Launchpoint (ID y secreto) y Administración -> Servicios web (host). Expone el método getToken que comprueba si el token almacenado actualmente es nulo o ha caducado y, a continuación, devuelve el token existente o realiza una nueva solicitud de autenticación y, a continuación, devuelve el nuevo token del miembro &quot;access_token&quot; de la respuesta JSON. Ahora que puede autenticarse con su instancia de Marketo, el siguiente paso es recuperar sus posibles clientes. Se utiliza esta clase:
 
 ```java
 package dev.marketo.blog_leads;
@@ -4147,7 +4146,7 @@ public class Leads {
 }
 ```
 
-Esta clase tiene un constructor único que acepta un objeto Auth y, a continuación, expone varios establecedores para parámetros opcionales y requeridos. En este caso, realmente solo necesitamos preocuparnos por configurar filterType y filterValues para realizar obtener leads por dirección correo electrónico. Por lo tanto, utilizaremos setFilterType para &quot;correo electrónico&quot; y addFilterValue para la dirección de correo electrónico para la que necesitamos recuperar un ID. Una vez configurados los parámetros, puede utilizar el método getData para recuperar un objeto JsonObject del extremo de posibles clientes, que contiene una matriz de resultados que tiene una representación JSON de los registros de posibles clientes recuperados.
+Esta clase tiene un único constructor que acepta un objeto Auth y, a continuación, expone varios establecedores para los parámetros opcionales y requeridos. En este caso, solo tenemos que preocuparnos por configurar filterType y filterValues para obtener posibles clientes por dirección de correo electrónico. Por lo tanto, utilizaremos setFilterType para &quot;correo electrónico&quot; y addFilterValue para la dirección de correo electrónico para la que necesitamos recuperar un ID. Una vez configurados los parámetros, puede utilizar el método getData para recuperar un objeto JsonObject del extremo de posibles clientes, que contiene una matriz de resultados que tiene una representación JSON de los registros de posibles clientes recuperados.
 
 ### Poniéndolo todo junto
 
@@ -4227,7 +4226,7 @@ En Marketo, hay algunas relaciones vitales para establecer completamente la crea
 * Para poder optar a un filtro de lista inteligente Tiene oportunidad, un posible cliente debe tener una función de oportunidad relacionada con una oportunidad.
 * Las oportunidades tienen una relación varios a uno con el objeto Compañía a través del campo externalCompanyId.
 * Los posibles clientes tienen una relación &quot;uno a varios&quot; con las compañías a través del campo externalCompanyId.
-* Las oportunidades se atribuyen a un programa en función del programa de adquisición de un posible cliente o de su pertenencia y éxito en un programa (consulte [Explicación de la atribución](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution)).
+* Las oportunidades se atribuyen a un programa en función del programa de adquisición de un posible cliente o de su pertenencia y éxito en un programa (consulte [Explicación de la atribución](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution)).
 
 La creación de estas relaciones en toda la base de datos de posibles clientes le permitirá aprovechar completamente el análisis de Marketo y ver la influencia que sus programas tienen en la creación de oportunidades y las tasas de ganancia.
 
@@ -4714,11 +4713,11 @@ Publicado el _2015-08-07_ por _Kenny_
 
 ## Envío de correos electrónicos transaccionales con la API de REST de Marketo: parte 2, contenido personalizado
 
-Esta semana estamos viendo cómo pasar contenido dinámico a nuestros correos electrónicos a través de la llamada de API de solicitud de campaña. Solicitar campaña no solo permite activar correos electrónicos de forma externa, sino que también puede reemplazar el contenido de [Mis tokens](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program) dentro de un correo electrónico. Mis tokens son contenido reutilizable que se puede personalizar en el nivel de programa o de carpeta de marketing. También pueden existir como marcadores de posición para reemplazarlos a través de la llamada de campaña de solicitud.
+Esta semana estamos viendo cómo pasar contenido dinámico a nuestros correos electrónicos a través de la llamada de API de solicitud de campaña. Solicitar campaña no solo permite activar correos electrónicos de forma externa, sino que también puede reemplazar el contenido de [Mis tokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program) dentro de un correo electrónico. Mis tokens son contenido reutilizable que se puede personalizar en el nivel de programa o de carpeta de marketing. También pueden existir como marcadores de posición para reemplazarlos a través de la llamada de campaña de solicitud.
 
 ### Creación del correo electrónico
 
-Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program) y un [correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/home) en Marketo. Para generar nuestro contenido personalizado, necesitamos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir. Los tokens no se pueden guardar cuando están vacíos, así que adelante e inserte aquí algún texto de marcador de posición. Ahora necesitamos insertar nuestro token en el correo electrónico: ahora se puede acceder a este token para su reemplazo mediante una llamada de campaña de solicitud. Este token puede ser tan simple como una sola línea de texto que debe reemplazarse por correo electrónico, o puede incluir casi todo el diseño del correo electrónico.
+Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program) y un [correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/home) en Marketo. Para generar nuestro contenido personalizado, necesitamos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir. Los tokens no se pueden guardar cuando están vacíos, así que adelante e inserte aquí algún texto de marcador de posición. Ahora necesitamos insertar nuestro token en el correo electrónico: ahora se puede acceder a este token para su reemplazo mediante una llamada de campaña de solicitud. Este token puede ser tan simple como una sola línea de texto que debe reemplazarse por correo electrónico, o puede incluir casi todo el diseño del correo electrónico.
 
 ### El código
 
@@ -5300,13 +5299,13 @@ Si una integración tiene efectos no deseados, puede resultar tedioso y difícil
 
 ### Administración de Workspace
 
-Para las suscripciones de Marketo Enterprise, es común que un servicio solo necesite acceso a un único espacio de trabajo, y esto se puede [aplicar mediante la asignación de funciones al usuario de API](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/allow-user-access-to-a-workspace). Cada función de usuario se puede asignar de forma global o por espacio de trabajo, por lo que el acceso se puede restringir en los espacios de trabajo siempre que sea adecuado, siempre que se proporcione el conjunto de permisos más mínimo posible.
+Para las suscripciones de Marketo Enterprise, es común que un servicio solo necesite acceso a un único espacio de trabajo, y esto se puede [aplicar mediante la asignación de funciones al usuario de API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/allow-user-access-to-a-workspace). Cada función de usuario se puede asignar de forma global o por espacio de trabajo, por lo que el acceso se puede restringir en los espacios de trabajo siempre que sea adecuado, siempre que se proporcione el conjunto de permisos más mínimo posible.
 
 Publicado el _2015-08-28_ por _Kenny_
 
 ## Cómo especificar particiones de posibles clientes mediante la API de REST
 
-**Partición de posibles clientes** Las particiones de posibles clientes de Marketo son una forma cómoda de aislar los posibles clientes. Las particiones pueden permitir que diferentes grupos de marketing de su organización compartan una sola instancia de Marketo. Para obtener más información, vea [Comprender los espacios de trabajo y las particiones de posibles clientes](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions). Supongamos que está utilizando particiones de posibles clientes y creando posibles clientes mediante programación mediante la API de REST de Marketo. ¿Cómo se asegura de que los posibles clientes que crea terminen en la partición correcta? ¡Este post te muestra cómo hacerlo! Para este ejemplo, utilizaremos los espacios de trabajo y las particiones para aislar nuestros posibles clientes en función de la ubicación geográfica.
+**Partición de posibles clientes** Las particiones de posibles clientes de Marketo son una forma cómoda de aislar los posibles clientes. Las particiones pueden permitir que diferentes grupos de marketing de su organización compartan una sola instancia de Marketo. Para obtener más información, vea [Comprender los espacios de trabajo y las particiones de posibles clientes](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions). Supongamos que está utilizando particiones de posibles clientes y creando posibles clientes mediante programación mediante la API de REST de Marketo. ¿Cómo se asegura de que los posibles clientes que crea terminen en la partición correcta? ¡Este post te muestra cómo hacerlo! Para este ejemplo, utilizaremos los espacios de trabajo y las particiones para aislar nuestros posibles clientes en función de la ubicación geográfica.
 
 En primer lugar, definiremos un espacio de trabajo llamado &quot;País&quot;. A continuación, creamos dos particiones dentro de ese espacio de trabajo llamadas &quot;México&quot; y &quot;Canadá&quot;.  **Crear posible cliente en la partición** Supongamos que ahora queremos crear dos posibles clientes en la partición &quot;México&quot;. Para crear posibles clientes, se llama a. Para especificar la partición, debemos incluir el atributo &quot;partitionName&quot; en el cuerpo de la solicitud. ¿Cómo sabemos qué utilizar para el valor partitionName? Podemos recuperar una lista de valores de nombre de partición válidos para nuestra instancia llamando a la API [Obtener particiones de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#operation/describeProgramMemberUsingGET) de la siguiente manera:
 
@@ -5366,8 +5365,8 @@ Estos son los posibles clientes recién creados en Marketo.  **Actualizar posibl
 }
 ```
 
-Estos son nuestros clientes potenciales recientemente actualizados en Marketo.
-**Identificar partición para un lead** ¿Cómo sabemos en qué partición se encuentra un posible cliente? Para ello utilizamos la [API Get Lead by Id](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET) y especificamos &quot;leadPartitionId&quot; en el parámetro &quot;fields&quot; consulta. En este caso, recuperaremos la información para posible cliente 318816 de identificación que creamos anteriormente.
+Estos son nuestros posibles clientes recién actualizados en Marketo.
+**Identificar partición para un posible cliente** ¿Cómo sabemos en qué partición se encuentra un posible cliente? Para esto usamos la API [Obtener posible cliente por id](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET) y especificamos &quot;leadPartitionId&quot; en el parámetro de consulta &quot;fields&quot;. En este caso, recuperaremos la información del ID de posible cliente 318816 que hemos creado anteriormente.
 
 `GET /rest/v1/lead/318816.json?fields=leadPartitionId,email,firstName,lastName,title`
 
@@ -5404,11 +5403,11 @@ Publicado el _04-09-2015_ por _David_
 
 ## Comparación de los campos de puntuación en los scripts de correo electrónico de Marketo
 
-**Nota:** Este es un entrada invitado por Cathal Moran. Cathal es consultor de soluciones y trabaja en la oficina EMEA de Marketo en Dublín, Irlanda.
+**Nota:** Esta es una publicación invitada de Cathal Moran. Cathal es consultor de soluciones, trabaja en la oficina EMEA de Marketo en Dublín, Irlanda.
 
 ### Comparación de campos de puntuación
 
-Muchos clientes de Marketo, particularmente aquellos enfocados en venta cruzada, tienen múltiples campos de puntuación y esto se usa a menudo para medir el interés de un posible cliente en un producto / área en particular. Imaginen que vendo manzanas y plátanos, si un plomo tiene una puntuación de 50 para las manzanas y 10 para los plátanos, entonces está claro dónde está la preferencia, ¿no sería bueno si mi contenido reflejara esta preferencia? Los scripts de correo electrónico se pueden utilizar para comparar puntuaciones y personalizar el contenido de un correo electrónico, según la puntuación más alta (o más baja) para ese posible cliente en particular que recibe el correo electrónico.
+Muchos clientes de Marketo, especialmente los que se centran en la venta cruzada, tienen varios campos de puntuación, que a menudo se utilizan para medir el interés de un posible cliente en un producto o área en particular. Imaginen que vendo manzanas y plátanos, si un plomo tiene una puntuación de 50 para las manzanas y 10 para los plátanos, entonces está claro dónde está la preferencia, ¿no sería bueno si mi contenido reflejara esta preferencia? Los scripts de correo electrónico se pueden utilizar para comparar puntuaciones y personalizar el contenido de un correo electrónico, según la puntuación más alta (o más baja) para ese posible cliente en particular que recibe el correo electrónico.
 
 ### Como quiero comparar 2 números, necesito convertir los valores de mis campos a enteros
 
@@ -5579,15 +5578,15 @@ Publicado el _2015-10-09_ por _Kenny_
 
 DataDirect ha estado creando este estilo de conectividad con fuentes de datos SaaS desde 2006, empezando con el primer controlador ODBC de Salesforce creado sobre sus API de servicio web. **Introducción a la conexión con Marketo:**
 
-1. [Regístrese para obtener un inicio de sesión en la nube de DataDirect](https://pacific.progress.com/console/register?productName=d2c&amp;ignoreCookie=true)
-1. Haga clic en &quot;Fuentes de datos&quot; y luego en &quot;+Nuevo Origen de datos&quot; botón
-1. Seleccione &quot;Marketo&quot; e introduzca la información de conexión. Puede consultar con su administrador o inicio de sesión de Marketo para encontrar información de conexión para la [integración](/help/soap-api/soap-api.md) de SOAP.
-1. Haga clic en el botón &quot;Probar conexión&quot;. Tenga en cuenta que hay un pestaña de OData para producir OData de Marketo y lo analizaremos en un futuro publicación de blog.
+1. [Registrarse para iniciar sesión en la nube con DataDirect](https://pacific.progress.com/console/register?productName=d2c&amp;ignoreCookie=true)
+1. Haga clic en &quot;Fuentes de datos&quot; y, a continuación, en el botón &quot;+Nuevo Source de datos&quot;
+1. Seleccione &quot;Marketo&quot; e introduzca la información de conexión. Puede consultar con su administrador de Marketo o iniciar sesión para encontrar [información de conexión para la integración de SOAP](/help/soap-api/soap-api.md).
+1. Haga clic en el botón &quot;Probar conexión&quot;. Tenga en cuenta que hay una pestaña OData para producir OData de Marketo y analizaremos en una publicación de blog futura.
 1. Haga clic en &quot;Pruebas SQL&quot; si desea inspeccionar el esquema de Marketo expuesto o emitir consultas SQL básicas desde la interfaz de usuario.
-1. Haga clic en &quot;Descargas&quot; a la izquierda y seleccione el controlador ODBC o JDBC de DataDirect Cloud para instalar su aplicación y plataforma.
+1. Haga clic en &quot;Descargas&quot; a la izquierda y seleccione el controlador JDBC o ODBC de DataDirect Cloud para su aplicación y plataforma que desea instalar.
 1. Una vez instalado el controlador ODBC o JDBC de DataDirect Cloud, puede conectar cualquier aplicación basada en estándares a Marketo.
 
-Este es un ejemplo de vídeo de [conexión mediante el cliente](https://www.youtube.com/watch?v=H6PHra56Iig) ODBC de DataDirect Cloud. Estos son otros tutoriales de DataDirect Cloud que se aplican a Marketo:
+Este es un ejemplo en vídeo de [conexión mediante el cliente ODBC de nube DataDirect](https://www.youtube.com/watch?v=H6PHra56Iig). Estos son otros tutoriales de nube de DataDirect que se aplican a Marketo:
 
 * [Análisis de datos SAP](http://scn.sap.com/community/lumira/blog/2015/08/05/connect-sap-lumira-to-eloqua-marketo-google-analytics)
 * [Informes Empresariales De Microestrategia](https://community.microstrategy.com/t5/Tech-Corner/What-MSTR-developers-should-know-about-Cloud-Data-Sources/ba-p/253083)
@@ -6584,15 +6583,14 @@ public class SyncMultipleLeadsExample {
   }
 }
 ```
-
  
 Este artículo contiene el código utilizado para implementar integraciones personalizadas. Debido a su naturaleza personalizada, el equipo de soporte técnico de Marketo no puede solucionar problemas del trabajo personalizado. No intente implementar el siguiente código de ejemplo sin tener la experiencia técnica adecuada o sin tener acceso a un desarrollador experimentado.
 
-Publicado el _24-03-2014_ por _Travis Kaufman_
+Publicado el _2014-03-24_ por _Travis Kaufman_
 
 ## Envío de un correo electrónico transaccional desde Marketo mediante la API
 
-Requiere que se cree una Smart Campaign existente mediante Marketo IU. También requiere que el destinatario correo electrónico exista en Marketo. Por lo tanto, antes de llamar a la API requestCampaign, utilice [getLead API]&#x200B;(/help/soap-api/getlead.md) para comprobar si el correo electrónico existe en Marketo. Después de realizar una llamada a través de la API requestCampaign, puede confirmarla comprobando si la campaña inteligente se ha ejecutado en Marketo. En primer lugar, se muestra cómo crear una campaña inteligente, en segundo, cómo configurar un déclencheur para enviar una campaña a través de la API, en tercer lugar, cómo definir un correo electrónico como parte de una acción de flujo y, en cuarto lugar, un ejemplo de código que se utilizaría para ejecutar esta campaña.
+Requiere que se cree una campaña inteligente existente mediante la interfaz de usuario de Marketo. También requiere que el destinatario del correo electrónico exista en Marketo. Por lo tanto, antes de llamar a la API requestCampaign, utilice [getLead API]&#x200B;(/help/soap-api/getlead.md) para comprobar si el correo electrónico existe en Marketo. Después de realizar una llamada a través de la API requestCampaign, puede confirmarla comprobando si la campaña inteligente se ha ejecutado en Marketo. En primer lugar, se muestra cómo crear una campaña inteligente, en segundo, cómo configurar un déclencheur para enviar una campaña a través de la API, en tercer lugar, cómo definir un correo electrónico como parte de una acción de flujo y, en cuarto lugar, un ejemplo de código que se utilizaría para ejecutar esta campaña.
 **Cómo crear una nueva campaña inteligente en Marketo** Las campañas inteligentes en Marketo ejecutan todas sus actividades de marketing. Puede configurar una serie de acciones automatizadas para realizar en una lista inteligente de contactos. En el caso del envío de correos electrónicos transaccionales, se configura un déclencheur en la campaña, como se muestra a continuación, para enviar correos electrónicos mediante la API. Primero vamos a configurar la campaña inteligente. 1. En Actividades de marketing, elija un Programa y, a continuación, en la lista desplegable Nuevo, haga clic en Nuevo recurso local.
 
 1. Haga clic en Campaña inteligente
@@ -6743,7 +6741,7 @@ Publicado el _2014-03-27_ por _Murta_
 
 ## Envío de un correo electrónico con contenido dinámico desde Marketo mediante el AP-
 
-Imagine que desea automatizar los correos electrónicos de seguimiento del centro de llamadas. Después de que el representante de asistencia hable con un cliente, le gustaría enviar automáticamente un correo electrónico para agradecerle por ponerse en contacto con su compañía. Vamos a llevar esto un paso más allá y digamos que desea incluir el tema de conversación específico tratado con el cliente que rastrea en su CRM. Puede hacerlo desde Marketo utilizando la API requestCampaign SOAP para enviar un correo electrónico con contenido dinámico. La API de requestCampaign le permite pasar un posible cliente o posibles clientes. También le permite pasar tokens de programa que se pueden usar con un Campaign existente para enviar contenido dinámico. La API SOAP de requestCampaign requiere que el destinatario correo electrónico exista en Marketo. Por lo tanto, antes de llamar a la API de requestCampaign, utilice la API[&#128279;](/help/soap-api/getlead.md) getLead para verificar si el correo electrónico existe en Marketo. Le mostramos primero cómo crear un Smart Campaign, segundo cómo configurar un disparador para enviar un campaña a través de la API, tercero cómo crear un correo electrónico que acepte contenido dinámico a través de tokens de programa, cuarto cómo definir un correo electrónico como parte de una acción de flujo, y quinto un ejemplo de código que se usaría para ejecutar este campaña. **Cómo Crear un Nuevo Smart Campaign en Marketo** Campañas inteligentes en Marketo Ejecute todas sus actividades marketing. Puede configurar una serie de acciones automatizadas para realizar una lista inteligente de contactos. En el caso de enviar correos electrónicos transaccionales, configure un activador en la campaña, como se muestra a continuación, para enviar correos electrónicos mediante la API. Primero configuremos el Smart Campaign. 1. En Actividades de marketing, elija un Programa y, a continuación, en la lista desplegable Nuevo, haga clic en Nuevo recurso local
+Imagine que desea automatizar los correos electrónicos de seguimiento del centro de llamadas. Después de que el representante de asistencia hable con un cliente, le gustaría enviar automáticamente un correo electrónico para agradecerle por ponerse en contacto con su compañía. Vamos a llevar esto un paso más allá y digamos que desea incluir el tema de conversación específico tratado con el cliente que rastrea en su CRM. Puede hacerlo desde Marketo utilizando la API requestCampaign SOAP para enviar un correo electrónico con contenido dinámico. La API requestCampaign le permite pasar un posible cliente o posibles clientes. También le permite pasar tokens de programa que se pueden utilizar con una campaña existente para enviar contenido dinámico. La API requestCampaign SOAP requiere que el destinatario del correo electrónico exista en Marketo. Por lo tanto, antes de llamar a la API requestCampaign, use la [API getLead](/help/soap-api/getlead.md) para comprobar si el correo electrónico existe en Marketo. Primero le mostramos cómo crear una campaña inteligente, segundo cómo configurar un déclencheur para enviar una campaña a través de la API, tercero cómo crear un correo electrónico que acepte contenido dinámico a través de tokens de programa, cuarto cómo definir un correo electrónico como parte de una acción de flujo y quinto un ejemplo de código que se utilizaría para ejecutar esta campaña. **Cómo crear una nueva campaña inteligente en Marketo** Las campañas inteligentes en Marketo ejecutan todas sus actividades de marketing. Puede configurar una serie de acciones automatizadas para realizar en una lista inteligente de contactos. En el caso del envío de correos electrónicos transaccionales, se configura un déclencheur en la campaña, como se muestra a continuación, para enviar correos electrónicos mediante la API. Primero vamos a configurar la campaña inteligente. 1. En Actividades de marketing, elija un Programa y, a continuación, en la lista desplegable Nuevo, haga clic en Nuevo recurso local
 
 1. Haga clic en Campaña inteligente
 1. Escriba el nombre de la campaña inteligente y haga clic en Crear **Agregar Déclencheur a una campaña inteligente**. Agregar Déclencheur a una campaña inteligente le permite ejecutar una campaña inteligente en una persona a la vez basándose en un evento activo, que en este caso es una solicitud a través de la [API requestCampaign](https://developer.adobe.com/marketo-apis/api/mapi/#operation/triggerCampaignUsingPOST).
@@ -6754,7 +6752,7 @@ Imagine que desea automatizar los correos electrónicos de seguimiento del centr
 
 Así es como se hace esto. 1. En el árbol Actividades de marketing, seleccione la carpeta Campaña o el Programa donde desee crear los tokens. En la barra de menús superior, seleccione Mis tokens. A continuación, se muestra el lienzo Mis tokens. Desde el árbol del lado derecho, arrastre un Tipo de token al lienzo, que en este caso es &quot;Texto&quot;. En el campo Nombre del token, resalte Mi token e introduzca un Nombre de token único, que en este caso es &quot;my.conversationtopic&quot;. En el campo Value, introduzca un Value relevante para el token, que en este caso es &quot;Gracias por llamarnos hoy&quot;. Tenga en cuenta que al utilizar la API anularemos el valor predeterminado de Mi token. Haga clic en &quot;Guardar&quot; para guardar el token personalizado.  1. Cree un nuevo correo electrónico haciendo clic en Nuevo. A continuación, haga clic en New Local Assets y seleccione Email. A continuación, rellene los campos relevantes para asignar un nombre al correo electrónico. Al redactar el borrador del correo electrónico, haga clic en el icono Token para incluir tokens en el correo electrónico. Ahora que ha creado su correo electrónico de plantilla con tokens, añadiremos el correo electrónico como una acción de flujo para la campaña en el paso siguiente. Por lo tanto, cuando llama a la campaña a través de la API, se envía el correo electrónico.\
 **Cómo crear una acción de flujo de correo electrónico en una campaña** La asociación de un correo electrónico con una campaña inteligente permite a los especialistas en marketing administrar el aspecto que desean que tenga un correo electrónico, así como a la aplicación de terceros determinar quién lo recibe y cuándo lo hace. Después de crear un correo electrónico como un nuevo recurso local, puede establecerlo como una acción de flujo en una campaña. Busque y seleccione el correo electrónico que desea enviar.
-**Ejemplo de código para llamar a la API requestCampaign** Después de configurar la campaña y las déclencheur en la interfaz de Marketo, le mostramos cómo usar la API para enviar un correo electrónico. El primer ejemplo es una solicitud XML, el segundo es una respuesta XML y el último es un ejemplo de código Java que se puede utilizar para generar la solicitud XML. También le mostramos cómo encontrar el ID de campaña que se utiliza al realizar una llamada a la API requestCampaign. La llamada de API también requiere que conozca previamente el ID de la campaña de Marketo. Puede determinar el ID de campaña mediante cualquiera de los siguientes métodos: 1. Use la API 1 de [getCampaignsForSource](/help/soap-api/getcampaignsforsource.md). Abra la campaña de Marketo en un explorador y observe la barra de direcciones URL. El ID de campaña (representado como un entero de 4 dígitos) se puede encontrar inmediatamente después de &quot;SC&quot;. Por ejemplo, `<https://app-stage.marketo.com/#SC&#x200B;**1025**&#x200B;A1>`. La parte en negrita es el ID de campaña: &quot;1025&quot;. Solicitud de SOAP para requestCampaign
+**Ejemplo de código para llamar a la API requestCampaign** Después de configurar la campaña y las déclencheur en la interfaz de Marketo, le mostramos cómo usar la API para enviar un correo electrónico. El primer ejemplo es una solicitud XML, el segundo es una respuesta XML y el último es un ejemplo de código Java que se puede utilizar para generar la solicitud XML. También le mostramos cómo encontrar el ID de campaña que se utiliza al realizar una llamada a la API requestCampaign. La llamada de API también requiere que conozca previamente el ID de la campaña de Marketo. Puede determinar el ID de campaña mediante cualquiera de los siguientes métodos: 1. Use la API 1 de [getCampaignsForSource](/help/soap-api/getcampaignsforsource.md). Abra la campaña de Marketo en un explorador y observe la barra de direcciones URL. El ID de campaña (representado como un entero de 4 dígitos) se puede encontrar inmediatamente después de &quot;SC&quot;. Por ejemplo, `<https://app-stage.marketo.com/#SC**1025**A1>`. La parte en negrita es el ID de campaña: &quot;1025&quot;. Solicitud de SOAP para requestCampaign
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -6986,7 +6984,7 @@ Publicado el _2014-04-17_ por _Murta_
 
 ## Cambiar dinámicamente el número de teléfono local mediante RTP
 
-Personalization lo es todo: lo descubrimos hace mucho tiempo. Dicho esto, todavía me sorprende que cada vez que necesito asistencia inmediata, sea tan difícil encontrar los números de teléfono locales relevantes en un sitio web. Menos mal que tenemos [Marketo Real-Time Personalization](https://business.adobe.com/products/marketo/content-personalization.html) (RTP) instalado en <https://business.adobe.com/products/marketo/adobe-marketo.html>. Podemos aprovechar la [API de visitante RTP](/help/javascript-api/web-personalization.md) para cambiar dinámicamente el número de teléfono que un visitante web ve en diferentes secciones del sitio web. ¡Guau! ¿Puedes creer esto? ¿Cómo funciona esta magia? Primero, debe tener RTP instalado en el sitio web como se describe [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript). A continuación, siga las instrucciones que se indican a continuación e implemente el código JavaScript en su sitio web:
+Personalization lo es todo: lo descubrimos hace mucho tiempo. Dicho esto, todavía me sorprende que cada vez que necesito asistencia inmediata, sea tan difícil encontrar los números de teléfono locales relevantes en un sitio web. Menos mal que tenemos [Marketo Real-Time Personalization](https://business.adobe.com/products/marketo/content-personalization.html) (RTP) instalado en <https://business.adobe.com/products/marketo/adobe-marketo.html>. Podemos aprovechar la [API de visitante RTP](/help/javascript-api/web-personalization.md) para cambiar dinámicamente el número de teléfono que un visitante web ve en diferentes secciones del sitio web. ¡Guau! ¿Puedes creer esto? ¿Cómo funciona esta magia? Primero, debe tener RTP instalado en el sitio web como se describe [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript). A continuación, siga las instrucciones que se indican a continuación e implemente el código JavaScript en su sitio web:
 
 1. Inserta tu número de teléfono internacional en la configuración de **defaultPhone**
 1. Inserte los identificadores de elemento HTML en la configuración **divIds**
@@ -7094,7 +7092,7 @@ Publicado el _2016-02-02_ por _Yanir_
 
 ### Objetos personalizados
 
-* [Ahora se admiten relaciones N:N de objetos personalizados](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
+* [Ahora se admiten relaciones N:N de objetos personalizados](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
    * Los registros de cliente potencial o Cuenta ahora pueden tener relaciones &quot;varios a varios&quot; a través de objetos personalizados mediante la definición de objetos intermedios. Después de crear un tipo de objeto personalizado independiente, se puede crear un tipo de objeto intermedio con campos de vínculo al objeto independiente y a posibles clientes o cuentas.
    * No hay llamadas nuevas a la API para esta capacidad, pero las definiciones de objeto deben configurarse correctamente para aprovechar estas relaciones a través de la API.
 * `getLeadActivities` y `getLeadChanges` ya no devolverán actividades de posibles clientes anónimos. Consulte las [Preguntas frecuentes sobre el seguimiento de Munchkin de próxima generación](https://experienceleague.adobe.com/es/docs/marketo/using/home) para obtener más información
@@ -7259,7 +7257,7 @@ Edite la &quot;Configuración de autenticación&quot;:
 
   `{"access_token":"{{access_token}}"}`
 
-* Ubicación del token de acceso&#x200B;**:** Token en Querystring
+* Ubicación del token de acceso**:** Token en Querystring
 
 Una vez creado un servicio personalizado de Marketo, el ID y el secreto de cliente están disponibles. Utilizamos el ID de cliente y el secreto de cliente para generar un token de acceso a través del extremo de la API de REST [Authentication](/help/rest-api/authentication.md). Podemos usar este token de acceso para realizar solicitudes posteriores a la API de REST. El token caduca después de una hora y debe generarse de nuevo para continuar llamando a la API de REST. Elegimos Tipo de autenticación = &quot;Autenticación de sesión&quot;, ya que nos permite ejecutar un script de autenticación personalizado cada vez que caduca nuestro token de sesión. En la sección &quot;API de scripts&quot; veremos cómo implementar este mecanismo que solo puede funcionar con este tipo de autenticación.
 **Déclencheur** Los Déclencheur Zapier están ahí para traer datos a Zapier. No necesitamos uno para nuestros casos de uso, ya que en su lugar aprovecharemos un webhook de Marketo. Sin embargo, todavía tenemos que escribir un Déclencheur ficticio como prueba obligatoria para nuestro conector Marketo. Vamos a crear un Déclencheur de prueba que llame al extremo [Obtener uso diario](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getDailyUsageUsingGET) de la API de REST de Marketo. Haga clic en **Agregar nuevo Déclencheur** para iniciar el asistente y rellenar los campos siguientes (los campos no mencionados pueden dejarse en blanco): Nombre y descripción
@@ -7290,9 +7288,9 @@ Haga clic en **Administrar configuración de Déclencheur** y configure el Décl
 * Clave: create-update-lead
 * Descripción: Cree un nuevo posible cliente dentro de Marketo o, si el posible cliente ya existe, actualícelo con los valores enviados
 * ¿Importante? Verificado
-* ¿Esconder? Sin marcar
+* ¿Esconderse? Sin marcar
 
-Campos de acción Los campos de acción son los campos en los que los usuarios asignarán datos. Elíjalos cuidadosamente de acuerdo con sus propias necesidades, ya que representarán todos los datos que puede actualizar en Marketo. Hay una opción en Zapier para oferta hasta el final usuario todos los campos disponibles en Marketo, pero eso induciría más código y complejidad, que no se requiere para un conector desechable. Como ejemplo, seleccionamos los siguientes campos.
+Campos de acción Los campos de acción son los campos a los que los usuarios asignan los datos. Elimínelos cuidadosamente según sus propias necesidades, ya que representarán todos los datos que puede actualizar en Marketo. Hay una opción en Zapier para ofrecer al usuario final todos los campos disponibles en Marketo, pero eso induciría más código y complejidad, no necesarios para un conector desechable. A modo de ejemplo, seleccionamos los campos siguientes.
 
 El nombre de partición es obligatorio en nuestro caso, ya que nuestra instancia de Marketo tiene particiones de posibles clientes en servicio. De lo contrario, podría omitirse. Lo separamos del grupo &quot;entrada&quot; para que el usuario final entienda que no es un campo que sincronizar. El campo &quot;Notas&quot; proviene de una sincronización entre Marketo y Salesforce, no lo utilice si no lo tiene en la instancia de Marketo. El campo &quot;Llamado&quot; se ha creado en nuestra instancia de Marketo, no lo utilice si no lo tiene en su instancia de Marketo. Por supuesto, el objetivo es permitirle elegir los campos que necesita de Marketo. Se recomienda empezar con un tamaño pequeño y añadir los campos adicionales más adelante. Dónde enviar datos
 
@@ -7447,9 +7445,9 @@ Para el primer Zap, no dependemos de un conector personalizado para Marketo, sin
 **Webhook en Marketo (pasos que debe realizar un administrador)**
 
 * Vaya a Administración -> Webhooks
-* Crear un nuevo Webhook llamado &#39;Push Lead to Zapier&#39; y edite el formulario Webhook.
+* Cree un nuevo webhook llamado &#39;Insertar posible cliente a Zapier&#39; y edite el formulario de webhook.
 
-En el campo del plantilla, declara todos los campos del cliente potencial que gustar transferir a Zapier y impulsar los tokens de Marketo. Para nuestros casos de uso, tomamos los mismos campos que definimos para el conector Zapier personalizado que empuja los clientes potenciales a Marketo:
+En el campo de la plantilla, declare todos los campos del posible cliente que desee transferir a Zapier y aproveche los tokens de Marketo. Para nuestros casos de uso, utilizamos los mismos campos que definimos para el conector Zapier personalizado que inserta posibles clientes en Marketo:
 
 ```json
 {
@@ -7464,7 +7462,7 @@ En el campo del plantilla, declara todos los campos del cliente potencial que gu
 }
 ```
 
-* Guardar el formulario
+* Guarde el formulario
 * No hay necesidad de una asignación de respuestas, así que ha terminado con el webhook
 
 **Campaña de prueba en Marketo (los pasos debe realizarlos un experto en marketing o un administrador)**
@@ -7703,7 +7701,7 @@ Este artículo explica cómo crear un conector personalizado robusto que pueda c
 
 #### Power Query
 
-Antes de la versión de Excel 2016, Microsoft Power Query para Excel funcionaba como un complemento de Excel que se descargaba e instalaba en Excel 2010 o Excel 2011. A partir de Excel 2016, esta tecnología es una característica nativa integrada en la cinta &#39;Datos&#39; en la sección &#39;Obtener y transformar&#39;. Todos los scripts producidos para este artículo se han probado en Excel 2016 para Windows. Los conceptos deberían ser los mismos para Excel 2013 o Excel 2010, pero podrían ser necesarias algunas adaptaciones.  Power Query actualmente solo está disponible en la versión de Microsoft Windows de Excel; desafortunadamente, la versión para Mac no es compatible.
+Antes de la versión de Excel 2016, Microsoft Power Query para Excel funcionaba como un complemento de Excel que se descargaba e instalaba en Excel 2010 o Excel 2011. A partir de Excel 2016, esta tecnología es una función nativa integrada en la cinta &quot;Datos&quot; de la sección &quot;Obtener y transformar&quot;. Todos los scripts producidos para este artículo se han probado en Excel 2016 para Windows. Los conceptos deben ser los mismos para Excel 2013 o Excel 2010, pero podrían requerirse algunas adaptaciones.  Actualmente, Power Query solo está disponible en la versión de Excel para Microsoft Windows; lamentablemente, la versión de Mac no es compatible.
 
 #### Marketo
 
@@ -8147,7 +8145,7 @@ Abra Power Pivot haciendo clic en el botón &quot;Administrar&quot; del menú Po
 
 ### Expresiones de análisis de datos (DAX)
 
-Es necesario enriquecer o volver a dar formato a los datos de algunos informes. Usemos expresiones de análisis de datos de Power Pivot (DAX) para definir algunos cálculos personalizados como columnas calculadas y medidas (también conocidos como campos calculados). Consulte el vínculo &quot;DAX en Power Pivot&quot; en la sección Referencias para obtener más información sobre DAX. Asegúrese de que el área de cálculo aparece en la ventana de Power Pivot; si no es así, actívela en el menú Inicio de Power Pivot.  Seleccione la ficha **MktoLeads** y agregue la medida **Recuento de posibles clientes** a cualquier lugar del área de cálculo de posibles clientes: **Recuento de posibles clientes:=**&#x200B;**DISTINCTCOUNT**&#x200B;**([id])**. Esta medida cuenta los distintos posibles clientes disponibles en la lista en función de su ID. También tendría en cuenta los posibles filtros establecidos en el contexto de un informe. Esta medida no es realmente necesaria ya que los informes son capaces de resumir el número de posibles clientes, pero lo hicimos para tener un recuento de posibles clientes con un nombre más bonito que &quot;suma de MktoLeads&quot;. También es un ejemplo sencillo que le permite imaginar fácilmente algunas medidas más complejas realizando promedios, mínimo, máximo para un tipo específico de entrada de datos (por ejemplo, todos los posibles clientes con una puntuación superior a 50, puntuación media, etc.). ...).  Ahora vamos a seleccionar la ficha **MktoWebActivities** y crear tres columnas calculadas. Inserte las siguientes columnas calculadas desplazándose hacia la derecha de la tabla y haciendo clic en la columna &quot;Agregar columna&quot;. **Actividad:** Obtenga la etiqueta de actividad fácil de usar buscando el ID de actividad en la tabla MktoActivityTypes. **\=**&#x200B;**LOOKUPVALUE**&#x200B;**(MktoActivityTypes[name],MktoActivityTypes[id],[activityTypeId])** **Year-Month:** vuelva a dar formato a la fecha de la actividad con un patrón &quot;AAAAmm&quot; que sea más adecuado para algunos informes. **\=**&#x200B;**LEFT**&#x200B;**([activityDate],4)&amp;**&#x200B;**MID**&#x200B;**([activityDate],6,2)** **Date:** La fecha de actividad es solo una cadena de nuestra consulta original, transfórmela a una fecha apropiada. **\=**&#x200B;**DATE**&#x200B;**(**&#x200B;**LEFT**&#x200B;**([activityDate],4),**&#x200B;**MID**&#x200B;**([activityDate],6,2),**&#x200B;**MID**&#x200B;**([activityDate],9,2))** Ahora vamos a crear las tres mismas medidas para la ficha **MktoEmailActivities** y dos más: **Campaña:** Obtenga el nombre descriptivo de la campaña buscando el identificador de campaña en la tabla MktoCampaigns. **\=**&#x200B;**LOOKUPVALUE**&#x200B;**(MktoCampaigns[name],MktoCampaigns[id],[campaignId])** **Programa:** Obtenga el nombre descriptivo del programa buscando el ID de campaña en la tabla MktoCampaigns. La tabla MktoPrograms puede proporcionar más detalles sobre el programa, como la carpeta, el espacio de trabajo, etc. **\=**&#x200B;**LOOKUPVALUE**&#x200B;**(MktoCampaigns[programName],MktoCampaigns[id],[campaignId])**
+Es necesario enriquecer o volver a dar formato a los datos de algunos informes. Usemos expresiones de análisis de datos de Power Pivot (DAX) para definir algunos cálculos personalizados como columnas calculadas y medidas (también conocidos como campos calculados). Consulte el vínculo &quot;DAX en Power Pivot&quot; en la sección Referencias para obtener más información sobre DAX. Asegúrese de que el área de cálculo aparece en la ventana de Power Pivot; si no es así, actívela en el menú Inicio de Power Pivot.  Seleccione la ficha **MktoLeads** y agregue la medida **Recuento de posibles clientes** a cualquier lugar del área de cálculo de posibles clientes: **Recuento de posibles clientes:=****DISTINCTCOUNT****([id])**. Esta medida cuenta los distintos posibles clientes disponibles en la lista en función de su ID. También tendría en cuenta los posibles filtros establecidos en el contexto de un informe. Esta medida no es realmente necesaria ya que los informes son capaces de resumir el número de posibles clientes, pero lo hicimos para tener un recuento de posibles clientes con un nombre más bonito que &quot;suma de MktoLeads&quot;. También es un ejemplo sencillo que le permite imaginar fácilmente algunas medidas más complejas realizando promedios, mínimo, máximo para un tipo específico de entrada de datos (por ejemplo, todos los posibles clientes con una puntuación superior a 50, puntuación media, etc.). ...).  Ahora vamos a seleccionar la ficha **MktoWebActivities** y crear tres columnas calculadas. Inserte las siguientes columnas calculadas desplazándose hacia la derecha de la tabla y haciendo clic en la columna &quot;Agregar columna&quot;. **Actividad:** Obtenga la etiqueta de actividad fácil de usar buscando el ID de actividad en la tabla MktoActivityTypes. **\=****LOOKUPVALUE****(MktoActivityTypes[name],MktoActivityTypes[id],[activityTypeId])** **Year-Month:** vuelva a dar formato a la fecha de la actividad con un patrón &quot;AAAAmm&quot; que sea más adecuado para algunos informes. **\=****LEFT****([activityDate],4)&amp;****MID****([activityDate],6,2)** **Date:** La fecha de actividad es solo una cadena de nuestra consulta original, transfórmela a una fecha apropiada. **\=****DATE****(****LEFT****([activityDate],4),****MID****([activityDate],6,2),****MID****([activityDate],9,2))** Ahora vamos a crear las tres mismas medidas para la ficha **MktoEmailActivities** y dos más: **Campaña:** Obtenga el nombre descriptivo de la campaña buscando el identificador de campaña en la tabla MktoCampaigns. **\=****LOOKUPVALUE****(MktoCampaigns[name],MktoCampaigns[id],[campaignId])** **Programa:** Obtenga el nombre descriptivo del programa buscando el ID de campaña en la tabla MktoCampaigns. La tabla MktoPrograms puede proporcionar más detalles sobre el programa, como la carpeta, el espacio de trabajo, etc. **\=****LOOKUPVALUE****(MktoCampaigns[programName],MktoCampaigns[id],[campaignId])**
 
 ### Relaciones de entidad
 
@@ -8303,9 +8301,9 @@ Publicado el _01-03-2017_ por _David_
 
 ## Actualizaciones de primavera de 2017
 
-En la versión de primavera de 2017, agregaremos la capacidad de extracción de forma masiva posible cliente y actividad datos de objetos de forma asincrónica, así como de manipular listas de cuenta con nombre. Consulte el lista completo de actualizaciones a continuación.
+En la versión de primavera de 2017, se ha añadido la capacidad de extraer de forma masiva datos de clientes potenciales y objetos de actividad de forma asíncrona, así como de manipular listas de cuentas con nombre. Consulte la lista completa de actualizaciones a continuación.
 
-### Extract masivo de posibles clientes
+### Extracción masiva de posibles clientes
 
 Nuevos extremos para admitir la extracción de posibles clientes de forma masiva. Especifique los criterios de selección de registros mediante diversas opciones. Encontrará detalles [aquí](/help/rest-api/bulk-lead-extract.md).
 
@@ -8334,9 +8332,9 @@ Publicado el _16-06-2017_ por _David_
 
 ## Internet de las cosas para los especialistas en marketing con IFTTT y Zapier
 
-El Internet de las Cosas (IoT) es la interconexión de dispositivos, electrodomésticos, wearables, vehículos, etc. conectados. con electrónica integrada, software, sensores y conectividad de red que permiten que estos objetos recopilen e intercambien datos con sistemas de información en la nube. Estas tecnologías están creciendo y haciendo tendencia tan rápido que impactarán en cómo vivimos, cómo trabajamos y cómo hacemos negocios en poco tiempo. Marketo, la plataforma de participación en marketing líder, está preparada para el IoT, con sus capacidades de escalar e interactuar con cualquier forma de canal de comunicación. Marketo ya puede rastrear más de 70 tipos de actividades relacionadas con correos electrónicos, web, móvil, CRM, etc... y también admite [actividades personalizadas](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-activities/create-a-custom-activity.html?lang=es) que cualquier sistema de terceros puede suministrar. Los [objetos personalizados](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects.html?lang=es) de Marketo hacen posible el seguimiento de todo tipo de métricas de terceros relacionadas con su negocio y permiten a los especialistas en marketing aprovechar esas métricas directamente desde los déclencheur y filtros de campañas inteligentes de Marketo. La implementación de IoT para los consumidores requeriría un servidor centralizado para interactuar con los dispositivos de los consumidores y este servidor intercambiaría datos con la plataforma abierta de Marketo, con capacidades como API de REST, objetos personalizados, actividades personalizadas, etc. - documentó [aquí](http://eto.com/). No es fácil de demostrar a través de una publicación de blog. En lugar de eso, integraremos el servicio IFTTT con Marketo para implementar algunos casos de uso de IoT interesantes para los especialistas en marketing como:
+El Internet de las Cosas (IoT) es la interconexión de dispositivos, electrodomésticos, wearables, vehículos, etc. conectados. con electrónica integrada, software, sensores y conectividad de red que permiten que estos objetos recopilen e intercambien datos con sistemas de información en la nube. Estas tecnologías están creciendo y haciendo tendencia tan rápido que impactarán en cómo vivimos, cómo trabajamos y cómo hacemos negocios en poco tiempo. Marketo, la plataforma de participación en marketing líder, está preparada para el IoT, con sus capacidades de escalar e interactuar con cualquier forma de canal de comunicación. Marketo ya puede rastrear más de 70 tipos de actividades relacionadas con correos electrónicos, web, móvil, CRM, etc... y también admite [actividades personalizadas](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-activities/create-a-custom-activity.html) que cualquier sistema de terceros puede suministrar. Los [objetos personalizados](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects.html) de Marketo hacen posible el seguimiento de todo tipo de métricas de terceros relacionadas con su negocio y permiten a los especialistas en marketing aprovechar esas métricas directamente desde los déclencheur y filtros de campañas inteligentes de Marketo. La implementación de IoT para los consumidores requeriría un servidor centralizado para interactuar con los dispositivos de los consumidores y este servidor intercambiaría datos con la plataforma abierta de Marketo, con capacidades como API de REST, objetos personalizados, actividades personalizadas, etc. - documentó [aquí](http://eto.com/). No es fácil de demostrar a través de una publicación de blog. En lugar de eso, integraremos el servicio IFTTT con Marketo para implementar algunos casos de uso de IoT interesantes para los especialistas en marketing como:
 
-* Animar su equipo de marketing cada vez que un posible cliente se registra en un road show parpadeando una luz de color en la oficina
+* Animar a su equipo de marketing cada vez que se registra un posible cliente en un programa de viajes parpadeando una luz de color en la oficina
 * Animar a su equipo de ventas cada vez que se gana un acuerdo activando automáticamente una campana conectada a un enchufe de alimentación conectado
 * Publique automáticamente hitos de éxito de marketing en redes sociales como LinkedIn, Facebook, Slack, etc. ...
 * Iniciar automáticamente una campaña de marketing basada en:
@@ -8363,7 +8361,7 @@ Desde IFTTT, busque el servicio &quot;Maker&quot; y haga clic en él.  La primer
 
 ### Activación directa de una acción IFTTT desde el mercado
 
-En primer lugar, nos centraremos en activar todo tipo de acciones de servicios web de terceros desde Marketo. Para ello, vamos a usar un [webhook de Marketo](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook.html?lang=es). Empezaremos con un mensaje push en su teléfono móvil o tableta a través de la aplicación móvil IFTTT y luego implementaremos un escenario de IoT que parpadea una luz Philips Hue.
+En primer lugar, nos centraremos en activar todo tipo de acciones de servicios web de terceros desde Marketo. Para ello, vamos a usar un [webhook de Marketo](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook.html). Empezaremos con un mensaje push en su teléfono móvil o tableta a través de la aplicación móvil IFTTT y luego implementaremos un escenario de IoT que parpadea una luz Philips Hue.
 
 ### Webhook de Marketo
 
@@ -8703,7 +8701,7 @@ Ahora puede obtener una vista previa de un correo electrónico mediante el punto
 
 ### Reemplazar HTML de correo electrónico 2.0
 
-Hemos agregado el punto de conexión [Actualizar contenido completo del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/createEmailFullContentUsingPOST) para permitirle reemplazar bloques del contenido del correo electrónico de HTML. Si edita el código HTML de un correo electrónico de Marketo con el Editor de correo electrónico 2.0 de Marketo, la relación entre el correo electrónico y su plantilla se romperá; más información sobre ese(a) [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html). Con este punto de conexión, puede actualizar mediante programación el contenido de HTML de un correo electrónico cuya relación se haya roto. Además, hemos modificado todos los demás extremos relacionados con el ciclo vital de los correos electrónicos para que sean compatibles con los correos electrónicos en los que se ha roto la relación:
+Hemos agregado el punto de conexión [Actualizar contenido completo del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/createEmailFullContentUsingPOST) para permitirle reemplazar bloques del contenido del correo electrónico de HTML. Si edita el código HTML de un correo electrónico de Marketo con el Editor de correo electrónico 2.0 de Marketo, la relación entre el correo electrónico y su plantilla se romperá; más información sobre ese(a) [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html). Con este punto de conexión, puede actualizar mediante programación el contenido de HTML de un correo electrónico cuya relación se haya roto. Además, hemos modificado todos los demás extremos relacionados con el ciclo vital de los correos electrónicos para que sean compatibles con los correos electrónicos en los que se ha roto la relación:
 
 * Aprobar borrador de correo electrónico
 * Desaprobar correo electrónico
@@ -8785,7 +8783,7 @@ La versión de verano de 2018 es principalmente de mantenimiento y consta de mej
    * Marketing suspendido
    * Email suspendido
    * Urgencia relativa
-* El [punto final Obtención de posibles clientes por tipo](https://developer.adobe.com/marketo-apis/api/lead-database-endpoint-reference/#/Leads/getLeadsByFilterUsingGET) Filtrar ahora admite leadPartionId como filterType.
+* El extremo [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/lead-database-endpoint-reference/#/Leads/getLeadsByFilterUsingGET) ahora admite leadPartionId como filterType.
 
 ### Resoluciones de defectos
 
@@ -8803,8 +8801,8 @@ Algunos caracteres Unicode estaban dañados en el archivo de salida de extracci�
 
 [Clonar programa](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 
-* Si clonó el programa de correo electrónico, la lógica de filtro SmartList se restableció a &quot;Todo&quot; en el programa resultante, independientemente de la configuración inicial.
-* Si ha intentado clonar un programa que contenía un lista estático (que se ha eliminado), ha recibido un error 709, &quot;Los siguientes activos no son compatibles:List&quot;.
+* Si clonó un programa de correo electrónico, la lógica del filtro SmartList se restableció a &quot;Todo&quot; en el programa resultante, independientemente de la configuración inicial.
+* Si intentó clonar un programa que contenía una lista estática (que se eliminó), recibió el error 709, &quot;Los siguientes recursos no son compatibles: Lista&quot;.
 * Si ha intentado clonar un programa en espacios de trabajo, ha recibido el error 611, &quot;No se puede clonar el programa&quot;.
 
 [Obtener lista estática por identificador](https://developer.adobe.com/marketo-apis/api/asset/#operation/getStaticListByIdUsingGET)
@@ -8837,7 +8835,7 @@ La versión de otoño de 2019 es principalmente de mantenimiento e incluye mejor
 
 ### Mejoras
 
-* Se ha agregado compatibilidad con [Campos CC de correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-cc) para [API de recursos](/help/rest-api/assets.md). La configuración del campo CC se propaga según lo esperado durante las operaciones de aprobación/clonación (aprobación de borrador de correo electrónico o plantilla de correo electrónico, correo electrónico o clonación de programa). Todos los extremos relacionados con el correo electrónico ahora devuelven valores de Campos CC en la propiedad **ccFields**. Desplácese hacia abajo en la respuesta para ver un ejemplo. Este cambio afecta a los siguientes extremos: [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByIdUsingGET), [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByNameUsingGET), [Obtener correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailUsingGET), [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST), [Aprobar borrador de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST_1), [Clonar correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [Clonar programa.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
+* Se ha agregado compatibilidad con [Campos CC de correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-cc) para [API de recursos](/help/rest-api/assets.md). La configuración del campo CC se propaga según lo esperado durante las operaciones de aprobación/clonación (aprobación de borrador de correo electrónico o plantilla de correo electrónico, correo electrónico o clonación de programa). Todos los extremos relacionados con el correo electrónico ahora devuelven valores de Campos CC en la propiedad **ccFields**. Desplácese hacia abajo en la respuesta para ver un ejemplo. Este cambio afecta a los siguientes extremos: [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByIdUsingGET), [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByNameUsingGET), [Obtener correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailUsingGET), [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST), [Aprobar borrador de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST_1), [Clonar correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [Clonar programa.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 
 ```json
 {
@@ -8910,10 +8908,10 @@ La versión de otoño de 2019 es principalmente de mantenimiento e incluye mejor
 
 ### Resoluciones de defectos
 
-* Se ha ajustado [&#128279;](/help/rest-api/assets.md)la compatibilidad de varios dominios de marca para [la API de](https://experienceleague.adobe.com/es/docs/marketo/using/home) recurso. Anteriormente, la configuración de varios dominios de marca no se propagaba al aprobar un borrador de correo electrónico, clonar un correo electrónico o clonar un programa. Esto se ha corregido. Este cambio afecta a los siguientes extremos: [Aprobar borrador](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST) de correo electrónico, [Clonar correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST) [ Clonar programa.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
-* Se ha agregado [la opción de configuración apiOnly](/help/javascript-api/configuration.md) . De forma predeterminada, las páginas web que contienen el Munchkin etiqueta activar un evento &quot;Visitas Web Página&quot; cuando el Página web se carga en el explorador. En algunos casos, esto no es deseable. Por ejemplo, una sola página aplicaciones web que necesitan control total de cuándo se activa este evento. Para admitir este caso de uso, hemos agregado una nueva **opción de configuración apiOnly** . Cuando se establece en true, la etiqueta Munchkin no genera una actividad &quot;Visitas a página web&quot; durante la carga de la página.
-* Se ha agregado la opción de configuración [domainSelectorV2](/help/javascript-api/configuration.md). De forma predeterminada, la etiqueta Munchkin no administra correctamente las páginas web alojadas en sitios con [dominios de nivel superior con código de país de dos letras](https://en.wikipedia.org/wiki/Country_code_top-level_domain) (ejemplos: .io, .co, .ly). Esto hace que el atributo de dominio de la cookie de Munchkin se establezca incorrectamente. Para lograr una mejor experiencia lista para usar, hemos añadido un nuevo **ajuste de configuración domainSelectorV2** . Cuando se establece en true, se utiliza un algoritmo mejorado para establecer automáticamente el atributo Munchkin cookie dominio.
-* Se ha ajustado el dominio de cookie [Opt-Out](/help/javascript-api/lead-tracking.md). En algunos casos, el atributo de dominio del cookie de exclusión de Munchkin (mkto_opt_out) se configuró incorrectamente. La cookie de exclusión de Munchkin ahora usa la misma lógica que la cookie de Munchkin (_mkto_trk) para determinar el atributo de la cookie del dominio, incluido el cumplimiento de la configuración de **domainLevel**.
+* Se ha ajustado la compatibilidad con [Varios dominios de promoción de la marca](https://experienceleague.adobe.com/es/docs/marketo/using/home) para [Asset API](/help/rest-api/assets.md). Anteriormente, la configuración de varios dominios de promoción de la marca no se propagaba al aprobar un borrador de correo electrónico, al clonar un correo electrónico o al clonar un programa. Esto se ha corregido. Este cambio afecta a los siguientes extremos: [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST), [Clonar correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [Clonar programa.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
+* Se agregó el parámetro de configuración [apiOnly](/help/javascript-api/configuration.md). De forma predeterminada, las páginas web que contienen la etiqueta Munchkin activan el evento &quot;Visitas a página web&quot; cuando la página web se carga en el explorador. En algunos casos, esto no es deseable. Por ejemplo, aplicaciones web de una sola página que necesitan un control total de cuándo se activa este evento. Para admitir este caso de uso, hemos agregado un nuevo parámetro de configuración **apiOnly**. Cuando se establece en true, la etiqueta Munchkin no genera una actividad &quot;Visitas a página web&quot; durante la carga de la página.
+* Se ha agregado la opción de configuración [domainSelectorV2](/help/javascript-api/configuration.md). De forma predeterminada, la etiqueta Munchkin no administra correctamente las páginas web alojadas en sitios con [dominios de nivel superior con código de país de dos letras](https://en.wikipedia.org/wiki/Country_code_top-level_domain) (ejemplos: .io, .co, .ly). Esto hace que el atributo de dominio de la cookie de Munchkin se establezca incorrectamente. Para lograr una mejor experiencia predeterminada, agregamos una nueva configuración de **domainSelectorV2**. Cuando se establece en true, se utiliza un algoritmo mejorado para establecer automáticamente el atributo de dominio de cookie de Munchkin.
+* Se ha ajustado el dominio de cookie [Opt-Out](/help/javascript-api/lead-tracking.md). En algunos casos, el atributo de dominio de la cookie de exclusión de Munchkin (mkto_opt_out) se configuraba incorrectamente. La cookie de exclusión de Munchkin ahora usa la misma lógica que la cookie de Munchkin (_mkto_trk) para determinar el atributo de la cookie del dominio, incluido el cumplimiento de la configuración de **domainLevel**.
 * Los desarrolladores de aplicaciones de Android ahora pueden usar directamente [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) de Google con este SDK. Encontrará detalles [aquí](/help/mobile/installation.md).
 
 Publicado el _2018-12-07_ por _David_
@@ -8998,13 +8996,13 @@ En agosto de 2019 lanzaremos nuevas API de REST, mejoraremos las API existentes 
 
 1. Todo el contenido relacionado con campañas inteligentes ahora reside en el elemento de menú [Campañas inteligentes](/help/rest-api/smart-campaigns.md) (debajo de API de REST > Assets).
 
-Publicado en _16_ /08/2019 por _David_
+Publicado el _16-08-2019_ por _David_
 
 ## Actualizaciones de enero de 2020
 
-En enero de 2020 lanzaremos nuevas API REST, mejoraremos las API existentes y resolveremos defectos. Consulte el lista completo de actualizaciones a continuación.
+En enero de 2020 lanzaremos nuevas API de REST, mejoraremos las API existentes y resolveremos defectos. Consulte la lista completa de actualizaciones a continuación.
 
-* Se ha agregado la capacidad de crear mediante programación definiciones de esquema de objetos personalizados. Esto le permite definir un objeto personalizado una vez y aprovisionarlo en tantas instancias como sea necesario. Esto le permite permitir a los usuarios impulsar de manera eficaz modelos sandbox y de centro de excelencia. También permite que los ISV simplifiquen el proceso de incorporación de clientes. Necesita un tipo de suscripción adecuado para acceder a la API de metadatos de objeto personalizado.
+* Se ha añadido la capacidad de crear mediante programación definiciones de esquema de objeto personalizado. Esto le permite definir un objeto personalizado una vez y aprovisionarlo en tantas instancias como sea necesario. Esto le permite a los usuarios aprovechar de forma eficaz los modelos de zona protegida y centro de excelencia. También permite a los ISV simplificar el proceso de incorporación del cliente. Necesita un tipo de suscripción adecuado para acceder a la API de metadatos de objeto personalizado.
 * Se ha agregado la capacidad de importar y exportar miembros del programa de forma masiva. Este nuevo conjunto de puntos de conexión sigue el patrón de API de REST de Marketo existente para crear trabajos de procesamiento masivo asincrónicos. Los registros de miembros del programa pueden contener campos personalizados de miembros del programa o campos de posibles clientes.
 * Se ha agregado el punto de conexión Obtener formulario disponible para campos de miembros de programa para admitir el uso de campos personalizados de miembros de programa como campos de formulario. Esto devuelve una lista de todos los campos personalizados de miembros de programa que se pueden utilizar en un formulario Marketo Forms.
 * Se agregó [Obtener plantilla de correo electrónico usada por un extremo ](/help/rest-api/email-templates.md) que devuelve una lista de recursos de correo electrónico que dependen de una plantilla de correo electrónico determinada. Esto le permite comprender rápidamente el impacto de un posible cambio de plantilla de correo electrónico y abordar más fácilmente estas dependencias.
@@ -9013,7 +9011,7 @@ Publicado el _2020-01-17_ por _David_
 
 ## Cómo recuperar cada objeto personalizado
 
-A menudo se nos pregunta cómo usar la API de Marketo para obtener una lista de todos los [objetos personalizados](https://experienceleague.adobe.com/es/docs/marketo/using/home) (CO). La consulta de CO requiere algo más que su nombre: también se requiere algún conocimiento _a priori_ sobre cada CO. Los métodos para obtener ese conocimiento pueden no ser obvios, ya que la API no proporciona ningún método para consultarlo directamente. Al igual que con muchos objetivos en Marketo Engage, las listas inteligentes proporcionan una respuesta para los CO vinculados a personas (posibles clientes). Las listas inteligentes funcionan de forma diferente con Compañías y usted terminará con una lista de todas las Personas cuyas Compañías están vinculadas al tipo de objeto para el filtro, por lo que puede que necesite deduplicar compañías según sus objetivos. Cada vez que se aprueba un nuevo objeto personalizado, se crea un filtro asociado. Se le asignará un nombre con el formato &quot;**Tiene CO NAME**&quot;. En el ejemplo siguiente, el nombre de objeto personalizado es &quot;**Suscripción a seguimiento de conferencia&quot;** y su filtro se denomina &quot;**Tiene suscripción a seguimiento de conferencia**&quot;. Una vez creada la Smart List, puede recuperar la información necesaria para consultar los CO asociados mediante el [extremo de objetos personalizados](/help/rest-api/custom-objects.md). Exporte la lista para asegurarse de que se incluye el campo vinculado (ID o dirección de correo electrónico). Puede exportar con el filtrado de la API [extracción masiva de posibles clientes](/help/rest-api/bulk-lead-extract.md) mediante el filtro **smartListName** o **smartListId**, o bien [exportar desde la interfaz de usuario](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/managing-people-in-smart-lists/export-people-to-excel-from-a-list-or-smart-list). En el siguiente paso, utilizará cada valor de campo vinculado para consultar individualmente los objetos personalizados asociados. El nombre del objeto personalizado es **&quot;Suscripción a seguimiento de conferencia&quot;** en este ejemplo y su nombre de API es **conferenceTrackSubscription_c**. Encuentra el nombre de la API tanto en la interfaz de usuario como &quot;**Nombre de la API**&quot; y a través de la API como &quot;**nombre**&quot;.  Administrador | Objetos personalizados de Marketo[/caption] Y aquí hay un fragmento devuelto por el extremo de la API [List Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET):
+A menudo se nos pregunta cómo usar la API de Marketo para obtener una lista de todos los [objetos personalizados](https://experienceleague.adobe.com/es/docs/marketo/using/home) (CO). La consulta de CO requiere algo más que su nombre: también se requiere algún conocimiento _a priori_ sobre cada CO. Los métodos para obtener ese conocimiento pueden no ser obvios, ya que la API no proporciona ningún método para consultarlo directamente. Al igual que con muchos objetivos en Marketo Engage, las listas inteligentes proporcionan una respuesta para los CO vinculados a personas (posibles clientes). Las listas inteligentes funcionan de forma diferente con Compañías y usted terminará con una lista de todas las Personas cuyas Compañías están vinculadas al tipo de objeto para el filtro, por lo que puede que necesite deduplicar compañías según sus objetivos. Cada vez que se aprueba un nuevo objeto personalizado, se crea un filtro asociado. Se le asignará un nombre con el formato &quot;**Tiene CO NAME**&quot;. En el ejemplo siguiente, el nombre de objeto personalizado es &quot;**Suscripción a seguimiento de conferencia&quot;** y su filtro se denomina &quot;**Tiene suscripción a seguimiento de conferencia**&quot;. Una vez creada la Smart List, puede recuperar la información necesaria para consultar los CO asociados mediante el [extremo de objetos personalizados](/help/rest-api/custom-objects.md). Exporte la lista para asegurarse de que se incluye el campo vinculado (ID o dirección de correo electrónico). Puede exportar con el filtrado de la API [extracción masiva de posibles clientes](/help/rest-api/bulk-lead-extract.md) mediante el filtro **smartListName** o **smartListId**, o bien [exportar desde la interfaz de usuario](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/managing-people-in-smart-lists/export-people-to-excel-from-a-list-or-smart-list). En el siguiente paso, utilizará cada valor de campo vinculado para consultar individualmente los objetos personalizados asociados. El nombre del objeto personalizado es **&quot;Suscripción a seguimiento de conferencia&quot;** en este ejemplo y su nombre de API es **conferenceTrackSubscription_c**. Encuentra el nombre de la API tanto en la interfaz de usuario como &quot;**Nombre de la API**&quot; y a través de la API como &quot;**nombre**&quot;.  Administrador | Objetos personalizados de Marketo[/caption] Y aquí hay un fragmento devuelto por el extremo de la API [List Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET):
 
 ```json
 {
@@ -9106,7 +9104,7 @@ Para recuperar los CO de segundo nivel, inicie un nuevo conjunto de consultas pa
 
 `GET /rest/v1/customobjects/session_c.json?filterType=subscriptionID&filterValues=4ad59184-6bf1-4eeb-a583-d82aeee68210,e5e0aba4-f27f-494d-93ed-9cb580989bf3,e65007cd-86b1-4c17-8d55-057c96e1788a,39d956b2-85e2-4c24-94e7-e9fa5a09d3d0,bf14218c-ae6a-42b3-a14e-f7182903cbcd`
 
-Los tipos de filtro _Footnote_ _1)**smartListName**&#x200B;y **smartListId**&#x200B;no están disponibles para algunas suscripciones. Si no está disponible para su suscripción, recibirá un error al llamar al extremo del trabajo de creación de posibles clientes (**&quot;1035, tipo de filtro no admitido para la suscripción de destino&quot;**). Los clientes pueden ponerse en contacto con el Soporte técnico de Marketo para habilitar esta funcionalidad en su suscripción._
+Los tipos de filtro _Footnote_ _1)**smartListName**y **smartListId**no están disponibles para algunas suscripciones. Si no está disponible para su suscripción, recibirá un error al llamar al extremo del trabajo de creación de posibles clientes (**&quot;1035, tipo de filtro no admitido para la suscripción de destino&quot;**). Los clientes pueden ponerse en contacto con el Soporte técnico de Marketo para habilitar esta funcionalidad en su suscripción._
 
 Publicado el _2020-01-14_ por _Tony_
 
@@ -9118,7 +9116,7 @@ Recibimos muchas consultas sobre los procesos necesarios para recuperar cada per
 
 La técnica principal usa la [API de extracción masiva de posibles clientes](/help/rest-api/bulk-lead-extract.md). Es probable que pueda crear un trabajo de exportación de posibles clientes en lotes sin ningún filtro, pero no puede: **la API requiere un filtro**. Los filtros disponibles son **createdAt**, **staticListName**, **staticListId,** **updatedAt**, **smartListName** y **smartListId**. El hecho de filtrar por una lista inteligente sin filtros también parece atractivo. Pruebe esto y verá que el sistema es lo suficientemente inteligente como para tratar una lista inteligente sin filtros de la misma manera: la API también requiere un filtro aquí. Como necesitamos un filtro, el filtro confiable y canónico que se debe usar es **createdAt**. Este tipo de filtro permite intervalos de fecha y hora de hasta 31 días, por lo que necesitamos ejecutar varios trabajos y combinar los resultados. Empezaremos por encontrar la fecha de creación más antigua posible para un posible cliente en la instancia de destino. A partir de la fecha más antigua posible, creamos trabajos que abarcan 31 días menos un segundo (más adelante). Después de crear cada trabajo, lo pondremos en cola y esperaremos a que se complete. Luego descargaremos el archivo resultante y comprobaremos su integridad usando una suma de comprobación. Y, por último, deduplique los posibles clientes por ID y, a continuación, escriba posibles clientes únicos en un archivo CSV de salida.
 
-### Encuentra tu lead más antiguo
+### Encontrar el posible cliente más antiguo
 
 Estoy utilizando un pequeño &quot;truco&quot; para obtener la fecha más antigua posible para un posible cliente en la instancia de destino. No hay ningún punto final de API dedicado a esa tarea, así que necesitamos un poco de creatividad. Lo que hago es consultar todas las carpetas con un **maxDepth = 1** que nos dará una lista de todas las carpetas de nivel superior de la instancia. Luego recopilo las fechas **createdAt**, las analizo y busco la fecha más antigua. Este método funciona porque algunas carpetas predeterminadas de nivel superior se crean con la instancia y no se podía crear ningún posible cliente antes de entonces.
 
@@ -9350,7 +9348,7 @@ El posible cliente asociado de Munchkin tiene dos casos de uso principales, el e
 
 #### Envío del lado del servidor
 
-Si no necesita envío del lado del explorador, la API de REST ofrece muchos métodos para [envío de datos de persona](/help/rest-api/leads.md) y un método creado específicamente para asociar cookies con registros de persona[&#128279;](/help/rest-api/leads.md).
+Si no necesita envío del lado del explorador, la API de REST ofrece muchos métodos para [envío de datos de persona](/help/rest-api/leads.md) y un método creado específicamente para asociar cookies con registros de persona](/help/rest-api/leads.md).[
 
 ¿Cuándo se está desplegando la versión 159 de Munchkin?
 
@@ -9460,7 +9458,6 @@ El envío del formulario de fondo es uno de los métodos de reemplazo recomendad
 
 </html>
 ```
-
    
 Publicado el _2020-05-26_ por _Kenny_
 
@@ -9508,7 +9505,7 @@ Aparte de los objetos estándar, Marketo le permite crear sus propios objetos pe
 **Sugerencias rápidas**
 
 * Obtenga más información para configurar objetos personalizados [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/home).
-* Puede utilizar el objeto personalizado de Marketo como objeto intermedio, así como un objeto personalizado de objeto personalizado.
+* Puede utilizar el objeto personalizado de Marketo como objeto intermedio, así como el objeto personalizado del objeto personalizado.
 
 ### ¿Por qué objetos personalizados?
 
@@ -9522,7 +9519,7 @@ Los objetos personalizados le permiten compilar y utilizar datos únicos que son
 
 ### Limitaciones de objetos personalizados de Marketo
 
-1. De forma predeterminada, Marketo le permite crear 10 objetos personalizados. Puede aumentar el límite con una tarifa de suscripción adicional.
+1. De forma predeterminada, Marketo permite crear 10 objetos personalizados. Puede aumentar el límite con una tarifa de suscripción adicional.
 1. El número predeterminado de campos por objeto es 50, pero puede solicitar soporte de Marketo para campos adicionales si es necesario. Gracias [Michael Florin](https://www.linkedin.com/in/michaelflorin/) por recibir más información aquí.
 1. Hay un límite en el número de registros que se pueden tener en todos los objetos personalizados. Depende de su suscripción a Marketo. Este límite se puede aumentar con una tarifa de suscripción adicional.
 1. Si se creó un objeto personalizado con la API, Marketo no permite editar el esquema CO desde la interfaz de usuario de Marketo.
@@ -9615,7 +9612,7 @@ En enero de 2021 lanzamos nuevas API de REST y resolvemos varios defectos. Consu
 
 * Se agregó el extremo [Submit Form](/help/rest-api/leads.md) que le permite realizar envíos de formularios mediante programación. Los formularios de terceros ahora se pueden integrar con los formularios de Marketo para aprovechar los flujos de trabajo de marketing existentes.
 * Se ha agregado el punto de conexión [Obtener contenido completo de la página de aterrizaje](/help/rest-api/landing-pages.md) que devuelve la versión serializada de HTML de una página de aterrizaje. Permite procesar vistas previas totalmente personalizadas de páginas de aterrizaje sin tener que iniciar sesión en Marketo Engage. Esto puede ayudar a optimizar los flujos de trabajo de edición y traducción dentro de las aplicaciones integradas.
-* Ahora puede configurar el número de objetos personalizados disponibles para acceder a través del script de Velocity. Las instrucciones de configuración se encuentran [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+* Ahora puede configurar el número de objetos personalizados disponibles para acceder a través del script de Velocity. Las instrucciones de configuración se encuentran [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 
 ### Resoluciones de defectos
 
@@ -9623,7 +9620,7 @@ En enero de 2021 lanzamos nuevas API de REST y resolvemos varios defectos. Consu
 * Se ha corregido un problema en el cual el extremo [Obtener usuarios](/help/rest-api/user-management.md) devolvía usuarios eliminados en algunos casos. [LM-141542]
 * Se corrigió un problema en el extremo [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST). Si especifica un nombre de programa que supere los 255 caracteres, devolverá el mensaje &quot;611, Unable to clone program error&quot;. Ahora devuelve &quot;701, el nombre no puede superar los 255 caracteres&quot;. [LM-143436]
 * Se ha corregido un problema con el punto de conexión [Aprobar borrador de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST). Cuando aprobaba una página de aterrizaje con la versión móvil activada, en algunos casos veía contenido de la versión móvil en la versión de escritorio. [LM-146867]
-* Se ha corregido un problema con [el aterrizaje sin aprobar Página](https://developer.adobe.com/marketo-apis/api/asset/#operation/unapproveLandingPageByIdUsingPOST) punto final que permitía anular la aprobación de una página de aterrizaje que se usaba como Página de seguir por uno o varios formularios. Ahora devuelve el error &quot;709, Error de página de aterrizaje de  sin aprobar. Uno o más formularios utilizan el Página de aterrizaje como Página de seguir con ID de formulario:[_formId1,formId2,..._]&quot;. [LM-143326]
+* Se ha corregido un problema con el extremo [Desaprobar página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#operation/unapproveLandingPageByIdUsingPOST) que le permitía desaprobar una página de aterrizaje que uno o más formularios estaba utilizando como página de seguimiento. Ahora devuelve el error &quot;709, Unapprove landing page failed. Uno o más formularios están usando la página de aterrizaje como página de seguimiento con identificadores de formulario: [_formId1,formId2,..._]&quot;. [LM-143326]
 
 Publicado el _2021-01-15_ por _David_
 
@@ -9664,11 +9661,11 @@ Si desea probar la API de señalización actualizada anticipándose a la próxim
 
 ### Deshabilitar Munchkin Beta en las páginas de aterrizaje de Marketo
 
-Para deshabilitar Munchkin Beta en las páginas de aterrizaje de Marketo, debes acceder al menú [Cofre del tesoro](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en la sección Admin de tu suscripción y cambiar la configuración de Munchkin Beta en las páginas de aterrizaje a deshabilitada.
+Para deshabilitar Munchkin Beta en las páginas de aterrizaje de Marketo, debes acceder al menú [Cofre del tesoro](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en la sección Admin de tu suscripción y cambiar la configuración de Munchkin Beta en las páginas de aterrizaje a deshabilitada.
 
 ### Deshabilitar Munchkin Beta en páginas externas
 
-Si ha implementado la versión de Beta de Munchkin JavaScript en páginas web externas y desea renunciar a este cambio hasta que esté disponible de forma general, debe modificar el fragmento de JS de Munchkin para que se dirija a **munchkin.**&#x200B;**js** archivo en lugar del **munchkin-beta.**&#x200B;**js** archivo. En el ejemplo siguiente, este es el valor de la variable **s.src** de la línea 11. Es posible que el fragmento no se parezca mucho al ejemplo o que lo implemente un administrador de etiquetas en las páginas externas y que necesite ponerse en contacto con los recursos de TI o con quien administre sus sitios web con el seguimiento de Munchkin habilitado.
+Si ha implementado la versión de Beta de Munchkin JavaScript en páginas web externas y desea renunciar a este cambio hasta que esté disponible de forma general, debe modificar el fragmento de JS de Munchkin para que se dirija a **munchkin.****js** archivo en lugar del **munchkin-beta.****js** archivo. En el ejemplo siguiente, este es el valor de la variable **s.src** de la línea 11. Es posible que el fragmento no se parezca mucho al ejemplo o que lo implemente un administrador de etiquetas en las páginas externas y que necesite ponerse en contacto con los recursos de TI o con quien administre sus sitios web con el seguimiento de Munchkin habilitado.
 
 ```javascript
 <script type="text/javascript">
@@ -9699,7 +9696,7 @@ Publicado el _2021-01-08_ por _Kenny_
 
 ## Desaprobación final de API del correo electrónico V1
 
-[La obsolescencia del correo electrónico V1 comenzó hace casi dos años](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666) y a partir de la versión de mantenimiento de marzo de las suscripciones de Londres y Países Bajos el 17 de marzo de 2021 y de todas las demás suscripciones el 19 de marzo de 2021, finalizará toda la compatibilidad de la API con los correos electrónicos V1. Después de esta versión, cualquier intento de interactuar con correos electrónicos de la versión 1 a través de las API de recursos dará como resultado errores y no se realizarán acciones. Se ha notificado a todos los usuarios conocidos restantes desde el 24 de febrero de 2021, pero es posible que aún haya integraciones que puedan intentar interactuar con estos recursos. Los tipos más comunes de integraciones afectadas son servicios que ofrecen administración, traducción y localización de recursos digitales. Si observa errores de integración como resultado de este cambio, [aún podrá actualizar los recursos problemáticos editándolos y aprobándolos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/transitioning-to-email-editor-2-0). Una vez que un recurso de correo electrónico se haya actualizado a la versión 2, podrá volver a utilizarlo con los servicios integrados.
+[La obsolescencia del correo electrónico V1 comenzó hace casi dos años](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666) y a partir de la versión de mantenimiento de marzo de las suscripciones de Londres y Países Bajos el 17 de marzo de 2021 y de todas las demás suscripciones el 19 de marzo de 2021, finalizará toda la compatibilidad de la API con los correos electrónicos V1. Después de esta versión, cualquier intento de interactuar con correos electrónicos de la versión 1 a través de las API de recursos dará como resultado errores y no se realizarán acciones. Se ha notificado a todos los usuarios conocidos restantes desde el 24 de febrero de 2021, pero es posible que aún haya integraciones que puedan intentar interactuar con estos recursos. Los tipos más comunes de integraciones afectadas son servicios que ofrecen administración, traducción y localización de recursos digitales. Si observa errores de integración como resultado de este cambio, [aún podrá actualizar los recursos problemáticos editándolos y aprobándolos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/transitioning-to-email-editor-2-0). Una vez que un recurso de correo electrónico se haya actualizado a la versión 2, podrá volver a utilizarlo con los servicios integrados.
 
 Publicado el _2021-03-17_ por _Kenny_
 
@@ -9709,14 +9706,14 @@ En mayo de 2021 lanzaremos nuevas API de REST, mejoraremos las API de REST exist
 
 * Se han agregado API de miembros de programa que permiten recuperar, actualizar y eliminar registros de pertenencia a programas. Para obtener más información, consulte [API de REST > Base de datos de posibles clientes > Miembros del programa](/help/rest-api/program-members.md).
 * Se han agregado API de extracción de objetos personalizados en lote que le permiten exportar registros de objetos personalizados de Marketo de primer nivel asociados a posibles clientes en una relación &quot;uno a varios&quot;. Para obtener más información, consulte [API de REST > Extracción en lotes > Extracción en lotes de objetos personalizados](/help/rest-api/bulk-custom-object-extract.md).
-* Hemos mejorado tanto la [API de posible cliente](/help/rest-api/leads.md) como la [API de extracción masiva de posibles clientes](/help/rest-api/bulk-lead-extract.md) para permitir que los usuarios recuperen el ID de Adobe Experience Cloud (ECID). Esto permite a los usuarios que [sincronizan audiencias de Adobe Experience Cloud](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html?lang=es) identificar posibles clientes que tengan ECID asociados. Esto abre [posibilidades de integración](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) con otros productos de Adobe Experience Cloud.
+* Hemos mejorado tanto la [API de posible cliente](/help/rest-api/leads.md) como la [API de extracción masiva de posibles clientes](/help/rest-api/bulk-lead-extract.md) para permitir que los usuarios recuperen el ID de Adobe Experience Cloud (ECID). Esto permite a los usuarios que [sincronizan audiencias de Adobe Experience Cloud](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html) identificar posibles clientes que tengan ECID asociados. Esto abre [posibilidades de integración](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) con otros productos de Adobe Experience Cloud.
 * Hemos mejorado la [API de importación masiva de posibles clientes](/help/rest-api/bulk-lead-import.md) para admitir la adición de posibles clientes a los registros de la compañía durante el proceso de importación. Para ello, incluya el campo **externalCompanyId** en el archivo de importación.
 * Hemos mejorado varios extremos del programa para proporcionar paridad con la funcionalidad que se encuentra en la interfaz de usuario de Marketo Engage. Hemos mejorado los extremos de [Crear programas](/help/rest-api/assets.md) y [Clonar programas](https://developer.adobe.com/marketo-apis/api/asset/) para permitir operaciones de creación, clonación o movimiento en programas de eventos. Para los usuarios que organizan programas de eventos &quot;anidándolos&quot; debajo de otros tipos de programas. También hemos mejorado el punto de conexión [Eliminar programa](https://developer.adobe.com/marketo-apis/api/asset/) para permitir la eliminación de programas que contengan los siguientes recursos: notificaciones push, mensajes en la aplicación, informes y páginas de aterrizaje con Assets social incrustado.
-* Como administrador de Marketo, puede [marcar un campo específico como &quot;confidencial&quot;](https://experienceleague.adobe.com/es/docs/marketo/using/home) para que sus valores [nunca se prerrellenen en los formularios](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field), y así proteger los datos confidenciales de los usuarios. Hemos mejorado varios extremos de campo de formulario para proporcionar paridad con esta funcionalidad que se encuentra en la interfaz de usuario de Marketo Engage.
+* Como administrador de Marketo, puede [marcar un campo específico como &quot;confidencial&quot;](https://experienceleague.adobe.com/es/docs/marketo/using/home) para que sus valores [nunca se prerrellenen en los formularios](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field), y así proteger los datos confidenciales de los usuarios. Hemos mejorado varios extremos de campo de formulario para proporcionar paridad con esta funcionalidad que se encuentra en la interfaz de usuario de Marketo Engage.
 
 ### Resoluciones de defectos
 
-* Se corrigió un problema con Eliminar punto final del programa. Si intentara eliminar un programa en una carpeta compartida, devolverá &quot;611, Error del sistema&quot;. Ahora devuelve &quot; &quot;El programa de Target está en una carpeta compartida y no se puede eliminar. Se debe dejar de compartir la carpeta antes de intentar eliminarla&quot;.
+* Se ha corregido un problema con Eliminar punto final del programa. Si intentara eliminar un programa en una carpeta compartida, devolverá &quot;611, Error del sistema&quot;. Ahora devuelve &quot; &quot;El programa de Target está en una carpeta compartida y no se puede eliminar. Se debe dejar de compartir la carpeta antes de intentar eliminarla&quot;.
 * Se ha corregido un problema con el punto final Clonar programa. Si intentara clonar un programa que contenía un DateTime en un paso de flujo, devolverá &quot;611, System Error&quot;. Ahora clona correctamente el programa.
 * Se ha corregido un problema con el extremo de Crear programas que permitía crear de forma involuntaria un programa debajo de un programa de correo electrónico (lo que no está permitido).
 * Se ha corregido un problema con el punto final Clonar programa. Si clonó un programa que contenía una página de aterrizaje, el nombre de la página de aterrizaje en el programa de destino no tenía un guion bajo entre el nombre del programa y el nombre de la página de aterrizaje. P. ej.: `http://<_pod_\>.marketo.com/lp/<_munchkin_\>/<_program name_\>**_**<_LP name_\>.html`
@@ -9757,11 +9754,11 @@ En agosto de 2021, vamos a mejorar las API de REST existentes y a resolver vario
 ### Correos electrónicos
 
 * Hemos mejorado el extremo de obtención de correos electrónicos al agregar el filtro `earliestUpdatedAt`/`latestUpdatedAt`. Esto le permite utilizar el campo `updatedAt` para buscar únicamente un subconjunto de correos electrónicos, lo que permite una sincronización incremental.
-* Hemos mejorado los puntos finales de Obtener correos electrónicos, Obtener correo electrónico por nombre y Obtener correo electrónico por ID para admitir la recuperación de los registros de correo electrónico de tipo [Champion y Challenger](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger).
+* Hemos mejorado los puntos finales de Obtener correos electrónicos, Obtener correo electrónico por nombre y Obtener correo electrónico por ID para admitir la recuperación de los registros de correo electrónico de tipo [Champion y Challenger](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger).
 
 ### Resoluciones de defectos
 
-* Se ha corregido un problema con el extremo Obtener usuarios. Los usuarios a los que se había emitido una licencia de [Calendario de mercadotecnia](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license) no se devolvían. Los usuarios del calendario de marketing ahora se devuelven correctamente.
+* Se ha corregido un problema con el extremo Obtener usuarios. Los usuarios a los que se había emitido una licencia de [Calendario de mercadotecnia](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license) no se devolvían. Los usuarios del calendario de marketing ahora se devuelven correctamente.
 * Se ha corregido un problema con el punto final Enviar formulario. En caso de registros de posibles clientes duplicados, el formulario de envío se utiliza para emitir un error &quot;1007, Multiple lead match lookup criteria&quot;. El formulario de envío ahora actualiza el registro actualizado más recientemente del mismo modo que lo hace la [API de Forms 2.0](/help/javascript-api/forms-api-reference.md).
 * Se han mejorado varios mensajes de error engañosos devueltos por los extremos Actualizar campo de posible cliente y Crear campos de posible cliente. [LM-151890, LM-151888, LM-151889]
 * Se ha corregido un problema con los extremos de Obtener campo de posible cliente por nombre y Obtener campos de posible cliente. Ambos extremos podrían devolver información ligeramente obsoleta. Ahora siempre devuelven información actual.
@@ -9774,7 +9771,7 @@ Publicado el _2021-08-22_ por _David_
 
 ## Despliegue de Munchkin versión 161
 
-El 7 de septiembre de 2021, la versión 161 de Munchkin empezará a implementarse en el 10 % de las suscripciones con Munchkin Beta habilitado, seguido del 50 % el 16 de septiembre y del 100 % el 30 de septiembre. Este cambio afectará a las páginas de aterrizaje de Marketo y a la versión del archivo munchkin-beta.js que se proporciona a páginas de aterrizaje externas que se cargan desde suscripciones a las que se ha implementado la nueva versión. Esta versión desaprueba por completo el método Associate Lead de Munchkin, que es una función que permitía el envío de datos de persona a una suscripción de Marketo y el historial de navegación web asociado con un registro de persona conocida. El posible cliente asociado se está eliminando en favor de alternativas más modernas y seguras, como la [API de Forms JS](/help/javascript-api/forms-api-reference.md), la API de envío de formularios y la [API de REST de posible cliente asociada](/help/rest-api/leads.md). Si usted o su organización utilizan este método, debe dejar de utilizarlo antes del 12 de octubre de 2021, cuando está programado que comience el despliegue de la versión de octubre. Si ya no desea adherirse a la versión beta de Munchkin, puede deshabilitar el uso en las páginas de aterrizaje de Marketo si cambia la función &quot;Munchkin Beta en las páginas de aterrizaje&quot; a `disabled` en el [menú del cofre del tesoro](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features). Si ha implementado Munchkin Beta JavaScript en páginas web externas y desea cambiar al canal de publicación predeterminado de Munchkin, debe actualizar el fragmento de código para cargar Munchkin JavaScript desde munchkin.js en lugar de munchkin-beta.js.
+El 7 de septiembre de 2021, la versión 161 de Munchkin empezará a implementarse en el 10 % de las suscripciones con Munchkin Beta habilitado, seguido del 50 % el 16 de septiembre y del 100 % el 30 de septiembre. Este cambio afectará a las páginas de aterrizaje de Marketo y a la versión del archivo munchkin-beta.js que se proporciona a páginas de aterrizaje externas que se cargan desde suscripciones a las que se ha implementado la nueva versión. Esta versión desaprueba por completo el método Associate Lead de Munchkin, que es una función que permitía el envío de datos de persona a una suscripción de Marketo y el historial de navegación web asociado con un registro de persona conocida. El posible cliente asociado se está eliminando en favor de alternativas más modernas y seguras, como la [API de Forms JS](/help/javascript-api/forms-api-reference.md), la API de envío de formularios y la [API de REST de posible cliente asociada](/help/rest-api/leads.md). Si usted o su organización utilizan este método, debe dejar de utilizarlo antes del 12 de octubre de 2021, cuando está programado que comience el despliegue de la versión de octubre. Si ya no desea adherirse a la versión beta de Munchkin, puede deshabilitar el uso en las páginas de aterrizaje de Marketo si cambia la función &quot;Munchkin Beta en las páginas de aterrizaje&quot; a `disabled` en el [menú del cofre del tesoro](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features). Si ha implementado Munchkin Beta JavaScript en páginas web externas y desea cambiar al canal de publicación predeterminado de Munchkin, debe actualizar el fragmento de código para cargar Munchkin JavaScript desde munchkin.js en lugar de munchkin-beta.js.
 
 Publicado el _2021-08-24_ por _Kenny_
 
@@ -9790,7 +9787,7 @@ En octubre de 2021, vamos a mejorar las API de REST existentes y a resolver vari
 
 * Hemos mejorado el extremo [Enviar formulario](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST) para admitir campos personalizados de miembros del programa como parte del envío del formulario. Opcionalmente, se puede especificar un programa como el programa al que agregar el formulario o el programa al que agregar campos personalizados de miembros del programa como se describe [aquí](/help/rest-api/leads.md).
 Hemos mejorado el punto de conexión [Obtener miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getProgramMembersUsingGET) para admitir consultas basadas en intervalos de fechas según el atributo updatedAt. Esto se hace pasando los parámetros de fecha y hora de inicio y finalización como se describe [aquí](/help/rest-api/program-members.md).
-* Hemos mejorado las API de [Campos de posibles clientes](/help/rest-api/leads.md) para admitir [Campos confidenciales](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive). Los extremos [Obtener campo de posible cliente por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [Obtener campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [Crear campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) y [Actualizar campo de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) ahora admiten el atributo isSensitive.
+* Hemos mejorado las API de [Campos de posibles clientes](/help/rest-api/leads.md) para admitir [Campos confidenciales](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive). Los extremos [Obtener campo de posible cliente por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [Obtener campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [Crear campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) y [Actualizar campo de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) ahora admiten el atributo isSensitive.
 
 ### Resoluciones de defectos
 
@@ -9813,7 +9810,7 @@ En enero de 2022, vamos a mejorar las API de REST existentes y a resolver varios
 ### Resoluciones de defectos
 
 * Se ha corregido un problema de latencia entre el momento de la llamada al extremo [Crear campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) y el momento en el que el campo de posible cliente recién creado estaba disponible en la lista inteligente. [LM-152838]
-* Se ha corregido un problema con el extremo [Crear campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) en el cual los campos creados no estaban disponibles en la lista desplegable de campos de formulario que se usa para [agregar campos al formulario](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form) en la interfaz de usuario de Marketo Engage. [LM-158243]
+* Se ha corregido un problema con el extremo [Crear campos de posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) en el cual los campos creados no estaban disponibles en la lista desplegable de campos de formulario que se usa para [agregar campos al formulario](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form) en la interfaz de usuario de Marketo Engage. [LM-158243]
 * Se ha corregido un problema con el extremo [Get Campaigns](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignsUsingGET) en el cual no se devolvían campañas activables cuando se especificaba el parámetro isTriggerable=true. [LM-158283]
 * Se ha corregido un problema en el cual el extremo [Obtener posibles clientes por id. de lista](https://developer.adobe.com/marketo-apis/api/mapi/#operation/deleteTokenByNameUsingPOST) devolvía un error &quot;611, Error del sistema&quot; en algunos casos. [LM-157214]
 * Se han limpiado varios mensajes de error devueltos por el extremo [Actualizar campo de posible cliente](/help/rest-api/leads.md). [LM-151886, LM-151888, LM-151889]
@@ -9825,10 +9822,10 @@ Publicado el _2022-01-27_ por _David_
 En marzo de 2022, vamos a mejorar las API de REST existentes y a resolver varios defectos. Consulte la lista completa de actualizaciones a continuación.
 
 * Hemos agregado el campo **actionResult** al archivo de exportación producido por la API de extracción masiva de actividades. Este campo se puede utilizar para distinguir entre actividades correctas, omitidas y fallidas.
-* Hemos agregado el campo **isOpenTrackingDisabled** a las respuestas de la [API de correos electrónicos](/help/rest-api/emails.md). Este campo se puede usar para determinar si la característica [Deshabilitar seguimiento de aperturas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview) está habilitada.
+* Hemos agregado el campo **isOpenTrackingDisabled** a las respuestas de la [API de correos electrónicos](/help/rest-api/emails.md). Este campo se puede usar para determinar si la característica [Deshabilitar seguimiento de aperturas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview) está habilitada.
 * Hemos agregado dos extremos que le permiten administrar selectivamente las etiquetas de programa. El punto de conexión [Actualizar etiquetas de programa](/help/rest-api/programs.md) le permite actualizar selectivamente una etiqueta de programa. El punto de conexión [Eliminar etiquetas de programa](/help/rest-api/programs.md) le permite eliminar selectivamente una etiqueta de programa.
 * Hemos agregado el parámetro **isExecutable** al extremo [Clone Smart Campaign](/help/rest-api/smart-campaigns.md). Este parámetro permite clonar un programa como un programa ejecutable.
-* Hemos agregado el campo **headStart** a la [API de programas](/help/rest-api/programs.md). Esto le permite crear, actualizar y recuperar la configuración de [Head Start](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs) para los programas de correo electrónico.
+* Hemos agregado el campo **headStart** a la [API de programas](/help/rest-api/programs.md). Esto le permite crear, actualizar y recuperar la configuración de [Head Start](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs) para los programas de correo electrónico.
 
 ### Resoluciones de defectos
 
@@ -9838,7 +9835,7 @@ En marzo de 2022, vamos a mejorar las API de REST existentes y a resolver varios
 
 ### Integración de IMS de Adobe
 
-* Aquellos que han sido incorporados a [Adobe IMS](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) no pueden usar todas las [API de administración de usuarios de Marketo](/help/rest-api/user-management.md). Los siguientes extremos devolverán un error en cuando se invoquen en instancias de Marketo que se hayan integrado con Adobe IMS: [Invitar usuario](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST), [Obtener usuario invitado por el identificador](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET), [Actualizar atributos del usuario](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST), [Eliminar usuario](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST) y [Eliminar usuario invitado](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST). Como reemplazo, se deben usar las [API de administración de usuarios de Adobe](https://developer.adobe.com/umapi/).
+* Aquellos que han sido incorporados a [Adobe IMS](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) no pueden usar todas las [API de administración de usuarios de Marketo](/help/rest-api/user-management.md). Los siguientes extremos devolverán un error en cuando se invoquen en instancias de Marketo que se hayan integrado con Adobe IMS: [Invitar usuario](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST), [Obtener usuario invitado por el identificador](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET), [Actualizar atributos del usuario](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST), [Eliminar usuario](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST) y [Eliminar usuario invitado](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST). Como reemplazo, se deben usar las [API de administración de usuarios de Adobe](https://developer.adobe.com/umapi/).
 
 Publicado el _2022-03-14_ por _David_
 
@@ -9846,8 +9843,8 @@ Publicado el _2022-03-14_ por _David_
 
 En mayo de 2022, vamos a mejorar las API de REST existentes y a resolver varios defectos. Consulte la lista completa de actualizaciones a continuación.
 
-* Hemos agregado la capacidad de recuperar los registros de [Compañía](/help/rest-api/companies.md), [Oportunidad](/help/rest-api/opportunities.md) y [Vendedores](/help/rest-api/sales-persons.md) cuando [SFDC Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) estén habilitados en su instancia de Marketo Engage.
-* Hemos actualizado el punto de conexión [Obtener contenido dinámico para correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) para permitirle recuperar [contenido dinámico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/using-dynamic-content-in-an-email) de una línea de asunto de correo electrónico. Esto funciona independientemente de si el correo electrónico dado está vinculado a una plantilla de correo electrónico.
+* Hemos agregado la capacidad de recuperar los registros de [Compañía](/help/rest-api/companies.md), [Oportunidad](/help/rest-api/opportunities.md) y [Vendedores](/help/rest-api/sales-persons.md) cuando [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) estén habilitados en su instancia de Marketo Engage.
+* Hemos actualizado el punto de conexión [Obtener contenido dinámico para correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) para permitirle recuperar [contenido dinámico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/using-dynamic-content-in-an-email) de una línea de asunto de correo electrónico. Esto funciona independientemente de si el correo electrónico dado está vinculado a una plantilla de correo electrónico.
 
 `POST /rest/asset/v1/form/{id}/field/State.json?values=[{"label":"Alaska"},{"value":"AK"},{"label":"West Virginia","value":"WV"},{"label":"Wyoming","value":"WY"}]`
 
@@ -9868,9 +9865,9 @@ En agosto de 2022, vamos a mejorar las API de REST existentes. Consulte la lista
 Hemos añadido varios filtros nuevos que se pueden utilizar al llamar al punto final del trabajo Crear trabajo de miembro del programa de exportación. Tenga en cuenta que muchos de los filtros se pueden utilizar en combinación para restringir el conjunto de datos extraídos.
 
 * El filtro **programIds** se puede usar para especificar hasta 10 identificadores de programa que pueden ayudar a mejorar el rendimiento.
-* El filtro **isExhausted** se puede usar para filtrar registros para [personas que han agotado el contenido](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content).
-* El filtro **nurtureCadence** se puede usar para filtrar registros basados en [cadencia del programa de participación](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/program-flow-actions/change-engagement-program-cadence).
-* El filtro **statusNames** se puede usar para filtrar registros para uno o más [estados de programa](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-program-membership).
+* El filtro **isExhausted** se puede usar para filtrar registros para [personas que han agotado el contenido](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content).
+* El filtro **nurtureCadence** se puede usar para filtrar registros basados en [cadencia del programa de participación](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/program-flow-actions/change-engagement-program-cadence).
+* El filtro **statusNames** se puede usar para filtrar registros para uno o más [estados de programa](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-program-membership).
 * El filtro **updatedAt** se puede usar para filtrar registros basados en un intervalo de fechas.
 
 ### Anuncios
@@ -9884,7 +9881,7 @@ Publicado el _2022-09-03_ por _David_
 En octubre de 2022, vamos a mejorar las API de REST existentes. Consulte la lista completa de actualizaciones a continuación.
 
 * Hemos mejorado la [API de importación masiva de posibles clientes](/help/rest-api/bulk-lead-import.md) para admitir la adición de posibles clientes a los registros de vendedores durante el proceso de importación. Para ello, incluya el campo **externalSalesPersonId** en el archivo de importación.
-* Se ha corregido un problema con el extremo [Crear campos de posibles clientes](/help/rest-api/leads.md) que se producía al crear campos de tipo Puntuación. Estos campos no estaban disponibles para usarlos en la acción de flujo [Cambiar puntuación](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/change-score) en la interfaz de usuario de Marketo Engage. [LM-166815]
+* Se ha corregido un problema con el extremo [Crear campos de posibles clientes](/help/rest-api/leads.md) que se producía al crear campos de tipo Puntuación. Estos campos no estaban disponibles para usarlos en la acción de flujo [Cambiar puntuación](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/change-score) en la interfaz de usuario de Marketo Engage. [LM-166815]
 
 ### Anuncios
 
@@ -9906,7 +9903,7 @@ IU de administración
 
 ### Extracción de posibles clientes
 
-* Hemos mejorado la IU de administración de Marketo Engage para permitirle ver la asignación de capacidad diaria de la API de extracción masiva para su suscripción. Además, puede ver el uso de capacidad por parte del usuario de la API durante los últimos 7 días. Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/bulk-export-api-information).
+* Hemos mejorado la IU de administración de Marketo Engage para permitirle ver la asignación de capacidad diaria de la API de extracción masiva para su suscripción. Además, puede ver el uso de capacidad por parte del usuario de la API durante los últimos 7 días. Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/bulk-export-api-information).
 
 ### Resoluciones de defectos
 

@@ -3,9 +3,9 @@ title: Autenticación
 feature: REST API
 description: Autenticación de usuarios de Marketo para el uso de API.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
+source-git-commit: 206724e5177eb9040fa36202d91b2ed9daa734c3
 workflow-type: tm+mt
-source-wordcount: '619'
+source-wordcount: '618'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ El token de acceso debe enviarse como un encabezado HTTP.
 
 >[!IMPORTANT]
 >
->El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
+>La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminará el 31 de octubre de 2025. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
 
 ### Cambio al encabezado Autorización
 
