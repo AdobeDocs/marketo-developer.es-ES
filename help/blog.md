@@ -14,7 +14,7 @@ ht-degree: 0%
 >[!INFO]
 >
 >Este es un archivo del blog de Marketo, que abarca de 2014 a 2023. Se proporciona aquí solo como referencia histórica.
->>Parte de la información podría estar desactualizada.  Compruebe siempre la documentación actual para obtener la funcionalidad más reciente.
+>&#x200B;>Parte de la información podría estar desactualizada.  Compruebe siempre la documentación actual para obtener la funcionalidad más reciente.
 >
 
 >[!IMPORTANT]
@@ -921,6 +921,7 @@ response = client.call(:sync_multiple_leads, message: request)
 
 puts response
 ```
+
  
 
 Este artículo contiene el código utilizado para implementar integraciones personalizadas. Debido a su naturaleza personalizada, el equipo de soporte técnico de Marketo no puede solucionar problemas del trabajo personalizado. No intente implementar el siguiente código de ejemplo sin tener la experiencia técnica adecuada o sin tener acceso a un desarrollador experimentado.
@@ -6583,6 +6584,7 @@ public class SyncMultipleLeadsExample {
   }
 }
 ```
+
  
 Este artículo contiene el código utilizado para implementar integraciones personalizadas. Debido a su naturaleza personalizada, el equipo de soporte técnico de Marketo no puede solucionar problemas del trabajo personalizado. No intente implementar el siguiente código de ejemplo sin tener la experiencia técnica adecuada o sin tener acceso a un desarrollador experimentado.
 
@@ -6752,7 +6754,7 @@ Imagine que desea automatizar los correos electrónicos de seguimiento del centr
 
 Así es como se hace esto. 1. En el árbol Actividades de marketing, seleccione la carpeta Campaña o el Programa donde desee crear los tokens. En la barra de menús superior, seleccione Mis tokens. A continuación, se muestra el lienzo Mis tokens. Desde el árbol del lado derecho, arrastre un Tipo de token al lienzo, que en este caso es &quot;Texto&quot;. En el campo Nombre del token, resalte Mi token e introduzca un Nombre de token único, que en este caso es &quot;my.conversationtopic&quot;. En el campo Value, introduzca un Value relevante para el token, que en este caso es &quot;Gracias por llamarnos hoy&quot;. Tenga en cuenta que al utilizar la API anularemos el valor predeterminado de Mi token. Haga clic en &quot;Guardar&quot; para guardar el token personalizado.  1. Cree un nuevo correo electrónico haciendo clic en Nuevo. A continuación, haga clic en New Local Assets y seleccione Email. A continuación, rellene los campos relevantes para asignar un nombre al correo electrónico. Al redactar el borrador del correo electrónico, haga clic en el icono Token para incluir tokens en el correo electrónico. Ahora que ha creado su correo electrónico de plantilla con tokens, añadiremos el correo electrónico como una acción de flujo para la campaña en el paso siguiente. Por lo tanto, cuando llama a la campaña a través de la API, se envía el correo electrónico.\
 **Cómo crear una acción de flujo de correo electrónico en una campaña** La asociación de un correo electrónico con una campaña inteligente permite a los especialistas en marketing administrar el aspecto que desean que tenga un correo electrónico, así como a la aplicación de terceros determinar quién lo recibe y cuándo lo hace. Después de crear un correo electrónico como un nuevo recurso local, puede establecerlo como una acción de flujo en una campaña. Busque y seleccione el correo electrónico que desea enviar.
-**Ejemplo de código para llamar a la API requestCampaign** Después de configurar la campaña y las déclencheur en la interfaz de Marketo, le mostramos cómo usar la API para enviar un correo electrónico. El primer ejemplo es una solicitud XML, el segundo es una respuesta XML y el último es un ejemplo de código Java que se puede utilizar para generar la solicitud XML. También le mostramos cómo encontrar el ID de campaña que se utiliza al realizar una llamada a la API requestCampaign. La llamada de API también requiere que conozca previamente el ID de la campaña de Marketo. Puede determinar el ID de campaña mediante cualquiera de los siguientes métodos: 1. Use la API 1 de [getCampaignsForSource](/help/soap-api/getcampaignsforsource.md). Abra la campaña de Marketo en un explorador y observe la barra de direcciones URL. El ID de campaña (representado como un entero de 4 dígitos) se puede encontrar inmediatamente después de &quot;SC&quot;. Por ejemplo, `<https://app-stage.marketo.com/#SC**1025**A1>`. La parte en negrita es el ID de campaña: &quot;1025&quot;. Solicitud de SOAP para requestCampaign
+**Ejemplo de código para llamar a la API requestCampaign** Después de configurar la campaña y las déclencheur en la interfaz de Marketo, le mostramos cómo usar la API para enviar un correo electrónico. El primer ejemplo es una solicitud XML, el segundo es una respuesta XML y el último es un ejemplo de código Java que se puede utilizar para generar la solicitud XML. También le mostramos cómo encontrar el ID de campaña que se utiliza al realizar una llamada a la API requestCampaign. La llamada de API también requiere que conozca previamente el ID de la campaña de Marketo. Puede determinar el ID de campaña mediante cualquiera de los siguientes métodos: 1. Use la API 1 de [getCampaignsForSource](/help/soap-api/getcampaignsforsource.md). Abra la campaña de Marketo en un explorador y observe la barra de direcciones URL. El ID de campaña (representado como un entero de 4 dígitos) se puede encontrar inmediatamente después de &quot;SC&quot;. Por ejemplo, `<https://app-stage.marketo.com/#SC&#x200B;**1025**&#x200B;A1>`. La parte en negrita es el ID de campaña: &quot;1025&quot;. Solicitud de SOAP para requestCampaign
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -7257,7 +7259,7 @@ Edite la &quot;Configuración de autenticación&quot;:
 
   `{"access_token":"{{access_token}}"}`
 
-* Ubicación del token de acceso**:** Token en Querystring
+* Ubicación del token de acceso&#x200B;**:** Token en Querystring
 
 Una vez creado un servicio personalizado de Marketo, el ID y el secreto de cliente están disponibles. Utilizamos el ID de cliente y el secreto de cliente para generar un token de acceso a través del extremo de la API de REST [Authentication](/help/rest-api/authentication.md). Podemos usar este token de acceso para realizar solicitudes posteriores a la API de REST. El token caduca después de una hora y debe generarse de nuevo para continuar llamando a la API de REST. Elegimos Tipo de autenticación = &quot;Autenticación de sesión&quot;, ya que nos permite ejecutar un script de autenticación personalizado cada vez que caduca nuestro token de sesión. En la sección &quot;API de scripts&quot; veremos cómo implementar este mecanismo que solo puede funcionar con este tipo de autenticación.
 **Déclencheur** Los Déclencheur Zapier están ahí para traer datos a Zapier. No necesitamos uno para nuestros casos de uso, ya que en su lugar aprovecharemos un webhook de Marketo. Sin embargo, todavía tenemos que escribir un Déclencheur ficticio como prueba obligatoria para nuestro conector Marketo. Vamos a crear un Déclencheur de prueba que llame al extremo [Obtener uso diario](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getDailyUsageUsingGET) de la API de REST de Marketo. Haga clic en **Agregar nuevo Déclencheur** para iniciar el asistente y rellenar los campos siguientes (los campos no mencionados pueden dejarse en blanco): Nombre y descripción
@@ -8145,7 +8147,7 @@ Abra Power Pivot haciendo clic en el botón &quot;Administrar&quot; del menú Po
 
 ### Expresiones de análisis de datos (DAX)
 
-Es necesario enriquecer o volver a dar formato a los datos de algunos informes. Usemos expresiones de análisis de datos de Power Pivot (DAX) para definir algunos cálculos personalizados como columnas calculadas y medidas (también conocidos como campos calculados). Consulte el vínculo &quot;DAX en Power Pivot&quot; en la sección Referencias para obtener más información sobre DAX. Asegúrese de que el área de cálculo aparece en la ventana de Power Pivot; si no es así, actívela en el menú Inicio de Power Pivot.  Seleccione la ficha **MktoLeads** y agregue la medida **Recuento de posibles clientes** a cualquier lugar del área de cálculo de posibles clientes: **Recuento de posibles clientes:=****DISTINCTCOUNT****([id])**. Esta medida cuenta los distintos posibles clientes disponibles en la lista en función de su ID. También tendría en cuenta los posibles filtros establecidos en el contexto de un informe. Esta medida no es realmente necesaria ya que los informes son capaces de resumir el número de posibles clientes, pero lo hicimos para tener un recuento de posibles clientes con un nombre más bonito que &quot;suma de MktoLeads&quot;. También es un ejemplo sencillo que le permite imaginar fácilmente algunas medidas más complejas realizando promedios, mínimo, máximo para un tipo específico de entrada de datos (por ejemplo, todos los posibles clientes con una puntuación superior a 50, puntuación media, etc.). ...).  Ahora vamos a seleccionar la ficha **MktoWebActivities** y crear tres columnas calculadas. Inserte las siguientes columnas calculadas desplazándose hacia la derecha de la tabla y haciendo clic en la columna &quot;Agregar columna&quot;. **Actividad:** Obtenga la etiqueta de actividad fácil de usar buscando el ID de actividad en la tabla MktoActivityTypes. **\=****LOOKUPVALUE****(MktoActivityTypes[name],MktoActivityTypes[id],[activityTypeId])** **Year-Month:** vuelva a dar formato a la fecha de la actividad con un patrón &quot;AAAAmm&quot; que sea más adecuado para algunos informes. **\=****LEFT****([activityDate],4)&amp;****MID****([activityDate],6,2)** **Date:** La fecha de actividad es solo una cadena de nuestra consulta original, transfórmela a una fecha apropiada. **\=****DATE****(****LEFT****([activityDate],4),****MID****([activityDate],6,2),****MID****([activityDate],9,2))** Ahora vamos a crear las tres mismas medidas para la ficha **MktoEmailActivities** y dos más: **Campaña:** Obtenga el nombre descriptivo de la campaña buscando el identificador de campaña en la tabla MktoCampaigns. **\=****LOOKUPVALUE****(MktoCampaigns[name],MktoCampaigns[id],[campaignId])** **Programa:** Obtenga el nombre descriptivo del programa buscando el ID de campaña en la tabla MktoCampaigns. La tabla MktoPrograms puede proporcionar más detalles sobre el programa, como la carpeta, el espacio de trabajo, etc. **\=****LOOKUPVALUE****(MktoCampaigns[programName],MktoCampaigns[id],[campaignId])**
+Es necesario enriquecer o volver a dar formato a los datos de algunos informes. Usemos expresiones de análisis de datos de Power Pivot (DAX) para definir algunos cálculos personalizados como columnas calculadas y medidas (también conocidos como campos calculados). Consulte el vínculo &quot;DAX en Power Pivot&quot; en la sección Referencias para obtener más información sobre DAX. Asegúrese de que el área de cálculo aparece en la ventana de Power Pivot; si no es así, actívela en el menú Inicio de Power Pivot.  Seleccione la ficha **MktoLeads** y agregue la medida **Recuento de posibles clientes** a cualquier lugar del área de cálculo de posibles clientes: **Recuento de posibles clientes:=**&#x200B;**DISTINCTCOUNT**&#x200B;**([id])**. Esta medida cuenta los distintos posibles clientes disponibles en la lista en función de su ID. También tendría en cuenta los posibles filtros establecidos en el contexto de un informe. Esta medida no es realmente necesaria ya que los informes son capaces de resumir el número de posibles clientes, pero lo hicimos para tener un recuento de posibles clientes con un nombre más bonito que &quot;suma de MktoLeads&quot;. También es un ejemplo sencillo que le permite imaginar fácilmente algunas medidas más complejas realizando promedios, mínimo, máximo para un tipo específico de entrada de datos (por ejemplo, todos los posibles clientes con una puntuación superior a 50, puntuación media, etc.). ...).  Ahora vamos a seleccionar la ficha **MktoWebActivities** y crear tres columnas calculadas. Inserte las siguientes columnas calculadas desplazándose hacia la derecha de la tabla y haciendo clic en la columna &quot;Agregar columna&quot;. **Actividad:** Obtenga la etiqueta de actividad fácil de usar buscando el ID de actividad en la tabla MktoActivityTypes. **\=**&#x200B;**LOOKUPVALUE**&#x200B;**(MktoActivityTypes[name],MktoActivityTypes[id],[activityTypeId])** **Year-Month:** vuelva a dar formato a la fecha de la actividad con un patrón &quot;AAAAmm&quot; que sea más adecuado para algunos informes. **\=**&#x200B;**LEFT**&#x200B;**([activityDate],4)&amp;**&#x200B;**MID**&#x200B;**([activityDate],6,2)** **Date:** La fecha de actividad es solo una cadena de nuestra consulta original, transfórmela a una fecha apropiada. **\=**&#x200B;**DATE**&#x200B;**(**&#x200B;**LEFT**&#x200B;**([activityDate],4),**&#x200B;**MID**&#x200B;**([activityDate],6,2),**&#x200B;**MID**&#x200B;**([activityDate],9,2))** Ahora vamos a crear las tres mismas medidas para la ficha **MktoEmailActivities** y dos más: **Campaña:** Obtenga el nombre descriptivo de la campaña buscando el identificador de campaña en la tabla MktoCampaigns. **\=**&#x200B;**LOOKUPVALUE**&#x200B;**(MktoCampaigns[name],MktoCampaigns[id],[campaignId])** **Programa:** Obtenga el nombre descriptivo del programa buscando el ID de campaña en la tabla MktoCampaigns. La tabla MktoPrograms puede proporcionar más detalles sobre el programa, como la carpeta, el espacio de trabajo, etc. **\=**&#x200B;**LOOKUPVALUE**&#x200B;**(MktoCampaigns[programName],MktoCampaigns[id],[campaignId])**
 
 ### Relaciones de entidad
 
@@ -9104,7 +9106,7 @@ Para recuperar los CO de segundo nivel, inicie un nuevo conjunto de consultas pa
 
 `GET /rest/v1/customobjects/session_c.json?filterType=subscriptionID&filterValues=4ad59184-6bf1-4eeb-a583-d82aeee68210,e5e0aba4-f27f-494d-93ed-9cb580989bf3,e65007cd-86b1-4c17-8d55-057c96e1788a,39d956b2-85e2-4c24-94e7-e9fa5a09d3d0,bf14218c-ae6a-42b3-a14e-f7182903cbcd`
 
-Los tipos de filtro _Footnote_ _1)**smartListName**y **smartListId**no están disponibles para algunas suscripciones. Si no está disponible para su suscripción, recibirá un error al llamar al extremo del trabajo de creación de posibles clientes (**&quot;1035, tipo de filtro no admitido para la suscripción de destino&quot;**). Los clientes pueden ponerse en contacto con el Soporte técnico de Marketo para habilitar esta funcionalidad en su suscripción._
+Los tipos de filtro _Footnote_ _1)**smartListName**&#x200B;y **smartListId**&#x200B;no están disponibles para algunas suscripciones. Si no está disponible para su suscripción, recibirá un error al llamar al extremo del trabajo de creación de posibles clientes (**&quot;1035, tipo de filtro no admitido para la suscripción de destino&quot;**). Los clientes pueden ponerse en contacto con el Soporte técnico de Marketo para habilitar esta funcionalidad en su suscripción._
 
 Publicado el _2020-01-14_ por _Tony_
 
@@ -9348,7 +9350,7 @@ El posible cliente asociado de Munchkin tiene dos casos de uso principales, el e
 
 #### Envío del lado del servidor
 
-Si no necesita envío del lado del explorador, la API de REST ofrece muchos métodos para [envío de datos de persona](/help/rest-api/leads.md) y un método creado específicamente para asociar cookies con registros de persona](/help/rest-api/leads.md).[
+Si no necesita envío del lado del explorador, la API de REST ofrece muchos métodos para [envío de datos de persona](/help/rest-api/leads.md) y un método creado específicamente para asociar cookies con registros de persona[&#128279;](/help/rest-api/leads.md).
 
 ¿Cuándo se está desplegando la versión 159 de Munchkin?
 
@@ -9458,6 +9460,7 @@ El envío del formulario de fondo es uno de los métodos de reemplazo recomendad
 
 </html>
 ```
+
    
 Publicado el _2020-05-26_ por _Kenny_
 
@@ -9665,7 +9668,7 @@ Para deshabilitar Munchkin Beta en las páginas de aterrizaje de Marketo, debes 
 
 ### Deshabilitar Munchkin Beta en páginas externas
 
-Si ha implementado la versión de Beta de Munchkin JavaScript en páginas web externas y desea renunciar a este cambio hasta que esté disponible de forma general, debe modificar el fragmento de JS de Munchkin para que se dirija a **munchkin.****js** archivo en lugar del **munchkin-beta.****js** archivo. En el ejemplo siguiente, este es el valor de la variable **s.src** de la línea 11. Es posible que el fragmento no se parezca mucho al ejemplo o que lo implemente un administrador de etiquetas en las páginas externas y que necesite ponerse en contacto con los recursos de TI o con quien administre sus sitios web con el seguimiento de Munchkin habilitado.
+Si ha implementado la versión de Beta de Munchkin JavaScript en páginas web externas y desea renunciar a este cambio hasta que esté disponible de forma general, debe modificar el fragmento de JS de Munchkin para que se dirija a **munchkin.**&#x200B;**js** archivo en lugar del **munchkin-beta.**&#x200B;**js** archivo. En el ejemplo siguiente, este es el valor de la variable **s.src** de la línea 11. Es posible que el fragmento no se parezca mucho al ejemplo o que lo implemente un administrador de etiquetas en las páginas externas y que necesite ponerse en contacto con los recursos de TI o con quien administre sus sitios web con el seguimiento de Munchkin habilitado.
 
 ```javascript
 <script type="text/javascript">
