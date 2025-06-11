@@ -2,9 +2,10 @@
 title: Ingesta de datos
 feature: REST API, Dynamic Content
 description: Consumir datos con las API de Marketo.
-source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
+exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '965'
 ht-degree: 11%
 
 ---
@@ -13,11 +14,11 @@ ht-degree: 11%
 
 La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad diseñado para gestionar de forma eficaz y con mínimos retrasos la ingesta de grandes cantidades de datos relacionados con personas y personas.
 
-Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/).&#x200B;
+Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).&#x200B;
 
 Las interfaces se ofrecen para dos tipos de objetos: Personas y Objetos personalizados. La operación de registro es sólo &quot;insertar o actualizar&quot;.
 
-La API de ingesta de datos se encuentra actualmente en versión beta privada.  Se requiere que los invitados tengan derechos para el paquete de [Nivel de rendimiento del Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+La API de ingesta de datos se encuentra actualmente en versión beta privada.  Se requiere que los invitados tengan derechos para el paquete de [Nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Autenticación
 
@@ -42,26 +43,26 @@ La ingesta de datos utiliza los siguientes encabezados HTTP personalizados.
 
 ### Solicitud
 
-| Clave | Valor | Requerido | Descripción |
+| Clave | Valor | Obligatorio | Descripción |
 | - | - | - | - |
 | X-Correlation-Id | Cadena arbitraria (longitud máxima de 255 caracteres). | No | Se puede utilizar para rastrear solicitudes a través del sistema.  Consulte Flujo de datos de observabilidad de Marketo |
 | X-Request-Source | Cadena arbitraria (longitud máxima 50 caracteres). | No | Se puede utilizar para rastrear el origen de las solicitudes a través del sistema.  Consulte Flujo de datos de observabilidad de Marketo |
 
 ### Respuesta
 
-| Clave | Valor | Requerido |
+| Clave | Valor | Obligatorio |
 | - | - | - |
 | X-Request-Id | ID único de solicitud. | Sí |
 
 ## Solicitudes
 
-Utilice el método del POST HTTP para enviar datos al servidor.
+Utilice el método HTTP POST para enviar datos al servidor.
 
 La representación de datos se incluye en el cuerpo de la solicitud como application/json.
 
 El nombre de dominio es: `mkto-ingestion-api.adobe.io`
 
-La ruta de acceso comienza por `/subscriptions/MunchkinId`, donde MunchkinId es específico de la instancia de Marketo. Puede encontrar su ID de Munchkin en la interfaz de usuario de Marketo Engage en **Administración** > **Mi cuenta** > **Información de asistencia**.  El resto de la ruta se utiliza para especificar el recurso de interés.
+La ruta de acceso comienza por `/subscriptions/MunchkinId`, donde MunchkinId es específico de la instancia de Marketo. Puede encontrar su Munchkin ID en la interfaz de usuario de Marketo Engage en **Administración** > **Mi cuenta** > **Información de asistencia**.  El resto de la ruta se utiliza para especificar el recurso de interés.
 
 Ejemplo de URL para personas:
 
@@ -79,7 +80,7 @@ Ejemplo de ID de solicitud mediante encabezado:
 
 `X-Request-Id: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
 
-### Sin errores
+### Correcto
 
 Cuando una llamada se realiza correctamente, se devuelve un estado 202.  No se devuelve ningún cuerpo de respuesta.
 
@@ -140,7 +141,7 @@ Punto final utilizado para actualizar registros de persona.
 
 #### Cuerpo de solicitud
 
-| Clave | Tipo de datos | Requerido | Valor | Valor predeterminado |
+| Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 | - | - | - | - | - |
 | prioridad | Cadena | No | Prioridad de la solicitud: normal o alta | normal |
 | partitionName | Cadena | No | Nombre de la partición de persona | Predeterminado |
@@ -207,7 +208,7 @@ Extremo utilizado para actualizar registros de objeto personalizados
 
 #### Cuerpo de solicitud
 
-| Clave | Tipo de datos | Requerido | Valor | Valor predeterminado |
+| Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 | - |- | - | - | - |
 | prioridad | Cadena | No | Prioridad de la solicitud: normal, alta | normal |
 | dedupeBy | Cadena | No | Atributos para anular la duplicación en: dedupeFields, marketoGUID | deduplicarCampos |
