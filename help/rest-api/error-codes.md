@@ -3,9 +3,9 @@ title: Códigos de error
 feature: REST API
 description: Descripciones de código de error de Marketo.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
+source-git-commit: d44ec0442bc33e3e5cb7e2dd6ce3947036c7cd25
 workflow-type: tm+mt
-source-wordcount: '2273'
+source-wordcount: '2283'
 ht-degree: 3%
 
 ---
@@ -54,7 +54,7 @@ El extremo [Identity](https://developer.adobe.com/marketo-apis/api/identity/) pu
     <tr>
       <td><a name="414"></a>414</td>
       <td>URI de solicitud demasiado largo</td>
-      <td>El URI de la solicitud ha superado los 8 K. La solicitud debe volver a intentarse como POST con el parámetro `_method=GET` en la URL y el resto de la cadena de  en el cuerpo de la solicitud.</td>
+      <td>El URI de la solicitud ha superado los 8 K. La solicitud debe reintentarse como un POST con el parámetro `_method=GET` en la URL y el resto de la cadena de consulta en el cuerpo de la solicitud.</td>
     </tr>
   </tbody>
 </table>
@@ -110,7 +110,7 @@ Una llamada de API que devuelva este código de respuesta no se contará en su c
     <tr>
       <td><a name="603"></a>603</td>
       <td>Acceso denegado</td>
-      <td>La autenticación se ha realizado correctamente, pero el usuario no tiene permisos suficientes para llamar a esta API. Es posible que se deban asignar [permisos adicionales](custom-services.md) a la función de usuario o que se habilite <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Lista de permitidos para el acceso a la API basada en IP</a>.</td>
+      <td>La autenticación se ha realizado correctamente, pero el usuario no tiene permisos suficientes para llamar a esta API. Es posible que se deban asignar [permisos adicionales](custom-services.md) a la función de usuario o que se habilite <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Lista de permitidos para el acceso a la API basada en IP</a>.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -120,7 +120,7 @@ Una llamada de API que devuelva este código de respuesta no se contará en su c
     <tr>
       <td><a name="605"></a>605*</td>
       <td>Método HTTP no admitido</td>
-      <td>El punto de conexión de los posibles clientes de sincronización no admite GET. Se debe utilizar el POST.</td>
+      <td>GET no es compatible con el extremo de posibles clientes de sincronización. POST debe usarse.</td>
     </tr>
     <tr>
       <td><a name="606"></a>606</td>
@@ -160,7 +160,7 @@ Una llamada de API que devuelva este código de respuesta no se contará en su c
     <tr>
       <td><a name="613"></a>613</td>
       <td>Solicitud multiparte no válida</td>
-      <td>El contenido de varias partes del POST no tenía el formato correcto</td>
+      <td>El contenido de varias partes de la PUBLICACIÓN no tenía el formato correcto</td>
     </tr>
     <tr>
       <td><a name="614"></a>614</td>
@@ -287,8 +287,10 @@ Cada registro de una solicitud correcta puede tener éxito o fallar de forma ind
 
 #### Códigos de error de nivel de registro
 
-<table>
-  <tbody>
+>[!NOTE]
+>
+><table>
+<tbody>
     <tr>
       <td>Código de respuesta</td>
       <td>Descripción</td>
@@ -430,10 +432,12 @@ Cada registro de una solicitud correcta puede tener éxito o fallar de forma ind
       <td><ul>
           <li>Demasiados trabajos en cola</li>
           <li>Exportación de cuota diaria excedida</li>
+          <li>Trabajo ya en cola</li>
         </ul></td>
       <td><ul>
           <li>Las suscripciones pueden tener un máximo de 10 trabajos de extracción masiva en cola en un momento dado.</li>
           <li>De forma predeterminada, los trabajos de extracción están limitados a 500 MB por día (se restablece diariamente a las 12:00 CST).</li>
+          <li>El ID de exportación ya se ha puesto en la cola.</li>
         </ul></td>
     </tr>
     <tr>
@@ -486,3 +490,4 @@ Cada registro de una solicitud correcta puede tener éxito o fallar de forma ind
     </tr>
   </tbody>
 </table>
+
