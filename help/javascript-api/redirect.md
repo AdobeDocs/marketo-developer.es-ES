@@ -3,7 +3,7 @@ title: Redirigir
 description: Redirigir
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '468'
 ht-degree: 8%
@@ -14,7 +14,7 @@ ht-degree: 8%
 
 La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas a una dirección URL de destino.
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Uso
@@ -28,7 +28,7 @@ La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas
 | field_name | Obligatorio | Cadena | Nombre de campo con el que se debe coincidir. Ejemplo: &quot;abm.name&quot; (consulte a continuación). |
 | values_array | Obligatorio | Matriz | Lista de valores para comparar con el campo (no distingue mayúsculas de minúsculas). |
 | redirect_url | Obligatorio | Cadena | URL de destino para redirigir a los visitantes que cumplieron la condición. |
-| redirect_matched_visitors | opcional | Booleano | Si el valor es True, se redirigirán los visitantes que cumplan la condición. Si es false, se redirigirá a los visitantes no coincidentes de la condición. Predeterminado: true. |
+| redirect_matched_visitors | Opcional | Booleano | Si el valor es True, se redirigirán los visitantes que cumplan la condición. Si es false, se redirigirá a los visitantes no coincidentes de la condición. Predeterminado: true. |
 
 Organización, Sector, Listas ABM, Ubicación, ISP, Segmentos coincidentes
 
@@ -57,7 +57,7 @@ Organización, Sector, Listas ABM, Ubicación, ISP, Segmentos coincidentes
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -65,18 +65,18 @@ Organización, Sector, Listas ABM, Ubicación, ISP, Segmentos coincidentes
 c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
 g.src=f+'?rh='+c.location.hostname+'&aid='+i;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b);
 })(window,document,"rtp","//xyz.marketo.com/rtp-api/v1/rtp.js","xyz");
- 
-// START REDIRECT EXAMPLE 
+
+// START REDIRECT EXAMPLE
 //   - Using a helper redirect function
 //   - Redirect based on named account
 rtp('send','redirect','org', ['microsoft'],'http://www.marketo.com');
- 
+
 // Redirect based on named account list (ABM)
 rtp('send','redirect','abm.name', {
     // Redirect visitors that match 'first_abm' list to www.marketo.com
     'http://www.marketo.com' : ['first_abm'],
     // Redirect visitors that match 'second_abm' list to blog.marketo.com
-    'http://blog.marketo.com' : ['second_abm'] 
+    'http://blog.marketo.com' : ['second_abm']
 });
 // END REDIRECT EXAMPLE
 rtp('send','view');

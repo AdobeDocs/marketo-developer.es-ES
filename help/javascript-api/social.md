@@ -3,7 +3,7 @@ title: Social
 description: Social
 feature: Social, Javascript
 exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 4%
@@ -17,12 +17,12 @@ ht-degree: 4%
 ## Widget de recursos compartidos incrustados de muestra
 
 ```html
-<!-- Marketo Widget Loader Script --> 
+<!-- Marketo Widget Loader Script -->
 
 <script type="text/javascript" src="//b2c-mlm.marketo.com/jsloader/271d8232-1500-4305-b7ed-05d451b9ee0c/loader.php.js">
 </script>
 
- <!-- The Location of the Social Widget --> 
+ <!-- The Location of the Social Widget -->
 
 <divclass='cf_widgetloader cf_w_245d8f3c0955454cbd26abc39d0d874c'="" options="{&quot;outerHeight&quot;:400, &quot;outerWidth&quot;:600}">
 </divclass='cf_widgetloader'>
@@ -89,13 +89,13 @@ Este ejemplo muestra un elemento oculto anteriormente con el ID &quot;signedUp&q
 ## Tabla de eventos básicos
 
 | Nombre del evento | Descripción | Widgets que utilizan este evento | Argumentos admitidos (pasados a la función de devolución de llamada de evento) |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | share_sent | Se activa cada vez que se envía una solicitud compartida al servidor para su procesamiento | Todos los widgets que tienen la capacidad de compartir | 1&quot;.share_sent&quot; (String)<br>2. Parameters sent (objeto) |
 | share_success | Se activa cuando la solicitud de uso compartido se procesa correctamente. | Todos los widgets que tienen la capacidad de compartir. | 1&quot;.share_success&quot; (String)<br>2. Objeto de respuesta Compartir, que contiene el mensaje enviado y la URL abreviada (objeto) |
-| vote_success | Se activa cuando un usuario ha votado correctamente en una encuesta. | Widgets de encuesta, VS y voto | 1. &quot;vote_success&quot; (String)<br>2. Elemento votado, incluido título, descripción, identificador de entidad (objeto) |
+| vote_success | Se activa cuando un usuario ha votado correctamente en una encuesta. | Widgets de encuesta, VS y voto | &#x200B;1. &quot;vote_success&quot; (String)<br>2. Elemento votado, incluido título, descripción, identificador de entidad (objeto) |
 | offer_enrolled | Se activa cuando un usuario se ha inscrito correctamente en una oferta | Todos los widgets de oferta | 1&quot;.offer_enrolled&quot; (String)<br>2. Se cambiaron las propiedades de usuario (objeto),<br>3. Atributos de usuario modificados (objeto) |
 | profile_saved | Se activa cuando un usuario ha actualizado su perfil a partir de la captura de perfil | Todos los widgets que no son de oferta y que tienen la captura de perfil habilitada | 1&quot;.profile_saved&quot; (String)<br>2. Se cambiaron las propiedades de usuario (objeto)<br>3. Atributos de usuario modificados (objeto) |
-| video_loaded | Se activa cuando un vídeo incrustado está completamente cargado e inicializado. | Widget de VideoShare | 1. &quot;video_loaded&quot; (String) 2. Elemento &quot;.cf_videoshare_wrap&quot; que contiene el vídeo (objeto jQuery) |
+| video_loaded | Se activa cuando un vídeo incrustado está completamente cargado e inicializado. | Widget de VideoShare | &#x200B;1. &quot;video_loaded&quot; (String) 2. Elemento &quot;.cf_videoshare_wrap&quot; que contiene el vídeo (objeto jQuery) |
 
 ## Reemplazar la interfaz de usuario con una interfaz de usuario personalizada
 
@@ -172,7 +172,7 @@ cf_scripts.afterload(function($, CF){
 | número | Un número entero o de coma flotante |
 | Texto enriquecido | Una cadena de HTML |
 | Puntaje | Un entero de 32 bits con signo |
-| campaña de sfdc | Se utiliza en la integración de gestión de campañas de Salesforce |
+| campaña de sfdc | Se utiliza en la integración de administración de campañas de Salesforce |
 | texto | Una cadena de texto |
 
 ## Referencia de datos de IU de TrackProgress de ofertas de referencia
@@ -183,7 +183,7 @@ cf_scripts.afterload(function($, CF){
 | número | Un número entero o de coma flotante |
 | Texto enriquecido | Una cadena de HTML |
 | Puntaje | Un entero de 32 bits con signo |
-| campaña de sfdc | Se utiliza en la integración de gestión de campañas de Salesforce |
+| campaña de sfdc | Se utiliza en la integración de administración de campañas de Salesforce |
 | texto | Una cadena de texto |
 
 ## Referencia de datos de IU de Sorteos (para Sorteos de Social Campaign, no de LM)
@@ -194,7 +194,7 @@ cf_scripts.afterload(function($, CF){
 | número | Un número entero o de coma flotante |
 | Texto enriquecido | Una cadena de HTML |
 | Puntaje | Un entero de 32 bits con signo |
-| campaña de sfdc | Se utiliza en la integración de gestión de campañas de Salesforce |
+| campaña de sfdc | Se utiliza en la integración de administración de campañas de Salesforce |
 | texto | Una cadena de texto |
 
 ## Referencia de datos del inicio de sesión social (widget de relleno de formulario)
@@ -205,7 +205,7 @@ cf_scripts.afterload(function($, CF){
 | número | Un número entero o de coma flotante |
 | Texto enriquecido | Una cadena de HTML |
 | Puntaje | Un entero de 32 bits con signo |
-| campaña de sfdc | Se utiliza en la integración de gestión de campañas de Salesforce |
+| campaña de sfdc | Se utiliza en la integración de administración de campañas de Salesforce |
 | texto | Una cadena de texto |
 
 ```javascript

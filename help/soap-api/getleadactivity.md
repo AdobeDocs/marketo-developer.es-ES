@@ -1,9 +1,9 @@
 ---
 title: getLeadActivity
 feature: SOAP
-description: SOAP llamadas a getLeadActivity
+description: llamadas de SOAP getLeadActivity
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 3%
@@ -22,13 +22,13 @@ Se puede usar una [posición de flujo](stream-position.md) para paginar a travé
 | --- | --- | --- |
 | leadKey->keyType | Obligatorio | keyType permite especificar el campo por el que desea consultar el posible cliente. Los valores posibles incluyen: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Obligatorio | `keyValue` es el valor por el que desea consultar al posible cliente. |
-| activityFilter->includeAttributes->activityType | opcional | Limita la respuesta para incluir solo los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. |
-| activityFilter->excludeAttributes->activityType | opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |
-| batchSize | opcional | Número máximo de registros que se devolverán. El sistema limitará a 100 o `batchSize`, el valor que sea menor. |
-| startPosition->offset | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta de llamadas anterior `newStartPosition->offset` devuelve el valor de desplazamiento. |
-| startPosition->activityCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->activityCreatedAt` de la llamada anterior devuelve activityCreatedAt. (Formato de fecha WSDL de W3C). |
-| startPosition->latestCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->latestCreatedAt` de la llamada anterior devuelve el latestCreatedAt. (Formato de fecha WSDL de W3C). |
-| startPosition->olderCreatedAt | opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->oldestCreatedAt` de la llamada anterior devuelve el valor de más antiguoCreatedAt. (Formato de fecha WSDL de W3C). |
+| activityFilter->includeAttributes->activityType | Opcional | Limita la respuesta para incluir solo los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. |
+| activityFilter->excludeAttributes->activityType | Opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |
+| batchSize | Opcional | Número máximo de registros que se devolverán. El sistema limitará a 100 o `batchSize`, el valor que sea menor. |
+| startPosition->offset | Opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta de llamadas anterior `newStartPosition->offset` devuelve el valor de desplazamiento. |
+| startPosition->activityCreatedAt | Opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->activityCreatedAt` de la llamada anterior devuelve activityCreatedAt. (Formato de fecha WSDL de W3C). |
+| startPosition->latestCreatedAt | Opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->latestCreatedAt` de la llamada anterior devuelve el latestCreatedAt. (Formato de fecha WSDL de W3C). |
+| startPosition->olderCreatedAt | Opcional | Se utiliza para paginar un gran número de respuestas de actividad. El campo de respuesta `newStartPosition->oldestCreatedAt` de la llamada anterior devuelve el valor de más antiguoCreatedAt. (Formato de fecha WSDL de W3C). |
 
 ## Solicitar XML
 
@@ -674,21 +674,21 @@ Tenga en cuenta que dentro de `activityRecord` elementos, el elemento `id` se re
 
 ```php
  <?php
- 
+
   $debug = true;
- 
+
   $marketoSoapEndPoint     = "";  // CHANGE ME
   $marketoUserId           = "";  // CHANGE ME
   $marketoSecretKey        = "";  // CHANGE ME
   $marketoNameSpace        = "http://www.marketo.com/mktows/";
- 
+
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
   $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
   // Create SOAP Header
   $attrs = new stdClass();
   $attrs->mktowsUserId = $marketoUserId;
@@ -699,26 +699,26 @@ Tenga en cuenta que dentro de `activityRecord` elementos, el elemento `id` se re
   if ($debug) {
     $options["trace"] = true;
   }
- 
+
   // Create Request
   $leadKey = array("keyType" => "EMAIL", "keyValue" => "two@t.com");
-  
+
   $includeTypes = array("VisitWebpage", "FillOutForm" );
   $actIncludeArray = new stdClass();
   $actIncludeArray->activityType = $includeTypes;
-  
+
   $filter = new stdClass();
   $filter->includeTypes = $actIncludeArray;
-  
+
   $startPosition = new stdClass();
   $startPosition->latestCreatedAt= "";
   $startPosition->offset = "";
- 
- 
+
+
   $leadKeyParams = array("leadKey" => $leadKey, "activityFilter" => $filter, "batchSize" => 10, "startPosition" => $startPosition);
   $params = array("paramsGetLeadActivity" => $leadKeyParams);
- 
- 
+
+
   $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
   try {
     $leadActivity = $soapClient->__soapCall('getLeadActivity', $params, $options, $authHdr);  }
@@ -730,7 +730,7 @@ Tenga en cuenta que dentro de `activityRecord` elementos, el elemento `id` se re
     print "RAW response:\n" .$soapClient->__getLastResponse() ."\n";
   }
   print_r($leadActivity);
- 
+
 ?>
 ```
 
@@ -749,68 +749,68 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
+
 public class GetLeadActivity {
- 
- 
+
+
     public static void main(String[] args) {
         System.out.println("Executing Get Lead Activity");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsGetLeadActivity request = new ParamsGetLeadActivity();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("t@t.com");
             request.setLeadKey(key);
- 
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> batchSize = objectFactory.createParamsGetLeadActivityBatchSize(10);
             request.setBatchSize(batchSize);
-             
+
             ActivityTypeFilter atv = new ActivityTypeFilter();
             ArrayOfActivityType aatt = new ArrayOfActivityType();
-             
+
             aatt.getActivityTypes().add(ActivityType.VISIT_WEBPAGE);
             aatt.getActivityTypes().add(ActivityType.FILL_OUT_FORM);
-             
+
             atv.setIncludeTypes(aatt);
             JAXBElement<ActivityTypeFilter> typeFilter = objectFactory.createParamsGetLeadActivityActivityFilter(atv);
             request.setActivityFilter(typeFilter);
-             
+
             SuccessGetLeadActivity result = port.getLeadActivity(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessGetLeadActivity.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -839,9 +839,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 
@@ -860,7 +860,7 @@ request = {
     :start_position => {
         :"last_created_at/" => "",
         :"offset/" => "" },
-    :batch_size => "10" 
+    :batch_size => "10"
 }
 
 response = client.call(:get_lead_activity, message: request)

@@ -1,9 +1,9 @@
 ---
 title: getLeadChanges
 feature: SOAP
-description: SOAP llamadas a getLeadChanges para el
+description: llamadas de SOAP getLeadChanges
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '402'
 ht-degree: 3%
@@ -20,25 +20,25 @@ Debe incluir un parámetro de entrada que identifique qué filtros de actividad 
 
 Algunos tipos de actividades de ejemplo son: Visitar página web, Rellenar formulario y Hacer clic en vínculo.
 
-SOAP Después de la versión 2_2 de la API de, puede incluir `leadSelector`.
+Después de la versión 2_2 de la API de SOAP, puede incluir `leadSelector`.
 
 Para `LastUpdateAtSelector`, el valor `oldestUpdatedAt` correspondería al valor `oldestCreatedAt` en `startPosition`. Y el valor `latestUpdatedAt` correspondería al valor `latestCreatedAt` en `startPosition`.
 
-Nota: El número límite de posibles clientes admitidos en `LeadKeySelector` es 100. SOAP Si el número de posibles clientes supera los 100, la API genera una excepción de parámetro incorrecta y devuelve un error de.
+Nota: El número límite de posibles clientes admitidos en `LeadKeySelector` es 100. Si el número de posibles clientes supera los 100, la API genera una excepción de parámetro incorrecta y devuelve un error de SOAP.
 
 ## Solicitud
 
 | Nombre del campo | Obligatorio/Opcional | Descripción |
 | --- | --- | --- |
 | activityFilter->includeAttributes->activityType | Opcional (obsoleta) Use `activityNameFilter` en su lugar | Limita la respuesta para incluir solo los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. |
-| activityFilter->excludeAttributes->activityType | opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |
-| activityNameFilter | opcional | Limita la respuesta para incluir solo los filtros de actividad especificados. |
-| batchSize | opcional | Número máximo de registros que se devolverán. Sistema limitado a 1.000 o `batchSize`, el que sea menor. |
+| activityFilter->excludeAttributes->activityType | Opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |
+| activityNameFilter | Opcional | Limita la respuesta para incluir solo los filtros de actividad especificados. |
+| batchSize | Opcional | Número máximo de registros que se devolverán. Sistema limitado a 1.000 o `batchSize`, el que sea menor. |
 | startPosition | Obligatorio | Se utiliza para paginar un gran número de respuestas de actividad. |
-| startPosition->offset | opcional | El valor de desplazamiento lo devuelve el campo de respuesta llamadas anterior newStartPosition->offset. |
-| startPosition->olderCreatedAt | opcional | La marca de tiempo utilizada para filtrar los resultados de modo que solo se incluyan los posibles clientes creados desde la versión más antigua de CreatedAt. NOTA: Puede usar la marca de tiempo `LastUpdateAtSelector->oldestUpdatedAt` para especificar `oldestCreatedAt`. |
-| startPosition->activityCreatedAt | opcional | La marca de tiempo utilizada para filtrar los resultados de modo que solo se incluyan los posibles clientes con actividad desde activityCreatedAt. NOTA: Puede usar la marca de tiempo `LastUpdateAtSelector->latestUpdatedAt` para especificar `activityCreatedAt`. |
-| leadSelector | opcional | Puede ser de uno de los siguientes 3 tipos: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
+| startPosition->offset | Opcional | El valor de desplazamiento lo devuelve el campo de respuesta llamadas anterior newStartPosition->offset. |
+| startPosition->olderCreatedAt | Opcional | La marca de tiempo utilizada para filtrar los resultados de modo que solo se incluyan los posibles clientes creados desde la versión más antigua de CreatedAt. NOTA: Puede usar la marca de tiempo `LastUpdateAtSelector->oldestUpdatedAt` para especificar `oldestCreatedAt`. |
+| startPosition->activityCreatedAt | Opcional | La marca de tiempo utilizada para filtrar los resultados de modo que solo se incluyan los posibles clientes con actividad desde activityCreatedAt. NOTA: Puede usar la marca de tiempo `LastUpdateAtSelector->latestUpdatedAt` para especificar `activityCreatedAt`. |
+| leadSelector | Opcional | Puede ser de uno de los siguientes 3 tipos: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | LeadKeySelector: leadSelector->keyType | Obligatorio | El tipo de ID que desea consultar. Los valores incluyen `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
 | LeadKeySelector: leadSelector->keyValues->stringItem | Obligatorio | Lista de valores clave. Es decir, &quot;lead@email.com&quot; |
 | StaticListSelector: leadSelector->staticListName | Opcional cuando `leadSelector->staticListId` está presente | Nombre de la lista estática |
@@ -497,14 +497,14 @@ $marketoSoapEndPoint    = "";  // CHANGE ME
 $marketoUserId      = "";  // CHANGE ME
 $marketoSecretKey   = ""; // CHANGE ME
 $marketoNameSpace   = "http://www.marketo.com/mktows/";
- 
+
 // Create Signature
 $dtzObj = new DateTimeZone("America/Los_Angeles");
 $dtObj  = new DateTime('now', $dtzObj);
 $timeStamp = $dtObj->format(DATE_W3C);
 $encryptString = $timeStamp . $marketoUserId;
 $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
 // Create SOAP Header
 $attrs = new stdClass();
 $attrs->mktowsUserId = $marketoUserId;
@@ -515,7 +515,7 @@ $options = array("connection_timeout" => 600, "location" => $marketoSoapEndPoint
 if ($debug) {
   $options["trace"] = 1;
 }
- 
+
 // Create Request
 $params = new stdClass();
 $filter = new stdClass();
@@ -564,73 +564,73 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
 import java.util.GregorianCalendar;
- 
- 
+
+
 public class GetLeadChanges {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Get Lead Changes");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsGetLeadChanges request = new ParamsGetLeadChanges();
- 
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> batchSize = objectFactory.createParamsGetLeadActivityBatchSize(10);
             request.setBatchSize(batchSize);
-             
+
             ArrayOfString activities = new ArrayOfString();
             activities.getStringItems().add("Visit Webpage");
             activities.getStringItems().add("Click Link");
-            
+
             JAXBElement<ArrayOfString> activityFilter = objectFactory.createParamsGetLeadChangesActivityNameFilter(activities);
             request.setActivityNameFilter(activityFilter);
-             
+
             // Create oldestCreateAt timestamp from 5 days ago
             GregorianCalendar gc = new GregorianCalendar();
             gc.setTimeInMillis(new Date().getTime());
             gc.add( GregorianCalendar.DAY_OF_YEAR, -5);
-             
+
             DatatypeFactory factory = DatatypeFactory.newInstance();
             JAXBElement<XMLGregorianCalendar> oldestCreateAtValue =objectFactory.createStreamPositionOldestCreatedAt(factory.newXMLGregorianCalendar(gc));
- 
+
             StreamPosition sp = new StreamPosition();
             sp.setOldestCreatedAt(oldestCreateAtValue);
             request.setStartPosition(sp);
-             
+
             SuccessGetLeadChanges result = port.getLeadChanges(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessGetLeadChanges.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -659,9 +659,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

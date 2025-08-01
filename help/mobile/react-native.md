@@ -3,28 +3,28 @@ title: React Native
 feature: Mobile Marketing
 description: Instalación de React Native para Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e7cb23c4d578d949553b2b7a6e127d6be54cdf23
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '811'
+source-wordcount: '810'
 ht-degree: 0%
 
 ---
 
 # React Native
 
-Este artículo proporciona información sobre cómo instalar y configurar el SDK nativo de Marketo para integrar su aplicación móvil con nuestra plataforma.
+Este artículo proporciona información sobre cómo instalar y configurar SDK nativo de Marketo para integrar su aplicación móvil con nuestra plataforma.
 
 ## Requisitos previos
 
-[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
+[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 
 ## Integración de SDK
 
-### Integración del SDK de Android
+### Integración de Android SDK
 
 **Configuración mediante Gradle**
 
-Agregue la dependencia del SDK de Marketo con la última versión: En el archivo de nivel de aplicación `build.gradle`, en la sección de dependencias, agregue (incluida la versión adecuada del SDK de Marketo)
+Agregue la dependencia de Marketo SDK con la última versión: En el archivo de nivel de aplicación `build.gradle`, en la sección de dependencias, agregue (incluida la versión adecuada de Marketo SDK)
 
 ```
 implementation 'com.marketo:MarketoSDK:0.x.x'
@@ -32,7 +32,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **Agregar repositorio mavencentral**
 
-El SDK de Marketo está disponible en el [repositorio central de maven](https://mvnrepository.com/). Para sincronizar esos archivos, agregue el repositorio `mavencentral` a la raíz `build.gradle`
+Marketo SDK está disponible en el [repositorio central de maven](https://mvnrepository.com/). Para sincronizar esos archivos, agregue el repositorio `mavencentral` a la raíz `build.gradle`
 
 ```
 build script {
@@ -45,15 +45,15 @@ build script {
 
 A continuación, sincronice el proyecto con los archivos de Gradle.
 
-#### Integración del SDK de iOS
+#### Integración de iOS SDK
 
-Antes de crear un puente para el proyecto de React Native, es importante configurar el SDK en el proyecto Xcode.
+Antes de crear un puente para el proyecto de React Native, es importante configurar SDK en el proyecto Xcode.
 
-**Integración del SDK: uso de CocoaPods**
+**Integración de SDK con CocoaPods**
 
-Usar el SDK de iOS en la aplicación es fácil. Realice los siguientes pasos para configurarlo en el proyecto Xcode de su aplicación mediante CocoaPods, de modo que pueda integrar su plataforma con la aplicación.
+El uso de iOS SDK en la aplicación es sencillo. Realice los siguientes pasos para configurarlo en el proyecto Xcode de su aplicación mediante CocoaPods, de modo que pueda integrar su plataforma con la aplicación.
 
-Descargar [CocoaPods](https://cocoapods.org/): distribuido como una joya de Ruby, es un administrador de dependencias para Objective-C y Swift que simplifica el proceso de usar bibliotecas de terceros en tu código, como el SDK de iOS.
+Descargar [CocoaPods](https://cocoapods.org/): distribuido como una joya de Ruby, es un administrador de dependencias para Objective-C y Swift que simplifica el proceso de usar bibliotecas de terceros en tu código, como iOS SDK.
 
 Para descargarlo e instalarlo, inicie un terminal de línea de comandos en su Mac y ejecute el siguiente comando en él:
 
@@ -71,7 +71,7 @@ Para descargarlo e instalarlo, inicie un terminal de línea de comandos en su Ma
 
 1. Guarde y cierre el Podfile.
 
-1. Descargue e instale el SDK de Marketo iOS.
+1. Descargue e instale Marketo iOS SDK.
 
 `$ pod install`
 
@@ -85,11 +85,11 @@ A veces, una aplicación de React Native necesita acceder a una API nativa de pl
 
 El sistema NativeModule expone instancias de clases Java/Objective-C/C++ (nativas) a JavaScript (JS) como objetos JS, lo que permite ejecutar código nativo arbitrario desde JS. Aunque no esperamos que esta característica forme parte del proceso de desarrollo habitual, es esencial que exista. Si React Native no exporta una API nativa que su aplicación JS necesita, debe poder exportarla usted mismo.
 
-React Native Bridge se utiliza para la comunicación entre el JSX y las capas de aplicación nativas. En nuestro caso, la aplicación host podrá escribir el código JSX que puede invocar los métodos del SDK para Marketo.
+React Native Bridge se utiliza para la comunicación entre el JSX y las capas de aplicación nativas. En nuestro caso, la aplicación host podrá escribir el código JSX que puede invocar los métodos de Marketo SDK.
 
 ### Android
 
-Este archivo contiene los métodos envolventes que pueden llamar internamente a los métodos del SDK para Marketo con los parámetros que proporcione.
+Este archivo contiene los métodos envolventes que pueden llamar internamente a los métodos de Marketo SDK con los parámetros que proporcione.
 
 ```
 public class RNMarketoModule extends ReactContextBaseJavaModule {
@@ -141,7 +141,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
       public void initializeSDK(String frameworkType, String munchkinId, String appSecreteKey){
           marketoSdk.initializeSDK(munchkinId,appSecreteKey,frameworkType);
     }
-   
+
 
    @ReactMethod
    public void initializeMarketoPush(String projectId){
@@ -189,7 +189,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
            modules.add(new RNMarketoModule(reactContext));
 
-           return modules;    
+           return modules;
    }
 
    @NonNull
@@ -204,14 +204,14 @@ Para completar el registro del paquete, agregue MarketoPluginPackage a la lista 
 
 ```
 public class MainApplication extends Application implements ReactApplication {
- 
+
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
- 
+
         @Override
         protected List getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
@@ -243,7 +243,7 @@ Cree el encabezado principal del módulo nativo y los archivos de implementació
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MktoBridge : NSObject 
+@interface MktoBridge : NSObject
 
 @end
 
@@ -280,18 +280,18 @@ NS_ASSUME_NONNULL_END
 #import <React/RCTBridge.h>
 #import "ConstantStringsHeader.h"
 
-@implementation MktoBridge 
+@implementation MktoBridge
 
 RCT_EXPORT_MODULE(RNMarketoModule);
- 
+
 +(BOOL)requiresMainQueueSetup{
   return NO;
 }
- 
+
 RCT_EXPORT_METHOD(initializeSDK:(NSString *) munchkinId SecretKey: (NSString *) secretKey andFrameworkType: (NSString *) frameworkType){
   [[Marketo sharedInstance] initializeWithMunchkinID:munchkinId appSecret:secretKey mobileFrameworkType:frameworkType launchOptions:nil];
 }
- 
+
 RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary *)metaData){
   MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
   [meta setType:[metaData objectForKey:KEY_ACTION_TYPE]];
@@ -300,7 +300,7 @@ RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary
   [meta setMetric:[metaData valueForKey:KEY_ACTION_METRIC]];
   [[Marketo sharedInstance] reportAction:actionName withMetaData:meta];
 }
- 
+
 RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   MarketoLead *lead = [[MarketoLead alloc] init];
   if ([leadDetails objectForKey:KEY_EMAIL] != nil) {
@@ -309,32 +309,32 @@ RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   if ([leadDetails objectForKey:KEY_FIRST_NAME] != nil) {
     [lead setFirstName:[leadDetails objectForKey:KEY_FIRST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_LAST_NAME] != nil) {
     [lead setLastName:[leadDetails objectForKey:KEY_LAST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_CITY] != nil) {
     [lead setCity:[leadDetails objectForKey:KEY_CITY]];
   }
     [[Marketo sharedInstance] associateLead:lead];
 }
- 
+
 RCT_EXPORT_METHOD(uninitializeMarketoPush){
   [[Marketo sharedInstance] unregisterPushDeviceToken];
 }
- 
+
 RCT_EXPORT_METHOD(reportAll){
   [[Marketo sharedInstance] reportAll];
 }
- 
+
 RCT_EXPORT_METHOD(setSecureSignature:(NSDictionary *)secureSignature){
   MKTSecuritySignature *secSignature = [[MKTSecuritySignature alloc]
                                         initWithAccessKey:[secureSignature objectForKey:KEY_ACCESSKEY]
                                         signature:[secureSignature objectForKey:KEY_SIGNATURE]
                                         timestamp: [secureSignature objectForKey:KEY_EMAIL]
                                         email:[secureSignature objectForKey:KEY_EMAIL]];
-  
+
     [[Marketo sharedInstance] setSecureSignature:secSignature];
 }
 
@@ -360,7 +360,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications) {
 @end
 ```
 
-#### Inicializar el SDK de Marketo
+#### Inicializar Marketo SDK
 
 Busque en su aplicación un lugar en el que desee agregar una llamada al método createCalendarEvent() del módulo nativo. A continuación, se muestra un ejemplo de un componente, NewModuleButton, que puede añadir en la aplicación. Puede invocar el módulo nativo dentro de la función onPress() de NewModuleButton.
 
@@ -374,7 +374,7 @@ const NewModuleButton = () => {
   };
 
   return (
-    
+
   );
   };
 
@@ -430,8 +430,8 @@ Agregar el siguiente servicio a `AndroidManifest.xml`
     <intent-filter>
         <action  android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
     </intent-filter/>
-    <intent-filter> 
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/> 
+    <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
     </intent-filter/>
 </activity/>
 ```
@@ -530,7 +530,7 @@ Actualizar `AppDelegate.mm` con métodos delegados de APNS:
   return [self bundleURL];
 }
 
--(void)userNotificationCenter:(UNUserNotificationCenter *)center 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center
       willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
     completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
 }
@@ -538,7 +538,7 @@ Actualizar `AppDelegate.mm` con métodos delegados de APNS:
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)(void))completionHandler {
-    [[Marketo sharedInstance] userNotificationCenter:center 
+    [[Marketo sharedInstance] userNotificationCenter:center
                       didReceiveNotificationResponse:response
                                withCompletionHandler:completionHandler];
 }
@@ -601,10 +601,10 @@ Agregue &quot;MarketoActivity&quot; al archivo `AndroidManifest.xml` dentro de l
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 

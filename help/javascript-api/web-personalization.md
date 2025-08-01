@@ -3,7 +3,7 @@ title: Personalización web
 description: Personalización web
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 6%
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 La API de JavaScript de Web Personalization amplía la capacidad de personalización automatizada de la plataforma. Permite el seguimiento de eventos y la personalización dinámica de una página web. Funciones adicionales: [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md), [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Configuración de etiquetas
@@ -22,7 +22,7 @@ La API de JavaScript de Web Personalization amplía la capacidad de personalizac
 La etiqueta RTP debe insertarse en el encabezado de la página personalizada.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -57,7 +57,7 @@ Al pasar el parámetro opcional &quot;page&quot; en este método, se puede anula
 |-----------|-------------------|--------|---------------------------------|
 | &#39;enviar&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;vista&#39; | Obligatorio | Cadena | Nombre del método. |
-| Página | opcional | Cadena | Ruta relativa o dirección URL de página completa. |
+| Página | Opcional | Cadena | Ruta relativa o dirección URL de página completa. |
 
 
 ```javascript
@@ -76,7 +76,7 @@ Para excluir exploradores específicos del envío de datos a la plataforma Web P
 En el ejemplo de código siguiente, &quot;Googlebot|msnbot&quot; se utiliza como ejemplos de bots para excluir de las actividades de Web Personalization.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -111,7 +111,7 @@ Descripción de JavaScript que se añade a un sitio web al utilizar Personalizat
 
 | Nombre | Descripción | Control |
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
-| ga-integration-2.0.1.js | Se utiliza si la integración de Google Analytics/Facebook/SiteCatalyst está activada | Controlado por Marketo |
+| ga-integration-2.0.1.js | Se utiliza si la integración de Google Analytics/Facebook/SiteCatalyst está habilitada | Controlado por Marketo |
 | insightera-bar-2.1.js | Se utiliza si la barra de recomendaciones de contenido predictivo está habilitada | Controlado por Marketo |
 | froogaloop2.min.js | Se utiliza si el seguimiento de contenido está habilitado y el reproductor Vimeo existe en la página | - |
 | iframe-api-v1.js | Se utiliza si el seguimiento de contenido está habilitado y el reproductor de YouTube existe en la página | - |

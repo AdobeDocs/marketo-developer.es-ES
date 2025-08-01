@@ -3,9 +3,9 @@ title: Base de datos de leads
 feature: REST API, Database
 description: Manipular la base de datos de posibles clientes principal.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '1345'
+source-wordcount: '1342'
 ht-degree: 1%
 
 ---
@@ -51,72 +51,72 @@ GET /rest/v1/opportunities/roles/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunityRole",
          "displayName":"Opportunity Role",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId",
             "leadId",
             "role"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId",
                "leadId",
                "role"
             ],
-            [  
+            [
                "marketoGUID"
             ],
-            [  
+            [
                "leadId"
             ],
-            [  
+            [
                "externalOpportunityId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"leadId",
                "displayName":"Lead Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"role",
                "displayName":"Role",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"isPrimary",
                "displayName":"Is Primary",
                "dataType":"boolean",
                "updateable":true
             },
-            {  
+            {
                "name":"externalCreatedDate",
                "displayName":"External Created Date",
                "dataType":"datetime",
@@ -145,7 +145,7 @@ Para todos los objetos, excepto los posibles clientes, puede seleccionar su {fie
 - `batchSize`: un recuento entero del número de resultados que se van a devolver. El valor predeterminado y máximo es 300.
 - `nextPageToken`: token devuelto por una llamada anterior para paginación. Consulte [Tokens de paginación](paging-tokens.md) para obtener más información.
 - `fields`: lista de nombres de campo separados por comas que se devolverán para cada registro. Consulte la descripción correspondiente para obtener una lista de los campos válidos. Si se solicita un campo en particular, pero no se devuelve, el valor se entiende como nulo.
-- `_method`: se usa para enviar consultas mediante el método HTTP del POST. Consulte _method=GET para ver su uso.
+- `_method`: se usa para enviar consultas mediante el método HTTP POST. Consulte la sección _method=GET más abajo para ver su uso.
 
 Para ver un ejemplo rápido, veamos las oportunidades de consulta:
 
@@ -154,11 +154,11 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -167,7 +167,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -186,7 +186,7 @@ Si el conjunto de registros de la consulta supera los 300 o el `batchSize` que s
 
 ### URI largos
 
-A veces, como cuando se consulta por GUID, el URI puede ser largo y superar los 8 KB permitidos por el servicio REST. En este caso, debe utilizar el método POST HTTP en lugar de GET y agregar un parámetro de consulta `_method=GET`. Además, el resto de los parámetros de consulta deben pasarse en el cuerpo del POST como una cadena &quot;application/x-www-form-urlencoded&quot; y pasar el encabezado Content-type asociado.
+A veces, como cuando se consulta por GUID, el URI puede ser largo y superar los 8 KB permitidos por el servicio REST. En este caso, debe utilizar el método HTTP POST en lugar de GET y agregar un parámetro de consulta `_method=GET`. Además, el resto de los parámetros de consulta deben pasarse en el cuerpo de POST como una cadena &quot;application/x-www-form-urlencoded&quot; y pasar el encabezado de Content-type asociado.
 
 ```
 POST /rest/v1/opportunities.json?_method=GET
@@ -204,33 +204,33 @@ Además de los URI largos, este parámetro también es necesario al consultar cl
 
 ### Claves compuestas
 
-El patrón para consultar claves compuestas es diferente de las claves simples, ya que requiere enviar un POST con un cuerpo JSON. Esto no es necesario en todos los casos, solo en aquellos en los que se usa la opción `dedupeFields` con varios campos como `filterType`. Actualmente, las claves compuestas solo se utilizan en funciones de oportunidad y en algunos objetos personalizados. Veamos un ejemplo de una consulta para roles de oportunidad con la clave compuesta de `dedupeFields`:
+El patrón para consultar claves compuestas es diferente de las claves simples, ya que requiere enviar una PUBLICACIÓN con un cuerpo JSON. Esto no es necesario en todos los casos, solo en aquellos en los que se usa la opción `dedupeFields` con varios campos como `filterType`. Actualmente, las claves compuestas solo se utilizan en funciones de oportunidad y en algunos objetos personalizados. Veamos un ejemplo de una consulta para roles de oportunidad con la clave compuesta de `dedupeFields`:
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType":"dedupeFields",
-   "fields":[  
+   "fields":[
       "marketoGuid",
       "externalOpportunityId",
       "leadId",
       "role"
    ],
-   "input":[  
-      {  
+   "input":[
+      {
         "externalOpportunityId":"Opportunity1",
         "leadId": 1,
         "role": "Captain"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity2",
         "leadId": 1872,
         "role": "Commander"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity3",
         "leadId": 273891,
         "role": "Lieutenant Commander"
@@ -254,18 +254,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -277,16 +277,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -306,16 +306,16 @@ POST /rest/v1/customobjects/{name}/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "vin":"19UYA31581L000000"
       },
-      {  
+      {
          "vin":"29UYA31581L000000"
       },
-      {  
+      {
          "vin":"39UYA31581L000000"
       }
    ]

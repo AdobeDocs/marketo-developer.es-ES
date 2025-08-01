@@ -3,10 +3,10 @@ title: '[!DNL Ionic]'
 feature: Mobile Marketing
 description: Usando  [!DNL Ionic] con Marketo para dispositivos móviles
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '606'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
 
@@ -14,9 +14,9 @@ ht-degree: 1%
 
 En este tema se describe cómo integrar el complemento Marketo Cordova. Actualmente no se admite el condensador [!DNL Ionic].
 
-## Prerrequisitos
+## Requisitos previos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
 1. Instalar [[!DNL Ionic]](https://ionicframework.com/getting-started/) y [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -88,7 +88,7 @@ marketo.initialize(
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -99,7 +99,7 @@ marketo.onStart(
 
 - Llamada de retorno de éxito : función que se ejecuta si el marco de trabajo de Marketo se inicializa correctamente.
 - Callback Failure : función que se ejecuta si el marco de trabajo de Marketo no se puede inicializar.
-- MUNCHKIN ID : Munchkin ID recibido de Marketo en el momento del registro.
+- MUNCHKIN ID : Munchkin ID recibido desde Marketo en el momento del registro.
 - CLAVE SECRETA: Clave secreta recibida de Marketo en el momento del registro.
 
 ### Inicializar notificación push de Marketo
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Llamada de retorno de éxito : función que se ejecuta si la notificación push de Marketo se inicializa correctamente.
 - Función de devolución de llamada de error : que se ejecuta si la notificación push de Marketo no se inicializa.
-- GCM_PROJECT_ID : Se encontró el ID del proyecto GCM en [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) después de crear la aplicación.
+- GCM_PROJECT_ID : Se encontró el ID del proyecto GCM en [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) después de crear la aplicación.
 
 También se puede anular el registro del token al cerrar la sesión.
 
@@ -132,7 +132,7 @@ marketo.uninitializeMarketoPush(
 );
 ```
 
-## Lead asociado
+## Asociar posible cliente
 
 Puede crear un posible cliente de Marketo llamando a la función associatedLead.
 
@@ -245,10 +245,10 @@ onStart: function() {
 
 Existen tres formas de crear posibles clientes a partir de una aplicación híbrida:
 
-1. SDK DE MARKETO MME
+1. MARKETO MME SDK
 1. API DE REST DE MARKETO
 1. Envío de formulario
 
-Según el método utilizado, distintos déclencheur y filtros reconocen un posible cliente recién creado. Los posibles clientes creados con el SDK de MME o la API de REST aparecen en los déclencheur y filtros &quot;Posible cliente creado&quot;. Los posibles clientes creados por los envíos de formularios aparecen en los déclencheur y filtros &quot;Rellena el formulario&quot;.
+Según el método utilizado, distintos déclencheur y filtros reconocen un posible cliente recién creado. Los posibles clientes creados con la API de MME SDK o REST aparecen en los déclencheur y filtros &quot;Posible cliente creado&quot;. Los posibles clientes creados por los envíos de formularios aparecen en los déclencheur y filtros &quot;Rellena el formulario&quot;.
 
-La práctica recomendada es mantener la coherencia con el método utilizado por la aplicación web al crear posibles clientes. Si ya tiene una aplicación web que utiliza el envío de formularios como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. Si ya tiene una aplicación web que utiliza nuestra API de REST como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. En los casos en los que no utilice el envío de formularios ni la API de REST como mecanismo para crear posibles clientes en la aplicación web, puede considerar la posibilidad de utilizar el SDK de MME para crear posibles clientes en Marketo.
+La práctica recomendada es mantener la coherencia con el método utilizado por la aplicación web al crear posibles clientes. Si ya tiene una aplicación web que utiliza el envío de formularios como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. Si ya tiene una aplicación web que utiliza nuestra API de REST como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. En los casos en los que no utilice ni el envío de formularios ni la API de REST como mecanismo para crear posibles clientes en la aplicación web, puede considerar la posibilidad de utilizar MME SDK para crear posibles clientes en Marketo.

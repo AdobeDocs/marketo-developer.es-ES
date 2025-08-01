@@ -3,7 +3,7 @@ title: Extracto de miembros de programa en masa
 feature: REST API
 description: Procesamiento por lotes de extracción de datos de miembros.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 4%
@@ -235,7 +235,7 @@ Los miembros del programa admiten varias opciones de filtro. Se pueden especific
     <tr>
       <td>isExhausted</td>
       <td>Booleano</td>
-      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
+      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -302,7 +302,7 @@ Los miembros del programa admiten varias opciones de filtro. Se pueden especific
     </tr>
     <tr>
       <td>updatedAt*</td>
-      <td>Intervalo de fechas</td>
+      <td>Date Range</td>
       <td>Acepta un objeto JSON con los miembros startAt y endAt. startAt acepta una fecha y hora que representa la marca de agua inferior y endAt acepta una fecha y hora que representa la marca de agua superior. El intervalo debe ser de 31 días o menos. Las horas de la fecha deben tener un formato ISO-8601, sin milisegundos. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que se actualizaron más recientemente dentro del intervalo de fecha.</td>
     </tr>
   </tbody>
@@ -334,9 +334,9 @@ POST /bulk/v1/program/members/export/create.json
 ```
 
 ```json
-{ 
+{
    "format": "CSV",
-   "fields": [ 
+   "fields": [
         "firstName",
         "lastName",
         "email",
@@ -350,7 +350,7 @@ POST /bulk/v1/program/members/export/create.json
         "pMCustomField01",
         "pMCustomField02"
    ],
-   "filter": { 
+   "filter": {
       "programId":1044
    }
 }

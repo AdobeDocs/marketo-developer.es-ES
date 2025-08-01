@@ -3,7 +3,7 @@ title: Clientes potenciales
 feature: REST API
 description: Detalles de las llamadas a la API de posibles clientes
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 3%
@@ -37,20 +37,20 @@ GET /rest/v1/leads/describe.json
 ### Respuesta
 
 ```json
-{  
+{
    "requestId":"37ca#1475b74e276",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":2,
          "displayName":"Company Name",
          "dataType":"string",
          "length":255,
-         "rest":{  
+         "rest":{
             "name":"company",
             "readOnly":false
          },
-         "soap":{  
+         "soap":{
             "name":"Company",
             "readOnly":false
          }
@@ -58,7 +58,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Normalmente, las respuestas incluyen un conjunto de campos mucho más grande en la matriz de resultados, pero los estamos omitiendo para fines de demostración. Cada elemento de la matriz de resultados corresponde a un campo disponible en el registro de posibles clientes y tendrá como mínimo un id, un displayName y un tipo de datos. SOAP Los objetos secundarios rest y soap pueden estar presentes o no para un campo determinado, y su presencia indicará si el campo es válido para su uso en las API REST o en las API de. SOAP La propiedad `readOnly` indica si el campo es de solo lectura a través de la API correspondiente (REST o). La propiedad length indica la longitud máxima del campo si está presente. La propiedad dataType indica el tipo de datos del campo.
+Normalmente, las respuestas incluyen un conjunto de campos mucho más grande en la matriz de resultados, pero los estamos omitiendo para fines de demostración. Cada elemento de la matriz de resultados corresponde a un campo disponible en el registro de posibles clientes y tendrá como mínimo un id, un displayName y un tipo de datos. Los objetos secundarios rest y soap pueden estar presentes o no para un campo determinado, y su presencia indicará si el campo es válido para su uso en las API de REST o SOAP. La propiedad `readOnly` indica si el campo es de solo lectura mediante la API correspondiente (REST o SOAP). La propiedad length indica la longitud máxima del campo si está presente. La propiedad dataType indica el tipo de datos del campo.
 
 ## Consulta
 
@@ -99,7 +99,7 @@ Obtener posibles clientes por tipo de filtro devolverá el mismo tipo de registr
 
 `filterValues` acepta hasta 300 valores en formato separado por comas. La llamada busca los registros donde el campo del posible cliente coincide con uno de los `filterValues` incluidos. Si el número de posibles clientes que coinciden con el filtro de posibles clientes es mayor que 1000, se devuelve el siguiente error: &quot;1003, Demasiados resultados coinciden con el filtro&quot;.
 
-Si la longitud total de la solicitud de GET supera los 8 KB, se devuelve un error HTTP: &quot;414, URI too long&quot; (según RFC 7231). Como solución alternativa, puede cambiar el GET a POST, agregar el parámetro _method=GET y colocar una cadena de consulta en el cuerpo de la solicitud.
+Si la longitud total de la solicitud de GET supera los 8 KB, se devuelve un error HTTP: &quot;414, URI too long&quot; (según RFC 7231). Como solución alternativa, puede cambiar GET a POST, agregar el parámetro _method=GET y colocar una cadena de consulta en el cuerpo de la solicitud.
 
 ### Solicitud
 
@@ -175,21 +175,21 @@ POST /rest/v1/leads.json
 ### Cuerpo
 
 ```json
-{  
+{
    "action":"createOnly",
    "lookupField":"email",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"kjashaedd-1@klooblept.com",
          "firstName":"Kataldar-1",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-2@klooblept.com",
          "firstName":"Kataldar-2",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-3@klooblept.com",
          "firstName":"Kataldar-3",
          "postalCode":"04828"
@@ -201,19 +201,19 @@ POST /rest/v1/leads.json
 ### Respuesta
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "id":52,
          "status":"created"
       }
@@ -700,7 +700,7 @@ El extremo del formulario de envío admite la siguiente funcionalidad:
 * Permite la asociación de posibles clientes en función del valor de cookie
 * Realiza validación de campo de formulario
 
-El envío de un formulario sigue el patrón estándar de la base de datos de posibles clientes. Se pasa un único registro de objeto en el miembro de entrada requerido del cuerpo de JSON de una solicitud de POST. El miembro `formId` requerido contiene el id. de formulario de Marketo de destino.
+El envío de un formulario sigue el patrón estándar de la base de datos de posibles clientes. Se pasa un único registro de objeto en el miembro de entrada requerido del cuerpo de JSON de una petición POST. El miembro `formId` requerido contiene el id. de formulario de Marketo de destino.
 
 El elemento opcional `programId` se puede usar para especificar el programa al que se va a agregar el posible cliente o para especificar el programa al que se van a agregar los campos personalizados de miembro del programa. Si se proporciona `programId`, el posible cliente se agregará al programa y también se agregarán todos los campos de miembros del programa presentes en el formulario. Tenga en cuenta que el programa especificado debe estar en el mismo espacio de trabajo que el formulario. Si el formulario no contiene campos personalizados de miembro de programa y no se proporciona `programId`, el posible cliente no se agrega a un programa. Si el formulario reside en un programa y no se proporciona `programId`, ese programa se utiliza cuando hay uno o más campos personalizados de miembro del programa en el formulario.
 
@@ -781,7 +781,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ### Respuesta
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -804,7 +804,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 ### Respuesta
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -816,7 +816,7 @@ Membresía
 Los registros de posibles clientes también se pueden recuperar en función de su pertenencia a una lista estática o a un programa. Además, puede recuperar todas las listas estáticas, programas o campañas inteligentes a los que pertenece un posible cliente.
 
 La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque filterType y filterValues no se pueden utilizar con esta API.
-Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-**&#x200B;**.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-****.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
 
 ### Solicitud
 
@@ -827,14 +827,14 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ### Respuesta
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
    "nextPageToken":
 "PS5VL5WD4UOWGOUCJR6VY7JQO2KUXL7BGBYXL4XH4BYZVPYSFBAONP4V4KQKN4SSBS55U4LEMAKE6===",
     "result":[
        {
-            "id":50,  
+            "id":50,
             "email":"kjashaedd@klooblept.com",
             "firstName":"Kataldar",
              "postalCode":"04828"
@@ -843,11 +843,11 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
            "id":2343,
            "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
-           "postalCode":"04828" 
+           "postalCode":"04828"
        },
       {
            "id":88498,
-           "email":"kjashaedd@klooblept.com", 
+           "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
          "postalCode":"04828"
          }

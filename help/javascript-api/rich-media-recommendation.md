@@ -3,7 +3,7 @@ title: Recomendación de medios enriquecidos
 description: Recomendación de medios enriquecidos
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 4%
@@ -21,13 +21,13 @@ Las siguientes etiquetas y llamadas de API deben configurarse en la página que 
 1. En el cuerpo de la página
    1. Coloque la etiqueta de plantilla (clase div) en la ubicación donde desee que aparezca la plantilla
 
-Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 
 | Atributo | Opcional/Requerida | Descripción |
 |---|---|---|
-| clase | Obligatorio | Especifique que este elemento del HTML div es un div de recomendación RTP. |
+| clase | Obligatorio | Especifique que este elemento de HTML de div es un div de recomendación RTP. |
 | data-rtp-template-id | Obligatorio | ID de la plantilla. Esto determina la alineación de la recomendación. Utilice &quot;template1&quot; para la alineación horizontal, &quot;template2&quot; para la alineación vertical o &quot;template3&quot; para la alineación vertical que incluya únicamente el título y la descripción. El script inserta la plantilla coincidente en estos `div.Permissible` valores: template1, template2, template3. |
 
 ### Ejemplos
@@ -82,7 +82,7 @@ Nota: Cuando se utiliza este método, se debe llamar antes de llamar a rtp(&#39;
 | &#39;set&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;rcmd&#39; | Obligatorio | Cadena | Nombre del método. |
 | &#39;richmedia&#39; | Obligatorio | Cadena | Nombre del submétodo. |
-| template_id | opcional | Cadena | El ID de plantilla para los cambios de configuración. Se utiliza para especificar cambios de configuración solo para una plantilla. |
+| template_id | Opcional | Cadena | El ID de plantilla para los cambios de configuración. Se utiliza para especificar cambios de configuración solo para una plantilla. |
 | conf_obj | Obligatorio | Objeto | La nueva configuración. El objeto contiene todas las configuraciones como par clave/valor. |
 
 
@@ -103,7 +103,7 @@ Este fragmento de código muestra la definición de categorías con varias confi
 ```javascript
 rtp("set", "rcmd", "richmedia",
     {
-        "template1": 
+        "template1":
         {
             "rcmd.title.text": "RECOMMENDED CONTENT",
             "rcmd.general.font.family": "arial",
@@ -164,7 +164,7 @@ Este ejemplo tiene una plantilla con tres recomendaciones. Copie este ejemplo en
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -196,7 +196,7 @@ Este ejemplo tiene una plantilla con tres recomendaciones. El título de la plan
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -232,13 +232,13 @@ rtp('get','rcmd', 'richmedia');
 
 #### Ejemplo de #1 de plantilla de recomendación de medios enriquecidos
 
-**Nombre**: plantilla1 **Descripción**: contenido horizontal que incluye imagen, título y descripción y botón de llamada a la acción.
+**Nombre**: plantilla1 **Descripción**: contenido horizontal que incluye imagen, título, descripción y botón de call to action.
 
 ![Plantilla de medios enriquecidos](assets/rich-media-template1.png)
 
 #### Ejemplo de #2 de plantilla de recomendación de medios enriquecidos
 
-**Nombre**: plantilla2 **Descripción**: contenido vertical que incluye imagen, título y descripción y botón de llamada a la acción.
+**Nombre**: plantilla2 **Descripción**: contenido vertical que incluye imagen, título, descripción y botón de call to action.
 
 ![Plantilla de medios enriquecidos](assets/rich-media-template2.png)
 

@@ -3,10 +3,10 @@ title: Referencia de extremo
 feature: REST API
 description: Referencias de extremo de API de Marketo
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 3632d2b713d97a2c895c65f144c07e62e1d369cb
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '4676'
-ht-degree: 26%
+source-wordcount: '4448'
+ht-degree: 28%
 
 ---
 
@@ -107,19 +107,19 @@ Esta es una lista completa de puntos finales de API de REST.
 | Sincronizar objetos personalizados | Objetos personalizados | POST | /rest/v1/customobjects/{name}.json | Objeto personalizado habilitado para lectura y escritura |
 | Sincronizar tipo de objeto personalizado | Objetos personalizados | POST | /rest/v1/customobjects/schema.json | Tipo de objeto personalizado de lectura y escritura |
 | Actualizar campo de tipo de objeto personalizado | Objetos personalizados | POST | /rest/v1/customobjects/schema/{apiName}/updateField.json | Tipo de objeto personalizado de lectura y escritura |
-| Aprobar borrador de plantilla de correo electrónico | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}/approveDraft.json | Recurso de lectura-escritura |
-| Clonar plantilla de email | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}/clone.json | Recurso de lectura-escritura |
-| Crear plantilla de correo electrónico | Plantillas de email | POST | /rest/asset/v1/emailTemplates.json | Recurso de lectura-escritura |
-| Eliminar plantilla de email | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}/delete.json | Recurso de lectura-escritura |
-| Descartar borrador de plantilla de correo electrónico | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}/discardDraft.json | Recurso de lectura-escritura |
-| Obtener plantilla de correo electrónico por identificador | Plantillas de email | GET | /rest/asset/v1/emailTemplate/{id}.json | Recurso de solo lectura |
-| Obtener plantilla de correo electrónico por nombre | Plantillas de email | GET | /rest/asset/v1/emailTemplate/byName.json | Recurso de solo lectura |
-| Obtener contenido de plantilla de correo electrónico por ID | Plantillas de email | GET | /rest/asset/v1/emailTemplate/{id}/content.json | Recurso de solo lectura |
-| Obtener plantilla de correo electrónico utilizada por | Plantillas de email | GET | /rest/asset/v1/emailTemplates/{id}/usedBy.json | Recurso de solo lectura |
-| Obtener plantillas de correo electrónico | Plantillas de email | GET | /rest/asset/v1/emailTemplates.json | Recurso de solo lectura |
-| Desaprobar borrador de plantilla de correo electrónico | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}/unapprove.json | Recurso de lectura-escritura |
-| Actualizar contenido de plantilla de correo electrónico | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}/content.json | Recurso de lectura-escritura |
-| Actualizar metadatos de plantilla de correo electrónico | Plantillas de email | POST | /rest/asset/v1/emailTemplate/{id}.json | Recurso de lectura-escritura |
+| Aprobar borrador de plantilla de correo electrónico | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}/approveDraft.json | Recurso de lectura-escritura |
+| Clonar plantilla de email | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}/clone.json | Recurso de lectura-escritura |
+| Crear plantilla de correo electrónico | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplates.json | Recurso de lectura-escritura |
+| Eliminar plantilla de email | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}/delete.json | Recurso de lectura-escritura |
+| Descartar borrador de plantilla de correo electrónico | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}/discardDraft.json | Recurso de lectura-escritura |
+| Obtener plantilla de correo electrónico por identificador | Plantillas de correo electrónico | GET | /rest/asset/v1/emailTemplate/{id}.json | Recurso de solo lectura |
+| Obtener plantilla de correo electrónico por nombre | Plantillas de correo electrónico | GET | /rest/asset/v1/emailTemplate/byName.json | Recurso de solo lectura |
+| Obtener contenido de plantilla de correo electrónico por ID | Plantillas de correo electrónico | GET | /rest/asset/v1/emailTemplate/{id}/content.json | Recurso de solo lectura |
+| Obtener plantilla de correo electrónico utilizada por | Plantillas de correo electrónico | GET | /rest/asset/v1/emailTemplates/{id}/usedBy.json | Recurso de solo lectura |
+| Obtener plantillas de correo electrónico | Plantillas de correo electrónico | GET | /rest/asset/v1/emailTemplates.json | Recurso de solo lectura |
+| Desaprobar borrador de plantilla de correo electrónico | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}/unapprove.json | Recurso de lectura-escritura |
+| Actualizar contenido de plantilla de correo electrónico | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}/content.json | Recurso de lectura-escritura |
+| Actualizar metadatos de plantilla de correo electrónico | Plantillas de correo electrónico | POST | /rest/asset/v1/emailTemplate/{id}.json | Recurso de lectura-escritura |
 | Añadir módulo de correo electrónico | Correos electrónicos | POST | /rest/asset/v1/email/{id}/content/{moduleId}/add.json | Recurso de lectura-escritura |
 | Aprobar borrador de correo electrónico | Correos electrónicos | POST | /rest/asset/v1/email/{id}/approveDraft.json | Recurso de lectura-escritura |
 | Clonar Email | Correos electrónicos | POST | /rest/asset/v1/email/{id}/clone.json | Recurso de lectura-escritura |
@@ -203,7 +203,7 @@ Esta es una lista completa de puntos finales de API de REST.
 | Aprobar borrador de página de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/approveDraft.json | Recurso de lectura-escritura |
 | Clonar página de destino | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/clone.json | Recurso de lectura-escritura |
 | Crear páginas de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPages.json | Recurso de lectura-escritura |
-| Eliminar página de destino | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/delete.json | Recurso de lectura-escritura |
+| Eliminar página de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/delete.json | Recurso de lectura-escritura |
 | Descartar borrador de página de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/discardDraft.json | Recurso de lectura-escritura |
 | Obtener página de aterrizaje por ID | Páginas de destino | GET | /rest/asset/v1/landingPage/{id}.json | Recurso de solo lectura |
 | Obtener página de aterrizaje por nombre | Páginas de destino | GET | /rest/asset/v1/landingPage/byName.json | Recurso de solo lectura |
@@ -319,7 +319,7 @@ Esta es una lista completa de puntos finales de API de REST.
 | Actualizar contenido de fragmento | Fragmentos | POST | /rest/asset/v1/snippet/{id}/content.json | Recurso de lectura-escritura |
 | Actualizar fragmento de contenido dinámico | Fragmentos | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | Recurso de lectura-escritura |
 | Actualizar metadatos de fragmento | Fragmentos | POST | /rest/asset/v1/snippet/{id}.json | Recurso de lectura-escritura |
-| Agregar a Lista | Listas estáticas | POST | /rest/v1/lists/{listId}/leads.json | Guía de solo escritura |
+| Añadir a la lista | Listas estáticas | POST | /rest/v1/lists/{listId}/leads.json | Guía de solo escritura |
 | Crear lista estática | Listas estáticas | POST | /asset/v1/staticLists.json | Recurso de lectura-escritura |
 | Eliminar lista estática | Listas estáticas | POST | /asset/v1/staticList/{id}/delete.json | Recurso de lectura-escritura |
 | Obtener posibles clientes por ID de lista | Listas estáticas | GET | /rest/v1/lists/{listId}/leads.json | Guía de solo lectura |
@@ -329,7 +329,7 @@ Esta es una lista completa de puntos finales de API de REST.
 | Obtener lista estática por nombre | Listas estáticas | GET | /asset/v1/staticList/byName.json | Recurso de solo lectura |
 | Obtener listas estáticas | Listas estáticas | GET | /asset/v1/staticLists.json | Recurso de solo lectura |
 | Miembro de la lista | Listas estáticas | GET | /rest/v1/lists/{listId}/leads/ismember.json | Guía de solo lectura |
-| Quitar de Lista | Listas estáticas | DELETE | /rest/v1/lists/{listId}/leads.json | Guía de solo escritura |
+| Quitar de la lista | Listas estáticas | DELETE | /rest/v1/lists/{listId}/leads.json | Guía de solo escritura |
 | Actualizar metadatos de lista estática | Listas estáticas | POST | /asset/v1/staticList/{id}.json | Recurso de lectura-escritura |
 | Obtener etiqueta por nombre | Etiquetas | GET | /rest/asset/v1/tagType/byName.json | Recurso de solo lectura |
 | Obtener tipos de etiquetas | Etiquetas | GET | /rest/asset/v1/tagTypes.json | Recurso de solo lectura |

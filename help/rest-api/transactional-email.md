@@ -3,7 +3,7 @@ title: Correo electrónico transaccional
 feature: REST API
 description: Gestionar correos electrónicos transaccionales para campañas de solicitud.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '971'
 ht-degree: 0%
@@ -28,7 +28,7 @@ Apruébelo y estamos listos para crear nuestra campaña:
 
 ![SolicitarCampaña-Aprobar-Borrador](assets/request-campaign-approve-draft.png)
 
-Si no tienes experiencia en la creación de campañas, consulta el artículo [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=es). Una vez creada la campaña, debemos seguir estos pasos. Configure la lista inteligente con el déclencheur Campaign is Requested:
+Si no tienes experiencia en la creación de campañas, consulta el artículo [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html). Una vez creada la campaña, debemos seguir estos pasos. Configure la lista inteligente con el déclencheur Campaign is Requested:
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -53,7 +53,7 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -108,7 +108,7 @@ public class RequestCampaign {
     private Auth auth;
     public ArrayList leads = new ArrayList();
     public ArrayList tokens = new ArrayList();
-    
+
     public RequestCampaign(Auth auth, int campaignId) {
         this.auth = auth;
         this.endpoint = this.auth.marketoInstance + "/rest/v1/campaigns/" + campaignId + "/trigger.json";
@@ -156,7 +156,7 @@ public class RequestCampaign {
         }
         return result;
     }
-    
+
     private JsonObject buildRequest(){
         JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
         JsonObject input = new JsonObject();
@@ -182,7 +182,7 @@ Esta clase tiene un constructor que toma un Auth y el ID de la campaña. Los pos
 
 ### Creación del correo electrónico
 
-Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=es) y un [correo electrónico](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=es) en Marketo. Para generar nuestro contenido personalizado, debemos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con un HTML arbitrario que queramos introducir.
+Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) y un [correo electrónico](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=es) en Marketo. Para generar nuestro contenido personalizado, debemos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir.
 
 ![Nuevo token](assets/New-Token.png)
 
@@ -199,22 +199,22 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
         //Create an instance of Auth so that we can authenticate with our Marketo instance
         Auth auth = new Auth("Client ID - CHANGE ME", "Client Secret - CHANGE ME", "Host - CHANGE ME");
-        
+
         //Create and parameterize an instance of Leads
         Leads leadsRequest = new Leads(auth).setFilterType("email").addFilterValue("requestCampaign.test@marketo.com");
-        
+
         //get the inner results array of the response
         JsonArray leadsResult = leadsRequest.getData().get("result").asArray();
-        
+
         //get the id of the record indexed at 0
         int lead = leadsResult.get(0).asObject().get("id").asInt();
-        
+
         //Set the ID of our campaign from Marketo
         int campaignId = 1578;
         RequestCampaign rc = new RequestCampaign(auth, campaignId).addLead(lead);

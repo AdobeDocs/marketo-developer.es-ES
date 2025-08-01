@@ -3,7 +3,7 @@ title: PhoneGap
 feature: Mobile Marketing
 description: Uso de PhoneGap con Marketo en dispositivos móviles
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '818'
 ht-degree: 1%
@@ -14,9 +14,9 @@ ht-degree: 1%
 
 Integración del complemento PhoneGap de Marketo
 
-## Prerrequisitos
+## Requisitos previos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el identificador de Munchkin).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [Instalar PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -51,7 +51,7 @@ Para volver a añadir el complemento, ejecute el siguiente comando:
 Una vez creada la plataforma Cordova Android, abra la aplicación con Android Studio y actualice el valor `dirs` del archivo `Marketo.gradle` que se encuentra en la carpeta `com.marketo.plugin`.
 
 ```
-repositories{    
+repositories{
   jcenter()
   flatDir{
       dirs '../app/src/main/aar'
@@ -66,7 +66,7 @@ Comprobar la lista de plataformas agregadas `$cordova platform ls`
 1. Compatibilidad con Firebase Cloud Messaging
 
 1. Configure la aplicación Firebase en la consola de Firebase.
-   1. Crear/agregar un proyecto en [&#128279;](https://console.firebase.google.com/)consola Firebase.
+   1. Crear/agregar un proyecto en [](https://console.firebase.google.com/)consola Firebase.
       1. En la [consola de Firebase](https://console.firebase.google.com/), seleccione **[!UICONTROL Agregar proyecto]**.
       1. Seleccione el proyecto GCM de la lista de proyectos existentes de Google Cloud y seleccione **[!UICONTROL Agregar Firebase]**.
       1. En la pantalla de bienvenida de Firebase, seleccione &quot;Añadir Firebase a su aplicación de Android&quot;.
@@ -114,11 +114,11 @@ Comprobar la lista de plataformas agregadas `$cordova platform ls`
             ```
 
 
-### 3. Activar notificaciones push en xCode
+### &#x200B;3. Activar notificaciones push en xCode
 
 Active la capacidad de notificación push en el proyecto de xCode.
 
-### 4. Rastrear notificaciones push
+### &#x200B;4. Rastrear notificaciones push
 
 Pegue el siguiente código dentro de la función `application:didFinishLaunchingWithOptions:`.
 
@@ -146,7 +146,7 @@ sharedInstance.trackPushNotification(launchOptions)
 
 >[!ENDTABS]
 
-### 5. Inicializar Marketo Framework
+### &#x200B;5. Inicializar Marketo Framework
 
 Para asegurarse de que el marco de trabajo de Marketo se inicia al iniciar la aplicación, agregue el siguiente código en la función `onDeviceReady` de su archivo JavaScript principal.
 
@@ -160,11 +160,11 @@ marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
   function(error) { console.log("an error occurred:" + error); },
   'YOUR_MUNCHKIN_ID',
-  'YOUR_SECRET_KEY', 
+  'YOUR_SECRET_KEY',
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -175,10 +175,10 @@ marketo.onStart(
 
 - Llamada de retorno de éxito : función que se ejecuta si el marco de trabajo de Marketo se inicializa correctamente.
 - Callback Failure : función que se ejecuta si el marco de trabajo de Marketo no se puede inicializar.
-- MUNCHKIN ID : Munchkin ID recibido de Marketo en el momento del registro.
+- MUNCHKIN ID : Munchkin ID recibido desde Marketo en el momento del registro.
 - CLAVE SECRETA: Clave secreta recibida de Marketo en el momento del registro.
 
-### 6. Inicializar la notificación push de Marketo
+### &#x200B;6. Inicializar la notificación push de Marketo
 
 Para asegurarse de que se inicia la notificación push de Marketo, agregue el siguiente código después de la función initialize en el archivo JavaScript principal.
 
@@ -208,7 +208,7 @@ marketo. uninitializeMarketoPush(
 );
 ```
 
-## Lead asociado
+## Asociar posible cliente
 
 Puede crear un posible cliente de Marketo llamando a la función associatedLead.
 
@@ -323,10 +323,10 @@ onStart: function() {
 
 Existen tres formas de crear posibles clientes a partir de una aplicación híbrida:
 
-1. SDK DE MARKETO MME
+1. MARKETO MME SDK
 1. API DE REST DE MARKETO
 1. Envío de formulario
 
-Según el método utilizado, distintos déclencheur y filtros reconocerán un posible cliente recién creado. Los posibles clientes creados con el SDK de MME o la API de REST aparecen en los déclencheur y filtros &quot;Posible cliente creado&quot;. Los posibles clientes creados por los envíos de formularios aparecen en los déclencheur y filtros &quot;Rellena el formulario&quot;.
+Según el método utilizado, distintos déclencheur y filtros reconocerán un posible cliente recién creado. Los posibles clientes creados con la API de MME SDK o REST aparecen en los déclencheur y filtros &quot;Posible cliente creado&quot;. Los posibles clientes creados por los envíos de formularios aparecen en los déclencheur y filtros &quot;Rellena el formulario&quot;.
 
-La práctica recomendada es mantener la coherencia con el método utilizado por la aplicación web al crear posibles clientes. Si ya tiene una aplicación web que utiliza el envío de formularios como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. Si ya tiene una aplicación web que utiliza nuestra API de REST como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. En los casos en los que no utilice el envío de formularios ni la API de REST como mecanismo para crear posibles clientes en la aplicación web, puede considerar la posibilidad de utilizar el SDK de MME para crear posibles clientes en Marketo.
+La práctica recomendada es mantener la coherencia con el método utilizado por la aplicación web al crear posibles clientes. Si ya tiene una aplicación web que utiliza el envío de formularios como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. Si ya tiene una aplicación web que utiliza nuestra API de REST como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. En los casos en los que no utilice ni el envío de formularios ni la API de REST como mecanismo para crear posibles clientes en la aplicación web, puede considerar la posibilidad de utilizar MME SDK para crear posibles clientes en Marketo.

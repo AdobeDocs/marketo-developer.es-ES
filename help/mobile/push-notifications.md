@@ -3,7 +3,7 @@ title: Insertar notificaciones
 feature: Mobile Marketing
 description: Activación de las notificaciones push para Marketo Mobile
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -20,7 +20,7 @@ Para activar las notificaciones push hay que seguir tres pasos:
 
 1. Configure las notificaciones push en la cuenta de desarrollador de Apple.
 1. Habilite las notificaciones push en xCode.
-1. Habilite las notificaciones push en la aplicación con el SDK de Marketo.
+1. Habilite las notificaciones push en la aplicación con Marketo SDK.
 
 ### Configuración de notificaciones push en la cuenta de desarrollador de Apple
 
@@ -33,14 +33,14 @@ Para activar las notificaciones push hay que seguir tres pasos:
 1. Cree y cargue CSR para generar el certificado push. ![](assets/push-ssl.png)
 1. Descargue el certificado en el equipo local y haga doble clic para instalarlo. ![](assets/certificate-download.png)
 1. Abra &quot;Acceso a llaveros&quot;, haga clic con el botón secundario en el certificado y exporte dos elementos al archivo `.p12`.![cadena_clave](assets/key-chain.png)
-1. Cargue este archivo mediante el Admin Console de Marketo para configurar las notificaciones.
+1. Cargue este archivo a través de Marketo Admin Console para configurar las notificaciones.
 1. Actualice los perfiles de aprovisionamiento de aplicaciones.
 
 ### Habilitar notificaciones push en xCode
 
 Activar la capacidad de notificación push en el proyecto xCode.![](assets/push-xcode.png)
 
-### Habilitar notificaciones push en la aplicación con el SDK de Marketo
+### Habilitar notificaciones push en la aplicación con Marketo SDK
 
 Agregue el siguiente código al archivo `AppDelegate.m` para enviar notificaciones push a los dispositivos del cliente.
 
@@ -108,7 +108,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,    .badge]) { granted, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -118,7 +118,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                 }
             }
         }
-        
+
         return true
 }
 ```
@@ -216,7 +216,7 @@ Con este método puede presentar una alerta, un sonido o aumentar el distintivo 
 >[!TAB Swift]
 
 ```
-func userNotificationCenter(_ center: UNUserNotificationCenter, 
+func userNotificationCenter(_ center: UNUserNotificationCenter,
             willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (
     UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert, .sound,.badge])
@@ -323,7 +323,7 @@ Agregue la actividad Marketo en el archivo de manifiesto dentro de la etiqueta d
    </service>
    ```
 
-1. Agregue métodos del SDK de Marketo en el archivo `MyFirebaseMessagingService` como se indica a continuación
+1. Agregue métodos de Marketo SDK en el archivo `MyFirebaseMessagingService` de la siguiente manera
 
    ```java
    import com.marketo.Marketo;
@@ -371,7 +371,7 @@ Agregue la actividad Marketo en el archivo de manifiesto dentro de la etiqueta d
    }
    ```
 
-**NOTA**: El SDK de FCM agrega automáticamente todos los permisos necesarios, así como la funcionalidad del receptor requerida. Asegúrese de eliminar los siguientes elementos obsoletos (y potencialmente dañinos, ya que pueden provocar la duplicación de mensajes) del manifiesto de la aplicación si ha utilizado versiones anteriores del SDK
+**NOTA**: FCM SDK agrega automáticamente todos los permisos necesarios, así como la funcionalidad del receptor requerida. Asegúrese de eliminar los siguientes elementos obsoletos (y potencialmente dañinos, ya que pueden provocar la duplicación de mensajes) del manifiesto de la aplicación si ha utilizado versiones anteriores de SDK
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -430,13 +430,13 @@ Agregue la actividad Marketo en el archivo de manifiesto dentro de la etiqueta d
    config.setNotificationLargeIcon(bitmap);
    
    // Required icon Resource ID
-   config.setNotificationSmallIcon(R.drawable.notification_small_icon); 
+   config.setNotificationSmallIcon(R.drawable.notification_small_icon);
    
-   // Set the configuration 
+   // Set the configuration
    //Use the static methods on ALMarketo class when using Adobe Extension
-   Marketo.getInstance(context).setNotificationConfig(config); 
+   Marketo.getInstance(context).setNotificationConfig(config);
    
-   // Get the configuration set 
+   // Get the configuration set
    Marketo.getInstance(context).getNotificationConfig();
    ```
 

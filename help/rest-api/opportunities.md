@@ -1,9 +1,9 @@
 ---
 title: Oportunidades
 feature: REST API
-description: "Configure las oportunidades con la API de Marketo."
+description: ' Configure las oportunidades con la API de Marketo.'
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '786'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo expone las API para leer, escribir, crear y actualizar registros de oportunidades. En Marketo, los registros de oportunidad están vinculados a los registros de posibles clientes y contactos a través del objeto de función de oportunidad intermedio, por lo que una oportunidad puede estar vinculada a muchos posibles clientes individuales.  Ambos tipos de objetos se exponen a través de la API y, como la mayoría de los tipos de objetos de la base de datos de posibles clientes, ambos tienen la llamada Describir correspondiente, que devuelve metadatos sobre los tipos de objetos.
 
-Las API de oportunidad son de solo lectura para las suscripciones que tienen [Sincronización de SFDC](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Sincronización de Microsoft Dynamics](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitadas.
+Las API de oportunidad son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitadas.
 
 ## Describir
 
@@ -27,48 +27,48 @@ GET /rest/v1/opportunities/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunity",
          "displayName":"Opportunity",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId"
             ],
-            [  
+            [
                "marketoGUID"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
@@ -92,11 +92,11 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -105,7 +105,7 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -133,18 +133,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -156,16 +156,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -303,13 +303,13 @@ POST /rest/v1/opportunities/delete.json
 ```
 
 ```json
-{ 
+{
    "deleteBy":"dedupeFields",
-   "input":[ 
-      { 
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000"
       },
-      { 
+      {
          "externalOpportunityId":"29UYA31581L000000"
       }
    ]
@@ -317,16 +317,16 @@ POST /rest/v1/opportunities/delete.json
 ```
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[ 
-      { 
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"
       },
-      { 
+      {
          "seq":1,
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"

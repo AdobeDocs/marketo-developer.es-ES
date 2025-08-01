@@ -1,9 +1,9 @@
 ---
 title: getCustomObjects
 feature: SOAP, Custom Objects
-description: SOAP llamadas a getCustomObjects
+description: llamadas de SOAP getCustomObjects
 exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 5%
@@ -23,8 +23,8 @@ Devuelve una lista de objetos personalizados coincidentes, todos de un solo tipo
 | objTypeName | Obligatorio | Nombre del objeto personalizado |
 | customObjKeyLists->keyList->attribute | Obligatorio | El atributo es un par clave/valor que se utiliza para identificar los objetos personalizados que desea recuperar. Puede especificar varios atributos en `customObjKeyLists` |
 | includeAttributes | Obligatorio | La lista de los campos de un objeto personalizado que desea recuperar. Si se pasa ninguno, se devuelven todos los valores. |
-| batchSize | opcional | El número de objetos que se van a devolver (máximo de 100) |
-| streamPosition | opcional | Se utiliza para paginar varios conjuntos de resultados. El valor pasado es el valor devuelto por la llamada anterior `getCustomObjects`. |
+| batchSize | Opcional | El número de objetos que se van a devolver (máximo de 100) |
+| streamPosition | Opcional | Se utiliza para paginar varios conjuntos de resultados. El valor pasado es el valor devuelto por la llamada anterior `getCustomObjects`. |
 
 ## Solicitar XML
 
@@ -325,8 +325,8 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class GetCustomObjects {
     public static void main(String[] args) {
         System.out.println("Executing Get Custom Objects");
@@ -334,50 +334,50 @@ public class GetCustomObjects {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsGetCustomObjects request = new ParamsGetCustomObjects();
             request.setObjTypeName("RoadShow");
-             
+
             ArrayOfAttribute arrayOfAttribute = new ArrayOfAttribute();
-             
+
             Attribute attr = new Attribute();
             attr.setAttrName("MKTOID");
             attr.setAttrValue("1090177");
             arrayOfAttribute.getAttributes().add(attr);
-             
-            JAXBElement<ArrayOfAttribute> attributes = new ObjectFactory().createParamsGetCustomObjectsCustomObjKeyList(arrayOfAttribute);            
+
+            JAXBElement<ArrayOfAttribute> attributes = new ObjectFactory().createParamsGetCustomObjectsCustomObjKeyList(arrayOfAttribute);
             request.setCustomObjKeyList(attributes);
-             
+
             SuccessGetCustomObjects result = port.getCustomObjects(request, header);
             JAXBContext context = JAXBContext.newInstance(SuccessGetCustomObjects.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -406,9 +406,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 
