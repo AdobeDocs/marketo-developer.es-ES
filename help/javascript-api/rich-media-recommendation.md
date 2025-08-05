@@ -3,7 +3,7 @@ title: Recomendación de medios enriquecidos
 description: Recomendación de medios enriquecidos
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 4%
@@ -21,7 +21,7 @@ Las siguientes etiquetas y llamadas de API deben configurarse en la página que 
 1. En el cuerpo de la página
    1. Coloque la etiqueta de plantilla (clase div) en la ubicación donde desee que aparezca la plantilla
 
-Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 
@@ -66,7 +66,6 @@ Este método rellena todos los medios enriquecidos `<divs>` de la página con re
 | &#39;rcmd&#39; | Obligatorio | Cadena | Nombre del método. |
 | &#39;richmedia&#39; | Obligatorio | Cadena | Nombre del submétodo. |
 
-
 ## Cambiar configuración de plantilla
 
 Este método cambia la configuración predeterminada de la plantilla.
@@ -84,7 +83,6 @@ Nota: Cuando se utiliza este método, se debe llamar antes de llamar a rtp(&#39;
 | &#39;richmedia&#39; | Obligatorio | Cadena | Nombre del submétodo. |
 | template_id | Opcional | Cadena | El ID de plantilla para los cambios de configuración. Se utiliza para especificar cambios de configuración solo para una plantilla. |
 | conf_obj | Obligatorio | Objeto | La nueva configuración. El objeto contiene todas las configuraciones como par clave/valor. |
-
 
 ### Ejemplos
 
@@ -150,7 +148,6 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Cambia el color de fuente del botón. Esta propiedad admite todos los valores de color de fuente (rgb, hex, ...) |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Cambia el texto del botón. El texto es el mismo para todos los botones. |
 | categoría | &quot;categoría&quot; : [&quot;una categoría&quot;] | Cambia la categoría de recomendación que admite esta plantilla. La plantilla solo muestra las recomendaciones con una de las categorías establecidas por esta configuración. |
-
 
 Nota: La compatibilidad con la configuración puede cambiar por plantilla.
 

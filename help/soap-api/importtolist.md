@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: Llamadas SOAP importToList
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '387'
 ht-degree: 4%
 
 ---
@@ -20,9 +20,9 @@ Esta función permite importar una lista de posibles clientes en una lista está
 
 | Correo electrónico | Primer/a | Último/a |
 | --- | --- | --- |
-| joe@company.com | Joe | Smith |
-| mary@company.com | Mary | Rodgers |
-| wanda@megacorp.com | Wanda | Williams |
+| <joe@company.com> | Joe | Smith |
+| <mary@company.com> | Mary | Rodgers |
+| <wanda@megacorp.com> | Wanda | Williams |
 
 Los valores de `displayName` deben usarse en los valores de `importFileHeader` en lugar de en los valores de `name`.
 
@@ -30,9 +30,9 @@ Los valores de `displayName` deben usarse en los valores de `importFileHeader` e
 
 | Correo electrónico | Primer/a | Último/a | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
-| joe@company.com | Joe | Smith | Pescado | Azul |
-| mary@company.com | Mary | Rodgers | Pollo | Marrón |
-| wanda@megacorp.com | Wanda | Williams | Vegetal | Hazel |
+| <joe@company.com> | Joe | Smith | Pescado | Azul |
+| <mary@company.com> | Mary | Rodgers | Pollo | Marrón |
+| <wanda@megacorp.com> | Wanda | Williams | Vegetal | Hazel |
 
 **Importante:** Si agrega tokens para los posibles clientes, debe especificar la campaña inteligente que los utiliza. La próxima vez que se ejecute la campaña inteligente especificada, utilizará los valores de la lista, en lugar de los valores normales de Mi token. Después de ejecutar una sola campaña, los tokens se descartan.
 

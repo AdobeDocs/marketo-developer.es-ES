@@ -3,7 +3,7 @@ title: Ingesta de datos
 feature: REST API, Dynamic Content
 description: Consumir datos con las API de Marketo.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 11%
@@ -223,7 +223,6 @@ Si se especifica un campo de vínculo a una persona en la solicitud y esa person
 #### Solicitud
 
 `POST /subscriptions/{munchkinId}/customobjects/{customObjectAPIName}`
-
 
 #### Encabezados
 

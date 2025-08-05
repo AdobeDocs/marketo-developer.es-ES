@@ -3,7 +3,7 @@ title: Compañías
 feature: REST API
 description: Configure los datos de la empresa con las API de Marketo.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '564'
 ht-degree: 1%
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Las compañías representan la organización a la que pertenecen los registros de posibles clientes. Los posibles clientes se agregan a una compañía rellenando su campo `externalCompanyId` correspondiente con [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) o [Importación masiva de posibles clientes](bulk-lead-import.md) puntos finales. Una vez agregado un posible cliente a una compañía, no puede eliminarlo de esa compañía (a menos que agregue el posible cliente a una compañía diferente). Los posibles clientes vinculados a un registro de compañía heredarán directamente los valores de un registro de compañía como si los valores existieran en el propio registro del posible cliente.
 
-Las API de compañía son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitadas.
+Las API de compañía son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitadas.
 
 ## Describir
 
@@ -360,5 +360,5 @@ POST /rest/v1/companies/delete.json
 ## Tiempos de espera
 
 - Los extremos de las compañías tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Compañías de sincronización: 60s 
+   - Compañías de sincronización: 60s
    - Eliminar compañías: 60s

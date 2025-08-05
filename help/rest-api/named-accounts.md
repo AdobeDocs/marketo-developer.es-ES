@@ -3,7 +3,7 @@ title: Cuentas nombradas
 feature: REST API
 description: Manipule las cuentas con nombre mediante la API.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 1%
@@ -390,5 +390,5 @@ Content-Type: application/json
 ## Tiempos de espera
 
 - Los extremos de cuenta con nombre tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Sincronizar cuentas con nombre: 120 s 
+   - Sincronizar cuentas con nombre: 120 s
    - Eliminar cuentas con nombre: 60s

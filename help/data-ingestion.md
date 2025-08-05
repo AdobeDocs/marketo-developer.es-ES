@@ -1,9 +1,9 @@
 ---
-title: "Ingesta de datos"
-description: "Resumen de API de ingesta de datos"
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+title: Ingesta de datos
+description: Resumen de API de ingesta de datos
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '945'
+source-wordcount: '940'
 ht-degree: 11%
 
 ---
@@ -11,7 +11,7 @@ ht-degree: 11%
 
 # Ingesta de datos
 
-La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad diseñado para gestionar de forma eficaz y con mínimos retrasos la ingesta de grandes cantidades de datos relacionados con personas y personas. 
+La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad diseñado para gestionar de forma eficaz y con mínimos retrasos la ingesta de grandes cantidades de datos relacionados con personas y personas.
 
 Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/).&#x200B;
 
@@ -55,13 +55,13 @@ La ingesta de datos utiliza los siguientes encabezados HTTP personalizados.
 
 ## Solicitudes
 
-Utilice el método del POST HTTP para enviar datos al servidor.
+Utilice el método HTTP POST para enviar datos al servidor.
 
 La representación de datos se incluye en el cuerpo de la solicitud como application/json.
 
 El nombre de dominio es: `mkto-ingestion-api.adobe.io`
 
-La ruta de acceso comienza por `/subscriptions/_MunchkinId_`, donde `_MunchkinId_` es específico de la instancia de Marketo. Puede encontrar su ID de Munchkin en la interfaz de usuario de Marketo Engage en **Administración** >**Mi cuenta** > **Información de asistencia**. El resto de la ruta se utiliza para especificar el recurso de interés.
+La ruta de acceso comienza por `/subscriptions/_MunchkinId_`, donde `_MunchkinId_` es específico de la instancia de Marketo. Puede encontrar su Munchkin ID en la interfaz de usuario de Marketo Engage en **Administración** >**Mi cuenta** > **Información de asistencia**. El resto de la ruta se utiliza para especificar el recurso de interés.
 
 Ejemplo de URL para personas:
 
@@ -79,7 +79,7 @@ Ejemplo de ID de solicitud mediante encabezado:
 
 `X-Request-Id: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
 
-### Sin errores
+### Correcto
 
 Cuando una llamada se realiza correctamente, se devuelve un estado 202. No se devuelve ningún cuerpo de respuesta.
 
@@ -100,7 +100,7 @@ A continuación se muestran códigos de error reutilizados de Adobe Developer Ga
 | 404 | 404040 | Recurso no encontrado |
 | 429 | 429001 | Límite de uso del servicio alcanzado |
 
-A continuación se muestran códigos de error que son únicos para la API de ingesta de datos y que se componen de tres segmentos. Los tres primeros dígitos son el estado (devuelto por la puerta de enlace de E/S de Adobe), seguidos de un cero &quot;0&quot;, seguido de tres dígitos.
+A continuación se muestran códigos de error que son únicos para la API de ingesta de datos y que se componen de tres segmentos. Los tres primeros dígitos son el estado (devuelto por Adobe IO Gateway), seguidos de un cero &quot;0&quot;, seguido de tres dígitos.
 
 | Código de estado HTTP | error_code | Mensaje |
 |--- |--- |--- |
@@ -143,7 +143,7 @@ Cuerpo de solicitud
 
 | Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 |---|---|---|---|---|
-| prioridad | Cadena | No | Prioridad de la solicitud: normal alta | normal |
+| prioridad | Cadena | No | Prioridad de la solicitud :normalhigh | normal |
 | partitionName | Cadena | No | Nombre de la partición de persona | Predeterminado |
 | deduplicarCampos | Objeto | No | Atributos en los que deduplicar. Se permiten uno o dos nombres de atributo. En una operación AND se utilizan dos atributos. Por ejemplo, si se especifican `email` y `firstName`, ambos se utilizarán para buscar a una persona mediante la operación AND. Los atributos admitidos son: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` atributos (solo de tipo &quot;cadena&quot; y &quot;entero&quot;) | correo electrónico |
 | personas | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo de la persona | - |
@@ -214,8 +214,8 @@ Cuerpo de solicitud
 
 | Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 |---|---|---|---|---|
-| prioridad | Cadena | No | Prioridad de la solicitud: normal alta | normal |
-| dedupeBy | Cadena | No | Atributos para anular la duplicación en:dedupeFieldsmarketoGUID | deduplicarCampos |
+| prioridad | Cadena | No | Prioridad de la solicitud :normalhigh | normal |
+| dedupeBy | Cadena | No | Atributos para deduplicar en :dedupeFieldsmarketoGUID | deduplicarCampos |
 | customObjects | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo para el objeto. | - |
 
 | Permiso |

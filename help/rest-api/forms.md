@@ -3,7 +3,7 @@ title: Formularios
 feature: REST API, Forms
 description: Cree y administre formularios a través de la API.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1598'
 ht-degree: 2%
@@ -305,7 +305,6 @@ Al editar campos, o su comportamiento dentro de un formulario, la lista de campo
 | Moneda | currency |
 | Casilla de verificación | single_checkbox |
 | Control deslizante | intervalo |
-
 
 ### Dependencias
 
@@ -789,8 +788,6 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 }
 ```
 
- 
-
 Para determinar cómo dar formato a un campo de formulario complejo, consulte la respuesta de Agregar campo a formulario.
 
 ### Campo de reorganización
@@ -833,7 +830,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### Texto enriquecido
 
-Los campos de texto enriquecido se agregan a través de un [extremo independiente](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) de los campos de posibles clientes. El contenido del campo se pasa como multipart/form-data. Debe estructurarse como contenido HTML que no contenga secuencias de comandos, metaetiquetas o etiquetas de vínculo.
+Los campos de texto enriquecido se agregan a través de un [extremo independiente](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) de los campos de posibles clientes. El contenido del campo se pasa como multipart/form-data. Debe estructurarse como contenido de HTML que no contenga secuencias de comandos, metaetiquetas o etiquetas de vínculos.
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json

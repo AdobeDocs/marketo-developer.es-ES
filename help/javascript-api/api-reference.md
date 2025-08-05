@@ -3,7 +3,7 @@ title: Referencia de API de Munchkin
 description: Utilice la API de JavaScript de Munchkin para personalizar los datos de Munchkin.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 9%
@@ -26,7 +26,7 @@ Se debe llamar a `Munchkin.init()` antes que a cualquier otra función. Configur
 
 | Nombre del parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| Identificación de Munchkin | Requerido | Cadena | El ID de cuenta de Munchkin se encuentra en el menú Administración > Integración > Munchkin. Establece la instancia de destino a la que se enviarán las actividades. |
+| Identificación de Munchkin | Obligatorio | Cadena | El ID de cuenta de Munchkin se encuentra en el menú Administración > Integración > Munchkin. Establece la instancia de destino a la que se enviarán las actividades. |
 | [Ajustes de configuración](configuration.md) | Opcional | Objeto | Habilita la configuración de comportamiento alternativa para Munchkin. |
 
 ```javascript
@@ -39,8 +39,7 @@ Cuando se llama a, se comprueba que existe una cookie `_mkto_trk` en el explorad
 
 | Nombre del parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| forceCreate | Requerido | Booleano | Crear cookie aunque `cookieAnon` esté establecido en falso. |
-
+| forceCreate | Obligatorio | Booleano | Crear cookie aunque `cookieAnon` esté establecido en falso. |
 
 ```javascript
 Munchkin.createTrackingCookie(true);
@@ -52,8 +51,8 @@ Se utiliza para generar comportamientos de seguimiento personalizados, como repr
 
 | Nombre del parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| Tipo de función | Requerido | Cadena | Determina la actividad que se va a registrar. Valores permitidos: `visitWebPage`, `clickLink`, `associateLead` |
-| Datos | Requerido | Objeto | Contiene datos de la actividad que se va a registrar. |
+| Tipo de función | Obligatorio | Cadena | Determina la actividad que se va a registrar. Valores permitidos: `visitWebPage`, `clickLink`, `associateLead` |
+| Datos | Obligatorio | Objeto | Contiene datos de la actividad que se va a registrar. |
 
 #### visitWebPage
 
@@ -61,8 +60,8 @@ Llamar a `munchkinFunction()` con `visitWebPage` envía una actividad de &quot;v
 
 | Nombre de propiedad de datos | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| url | Requerido | Cadena | Ruta de archivo URL utilizada para registrar una visita a la página.  Este valor se anexa al nombre de dominio actual para crear un nombre de página completo. Por ejemplo, si la dirección URL es `/index.html` y el nombre de dominio es `www.example.com`, la página visitada se registra como `www.example.com/index.html`. |
-| parámetros | Opcional | Cadena | Una cadena de consulta de los parámetros deseados que se van a registrar. |
+| url | Obligatorio | Cadena | Ruta de archivo URL utilizada para registrar una visita a la página.  Este valor se anexa al nombre de dominio actual para crear un nombre de página completo. Por ejemplo, si la dirección URL es `/index.html` y el nombre de dominio es `www.example.com`, la página visitada se registra como `www.example.com/index.html`. |
+| params | Opcional | Cadena | Una cadena de consulta de los parámetros deseados que se van a registrar. |
 
 Por ejemplo, `foo=bar&biz=baz`.
 
@@ -80,7 +79,7 @@ Llamar a `munchkinFunction()` con `clickLink` envía una actividad de clic para 
 
 | Nombre de propiedad de datos | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| href | Requerido | Cadena | Ruta de archivo URL utilizada para registrar un clic en vínculo. Este valor se anexa al nombre de dominio actual para crear el vínculo completo. |
+| href | Obligatorio | Cadena | Ruta de archivo URL utilizada para registrar un clic en vínculo. Este valor se anexa al nombre de dominio actual para crear el vínculo completo. |
 
 Por ejemplo, si href es `/index.html` y el nombre de dominio es `www.example.com`, el clic en el vínculo se registra como `www.example.com/index.html`.
 

@@ -3,9 +3,9 @@ title: getLeadChanges
 feature: SOAP
 description: llamadas de SOAP getLeadChanges
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '402'
+source-wordcount: '401'
 ht-degree: 3%
 
 ---
@@ -40,7 +40,7 @@ Nota: El número límite de posibles clientes admitidos en `LeadKeySelector` es 
 | startPosition->activityCreatedAt | Opcional | La marca de tiempo utilizada para filtrar los resultados de modo que solo se incluyan los posibles clientes con actividad desde activityCreatedAt. NOTA: Puede usar la marca de tiempo `LastUpdateAtSelector->latestUpdatedAt` para especificar `activityCreatedAt`. |
 | leadSelector | Opcional | Puede ser de uno de los siguientes 3 tipos: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | LeadKeySelector: leadSelector->keyType | Obligatorio | El tipo de ID que desea consultar. Los valores incluyen `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
-| LeadKeySelector: leadSelector->keyValues->stringItem | Obligatorio | Lista de valores clave. Es decir, &quot;lead@email.com&quot; |
+| LeadKeySelector: leadSelector->keyValues->stringItem | Obligatorio | Lista de valores clave. Es decir, &quot;<lead@email.com>&quot; |
 | StaticListSelector: leadSelector->staticListName | Opcional cuando `leadSelector->staticListId` está presente | Nombre de la lista estática |
 | StaticListSelector: leadSelector->staticListId | Opcional cuando `leadSelector->staticListName` está presente | El ID de la lista estática |
 

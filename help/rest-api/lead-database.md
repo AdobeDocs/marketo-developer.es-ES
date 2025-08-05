@@ -3,7 +3,7 @@ title: Base de datos de leads
 feature: REST API, Database
 description: Manipular la base de datos de posibles clientes principal.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1342'
 ht-degree: 1%
@@ -245,7 +245,7 @@ La estructura del objeto JSON es básicamente plana y todos los parámetros de c
 
 Las creaciones y actualizaciones para los registros de la base de datos de posibles clientes se realizan mediante publicaciones con cuerpos JSON. La interfaz de Oportunidades, Funciones, Objetos personalizados, Compañías y Vendedores es la misma. La interfaz del posible cliente es un poco diferente y puede leer más sobre ella específicamente.
 
-El único parámetro requerido es una matriz denominada `input` que contiene hasta 300 objetos, cada uno con los campos que desea insertar o actualizar como miembros. Opcionalmente, también puede incluir un parámetro `action` que puede ser uno de: `createOnly`, `updateOnly` o `createOrUpdate`. Si se omite la acción, el modo predeterminado es `createOrUpdate`. `dedupeBy` es otro parámetro opcional que se puede usar cuando action se establece en createOnly o `createOrUpdate`. ` dedupeBy` puede ser `idField` o `dedupeFields`. Si se selecciona `idField`, entonces el `idField` que aparece en la descripción se usa para la deduplicación y debe incluirse en cada registro. El modo `idField` no es compatible con el modo `createOnly`. Si se seleccionan `dedupeFields`, entonces se usan los `dedupeFields` enumerados en la descripción del objeto, y cada uno debe incluirse en cada registro. Si se omite el parámetro `dedupeBy`, el modo predeterminado es `dedupeFields`.
+El único parámetro requerido es una matriz denominada `input` que contiene hasta 300 objetos, cada uno con los campos que desea insertar o actualizar como miembros. Opcionalmente, también puede incluir un parámetro `action` que puede ser uno de: `createOnly`, `updateOnly` o `createOrUpdate`. Si se omite la acción, el modo predeterminado es `createOrUpdate`. `dedupeBy` es otro parámetro opcional que se puede usar cuando action se establece en createOnly o `createOrUpdate`. `dedupeBy` puede ser `idField` o `dedupeFields`. Si se selecciona `idField`, entonces el `idField` que aparece en la descripción se usa para la deduplicación y debe incluirse en cada registro. El modo `idField` no es compatible con el modo `createOnly`. Si se seleccionan `dedupeFields`, entonces se usan los `dedupeFields` enumerados en la descripción del objeto, y cada uno debe incluirse en cada registro. Si se omite el parámetro `dedupeBy`, el modo predeterminado es `dedupeFields`.
 
 Al pasar una lista de valores de campo, se escribe un valor de `null` o una cadena vacía en la base de datos como `null`.
 

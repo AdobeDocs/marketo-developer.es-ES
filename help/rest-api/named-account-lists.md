@@ -3,7 +3,7 @@ title: Listas de cuentas con nombre
 feature: REST API
 description: Configure listas de cuentas con nombre.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 3%
@@ -14,7 +14,7 @@ ht-degree: 3%
 
 [Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Listas de cuentas con nombre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
+[Listas de cuentas con nombre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
 `Content`
 
 ## Permisos
@@ -33,7 +33,6 @@ Las listas de cuentas con nombre tienen un número limitado de campos estándar 
 | createdAt | Fecha y hora | Falso | Fecha y hora de creación de la lista. Este campo está administrado por el sistema y no se permite como campo al crear o actualizar un registro. |
 | updatedAt | Fecha y hora | Falso | Fecha y hora de la última actualización de la lista. Este campo está administrado por el sistema y no se permite como campo al crear o actualizar un registro. |
 | tipo | Cadena | Falso | Tipo de la lista. Puede tener un valor &quot;predeterminado&quot; o &quot;externo&quot;. Las listas externas son las creadas por la Vista de cuentas de CRM. |
-
 
 ## Consulta
 
@@ -294,9 +293,9 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ## Tiempos de espera
 
 - Los extremos de la lista de cuentas con nombre tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Sincronizar listas de cuentas con nombre: 60 s 
-   - Eliminar listas de cuentas con nombre: 60s 
-   - Obtener listas de cuentas con nombre: 60s 
-   - Añadir miembros de la lista de la cuenta con nombre: 60s 
-   - Eliminar miembros de la lista de cuentas con nombre: 60s 
+   - Sincronizar listas de cuentas con nombre: 60 s
+   - Eliminar listas de cuentas con nombre: 60s
+   - Obtener listas de cuentas con nombre: 60s
+   - Añadir miembros de la lista de la cuenta con nombre: 60s
+   - Eliminar miembros de la lista de cuentas con nombre: 60s
    - Obtener lista de cuentas con nombre Miembros: 60s

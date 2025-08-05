@@ -3,7 +3,7 @@ title: Importación masiva
 feature: REST API
 description: Importación por lotes de datos de personas.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '592'
 ht-degree: 2%
@@ -96,7 +96,6 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 |---|---|---|
 | formato | Cadena | Determina el formato de archivo de los datos importados con opciones para valores separados por comas, valores separados por tabulaciones y valores separados por punto y coma. Acepta uno de: CSV, SSV, TSV. El formato predeterminado es CSV. |
 | archivo | Cadena | Los datos se especifican mediante datos de formulario de varias partes en el archivo. |
-
 
 ## Estado del trabajo de sondeo
 

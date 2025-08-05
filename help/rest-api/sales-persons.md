@@ -3,7 +3,7 @@ title: Vendedores
 feature: REST API
 description: Lea datos sobre los vendedores.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '303'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Referencia de extremo de vendedor](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-Las API del vendedor son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitados. Los vendedores son un tipo de registro de persona que son los propietarios de ventas de los registros de posibles clientes. Están relacionados con los registros de posibles clientes por el campo externalSalesPersonId de cada registro de posibles clientes. Cuando un posible cliente está relacionado con un vendedor mediante un campo de ID de persona ventas externo rellenado, los campos de búsqueda correspondientes Propietario del posible cliente se rellenan para ese registro de posible cliente en Marketo, lo que permite el uso de los filtros y tokens correspondientes.
+Las API del vendedor son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitados. Los vendedores son un tipo de registro de persona que son los propietarios de ventas de los registros de posibles clientes. Están relacionados con los registros de posibles clientes por el campo externalSalesPersonId de cada registro de posibles clientes. Cuando un posible cliente está relacionado con un vendedor mediante un campo de ID de persona ventas externo rellenado, los campos de búsqueda correspondientes Propietario del posible cliente se rellenan para ese registro de posible cliente en Marketo, lo que permite el uso de los filtros y tokens correspondientes.
 
 Los vendedores están relacionados con los registros de posibles clientes mediante el punto de conexión [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) y pasando el atributo externalSalesPersonId.
 

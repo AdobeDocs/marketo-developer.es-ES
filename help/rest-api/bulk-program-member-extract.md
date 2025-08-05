@@ -3,7 +3,7 @@ title: Extracto de miembros de programa en masa
 feature: REST API
 description: Procesamiento por lotes de extracción de datos de miembros.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 4%
@@ -235,7 +235,7 @@ Los miembros del programa admiten varias opciones de filtro. Se pueden especific
     <tr>
       <td>isExhausted</td>
       <td>Booleano</td>
-      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
+      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -323,7 +323,6 @@ El punto final Crear trabajo de miembro de programa de exportación proporciona 
 | campos | Matriz[Cadena] | Sí | El parámetro fields acepta una matriz de cadenas JSON. Los campos enumerados se incluyen en el archivo exportado. Se pueden exportar los siguientes tipos de campo: `LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Especifique un campo utilizando su nombre de API de REST que se pueda recuperar mediante Describir posible cliente2 o Describir extremos de miembros del programa. |
 | columnHeaderNames | Objeto | No | Objeto JSON que contiene pares de clave-valor de nombres de campo y encabezado de columna. La clave debe ser el nombre de un campo incluido en el trabajo de exportación. El valor es el nombre del encabezado de columna exportado para ese campo. |
 | formato | Cadena | No | Acepta uno de: CSV, TSV, SSV. El archivo exportado se representa como un archivo de valores separados por comas, valores separados por tabulaciones o valores separados por espacios, respectivamente, si se establece. Si no se establece, el valor predeterminado es CSV. |
-
 
 ## Creación de un trabajo
 

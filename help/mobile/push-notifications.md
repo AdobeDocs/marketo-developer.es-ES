@@ -3,7 +3,7 @@ title: Insertar notificaciones
 feature: Mobile Marketing
 description: Activación de las notificaciones push para Marketo Mobile
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -285,7 +285,7 @@ A continuación se muestra un registro de actividad de Marketo desde Marketo que
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Configuración de FCM con HTTPv1 (Google tiene [protocolo XMPP obsoleto](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) el 12 de junio de 2023 y se eliminará en junio de 2024) 
+1. Configuración de FCM con HTTPv1 (Google tiene [protocolo XMPP obsoleto](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) el 12 de junio de 2023 y se eliminará en junio de 2024)
 
 - Habilitar MME FCM HTTPv1 en el administrador de características de Marketo ![](assets/feature-manager.png)
    - Cargar archivo JSON de cuenta de servicio para la aplicación en MLM.
@@ -390,7 +390,6 @@ Agregue la actividad Marketo en el archivo de manifiesto dentro de la etiqueta d
 ```
 
 1. Inicializar Marketo Push Después de guardar la configuración anterior, debe inicializar las notificaciones push de Marketo. Cree o abra la clase Application y copie o pegue el código siguiente. Puede obtener su ID de remitente desde la consola de Firebase.
-
 
    ```java
    Marketo marketoSdk = Marketo.getInstance(getApplicationContext());

@@ -3,9 +3,9 @@ title: getMultipleLeads
 feature: SOAP
 description: llamadas a SOAP getMultipleLeads
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '384'
+source-wordcount: '383'
 ht-degree: 3%
 
 ---
@@ -28,7 +28,7 @@ Un caso de uso común para este punto de conexión es encontrar posibles cliente
 | --- | --- | --- |
 | leadSelector | Obligatorio | Puede ser de uno de los siguientes 3 tipos: `LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
 | keyType | Obligatorio | El tipo de ID que desea consultar. Los valores incluyen IDNUM, COOKIE, EMAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID, SFDCOPPTYID. |
-| keyValues->stringItem | Obligatorio | Lista de valores clave. Es decir, &quot;lead@email.com&quot; |
+| keyValues->stringItem | Obligatorio | Lista de valores clave. Es decir, &quot;<lead@email.com>&quot; |
 | LastUpdateAtSelector: leadSelector->olderUpdatedAt | Obligatorio | La marca de tiempo para especificar los criterios &quot;desde&quot;. Es decir, devolver todos los posibles clientes actualizados desde la hora especificada. (Formato de fecha y hora WSDL de W3C) |
 | LastUpdateAtSelector: leadSelector->latestUpdatedAt | Opcional | La marca de tiempo para especificar los criterios de &quot;hasta&quot;. Es decir, devolver todos los posibles clientes actualizados hasta la hora especificada. (Formato de fecha y hora WSDL de W3C) |
 | StaticListSelector: leadSelector->staticListName | Opcional cuando `leadSelector->staticListId` está presente | Nombre de la lista estática |

@@ -3,7 +3,7 @@ title: Servicios personalizados
 feature: REST API
 description: Credenciales de autenticación con Marketo
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '985'
 ht-degree: 6%
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 Un servicio personalizado proporciona credenciales para autenticarse con Marketo. Se necesitan credenciales para obtener un token de acceso del [servicio de identidad](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) de Marketo. Cada servicio personalizado tiene un ámbito de un único usuario de solo API del que deriva sus permisos.
 
-## Roles
+## Funciones
 
 El primer paso para crear un servicio personalizado es crear una función que pueda aplicar al usuario solo de API correspondiente. Esto se hace desde el menú **[!UICONTROL Administración]** > **[!UICONTROL Usuarios y roles]** > **[!UICONTROL Roles]**.
 
@@ -43,7 +43,6 @@ Después de crear una función, debe crear un usuario &quot;Solo API&quot;. Los 
 >[!MORELIKETHIS]
 >
 >Para crear un usuario solo de API, ve al menú **[!UICONTROL Administración]** > **[!UICONTROL Usuarios y roles]** > **[!UICONTROL Usuarios]** y haz clic en [!UICONTROL Invitar nuevo usuario].
-
 
 ![Nueva información de usuario](assets/new-user-info.png)
 

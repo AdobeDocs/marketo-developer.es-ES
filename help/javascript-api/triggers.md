@@ -1,20 +1,20 @@
 ---
-title: Desencadenadores
-description: Desencadenadores
+title: Triggers
+description: Triggers
 feature: Javascript
 exl-id: 588836fa-1e4d-41f3-aec5-5cd17eb16071
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '80'
 ht-degree: 13%
 
 ---
 
-# Desencadenadores
+# Triggers
 
 Agrega la capacidad a las funciones de déclencheur en cierto estado del objeto rtp global.
 
-Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
+Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 
 ## Uso
 
@@ -24,7 +24,6 @@ Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](h
 |---------------------|-------------------|----------|----------------------|
 | &#39;triggerName&#39; | Obligatorio | Cadena | Nombre del método. |
 | function_to_déclencheur | Obligatorio | Función | Función a déclencheur. |
-
 
 ### Déclencheur Listo para Contexto de Usuario
 

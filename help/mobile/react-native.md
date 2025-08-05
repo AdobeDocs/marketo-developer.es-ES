@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: Instalación de React Native para Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '810'
 ht-degree: 0%
@@ -16,7 +16,7 @@ Este artículo proporciona información sobre cómo instalar y configurar SDK na
 
 ## Requisitos previos
 
-[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
+[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 
 ## Integración de SDK
 
@@ -393,7 +393,7 @@ const { RNMarketoModule } = NativeModules;
 
 Una vez que los archivos anteriores se colocan correctamente, podemos importar el módulo js en cualquier clase js y llamar a sus métodos directamente. Por ejemplo:
 
-Tenga en cuenta que debemos pasar &quot;reactNative&quot; como tipo de marco de trabajo para las aplicaciones nativas de React. 
+Tenga en cuenta que debemos pasar &quot;reactNative&quot; como tipo de marco de trabajo para las aplicaciones nativas de React.
 
 ```
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
@@ -489,7 +489,6 @@ RNMarketoModule.registerForRemoteNotifications();
 
 export { requestPermission, registerForRemoteNotifications };
 ```
-
 
 Agregar `App.tsx` para permitir notificaciones push
 
@@ -595,7 +594,7 @@ Agregue &quot;MarketoActivity&quot; al archivo `AndroidManifest.xml` dentro de l
 
 1. Incluir `application:openURL:sourceApplication:annotation:` en `AppDelegate.m` archivo (Objective-C)
 
-**iOS - Administrar tipo de URL personalizado/vínculos profundos en AppDelegate** 
+**iOS - Administrar tipo de URL personalizado/vínculos profundos en AppDelegate**
 
 ```
 - (BOOL)application:(UIApplication *)app

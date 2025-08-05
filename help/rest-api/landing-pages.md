@@ -3,7 +3,7 @@ title: Páginas de destino
 feature: REST API, Landing Pages
 description: Páginas de aterrizaje de consulta en Marketo.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1000'
 ht-degree: 2%
@@ -58,7 +58,7 @@ Los resultados diferirán entre las plantillas de formulario guiado y las de for
 
 [Se crean páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/createLandingPageUsingPOST) haciendo referencia a una plantilla. Los únicos campos obligatorios para la creación son nombre, plantilla (el ID de la plantilla) y la carpeta en la que colocar la página. Para ver los metadatos adicionales que se pueden rellenar, consulte la referencia del extremo.
 
-Los tipos de contenido válidos para [contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) son: richText, HTML, Formulario, Imagen, Rectángulo, Fragmento.
+Los tipos de contenido válidos para [contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) son: richText, HTML, Form, Image, Rectangle, Snippet.
 
 ```
 POST rest/asset/v1/landingPages.json
@@ -113,7 +113,7 @@ Las páginas de aterrizaje siguen el modelo estándar de borrador aprobado, dond
 
 ## Eliminar
 
-Para eliminar una página de aterrizaje, primero debe estar fuera de uso y ningún otro recurso de Marketo debe hacer referencia a ella, así como estar desaprobada. Las páginas se eliminan individualmente con el extremo [Eliminar página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST). Las páginas de aterrizaje con botones sociales incrustados no se pueden eliminar a través de esta API. 
+Para eliminar una página de aterrizaje, primero debe estar fuera de uso y ningún otro recurso de Marketo debe hacer referencia a ella, así como estar desaprobada. Las páginas se eliminan individualmente con el extremo [Eliminar página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST). Las páginas de aterrizaje con botones sociales incrustados no se pueden eliminar a través de esta API.
 
 ## Clonar
 
@@ -180,11 +180,11 @@ Las secciones de contenido se ordenan por su propiedad de índice y, en última 
 | Tipo | Valor |
 |--- |--- |
 | DynamicContent | El ID de la segmentación. |
-| Formulario | El ID del formulario. |
-| HTML | Contenido del HTML de texto. |
+| Form | El ID del formulario. |
+| HTML | Contenido de HTML de texto. |
 | Imagen | El ID del recurso de imagen. |
 | Rectángulo | Vacío. |
-| Texto enriquecido | Contenido del HTML de texto.  Solo puede contener elementos de texto enriquecido. |
+| Texto enriquecido | Contenido de HTML de texto.  Solo puede contener elementos de texto enriquecido. |
 | Fragmento | El ID del fragmento. |
 | SocialButton | El ID de  el botón social. |
 | Vídeo | El ID del vídeo. |
@@ -274,7 +274,7 @@ Las variables se definen como metaetiquetas dentro del elemento `<head>` de una 
 </head>
 ```
 
-Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Consulta
 

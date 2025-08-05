@@ -3,7 +3,7 @@ title: Extracción de posibles clientes
 feature: REST API
 description: Extracción por lotes de datos de posibles clientes.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1173'
 ht-degree: 2%
@@ -26,13 +26,12 @@ Los posibles clientes admiten varias opciones de filtro. Algunos filtros, inclui
 
 | Tipo de filtro | Tipo de datos | Notas |
 |---|---|---|
-| createdAt | Intervalo de fechas | Acepta un objeto JSON con los miembros `startAt` y `endAt`. `startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que se crearon dentro del intervalo de fechas. |
-| updatedAt* | Intervalo de fechas | Acepta un objeto JSON con los miembros `startAt` y `endAt`. `startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. Nota: Este filtro no filtra en el campo visible &quot;updatedAt&quot;, que solo refleja las actualizaciones de los campos estándar. Filtra en función de cuándo se realizó la actualización de campo más reciente en un registro de posibles clientesLos trabajos con este tipo de filtro devuelven todos los registros accesibles que se actualizaron más recientemente dentro del intervalo de fechas. |
+| createdAt | Date Range | Acepta un objeto JSON con los miembros `startAt` y `endAt`. `startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que se crearon dentro del intervalo de fechas. |
+| updatedAt* | Date Range | Acepta un objeto JSON con los miembros `startAt` y `endAt`. `startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. Nota: Este filtro no filtra en el campo visible &quot;updatedAt&quot;, que solo refleja las actualizaciones de los campos estándar. Filtra en función de cuándo se realizó la actualización de campo más reciente en un registro de posibles clientesLos trabajos con este tipo de filtro devuelven todos los registros accesibles que se actualizaron más recientemente dentro del intervalo de fechas. |
 | staticListName | Cadena | Acepta el nombre de una lista estática. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que son miembros de la lista estática en el momento en que comienza a procesarse el trabajo. Recupere nombres de listas estáticas utilizando el extremo Obtener listas. |
 | staticListId | Entero | Acepta el ID de una lista estática. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que son miembros de la lista estática en el momento en que comienza a procesarse el trabajo. Recupere los identificadores de lista estática mediante el extremo Obtener listas. |
 | smartListName* | Cadena | Acepta el nombre de una lista inteligente. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que son miembros de las listas inteligentes en el momento en que comienza a procesarse el trabajo. Recupere nombres de listas inteligentes utilizando el extremo Obtener listas inteligentes. |
 | smartListId* | Entero | Acepta el identificador de una lista inteligente. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que son miembros de las listas inteligentes en el momento en que comienza a procesarse el trabajo. Recupere los identificadores de las listas inteligentes mediante el extremo Obtener listas inteligentes. |
-
 
 El tipo de filtro no está disponible para algunas suscripciones. Si no está disponible para la suscripción, recibirá un error al llamar al punto final de Crear trabajo de posible cliente de exportación (&quot;1035, Tipo de filtro no compatible para la suscripción de destino&quot;). Los clientes pueden ponerse en contacto con el servicio de asistencia de Marketo para habilitar esta funcionalidad en su suscripción.
 
@@ -45,7 +44,6 @@ El punto final Crear trabajo de posible cliente de exportación proporciona vari
 | campos | Matriz[Cadena] | Sí | El parámetro fields acepta una matriz de cadenas JSON. Cada cadena debe ser el nombre de la API de REST de un campo de posible cliente de Marketo. Los campos enumerados se incluyen en el archivo exportado. El encabezado de columna de cada campo será el nombre de la API de REST de cada campo, a menos que se anule con columnHeader. Nota: Cuando la característica [!DNL Adobe Experience Cloud Audience Sharing] está habilitada, se produce un proceso de sincronización de cookies que asocia el ID de [!DNL Adobe Experience Cloud] (ECID) con posibles clientes de Marketo. Puede especificar el campo &quot;ecids&quot; para incluir los ECID en el archivo de exportación. |
 | columnHeaderNames | Objeto | No | Objeto JSON que contiene pares de clave-valor de nombres de campo y encabezado de columna. La clave debe ser el nombre de un campo incluido en el trabajo de exportación. Este es el nombre de API del campo que se puede recuperar llamando a Describir posible cliente. El valor es el nombre del encabezado de columna exportado para ese campo. |
 | formato | Cadena | No | Acepta uno de: CSV, TSV, SSV. El archivo exportado se representa como un archivo de valores separados por comas, valores separados por tabulaciones o valores separados por espacios, respectivamente, si se establece. Si no se establece, el valor predeterminado es CSV. |
-
 
 ## Creación de un trabajo
 

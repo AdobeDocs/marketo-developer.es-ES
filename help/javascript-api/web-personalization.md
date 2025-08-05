@@ -3,7 +3,7 @@ title: Personalización web
 description: Personalización web
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 6%
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 La API de JavaScript de Web Personalization amplía la capacidad de personalización automatizada de la plataforma. Permite el seguimiento de eventos y la personalización dinámica de una página web. Funciones adicionales: [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md), [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Configuración de etiquetas
@@ -41,7 +41,6 @@ Se llama automáticamente a este método en el nivel de etiqueta para establecer
 | &#39;setAccount&#39; | Obligatorio | Cadena | Nombre del método. |
 | accountId | Obligatorio | Cadena | ID de cuenta. |
 
-
 ```javascript
 var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
@@ -58,7 +57,6 @@ Al pasar el parámetro opcional &quot;page&quot; en este método, se puede anula
 | &#39;enviar&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;vista&#39; | Obligatorio | Cadena | Nombre del método. |
 | Página | Opcional | Cadena | Ruta relativa o dirección URL de página completa. |
-
 
 ```javascript
 // Example for Default Page
@@ -103,7 +101,6 @@ Descripción de JavaScript que se añade a un sitio web al utilizar Personalizat
 | jquery.min.js | Versión 1.8.3 | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
 | jquery-custom-ui-min.js | Versión 1.9.2 | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
 | query-ui-1.8.17-dialog.js | Versión 1.9.2* | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
-
 
 *Se utiliza solo si falta el cuadro de diálogo de la IU de jQuery
 

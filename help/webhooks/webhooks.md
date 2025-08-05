@@ -3,7 +3,7 @@ title: Webhooks
 feature: Webhooks
 description: Descripción general de los webhooks
 exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '586'
 ht-degree: 0%
@@ -12,17 +12,17 @@ ht-degree: 0%
 
 # Webhooks
 
-Marketo permite el uso de webhooks para comunicarse con servicios web de terceros. Los webhooks admiten el uso de los verbos HTTP del GET o del POST para insertar o recuperar datos de una dirección URL específica. Para obtener instrucciones detalladas sobre la creación de webhooks en la aplicación y cómo añadirlos a campañas inteligentes, consulte los siguientes artículos:
+Marketo permite el uso de webhooks para comunicarse con servicios web de terceros. Los webhooks admiten el uso de los verbos GET o POST HTTP para insertar o recuperar datos de una dirección URL específica. Para obtener instrucciones detalladas sobre la creación de webhooks en la aplicación y cómo añadirlos a campañas inteligentes, consulte los siguientes artículos:
 
-- [Crear un webhook](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [Llamar a webhook](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [Usar un webhook en una campaña inteligente](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [Crear un webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [Llamar a webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [Usar un webhook en una campaña inteligente](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 Cada webhook individual tiene las siguientes propiedades:
 
 - [!UICONTROL URL]: escriba la URL que usa para enviar la solicitud al servicio web.
 - [!UICONTROL Tipo de solicitud]: método HTTP.
-- [!UICONTROL Plantilla de carga útil]: si desea transmitir información en el cuerpo del POST, escriba la plantilla. Utilice cualquier formato de datos que admita el POST SOAP HTTP, incluidos XML, JSON o. El formato de serialización debe permitir comillas dobles alrededor de las cadenas. Para insertar un token en su plantilla, haga clic en **[!UICONTROL Insertar token]**.  Los tokens de tipo cadena se encierran automáticamente entre comillas dobles.
+- [!UICONTROL Plantilla de carga útil]: si desea transmitir información en el cuerpo de la PUBLICACIÓN, escriba la plantilla. Utilice cualquier formato de datos que admita HTTP POST, incluidos XML, JSON o SOAP. El formato de serialización debe permitir comillas dobles alrededor de las cadenas. Para insertar un token en su plantilla, haga clic en **[!UICONTROL Insertar token]**.  Los tokens de tipo cadena se encierran automáticamente entre comillas dobles.
 - [!UICONTROL Codificación de token de solicitud]: si los valores de token incluyen caracteres especiales (como un signo &amp;), indique el formato de su solicitud (JSON o formulario/URL). Debe seleccionarse la codificación correcta para el cuerpo para asegurarse de que el webhook se comunica correctamente con el servicio web.
 - [!UICONTROL Tipo de respuesta]: seleccione el formato de la respuesta que recibe del servicio (JSON o XML). Se debe seleccionar el tipo de respuesta correcto para asignar las propiedades de la respuesta a los campos de posible cliente en Marketo
 - [!UICONTROL Encabezados personalizados] - A los que se accede a través de [!UICONTROL Acciones de Webhooks] -> [!UICONTROL Establecer encabezado personalizado], este menú permite agregar cualquier número de pares de clave-valor personalizados como encabezados HTTP.
@@ -33,9 +33,9 @@ Se pueden escribir datos en los posibles clientes a partir de las respuestas del
 
 Todos los campos salientes de un webhook (URL, plantilla y encabezados personalizados) rellenan el contenido de los tokens en el mismo contexto del paso de flujo. Esto significa que los tokens de cliente potencial y de sistema siempre están disponibles, mientras que los tokens de Déclencheur, de campaña y de programa están disponibles en sus respectivos ámbitos. Consulte artículos relacionados con tokens:
 
-- [Información general de tokens](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [Glosario de tokens del sistema](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [Tokens para momentos interesantes](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [Información general de tokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [Glosario de tokens del sistema](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [Tokens para momentos interesantes](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 Un caso común es cuando un programa o campaña se asigna explícitamente a un recurso de terceros. Se puede establecer un ID en el nivel de programa como `My Token` y luego pasarlo a la solicitud de webhook como token.
 

@@ -3,7 +3,7 @@ title: Desempeño
 feature: REST API
 description: Sugerencias de rendimiento para trabajar con la API de Marketo.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 4e64b8a801e443471f52090b7f008b11e628012d
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '122'
 ht-degree: 1%
@@ -37,5 +37,5 @@ Content-Encoding: gzip
 Este es un ejemplo de uso de Curl para llamar al extremo [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) para recuperar 5 posibles clientes:
 
 ```bash
-$ curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'
+curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'
 ```

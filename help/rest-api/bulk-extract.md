@@ -3,9 +3,9 @@ title: Extracción en lote
 feature: REST API
 description: Operaciones por lotes para extraer datos de Marketo.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '1683'
+source-wordcount: '1682'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Las API de extracción masiva utilizan el mismo método de autenticación OAuth 
 - Máximo de trabajos de exportación simultáneos: 2
 - Máximo de trabajos de exportación en cola (incluidos los trabajos de exportación actuales): 10
 - Período de retención de archivos: siete días
-- Asignación de exportación diaria predeterminada: 500 MB (que se restablece diariamente a las 12:00 (CST). Aumentos disponibles para la compra.
+- Asignación de exportación diaria predeterminada: 500 MB (que se restablece diariamente a 12:00AM CST). Aumentos disponibles para la compra.
 - Intervalo de tiempo máximo para el filtro de intervalo de fechas (createdAt o updatedAt): 31 días
 
 Los filtros de extracción masiva de posibles clientes para UpdatedAt y Smart List no están disponibles para algunos tipos de suscripción. Si no está disponible, una llamada al extremo del trabajo de creación de posibles clientes de exportación devuelve el error &quot;1035, Unsupported filter type for target subscription&quot;. Los clientes pueden ponerse en contacto con el servicio de asistencia de Marketo para habilitar esta funcionalidad en su suscripción.
@@ -123,7 +123,6 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 | columnHeaderNames | Objeto | Permite establecer los nombres de los encabezados de columna en el archivo devuelto. Cada clave de miembro es el nombre del encabezado de columna cuyo nombre se va a cambiar, y el valor es el nuevo nombre del encabezado de columna. Por ejemplo, &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
 | filter | Objeto | Filtro aplicado al trabajo de extracción. Los tipos y las opciones varían según el tipo de trabajo. |
 
-
 ## Recuperando trabajos
 
 A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un campo de filtro `status`, un  `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
@@ -209,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 La respuesta contiene un archivo con el formato que tenía el trabajo configurado. El punto final responde con el contenido del archivo. Si no se ha completado un trabajo o se ha pasado un ID de trabajo incorrecto, los extremos de archivo responden con un estado de 404 No encontrado y un mensaje de error de texto sin formato como carga útil, a diferencia de la mayoría de los demás extremos REST de Marketo.
 
-Para admitir la recuperación parcial y fácil de reanudar de los datos extraídos, el extremo de archivo admite opcionalmente el encabezado HTTP `Range` del tipo `bytes` (según [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Si no se establece el encabezado, se devuelve todo el contenido. Para recuperar los primeros 10 000 bytes de un archivo, pasaría el siguiente encabezado como parte de la solicitud de GET al extremo, empezando por el byte 0:
+Para admitir la recuperación parcial y fácil de reanudar de los datos extraídos, el extremo de archivo admite opcionalmente el encabezado HTTP `Range` del tipo `bytes` (según [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Si no se establece el encabezado, se devuelve todo el contenido. Para recuperar los primeros 10 000 bytes de un archivo, pasaría el siguiente encabezado como parte de la petición GET al extremo, empezando por el byte 0:
 
 ```
 Range: bytes=0-9999
