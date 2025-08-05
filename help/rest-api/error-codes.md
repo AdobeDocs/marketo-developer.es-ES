@@ -109,7 +109,7 @@ Una llamada de API que devuelva este código de respuesta no se contará en su c
     <tr>
       <td><a name="603"></a>603</td>
       <td>Acceso denegado</td>
-      <td>La autenticación se ha realizado correctamente, pero el usuario no tiene permisos suficientes para llamar a esta API. Es posible que se deban asignar [permisos adicionales](custom-services.md) a la función de usuario o que se habilite <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Lista de permitidos para el acceso a la API basada en IP</a>.</td>
+      <td>La autenticación se ha realizado correctamente, pero el usuario no tiene permisos suficientes para llamar a esta API. Es posible que se deban asignar [permisos adicionales](custom-services.md) a la función de usuario o que se habilite <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Lista de permitidos para el acceso a la API basada en IP</a>.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>

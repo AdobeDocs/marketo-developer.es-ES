@@ -16,7 +16,7 @@ Este artículo proporciona información sobre cómo instalar y configurar SDK na
 
 ## Requisitos previos
 
-[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
+[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 
 ## Integración de SDK
 

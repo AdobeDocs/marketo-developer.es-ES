@@ -14,9 +14,9 @@ ht-degree: 0%
 
 Marketo permite el uso de webhooks para comunicarse con servicios web de terceros. Los webhooks admiten el uso de los verbos GET o POST HTTP para insertar o recuperar datos de una dirección URL específica. Para obtener instrucciones detalladas sobre la creación de webhooks en la aplicación y cómo añadirlos a campañas inteligentes, consulte los siguientes artículos:
 
-- [Crear un webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [Llamar a webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [Usar un webhook en una campaña inteligente](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [Crear un webhook](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [Llamar a webhook](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [Usar un webhook en una campaña inteligente](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 Cada webhook individual tiene las siguientes propiedades:
 
@@ -33,9 +33,9 @@ Se pueden escribir datos en los posibles clientes a partir de las respuestas del
 
 Todos los campos salientes de un webhook (URL, plantilla y encabezados personalizados) rellenan el contenido de los tokens en el mismo contexto del paso de flujo. Esto significa que los tokens de cliente potencial y de sistema siempre están disponibles, mientras que los tokens de Déclencheur, de campaña y de programa están disponibles en sus respectivos ámbitos. Consulte artículos relacionados con tokens:
 
-- [Información general de tokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [Glosario de tokens del sistema](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [Tokens para momentos interesantes](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [Información general de tokens](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [Glosario de tokens del sistema](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [Tokens para momentos interesantes](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 Un caso común es cuando un programa o campaña se asigna explícitamente a un recurso de terceros. Se puede establecer un ID en el nivel de programa como `My Token` y luego pasarlo a la solicitud de webhook como token.
 
