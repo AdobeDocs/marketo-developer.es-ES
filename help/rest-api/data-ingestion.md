@@ -3,7 +3,7 @@ title: Ingesta de datos
 feature: REST API, Dynamic Content
 description: Consumir datos con las API de Marketo.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 11%
@@ -18,7 +18,9 @@ Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona
 
 Las interfaces se ofrecen para dos tipos de objetos: Personas y Objetos personalizados. La operación de registro es sólo &quot;insertar o actualizar&quot;.
 
-La API de ingesta de datos se encuentra actualmente en versión beta privada.  Se requiere que los invitados tengan derechos para el paquete de [Nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+>[!NOTE]
+>
+>La API de ingesta de datos se encuentra actualmente en versión beta privada.  Se requiere que los invitados tengan derechos para el paquete de [Nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Autenticación
 
