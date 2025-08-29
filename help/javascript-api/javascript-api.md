@@ -3,10 +3,10 @@ title: API de JavaScript
 description: API de JavaScript
 feature: Munchkin Tracking Code, Forms, Web Personalization, Predictive Content, Social, Javascript
 exl-id: 6129a467-be44-44bd-9e02-62009070c318
-source-git-commit: e63db409981d10cfea6206cf91340428e5d0b17f
+source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
 workflow-type: tm+mt
-source-wordcount: '337'
-ht-degree: 1%
+source-wordcount: '289'
+ht-degree: 2%
 
 ---
 
@@ -28,10 +28,7 @@ El [código de seguimiento JavaScript de Munchkin](lead-tracking.md) de Marketo 
 
 [Marketo Web Personalization](web-personalization.md) es una plataforma de Targeting &amp; Personalization que te ayuda a atraer a miles de clientes potenciales a tu sitio web en tiempo real en función de quiénes son y qué hacen.
 
-## Predictivo  Contenido
+## Predictive Content
 
 El [contenido predictivo de Marketo](predictive-content.md) le permite atraer a los visitantes web con el contenido más relevante, impulsado por el aprendizaje automático y el análisis predictivo. Mejore su contenido con descripciones de texto e imágenes e incruste varias recomendaciones de contenido en su sitio web.
 
-## Marketing social
-
-[Marketo Social Marketing](social.md) permite a los especialistas en mercadotecnia incrustar widgets sociales en sitios web y páginas de aterrizaje. Los widgets sociales incluyen encuestas, botones para compartir en redes sociales, vídeos, sorteos y promociones como ofertas de referencia. La visualización de estos widgets se puede personalizar, así como los eventos capturados para crear experiencias de usuario únicas.
