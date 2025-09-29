@@ -1,20 +1,20 @@
 ---
 title: Introducción
-description: Introducción a las API de Marketo Engage
+description: Empiece con las API de Marketo Engage y el modelo de datos, que incluye posibles clientes, actividades, programas, etiquetas, listas, directrices de REST y aviso de obsolescencia de SOAP.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 490411e411bed7b5b76fd9e5f41ccc9d156b2ba9
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1340'
+source-wordcount: '1355'
 ht-degree: 1%
 
 ---
 
 # Introducción
 
-Marketo Engage es una plataforma de automatización de marketing que permite a los especialistas en marketing administrar programas y campañas multicanal personalizados a clientes y posibles clientes. La plataforma de Marketo Engage se puede ampliar utilizando puntos de integración. A continuación se encuentran las entidades principales y sus relaciones.
+Marketo Engage es una plataforma de automatización de marketing que permite a los especialistas en marketing administrar programas y campañas multicanal personalizados a clientes y posibles clientes. La plataforma Marketo Engage se puede ampliar utilizando puntos de integración. A continuación se encuentran las entidades principales y sus relaciones.
 
 >[!NOTE]
->SOAP La API de está en desuso y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api/rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. SOAP SOAP Si cuenta con un servicio que usa la API de, consulte la [Guía de migración](./soap-api/migration.md) de la API de para obtener información sobre cómo migrar.
+>La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api/rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración](./soap-api/migration.md) de la API de SOAP para obtener información sobre cómo migrar.
 >
 
 Cuando la conexión nativa de SFDC o MS Dynamics CRM está habilitada en una instancia de Marketo Engage, los siguientes objetos son de solo lectura: compañía, oportunidad, rol de oportunidad, vendedor
@@ -31,7 +31,7 @@ API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/
 
 Los posibles clientes interactúan con su organización de varias formas. Un posible cliente puede visitar una página del sitio web de su empresa, asistir a una feria o descargar un documento técnico. Cada una de estas acciones se puede capturar dentro de Marketo para ayudar a un experto en marketing a comprender mejor qué actividades realizó un posible cliente y cuándo lo hizo para que pueda coordinar comunicaciones oportunas y relevantes. Las actividades siempre están relacionadas con los posibles clientes mediante leadId.
 
-Puede definir sus propias actividades personalizadas. Una vez creada y publicada una actividad personalizada, puede añadir actividades personalizadas mediante la API de Marketo. Encontrará más información sobre actividades personalizadas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+Puede definir sus propias actividades personalizadas. Una vez creada y publicada una actividad personalizada, puede añadir actividades personalizadas mediante la API de Marketo. Encontrará más información sobre actividades personalizadas [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -49,7 +49,7 @@ Las etiquetas son una forma de agrupar datos para la creación de informes. Esto
 
 Como administrador de Marketo, tiene la capacidad de crear los tipos de etiquetas opcionales y requeridos que están disponibles para su selección cuando un usuario de Marketo crea un programa. Usted define los valores posibles para cada uno de estos tipos de etiquetas y reflejan cómo su empresa desea utilizar etiquetas personalizadas con fines de creación de informes.
 
-Por ejemplo, es posible que desee crear un tipo de etiqueta &quot;Región&quot; personalizado con varios valores de etiqueta (por ejemplo, Noreste, Sureste) que le permitan analizar qué región genera la mayor cantidad de posibles clientes. O, por ejemplo, puede crear un tipo de etiqueta &quot;Propietario&quot;, que le permite evaluar y comprender qué propietarios de programa (por ejemplo, María, David o Juan) tienen el mayor impacto en la creación de posibles clientes y oportunidades. Encontrará más información sobre las etiquetas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Por ejemplo, es posible que desee crear un tipo de etiqueta &quot;Región&quot; personalizado con varios valores de etiqueta (por ejemplo, Noreste, Sureste) que le permitan analizar qué región genera la mayor cantidad de posibles clientes. O, por ejemplo, puede crear un tipo de etiqueta &quot;Propietario&quot;, que le permite evaluar y comprender qué propietarios de programa (por ejemplo, María, David o Juan) tienen el mayor impacto en la creación de posibles clientes y oportunidades. Encontrará más información sobre las etiquetas [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
@@ -77,7 +77,7 @@ Assets se refiere a páginas de aterrizaje, correos electrónicos, formularios e
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
-## Tokens
+## Tókenes
 
 Los tokens permiten a un experto en marketing personalizar mensajes con recursos y añadir lógica dentro de las acciones de flujo. Existen tokens para el sistema general, los programas, los posibles clientes y las empresas. Un ejemplo de token de posible cliente es {{lead.First Name}}. Este token se puede colocar dentro de un correo electrónico para mostrar el nombre del posible cliente.
 
@@ -85,7 +85,7 @@ Los tokens definidos en el nivel de programa o carpeta se denominan &quot;Mis to
 
 Mis tokens creados localmente en una carpeta o programa de campaña específico están disponibles para ese programa o carpeta de campaña específica (local). Mis tokens creados en el nivel de carpeta de campaña están disponibles para su uso en todos los programas contenidos en esa carpeta de campaña (heredados). Mis tokens modificados en el nivel de programa con valores personalizados no cambian el valor Mi token principal del token en el nivel de carpeta de programa (anulado).
 
-Mis tokens utilizan la convención de nombres {{my.My Token}}, con la palabra &quot;my&quot; agregada al principio del nombre del token. Por ejemplo, si crea un tipo de fecha Mi token con el nombre EventDate, el nombre del token es {{my.EventDate}}. Encontrará más información sobre Mis tokens [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Mis tokens utilizan la convención de nombres {{my.My Token}}, con la palabra &quot;my&quot; agregada al principio del nombre del token. Por ejemplo, si crea un tipo de fecha Mi token con el nombre EventDate, el nombre del token es {{my.EventDate}}. Encontrará más información sobre Mis tokens [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 

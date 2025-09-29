@@ -1,11 +1,11 @@
 ---
 title: Formularios
 feature: REST API, Forms
-description: Cree y administre formularios a través de la API.
+description: Guía de la API de REST de Marketo Forms para crear y administrar formularios, recuperar por id o nombre, examinar con filtros de estado y administrar campos, conjuntos de campos y reglas.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1598'
+source-wordcount: '1616'
 ht-degree: 2%
 
 ---

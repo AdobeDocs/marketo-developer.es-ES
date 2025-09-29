@@ -1,23 +1,23 @@
 ---
 title: Filtros de tipo de actividad
 feature: SOAP
-description: SOAP Filtros de tipo de actividad para llamadas de.
+description: Examine todos los filtros de tipo de actividad admitidos para las llamadas de SOAP, desde clics en correos electrónicos y rellenos de formularios hasta cambios en campañas de SFDC y actualizaciones de oportunidades.
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '210'
-ht-degree: 89%
+source-wordcount: '226'
+ht-degree: 82%
 
 ---
 
 # Filtros de tipo de actividad
 
-| Agregar a Lista |
+| Añadir a la lista |
 |-------------------------------------|
 | Añadir a Nutrir |
 | Agregar a Oportunidad |
 | Agregar a Segmento |
-| Agregar a Campaña de SFDC |
+| Agregar a campaña de SFDC |
 | Agregar a la campaña inteligente |
 | Asignar contenido de cultivo |
 | Capturar historial de membresía de la campaña |
@@ -37,7 +37,7 @@ ht-degree: 89%
 | Cambiar calificación |
 | Cambiar segmento |
 | Cambio de estado en progreso |
-| Cambiar estado en campaña SFDC |
+| Cambiar estado de la campaña SFDC |
 | Hacer clic en el correo electrónico |
 | Haga clic en Vínculo |
 | Hacer clic en el correo electrónico de ventas |
@@ -60,16 +60,16 @@ ht-degree: 89%
 | Abrir correo electrónico de ventas |
 | Recibir correo electrónico de ventas |
 | Se recibió un email de Enviar a un amigo |
-| Quitar de Flujo |
-| Quitar de Lista |
+| Quitar del flujo |
+| Quitar de la lista |
 | Quitar de Oportunidad |
-| Quitar de Campaña de SFDC |
+| Quitar de la campaña de SFDC |
 | Solicitar campaña |
 | Recompensar la variante del grupo de prueba |
 | Se rechazó el email de ventas |
 | Aprobación de segmentación |
 | Enviar alerta |
-| Enviar email |
+| Enviar correo electrónico |
 | Enviar correo electrónico de ventas |
 | Email de Enviar a un amigo enviado |
 | Actividad de SFDC |

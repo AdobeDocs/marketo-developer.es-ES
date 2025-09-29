@@ -1,11 +1,11 @@
 ---
 title: Etiquetas
 feature: REST API, Tags
-description: Administre etiquetas para programas en Marketo.
+description: Consulte los tipos de etiquetas, obtenga valores permitidos por nombre, actualice o elimine etiquetas de programa en Marketo mediante la API de recursos REST, con ejemplos de solicitudes.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '205'
+source-wordcount: '221'
 ht-degree: 2%
 
 ---

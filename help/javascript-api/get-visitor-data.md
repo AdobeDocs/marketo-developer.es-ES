@@ -1,12 +1,12 @@
 ---
 title: Obtener datos del visitante
-description: Obtener datos del visitante
+description: Obtenga identificación de visitantes en tiempo real mediante la API de contexto de usuario de RTP con parámetros, ejemplo de llamada de retorno y respuestas de muestra para segmentos, ABM y ubicación.
 feature: Javascript
 exl-id: 39a2446d-8a31-461e-bbe6-a7edf24b4d52
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '184'
-ht-degree: 5%
+source-wordcount: '203'
+ht-degree: 4%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 Este método se utiliza para obtener datos de identificación de visitantes en tiempo real.
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 Si se produce un error, aparecerá un mensaje de error como parte de la respuesta JSON. Si devuelve un código 500, póngase en contacto con el servicio de asistencia técnica con la solicitud que ha realizado.

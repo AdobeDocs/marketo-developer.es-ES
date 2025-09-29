@@ -1,11 +1,11 @@
 ---
 title: Seguimiento de leads
-description: API de seguimiento de posibles clientes
+description: Obtenga información sobre cómo incrustar Marketo Munchkin JavaScript, rastrear visitas y clics, administrar posibles clientes conocidos frente a anónimos, cookies entre dominios y la exclusión de campañas inteligentes.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '766'
+source-wordcount: '786'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Se recomienda encarecidamente que el código de seguimiento asincrónico se util
 
 Algunos sistemas de gestión de contenido pueden tener métodos o restricciones específicos al incrustar secuencias de comandos arbitrarias.
 
-Como referencia, la página final debe incluir código similar a este en `<head>` del documento de HTML:
+Como referencia, la página final debe incluir código similar a este en `<head>` de su documento de HTML:
 
 ```html
 <head>
@@ -100,7 +100,7 @@ Las cookies de Munchkin son específicas de cada dominio de segundo nivel, es de
 
 ## Beta
 
-Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
+Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
 
 ## Opción de exclusión
 

@@ -1,11 +1,11 @@
 ---
 title: Extracto de miembros de programa en masa
 feature: REST API
-description: Procesamiento por lotes de extracción de datos de miembros.
+description: Utilice las API de REST de extracción de miembros de programas en lote de Marketo para exportar registros de miembros grandes para ETL, almacenamiento de datos y archivado, con permisos y metadatos de campo.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1142'
+source-wordcount: '1160'
 ht-degree: 4%
 
 ---
@@ -235,7 +235,7 @@ Los miembros del programa admiten varias opciones de filtro. Se pueden especific
     <tr>
       <td>isExhausted</td>
       <td>Booleano</td>
-      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
+      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>

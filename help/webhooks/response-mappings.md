@@ -1,18 +1,18 @@
 ---
 title: Asignaciones de respuesta
 feature: Webhooks
-description: Asignaciones de respuestas para Marketo
+description: Asignaciones de respuestas de Webhooks de Marketo para JSON y XML, asignación de atributos a campos de posible cliente con nombres de API de SOAP, notación de puntos y matrices y compatibilidad de tipos.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '461'
+source-wordcount: '481'
 ht-degree: 1%
 
 ---
 
 # Asignaciones de respuesta
 
-Marketo puede traducir los datos recibidos por un webhook de dos tipos de contenido y devolver estos valores a un campo de posible cliente: JSON y XML. El parámetro de campo de Marketo SOAP siempre usará el [nombre de API ](../rest-api/fields.md) del campo. Cada webhook puede tener un número ilimitado de asignaciones de respuestas, las cuales se agregan y editan haciendo clic en el botón [!UICONTROL Editar] en el panel Asignaciones de respuestas de su webhook:
+Marketo puede traducir los datos recibidos por un webhook de dos tipos de contenido y devolver estos valores a un campo de posible cliente: JSON y XML. El parámetro Marketo Field siempre usará [SOAP API name](../rest-api/fields.md) del campo. Cada webhook puede tener un número ilimitado de asignaciones de respuestas, las cuales se agregan y editan haciendo clic en el botón [!UICONTROL Editar] en el panel Asignaciones de respuestas de su webhook:
 
 ![Asignación de respuestas](assets/response-mapping.png)
 

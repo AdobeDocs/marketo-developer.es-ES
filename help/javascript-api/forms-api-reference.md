@@ -1,11 +1,11 @@
 ---
 title: Referencia de API de Forms
-description: Referencia de API de Forms
+description: Referencia completa para la API de Marketo Forms 2.0, que detalla los métodos MktoForms2 y Form, los parámetros, las llamadas de retorno y las devoluciones para cargar y procesar formularios.
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1327'
+source-wordcount: '1345'
 ht-degree: 2%
 
 ---
@@ -93,13 +93,13 @@ Existen dos objetos principales con los que interactuará mediante la API de For
     <tr valign="top">
       <td>.allForms()</td>
       <td>Obtiene una matriz de todos los objetos de formulario que se han construido anteriormente en la página.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Matriz del objeto de formulario</td>
     </tr>
     <tr valign="top">
       <td>.getPageFields()</td>
       <td>Obtiene un objeto JS que contiene datos de la dirección URL y del referente que pueden resultar interesantes para el seguimiento.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Objeto</td>
     </tr>
     <tr valign="top">
@@ -141,19 +141,19 @@ Existen dos objetos principales con los que interactuará mediante la API de For
     <tr valign="top">
       <td>.getId()</td>
       <td>Obtiene el id. del formulario.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Número: el ID del objeto de formulario que representa este formulario.</td>
     </tr>
     <tr valign="top">
       <td>.getFormElement()</td>
       <td>Obtiene el elemento de formulario jQuery ajustado de un formulario procesado.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Un elemento de formulario jQuery ajustado en objeto o nulo si el formulario aún no se ha representado con el método render().</td>
     </tr>
     <tr valign="top">
       <td>.validate()</td>
       <td>Fuerza la validación del formulario, resaltando los errores que puedan existir y devolviendo el resultado. No envía el formulario.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Booleano: devuelve el valor "True" si se han superado todos los validadores del formulario y el valor "False" en caso contrario.</td>
     </tr>
     <tr valign="top">
@@ -165,7 +165,7 @@ Existen dos objetos principales con los que interactuará mediante la API de For
     <tr valign="top">
       <td>.submit()</td>
       <td>Déclencheur el evento de envío del formulario. Esto iniciará el flujo de envío desde, realizando la validación, activando cualquier evento de envío, enviando el formulario y activando cualquier evento de éxito si el envío del formulario se ha realizado correctamente.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Objeto de formulario: el mismo objeto de formulario en el que se llamó al método con fines de encadenamiento.</td>
     </tr>
     <tr valign="top">
@@ -189,7 +189,7 @@ Existen dos objetos principales con los que interactuará mediante la API de For
     <tr valign="top">
       <td>.allFieldsFilled()</td>
       <td>Devuelve verdadero si todos los campos del formulario tienen valores establecidos que no estén en blanco.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Boolean: True si todos los campos tienen valores no vacíos/vacíos/no establecidos/nulos; false en caso contrario.</td>
     </tr>
     <tr valign="top">
@@ -201,7 +201,7 @@ Existen dos objetos principales con los que interactuará mediante la API de For
     <tr valign="top">
       <td>.getValues()</td>
       <td>Obtiene todos los valores de todos los campos del formulario.</td>
-      <td>n/a</td>
+      <td>N/A</td>
       <td>Objeto: un objeto JS que contiene pares de clave/valor que representan los nombres y valores de los campos del formulario.</td>
     </tr>
     <tr valign="top">

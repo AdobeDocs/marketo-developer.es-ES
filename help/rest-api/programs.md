@@ -1,11 +1,11 @@
 ---
 title: Programas
 feature: REST API, Programs
-description: Crear y editar información del programa.
+description: Guía de programas de Marketo para la API de REST de recursos que cubre tipos, canales, etiquetas, estados de miembro y extremos para obtener por ID o nombre, examinar y filtrar por estado.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '848'
+source-wordcount: '870'
 ht-degree: 2%
 
 ---

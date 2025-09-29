@@ -1,11 +1,11 @@
 ---
 title: Importación masiva de posibles clientes
 feature: REST API
-description: Importación por lotes de datos de posibles clientes.
+description: Cree y supervise importaciones asíncronas masivas de posibles clientes en Marketo con CSV o CSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '803'
+source-wordcount: '812'
 ht-degree: 0%
 
 ---

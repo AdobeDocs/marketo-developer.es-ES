@@ -1,11 +1,11 @@
 ---
 title: Listas inteligentes
 feature: REST API
-description: Cree y edite listas inteligentes.
+description: Aprenda a utilizar las API de REST de Marketo para consultar, clonar y eliminar listas inteligentes creadas por el usuario, incluidos los extremos por ID, nombre, campaña y programa con reglas.
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '439'
 ht-degree: 1%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Marketo ofrece un conjunto de API de REST para realizar operaciones en listas inteligentes. Estas API siguen el patrón de interfaz estándar para las API de recursos que proporcionan las opciones de consulta, eliminación y clonación.
 
-Nota: Estas API solo son compatibles con las listas inteligentes creadas por el usuario. No se pueden usar para [Listas inteligentes integradas/del sistema](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Nota: Estas API solo son compatibles con las listas inteligentes creadas por el usuario. No se pueden usar para [Listas inteligentes integradas/del sistema](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Consulta
 

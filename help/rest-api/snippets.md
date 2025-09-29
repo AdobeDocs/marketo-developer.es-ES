@@ -1,11 +1,11 @@
 ---
 title: Fragmentos
 feature: REST API, Snippets
-description: Administración de fragmentos mediante la API de Marketo.
+description: API de REST de recursos de Marketo para fragmentos de código, que abarcan la consulta por ID y la exploración con estado, la obtención de contenido, la creación y actualización de HTML, texto y contenido dinámico.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '438'
+source-wordcount: '456'
 ht-degree: 2%
 
 ---
@@ -139,7 +139,7 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-La llamada devuelve una lista de secciones de contenido,  que constan de secciones de tipo HTML o tipo Contenido dinámico y, opcionalmente, una sección con un tipo de Texto.
+La llamada devuelve una lista de secciones de contenido,  que constan de secciones de tipo HTML o tipo DynamicContent y, opcionalmente, una sección con un tipo de Text.
 
 ## Crear y actualizar
 
@@ -183,7 +183,7 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 }
 ```
 
-La adición o sustitución de contenido en un fragmento se realiza mediante un ID. El contenido puede ser de los tipos Texto, HTML o Contenido dinámico. Si el tipo es Texto, el parámetro de contenido es un punto final de texto sin formato, mientras que si es HTML, es el texto de marcado deseado. Si el tipo se establece en DynamicContent, el parámetro de contenido debe establecerse en el ID de la segmentación que se asociará al fragmento de código.
+La adición o sustitución de contenido en un fragmento se realiza mediante un ID. El contenido puede ser de los tipos Texto, HTML o Contenido dinámico. Si el tipo es Texto, el parámetro de contenido es el punto de conexión de texto sin formato, mientras que si es HTML, es el texto de marcado deseado. Si el tipo se establece en DynamicContent, el parámetro de contenido debe establecerse en el ID de la segmentación que se asociará al fragmento de código.
 
 ```
 POST /rest/asset/v1/snippet/{id}/content.json

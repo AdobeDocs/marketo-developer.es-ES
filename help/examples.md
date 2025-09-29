@@ -1,11 +1,12 @@
 ---
 title: Ejemplos de scripts de correo electrónico
 feature: Email Programs
-description: Ejemplos de scripts de correo electrónico de Marketo
-source-git-commit: 3ccb27a0d184e0c1314979d404022bc4e0794f7b
+description: Ejemplos de secuencias de comandos de correo electrónico de Marketo con Velocity, incluidos bucles en objetos personalizados, análisis/formato de fechas, escape de HTML y anexos de ID de URL.
+exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '52'
-ht-degree: 9%
+source-wordcount: '67'
+ht-degree: 7%
 
 ---
 
@@ -85,7 +86,7 @@ ${formattedDate}
 
 ## Añadir un ID a una dirección URL
 
-### Campaña por lote
+### Campaña por lotes
 
 ```html
 ##batch campaigns/triggers campaigns not triggers by object

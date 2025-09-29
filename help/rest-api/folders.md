@@ -1,11 +1,11 @@
 ---
 title: Carpetas
 feature: REST API
-description: Manipular carpetas con la API de Marketo.
+description: Guía de API de REST de Marketo para carpetas que abarcan crear, actualizar, eliminar, consultar por id y nombre, examinar por lotes con raíz, espacio de trabajo, maxDepth y paginación.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1008'
+source-wordcount: '1025'
 ht-degree: 1%
 
 ---
@@ -62,8 +62,8 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Programa&quot;.  El tipo dicta si la búsqueda en la carpeta se realiza con un ID de carpeta o un ID de programa. Para este extremo, sólo se devuelve un único registro en el resultado Array. Tenga en cuenta el parámetro folderType en la respuesta. Esto puede indicar muchos tipos diferentes de carpetas. Las carpetas de actividades de Marketo tienen un tipo de carpeta de marketing o de programa, que pueden contener muchos tipos diferentes de recursos, mientras que las carpetas de Design Studio tienen un tipo correspondiente al tipo de recurso que pueden contener. Por ejemplo, una carpeta con folderType de &quot;Correo electrónico&quot; puede contener solo correos electrónicos u otras subcarpetas, que pueden tener un folderType de Correo electrónico o Plantilla de correo electrónico. Los tipos pueden incluir:
 
 - Correo electrónico
-- Plantilla de email
-- Página de aterrizaje
+- Plantilla de correo electrónico
+- Página de destino
 - Plantilla de la página de destino
 - Fragmento
 - Archivo
@@ -211,7 +211,7 @@ La ruta de una carpeta muestra su jerarquía en el árbol de carpetas, de forma 
 
 ## Crear y actualizar
 
-[La creación de carpetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) es sencilla y se ejecuta con un POST application/x-www-form-urlencoded que tiene dos parámetros obligatorios, &quot;name&quot;, una cadena y &quot;parent&quot;, el elemento principal en el que crear la carpeta, que es un objeto JSON incrustado con dos miembros, id y type, Folder o Program, según el tipo de la carpeta de destino. Opcionalmente, también se puede incluir una &quot;descripción&quot; o una cadena que puede tener hasta 2000 caracteres.
+[La creación de carpetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) es sencilla y se ejecuta con un POST application/x-www-form-urlencoded que tiene dos parámetros obligatorios, &quot;name&quot; (nombre), una cadena y &quot;parent&quot; (padre), el padre en el que crear la carpeta, que es un objeto JSON incrustado con dos miembros, id y type (carpeta o programa), según el tipo de carpeta de destino. Opcionalmente, también se puede incluir una &quot;descripción&quot; o una cadena que puede tener hasta 2000 caracteres.
 
 ```
 POST /rest/asset/v1/folders.json

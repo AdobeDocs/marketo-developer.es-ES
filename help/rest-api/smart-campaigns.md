@@ -1,11 +1,11 @@
 ---
 title: Campañas inteligentes
 feature: REST API, Smart Campaigns
-description: Información general de campaña inteligente
+description: Aprenda a utilizar las API de REST de Marketo para campañas inteligentes, incluida la consulta por ID o nombre, los filtros de exploración, la creación de eliminación de clonación y la programación o solicitud de déclencheur
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '989'
+source-wordcount: '1012'
 ht-degree: 1%
 
 ---
@@ -416,7 +416,7 @@ POST /rest/v1/campaigns/{id}/schedule.json
 }
 ```
 
-## Desencadenante
+## Activador
 
 Las campañas inteligentes de déclencheur afectan a una persona a la vez en función de un evento activado.
 
@@ -426,7 +426,7 @@ Use el extremo [Request Campaign](https://developer.adobe.com/marketo-apis/api/m
 
 Este extremo requiere una campaña `id` como parámetro de ruta de acceso y un parámetro de matriz de enteros `leads` que contenga identificadores de posibles clientes Se permite un máximo de 100 posibles clientes por llamada.
 
-Opcionalmente, el parámetro de matriz `tokens` se puede usar para anular Mis tokens locales del programa principal de la campaña. `tokens` acepta un máximo de 100 token. Cada elemento de matriz `tokens` contiene un par nombre/valor. El nombre del token debe tener el formato &quot;{{my.name}}&quot;. Si usas [Agregar un token de sistema como un enlace en un correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) para agregar el token de sistema &quot;viewAsWebpageLink&quot;, no puedes anularlo usando `tokens`. En su lugar, use [Agregar una vista como vínculo de página web a un correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email), lo que le permite invalidar &quot;viewAsWebPageLink&quot; mediante `tokens`.
+Opcionalmente, el parámetro de matriz `tokens` se puede usar para anular Mis tokens locales del programa principal de la campaña. `tokens` acepta un máximo de 100 token. Cada elemento de matriz `tokens` contiene un par nombre/valor. El nombre del token debe tener el formato &quot;{{my.name}}&quot;. Si usas [Agregar un token de sistema como un enlace en un correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) para agregar el token de sistema &quot;viewAsWebpageLink&quot;, no puedes anularlo usando `tokens`. En su lugar, use [Agregar una vista como vínculo de página web a un correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email), lo que le permite invalidar &quot;viewAsWebPageLink&quot; mediante `tokens`.
 
 Los parámetros `leads` y `tokens` se pasan en el cuerpo de la solicitud como application/json.
 

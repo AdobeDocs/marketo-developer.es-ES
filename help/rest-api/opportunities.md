@@ -1,11 +1,11 @@
 ---
 title: Oportunidades
 feature: REST API
-description: ' Configure las oportunidades con la API de Marketo.'
+description: La API de REST de Marketo permite describir, consultar, crear y actualizar oportunidades, desduplicar y buscar campos, límites y comportamientos de solo lectura con la sincronización de SFDC o Dynamics.
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '786'
+source-wordcount: '803'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo expone las API para leer, escribir, crear y actualizar registros de oportunidades. En Marketo, los registros de oportunidad están vinculados a los registros de posibles clientes y contactos a través del objeto de función de oportunidad intermedio, por lo que una oportunidad puede estar vinculada a muchos posibles clientes individuales.  Ambos tipos de objetos se exponen a través de la API y, como la mayoría de los tipos de objetos de la base de datos de posibles clientes, ambos tienen la llamada Describir correspondiente, que devuelve metadatos sobre los tipos de objetos.
 
-Las API de oportunidad son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitadas.
+Las API de oportunidad son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitadas.
 
 ## Describir
 

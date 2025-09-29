@@ -1,11 +1,11 @@
 ---
 title: Actividades
 feature: REST API
-description: Una API para administrar actividades de Marketo Engage.
+description: Utilice la API de REST de actividades de Marketo Engage para enumerar tipos de actividades, recuperar actividades de posible cliente con tokens de paginación y gestionar cambios personalizados y de valor de datos.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '2029'
+source-wordcount: '2046'
 ht-degree: 0%
 
 ---

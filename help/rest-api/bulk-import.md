@@ -1,11 +1,11 @@
 ---
 title: Importación masiva
 feature: REST API
-description: Importación por lotes de datos de personas.
+description: Importación masiva de Marketo para cargar posibles clientes, objetos personalizados y miembros de programas a través de cargas de varias partes, la creación de trabajos asincrónicos, el estado de sondeo y la administración de errores.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '592'
+source-wordcount: '610'
 ht-degree: 2%
 
 ---

@@ -1,10 +1,10 @@
 ---
 title: Pasos del flujo de autoservicio
-description: Información general sobre los pasos del flujo de autoservicio
+description: Los pasos de flujo de autoservicio permiten a los integradores implementar API web como pasos de flujo de Marketo para procesar datos de posibles clientes, llamar a servicios y escribir datos de posibles clientes y actividades
 exl-id: f4353692-9e6c-431c-b8b7-3ae96040cf3a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '80'
+source-wordcount: '101'
 ht-degree: 0%
 
 ---

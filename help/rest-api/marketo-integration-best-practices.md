@@ -1,11 +1,11 @@
 ---
 title: Prácticas recomendadas de integración de Marketo
 feature: REST API
-description: Prácticas recomendadas para usar las API de Marketo.
+description: Prácticas recomendadas para integraciones de la API de Marketo que abarcan cuotas, límites de tasa y concurrencia, agrupamiento, importación y exportación masivas, almacenamiento en caché y planificación de latencia.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '952'
+source-wordcount: '966'
 ht-degree: 0%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 0%
 
 ## Límites de API
 
-- **Cuota diaria:** A la mayoría de las suscripciones se les asignan 50.000 llamadas API al día (que se restablecen diariamente a las 12:00 horas CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
+- **Cuota diaria:** A la mayoría de las suscripciones se les asignan 50.000 llamadas API por día (que se restablece diariamente a 12:00AM CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
 - **Límite de velocidad:** Acceso a API por instancia limitado a 100 llamadas por 20 segundos.
 - **Límite de simultaneidad:**  Máximo de diez llamadas API simultáneas.
 - **Tamaño del lote:** Base de datos de posibles clientes - 300 registros; Consulta de recursos - 200 registros
 - **Tamaño de carga útil de API de REST:** 1 MB
 - **Tamaño de archivo de importación masiva:** 10 MB
-- SOAP **Tamaño máximo del lote de datos:** 300 registros
+- **Tamaño máximo de lote de SOAP:** 300 registros
 - **Trabajos de extracción masiva:** 2 en ejecución; 10 en cola (inclusive)
 
 ## Sugerencias rápidas

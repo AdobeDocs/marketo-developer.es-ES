@@ -1,11 +1,11 @@
 ---
 title: Contexto de usuario
 feature: REST API
-description: Resumen del contexto de usuario y descripciones de API
+description: Aprenda a habilitar y utilizar la API de contexto de usuario de Marketo RTP para establecer variables personalizadas, leer datos de usuarios en visitas y rastrear campañas en las que se ha hecho clic y visualizado.
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '266'
+source-wordcount: '286'
 ht-degree: 5%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 La API de JavaScript de contexto de usuario expone los datos de nivel de usuario y visitante en varias sesiones para habilitar la capacidad de personalización avanzada mediante el comportamiento y los datos históricos del usuario. La API va más allá de la lectura de datos y expone variables personalizadas que le permiten insertar datos y eventos significativos en el servidor RTP para fines de segmentación y personalización avanzadas. Funciones adicionales: [Déclencheur](../javascript-api/triggers.md), [Coincidencia de patrones](../javascript-api/pattern-match.md).
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - La API de contexto de usuario es una función que el Soporte técnico de Marketo debe habilitar si se solicita. Cuando la API está habilitada, se expone un objeto userContext bajo el objeto global RTP.
 
 ## Atributos de contexto de usuario

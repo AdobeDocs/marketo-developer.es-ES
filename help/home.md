@@ -1,11 +1,11 @@
 ---
 title: Inicio
-description: Página principal de API de Marketo Engage
+description: Domine las API de Marketo Engage con documentos para Introducción, REST, Webhooks, bibliotecas de cliente, scripts de correo electrónico, seguimiento de posibles clientes, personalización móvil y web.
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: 10c44753804db9e0556e5b644d12f457b1da2557
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '114'
-ht-degree: 0%
+source-wordcount: '131'
+ht-degree: 1%
 
 ---
 
@@ -15,7 +15,7 @@ ht-degree: 0%
 Documentación detallada para ayudarle a dominar las API de Marketo Engage
 
 * [**Introducción**](getting-started.md) Familiarícese con las API de Marketo Engage.
-* [**API de REST**](https://developer.adobe.com/marketo-apis/) Lea, escriba y actualice los datos de su Marketo Engage a través de la API de REST.
+* [**API REST**](https://developer.adobe.com/marketo-apis/) Lea, escriba y actualice sus datos de Marketo Engage a través de la API REST.
 * [**Webhooks**](webhooks/webhooks.md) se comunica con servicios web de terceros mediante Webhooks.
 * [**Bibliotecas de cliente**](https://github.com/Marketo/Community-Supported-Client-Libraries) Use código de código abierto para expandir las capacidades de Marketo Engage.
 * [**Scripts de correo electrónico**](email-scripting.md) Use las API de Marketo Engage para crear y editar correos electrónicos y plantillas de correo electrónico.

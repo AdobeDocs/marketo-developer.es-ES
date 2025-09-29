@@ -1,11 +1,11 @@
 ---
 title: Recursos
 feature: REST API
-description: Una API para trabajar con recursos de Marketo.
+description: Información general sobre las API de REST de Marketo Asset para consultar por ID o nombre, navegar con la paginación y crear o actualizar carpetas, correos electrónicos, formularios, plantillas, archivos y tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '876'
+source-wordcount: '894'
 ht-degree: 2%
 
 ---
@@ -20,13 +20,13 @@ Los recursos de Marketo incluyen:
 
 - Carpetas
 - Programas
-- Emails
-- Plantillas de email
+- Correos electrónicos
+- Plantillas de correo electrónico
 - Páginas de destino
 - Plantillas de la página de destino
 - Fragmentos
 - Formularios
-- Tokens
+- Tókenes
 - Archivos
 
 ## API

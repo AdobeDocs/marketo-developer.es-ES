@@ -1,11 +1,11 @@
 ---
 title: Compañías
 feature: REST API
-description: Configure los datos de la empresa con las API de Marketo.
+description: Utilice la API de REST de Compañías de Marketo para describir, consultar y sincronizar registros de compañía, administrar campos y desduplicar por externalCompanyId y anotar la sincronización de CRM de solo lectura.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '564'
+source-wordcount: '582'
 ht-degree: 1%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Las compañías representan la organización a la que pertenecen los registros de posibles clientes. Los posibles clientes se agregan a una compañía rellenando su campo `externalCompanyId` correspondiente con [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) o [Importación masiva de posibles clientes](bulk-lead-import.md) puntos finales. Una vez agregado un posible cliente a una compañía, no puede eliminarlo de esa compañía (a menos que agregue el posible cliente a una compañía diferente). Los posibles clientes vinculados a un registro de compañía heredarán directamente los valores de un registro de compañía como si los valores existieran en el propio registro del posible cliente.
 
-Las API de compañía son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitadas.
+Las API de compañía son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitadas.
 
 ## Describir
 

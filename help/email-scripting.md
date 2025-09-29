@@ -1,11 +1,11 @@
 ---
 title: Scripts de correo electrónico
 feature: Email Programs
-description: Resumen de scripts de correo electrónico
+description: Aprenda a crear secuencias de comandos de correos electrónicos dinámicos de Marketo mediante tokens, variables y herramientas de Velocity de Apache Velocity y realice pruebas con Enviar muestra y Vista previa de correo electrónico.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: 9012135dc7a295c2462574dad1aca2d06a9077ea
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '963'
+source-wordcount: '981'
 ht-degree: 0%
 
 ---
@@ -130,7 +130,7 @@ La longitud combinada de todos los tokens de script de correo electrónico de un
 - Puede hacer referencia a objetos personalizados conectados a un posible cliente, contacto o cuenta, pero no a más de uno.
 - Solo se puede hacer referencia a los objetos personalizados a través de una única conexión, posible cliente, contacto o cuenta
 - Debe marcar la casilla en el editor de scripts de los campos que está utilizando o no se procesarán
-- Para cada objeto personalizado, los diez registros actualizados más recientemente por persona/contacto están disponibles en tiempo de ejecución y se ordenan desde los más recientes (en 0) a los más antiguos (en 9). Puede aumentar el número de registros disponibles en [siguiendo las instrucciones](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Para cada objeto personalizado, los diez registros actualizados más recientemente por persona/contacto están disponibles en tiempo de ejecución y se ordenan desde los más recientes (en 0) a los más antiguos (en 9). Puede aumentar el número de registros disponibles en [siguiendo las instrucciones](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Si incluye más de un script de correo electrónico en un correo electrónico, se ejecutan de arriba a abajo. El ámbito de las variables definidas en el primer script que se ejecute estará disponible en los scripts posteriores.
 - Referencia de herramientas: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Nota relativa a los tokens que contienen caracteres de línea nueva &quot;\\n&quot; o &quot;\\r\\n&quot;. Cuando se envía un correo electrónico mediante Enviar muestra o una campaña por lotes, los caracteres de línea nueva de los tokens se sustituyen por espacios. Cuando se envía un correo electrónico a través de la campaña de Déclencheur, los caracteres de línea nueva no se tocan.

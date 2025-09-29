@@ -1,11 +1,11 @@
 ---
 title: Listas estáticas
 feature: REST API, Static Lists
-description: Realizar operaciones de CRUD en listas estáticas.
+description: Utilice las API de REST de Marketo para consultar, crear, actualizar y eliminar listas estáticas, con puntos finales para ID, nombre y examinar, ámbitos de carpetas, paginación y filtros de fecha.
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '741'
+source-wordcount: '760'
 ht-degree: 1%
 
 ---
@@ -229,7 +229,7 @@ POST /rest/asset/v1/staticList/{id}/delete.json
 
 Los extremos de pertenencia a listas proporcionan la capacidad de agregar, quitar y consultar miembros de lista estática. Además, puede consultar la pertenencia a listas estáticas.
 
-### Agregar a Lista
+### Añadir a la lista
 
 El extremo [Add to List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) se usa para agregar uno o varios miembros a una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta de id. que contienen id. de posibles clientes (el máximo permitido es 300).
 
@@ -262,7 +262,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 }
 ```
 
-### Quitar de Lista
+### Quitar de la lista
 
 Se usa el extremo [Remove from List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) para quitar uno o varios miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
 

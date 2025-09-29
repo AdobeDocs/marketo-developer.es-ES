@@ -1,18 +1,18 @@
 ---
 title: Campos
 feature: REST API, Field Management
-description: Una lista de nombres de campo admitidos.
+description: Conozca la nomenclatura de los campos de posibles clientes de REST y SOAP, los campos de lista a través de REST. Describa el posible cliente, la asignación de funciones, por qué sfdcId es nulo y utilice sfdcLeadId o sfdcContactId.
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '194'
+source-wordcount: '212'
 ht-degree: 6%
 
 ---
 
 # Campos
 
-SOAP La API de REST y la API de utilizan diferentes convenciones de nomenclatura para los campos de posibles clientes.
+La API de REST y la API de SOAP utilizan diferentes convenciones de nomenclatura para los campos de posibles clientes.
 
 ## Recuperar la lista de nombres de campo
 
@@ -20,7 +20,7 @@ Recupere la lista de todos los nombres de campo admitidos disponibles en los reg
 
 ## ¿Dónde se utiliza qué tipo de nombre de campo?
 
-A veces es difícil saber qué tipo de nombre de campo debe utilizar al aprovechar una función relacionada con la integración determinada. SOAP La siguiente es una referencia rápida para las que las funciones utilizan tipos de nombre de campo REST o.
+A veces es difícil saber qué tipo de nombre de campo debe utilizar al aprovechar una función relacionada con la integración determinada. La siguiente es una referencia rápida para las que las funciones utilizan tipos de nombre de campo REST o SOAP.
 
 | Función | Tipo de nombre de campo que utilizar |
 |--- |--- |

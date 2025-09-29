@@ -1,11 +1,11 @@
 ---
 title: API de REST
 feature: REST API
-description: Resumen de API de REST
+description: Aprenda a utilizar la API de REST de Marketo, configurar usuarios de API y LaunchPoint, ver cuotas y límites, autenticarse con el encabezado Autorización y recuperar posibles clientes.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '808'
+source-wordcount: '828'
 ht-degree: 0%
 
 ---
@@ -17,10 +17,10 @@ Marketo expone una API de REST que permite la ejecución remota de muchas de las
 Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset/). Las API de base de datos de posibles clientes permiten recuperar e interactuar con los registros de personas de Marketo y los tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
 
 >[!NOTE]
->SOAP La API de está en desuso y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. SOAP SOAP Si cuenta con un servicio que usa la API de, consulte la [Guía de migración](../soap-api/migration.md) de la API de para obtener información sobre cómo migrar.
+>La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de octubre de 2025. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración](../soap-api/migration.md) de la API de SOAP para obtener información sobre cómo migrar.
 >
 
-- **Cuota diaria:** a las suscripciones se les asignan 50 000 llamadas API al día (se restablece diariamente a las 12:00 horas CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
+- **Cuota diaria:** a las suscripciones se les asignan 50 000 llamadas API al día (se restablece diariamente a 12:00AM CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
 - **Límite de velocidad:** El acceso a la API por instancia está limitado a 100 llamadas por 20 segundos.
 - **Límite de simultaneidad:**  Máximo de diez llamadas API simultáneas.
 

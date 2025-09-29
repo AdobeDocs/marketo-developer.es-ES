@@ -1,9 +1,9 @@
 ---
 title: Ingesta de datos
-description: Resumen de API de ingesta de datos
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+description: API de ingesta de datos de Marketo para actualizaciones de alto volumen y baja latencia de personas y objetos personalizados, estado asincrónico mediante Observability, autenticación de encabezado de OAuth, beta privada.
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '940'
+source-wordcount: '960'
 ht-degree: 11%
 
 ---

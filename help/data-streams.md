@@ -1,10 +1,10 @@
 ---
 title: Flujos de datos
-description: Resumen de Data Streams
+description: Información general sobre los flujos de datos de Marketo Engage que permiten eventos de actividad de clientes potenciales y de auditoría de usuarios casi en tiempo real, lo que reduce los límites de API para los clientes de nivel de rendimiento
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1601'
+source-wordcount: '1620'
 ht-degree: 2%
 
 ---
@@ -83,11 +83,11 @@ Lista de eventos de auditoría de usuarios transmitidos:
 | Programa predeterminado | clonar, crear, eliminar, editar canal, exportar, modificar configuración del programa, modificar token del programa, cambiar nombre |
 | Correo electrónico | aprobar, clonar, crear, eliminar, editar, mover, cambiar el nombre, desaprobar |
 | Programa por lotes de correos electrónicos | aprobar, childUpdate, clonar, crear, eliminar, editar, editar canal, modificar programación del programa, modificar configuración del programa, modificar token del programa, cambiar nombre, desaprobar |
-| Plantilla de email | aprobar, clonar, crear, eliminar, borradorCrear, borradorDescartar, editar, cambiar nombre, desaprobar |
+| Plantilla de correo electrónico | aprobar, clonar, crear, eliminar, borradorCrear, borradorDescartar, editar, cambiar nombre, desaprobar |
 | Programa de participación | clonar, crear, eliminar, editar canal, modificar configuración del programa, modificar flujo del programa, modificar token del programa, cambiar nombre |
 | Programa del evento | clonar, crear, eliminar, editar canal, modificar programación, modificar configuración del programa, modificar token del programa, cambiar nombre |
 | Carpeta | crear, eliminar, editar, cambiar nombre |
-| Form | aprobar, clonar, crear, eliminar, borradorCrear, editar, mover, cambiar nombre |
+| Formulario | aprobar, clonar, crear, eliminar, borradorCrear, editar, mover, cambiar nombre |
 | Formulario -> Formulario de página de aterrizaje | crear, clonar, editar, eliminar, aprobar, cambiar nombre |
 | Página de destino | aprobar, clonar, crear, eliminar, borradorDescartar, editar, cambiar el nombre, desaprobar |
 | Plantilla de la página de destino | aprobar, clonar, crear, eliminar, borradorCrear, borradorDescartar, editar, cambiar nombre, desaprobar |
@@ -262,7 +262,7 @@ Para configurar Adobe IO, consulte [Configuración de flujos de datos de auditor
 
 ### Configuración del flujo de datos de auditoría de usuarios en Marketo
 
-El flujo de datos de auditoría de usuarios está disponible actualmente como parte de los paquetes de rendimiento junto con los otros 3 flujos de datos. Para obtener más información sobre los paquetes, consulte la [Página de descripción del producto](https://helpx.adobe.com/es/legal/product-descriptions/adobe-marketo-engage---product-description.html) para conocer los límites y características del producto.
+El flujo de datos de auditoría de usuarios está disponible actualmente como parte de los paquetes de rendimiento junto con los otros 3 flujos de datos. Para obtener más información sobre los paquetes, consulte la [Página de descripción del producto](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) para conocer los límites y características del producto.
 
 ### Configuración de Adobe I/O
 

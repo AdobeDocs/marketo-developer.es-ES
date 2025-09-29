@@ -1,11 +1,11 @@
 ---
 title: Activación de vínculos profundos
 feature: Mobile Marketing
-description: Instrucciones para activar los vínculos profundos
+description: Obtenga información sobre cómo habilitar vínculos profundos en la aplicación para mensajes push de Marketo mediante esquemas de URI personalizados, con directrices y prácticas recomendadas de iOS, Android y PhoneGap.
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '376'
+source-wordcount: '397'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ La vinculación profunda le permite redirigir a las personas a contenido especí
 El proceso funciona de esta manera:
 
 1. El usuario de Marketo coloca un URI personalizado en la acción táctil para su mensaje push.
-1. Cuando una persona pulsa el mensaje push en su dispositivo, el SDK de Marketo MME déclencheur un evento con el URI personalizado.
+1. Cuando una persona pulse el mensaje push en su dispositivo, Marketo ME SDK déclencheur activará un evento con el URI personalizado.
 1. A continuación, la aplicación procesa el evento y redirige a la persona al contenido adecuado en la aplicación.
 
 Esto requiere definir una estructura de URI personalizada para la aplicación, registrar el esquema en el manifiesto de la aplicación y, a continuación, agregar código para procesar eventos de vínculos profundos y enrutar a la ubicación adecuada en la aplicación.

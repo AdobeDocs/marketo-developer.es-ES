@@ -1,11 +1,11 @@
 ---
 title: Extracción de actividades en lotes
 feature: REST API
-description: Datos de actividad de procesamiento por lotes de Marketo.
+description: La API de REST de extracción masiva de actividades de Marketo para exportar datos de actividad de gran volumen mediante filtros de intervalo de fechas, actividad y atributo principal de 31 días para ETL y CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1332'
+source-wordcount: '1351'
 ht-degree: 7%
 
 ---

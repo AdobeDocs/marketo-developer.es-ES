@@ -1,16 +1,16 @@
 ---
-title: Base de datos de leads
+title: Base de datos de posible clientes
 feature: REST API, Database
-description: Manipular la base de datos de posibles clientes principal.
+description: Guía de las API de base de datos de posibles clientes de Marketo que abarcan objetos, métodos CRUD y Describe, patrones de consulta, límites de lotes y restricciones de integración de CRM.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1342'
+source-wordcount: '1357'
 ht-degree: 1%
 
 ---
 
-# Base de datos de leads
+# Base de datos de posible clientes
 
 Las API de base de datos de posibles clientes de Marketo son las API que Marketo proporciona con mayor frecuencia, ya que permiten el intercambio de datos de personas y datos relacionados con personas de Marketo, como actividades, oportunidades y empresas.
 

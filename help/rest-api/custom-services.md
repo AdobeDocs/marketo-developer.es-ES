@@ -1,11 +1,11 @@
 ---
 title: Servicios personalizados
 feature: REST API
-description: Credenciales de autenticación con Marketo
+description: Cree Marketo Custom Services, establezca funciones y permisos solo de API, obtenga el ID de cliente y el secreto de cliente en LaunchPoint y obtenga tokens de acceso.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '985'
+source-wordcount: '1002'
 ht-degree: 6%
 
 ---

@@ -1,11 +1,11 @@
 ---
 title: Recomendación de medios enriquecidos
-description: Recomendación de medios enriquecidos
+description: Configure Rich Media Recommendations utilizando la etiqueta RTP de contenido predictivo de Marketo, template1 template2 template3 divs, GET para rellenar y SET para configurar categorías.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '831'
 ht-degree: 4%
 
 ---
@@ -21,7 +21,7 @@ Las siguientes etiquetas y llamadas de API deben configurarse en la página que 
 1. En el cuerpo de la página
    1. Coloque la etiqueta de plantilla (clase div) en la ubicación donde desee que aparezca la plantilla
 
-Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 

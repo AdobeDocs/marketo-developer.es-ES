@@ -1,11 +1,11 @@
 ---
 title: Referencia de extremo
 feature: REST API
-description: Referencias de extremo de API de Marketo
+description: Lista completa de extremos de la API de REST de Marketo con métodos, URI y permisos necesarios en todas las actividades, exportación masiva, identidad, posibles clientes, recursos y usuarios.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '4448'
+source-wordcount: '4464'
 ht-degree: 28%
 
 ---
@@ -333,9 +333,9 @@ Esta es una lista completa de puntos finales de API de REST.
 | Actualizar metadatos de lista estática | Listas estáticas | POST | /asset/v1/staticList/{id}.json | Recurso de lectura-escritura |
 | Obtener etiqueta por nombre | Etiquetas | GET | /rest/asset/v1/tagType/byName.json | Recurso de solo lectura |
 | Obtener tipos de etiquetas | Etiquetas | GET | /rest/asset/v1/tagTypes.json | Recurso de solo lectura |
-| Crear token | Tokens | POST | /rest/asset/v1/folder/{id}/tokens.json | Recurso de lectura-escritura |
-| Eliminar token por nombre | Tokens | POST | /rest/asset/v1/folder/{id}/tokens/delete.json | Recurso de lectura-escritura |
-| Obtener tokens por ID de carpeta | Tokens | GET | /rest/asset/v1/folder/{id}/tokens.json | Recurso de solo lectura |
+| Crear token | Tókenes | POST | /rest/asset/v1/folder/{id}/tokens.json | Recurso de lectura-escritura |
+| Eliminar token por nombre | Tókenes | POST | /rest/asset/v1/folder/{id}/tokens/delete.json | Recurso de lectura-escritura |
+| Obtener tokens por ID de carpeta | Tókenes | GET | /rest/asset/v1/folder/{id}/tokens.json | Recurso de solo lectura |
 | Agregar roles | Gestión de usuarios | POST | /userservice/management/v1/users/{userid}/roles/create.json | Acceder a la Api de administración de usuario |
 | Eliminar usuario invitado | Gestión de usuarios | POST | /userservice/management/v1/users/{userId}/invite/delete.json | Acceder a la Api de administración de usuario |
 | Eliminar roles | Gestión de usuarios | POST | /userservice/management/v1/users/{userid}/roles/delete.json | Acceder a la Api de administración de usuario |

@@ -1,11 +1,11 @@
 ---
 title: Páginas de destino
 feature: REST API, Landing Pages
-description: Páginas de aterrizaje de consulta en Marketo.
+description: Utilice la API de REST de Marketo para consultar metadatos y contenido, crear, actualizar, aprobar, eliminar y clonar páginas de aterrizaje, incluidos los tipos guiados y de forma libre.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1018'
 ht-degree: 2%
 
 ---
@@ -180,7 +180,7 @@ Las secciones de contenido se ordenan por su propiedad de índice y, en última 
 | Tipo | Valor |
 |--- |--- |
 | DynamicContent | El ID de la segmentación. |
-| Form | El ID del formulario. |
+| Formulario | El ID del formulario. |
 | HTML | Contenido de HTML de texto. |
 | Imagen | El ID del recurso de imagen. |
 | Rectángulo | Vacío. |
@@ -274,7 +274,7 @@ Las variables se definen como metaetiquetas dentro del elemento `<head>` de una 
 </head>
 ```
 
-Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Consulta
 

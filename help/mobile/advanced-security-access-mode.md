@@ -1,18 +1,18 @@
 ---
 title: Modo de acceso de seguridad avanzado
 feature: Mobile Marketing
-description: Detalles sobre el modo de acceso de seguridad avanzado
+description: Descubra el modo de acceso de seguridad avanzado para Marketo Mobile SDK, con generación de firmas HMAC, configuración de extremos de servidor, uso de ID de dispositivo y ejemplos de iOS y Android
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '303'
+source-wordcount: '321'
 ht-degree: 0%
 
 ---
 
 # Modo de acceso de seguridad avanzado
 
-El SDK de Marketo expone métodos para establecer y quitar la firma de seguridad. También existe un método de utilidad para recuperar el ID del dispositivo. El ID del dispositivo debe pasarse junto con el correo electrónico, al iniciar sesión, al servidor del cliente para su uso en el cálculo de la firma de seguridad. El SDK debe mostrar el nuevo extremo de la visita, que señala al algoritmo mencionado anteriormente, para recuperar los campos necesarios para crear una instancia del objeto de firma. La configuración de esta firma en el SDK es un paso necesario si el modo de acceso de seguridad se ha habilitado en Marketo Mobile Admin.
+Marketo SDK expone métodos para establecer y quitar la firma de seguridad. También existe un método de utilidad para recuperar el ID del dispositivo. El ID del dispositivo debe pasarse junto con el correo electrónico, al iniciar sesión, al servidor del cliente para su uso en el cálculo de la firma de seguridad. La SDK debe mostrar el nuevo extremo de visita, que señala al algoritmo mencionado anteriormente, para recuperar los campos necesarios para crear una instancia del objeto de firma. La configuración de esta firma en SDK es un paso necesario si el modo de acceso de seguridad se ha habilitado en Marketo Mobile Admin.
 
 ## Configuración del modo de acceso seguro
 
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print 'HMAC is ', hmac_string
 ```
 
-El SDK de Marketo expone nuevos métodos para establecer y quitar la firma de seguridad. También existe un método de utilidad para recuperar el ID del dispositivo. El ID del dispositivo debe pasarse junto con el correo electrónico, al iniciar sesión, al servidor del cliente para su uso en el cálculo de la firma de seguridad. El SDK debe mostrar el nuevo extremo de la visita, que señala al algoritmo mencionado anteriormente, para recuperar los campos necesarios para crear una instancia del objeto de firma. La configuración de esta firma en el SDK es un paso necesario si el modo de acceso de seguridad se ha habilitado en Marketo Mobile Admin.
+Marketo SDK expone nuevos métodos para establecer y quitar la firma de seguridad. También existe un método de utilidad para recuperar el ID del dispositivo. El ID del dispositivo debe pasarse junto con el correo electrónico, al iniciar sesión, al servidor del cliente para su uso en el cálculo de la firma de seguridad. La SDK debe mostrar el nuevo extremo de visita, que señala al algoritmo mencionado anteriormente, para recuperar los campos necesarios para crear una instancia del objeto de firma. La configuración de esta firma en SDK es un paso necesario si el modo de acceso de seguridad se ha habilitado en Marketo Mobile Admin.
 
 ### iOS
 

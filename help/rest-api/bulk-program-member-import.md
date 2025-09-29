@@ -1,11 +1,11 @@
 ---
 title: Importación masiva de miembros del programa
 feature: REST API
-description: Importación por lotes de datos de miembros.
+description: Obtenga información sobre cómo importar miembros de programa de forma masiva mediante la API de REST de Marketo utilizando archivos CSV TSV o SSV de menos de 10 MB, límites de cola, parámetros obligatorios y estado del trabajo de sondeo.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '837'
+source-wordcount: '860'
 ht-degree: 0%
 
 ---
