@@ -27,7 +27,7 @@ Para que Marketo vuelva a asignar valores a un campo, el código de respuesta de
 
 El déclencheur [!UICONTROL Se llama al webhook] puede detectar y controlar los errores de los webhooks:
 
-Se llama al webhook ![1}](assets/webhook-called.png)
+Se llama al webhook ![1&rbrace;](assets/webhook-called.png)
 
 * Respuesta: la respuesta es la carga útil de respuesta literal que recibió la solicitud.
 * Tipo de error: corresponde a la frase Motivo del mensaje de estado HTTP.
