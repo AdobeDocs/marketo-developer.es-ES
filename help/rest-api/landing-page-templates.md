@@ -18,7 +18,7 @@ Las plantillas de página de aterrizaje son un recurso principal y una dependenc
 
 ## Tipos de plantilla
 
-Marketo tiene dos tipos de plantillas de página de aterrizaje, de forma libre y guiadas. Las plantillas de página de aterrizaje de forma libre proporcionan una experiencia de edición ligeramente estructurada para las páginas que se derivan de ellas. Las plantillas guiadas proporcionan una experiencia muy estructurada, en la que los tipos de elementos y las ubicaciones se pueden restringir en el nivel de plantilla. Para obtener más información sobre las diferencias, vea [este documento](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo tiene dos tipos de plantillas de página de aterrizaje, de forma libre y guiadas. Las plantillas de página de aterrizaje de forma libre proporcionan una experiencia de edición ligeramente estructurada para las páginas que se derivan de ellas. Las plantillas guiadas proporcionan una experiencia muy estructurada, en la que los tipos de elementos y las ubicaciones se pueden restringir en el nivel de plantilla. Para obtener más información sobre las diferencias, vea [este documento](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Consulta
 
@@ -167,9 +167,9 @@ Las plantillas de página de aterrizaje siguen el modelo estándar de borrador a
 
 Para que una plantilla se apruebe, debe cumplir las reglas de su tipo, ya sea guiada por la forma libre. Para obtener más información sobre los requisitos para crear y aprobar plantillas de sus respectivos tipos, consulte sus respectivos documentos de creación:
 
-- [Plantillas de página de aterrizaje de forma gratuita](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Plantillas de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Plantillas de página de aterrizaje de forma gratuita](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Plantillas de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Eliminar
 

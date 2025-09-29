@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [Referencia de extremo de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-Las plantillas de correo electrónico forman la base de cada nuevo correo electrónico en Marketo.  Aunque los correos electrónicos se pueden desvincular de las plantillas mediante el reemplazo de HTML, los correos electrónicos deben crearse inicialmente con una plantilla como base.  Las plantillas se crean como documentos HTML puros en Marketo con metadatos como nombres y descripciones.  Hay pocas restricciones en el contenido, pero el HTML de la plantilla debe ser válido y contener al menos una sección editable, que cumpla los requisitos [descritos aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Las plantillas de correo electrónico forman la base de cada nuevo correo electrónico en Marketo.  Aunque los correos electrónicos se pueden desvincular de las plantillas mediante el reemplazo de HTML, los correos electrónicos deben crearse inicialmente con una plantilla como base.  Las plantillas se crean como documentos HTML puros en Marketo con metadatos como nombres y descripciones.  Hay pocas restricciones en el contenido, pero el HTML de la plantilla debe ser válido y contener al menos una sección editable, que cumpla los requisitos [descritos aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Consulta
 

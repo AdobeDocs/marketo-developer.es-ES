@@ -100,7 +100,7 @@ Las cookies de Munchkin son específicas de cada dominio de segundo nivel, es de
 
 ## Beta
 
-Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
+Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
 
 ## Opción de exclusión
 

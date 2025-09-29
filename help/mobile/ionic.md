@@ -16,7 +16,7 @@ En este tema se describe cómo integrar el complemento Marketo Cordova. Actualme
 
 ## Requisitos previos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
 1. Instalar [[!DNL Ionic]](https://ionicframework.com/getting-started/) y [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 

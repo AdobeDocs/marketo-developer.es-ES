@@ -21,7 +21,7 @@ Las siguientes etiquetas y llamadas de API deben configurarse en la página que 
 1. En el cuerpo de la página
    1. Coloque la etiqueta de plantilla (clase div) en la ubicación donde desee que aparezca la plantilla
 
-Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 
