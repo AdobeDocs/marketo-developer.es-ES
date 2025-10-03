@@ -3,9 +3,9 @@ title: Clientes potenciales
 feature: REST API
 description: Explore las funciones de la API de REST de Marketo Leads, incluida la descripción, la consulta por ID o filtro, los campos predeterminados, los límites y la recuperación de ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: cc4bd7c18124bb039386a1cec06b9f1da0d047cb
 workflow-type: tm+mt
-source-wordcount: '3351'
+source-wordcount: '3411'
 ht-degree: 3%
 
 ---
@@ -768,7 +768,12 @@ Aquí podemos ver los detalles de la actividad &quot;Rellenar formulario&quot; c
 
 ## Combinar
 
-A veces es necesario combinar registros duplicados y Marketo lo facilita mediante la API de combinación de posibles clientes. Al combinar los posibles clientes combinarán sus registros de actividades, programas, campañas y suscripciones a listas, así como información de CRM, y combinarán todos sus valores de campo en un único registro. Combinar posibles clientes toma un identificador de posible cliente como parámetro de ruta de acceso y un solo `leadId` como parámetro de consulta o una lista de identificadores separados por comas en el parámetro `leadIds`.
+>[!NOTE]
+>A partir del 31 de marzo de 2026, las llamadas que incluyan más de 25 ID en el parámetro `leadIds` de una llamada a la API de Merge Leads generarán un código de error 1080, y se omitirá la llamada. Los trabajos que requieren la fusión de más de 25 registros en uno deben dividirse en varios trabajos para garantizar el éxito de esas llamadas.
+>
+
+A veces es necesario combinar registros duplicados y Marketo lo facilita mediante la API de combinación de posibles clientes. Al combinar los posibles clientes combinarán sus registros de actividades, programas, campañas y suscripciones a listas, así como información de CRM, y combinarán todos sus valores de campo en un único registro. Combinar posibles clientes toma un id. de posible cliente como parámetro de ruta de acceso y un solo `leadId` como parámetro de consulta o una lista de 25 id. separados por comas o menos en el parámetro `leadIds`
+
 
 ### Solicitud
 
@@ -814,7 +819,7 @@ Membresía
 Los registros de posibles clientes también se pueden recuperar en función de su pertenencia a una lista estática o a un programa. Además, puede recuperar todas las listas estáticas, programas o campañas inteligentes a los que pertenece un posible cliente.
 
 La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque filterType y filterValues no se pueden utilizar con esta API.
-Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-**&#x200B;**.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-****.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
 
 ### Solicitud
 
