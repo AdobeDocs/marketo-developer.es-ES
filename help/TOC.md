@@ -8,7 +8,7 @@ index: true
 source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
 workflow-type: tm+mt
 source-wordcount: '251'
-ht-degree: 38%
+ht-degree: 40%
 
 ---
 
@@ -28,7 +28,7 @@ ht-degree: 38%
       - [Configuración](javascript-api/configuration.md)
       - [Referencia de API de Munchkin](javascript-api/api-reference.md)
    - [Coincidencia de motivo](javascript-api/pattern-match.md)
-   - [Predictive Content](javascript-api/predictive-content.md)
+   - [Contenido predictivo](javascript-api/predictive-content.md)
    - [Redirecciones](javascript-api/redirect.md)
    - [Recomendaciones de medios enriquecidos](javascript-api/rich-media-recommendation.md)
    - [Activadores](javascript-api/triggers.md)
@@ -44,7 +44,7 @@ ht-degree: 38%
    - [[!DNL Ionic]](mobile/ionic.md)
    - [Dispositivo móvil](mobile/mobile.md)
    - [PhoneGap](mobile/phonegap.md)
-   - [Insertar notificaciones](mobile/push-notifications.md)
+   - [Notificaciones push](mobile/push-notifications.md)
    - [React Native](mobile/react-native.md)
    - [Perfiles de usuario](mobile/user-profiles.md)
 - REST{#rest}
@@ -67,7 +67,7 @@ ht-degree: 38%
       - [Listas inteligentes](rest-api/smart-lists.md)
       - [Fragmentos](rest-api/snippets.md)
       - [Listas estáticas](rest-api/static-lists.md)
-      - [Tokens](rest-api/tokens.md)
+      - [Tókenes](rest-api/tokens.md)
       - [Correo electrónico transaccional](rest-api/transactional-email.md)
    - [Autenticación](rest-api/authentication.md)
    - [Dirección URL base](rest-api/base-url.md)
@@ -88,13 +88,13 @@ ht-degree: 38%
    - [API de ingesta de datos](rest-api/data-ingestion.md)
    - [Referencia de extremo](rest-api/endpoint-reference.md)
    - [Códigos de error](rest-api/error-codes.md)
-   - Base de datos de leads {#lead-database}
+   - Base de datos de posible clientes {#lead-database}
       - [Actividades](rest-api/activities.md)
       - [Compañías](rest-api/companies.md)
       - [Objetos personalizados](rest-api/custom-objects.md)
       - [Lista de campos](rest-api/fields.md)
       - [Tipos de campo](rest-api/field-types.md)
-      - [Base de datos de leads](rest-api/lead-database.md)
+      - [Base de datos de posible clientes](rest-api/lead-database.md)
       - [Clientes potenciales](rest-api/leads.md)
       - [Cuentas nombradas](rest-api/named-accounts.md)
       - [Listas de cuentas con nombre](rest-api/named-account-lists.md)
