@@ -1,11 +1,11 @@
 ---
 title: Seguimiento de leads
-description: Obtenga información sobre cómo incrustar Marketo Munchkin JavaScript, rastrear visitas y clics, administrar posibles clientes conocidos frente a anónimos, cookies entre dominios y la exclusión de campañas inteligentes.
+description: Obtenga información sobre cómo incrustar Marketo Munchkin JavaScript, rastrear visitas y clics, administrar posibles clientes conocidos frente a anónimos, cookies entre dominios y desactivar campañas inteligentes.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '786'
+source-wordcount: '787'
 ht-degree: 0%
 
 ---
@@ -70,13 +70,13 @@ El comportamiento de Munchkin se puede modificar mediante el uso de Munchkin [Co
 
 ## Posibles clientes conocidos y anónimos
 
-En la primera visita de un posible cliente a una página de su dominio, se crea un nuevo registro de posible cliente anónimo en Marketo. La clave principal de este registro es la cookie de Munchkin (`_mkto_trk`) creada en el explorador del usuario. Toda la actividad web subsiguiente en ese navegador se registra en este registro anónimo. Para asociarse a un registro conocido en Marketo, debe producirse una de las siguientes acciones:
+En la primera visita de un posible cliente a una página de su dominio, se crea un nuevo registro de posible cliente anónimo en Marketo. La clave principal de este registro es la cookie de Munchkin (`_mkto_trk`) creada en el explorador del usuario. Toda la actividad web subsiguiente en ese navegador se registra en este registro anónimo. Para asociarse a un registro conocido en Marketo, debe ocurrir una de las siguientes cosas:
 
 - El posible cliente debe visitar una página con seguimiento de Munchkin con un parámetro `mkt_tok` en la cadena de consulta desde un vínculo de correo electrónico de Marketo al que se ha hecho un seguimiento.
 - El posible cliente debe rellenar un formulario de Marketo.
 - Se debe enviar una llamada de REST [Asociar posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST).
 
-Una vez que se cumpla una de estas condiciones, la cookie y toda la actividad web asociada se asociarán al posible cliente conocido.
+Cuando se cumple una de estas condiciones, la cookie y toda la actividad web asociada se asocian con el posible cliente conocido.
 
 Se crea un nuevo registro de actividad web anónimo para cada explorador individual, por lo que si un posible cliente visita su dominio por primera vez utilizando un nuevo equipo o explorador, esta asociación debe volver a realizarse.
 
@@ -90,17 +90,17 @@ En caso de que el dominio de nivel superior esté formado por dos partes, como `
 
 La cookie de Munchkin utiliza la clave `_mkto_trk` y tiene un valor que sigue este patrón:
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
+`id:561-HYG-937&token:_mch-marketo.com-1374552656411-90718`
 
-o
+O
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-97bf4361ef4433921a6da262e8df45a`
+`id:561-HYG-937&token:_mch-marketo.com-97bf4361ef4433921a6da262e8df45a`
 
 Las cookies de Munchkin son específicas de cada dominio de segundo nivel, es decir, `example.com`. La duración predeterminada de la cookie es de 2 años (730 días).
 
 ## Beta
 
-Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
+Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
 
 ## Opción de exclusión
 

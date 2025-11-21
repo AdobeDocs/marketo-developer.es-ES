@@ -3,10 +3,10 @@ title: Importación masiva de posibles clientes
 feature: REST API
 description: Cree y supervise importaciones asíncronas masivas de posibles clientes en Marketo con CSV o CSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '812'
-ht-degree: 0%
+source-wordcount: '795'
+ht-degree: 1%
 
 ---
 
@@ -18,13 +18,13 @@ Para grandes cantidades de registros de posibles clientes, los posibles clientes
 
 ## Límites de procesamiento
 
-Se le permite enviar más de una solicitud de importación masiva, con limitaciones. Cada solicitud se agrega como un trabajo a una cola FIFO para su procesamiento. Se procesan un máximo de dos trabajos al mismo tiempo. Se permite un máximo de diez trabajos en cola en un momento determinado (incluidos los dos que se están procesando actualmente). Si supera el máximo de diez trabajos, se devuelve el error &quot;1016, Demasiadas importaciones&quot;.
+Se le permite enviar más de una solicitud de importación masiva, con limitaciones. Cada solicitud se agrega como un trabajo a una cola FIFO para su procesamiento. Se procesan un máximo de dos trabajos al mismo tiempo. Se permite un máximo de 10 trabajos en cola en un momento determinado (incluidos los dos que se están procesando actualmente). Si supera el máximo de diez trabajos, se devuelve un error `1016, Too many imports`.
 
 ## Importar archivo
 
 La primera fila del archivo debe ser un encabezado que enumere los campos de API de REST correspondientes para asignar los valores de cada fila a. Un archivo típico seguiría este patrón básico:
 
-```
+```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -37,7 +37,7 @@ Este tipo de solicitud puede ser difícil de implementar, por lo que se recomien
 
 ## Creación de un trabajo
 
-Para realizar una solicitud de importación masiva, debe establecer el encabezado de tipo de contenido en &quot;multipart/form-data&quot; e incluir al menos un parámetro de archivo con el contenido del archivo, y un parámetro de formato con el valor &quot;csv&quot;, &quot;tsv&quot; o &quot;ssv&quot; que indique el formato de archivo.
+Para realizar una solicitud de importación masiva, debe establecer el encabezado de tipo de contenido en `multipart/form-data` e incluir al menos un parámetro `file` con el contenido del archivo, y un parámetro `format` con el valor `csv`, `tsv` o `ssv`, que indique el formato de archivo.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -54,7 +54,7 @@ Host: <munchkinId>.mktorest.com
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
 
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -75,16 +75,16 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Esto puede resultar difícil de hacer correctamente, por lo que la práctica recomendada es utilizar una biblioteca de compatibilidad con HTTP en el idioma que elija. Una forma sencilla de hacerlo con cURL desde la línea de comandos es la siguiente:
+Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Se recomienda utilizar una biblioteca de soporte HTTP en el idioma que elija para garantizar el uso correcto. El siguiente ejemplo es una forma sencilla de hacerlo con cURL desde la línea de comandos:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-Donde el archivo de importación &quot;lead_data.csv&quot; contiene lo siguiente:
+Donde el archivo de importación `lead_data.csv` contiene lo siguiente:
 
 ```
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -130,7 +130,7 @@ Si el trabajo se ha completado, tiene un listado con el número de filas procesa
 
 ## Errores de
 
-Los errores se indican mediante el atributo &quot;numOfRowsFailed&quot; en la respuesta Obtener estado del posible cliente de importación. Si &quot;numOfRowsFailed&quot; es mayor que cero, ese valor indica el número de errores que se produjeron.
+Los errores se indican mediante el atributo `numOfRowsFailed` en la respuesta Obtener estado del posible cliente de importación. Si `numOfRowsFailed` es mayor que cero, ese valor indica el número de errores que se produjeron.
 
 Para recuperar los registros y las causas de las filas con errores, debe recuperar el archivo de errores:
 
@@ -138,11 +138,11 @@ Para recuperar los registros y las causas de las filas con errores, debe recuper
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-La API responde con un archivo que indica qué filas fallaron, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que se especifica en el parámetro &quot;format&quot; durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción del error.
+La API responde con un archivo que indica qué filas fallaron, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que el especificado en el parámetro `format` durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción del error.
 
 ## Advertencias
 
-Las advertencias se indican mediante el atributo &quot;numOfRowsWithWarning&quot; en la respuesta Obtener estado del posible cliente de importación. Si &quot;numOfRowsWithWarning&quot; es mayor que cero, ese valor indica el número de advertencias que se produjeron.
+Las advertencias se indican mediante el atributo `numOfRowsWithWarning` en una respuesta Obtener estado del posible cliente de importación. Si `numOfRowsWithWarning` es mayor que cero, ese valor indica el número de advertencias que se produjeron.
 
 Para recuperar los registros y las causas de las filas de advertencia, recupere el archivo de advertencia:
 
@@ -150,4 +150,4 @@ Para recuperar los registros y las causas de las filas de advertencia, recupere 
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-La API responde con un archivo que indica qué filas produjeron advertencias, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que se especifica en el parámetro &quot;format&quot; durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción de la advertencia.
+La API responde con un archivo que indica qué filas produjeron advertencias, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que el especificado en el parámetro `format` durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción de la advertencia.
