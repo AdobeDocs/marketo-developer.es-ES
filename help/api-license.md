@@ -2,7 +2,9 @@
 title: Licencia de API
 description: Contrato de licencia de la API de Marketo para desarrollo y pruebas internas, que detalla los límites de la API, la interoperabilidad con la solución Marketo y el uso no comercial.
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+hide: true
+hidefromtoc: true
+source-git-commit: 367d10df0fce229d7e0cf21d170acde3935350d3
 workflow-type: tm+mt
 source-wordcount: '3092'
 ht-degree: 0%
