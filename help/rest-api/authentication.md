@@ -55,7 +55,7 @@ El token de acceso debe enviarse como un encabezado HTTP.
 
 >[!IMPORTANT]
 >
->El 31 de marzo de 2026 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta `access_token`. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
+>El 31 de marzo de 2026 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta `access_token`. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
 
 ### Cambio al encabezado Autorización
 
