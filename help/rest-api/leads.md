@@ -3,9 +3,9 @@ title: Clientes potenciales
 feature: REST API
 description: Explore las funciones de la API de REST de Marketo Leads, incluida la descripción, la consulta por ID o filtro, los campos predeterminados, los límites y la recuperación de ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: cc4bd7c18124bb039386a1cec06b9f1da0d047cb
+source-git-commit: 37973f51f1f0a08da967bdd07aaa47188b208adb
 workflow-type: tm+mt
-source-wordcount: '3411'
+source-wordcount: '3409'
 ht-degree: 3%
 
 ---
@@ -819,7 +819,7 @@ Membresía
 Los registros de posibles clientes también se pueden recuperar en función de su pertenencia a una lista estática o a un programa. Además, puede recuperar todas las listas estáticas, programas o campañas inteligentes a los que pertenece un posible cliente.
 
 La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque filterType y filterValues no se pueden utilizar con esta API.
-Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-**&#x200B;**.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-****.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
 
 ### Solicitud
 
