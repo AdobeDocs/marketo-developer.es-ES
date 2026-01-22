@@ -3,10 +3,10 @@ title: API de REST
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo, configurar usuarios de API y LaunchPoint, ver cuotas y límites, autenticarse con el encabezado Autorización y recuperar posibles clientes.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 5f2dcb4864cdcd110ba9f199ef9c86dcee522335
+source-git-commit: 5881ab969eca3a37d19f56b6570e42828994eff3
 workflow-type: tm+mt
 source-wordcount: '844'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ Marketo expone una API de REST que permite la ejecución remota de muchas de las
 Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset/). Las API de base de datos de posibles clientes permiten recuperar e interactuar con los registros de personas de Marketo y los tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
 
 >[!NOTE]
->La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de enero de 2026. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración](../soap-api/migration.md) de la API de SOAP para obtener información sobre cómo migrar.
+>La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de marzo de 2026. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración](../soap-api/migration.md) de la API de SOAP para obtener información sobre cómo migrar.
 >
 
 >[!IMPORTANT]
