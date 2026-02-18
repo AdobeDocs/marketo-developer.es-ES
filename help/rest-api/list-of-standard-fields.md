@@ -3,10 +3,10 @@ title: Campos estándar
 feature: REST API, Field Management
 description: Examine la lista completa de campos de posibles clientes estándar de Marketo con nombres, etiquetas y descripciones REST y SOAP, además de cómo recuperarlos mediante la API Describir posible cliente.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
 workflow-type: tm+mt
-source-wordcount: '1161'
-ht-degree: 27%
+source-wordcount: '727'
+ht-degree: 24%
 
 ---
 
@@ -47,33 +47,6 @@ Puede recuperar la lista de todos los nombres de campo admitidos disponibles en 
 | mainPhone | MainPhone | Teléfono principal: | Número de teléfono principal de la compañía del posible cliente |
 | jigsawContactId | ID de contacto de Marketo Jigsaw | Identificación de Data.com de Marketo | ID de Data.com del posible cliente, si está disponible |
 | jigsawContactStatus | Estado del contacto de Jigsaw de Marketo | Estado de Data.com de Marketo | Estado de Data.com del posible cliente si está disponible |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Nombre para mostrar de Marketo Social en Facebook | Nombre para mostrar de Facebook del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| facebookId | MarketoSocialFacebookId | Identificación de Marketo Social en Facebook | ID de Facebook del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| facebookPhotoURL | MarketoSocialFacebookPhotoURL | URL de imagen de Marketo Social para Facebook | URL de la foto de perfil de Facebook del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| facebookProfileURL | MarketoSocialFacebookProfileURL | URL de perfil de Marketo Social en Facebook | URL del perfil de Facebook del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| facebookReach | MarketoSocialFacebookReach | Alcance de Marketo Social en Facebook | El alcance de Facebook del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Ins. ref. desde Facebook de Marketo Social | Número de inscripciones conducidas atribuidas al posible cliente mediante Facebook. Sistema gestionado |
-| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Visitas referidas desde Facebook de Marketo Social | Número de visitas conducidas atribuidas al posible cliente a través de Facebook. Sistema gestionado |
-| género | MarketoSocialGender | Género de Marketo Social | Sexo del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Última inscripción referida desde Marketo Social | Fecha de la última remisión completada. Sistema gestionado |
-| lastReferredVisit | MarketoSocialLastReferredVisit | Última visita referida desde  Marketo Social | Fecha de la última visita conducida. Sistema gestionado |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Nombre para mostrar de Marketo Social en LinkedIn | Nombre para mostrar de LinkedIn del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| linkedInId | MarketoSocialLinkedInId | Identificación de Marketo Social en LinkedIn | ID de LinkedIn del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | URL de imagen de Marketo Social para LinkedIn | URL de la foto de LinkedIn del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| linkedInProfileURL | MarketoSocialLinkedInProfileURL | URL de perfil de Marketo Social en LinkedIn | Perfil de LinkedIn del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| linkedInReach | MarketoSocialLinkedInReach | Alcance de Marketo Social en LinkedIn | Alcance de LinkedIn del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Ins. ref. desde  LinkedIn de Marketo Social | Número de inscripciones conducidas atribuidas al posible cliente mediante LinkedIn. Sistema gestionado |
-| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Visitas referidas desde LinkedIn de Marketo Social | Número de visitas conducidas atribuidas al posible cliente a través de LinkedIn. Sistema gestionado |
-| syndicationId |  - | Identificación de distribución de Marketo Social | ID social de Marketo interno del posible cliente. Sistema gestionado |
-| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Inscripciones referidas totales de Marketo Social | Número total de inscripciones de recomendación completadas atribuidas al posible cliente |
-| totalReferredVisits | MarketoSocialTotalReferredVisits | Visitas referidas totales de Marketo Social | Número total de visitas conducidas atribuidas al posible cliente |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Nombre para mostrar de Marketo Social en Twitter | Nombre para mostrar de Twitter del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| twitterId | MarketoSocialTwitterId | Identificación de Marketo Social en Twitter | ID de Twitter del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| twitterPhotoURL | MarketoSocialTwitterPhotoURL | URL de imagen de Marketo Social para Twitter | URL de la foto de Twitter del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| twitterProfileURL | MarketoSocialTwitterProfileURL | URL de perfil de Marketo Social en Twitter | URL del perfil de Twitter del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| twitterReach | MarketoSocialTwitterReach | Alcance de Marketo Social en Twitter | Alcance de Twitter del posible cliente. Sistema rellenado durante el inicio de sesión social |
-| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Ins. ref. desde Twitter de Marketo Social | Número de inscripciones conducidas atribuidas al posible cliente mediante Twitter. Sistema gestionado |
-| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Visitas referidas desde Twitter de Marketo Social | Número de visitas conducidas atribuidas al posible cliente a través de Twitter. Sistema gestionado |
 | middleName | MiddleName | Segundo nombre | Segundo nombre del posible cliente |
 | mobilePhone | MobilePhone | Número de teléfono móvil | Número de teléfono móvil del posible cliente |
 | numberOfEmployees | NumberOfEmployees | Cantidad de empleados | Número de empleados de la compañía del posible cliente |
