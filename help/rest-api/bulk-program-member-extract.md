@@ -235,7 +235,7 @@ Los miembros del programa admiten varias opciones de filtro. Se pueden especific
     <tr>
       <td>isExhausted</td>
       <td>Booleano</td>
-      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
+      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
