@@ -3,10 +3,10 @@ title: Páginas de destino
 feature: REST API, Landing Pages
 description: Utilice la API de REST de Marketo para consultar metadatos y contenido, crear, actualizar, aprobar, eliminar y clonar páginas de aterrizaje, incluidos los tipos guiados y de forma libre.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1018'
-ht-degree: 2%
+source-wordcount: '1221'
+ht-degree: 1%
 
 ---
 
@@ -178,7 +178,7 @@ Las secciones de contenido se ordenan por su propiedad de índice y, en última 
 **Tipos de sección**
 
 | Tipo | Valor |
-|--- |--- |
+| --- | --- |
 | DynamicContent | El ID de la segmentación. |
 | Formulario | El ID del formulario. |
 | HTML | Contenido de HTML de texto. |
@@ -274,7 +274,7 @@ Las variables se definen como metaetiquetas dentro del elemento `<head>` de una 
 </head>
 ```
 
-Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Consulta
 

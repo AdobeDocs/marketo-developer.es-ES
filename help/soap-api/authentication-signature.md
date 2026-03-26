@@ -3,9 +3,9 @@ title: Firma de autenticación
 feature: SOAP
 description: Guía para la autenticación de la API de Marketo SOAP mediante HMAC-SHA1 en HTTPS, campos de encabezado obligatorios, formato de marca de tiempo y respuestas de solicitud y error de ejemplo
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '225'
+source-wordcount: '232'
 ht-degree: 3%
 
 ---
@@ -41,7 +41,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 ## Encabezado de solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | `mktowsUserId` | Obligatorio | El ID de acceso de cliente de Marketo se encuentra en el panel de la API de SOAP de administración de Marketo, en Integración. |
 | `requestSignature` | Obligatorio | Firma HMAC-SHA1 basada en clave secreta compartida `requestTimestamp` e ID de usuario de Marketo |

@@ -3,10 +3,10 @@ title: describeMObject
 feature: SOAP
 description: Aprenda a utilizar descriptionMObject en Marketo SOAP para recuperar metadatos y atributos de campo para ActivityRecord, LeadRecord, Opportunity y OpportunityPersonRole.
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '87'
-ht-degree: 5%
+ht-degree: 8%
 
 ---
 
@@ -16,9 +16,9 @@ Esta función devuelve los metadatos de los objetos MObject estándar y virtual.
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
-| objectName | Obligatorio | El nombre del MObject para el que desea obtener los metadatos. `objectName` puede ser: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
+| objectName | Obligatorio | El nombre del MObject para el que desea obtener los metadatos. `objectName` puede ser uno de: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
 
 ## Solicitar XML
 

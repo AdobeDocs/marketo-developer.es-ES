@@ -3,9 +3,9 @@ title: Extracción en lote
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Bulk Extract para exportar posibles clientes, actividades, miembros de programa y objetos personalizados, con OAuth, colas de trabajos y límites diarios de 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1702'
+source-wordcount: '1723'
 ht-degree: 0%
 
 ---
@@ -118,7 +118,7 @@ Cuando creamos el trabajo, devuelve un id. de trabajo en el atributo `exportId`.
 Cada extremo de creación de trabajo comparte algunos parámetros comunes para configurar el formato de archivo, los nombres de campo y el filtro de un trabajo de extracción masiva. Cada subtipo del trabajo de extracción puede tener parámetros adicionales:
 
 | Parámetro | Tipo de datos | Notas |
-|---|---|---|
+| --- | --- | --- |
 | formato | Cadena | Determina el formato de archivo de los datos extraídos con opciones para valores separados por comas, valores separados por tabulaciones y valores separados por punto y coma. Acepta uno de: CSV, SSV, TSV. El formato predeterminado es CSV. |
 | columnHeaderNames | Objeto | Permite establecer los nombres de los encabezados de columna en el archivo devuelto. Cada clave de miembro es el nombre del encabezado de columna cuyo nombre se va a cambiar, y el valor es el nuevo nombre del encabezado de columna. Por ejemplo, &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
 | filter | Objeto | Filtro aplicado al trabajo de extracción. Los tipos y las opciones varían según el tipo de trabajo. |

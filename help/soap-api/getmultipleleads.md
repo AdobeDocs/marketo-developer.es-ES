@@ -3,10 +3,10 @@ title: getMultipleLeads
 feature: SOAP
 description: Aprenda a utilizar Marketo SOAP getMultipleLeads para recuperar hasta 1000 posibles clientes por clave, lista estática o fecha de actualización, paginar con posición de flujo y filtrar campos.
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
-ht-degree: 2%
+source-wordcount: '409'
+ht-degree: 3%
 
 ---
 
@@ -24,7 +24,7 @@ Un caso de uso común para este punto de conexión es encontrar posibles cliente
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | leadSelector | Obligatorio | Puede ser de uno de los siguientes 3 tipos: `LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
 | keyType | Obligatorio | El tipo de ID que desea consultar. Los valores incluyen IDNUM, COOKIE, EMAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID, SFDCOPPTYID. |
@@ -36,7 +36,7 @@ Un caso de uso común para este punto de conexión es encontrar posibles cliente
 | lastUpdatedAt | **Obsoleto** | Usar `LastUpdateAtSelector` en su lugar |
 | includeAttributes | Opcional | Lista de atributos que desea recuperar. Limitar los campos de posible cliente devueltos puede mejorar el tiempo de respuesta de la API. |
 | batchSize | Opcional | Número máximo de registros que se devolverán. Límites del sistema de 100 o `batchSize`, el que sea menor |
-| streamPosition | Opcional | Se utiliza para paginar mediante un gran número de respuestas de posibles clientes. El campo de respuesta de llamadas anterior `streamPosition` devuelve el valor `newStreamPosition` |
+| streamPosition | Opcional | Se utiliza para paginar mediante un gran número de respuestas de posibles clientes. El campo de respuesta de llamadas anterior `newStreamPosition` devuelve el valor `streamPosition` |
 
 ## Solicitar XML
 

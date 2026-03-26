@@ -3,20 +3,20 @@ title: Extracción masiva de objetos personalizados
 feature: REST API, Custom Objects
 description: Guía de las API de REST de extracción de objetos personalizados en lote de Marketo para exportar objetos personalizados vinculados al posible cliente con filtros de lista y de fecha actualizados, campos seleccionados y...
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1315'
+source-wordcount: '1473'
 ht-degree: 1%
 
 ---
 
 # Extracción masiva de objetos personalizados
 
-[Referencia de extremo de extracción de objeto personalizado en lotes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
+[Referencia de extremo de extracción de objeto personalizado masivo](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
 
 El conjunto de API de REST de extracción de objetos personalizados en lote proporciona una interfaz de programación para recuperar grandes conjuntos de registros de objetos personalizados de Marketo. Esta es la interfaz recomendada para casos de uso que requieren un intercambio continuo de datos entre Marketo y uno o más sistemas externos, para fines de ETL, almacenamiento de datos y archivo.
 
-Esta API admite la exportación de registros de objetos personalizados de Marketo de primer nivel que están vinculados directamente a un posible cliente. Pase el nombre del objeto personalizado y una lista de posibles clientes a los que está vinculado el objeto. Para cada posible cliente de la lista, los registros de objetos personalizados vinculados que coinciden con el nombre de objeto personalizado especificado se escriben como filas en el archivo de exportación. Los datos de objeto personalizados se pueden ver en la [pestaña Objeto personalizado de la página de detalles del posible cliente en la interfaz de usuario de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Esta API admite la exportación de registros de objetos personalizados de Marketo de primer nivel que están vinculados directamente a un posible cliente. Pase el nombre del objeto personalizado y una lista de posibles clientes a los que está vinculado el objeto. Para cada posible cliente de la lista, los registros de objetos personalizados vinculados que coinciden con el nombre de objeto personalizado especificado se escriben como filas en el archivo de exportación. Los datos de objeto personalizados se pueden ver en la [pestaña Objeto personalizado de la página de detalles del posible cliente en la interfaz de usuario de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Permisos
 
@@ -27,7 +27,7 @@ Las API de extracción de objetos personalizados en lote requieren que el usuari
 La extracción de objetos personalizados admite varias opciones de filtro utilizadas para especificar una lista de posibles clientes vinculados al objeto personalizado. Si un posible cliente de la lista está vinculado a registros de objeto personalizados que coinciden con un nombre de objeto personalizado determinado, los registros se escriben en el archivo de exportación. Solo se puede especificar un tipo de filtro por trabajo de exportación.
 
 | Tipo de filtro | Tipo de datos | Notas |
-|---|---|---|
+| --- | --- | --- |
 | `updatedAt` | Date Range | Acepta un objeto JSON con los miembros `startAt` y `endAt` &amp;nbsp.;`startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que se actualizaron dentro del intervalo de fechas. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. |
 | `staticListName` | Cadena | Acepta el nombre de una lista estática. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que son miembros de la lista estática en el momento en que comienza a procesarse el trabajo. Recupere nombres de listas estáticas utilizando el extremo Obtener listas. |
 | `staticListId` | Entero | Acepta el ID de una lista estática. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que son miembros de la lista estática en el momento en que comienza a procesarse el trabajo. Recupere los identificadores de lista estática mediante el extremo Obtener listas. |
@@ -45,7 +45,7 @@ El extremo [Crear trabajo de exportación de objeto personalizado](https://devel
 - Especifique el formato del archivo exportado
 
 | Parámetro | Tipo de datos | Obligatorio | Notas |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `fields` | Matriz[Cadena] | Sí | Matriz de cadenas que contienen el valor del nombre de atributo de objeto personalizado tal como lo devuelve el extremo Describir objeto personalizado. Los campos enumerados se incluyen en el archivo exportado. |
 | `columnHeaderNames` | Objeto | No | Objeto JSON que contiene pares de clave-valor de nombres de campo y encabezado de columna. La clave debe ser el nombre de un campo incluido en el trabajo de exportación. El valor es el nombre del encabezado de columna exportado para ese campo. |
 | `format` | Cadena | No | Acepta uno de: CSV, TSV, SSV. El archivo exportado se representa como un archivo de valores separados por comas, valores separados por tabulaciones o valores separados por espacios, respectivamente, si se establece. Si no se establece, el valor predeterminado es CSV. |

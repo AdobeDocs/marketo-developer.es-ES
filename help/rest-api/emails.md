@@ -3,9 +3,9 @@ title: Correos electrónicos
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Asset para consultar y administrar recursos de correo electrónico por ID, nombre o explorador de carpetas, con notas sobre el contenido predictivo y los límites de las pruebas A/B.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1971'
+source-wordcount: '2301'
 ht-degree: 1%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 1%
 
 [Referencia de extremo de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) Se proporciona un conjunto completo de extremos REST para manipular los recursos de correo electrónico.
 
-Nota: si usa [Contenido predictivo de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), los siguientes extremos fallarán si hacen referencia a un correo electrónico que contiene contenido predictivo: [Obtener contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Actualizar la sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). La llamada devuelve un código de error 709 y el mensaje de error correspondiente.
+Nota: si usa [Contenido predictivo de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), los siguientes extremos fallarán si hacen referencia a un correo electrónico que contiene contenido predictivo: [Obtener contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Actualizar la sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). La llamada devuelve un código de error 709 y el mensaje de error correspondiente.
 
 ## Consulta
 
 El patrón de consulta de los mensajes de correo electrónico es idéntico al de las plantillas, ya que permite consultas [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET), así como filtros basados en carpetas con las API examinar y por nombre.
 
-Nota: Si un correo electrónico es parte de un programa de correo electrónico que usa [Pruebas A/B](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), ese correo electrónico no está disponible para consultas mediante los siguientes extremos: [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Obtener correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). La llamada indica que se ha realizado correctamente, pero contiene la siguiente advertencia: &quot;No se han encontrado recursos para los criterios de búsqueda especificados&quot;.
+Nota: Si un correo electrónico es parte de un programa de correo electrónico que usa [Pruebas A/B](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), ese correo electrónico no está disponible para consultas mediante los siguientes extremos: [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Obtener correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). La llamada indica que se ha realizado correctamente, pero contiene la siguiente advertencia: &quot;No se han encontrado recursos para los criterios de búsqueda especificados&quot;.
 
 ### Por identificador
 
@@ -151,7 +151,7 @@ GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Fol
 
 ### Examinar
 
-La exploración de carpetas funciona como otros extremos de exploración de Asset API y permite el filtrado opcional en `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn` y `offset`. `status` está aprobado o es borrador. `folder` es un objeto JSON que contiene `id` y `type`. `maxReturn` es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200) y `offset` es un entero que se puede usar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
+La exploración de carpetas funciona como otros extremos de exploración de Asset API y permite el filtrado opcional en `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn` y `offset`. `status` es Aprobado o Borrador. `folder` es un objeto JSON que contiene `id` y `type`. `maxReturn` es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200) y `offset` es un entero que se puede usar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
 
 ```
 GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
@@ -484,7 +484,7 @@ Nota: Si la copia automática a texto está desactivada para un fragmento incrus
 
 ## Módulos
 
-En el Editor de correo electrónico 1.0, un módulo es una sección del correo electrónico que se define en la plantilla. Los módulos pueden contener cualquier combinación de elementos, variables y otro contenido de HTML como se describe [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo ofrece un conjunto de API para administrar módulos dentro de un correo electrónico. Para los extremos relacionados con módulos que requieren el método HTTP POST, el cuerpo tiene el formato &quot;application/x-www-form-urlencoded&quot; (no JSON).
+En el Editor de correo electrónico 1.0, un módulo es una sección del correo electrónico que se define en la plantilla. Los módulos pueden contener cualquier combinación de elementos, variables y otro contenido de HTML como se describe [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo ofrece un conjunto de API para administrar módulos dentro de un correo electrónico. Para los extremos relacionados con módulos que requieren el método HTTP POST, el cuerpo tiene el formato &quot;application/x-www-form-urlencoded&quot; (no JSON).
 
 La mayoría de los extremos relacionados con módulos requieren un &quot;moduleId&quot; como parámetro de ruta. Es una cadena que describe el módulo. El extremo [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) devuelve moduleIds como atributo &quot;htmlId&quot; (consulte la sección [Consulta](#modules_query) más abajo).
 
@@ -710,7 +710,7 @@ La matriz de resultados contiene elementos que describen tanto los módulos como
 Continuando con el ejemplo &quot;Esqueleto&quot; anterior, la siguiente tabla contiene un resumen de moduleIds y sus índices correspondientes contenidos en el correo electrónico.
 
 | moduleId (también conocido como htmlId) | Índice |
-|---|---|
+| --- | --- |
 | espaciador | 0 |
 | imagen libre | 1 |
 | video | 2 |
@@ -796,7 +796,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### Reorganizar
 
-[Reorganice los módulos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)matriz que contiene todos los módulos y la posición deseada dentro del correo electrónico para cada uno. Cada elemento de matriz contiene un objeto JSON del siguiente formato:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, donde &lt;_index_> es el número de orden de módulo basado en cero y &lt;_moduleId_> es el moduleId.
+[Reorganice los módulos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)matriz que contiene todos los módulos y la posición deseada dentro del correo electrónico para cada uno. Cada elemento de matriz contiene un objeto JSON del siguiente formato:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, donde &lt;_index_> es el número de orden de módulo basado en cero y &lt;_moduleId_> es moduleId.
 
 ```
 POST /rest/asset/v1/email/{id}/content/rearrange.json
@@ -856,7 +856,7 @@ name=MarketoVideo
 
 ## Variables
 
-En el Editor de correo electrónico 1.0, las variables se utilizan para almacenar valores de elementos en el correo electrónico. Cada variable se define agregando sintaxis específica de Marketo a su HTML como se describe [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo ofrece un conjunto de API para administrar variables dentro de un correo electrónico.
+En el Editor de correo electrónico 1.0, las variables se utilizan para almacenar valores de elementos en el correo electrónico. Cada variable se define agregando sintaxis específica de Marketo a su HTML como se describe [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo ofrece un conjunto de API para administrar variables dentro de un correo electrónico.
 
 ### Consulta
 
@@ -1112,7 +1112,7 @@ value=2
 }
 ```
 
-En el siguiente ejemplo, actualizamos una variable local denominada &quot;ctaLinkText&quot; al valor &quot;Haga clic en este botón&quot;. en moduleId &quot;CTA&quot;.
+En el siguiente ejemplo, actualizamos una variable local denominada &quot;ctaLinkText&quot; a un valor de &quot;Haga clic en este botón&quot; en moduleId &quot;CTA&quot;.
 
 ```
 POST /rest/asset/v1/email/1032/variable/ctaLinkText.json

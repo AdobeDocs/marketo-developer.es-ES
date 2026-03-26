@@ -3,9 +3,9 @@ title: Redirigir
 description: Implemente la API de redireccionamiento de RTP para enviar visitantes segmentados a direcciones URL de destino mediante campos como ABM, organización, ubicación y segmentos, con ejemplos y sugerencias.
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '480'
+source-wordcount: '500'
 ht-degree: 8%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 8%
 
 La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas a una dirección URL de destino.
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Uso
@@ -22,7 +22,7 @@ La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas
 `rtp('send' , 'redirect' , 'field_name' , [ 'values_array' , '...' , '...' ] , 'www.redirect_url.com' , true/false )`
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
-|---------------------------|-------------------|---------|-----------------------------|
+| --- | --- | --- | --- |
 | &#39;enviar&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;redirigir&#39; | Obligatorio | Cadena | Nombre del método. |
 | field_name | Obligatorio | Cadena | Nombre de campo con el que se debe coincidir. Ejemplo: &quot;abm.name&quot; (consulte a continuación). |
@@ -33,7 +33,7 @@ La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas
 Organización, Sector, Listas ABM, Ubicación, ISP, Segmentos coincidentes
 
 | Condición | Jerarquía de datos | Ejemplo |
-|-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
+| --- | --- | --- |
 | Segmentos coincidentes (solo funciona después del primer clic) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchedSegments.name&#39;, [&#39;Fortune 1,000&#39;, &#39;Enterprise&#39;], &#39;<http://www.marketo.com>&#39;); |
 | Segmentos coincidentes (solo funciona después del primer clic) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchedSegments.id&#39;, [106 , 107 , 190] , &#39;<http://www.marketo.com>&#39;); |
 | Listas ABM | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;abm.name&#39;, [&#39;top_key_accounts&#39;, &#39;active_customers&#39;], &#39;<http://www.marketo.com>&#39;); |
@@ -101,7 +101,7 @@ La llamada de redireccionamiento admite varias llamadas. Esto permite redirigir 
 `rtp('send', 'redirect', field_name, url_values_map);`
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;enviar&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;redirigir&#39; | Obligatorio | Cadena | Nombre del método. |
 | field_name | Obligatorio | Cadena | Nombre de campo con el que se debe coincidir. Ejemplo: &quot;abm.name&quot; (consulte más arriba). |

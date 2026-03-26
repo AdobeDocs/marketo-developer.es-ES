@@ -3,10 +3,10 @@ title: Referencia de extremo
 feature: REST API
 description: Lista completa de extremos de la API de REST de Marketo con métodos, URI y permisos necesarios en todas las actividades, exportación masiva, identidad, posibles clientes, recursos y usuarios.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '4464'
-ht-degree: 28%
+source-wordcount: '4793'
+ht-degree: 29%
 
 ---
 
@@ -16,15 +16,15 @@ A continuación se muestran vínculos a las referencias de la API de REST de Mar
 
 - [Recurso](https://developer.adobe.com/marketo-apis/api/asset/)
 - [Identidad](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Base de datos de clientes potenciales](https://developer.adobe.com/marketo-apis/api/mapi/)
-- [Administración de usuarios](https://developer.adobe.com/marketo-apis/api/user/)
+- [Base de datos de posible clientes](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Gestión de usuarios](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Lista de extremos {#endpoint_list}
 
 Esta es una lista completa de puntos finales de API de REST.
 
 | Nombre | Grupo | Método | URI | Permiso requerido |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Añadir actividades personalizadas | Actividades | POST | /rest/v1/activities/external.json | Actividad de solo escritura |
 | Aprobar tipo de actividad personalizada | Actividades | POST | /rest/v1/activities/external/type/{apiName}/approve.json | Metadatos de la actividad de escritura y lectura |
 | Crear atributos personalizados de tipo de actividad | Actividades | POST | /rest/v1/activities/external/type/{apiName}/attributes/create.json | Metadatos de la actividad de escritura y lectura |
@@ -202,7 +202,7 @@ Esta es una lista completa de puntos finales de API de REST.
 | Actualizar metadatos de plantilla de página de aterrizaje | Plantillas de la página de destino | POST | /rest/asset/v1/landingPageTemplate/{id}.json | Recurso de lectura-escritura |
 | Aprobar borrador de página de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/approveDraft.json | Recurso de lectura-escritura |
 | Clonar página de destino | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/clone.json | Recurso de lectura-escritura |
-| Crear páginas de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPages.json | Recurso de lectura-escritura |
+| Creación de páginas de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPages.json | Recurso de lectura-escritura |
 | Eliminar página de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/delete.json | Recurso de lectura-escritura |
 | Descartar borrador de página de aterrizaje | Páginas de destino | POST | /rest/asset/v1/landingPage/{id}/discardDraft.json | Recurso de lectura-escritura |
 | Obtener página de aterrizaje por ID | Páginas de destino | GET | /rest/asset/v1/landingPage/{id}.json | Recurso de solo lectura |

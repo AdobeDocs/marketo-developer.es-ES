@@ -3,9 +3,9 @@ title: Importación masiva
 feature: REST API
 description: Importación masiva de Marketo para cargar posibles clientes, objetos personalizados y miembros de programas a través de cargas de varias partes, la creación de trabajos asincrónicos, el estado de sondeo y la administración de errores.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '610'
+source-wordcount: '660'
 ht-degree: 2%
 
 ---
@@ -93,7 +93,7 @@ Cuando enviamos el trabajo, se devuelve un batchId, que podemos utilizar para co
 Cada extremo de creación de trabajo comparte algunos parámetros comunes para configurar el formato de archivo, los nombres de campo y el filtro de un trabajo de extracción masiva.  Cada subtipo del trabajo de extracción puede tener parámetros adicionales:
 
 | Parámetro | Tipo de datos | Notas |
-|---|---|---|
+| --- | --- | --- |
 | formato | Cadena | Determina el formato de archivo de los datos importados con opciones para valores separados por comas, valores separados por tabulaciones y valores separados por punto y coma. Acepta uno de: CSV, SSV, TSV. El formato predeterminado es CSV. |
 | archivo | Cadena | Los datos se especifican mediante datos de formulario de varias partes en el archivo. |
 

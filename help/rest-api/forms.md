@@ -3,10 +3,10 @@ title: Formularios
 feature: REST API, Forms
 description: Guía de la API de REST de Marketo Forms para crear y administrar formularios, recuperar por id o nombre, examinar con filtros de estado y administrar campos, conjuntos de campos y reglas.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1616'
-ht-degree: 2%
+source-wordcount: '1823'
+ht-degree: 1%
 
 ---
 
@@ -290,7 +290,7 @@ Al editar campos, o su comportamiento dentro de un formulario, la lista de campo
 ### Tipos de campo
 
 | Tipo de IU | Nombre de API |
-|--------------|-----------------|
+| --- | --- |
 | Casillas de verificación | casilla de verificación |
 | Botón de opción | radio |
 | Área de texto | área de texto |
@@ -918,7 +918,7 @@ Para obtener la lista completa de operadores disponibles, consulte la página de
 
 ## Seguimiento
 
-Los formularios Marketo pueden tener un comportamiento de página de seguimiento dinámico, donde las reglas para redireccionar a una página determinada o permanecer en la página actual pueden aplicarse en función del contenido de los campos designados al enviarlos. Las reglas pueden llamarse reglas de la página de agradecimiento o reglas de la página de seguimiento indistintamente. Estas reglas se representan como una matriz JSON con los miembros `followupType`, `followupValue`, `operator`, `subjectField`, `values` y `default`. `default` es un valor booleano para el cual solamente un registro de la matriz puede ser verdadero. Cuando un visitante no cumple los requisitos para otras reglas, se utiliza la regla designada como predeterminada. `followupType` puede ser lp o url, donde lp indica un identificador de página de aterrizaje de Marketo para `followupValue` y url indicará una dirección URL a otra página. El operador se utiliza para comparar el valor del campo de asunto con la lista de valores proporcionados.
+Los formularios Marketo pueden tener un comportamiento de página de seguimiento dinámico, donde las reglas para redireccionar a una página determinada o permanecer en la página actual pueden aplicarse en función del contenido de los campos designados al enviarlos. Las reglas pueden llamarse reglas de la página de agradecimiento o reglas de la página de seguimiento indistintamente. Estas reglas se representan como una matriz JSON con los miembros `followupType`, `followupValue`, `operator`, `subjectField`, `values` y `default`. `default` es un valor booleano para el cual solo un registro de la matriz puede ser verdadero. Cuando un visitante no cumple los requisitos para otras reglas, se utiliza la regla designada como predeterminada. `followupType` puede ser lp o url, donde lp indica un identificador de página de aterrizaje de Marketo para `followupValue` y url indica una dirección URL de otra página. El operador se utiliza para comparar el valor del campo de asunto con la lista de valores proporcionados.
 
 ## Botón enviar
 

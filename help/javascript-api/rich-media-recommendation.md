@@ -3,10 +3,10 @@ title: Recomendación de medios enriquecidos
 description: Configure Rich Media Recommendations utilizando la etiqueta RTP de contenido predictivo de Marketo, template1 template2 template3 divs, GET para rellenar y SET para configurar categorías.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '831'
-ht-degree: 4%
+source-wordcount: '854'
+ht-degree: 3%
 
 ---
 
@@ -21,12 +21,12 @@ Las siguientes etiquetas y llamadas de API deben configurarse en la página que 
 1. En el cuerpo de la página
    1. Coloque la etiqueta de plantilla (clase div) en la ubicación donde desee que aparezca la plantilla
 
-Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Encontrará más información [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 
 | Atributo | Opcional/Requerida | Descripción |
-|---|---|---|
+| --- | --- | --- |
 | clase | Obligatorio | Especifique que este elemento de HTML de div es un div de recomendación RTP. |
 | data-rtp-template-id | Obligatorio | ID de la plantilla. Esto determina la alineación de la recomendación. Utilice &quot;template1&quot; para la alineación horizontal, &quot;template2&quot; para la alineación vertical o &quot;template3&quot; para la alineación vertical que incluya únicamente el título y la descripción. El script inserta la plantilla coincidente en estos `div.Permissible` valores: template1, template2, template3. |
 
@@ -61,7 +61,7 @@ Este método rellena todos los medios enriquecidos `<divs>` de la página con re
 `rtp('get', 'rcmd', 'richmedia');`
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;get&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;rcmd&#39; | Obligatorio | Cadena | Nombre del método. |
 | &#39;richmedia&#39; | Obligatorio | Cadena | Nombre del submétodo. |
@@ -77,7 +77,7 @@ Nota: Cuando se utiliza este método, se debe llamar antes de llamar a rtp(&#39;
 `rtp('set', 'rcmd', 'richmedia', 'template_id', conf_obj);`
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;set&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;rcmd&#39; | Obligatorio | Cadena | Nombre del método. |
 | &#39;richmedia&#39; | Obligatorio | Cadena | Nombre del submétodo. |
@@ -136,7 +136,7 @@ rtp("set", "rcmd", "richmedia",
 #### Propiedades de configuración
 
 | Configuración | Ejemplo | Descripción |
-|---|---|---|
+| --- | --- | --- |
 | rcmd.general.font.family | &quot;rcmd.general.font.family&quot; : &quot;arial&quot; | Cambia la familia de fuentes para todo el texto de la plantilla. Esta propiedad admite todos los valores CSS por tipo de explorador. Es posible utilizar una familia de fuentes personalizada si existe en la página. |
 | rcmd.content.background.color | &quot;rcmd.content.background.color&quot; : &quot;black&quot; | Cambia el color de fondo de los cuadros interiores de la plantilla. Esta propiedad admite todos los valores CSS por tipo de explorador. |
 | rcmd.title.text | &quot;rcmd.title.text&quot; : &quot;CONTENIDO RECOMENDADO&quot; | Cambia el título de la plantilla. |

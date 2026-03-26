@@ -3,9 +3,9 @@ title: Personalización web
 description: Guía de la API de JavaScript de Personalization web y la etiqueta RTP, que cubre los eventos de vista de página, la configuración de cuenta, las exclusiones de bots y los scripts principales y bajo demanda
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '422'
+source-wordcount: '452'
 ht-degree: 6%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 La API de JavaScript de Web Personalization amplía la capacidad de personalización automatizada de la plataforma. Permite el seguimiento de eventos y la personalización dinámica de una página web. Funciones adicionales: [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md), [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Configuración de etiquetas
@@ -37,7 +37,7 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 Se llama automáticamente a este método en el nivel de etiqueta para establecer el ID de cuenta correspondiente. Puede establecer el ID de cuenta cuando desee dividir entre dominios diferentes.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
-|--------------|-------------------|--------|--------------|
+| --- | --- | --- | --- |
 | &#39;setAccount&#39; | Obligatorio | Cadena | Nombre del método. |
 | accountId | Obligatorio | Cadena | ID de cuenta. |
 
@@ -53,7 +53,7 @@ Este método envía un evento de vista, que se utiliza para el seguimiento de p�
 Al pasar el parámetro opcional &quot;page&quot; en este método, se puede anular la página actual.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
-|-----------|-------------------|--------|---------------------------------|
+| --- | --- | --- | --- |
 | &#39;enviar&#39; | Obligatorio | Cadena | Acción de método. |
 | &#39;vista&#39; | Obligatorio | Cadena | Nombre del método. |
 | Página | Opcional | Cadena | Ruta relativa o dirección URL de página completa. |
@@ -96,7 +96,7 @@ Descripción de JavaScript que se añade a un sitio web al utilizar Personalizat
 ### JavaScript principal/dependiente
 
 | Nombre | Descripción | Control |
-|---------------------------|-------------|--------------------------------------------------------|
+| --- | --- | --- |
 | rtp.js | - | Controlado por Marketo |
 | jquery.min.js | Versión 1.8.3 | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
 | jquery-custom-ui-min.js | Versión 1.9.2 | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
@@ -107,7 +107,7 @@ Descripción de JavaScript que se añade a un sitio web al utilizar Personalizat
 ### On Demand JavaScript
 
 | Nombre | Descripción | Control |
-|-------------------------|-----------------------------------------------------------------------|-----------------------|
+| --- | --- | --- |
 | ga-integration-2.0.1.js | Se utiliza si la integración de Google Analytics/Facebook/SiteCatalyst está habilitada | Controlado por Marketo |
 | insightera-bar-2.1.js | Se utiliza si la barra de recomendaciones de contenido predictivo está habilitada | Controlado por Marketo |
 | froogaloop2.min.js | Se utiliza si el seguimiento de contenido está habilitado y el reproductor Vimeo existe en la página | - |

@@ -2,10 +2,10 @@
 title: Flujos de datos
 description: Información general sobre los flujos de datos de Marketo Engage que permiten eventos de actividad de clientes potenciales y de auditoría de usuarios casi en tiempo real, lo que reduce los límites de API para los clientes de nivel de rendimiento
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1620'
-ht-degree: 2%
+source-wordcount: '1719'
+ht-degree: 3%
 
 ---
 
@@ -44,7 +44,7 @@ Al proporcionar vistas sobre los cambios de los posibles clientes, esto permite 
 Lista de actividades transmitidas:
 
 | AlcanzarMetaEnReferencia | ClickPredictiveContent | ReceivedForwardToFriendEmail |
-|--- |--- |--- |
+| --- | --- | --- |
 | AddToList | ClickRTPCallToAction | ReceiveSalesEmail |
 | AddToNurture | ClickSalesEmail | ReferirAplicaciónSocial |
 | AddToOpportunity | ClickSharedLink | RemoveFromList |
@@ -79,7 +79,7 @@ Un buen caso de uso para suscribirse a este flujo sería:
 Lista de eventos de auditoría de usuarios transmitidos:
 
 | COMPONENTE | LISTA DE TIPO DE EVENTO |
-|--- |--- |
+| --- | --- |
 | Programa predeterminado | clonar, crear, eliminar, editar canal, exportar, modificar configuración del programa, modificar token del programa, cambiar nombre |
 | Correo electrónico | aprobar, clonar, crear, eliminar, editar, mover, cambiar el nombre, desaprobar |
 | Programa por lotes de correos electrónicos | aprobar, childUpdate, clonar, crear, eliminar, editar, editar canal, modificar programación del programa, modificar configuración del programa, modificar token del programa, cambiar nombre, desaprobar |
@@ -139,7 +139,7 @@ Actualmente, el centro de notificaciones de Marketo se puede configurar para que
 Lista de eventos de notificación:
 
 | COMPONENTE | LISTA DE TIPO DE EVENTO |
-|--- |--- |
+| --- | --- |
 | Notificación | anulación de la campaña, error de campaña, nutrición (programa agotado), error de sincronización de salesforce, grupo de prueba (resultado de prueba A/B), servicios web (cuota diaria) |
 
 Ejemplo de evento de notificación:
@@ -278,6 +278,6 @@ Para empezar a usar los servicios de Adobe, agregue una API, eventos o tiempo de
 
 ## Documentación pública
 
-- [Flujos de datos Marketo](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
-- [Introducción a los eventos y webhooks de Adobe IO](https://developer.adobe.com/events/docs/guides/)
+- [Marketo Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
+- [Introducción a Adobe IO Events &amp; Webhooks](https://developer.adobe.com/events/docs/guides/)
 - [Blog de flujos de datos](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

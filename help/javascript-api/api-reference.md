@@ -3,9 +3,9 @@ title: Referencia de API de Munchkin
 description: Utilice la API de JavaScript de Munchkin para rastrear visitas a la página, clics en vínculos y eventos personalizados con los métodos init, createTrackingCookie y munchkinFunction.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '424'
+source-wordcount: '426'
 ht-degree: 9%
 
 ---

@@ -3,10 +3,10 @@ title: syncMObjects
 feature: SOAP
 description: Marketo SOAP syncMObjects para insertar, actualizar o actualizar hasta 100 programas, oportunidades y roles de persona de oportunidad, que devuelven estados e ID de Marketo.
 exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '443'
-ht-degree: 7%
+source-wordcount: '446'
+ht-degree: 8%
 
 ---
 
@@ -23,7 +23,7 @@ Las operaciones UPDATE y UPSERT utilizan el ID como clave. En una sola llamada d
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | mObjectList->mObject->type | Obligatorio | Puede ser uno de:`Program`, `Opportunity`, `OpportunityPersonRole` |
 | mObjectList->mObject->id | Obligatorio | ID del objeto MObject. Puede especificar hasta 100 MObjects por llamada. |
@@ -60,7 +60,7 @@ Para el objeto MObject OpportunityPersonRole, puede proporcionar todos los campo
 1. IsPrimary (Opcional)
 1. Rol (opcional)
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | mObjAssociationList->mObjAssociation->mObjType | Opcional | Se utiliza para actualizar los MObjects de Opportunity/OpportunityPersonRole mediante el identificador o la clave externa de un objeto asociado. Los objetos asociados pueden ser uno de: Compañía (para actualizar el objeto MObject de la oportunidad), Posible cliente (para actualizar el objeto MObject de la persona de la oportunidad), Oportunidad (para actualizar el objeto MObject de la persona de la oportunidad) |
 | mObjAssociationList->mObjAssociation->id | Opcional | El ID del objeto asociado (cliente potencial/compañía/oportunidad) |

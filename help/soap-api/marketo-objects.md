@@ -3,9 +3,9 @@ title: Objetos Marketo
 feature: SOAP
 description: Información general sobre los objetos MO de Marketo, incluidos tipos, atributos, comportamiento de clave externa y API de SOAP admitidas para oportunidad, programa y registros relacionados.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '274'
 ht-degree: 0%
 
 ---
@@ -31,12 +31,12 @@ Los objetos MO constan de:
 
 ### External-Keys
 
-Las claves externas son campos personalizados definidos en objetos de Marketo, como cliente potencial u oportunidad. El nombre es el nombre del campo y el valor es el valor del campo, generado en un sistema externo. **Marketo no aplica una restricción única a estos valores.** Es responsabilidad del usuario de la API asegurarse de que los valores sean únicos. Si se produce un duplicado, Marketo utiliza el objeto añadido más recientemente. Esto es similar al comportamiento para el campo estándar Dirección de correo electrónico.
+Las claves externas son campos personalizados definidos en objetos de Marketo, como cliente potencial u oportunidad. El nombre es el nombre del campo y el valor es el valor del campo, generado en un sistema externo. **Marketo no aplica una restricción única a estos valores.** Es responsabilidad del usuario de la API garantizar que los valores sean únicos. Si se produce un duplicado, Marketo utiliza el objeto añadido más recientemente. Esto es similar al comportamiento para el campo estándar Dirección de correo electrónico.
 
 ### API disponibles
 
 | API | Puede operar en |
-|---|---|
+| --- | --- |
 | describeMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
 | getMObjects | Oportunidad, OportunidadFunciónPersona, Programa |
 | syncMObjects | Oportunidad, OportunidadFunciónPersona, Programa |

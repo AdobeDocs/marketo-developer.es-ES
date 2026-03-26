@@ -3,9 +3,9 @@ title: Listas de cuentas con nombre
 feature: REST API
 description: Obtenga información sobre cómo administrar Listas de cuentas con nombre de Marketo con la API de REST, incluidos permisos, campos, filtros y extremos para consultar, crear, actualizar y eliminar.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '716'
+source-wordcount: '746'
 ht-degree: 2%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Listas de cuentas con nombre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
+[Listas de cuentas con nombre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
 `Content`
 
 ## Permisos
@@ -27,7 +27,7 @@ Las listas de cuentas con nombre tienen un número limitado de campos estándar 
 `Named Account List Field`
 
 | Nombre | Tipo de datos | Actualizable | Notas |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | marketoGUID | Cadena | Falso | Identificador de cadena único de la lista de cuentas con nombre. Este campo está administrado por el sistema y no se permite como campo al crear un registro. Campo utilizado por &quot;dedupeBy&quot;:&quot;idField&quot; al realizar una creación o actualización. |
 | name | Cadena | True | Nombre de la lista. Campo utilizado por &quot;dedupeBy&quot;:&quot;dedupeFields&quot; al realizar una creación o actualización. |
 | createdAt | Fecha y hora | Falso | Fecha y hora de creación de la lista. Este campo está administrado por el sistema y no se permite como campo al crear o actualizar un registro. |

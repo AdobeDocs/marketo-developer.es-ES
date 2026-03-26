@@ -3,9 +3,9 @@ title: getLeadChanges
 feature: SOAP
 description: Aprenda a utilizar la API de Marketo SOAP getLeadChanges para recuperar actividades de cambio de posible cliente con filtros, leadSelector, paginación y ejemplos XML.
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '418'
 ht-degree: 3%
 
 ---
@@ -28,7 +28,7 @@ Nota: El número límite de posibles clientes admitidos en `LeadKeySelector` es 
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | activityFilter->includeAttributes->activityType | Opcional (obsoleta) Use `activityNameFilter` en su lugar | Limita la respuesta para incluir solo los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. |
 | activityFilter->excludeAttributes->activityType | Opcional | Limita la respuesta para excluir los tipos de actividad especificados. Consulte WSDL para todos los tipos de actividades. NOTA: No se pueden especificar `includeAttributes` y `excludeAttributes` dentro de la misma llamada. |

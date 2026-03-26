@@ -3,16 +3,16 @@ title: Extracto de miembros de programa en masa
 feature: REST API
 description: Utilice las API de REST de extracción de miembros de programas en lote de Marketo para exportar registros de miembros grandes para ETL, almacenamiento de datos y archivado, con permisos y metadatos de campo.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1160'
+source-wordcount: '1284'
 ht-degree: 4%
 
 ---
 
 # Extracto de miembros de programa en masa
 
-[Referencia de extremo de extracción masiva de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[Referencia de extremo de extracción de miembro de programa masivo](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
 
 El conjunto de API de REST de extracción masiva de miembros de programas proporciona una interfaz de programación para recuperar grandes conjuntos de registros de miembros de programas de Marketo. Esta es la interfaz recomendada para casos de uso que requieren un intercambio continuo de datos entre Marketo y uno o más sistemas externos, para fines de ETL, almacenamiento de datos y archivo.
 
@@ -235,7 +235,7 @@ Los miembros del programa admiten varias opciones de filtro. Se pueden especific
     <tr>
       <td>isExhausted</td>
       <td>Booleano</td>
-      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
+      <td>Acepta un valor booleano usado para filtrar los registros de pertenencia a programas de <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personas que han agotado el contenido</a>.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -319,7 +319,7 @@ El punto final Crear trabajo de miembro de programa de exportación proporciona 
 - Especifique el formato del archivo exportado
 
 | Parámetro | Tipo de datos | Obligatorio | Notas |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | campos | Matriz[Cadena] | Sí | El parámetro fields acepta una matriz de cadenas JSON. Los campos enumerados se incluyen en el archivo exportado. Se pueden exportar los siguientes tipos de campo: `LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Especifique un campo utilizando su nombre de API de REST que se pueda recuperar mediante Describir posible cliente2 o Describir extremos de miembros del programa. |
 | columnHeaderNames | Objeto | No | Objeto JSON que contiene pares de clave-valor de nombres de campo y encabezado de columna. La clave debe ser el nombre de un campo incluido en el trabajo de exportación. El valor es el nombre del encabezado de columna exportado para ese campo. |
 | formato | Cadena | No | Acepta uno de: CSV, TSV, SSV. El archivo exportado se representa como un archivo de valores separados por comas, valores separados por tabulaciones o valores separados por espacios, respectivamente, si se establece. Si no se establece, el valor predeterminado es CSV. |

@@ -3,10 +3,10 @@ title: mergeLeads
 feature: SOAP
 description: Utilice mergeLeads con Marketo SOAP para combinar registros de posibles clientes ganadores y perdedores. Incluye campos de solicitud, solicitud y respuesta XML, y ejemplos de PHP y Java.
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '104'
-ht-degree: 6%
+ht-degree: 8%
 
 ---
 
@@ -16,7 +16,7 @@ Acepta la clave de un posible cliente ganador y múltiples claves de un posible 
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | winningLeadKeyList | Obligatorio | La clave utilizada para identificar al posible cliente ganador. Valores posibles: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | lossLeadKeyLists | Obligatorio | Una lista de claves utilizada para identificar los posibles clientes perdedores. |

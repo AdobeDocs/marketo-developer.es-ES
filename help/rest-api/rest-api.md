@@ -3,9 +3,9 @@ title: API de REST
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo, configurar usuarios de API y LaunchPoint, ver cuotas y límites, autenticarse con el encabezado Autorización y recuperar posibles clientes.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '880'
+source-wordcount: '897'
 ht-degree: 2%
 
 ---
@@ -112,3 +112,5 @@ Si no tiene un registro de posibles clientes con su dirección de correo electr�
 ## Uso de API
 
 Cada uno de los usuarios de la API se recoge de forma individual en el informe de uso de la API, por lo que la división de los servicios web por usuario permite contabilizar fácilmente el uso de cada una de las integraciones. Si el número de llamadas de API a su instancia supera el límite y provoca que las llamadas posteriores fallen, el uso de esta práctica le permite contabilizar el volumen de cada uno de sus servicios y evaluar cómo resolver el problema. Para ver su uso, vaya a **[!UICONTROL Administración]** -> **[!UICONTROL Integración]** > **[!UICONTROL Servicios web]** y haga clic en el número de llamadas en los últimos siete días.
+
+Para ver los extremos REST que devuelven estadísticas de uso y error diarias y de los últimos 7 días, consulte [Uso](usage.md).

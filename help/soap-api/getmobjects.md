@@ -3,10 +3,10 @@ title: getMObjects
 feature: SOAP
 description: Utilice getMObjects para recuperar objetos MObject de Marketo por ID, atributos o asociaciones, hasta 100 por lote, paginar con streamPosition, con ejemplos de XML.
 exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '245'
-ht-degree: 6%
+source-wordcount: '246'
+ht-degree: 7%
 
 ---
 
@@ -22,7 +22,7 @@ Devuelve una lista de MObjects coincidentes, todos de un solo tipo, hasta 100 en
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | tipo | Obligatorio | El tipo de objeto que desea consultar. Puede ser uno de los siguientes: `Opportunity`, `OpportunityPersonRole` o `Program` |
 | Identificación | Opcional | Id. del objeto MObject |

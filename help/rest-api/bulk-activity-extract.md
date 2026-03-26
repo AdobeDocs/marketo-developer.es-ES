@@ -3,16 +3,16 @@ title: Extracción de actividades en lotes
 feature: REST API
 description: La API de REST de extracción masiva de actividades de Marketo para exportar datos de actividad de gran volumen mediante filtros de intervalo de fechas, actividad y atributo principal de 31 días para ETL y CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1351'
-ht-degree: 7%
+source-wordcount: '1571'
+ht-degree: 6%
 
 ---
 
 # Extracción de actividades en lotes
 
-[Referencia de extremo de extracción masiva de actividades](https://developer.adobe.com/marketo-apis/api/mapi/)
+[Referencia de extremo de extracción de actividades en lotes](https://developer.adobe.com/marketo-apis/api/mapi/)
 
 El conjunto de API de REST de extracción masiva de actividades proporciona una interfaz de programación para recuperar grandes cantidades de datos de actividad de Marketo.  Para casos que no requieren baja latencia y deben transferir volúmenes significativos de datos de actividad fuera de Marketo, como integración de CRM, ETL, almacenamiento de datos y archivado de datos.
 
@@ -74,7 +74,7 @@ Ejemplo de cuerpo de la solicitud:
 | Quitar de la lista | Nombre de lista estática | [Obtener lista estática por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Lista estática |
 | Completar formulario | Nombre del formulario | [Obtener formulario por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Formulario web |
 
-Tenga en cuenta que debe utilizar &quot;&lt;<em>program</em>>.Notación &lt;<em>asset</em>>&quot; para especificar el nombre de los siguientes grupos de recursos: programa de marketing, lista estática, formulario web. Por ejemplo, un formulario con el nombre &quot;MPS saliente&quot; que reside debajo de un programa con el nombre &quot;GL_OP_ALL_2021&quot; se especificaría como &quot;GL_OP_ALL_2021.MPS saliente&quot;.
+Tenga en cuenta que debe utilizar la notación &quot;&lt;<em>program</em>>.&lt;<em>asset</em>>&quot; para especificar el nombre de los siguientes grupos de recursos: Programa de marketing, Lista estática, Formulario web. Por ejemplo, un formulario con el nombre &quot;MPS saliente&quot; que reside debajo de un programa con el nombre &quot;GL_OP_ALL_2021&quot; se especificaría como &quot;GL_OP_ALL_2021.MPS saliente&quot;.
 
 Ejemplo de cuerpo de la solicitud:
 
@@ -95,12 +95,12 @@ Ejemplo de cuerpo de la solicitud:
 }
 ```
 
-Al usar `primaryAttributeValues`, el filtro `activityTypeIds` debe estar presente y solo contener los identificadores de actividad que coincidan con el grupo de recursos correspondiente. Por ejemplo, si está filtrando recursos de formularios web, solo se permite el ID de tipo de actividad &quot;Rellenar formulario&quot; en `activityTypeIds`. `primaryAttributeValues` y `primaryAttributeValueIds` no se pueden usar juntos.
+Al usar `primaryAttributeValues`, el filtro `activityTypeIds` debe estar presente y solo contener los identificadores de actividad que coincidan con el grupo de recursos correspondiente. Por ejemplo, si está filtrando recursos de formularios web, solo se permite el identificador de tipo de actividad &quot;Rellenar formulario&quot; en `activityTypeIds`. `primaryAttributeValues` y `primaryAttributeValueIds` no se pueden usar juntos.
 
 ## Opciones
 
 | Parámetro | Tipo de datos | Obligatorio | Notas |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | filter | Matriz[Objeto] | Sí | Acepta una matriz de filtros. Se debe incluir exactamente un filtro `createdAt` en la matriz. Se puede incluir un filtro `activityTypeIds` opcional. Los filtros se aplican al conjunto de actividades accesibles y el conjunto de actividades resultante se devuelve mediante el trabajo de exportación. |
 | formato | Cadena | No | Acepta uno de: CSV, TSV, SSV El archivo exportado se representa como un archivo de valores separados por comas, valores separados por tabulaciones o valores separados por espacios, respectivamente, si se establece. Si no se establece, el valor predeterminado es CSV. |
 | columnHeaderNames | Objeto | No | Objeto JSON que contiene pares de clave-valor de nombres de campo y encabezado de columna. La clave debe ser el nombre de un campo incluido en el trabajo de exportación. El valor es el nombre del encabezado de columna exportado para ese campo. |
