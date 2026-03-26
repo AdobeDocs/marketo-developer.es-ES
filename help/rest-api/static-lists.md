@@ -24,7 +24,7 @@ La consulta de listas estáticas sigue los tipos de consulta estándar para los 
 
 ### Por ID
 
-[La consulta del identificador ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) toma una sola lista estática `id` como parámetro de ruta de acceso y devuelve un único registro de lista estática.
+[La consulta del identificador &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) toma una sola lista estática `id` como parámetro de ruta de acceso y devuelve un único registro de lista estática.
 
 ```
 GET /rest/asset/v1/staticList/{id}.json
