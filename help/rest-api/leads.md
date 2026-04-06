@@ -3,9 +3,9 @@ title: Clientes potenciales
 feature: REST API
 description: Explore las funciones de la API de REST de Marketo Leads, incluida la descripción, la consulta por ID o filtro, los campos predeterminados, los límites y la recuperación de ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: 66154fa4aa37190a49dcc62f57debef5e1e829a1
 workflow-type: tm+mt
-source-wordcount: '3409'
+source-wordcount: '3457'
 ht-degree: 3%
 
 ---
@@ -95,7 +95,7 @@ Para este método, siempre habrá un único registro en la primera posición de 
 
 Obtener posibles clientes por tipo de filtro devolverá el mismo tipo de registros, pero puede devolver hasta 300 por página. Requiere los parámetros de consulta `filterType` y `filterValues`.
 
-`filterType` acepta cualquier campo personalizado o la mayoría de los campos utilizados con frecuencia. Llame al extremo `Describe2` para obtener una lista completa de los campos en los que se pueden realizar búsquedas que se pueden usar en `filterType`. Al buscar por campo personalizado, solo se admiten los siguientes tipos de datos: `string`, `email`, `integer`. Puede obtener detalles de campo (descripción, tipo, etc.) utilizando el método mencionado Describir.
+`filterType` acepta cualquier campo personalizado o la mayoría de los campos utilizados con frecuencia. Llame al extremo `Describe2` para obtener una lista completa de los campos en los que se pueden realizar búsquedas que se pueden usar en `filterType`. Al buscar por campo personalizado, solo se admiten los siguientes tipos de datos: `string`, `email`, `integer`. Puede obtener detalles de campo (descripción, tipo, etc.) mediante el método mencionado Describir.
 
 `filterValues` acepta hasta 300 valores en formato separado por comas. La llamada busca los registros donde el campo del posible cliente coincide con uno de los `filterValues` incluidos. Si el número de posibles clientes que coinciden con el filtro de posibles clientes es mayor que 1000, se devuelve el siguiente error: &quot;1003, Demasiados resultados coinciden con el filtro&quot;.
 
@@ -221,7 +221,7 @@ POST /rest/v1/leads.json
 }
 ```
 
-En esta solicitud, verá dos campos importantes, `action` y `lookupField`.  `action` especifica el tipo de operación de la solicitud y puede ser `createOrUpdate`, `createOnly`, `updateOnly` o `createDuplicate`. Si se omite, el valor predeterminado de la acción es `createOrUpdate`.  El parámetro `lookupField` especifica la clave que se debe usar cuando la acción es `createOrUpdate` o `updateOnly`. Si se omite `lookupField`, la clave predeterminada es `email`.
+En esta solicitud, verá dos campos importantes, `action` y `lookupField`. `action` especifica el tipo de operación de la solicitud y puede ser `createOrUpdate`, `createOnly`, `updateOnly` o `createDuplicate`. Si se omite, el valor predeterminado de la acción es `createOrUpdate`.  El parámetro `lookupField` especifica la clave que se debe usar cuando la acción es `createOrUpdate` o `updateOnly`. Si se omite `lookupField`, la clave predeterminada es `email`.
 
 De forma predeterminada, se utiliza la partición predeterminada. Opcionalmente, puede especificar el parámetro `partitionName`, que solo funciona si la acción es `createOnly` o `createOrUpdate`. Para que `partitionName` funcione como criterio de deduplicación adicional, debe formar parte del tipo de origen en las reglas de desduplicación personalizadas. Durante una operación de actualización, si no existe un posible cliente en la partición especificada, se devuelve un error. Si el usuario solo de API no tiene permiso para acceder a la partición especificada, se devuelve un error.
 
@@ -816,8 +816,10 @@ Membresía
 
 Los registros de posibles clientes también se pueden recuperar en función de su pertenencia a una lista estática o a un programa. Además, puede recuperar todas las listas estáticas, programas o campañas inteligentes a los que pertenece un posible cliente.
 
-La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque filterType y filterValues no se pueden utilizar con esta API.
-Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-**&#x200B;**.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque `filterType` y `filterValues` no se pueden usar con esta API.
+Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-****.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+
+## Obtener programas por ID de posible cliente
 
 ### Solicitud
 
@@ -855,6 +857,8 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
     ]
 }
 ```
+
+## Obtener listas por ID de posible cliente
 
 El extremo de obtención de listas por ID de posible cliente toma un parámetro de ruta de acceso de registro de posible cliente `id` y devuelve todos los registros de lista estática a los que pertenece el posible cliente.
 

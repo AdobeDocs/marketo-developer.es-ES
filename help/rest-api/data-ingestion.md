@@ -3,9 +3,9 @@ title: Ingesta de datos
 feature: REST API, Dynamic Content
 description: Utilice la API de ingesta de datos de Marketo para la ingesta de gran volumen y baja latencia de Personas, Objetos personalizados, Compañías y Miembros del programa.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '1786'
+source-wordcount: '1789'
 ht-degree: 15%
 
 ---
@@ -116,7 +116,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Error
 
-Cuando una llamada produce un error, se devuelve un estado que no es 202 junto con un cuerpo de respuesta con detalles de error adicionales.  El cuerpo de respuesta es application/json y contiene un único objeto con los miembros error_code y message.
+Cuando una llamada produce un error, se devuelve un estado que no es 202 junto con un cuerpo de respuesta con detalles de error adicionales. El cuerpo de la respuesta es `application/json` y contiene un único objeto con los miembros `error_code` y `message`.
 
 A continuación se muestran códigos de error reutilizados de Adobe Developer Gateway.
 
@@ -139,7 +139,16 @@ A continuación, se muestran los códigos de error que son únicos para la API d
 
 ## Reintentos
 
-Cuando se detecta un error transitorio, el servicio reintenta la operación tres veces.  El primer reintento se produce después de un periodo de espera de 5 minutos, el segundo después de 30 minutos más y, finalmente, el tercero después de 30 minutos más.  Los reintentos se producen por varios motivos, principalmente cuando se agota el tiempo de espera de un servicio dependiente o cuando este no está disponible temporalmente.
+Cuando se detecta un error transitorio, el servicio reintenta la operación. Los reintentos se producen por varios motivos, principalmente cuando se agota el tiempo de espera de un servicio dependiente o cuando este no está disponible temporalmente.
+
+Intervalos de reintento:
+
+* Operación inicial y primer reintento: 5 min
+* 1º y 2º: 15 min
+* 2º y 3º: 20 min
+* 3º y 4º: 20 min
+* 4º y 5º : 2 horas
+* después del quinto reintento -> 3 horas
 
 ## Puntos de conexión
 
@@ -239,7 +248,7 @@ Punto final utilizado para actualizar registros de objeto personalizados.
 
 Los permisos requeridos son `Read-Write Custom Object`.
 
-Si se especifica un campo de vínculo a una persona en la solicitud y esa persona no existe, se producen varios reintentos. Si esa persona se añade durante la ventana de reintento (65 minutos), la actualización se realiza correctamente. Por ejemplo, si el campo de vínculo es correo electrónico en Persona y la opción Persona no existe, se produce un reintento.
+Si se especifica un campo de vínculo a una persona en la solicitud y esa persona no existe, se producen varios reintentos. Si esa persona se añade durante la ventana de reintento (65 minutos), la actualización se realiza correctamente. Por ejemplo, si el campo de vínculo es `email` en Persona y la persona no existe, se producen reintentos.
 
 ### Ejemplo de objetos personalizados
 
@@ -407,7 +416,7 @@ Punto final utilizado para sincronizar el estado de miembro del programa, agrega
 
 | Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| programas | Matriz de objeto | Sí | Lista de operaciones del programa. Cada uno especifica un programa, un estado de destino y los posibles clientes que se sincronizarán. | - |
+| Programas | Matriz de objeto | Sí | Lista de operaciones del programa. Cada uno especifica un programa, un estado de destino y los posibles clientes que se sincronizarán. | - |
 
 Cada objeto de la matriz `programs` contiene:
 
@@ -476,7 +485,7 @@ Los permisos requeridos son `Read-Write Lead`.
 
 | Regla | Detalles |
 | --- | --- |
-| programas | No debe ser nulo ni estar vacío. |
+| Programas | No debe ser nulo ni estar vacío. |
 | programId | Requerido. Debe ser un entero positivo. |
 | estado | Requerido. No debe estar en blanco. No debe ser `"Not in Program"` (sin distinción de mayúsculas). En su lugar, utilice el punto de conexión de eliminación. |
 | miembros | No debe ser nulo ni estar vacío. |
@@ -508,7 +517,7 @@ Extremo utilizado para eliminar posibles clientes de los programas. Esto estable
 
 | Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| programas | Matriz de objeto | Sí | Lista de operaciones de eliminación de programas. Cada uno especifica un programa y los posibles clientes que se van a eliminar. | - |
+| Programas | Matriz de objeto | Sí | Lista de operaciones de eliminación de programas. Cada uno especifica un programa y los posibles clientes que se van a eliminar. | - |
 
 Cada objeto de la matriz `programs` contiene:
 
@@ -573,7 +582,7 @@ Los permisos requeridos son `Read-Write Lead`.
 
 | Regla | Detalles |
 | --- | --- |
-| programas | No debe ser nulo ni estar vacío. |
+| Programas | No debe ser nulo ni estar vacío. |
 | programId | Requerido. Debe ser un entero positivo. |
 | miembros | No debe ser nulo ni estar vacío. |
 | leadId | Necesario para cada miembro de la matriz de entrada. |

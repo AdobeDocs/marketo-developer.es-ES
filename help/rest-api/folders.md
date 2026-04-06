@@ -3,9 +3,9 @@ title: Carpetas
 feature: REST API
 description: Guía de API de REST de Marketo para carpetas que abarcan crear, actualizar, eliminar, consultar por id y nombre, examinar por lotes con raíz, espacio de trabajo, maxDepth y paginación.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '1025'
+source-wordcount: '1099'
 ht-degree: 1%
 
 ---
@@ -59,7 +59,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Programa&quot;.  El tipo dicta si la búsqueda en la carpeta se realiza con un ID de carpeta o un ID de programa. Para este extremo, sólo se devuelve un único registro en el resultado Array. Tenga en cuenta el parámetro folderType en la respuesta. Esto puede indicar muchos tipos diferentes de carpetas. Las carpetas de actividades de Marketo tienen un tipo de carpeta de marketing o de programa, que pueden contener muchos tipos diferentes de recursos, mientras que las carpetas de Design Studio tienen un tipo correspondiente al tipo de recurso que pueden contener. Por ejemplo, una carpeta con folderType de &quot;Correo electrónico&quot; puede contener solo correos electrónicos u otras subcarpetas, que pueden tener un folderType de Correo electrónico o Plantilla de correo electrónico. Los tipos pueden incluir:
+El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Programa&quot;.  El tipo dicta si la búsqueda en la carpeta se realiza con un ID de carpeta o un ID de programa. Para este extremo, sólo se devuelve un único registro en el resultado Array. Observe el parámetro `folderType` en la respuesta. Esto puede indicar muchos tipos diferentes de carpetas. Las carpetas de actividades de Marketo tienen un tipo de carpeta de marketing o de programa, que pueden contener muchos tipos diferentes de recursos, mientras que las carpetas de Design Studio tienen un tipo correspondiente al tipo de recurso que pueden contener. Por ejemplo, una carpeta con `folderType` de &quot;Correo electrónico&quot; puede contener solo correos electrónicos u otras subcarpetas, que podrían tener `folderType` de correo electrónico o plantilla de correo electrónico. Los tipos pueden incluir:
 
 - Correo electrónico
 - Plantilla de correo electrónico

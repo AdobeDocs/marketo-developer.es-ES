@@ -3,10 +3,10 @@ title: Etiquetas
 feature: REST API, Tags
 description: Consulte los tipos de etiquetas, obtenga valores permitidos por nombre, actualice o elimine etiquetas de programa en Marketo mediante la API de recursos REST, con ejemplos de solicitudes.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
 workflow-type: tm+mt
-source-wordcount: '221'
-ht-degree: 2%
+source-wordcount: '258'
+ht-degree: 1%
 
 ---
 
@@ -97,7 +97,7 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Las etiquetas se pueden actualizar de forma masiva mediante el punto de conexión [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST). Se puede encontrar un ejemplo de esto [aquí](programs.md#update).
+Las etiquetas se pueden actualizar en masa mediante el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST). Hay un ejemplo disponible en la [sección de actualización de programas](programs.md#update).
 
 ## Eliminar
 

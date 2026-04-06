@@ -3,9 +3,9 @@ title: Notificaciones push
 feature: Mobile Marketing
 description: Guía para habilitar las notificaciones push de iOS con Marketo, desde los certificados APNS y la configuración de Xcode hasta la integración de Marketo SDK, el registro de tokens y la gestión.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
 workflow-type: tm+mt
-source-wordcount: '1344'
+source-wordcount: '1338'
 ht-degree: 0%
 
 ---
@@ -32,7 +32,7 @@ Para activar las notificaciones push hay que seguir tres pasos:
 1. Seleccione el identificador de aplicación que está usando para compilar la aplicación.![](assets/push-appid.png)
 1. Cree y cargue CSR para generar el certificado push. ![](assets/push-ssl.png)
 1. Descargue el certificado en el equipo local y haga doble clic para instalarlo. ![](assets/certificate-download.png)
-1. Abra &quot;Acceso a llaveros&quot;, haga clic con el botón secundario en el certificado y exporte dos elementos al archivo `.p12`.![cadena_clave](assets/key-chain.png)
+1. Abra &quot;Acceso a llaveros&quot;, haga clic con el botón secundario en el certificado y exporte dos elementos al archivo `.p12`.![key_chain](assets/key-chain.png)
 1. Cargue este archivo a través de Marketo Admin Console para configurar las notificaciones.
 1. Actualice los perfiles de aprovisionamiento de aplicaciones.
 
@@ -285,7 +285,7 @@ A continuación se muestra un registro de actividad de Marketo desde Marketo que
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Configuración de FCM con HTTPv1 (Google tiene [protocolo XMPP obsoleto](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) el 12 de junio de 2023 y se eliminará en junio de 2024)
+1. Configuración de FCM con HTTPv1
 
 - Habilitar MME FCM HTTPv1 en el administrador de características de Marketo ![](assets/feature-manager.png)
    - Cargar archivo JSON de cuenta de servicio para la aplicación en MLM.
