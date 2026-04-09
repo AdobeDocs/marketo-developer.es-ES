@@ -3,7 +3,7 @@ title: scheduleCampaign
 feature: SOAP, Smart Campaigns
 description: Utilice scheduleCampaign para ejecutar campañas inteligentes por lotes de Marketo ahora o más tarde, anular tokens, clonar programas e implementar mediante XML de SOAP con muestras de PHP y Java.
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '274'
 ht-degree: 4%
@@ -26,13 +26,13 @@ Si usa este parámetro opcional con [importToList](importtolist.md), la priorida
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | programName | Obligatorio | Nombre del programa contenedor |
 | campaignName | Obligatorio | Nombre de la campaña inteligente |
 | campaignRunAt | Opcional | Hora a la que se ejecuta la campaña programada (formato de fecha WSDL del W3C). |
 | cloneToProgramName | Opcional | Cuando este atributo está presente, el programa principal de la campaña se clona y la campaña recién creada se programa. El atributo especifica el nombre deseado para el programa resultante. Nota: Cuando se utiliza este campo, solo se permiten 10 llamadas al día. |
-| programTokenList->attribute->name | Opcional | El nombre del token para el que desea enviar un nuevo valor. Utilice el formato de token completo como lo haría en la interfaz de usuario de Marketo. Es decir, &quot;{{my.message}}&quot; |
+| programTokenList->attribute->name | Opcional | El nombre del token para el que desea enviar un nuevo valor. Utilice el formato de token completo como lo haría en la interfaz de usuario de Marketo. Es decir, &quot;`{{my.message}}`&quot; |
 | programTokenList->attribute->value | Opcional | El valor del nombre del token asociado. |
 
 ## Solicitar XML

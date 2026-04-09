@@ -3,10 +3,10 @@ title: importToList
 feature: SOAP
 description: Obtenga información sobre cómo utilizar importToList en Marketo SOAP para importar posibles clientes a una lista estática con encabezados CSV, anulaciones de tokens, ejemplos XML y comprobaciones de estado.
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
-source-wordcount: '409'
-ht-degree: 4%
+source-wordcount: '410'
+ht-degree: 5%
 
 ---
 
@@ -28,7 +28,7 @@ Los valores de `displayName` deben usarse en los valores de `importFileHeader` e
 
 **Contenido dinámico de correo electrónico:** De forma opcional, puede pasar valores por posible cliente que actúen como reemplazos de Mis tokens en un mensaje de correo electrónico.
 
-| Correo electrónico | Primer/a | Último/a | {{my.specialToken}} | {{my.otherToken}} |
+| Correo electrónico | Primer/a | Último/a | `{{my.specialToken}}` | `{{my.otherToken}}` |
 | --- | --- | --- | --- | --- |
 | <joe@company.com> | Joe | Smith | Pescado | Azul |
 | <mary@company.com> | Mary | Rodgers | Pollo | Marrón |
@@ -42,7 +42,7 @@ Los valores de `displayName` deben usarse en los valores de `importFileHeader` e
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | programName | Obligatorio | Nombre del programa que contiene la lista estática |
 | campaignName | Opcional | Si se anula el uso de Mi token, este es el nombre de la campaña en la que se utilizarán esos tokens. La campaña debe estar dentro del programa especificado. |

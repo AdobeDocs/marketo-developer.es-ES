@@ -3,10 +3,10 @@ title: requestCampaign
 feature: SOAP, Smart Campaigns
 description: Ejecute posibles clientes en una Marketo Smart Campaign a través de SOAP requestCampaign, incluidos conjuntos de parámetros, administración de tokens, límite de 100 posibles clientes, solicitudes XML y ejemplos de Java en PHP.
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '298'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
@@ -20,7 +20,7 @@ Existen dos conjuntos de parámetros que se pueden utilizar. El primer caso es u
 
 Nota: Límite de 100 valores de leadKey por llamada. Las claves adicionales se ignoran.
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | leadList->leadKey->keyType | Obligatorio | `keyType` le permite especificar el campo por el que desea consultar al posible cliente. Los valores posibles incluyen: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadList->leadKey->keyValue | Obligatorio | `keyValue` es el valor por el que desea consultar al posible cliente. |
@@ -29,7 +29,7 @@ Nota: Límite de 100 valores de leadKey por llamada. Las claves adicionales se i
 | campaignName | Opcional cuando campaignId está presente; de lo contrario, necesaria en un conjunto como `campaignName`, programName y programTokenList | Nombre de la campaña |
 | programName | Opcional cuando campaignId está presente; de lo contrario, necesaria en un conjunto como `campaignName`, programName y programTokenList | El nombre del programa |
 | programTokenList | Opcional cuando campaignId está presente; de lo contrario, necesaria en un conjunto como `campaignName`, `programName` y `programTokenList` | Matriz de tokens que se utilizarán en la campaña. Al especificar tokens, se requieren programName y `campaignName`. |
-| programTokenList->attribute->name | Opcional | El nombre del token de programa del que desea pasar el valor. Ejemplo:{{my.message}} |
+| programTokenList->attribute->name | Opcional | El nombre del token de programa del que desea pasar el valor. Ejemplo: `{{my.message}}` |
 | programTokenList->attribute->value | Opcional | Valor del nombre de token especificado. |
 
 ## Solicitar XML

@@ -3,9 +3,9 @@ title: Campañas inteligentes
 feature: REST API, Smart Campaigns
 description: Aprenda a utilizar las API de REST de Marketo para campañas inteligentes, incluida la consulta por ID o nombre, los filtros de exploración, la creación de eliminación de clonación y la programación o solicitud de déclencheur
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1196'
 ht-degree: 1%
 
 ---
@@ -373,7 +373,7 @@ Las campañas inteligentes por lotes se inician en un momento específico y afec
 
 Use el extremo [Programar campaña](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) para programar una campaña por lotes para que se ejecute de inmediato o en una fecha futura. La campaña `id` es un parámetro de ruta de acceso obligatorio. Los parámetros opcionales son `tokens`, `runAt` y `cloneToProgram`, que se pasan en el cuerpo de la solicitud como application/json.
 
-El parámetro de matriz de tokens es una matriz de Mis tokens que anula los tokens de programa existentes. Después de ejecutar la campaña, los tokens se descartan.  Cada elemento de matriz de token contiene pares de nombre/valor. El nombre del token debe tener el formato &quot;{{my.name}}&quot;.
+El parámetro de matriz de tokens es una matriz de Mis tokens que anula los tokens de programa existentes. Después de ejecutar la campaña, los tokens se descartan.  Cada elemento de matriz de token contiene pares de nombre/valor. El nombre del token debe tener el formato &quot;`{{my.name}}`&quot;.
 
 El parámetro runAt de fecha y hora especifica cuándo ejecutar la campaña. Si no se especifica, la campaña se ejecutará 5 minutos después de llamar al extremo. El valor datetime no puede ser superior a dos años en el futuro.
 
@@ -426,7 +426,7 @@ Use el extremo [Request Campaign](https://developer.adobe.com/marketo-apis/api/m
 
 Este extremo requiere una campaña `id` como parámetro de ruta de acceso y un parámetro de matriz de enteros `leads` que contenga identificadores de posibles clientes Se permite un máximo de 100 posibles clientes por llamada.
 
-Opcionalmente, el parámetro de matriz `tokens` se puede usar para anular Mis tokens locales del programa principal de la campaña. `tokens` acepta un máximo de 100 token. Cada elemento de matriz `tokens` contiene un par nombre/valor. El nombre del token debe tener el formato &quot;{{my.name}}&quot;. Si usas [Agregar un token de sistema como un enlace en un correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) para agregar el token de sistema &quot;viewAsWebpageLink&quot;, no puedes anularlo usando `tokens`. En su lugar, use [Agregar una vista como vínculo de página web a un correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email), lo que le permite invalidar &quot;viewAsWebPageLink&quot; mediante `tokens`.
+Opcionalmente, el parámetro de matriz `tokens` se puede usar para anular Mis tokens locales del programa principal de la campaña. `tokens` acepta un máximo de 100 token. Cada elemento de matriz `tokens` contiene un par nombre/valor. El nombre del token debe tener el formato &quot;`{{my.name}}`&quot;. Si usas [Agregar un token de sistema como un enlace en un correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) para agregar el token de sistema &quot;viewAsWebpageLink&quot;, no puedes anularlo usando `tokens`. En su lugar, use [Agregar una vista como vínculo de página web a un correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email), lo que le permite invalidar &quot;viewAsWebPageLink&quot; mediante `tokens`.
 
 Los parámetros `leads` y `tokens` se pasan en el cuerpo de la solicitud como application/json.
 
