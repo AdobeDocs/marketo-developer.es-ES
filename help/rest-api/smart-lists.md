@@ -24,7 +24,7 @@ La consulta de listas inteligentes sigue los tipos de consulta estándar para lo
 
 ### Por ID
 
-[La consulta del identificador ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) toma una sola lista inteligente `id` como parámetro de ruta de acceso y devuelve un único registro de lista inteligente. Opcionalmente, puede pasar el parámetro booleano `includeRules` para incluir reglas de listas inteligentes en la respuesta.
+[La consulta del identificador &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) toma una sola lista inteligente `id` como parámetro de ruta de acceso y devuelve un único registro de lista inteligente. Opcionalmente, puede pasar el parámetro booleano `includeRules` para incluir reglas de listas inteligentes en la respuesta.
 
 ![Reglas de lista inteligente](assets/smartlist-rules.png)
 
