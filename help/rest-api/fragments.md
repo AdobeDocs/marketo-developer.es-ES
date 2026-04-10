@@ -3,7 +3,7 @@ title: Fragmentos
 feature: REST API
 description: Utilice la API de REST de Marketo Asset para consultar, crear, actualizar, clonar, eliminar, aprobar e inspeccionar las dependencias de fragmentos.
 exl-id: 9dd532d1-1dd7-4581-86dd-1943fab66cbb
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '272'
 ht-degree: 9%
@@ -36,7 +36,7 @@ Puede recuperar los metadatos del fragmento por ID de recurso o con el punto fin
 
 #### Solicitud
 
-```text
+```http
 GET /rest/asset/v2/fragment/{id}
 ```
 
@@ -68,7 +68,7 @@ Los filtros admitidos son `folderId`, `folderIds` repetido, `status` repetido, `
 
 #### Solicitud
 
-```text
+```http
 GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex=0&pageSize=20
 ```
 
@@ -98,7 +98,7 @@ Cree un fragmento enviando una carga útil JSON. Se requieren `name`, `appData` 
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/fragment
 Content-Type: application/json
 ```
@@ -155,7 +155,7 @@ Actualizar un fragmento por ID de recurso.
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/update
 Content-Type: application/json
 ```
@@ -202,7 +202,7 @@ Los valores válidos de `action` son:
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/fragment/state/transition
 Content-Type: application/json
 ```
@@ -222,7 +222,7 @@ Utilice el extremo de clonación para crear una copia de un fragmento existente.
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/fragment/clone
 Content-Type: application/json
 ```
@@ -245,7 +245,7 @@ Eliminar un fragmento por ID de recurso.
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/delete
 Content-Type: application/json
 ```
@@ -258,7 +258,7 @@ Utilice el extremo `usedby` para recuperar recursos que hacen referencia a un fr
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/fragment/usedby
 Content-Type: application/json
 ```

@@ -3,7 +3,7 @@ title: Importación masiva
 feature: REST API
 description: Importación masiva de Marketo para cargar posibles clientes, objetos personalizados y miembros de programas a través de cargas de varias partes, la creación de trabajos asincrónicos, el estado de sondeo y la administración de errores.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '660'
 ht-degree: 2%
@@ -48,17 +48,17 @@ La importación masiva es una operación de registro de &quot;inserción o actua
 
 Las API de importación masiva de Marketo utilizan el concepto de trabajo para ejecutar la importación de datos. Veamos cómo crear un trabajo de importación de posibles clientes simple con el punto de conexión [Importar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST).  Tenga en cuenta que este extremo utiliza [multipart/form-data como content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Esto puede resultar difícil de hacer correctamente, por lo que la práctica recomendada es utilizar una biblioteca de compatibilidad con HTTP en el idioma que elija.  Si te estás mojando los pies, te recomendamos que uses [curl](https://curl.se/).
 
-```
+```http
 POST /bulk/v1/leads.json?format=csv
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=--------------------------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Length: 311
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
@@ -101,7 +101,7 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 
 La determinación del estado del trabajo es sencilla mediante el punto de conexión [Obtener estado del posible cliente de importación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
 
-```
+```http
 GET /bulk/v1/leads/batch/{batchId}.json
 ```
 
@@ -131,7 +131,7 @@ Los errores se indican mediante el atributo `numOfRowsFailed` en la respuesta Ob
 
 Para recuperar los registros y las causas de las filas con errores, debe recuperar el archivo de errores mediante el punto de conexión [Obtener errores de importación de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET).
 
-```
+```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json
 ```
 

@@ -3,7 +3,7 @@ title: Reglas de redireccionamiento de la página de destino
 feature: REST API, Landing Pages
 description: Utilice las API de REST de Marketo Asset para crear, consultar, actualizar y eliminar reglas de redireccionamiento de páginas de aterrizaje con filtros, paginación, opciones de nombre de host y destinos que no sean de Marketo.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 3%
@@ -26,7 +26,7 @@ La consulta de las reglas de redirección de páginas de aterrizaje sigue los ti
 
 El punto de conexión [Obtener reglas de redireccionamiento de páginas de aterrizaje por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) toma un único parámetro de ruta de redireccionamiento de reglas de páginas de aterrizaje `id` y devuelve un único registro de regla de redireccionamiento de páginas de aterrizaje.
 
-```
+```http
 GET /rest/asset/v1/redirectRule/{id}.json
 ```
 
@@ -71,7 +71,7 @@ El parámetro `hostname` se puede usar para filtrar por nombre de host de las p�
 
 Los parámetros `earliestUpdatedAt` y `latestUpdatedAt` le permiten establecer marcas de agua de fecha y hora bajas y altas para devolver reglas de redireccionamiento de páginas de aterrizaje que se actualizaron o crearon inicialmente dentro del intervalo dado.
 
-```
+```http
 GET /rest/asset/v1/redirectRules.json&maxReturn=3
 ```
 
@@ -155,17 +155,17 @@ El parámetro `redirectTo` especifica la página de aterrizaje de destino. Es un
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | No es de Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Encontrará más información sobre la creación de reglas de redireccionamiento de páginas de aterrizaje [aquí](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=es).
+Encontrará más información sobre la creación de reglas de redireccionamiento de páginas de aterrizaje [aquí](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
-```
+```http
 POST /rest/asset/v1/redirectRules.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&redirectTo={"type":"landingPageId", "value":"5559"}
 ```
 
@@ -204,15 +204,15 @@ Al igual que con la llamada de creación descrita anteriormente, se pasan uno o 
 
 El registro actualizado de la regla de redirección de página de aterrizaje se devuelve en la respuesta.
 
-```
+```http
 POST /rest/asset/v1/redirectRule/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 redirectTo={"type":"landingPageId", "value":"5561"}
 ```
 
@@ -247,7 +247,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 La regla de redireccionamiento de página de aterrizaje [Delete por Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) toma un único parámetro de ruta de redireccionamiento de regla de página de aterrizaje `id`.
 
-```
+```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
 ```
 
@@ -275,7 +275,7 @@ El parámetro `offset` es un entero que especifica el número máximo de entrada
 
 El parámetro `maxReturn` es un entero que especifica dónde comenzar a recuperar entradas. Se puede usar junto con `offset` (el valor predeterminado es 0).
 
-```
+```http
 POST /rest/asset/v1/landingPageDomains.json?maxReturn=3
 ```
 

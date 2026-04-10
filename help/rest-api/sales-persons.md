@@ -3,9 +3,9 @@ title: Vendedores
 feature: REST API
 description: Guía de la API de REST de Marketo para los registros del vendedor con sincronización de SFDC o Dynamics, que utiliza externalSalesPersonId para relacionarse con posibles clientes y realizar consultas, actualizaciones y eliminaciones.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '322'
+source-wordcount: '396'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Referencia de extremo de vendedor](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-Las API del vendedor son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitados. Los vendedores son un tipo de registro de persona que son los propietarios de ventas de los registros de posibles clientes. Están relacionados con los registros de posibles clientes por el campo externalSalesPersonId de cada registro de posibles clientes. Cuando un posible cliente está relacionado con un vendedor mediante un campo de ID de persona ventas externo rellenado, los campos de búsqueda correspondientes Propietario del posible cliente se rellenan para ese registro de posible cliente en Marketo, lo que permite el uso de los filtros y tokens correspondientes.
+Las API del vendedor son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitados. Los vendedores son un tipo de registro de persona que son los propietarios de ventas de los registros de posibles clientes. Están relacionados con los registros de posibles clientes por el campo externalSalesPersonId de cada registro de posibles clientes. Cuando un posible cliente está relacionado con un vendedor mediante un campo de ID de persona ventas externo rellenado, los campos de búsqueda correspondientes Propietario del posible cliente se rellenan para ese registro de posible cliente en Marketo, lo que permite el uso de los filtros y tokens correspondientes.
 
 Los vendedores están relacionados con los registros de posibles clientes mediante el punto de conexión [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) y pasando el atributo externalSalesPersonId.
 
@@ -28,7 +28,7 @@ Los registros del vendedor solo se pueden editar mediante la API.
 
 La descripción de los registros del vendedor sigue el patrón estándar para los objetos de base de datos de posibles clientes.
 
-```
+```http
 GET /rest/v1/salespersons/describe.json
 ```
 
@@ -101,7 +101,7 @@ De manera predeterminada, el `idField` de los vendedores es &quot;id&quot; y el 
 
 Vendedores que utilizan el patrón de consulta estándar para claves simples. Este ejemplo muestra el correo electrónico del usuario que se está utilizando como externalSalesPersonId. De forma predeterminada, la consulta devuelve todos los campos que se rellenan para los registros devueltos.
 
-```
+```http
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
 ```
 
@@ -132,7 +132,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 
 El patrón para las actualizaciones es estándar.
 
-```
+```http
 POST /rest/v1/salespersons.json
 ```
 
@@ -185,7 +185,7 @@ No se permite eliminar Vendedores cuando está &quot;en uso&quot;. En este caso,
 - Cuando el vendedor está asociado con posibles clientes activos
 - Cuando el vendedor está asociado con una compañía que se ha eliminado
 
-```
+```http
 POST /rest/v1/salespersons/delete.json
 ```
 

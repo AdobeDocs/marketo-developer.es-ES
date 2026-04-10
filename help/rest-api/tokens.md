@@ -3,7 +3,7 @@ title: Tókenes
 feature: REST API, Tokens
 description: Administre Mis tokens de Marketo con la API de REST de recursos. Consulte Tipos de datos admitidos, obtener por carpeta o programa, crear o actualizar mediante POST con codificación de formulario y eliminar por nombre.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '364'
 ht-degree: 3%
@@ -35,7 +35,7 @@ Son los únicos tipos de datos que se pueden utilizar al crear un token mediante
 
 [Obtener tokens por id. de carpeta](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) toma un `id` como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo.
 
-```curl
+```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 ```
 
@@ -68,15 +68,15 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 El extremo [Create Token](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) crea tokens o, si existen, los actualiza con los valores enviados. Los tokens se crean en el contexto de una carpeta o un programa. El parámetro de ruta de acceso `id` requerido es el identificador de la carpeta a la que se asociará el token. `name`, `type`, `value` y `folderType` son todos parámetros obligatorios del token. Los datos se pasan como POST x-www-form-urlencoded, no como JSON. El campo `name` del token no puede superar los 50 caracteres.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&type=date&value=2015-04-01&folderType=Folder
 ```
 
@@ -109,15 +109,15 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 [Eliminar token por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) toma un identificador como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo. Los tokens se eliminan en función de su carpeta principal, `name`, y `type` del token, cada uno de los cuales es obligatorio. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=AprilFool - deverly&type=date&folderType=Program
 ```
 

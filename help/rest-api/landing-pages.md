@@ -3,7 +3,7 @@ title: Páginas de destino
 feature: REST API, Landing Pages
 description: Utilice la API de REST de Marketo para consultar metadatos y contenido, crear, actualizar, aprobar, eliminar y clonar páginas de aterrizaje, incluidos los tipos guiados y de forma libre.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1221'
 ht-degree: 1%
@@ -22,7 +22,7 @@ Al igual que la mayoría de los demás recursos, las páginas de aterrizaje se p
 
 Si se consulta el contenido de la página de aterrizaje, se devuelve una lista de las secciones de contenido disponibles en la página de aterrizaje. Debe haber una sección en la lista de contenido de una página para actualizar el contenido:
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -60,15 +60,15 @@ Los resultados diferirán entre las plantillas de formulario guiado y las de for
 
 Los tipos de contenido válidos para [contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) son: richText, HTML, Form, Image, Rectangle, Snippet.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -129,15 +129,15 @@ El parámetro `template` se usa para especificar el identificador de la plantill
 
 El parámetro opcional `description` se usa para describir la nueva página de aterrizaje.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 ```
 
@@ -195,7 +195,7 @@ Para las páginas de forma libre, se deben agregar todas las secciones de conten
 
 Para crear una sección de contenido dinámico, debe estar presente en la lista de contenido de la página de aterrizaje. A continuación, el punto de conexión [Actualizar sección de contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) debe usarse para establecer el tipo en &#39;DynamicContent&#39;. Cuando una sección se establece en contenido dinámico, crea secciones dinámicas subyacentes dentro de la sección de contenido, que heredan el tipo base del elemento convertido. Cada sección dinámica también hereda el contenido de la sección convertida.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 ```
 
@@ -231,15 +231,15 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 
 [La actualización del contenido](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) para cada segmento individual se realiza según el ID del segmento.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 segment=New Segment&value=New Content
 ```
 
@@ -274,13 +274,13 @@ Las variables se definen como metaetiquetas dentro del elemento `<head>` de una 
 </head>
 ```
 
-Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Consulta
 
 Recupere variables para una página de aterrizaje guiada pasando el ID de la página de aterrizaje al punto de conexión Obtener variables de página de aterrizaje.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/variables.json
 ```
 
@@ -316,7 +316,7 @@ Entrada  En este ejemplo, la página de aterrizaje guiada contiene 3 variables:
 
 Actualice una variable para una página de aterrizaje guiada pasando el ID de página de aterrizaje, el ID de variable y el valor de variable al punto de conexión Actualizar variables de página de aterrizaje.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 ```
 
@@ -343,7 +343,7 @@ Marketo proporciona el punto de conexión [Obtener contenido completo de la pág
 - segmentation: acepta una matriz de objetos JSON que contienen los atributos segmentationId y segmentId. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera un posible cliente que coincide con esos segmentos.
 - leadId:  Acepta el ID entero de un posible cliente. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera vista por el posible cliente designado.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]
 ```
 

@@ -3,7 +3,7 @@ title: Carpetas
 feature: REST API
 description: Guía de API de REST de Marketo para carpetas que abarcan crear, actualizar, eliminar, consultar por id y nombre, examinar por lotes con raíz, espacio de trabajo, maxDepth y paginación.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1099'
 ht-degree: 1%
@@ -22,7 +22,7 @@ La consulta de carpetas sigue los tipos de consulta estándar para los recursos 
 
 ### Por ID
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -72,7 +72,7 @@ El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Prog
 
 [También se permite la consulta por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). La consulta por extremo de nombre tiene nombre como único parámetro requerido. Nombre realiza una coincidencia de cadena exacta con el campo de nombre de las carpetas de la instancia y devuelve los resultados de cada carpeta que coincida con ese nombre. También tiene los parámetros de consulta opcionales de &quot;tipo&quot;, que pueden ser Carpeta o Programa, &quot;raíz&quot;, el ID de la carpeta para buscar o &quot;espacio de trabajo&quot;, el nombre del espacio de trabajo en el que buscar. Si se establece el parámetro root, también se debe establecer el parámetro type.
 
-```
+```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 ```
 
@@ -125,7 +125,7 @@ Al igual que otros extremos de recuperación masiva de recursos, offset y maxRet
 - workSpace: nombre del espacio de trabajo al que filtrar.
 - maxDepth: el número máximo de niveles que se atravesarán en la jerarquía de carpetas. Si se establece en 0, solo se devuelve la carpeta especificada en la raíz. Si no se especifica, el valor predeterminado es 2.
 
-```
+```http
 GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 ```
 
@@ -213,15 +213,15 @@ La ruta de una carpeta muestra su jerarquía en el árbol de carpetas, de forma 
 
 [La creación de carpetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) es sencilla y se ejecuta con un POST application/x-www-form-urlencoded que tiene dos parámetros obligatorios, &quot;name&quot; (nombre), una cadena y &quot;parent&quot; (padre), el padre en el que crear la carpeta, que es un objeto JSON incrustado con dos miembros, id y type (carpeta o programa), según el tipo de carpeta de destino. Opcionalmente, también se puede incluir una &quot;descripción&quot; o una cadena que puede tener hasta 2000 caracteres.
 
-```
+```http
 POST /rest/asset/v1/folders.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a test
 ```
 
@@ -260,15 +260,15 @@ parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a t
 
 Las actualizaciones de las carpetas se realizan mediante un extremo independiente, y la descripción, el nombre y `isArchive` son parámetros opcionales para la actualización. Si `isArchive` se cambia mediante una actualización, el resultado es que la carpeta se archiva, si se cambia a true, o se desarchiva, si se cambia a false, en la interfaz de usuario de Marketo. Los programas no se pueden actualizar con esta API.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -309,7 +309,7 @@ type=Folder&description=This is a test (update 01)
 
 Las eliminaciones se pueden realizar en carpetas únicas si están vacías, lo que significa que no contienen recursos ni subcarpetas. Si una carpeta es de tipo Programa o tiene el campo isSystem establecido en true, no se puede eliminar con esta API.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/delete.json
 ```
 

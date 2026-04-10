@@ -3,9 +3,9 @@ title: Contenido dinámico
 feature: REST API, Dynamic Content
 description: Configure contenido dinámico de Marketo de nivel de sección mediante las API de REST mediante segmentaciones para personalizar correos electrónicos, páginas de aterrizaje y fragmentos de código con extremos y ejemplos
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '441'
+source-wordcount: '463'
 ht-degree: 2%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 2%
 Marketo facilita el uso del contenido dinámico mediante la segmentación de posibles clientes en varios tipos de recursos:
 
 - Correos electrónicos
-- Páginas de destino
+- Páginas de aterrizaje
 - Fragmentos
 
 ## Información general
@@ -30,11 +30,11 @@ Nota: Tanto los correos electrónicos como las páginas de aterrizaje siguen est
 
 El siguiente ejemplo establece que la sección sea una sección de Contenido dinámico, segmentada por la segmentación 1001.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/Q1-promotion-banner.json
 ```
 
-```
+```text
 type=DynamicContent&value=1001
 ```
 
@@ -56,11 +56,11 @@ Para agregar contenido para segmentos individuales, debemos llamar al punto de c
 
 El siguiente ejemplo establece la sección para mostrar nuestra imagen de titular especial para posibles clientes en el segmento Suroeste en lugar del predeterminado. Si queremos crear más variaciones para más segmentos, volveríamos a llamar a este punto final para cada segmento y sección.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 segment=Southwest&type=HTML&value=<img src='//www.example.com/SuperSpecialBannerForAmericanSouthwestLeads.jpg'/>
 ```
 
@@ -86,7 +86,7 @@ La segmentación es el núcleo del contenido dinámico de Marketo. Una segmentac
 
 Las segmentaciones tienen un extremo de lista que devuelve una respuesta con una lista de segmentaciones disponibles.
 
-```
+```http
 GET /rest/asset/v1/segmentation.json
 ```
 
@@ -133,7 +133,7 @@ GET /rest/asset/v1/segmentation.json
 
 Las segmentaciones también tienen un extremo que devuelve una respuesta con una lista de segmentos de una segmentación principal.
 
-```
+```http
 GET /rest/asset/v1/segmentation/1001/segments.json
 ```
 

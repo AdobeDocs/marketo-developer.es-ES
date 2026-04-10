@@ -3,7 +3,7 @@ title: Formularios
 feature: REST API, Forms
 description: Guía de la API de REST de Marketo Forms para crear y administrar formularios, recuperar por id o nombre, examinar con filtros de estado y administrar campos, conjuntos de campos y reglas.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1823'
 ht-degree: 1%
@@ -26,7 +26,7 @@ Forms admite los métodos estándar de recuperación de recursos [por id.](https
 
 [Obtener formulario por id.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) toma un formulario `id` como parámetro de ruta de acceso y devuelve un registro de formulario.
 
-```
+```http
 GET /rest/asset/v1/form/{id}.json
 ```
 
@@ -80,7 +80,7 @@ GET /rest/asset/v1/form/{id}.json
 
 [Obtener formulario por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) toma un formulario `name` como parámetro de ruta de acceso y devuelve un registro de formulario.
 
-```
+```http
 GET /rest/asset/v1/form/byName.json?name=newForm
 ```
 
@@ -134,7 +134,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 [Obtener formularios de Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) funciona como otros extremos de exploración de Asset API y permite el filtrado opcional en `status`, `maxReturn` y `offset`. El estado puede ser: aprobado, aprobado con borrador o borrador.
 
-```
+```http
 GET /rest/asset/v1/forms.json
 ```
 
@@ -223,7 +223,7 @@ GET /rest/asset/v1/forms.json
 
 La recuperación de la lista de campos de un formulario se realiza por formulario.
 
-```
+```http
 GET /rest/asset/v1/form/{id}/fields.json
 ```
 
@@ -310,7 +310,7 @@ Al editar campos, o su comportamiento dentro de un formulario, la lista de campo
 
 El extremo [Get Form utilizado por](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) toma un formulario `id` como parámetro de ruta y devuelve la lista de recursos que dependen del formulario. Los siguientes tipos de recursos pueden utilizar Forms: Páginas de destino, Listas inteligentes, Campañas inteligentes, Informes, Programas de correo electrónico.
 
-```
+```http
 GET /rest/asset/v1/form/{id}/usedBy.json
 ```
 
@@ -336,15 +336,15 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 Al [crear un formulario](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST), solo hay dos campos obligatorios: la carpeta principal del formulario, el nombre del formulario. Todos los demás parámetros son opcionales con el valor predeterminado. Cuando se crea el formulario, incluye tres campos predeterminados: Nombre, Apellidos, Correo electrónico.
 
-```
+```http
 POST /rest/asset/v1/forms.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=newForm&description=test&folder={"type": "Folder","id": 293}&language=French
 ```
 
@@ -396,15 +396,15 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 
 Los Forms están [actualizados](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) con una llamada similar a través de su id. Durante la creación o actualización, cualquiera de los parámetros de estilo base es accesible y editable, lo que permite modificar cómo se muestra el formulario al usuario final.
 
-```
+```http
 POST /rest/asset/v1/form/736.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=updated name&description=This is a test for updateapi&language=English&progressiveProfiling=true&locale=en_US
 ```
 
@@ -461,7 +461,7 @@ Para añadir o editar correctamente campos pertenecientes a un formulario, debe 
 
 Para los campos de posible cliente, esto se realiza mediante el extremo [Obtener campos de formulario disponibles](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) e incluye el tipo de datos y los metadatos predeterminados para el campo cuando se agrega a un formulario.
 
-```
+```http
 GET /rest/asset/v1/form/fields.json
 ```
 
@@ -593,7 +593,7 @@ GET /rest/asset/v1/form/fields.json
 
 Para los campos personalizados de miembro de programa, llame a [Obtener formulario disponible Campos de miembro de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  punto final para recuperar los tipos de datos de campo personalizado de miembro de programa y los metadatos predeterminados. Para utilizar estos campos en un formulario, el formulario debe residir debajo de un programa (no en Design Studio). Las páginas de destino que contienen formularios que utilizan estos campos también deben residir debajo de un programa (no pueden residir en Design Studio o clonarse en Design Studio).
 
-```
+```http
 GET /rest/asset/v1/form/programMemberFields.json
 ```
 
@@ -632,15 +632,15 @@ Cada formulario contiene una lista editable de campos, que se muestra al usuario
 
 [Para agregar un campo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) solo se necesita el id del formulario principal y el fieldId del campo. El resto de los campos estarán vacíos o tendrán valores predeterminados según su tipo de datos y los metadatos de campo. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/fields.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 fieldId=NumberOfEmployees&maxLength=125&defaultValue=this is default&required=true&fieldWidth=100&validationMessage=hey, you there?&label=employee count&hintText=Hint me&minValue=10
 ```
 
@@ -677,15 +677,15 @@ fieldId=NumberOfEmployees&maxLength=125&defaultValue=this is default&required=tr
 
 Las actualizaciones pueden editar todos los campos del mismo modo que agregar un campo y, del mismo modo, requieren el ID de formulario y el fieldId, excepto que fieldId es un parámetro de ruta de acceso y no un parámetro de consulta al realizar actualizaciones.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/field/LastName.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 label=enter the last name here
 ```
 
@@ -720,15 +720,15 @@ En el ejemplo anterior, se actualiza el campo LastName, que es una cadena simple
 
 Para actualizar los elementos de la lista, el formato del parámetro &quot;values&quot; es el siguiente:
 
-```
+```http
 POST /rest/asset/v1/form/{id}/field/Salutation.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"label":"MR","value":"MR"}, {"label":"MS","value":"MS"}, {"label":"MRS","value":"MRS"}, {"label":"DR","value":"DR"}, {"label":"PROF","value":"PROF"}]
 ```
 
@@ -802,15 +802,15 @@ Los campos de un formulario se organizan en una interfaz similar a una tabla, co
 
 Si el campo de destino también es un conjunto de campos, su registro dentro de la matriz de posiciones también debe contener un parámetro denominado fieldList, una matriz de objetos que contiene los mismos miembros columnNumber, rowNumber y fieldName. El conjunto de campos en sí se trata como un único campo para su posición en la lista principal, mientras que sus subcampos se colocan según las posiciones dadas en el parámetro fieldList.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/reArrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumber":0,"rowNumber":1,"fieldName":"LastName"}, {"columnNumber":0,"rowNumber":2, "fieldName":"Email"}]
 ```
 
@@ -832,11 +832,11 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 Los campos de texto enriquecido se agregan a través de un [extremo independiente](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) de los campos de posibles clientes. El contenido del campo se pasa como multipart/form-data. Debe estructurarse como contenido de HTML que no contenga secuencias de comandos, metaetiquetas o etiquetas de vínculos.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/richText.json
 ```
 
-```
+```html
 Content-Type: multipart/form-data; boundary=---------------------------9051914041544843365972754266
 -----------------------------9051914041544843365972754266
 Content-Disposition: form-data; name="text"
@@ -879,15 +879,15 @@ Cada campo puede tener un conjunto de reglas de visibilidad que determinan si un
 
 Cambiar las reglas de visibilidad es una actualización destructiva.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/field/Email/visibility.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operator": "isNotEmpty", "values": [], "altLabel": "Email:"}]}
 ```
 
@@ -918,7 +918,7 @@ Para obtener la lista completa de operadores disponibles, consulte la página de
 
 ## Seguimiento
 
-Los formularios Marketo pueden tener un comportamiento de página de seguimiento dinámico, donde las reglas para redireccionar a una página determinada o permanecer en la página actual pueden aplicarse en función del contenido de los campos designados al enviarlos. Las reglas pueden llamarse reglas de la página de agradecimiento o reglas de la página de seguimiento indistintamente. Estas reglas se representan como una matriz JSON con los miembros `followupType`, `followupValue`, `operator`, `subjectField`, `values` y `default`. `default` es un valor booleano para el cual solo un registro de la matriz puede ser verdadero. Cuando un visitante no cumple los requisitos para otras reglas, se utiliza la regla designada como predeterminada. `followupType` puede ser lp o url, donde lp indica un identificador de página de aterrizaje de Marketo para `followupValue` y url indica una dirección URL de otra página. El operador se utiliza para comparar el valor del campo de asunto con la lista de valores proporcionados.
+Los formularios Marketo pueden tener un comportamiento de página de seguimiento dinámico, donde las reglas para redireccionar a una página determinada o permanecer en la página actual pueden aplicarse en función del contenido de los campos designados al enviarlos. Las reglas pueden llamarse reglas de la página de agradecimiento o reglas de la página de seguimiento indistintamente. Estas reglas se representan como una matriz JSON con los miembros `followupType`, `followupValue`, `operator`, `subjectField`, `values` y `default`. `default` es un valor booleano para el cual solamente un registro de la matriz puede ser verdadero. Cuando un visitante no cumple los requisitos para otras reglas, se utiliza la regla designada como predeterminada. `followupType` puede ser lp o url, donde lp indica un identificador de página de aterrizaje de Marketo para `followupValue` y url indicará una dirección URL a otra página. El operador se utiliza para comparar el valor del campo de asunto con la lista de valores proporcionados.
 
 ## Botón enviar
 
@@ -934,15 +934,15 @@ Al igual que la mayoría de los demás recursos, los formularios siguen un model
 
 Cuando se habilita la creación de perfiles progresiva en un formulario, se incluye un conjunto de campos denominado &quot;Creación de perfiles&quot; en su lista de campos. Para agregar o quitar campos de la lista de creación de perfiles progresiva, debe utilizar el punto final Actualizar posiciones de campo. Este extremo realiza actualizaciones destructivas, por lo que todos los campos del formulario deben incluirse en cada solicitud. El siguiente ejemplo añade el campo &quot;Phone&quot; a la lista de creación de perfiles progresiva.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/reArrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"Email"},{"columnNumber":0,"rowNumber":1,"fieldName":"LastName"},{"columnNumber":0,"rowNumber":2,"fieldName":"Company"},{"columnNumber":0,"rowNumber":3,"fieldName":"Website"},{"columnNumber":0,"rowNumber":4,"fieldName":"Profiling","fieldList":[{"columnNumber":0,"rowNumber":0,"fieldName":"Phone"}]}]
 ```
 

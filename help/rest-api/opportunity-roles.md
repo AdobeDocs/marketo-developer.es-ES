@@ -3,9 +3,9 @@ title: Funciones de oportunidad
 feature: REST API
 description: Administre las funciones de oportunidad de Marketo mediante la API de REST, incluidas las consultas con campos de desduplicación compuestos, la creación de actualizaciones, la eliminación, los tiempos de espera y la ausencia de sincronización de CRM.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '270'
+source-wordcount: '279'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ Las API de funciones de oportunidad solo se exponen para suscripciones que no ti
 
 Al igual que las oportunidades, una llamada descrita y las operaciones de CRUD se exponen para roles de oportunidad.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -108,7 +108,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 Observe que tanto `dedupeFields` como `searchableFields` son un poco diferentes de las oportunidades. `dedupeFields` proporciona realmente una clave compuesta, donde se requieren los tres de `externalOpportunityId`, `leadId` y `role`. Tanto el vínculo de oportunidad como el de posible cliente por los campos de ID deben existir en la instancia de destino para que la creación del registro se realice correctamente. Para `searchableFields`, `marketoGUID`, `leadId` y `externalOpportunityId` son todos válidos para consultas por su cuenta y utilizan un patrón idéntico al de Oportunidades, pero existe una opción adicional de usar la clave compuesta para la consulta, que requiere enviar un objeto JSON mediante POST, con el parámetro de consulta adicional `_method=GET`.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -147,7 +147,7 @@ Esto produce el mismo tipo de respuesta que una consulta estándar de GET; simpl
 
 Las funciones de oportunidad tienen la misma interfaz para crear y actualizar registros que las oportunidades.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json
 ```
 
@@ -195,7 +195,7 @@ POST /rest/v1/opportunities/roles.json
 
 Puede eliminar los roles de oportunidad desduplicando campos o campos de ID. Especifique el uso del parámetro deleteBy con un valor de dedupeFields o idField. Si no se especifica, el valor predeterminado es deduplicarCampos. El cuerpo de la solicitud contiene una matriz de entrada de funciones de oportunidad que se deben eliminar. Se permite un máximo de 300 funciones de oportunidad por llamada.
 
-```
+```http
 POST /rest/v1/opportunities/roles/delete.json
 ```
 

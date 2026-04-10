@@ -3,7 +3,7 @@ title: Clientes potenciales
 feature: REST API
 description: Explore las funciones de la API de REST de Marketo Leads, incluida la descripción, la consulta por ID o filtro, los campos predeterminados, los límites y la recuperación de ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 66154fa4aa37190a49dcc62f57debef5e1e829a1
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '3457'
 ht-degree: 3%
@@ -30,7 +30,7 @@ Describir es la principal fuente fiable para saber si los campos están disponib
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/describe.json
 ```
 
@@ -68,7 +68,7 @@ Opcionalmente, puede pasar un parámetro de campos que contenga una lista de nom
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/lead/{id}.json
 ```
 
@@ -103,7 +103,7 @@ Si la longitud total de la solicitud de GET supera los 8 KB, se devuelve un erro
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 ```
 
@@ -168,7 +168,7 @@ Además de recuperar los datos de posibles clientes, puede crear, actualizar y e
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads.json
 ```
 
@@ -247,7 +247,7 @@ El extremo Obtener campo de posible cliente por nombre recupera los metadatos de
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -279,7 +279,7 @@ El extremo Obtener campos de posible cliente recupera los metadatos de todos los
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/schema/fields.json
 ```
 
@@ -426,7 +426,7 @@ Hay algunas reglas asociadas con el nombre y el nombre de `displayName`. El atri
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/schema/fields.json
 ```
 
@@ -557,7 +557,7 @@ El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -600,7 +600,7 @@ Nota sobre las actividades anónimas. Si desea asociar actividades anónimas ant
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/push.json
 ```
 
@@ -710,13 +710,13 @@ Los nuevos posibles clientes se crean en la partición principal del espacio de 
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/submitForm.json
 ```
 
 ### Encabezado
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -775,7 +775,7 @@ A veces es necesario combinar registros duplicados y Marketo lo facilita mediant
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ```
 
@@ -798,7 +798,7 @@ A través del seguimiento de posibles clientes (Munchkin), Marketo registra la a
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marketo.com-1396310362214-46169
 ```
 
@@ -817,13 +817,13 @@ Membresía
 Los registros de posibles clientes también se pueden recuperar en función de su pertenencia a una lista estática o a un programa. Además, puede recuperar todas las listas estáticas, programas o campañas inteligentes a los que pertenece un posible cliente.
 
 La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque `filterType` y `filterValues` no se pueden usar con esta API.
-Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-**&#x200B;**.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-****.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
 
 ## Obtener programas por ID de posible cliente
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ```
 
@@ -864,7 +864,7 @@ El extremo de obtención de listas por ID de posible cliente toma un parámetro 
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 ```
 
@@ -906,7 +906,7 @@ La estructura de la respuesta es muy similar, ya que cada elemento de la matriz 
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 ```
 
@@ -980,7 +980,7 @@ El punto de conexión Obtener programas por ID de posible cliente toma un parám
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/{id}/programMembership.json
 ```
 
@@ -1011,7 +1011,7 @@ El punto de conexión Obtener campañas inteligentes por ID de posible cliente t
 
 ### Solicitud
 
-```
+```http
 GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 ```
 
@@ -1049,7 +1049,7 @@ La eliminación de posibles clientes es sencilla mediante el punto de conexión 
 
 ### Solicitud
 
-```
+```http
 POST /rest/v1/leads/delete.json
 ```
 

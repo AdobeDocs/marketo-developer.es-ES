@@ -3,7 +3,7 @@ title: Ingesta de datos
 feature: REST API, Dynamic Content
 description: Utilice la API de ingesta de datos de Marketo para la ingesta de gran volumen y baja latencia de Personas, Objetos personalizados, Compañías y Miembros del programa.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1789'
 ht-degree: 15%
@@ -107,7 +107,7 @@ Cuando una llamada se realiza correctamente, se devuelve un estado 202.  No se d
 
 Ejemplo de respuesta de éxito:
 
-```
+```http
 HTTP/1.1 202 Accepted
 X-Request-Id: e3d92152-0fb1-444a-8f8f-29d5a2338598
 Content-Length: 0

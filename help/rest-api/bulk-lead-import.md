@@ -3,10 +3,10 @@ title: Importación masiva de posibles clientes
 feature: REST API
 description: Cree y supervise importaciones asíncronas masivas de posibles clientes en Marketo con CSV o CSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '795'
-ht-degree: 1%
+source-wordcount: '825'
+ht-degree: 0%
 
 ---
 
@@ -39,17 +39,17 @@ Este tipo de solicitud puede ser difícil de implementar, por lo que se recomien
 
 Para realizar una solicitud de importación masiva, debe establecer el encabezado de tipo de contenido en `multipart/form-data` e incluir al menos un parámetro `file` con el contenido del archivo, y un parámetro `format` con el valor `csv`, `tsv` o `ssv`, que indique el formato de archivo.
 
-```
+```http
 POST /bulk/v1/leads.json?format=csv
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Length: 311
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
@@ -77,13 +77,13 @@ Easy,Fox,easyfox@marketo.com,Marketo
 
 Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Se recomienda utilizar una biblioteca de soporte HTTP en el idioma que elija para garantizar el uso correcto. El siguiente ejemplo es una forma sencilla de hacerlo con cURL desde la línea de comandos:
 
-```
+```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
 Donde el archivo de importación `lead_data.csv` contiene lo siguiente:
 
-```
+```text
 firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
@@ -98,7 +98,7 @@ Observe en la respuesta a nuestra llamada que no hay un listado de éxitos o err
 
 Se recomienda sondear el trabajo cada 5-30 segundos, según la latencia necesaria y las limitaciones de llamadas de API, para ver el estado del trabajo de importación. Puede hacerlo con la API Obtener estado del posible cliente de importación.
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}.json
 ```
 
@@ -134,7 +134,7 @@ Los errores se indican mediante el atributo `numOfRowsFailed` en la respuesta Ob
 
 Para recuperar los registros y las causas de las filas con errores, debe recuperar el archivo de errores:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
@@ -146,7 +146,7 @@ Las advertencias se indican mediante el atributo `numOfRowsWithWarning` en una r
 
 Para recuperar los registros y las causas de las filas de advertencia, recupere el archivo de advertencia:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 

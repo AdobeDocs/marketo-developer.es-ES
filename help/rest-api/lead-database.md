@@ -3,9 +3,9 @@ title: Base de datos de posible clientes
 feature: REST API, Database
 description: Guía de las API de base de datos de posibles clientes de Marketo que abarcan objetos, métodos CRUD y Describe, patrones de consulta, límites de lotes y restricciones de integración de CRM.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '1357'
+source-wordcount: '1373'
 ht-degree: 1%
 
 ---
@@ -46,7 +46,7 @@ En las instancias con una integración nativa de CRM habilitada (Microsoft Dynam
 
 Se proporciona una descripción de la API de para posibles clientes, empresas, oportunidades, funciones, vendedores y objetos personalizados. Al llamar a esto, se recuperan los metadatos del objeto y una lista de campos disponibles para actualizar y consultar. Describir es una parte crucial del diseño de una integración adecuada con Marketo. Proporciona metadatos enriquecidos sobre cómo se puede interactuar con los objetos y cómo no, así como sobre cómo se pueden crear, actualizar y consultar. Aparte de Describir posibles clientes, cada uno de ellos devuelve una lista de claves disponibles para `deduplication` en el parámetro de respuesta `dedupeFields`. Hay disponible una lista de campos como claves para consultar en el parámetro de respuesta `searchableFields`.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -136,7 +136,7 @@ También hay un parámetro de respuesta de campos, que proporcionará el nombre 
 
 Todos los objetos de la base de datos de posibles clientes comparten un patrón básico para consultar claves simples, donde solo se hace referencia a un campo.
 
-```
+```http
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
@@ -149,7 +149,7 @@ Para todos los objetos, excepto los posibles clientes, puede seleccionar su {fie
 
 Para ver un ejemplo rápido, veamos las oportunidades de consulta:
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -188,15 +188,15 @@ Si el conjunto de registros de la consulta supera los 300 o el `batchSize` que s
 
 A veces, como cuando se consulta por GUID, el URI puede ser largo y superar los 8 KB permitidos por el servicio REST. En este caso, debe utilizar el método HTTP POST en lugar de GET y agregar un parámetro de consulta `_method=GET`. Además, el resto de los parámetros de consulta deben pasarse en el cuerpo de POST como una cadena &quot;application/x-www-form-urlencoded&quot; y pasar el encabezado de Content-type asociado.
 
-```
+```http
 POST /rest/v1/opportunities.json?_method=GET
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb,544fb7f5-2ddf-4fca-ae32-7e6ef1415e9f,f1ba41a2-69d1-4a35-9807-0e159d66f2c9,f7521272-3331-4a89-a768-222baff2f894
 ```
 
@@ -206,7 +206,7 @@ Además de los URI largos, este parámetro también es necesario al consultar cl
 
 El patrón para consultar claves compuestas es diferente de las claves simples, ya que requiere enviar una PUBLICACIÓN con un cuerpo JSON. Esto no es necesario en todos los casos, solo en aquellos en los que se usa la opción `dedupeFields` con varios campos como `filterType`. Actualmente, las claves compuestas solo se utilizan en funciones de oportunidad y en algunos objetos personalizados. Veamos un ejemplo de una consulta para roles de oportunidad con la clave compuesta de `dedupeFields`:
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -249,7 +249,7 @@ El único parámetro requerido es una matriz denominada `input` que contiene has
 
 Al pasar una lista de valores de campo, se escribe un valor de `null` o una cadena vacía en la base de datos como `null`.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -301,7 +301,7 @@ Aparte de la API de posibles clientes, las llamadas para crear o actualizar obje
 
 La interfaz para las eliminaciones es estándar para los objetos de base de datos de posibles clientes, además de los posibles clientes. Aparte de la entrada, solo hay un parámetro obligatorio `deleteBy,` que puede tener un valor de idField o dedupeFields. Veamos cómo se eliminan algunos objetos personalizados.
 
-```
+```http
 POST /rest/v1/customobjects/{name}/delete.json
 ```
 

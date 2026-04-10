@@ -3,10 +3,10 @@ title: Programas
 feature: REST API, Programs
 description: Guía de programas de Marketo para la API de REST de recursos que cubre tipos, canales, etiquetas, estados de miembro y extremos para obtener por ID o nombre, examinar y filtrar por estado.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '870'
-ht-degree: 2%
+source-wordcount: '979'
+ht-degree: 1%
 
 ---
 
@@ -40,7 +40,7 @@ El extremo [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asse
 
 El identificador de programa se puede obtener de la dirección URL del programa en la interfaz de usuario, donde la dirección URL será similar a `https://app-\*\*\*.marketo.com/#PG1001A1`. En esta dirección URL, `id` es 1001. Siempre será entre el primer conjunto de cartas de la dirección URL y el segundo conjunto de cartas.
 
-```
+```http
 GET /rest/asset/v1/program/{id}.json
 ```
 
@@ -84,7 +84,7 @@ GET /rest/asset/v1/program/{id}.json
 
 El extremo [Obtener programa por nombre](https://developer.adobe.com/marketo-apis/api/asset/) requiere un parámetro de consulta `name`. Los parámetros de consulta booleanos opcionales son `includeTags` y `includeCosts`, que se utilizan para devolver etiquetas de programa y costos de programa respectivamente.
 
-```
+```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 ```
 
@@ -134,7 +134,7 @@ El parámetro opcional `maxReturn` controla el número de programas que se van a
 
 Tenga en cuenta que este extremo no devuelve las etiquetas asociadas a un programa. Las etiquetas de programa se pueden recuperar mediante [Obtener programas por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) o [Obtener programas por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
 
-```
+```http
 GET /rest/asset/v1/programs.json
 ```
 
@@ -189,7 +189,7 @@ GET /rest/asset/v1/programs.json
 
 Los parámetros `earliestUpdatedAt` y `latestUpdatedAt` de nuestro extremo [Obtener programas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) le permiten establecer marcas de agua de fecha y hora bajas y altas para los programas que devuelven y que se actualizaron o crearon inicialmente dentro del intervalo dado.
 
-```
+```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
 ```
 
@@ -282,7 +282,7 @@ El extremo [Obtener programas por etiqueta](https://developer.adobe.com/marketo-
 
 Hay dos parámetros obligatorios, `tagType`, que es el tipo de etiqueta con la que filtrar, y `tagValue`, que es el valor de etiqueta con el que filtrar.  Hay un parámetro entero opcional `maxReturn` que controla el número de programas que se van a devolver (el máximo es 200, el valor predeterminado es 20) y un parámetro entero opcional `offset` utilizado para los resultados de paginación (el valor predeterminado es 0).  Los resultados se devuelven en orden aleatorio.
 
-```
+```http
 GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 ```
 
@@ -329,15 +329,15 @@ Al crear o actualizar un programa de correo electrónico, `startDate` y `endDate
 
 ### Crear
 
-```
+```http
 POST /rest/asset/v1/programs.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API Program&type=Default&channel=Email Blast&costs=[{"startDate":"2015-01-01","cost":2000}]
 ```
 
@@ -381,15 +381,15 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 Al actualizar los costos del programa, para anexar nuevos costos, simplemente agréguelos a la matriz `costs`. Para realizar una actualización destructiva, pase los nuevos costos junto con el parámetro `costsDestructiveUpdate` establecido en `true`. Para borrar todos los costos de un programa, no pase un parámetro `costs` y simplemente pase `costsDestructiveUpdate` establecido en `true`.
 
-```
+```http
 POST /rest/asset/v1/program/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
 ```
 
@@ -445,7 +445,7 @@ Los programas de correo electrónico pueden aprobarse o desaprobarse de forma re
 
 ### Aprobar
 
-```
+```http
 POST /rest/asset/v1/program/{id}/approve.json
 ```
 
@@ -465,7 +465,7 @@ POST /rest/asset/v1/program/{id}/approve.json
 
 ### Desaprobar
 
-```
+```http
 POST /rest/asset/v1/program/{id}/unapprove.json
 ```
 
@@ -489,15 +489,15 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 Los programas que contienen determinados tipos de recursos no se pueden clonar mediante esta API, incluidas las notificaciones push, los mensajes en la aplicación, los informes y Social Assets. Los programas en la aplicación no se pueden clonar mediante esta API.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Description
 ```
 
@@ -536,7 +536,7 @@ name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Descrip
 
 La eliminación de programas sigue el patrón de eliminación de recursos estándar.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

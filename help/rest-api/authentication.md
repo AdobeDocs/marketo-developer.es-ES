@@ -3,7 +3,7 @@ title: Autenticación
 feature: REST API
 description: Autentique las API de REST de Marketo con 2 OAuth 2.0 legged, cree y utilice tokens de acceso, cambie al encabezado Autorización, administre la caducidad y gestione los errores 601 y 602.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '666'
 ht-degree: 0%
@@ -26,7 +26,7 @@ Se encuentra `Identity URL` en el menú **[!UICONTROL Administración]** > **[!U
 
 Cree un token de acceso utilizando una petición HTTP GET (o POST) como se indica a continuación:
 
-```
+```http
 GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client Id>&client_secret=<Client Secret>
 ```
 
@@ -55,7 +55,7 @@ El token de acceso debe enviarse como un encabezado HTTP.
 
 >[!IMPORTANT]
 >
->La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminará el 31 de julio de 2026. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
+>La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminará el 31 de julio de 2026. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
 
 ### Cambio al encabezado Autorización
 

@@ -3,9 +3,9 @@ title: Scripts de correo electrónico
 feature: Email Programs
 description: Aprenda a crear secuencias de comandos de correos electrónicos dinámicos de Marketo mediante tokens, variables y herramientas de Velocity de Apache Velocity y realice pruebas con Enviar muestra y Vista previa de correo electrónico.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '969'
+source-wordcount: '1115'
 ht-degree: 0%
 
 ---
@@ -20,13 +20,13 @@ NOTA: Se recomienda que lea la [Guía del usuario de Velocity](https://velocity.
 
 Las variables siempre tienen el prefijo &#39;$$&#39; y se configuran y actualizan con #set:
 
-```
+```velocity
 #set($variable = "value")
 ```
 
 Sus valores se pueden recuperar mediante varios tipos de referencia diferentes con comportamientos diferentes:
 
-```
+```text
 $variable ##outputs 'value'
 $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
@@ -34,7 +34,7 @@ ${variable}name ##outputs 'valuename'
 
 También existe la notación de referencia silenciosa, donde hay un `!` incluido después de `$`. Normalmente, cuando velocity encuentra una referencia indefinida, la cadena que representa la referencia se deja en su lugar. Con la notación de referencia silenciosa, si se encuentra una referencia indefinida, no se emite ningún valor:
 
-```
+```velocity
 ##Defined Reference
 
 #set($foo = "bar")
@@ -55,19 +55,19 @@ Para obtener más información sobre cómo hacer referencia a variables, consult
 
 El proyecto de Apache Velocity ofrece funcionalidad mediante el uso de [Herramientas de Velocity](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html). Estos son simplemente contenedores para objetos Java y exponen sus métodos a través de variables globales que están disponibles para todos los scripts.
 
-- [HerramientaAlternador](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
+- [AlternadorHerramienta](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
 - [ComparisonDateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
-- [Herramienta de conversión](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
-- [HerramientaFecha](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DateTool.html)
-- [HerramientaDeVisualización](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DisplayTool.html)
-- [HerramientaMatemática](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/MathTool.html)
-- [HerramientaNúmero](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/NumberTool.html)
-- [HerramientaEscape](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/EscapeTool.html)
-- [HerramientaBucle](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/LoopTool.html)
+- [ConversionTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
+- [DateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DateTool.html)
+- [DisplayTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DisplayTool.html)
+- [MathTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/MathTool.html)
+- [NumberTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/NumberTool.html)
+- [EscapeTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/EscapeTool.html)
+- [LoopTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/LoopTool.html)
 
 Por ejemplo, para usar un método de `ComparisonDateTool`, acceda si desde la variable `$date` en un token de script:
 
-```
+```velocity
 #set($birthday = $convert.parseDate("2015-08-07","yyyy-MM-dd"))
 ##use whenIs to determine how many days away it is
 $date.whenIs($birthday).days ##outputs 1
@@ -107,11 +107,11 @@ La longitud combinada de todos los tokens de script de correo electrónico de un
 
 - Las variables a las que se hace referencia en el script de correo electrónico deben existir en Marketo en uno de los objetos disponibles para el script.
 - Puede hacer referencia a objetos personalizados de primer y segundo nivel que se originan en su CRM integrado de forma nativa y que están conectados directamente al cliente potencial o contacto, pero no a objetos personalizados de tercer nivel. Los objetos personalizados no pueden ser elementos primarios del posible cliente o de la compañía
-- Para los objetos personalizados de Marketo, puede hacer referencia a objetos personalizados de segundo nivel con relación principal-secundario. Por ejemplo `Lead <- Parent <- Child`. No se puede hacer referencia a objetos personalizados de segundo nivel con la relación Edge-Bridge. Por ejemplo: `Lead <- Bridge -> Edge`
+- Para los objetos personalizados de Marketo, puede hacer referencia a objetos personalizados de segundo nivel con relación principal-secundario. Por ejemplo `Lead <- Parent <- Child`. No se puede hacer referencia a objetos personalizados de segundo nivel con la relación Edge-Bridge. e.g.,  `Lead <- Bridge -> Edge`
 - Puede hacer referencia a objetos personalizados conectados a un posible cliente, contacto o cuenta, pero no a más de uno.
 - Solo se puede hacer referencia a los objetos personalizados a través de una única conexión, posible cliente, contacto o cuenta
 - Debe marcar la casilla en el editor de scripts de los campos que está utilizando o no se procesarán
-- Para cada objeto personalizado, los diez registros actualizados más recientemente por persona/contacto están disponibles en tiempo de ejecución y se ordenan desde los más recientes (en 0) a los más antiguos (en 9). Puede aumentar el número de registros disponibles en [siguiendo las instrucciones](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Para cada objeto personalizado, los diez registros actualizados más recientemente por persona/contacto están disponibles en tiempo de ejecución y se ordenan desde los más recientes (en 0) a los más antiguos (en 9). Puede aumentar el número de registros disponibles en [siguiendo las instrucciones](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Si incluye más de un script de correo electrónico en un correo electrónico, se ejecutan de arriba a abajo. El ámbito de las variables definidas en el primer script que se ejecute estará disponible en los scripts posteriores.
 - Referencia de herramientas: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Nota relativa a los tokens que contienen caracteres de línea nueva &quot;\\n&quot; o &quot;\\r\\n&quot;. Cuando se envía un correo electrónico mediante Enviar muestra o una campaña por lotes, los caracteres de línea nueva de los tokens se sustituyen por espacios. Cuando se envía un correo electrónico a través de la campaña de Déclencheur, los caracteres de línea nueva no se tocan.

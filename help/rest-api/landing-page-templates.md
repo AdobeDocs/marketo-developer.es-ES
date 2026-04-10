@@ -3,9 +3,9 @@ title: Plantillas de la página de destino
 feature: REST API, Landing Pages
 description: Administre las plantillas de página de aterrizaje de Marketo a través de los extremos de la API de REST para obtener forma gratuita y tipos guiados, consultar por ID o nombre, crear, actualizar HTML, clonar, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '552'
+source-wordcount: '703'
 ht-degree: 1%
 
 ---
@@ -18,7 +18,7 @@ Las plantillas de página de aterrizaje son un recurso principal y una dependenc
 
 ## Tipos de plantilla
 
-Marketo tiene dos tipos de plantillas de página de aterrizaje, de forma libre y guiadas. Las plantillas de página de aterrizaje de forma libre proporcionan una experiencia de edición ligeramente estructurada para las páginas que se derivan de ellas. Las plantillas guiadas proporcionan una experiencia muy estructurada, en la que los tipos de elementos y las ubicaciones se pueden restringir en el nivel de plantilla. Para obtener más información sobre las diferencias, vea [este documento](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo tiene dos tipos de plantillas de página de aterrizaje, de forma libre y guiadas. Las plantillas de página de aterrizaje de forma libre proporcionan una experiencia de edición ligeramente estructurada para las páginas que se derivan de ellas. Las plantillas guiadas proporcionan una experiencia muy estructurada, en la que los tipos de elementos y las ubicaciones se pueden restringir en el nivel de plantilla. Para obtener más información sobre las diferencias, vea [este documento](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Consulta
 
@@ -28,15 +28,15 @@ Las plantillas de página de aterrizaje admiten los tipos de consulta estándar 
 
 Las plantillas se crean como recursos vacíos con metadatos asociados. Al crear una plantilla, se debe incluir un nombre y una carpeta, junto con una descripción opcional, el parámetro templateType y enableMunchkin. templateType puede ser improvisado o guiado y su valor predeterminado es freeForm. Para ver las diferencias entre los tipos, consulte la sección Formulario guiado frente a formulario libre. enableMunchkin establece el valor predeterminado de false y, cuando está habilitada, impide que se realice el seguimiento de Munchkin en cualquier página de aterrizaje secundaria de la plantilla.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplates.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 ```
 
@@ -76,11 +76,11 @@ Los metadatos de las plantillas de página de aterrizaje se pueden actualizar a 
 
 El contenido de las plantillas de página de aterrizaje se realiza como una actualización destructiva de todo el contenido de HTML. El contenido se debe pasar como multipart/form-data, con el único parámetro denominado content.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplate/286/content.json
 ```
 
-```
+```html
 content-type: multipart/form-data; boundary=--------------------------435851813185237176536801
 ----------------------------435851813185237176536801
 Content-Disposition: form-data; name="content"; filename="content.txt"
@@ -96,7 +96,7 @@ Content-Type: text/plain
 ----------------------------435851813185237176536801--
 ```
 
-```
+```json
  {
   "success": true,
   "warnings": [],
@@ -122,15 +122,15 @@ El parámetro `folder` se usa para especificar la carpeta principal donde residi
 
 El parámetro opcional `description` se usa para describir la nueva plantilla de página de aterrizaje.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 ```
 
@@ -167,9 +167,9 @@ Las plantillas de página de aterrizaje siguen el modelo estándar de borrador a
 
 Para que una plantilla se apruebe, debe cumplir las reglas de su tipo, ya sea guiada por la forma libre. Para obtener más información sobre los requisitos para crear y aprobar plantillas de sus respectivos tipos, consulte sus respectivos documentos de creación:
 
-- [Plantillas de página de aterrizaje de forma gratuita](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Plantillas de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Plantillas de página de aterrizaje de forma libre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Plantillas de la página de destino guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Eliminar
 

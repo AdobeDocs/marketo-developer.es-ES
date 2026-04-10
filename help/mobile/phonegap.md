@@ -3,10 +3,10 @@ title: PhoneGap
 feature: Mobile Marketing
 description: Configure el complemento PhoneGap de Marketo con Cordova, configure Firebase Cloud Messaging, habilite iOS y Android push, realice un seguimiento de las notificaciones e inicialice SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '834'
-ht-degree: 1%
+source-wordcount: '862'
+ht-degree: 2%
 
 ---
 
@@ -16,7 +16,7 @@ Integración del complemento PhoneGap de Marketo
 
 ## Requisitos previos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [Instalar PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -50,7 +50,7 @@ Para volver a añadir el complemento, ejecute el siguiente comando:
 
 Una vez creada la plataforma Cordova Android, abra la aplicación con Android Studio y actualice el valor `dirs` del archivo `Marketo.gradle` que se encuentra en la carpeta `com.marketo.plugin`.
 
-```
+```groovy
 repositories{
   jcenter()
   flatDir{
@@ -66,7 +66,7 @@ Comprobar la lista de plataformas agregadas `$cordova platform ls`
 1. Compatibilidad con Firebase Cloud Messaging
 
 1. Configure la aplicación Firebase en la consola de Firebase.
-   1. Crear/agregar un proyecto en [&#128279;](https://console.firebase.google.com/)consola Firebase.
+   1. Crear/agregar un proyecto en [](https://console.firebase.google.com/)consola Firebase.
       1. En la [consola de Firebase](https://console.firebase.google.com/), seleccione **[!UICONTROL Agregar proyecto]**.
       1. Seleccione el proyecto GCM de la lista de proyectos existentes de Google Cloud y seleccione **[!UICONTROL Agregar Firebase]**.
       1. En la pantalla de bienvenida de Firebase, seleccione &quot;Añadir Firebase a su aplicación de Android&quot;.
@@ -113,11 +113,11 @@ Comprobar la lista de plataformas agregadas `$cordova platform ls`
             fs.writeFileSync("platforms/android/app/src/main/res/values/strings.xml", strings);
             ```
 
-### &#x200B;3. Activar notificaciones push en xCode
+### &#x200B;3. Habilitar notificaciones push en xCode
 
 Active la capacidad de notificación push en el proyecto de xCode.
 
-### &#x200B;4. Rastrear notificaciones push
+### &#x200B;4. Seguimiento de notificaciones push
 
 Pegue el siguiente código dentro de la función `application:didFinishLaunchingWithOptions:`.
 
@@ -127,7 +127,7 @@ Pegue el siguiente código dentro de la función `application:didFinishLaunching
 
 Actualice el método `applicationDidBecomeActive` como se muestra a continuación
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 [sharedInstance trackPushNotification:launchOptions];
@@ -137,7 +137,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 Actualice el método `applicationDidBecomeActive` como se muestra a continuación
 
-```
+```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
 
 sharedInstance.trackPushNotification(launchOptions)
@@ -153,7 +153,7 @@ Tenga en cuenta que debemos pasar `phonegap` como tipo de marco de trabajo para 
 
 ### Sintaxis
 
-```
+```javascript
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
 marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
@@ -177,13 +177,13 @@ marketo.onStart(
 - MUNCHKIN ID : Munchkin ID recibido desde Marketo en el momento del registro.
 - CLAVE SECRETA: Clave secreta recibida de Marketo en el momento del registro.
 
-### &#x200B;6. Inicializar la notificación push de Marketo
+### &#x200B;6. Inicializar notificación push de Marketo
 
 Para asegurarse de que se inicia la notificación push de Marketo, agregue el siguiente código después de la función initialize en el archivo JavaScript principal.
 
 ### Sintaxis
 
-```
+```javascript
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
 marketo.initializeMarketoPush(
     function() { console.log("Marketo push successfully initialized."); },
@@ -200,7 +200,7 @@ marketo.initializeMarketoPush(
 
 También se puede anular el registro del token al cerrar la sesión.
 
-```
+```javascript
 marketo. uninitializeMarketoPush(
   function() { console.log("Marketo push successfully uninitialized."); } ,
   function(error) { console.log("an error occurred:" + error); }
@@ -213,7 +213,7 @@ Puede crear un posible cliente de Marketo llamando a la función associatedLead.
 
 ### Sintaxis
 
-```
+```javascript
 marketo.associateLead(
   function(){ console.log("MarketoSDK : Lead Added"); },
   function(error){ console.log("an error occurred:" + error); },
@@ -229,7 +229,7 @@ marketo.associateLead(
 
 ### Ejemplo
 
-```
+```javascript
 // First create a lead as shown below
 var lead = {};
 lead[marketo.KEY_FIRST_NAME] = "Phone";
@@ -258,7 +258,7 @@ Puede informar de cualquier acción realizada por un usuario llamando a la funci
 
 ### Sintaxis
 
-```
+```javascript
 marketo.reportaction(
   function(){ console.log("MarketoSDK : New event sent "); },
   function(error){ console.log("an error occurred:" + error); },
@@ -276,7 +276,7 @@ marketo.reportaction(
 
 ### Ejemplo
 
-```
+```javascript
 // First create an event as below
 var event = {
     "Action Type":"Add To Cart",
@@ -297,7 +297,7 @@ marketo.reportaction(
 
 Enlace los tipos de evento de &quot;pausa&quot; y &quot;reanudación&quot; como se muestra a continuación a los eventos de inicio y parada del informe.  Se utiliza para rastrear el tiempo empleado en la aplicación móvil. Nota: Esto es obligatorio en Android.
 
-```
+```javascript
 //Add the following code in your www/js/index.js
 
 bindEvents: function() {

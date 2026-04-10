@@ -3,9 +3,9 @@ title: Modo de acceso de seguridad avanzado
 feature: Mobile Marketing
 description: Descubra el modo de acceso de seguridad avanzado para Marketo Mobile SDK, con generación de firmas HMAC, configuración de extremos de servidor, uso de ID de dispositivo y ejemplos de iOS y Android
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '321'
+source-wordcount: '322'
 ht-degree: 0%
 
 ---
@@ -65,7 +65,7 @@ Marketo SDK expone nuevos métodos para establecer y quitar la firma de segurida
 
 ### iOS
 
-```
+```objectivec
 Marketo * sharedInstance =[Marketo sharedInstance];
 
 // set secure signature
@@ -80,7 +80,7 @@ MKTSecuritySignature *signature =
 [sharedInstance getDeviceId];
 ```
 
-```
+```swift
 let sharedInstance = Marketo.sharedInstance()
 
  // set secure signature
@@ -96,7 +96,7 @@ sharedInstance.getDeviceId()
 
 ### Android
 
-```
+```java
 Marketo sdk = Marketo.getInstance(getApplicationContext());
 
 // set signature

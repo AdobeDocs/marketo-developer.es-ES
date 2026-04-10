@@ -3,7 +3,7 @@ title: Extracción masiva de objetos personalizados
 feature: REST API, Custom Objects
 description: Guía de las API de REST de extracción de objetos personalizados en lote de Marketo para exportar objetos personalizados vinculados al posible cliente con filtros de lista y de fecha actualizados, campos seleccionados y...
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1473'
 ht-degree: 1%
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 El conjunto de API de REST de extracción de objetos personalizados en lote proporciona una interfaz de programación para recuperar grandes conjuntos de registros de objetos personalizados de Marketo. Esta es la interfaz recomendada para casos de uso que requieren un intercambio continuo de datos entre Marketo y uno o más sistemas externos, para fines de ETL, almacenamiento de datos y archivo.
 
-Esta API admite la exportación de registros de objetos personalizados de Marketo de primer nivel que están vinculados directamente a un posible cliente. Pase el nombre del objeto personalizado y una lista de posibles clientes a los que está vinculado el objeto. Para cada posible cliente de la lista, los registros de objetos personalizados vinculados que coinciden con el nombre de objeto personalizado especificado se escriben como filas en el archivo de exportación. Los datos de objeto personalizados se pueden ver en la [pestaña Objeto personalizado de la página de detalles del posible cliente en la interfaz de usuario de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Esta API admite la exportación de registros de objetos personalizados de Marketo de primer nivel que están vinculados directamente a un posible cliente. Pase el nombre del objeto personalizado y una lista de posibles clientes a los que está vinculado el objeto. Para cada posible cliente de la lista, los registros de objetos personalizados vinculados que coinciden con el nombre de objeto personalizado especificado se escriben como filas en el archivo de exportación. Los datos de objeto personalizados se pueden ver en la [pestaña Objeto personalizado de la página de detalles del posible cliente en la interfaz de usuario de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Permisos
 
@@ -68,7 +68,7 @@ Campos de objeto personalizados
 
 Podemos llamar a [Describir objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) para inspeccionar mediante programación los atributos de objeto personalizados que aparecen en el atributo `fields` de la respuesta.
 
-```
+```http
 GET /rest/v1/customobjects/car_c/describe.json
 ```
 
@@ -178,7 +178,7 @@ GET /rest/v1/customobjects/car_c/describe.json
 
 Cree varios registros de objetos personalizados y vincule cada uno a un posible cliente diferente mediante el punto de conexión [Sincronizar objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST). Un posible cliente se puede vincular a muchos registros de objeto personalizados. Esto se conoce como relación &quot;uno a varios&quot;.
 
-```
+```http
 POST /rest/v1/customobjects/car_c.json
 ```
 
@@ -237,7 +237,7 @@ POST /rest/v1/customobjects/car_c.json
 
 Cada uno de los tres posibles clientes a los que se hace referencia arriba pertenece a una lista estática denominada &quot;Compradores de automóviles&quot; cuyo `id` es 1081, como se puede ver a continuación llamando al extremo [Obtener posibles clientes por id. de lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1).
 
-```
+```http
 GET /rest/v1/lists/1081/leads.json
 ```
 
@@ -276,7 +276,7 @@ GET /rest/v1/lists/1081/leads.json
 
 Ahora vamos a crear un trabajo de exportación para recuperar estos registros. Al usar el extremo [Crear trabajo de exportación de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST), especificamos atributos de objeto personalizados en el parámetro `fields` y un identificador de lista estática en el parámetro `filter`.
 
-```
+```http
 POST /bulk/v1/customobjects/car_c/export/create.json
 ```
 
@@ -312,7 +312,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 
 Devuelve un estado en la respuesta que indica que el trabajo se ha creado. Se ha definido y creado el trabajo, pero aún no se ha iniciado. Para ello, se debe llamar al extremo [Enqueue Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) mediante `apiName` y `exportId` desde la respuesta de estado de creación.
 
-```
+```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
 ```
 
@@ -340,7 +340,7 @@ El estado solo se puede recuperar para trabajos creados por el mismo usuario de 
 
 Dado que este es un extremo asincrónico, después de crear el trabajo debemos sondear su estado para determinar su progreso. Encuesta usando el punto de conexión [Obtener estado de trabajo de exportación de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). El estado solo se actualiza una vez cada 60 segundos, por lo que no se recomienda una frecuencia de sondeo inferior a esta, y en casi todos los casos sigue siendo excesiva. El campo de estado puede responder con cualquiera de las siguientes opciones: Creado, En cola, Procesando, Cancelado, Completado o Error.
 
-```
+```http
 GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
 ```
 
@@ -390,7 +390,7 @@ Para recuperar el archivo de una exportación de objeto personalizado completada
 
 La respuesta contiene un archivo con el formato que tenía el trabajo configurado. El punto final responde con el contenido del archivo. Si un atributo de objeto personalizado solicitado está vacío (no contiene datos), `null` se coloca en el campo correspondiente del archivo de exportación.
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/file.json
 ```
 
@@ -407,7 +407,7 @@ Para admitir la recuperación parcial y fácil de reanudar de los datos extraíd
 
 Si un trabajo se configuró incorrectamente o se vuelve innecesario, se puede cancelar fácilmente usando el punto de conexión [Cancelar trabajo de exportar objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST). Esto responde con un `status` que indica que el trabajo se ha cancelado.
 
-```
+```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/cancel.json
 ```
 

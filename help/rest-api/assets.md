@@ -3,7 +3,7 @@ title: Recursos
 feature: REST API
 description: Información general sobre las API de REST de Marketo Asset para consultar por ID o nombre, navegar con la paginación y crear o actualizar carpetas, correos electrónicos, formularios, plantillas, archivos y tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '898'
 ht-degree: 2%
@@ -42,7 +42,7 @@ En determinados casos, el extremo de exploración para algunos tipos de recursos
 
 ### Por ID
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -83,7 +83,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 Por motivos técnicos, las API de recursos no pueden buscar nombres de recursos que contengan comas (,).  Se recomienda que la convención de nombres excluya las comas para todos los tipos de recursos.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=My File
 ```
 
@@ -119,7 +119,7 @@ La navegación por los recursos siempre permitirá dos parámetros de consulta:
 - desplazamiento: un desplazamiento entero desde el que se devuelven resultados.
 - maxReturn: Limita el número de registros devueltos.  Si no se establece, el valor predeterminado es 20 y tiene un máximo de 200.
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 ```
 
@@ -179,15 +179,15 @@ Para tipos de recursos simples como carpetas, tokens y archivos, normalmente sol
 
 Por ejemplo, así es como se crea un token:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&value=2015-04-01&type=date&folderType=Folder
 ```
 
@@ -218,15 +218,15 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 
 Para actualizar una carpeta, debe hacer lo siguiente:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -271,15 +271,15 @@ Por ejemplo, para crear una página de aterrizaje, debe llamar a su punto de con
 
 Las páginas de aterrizaje primero requieren crear un recurso de página de aterrizaje mediante una plantilla principal.  Esto crea una nueva página de aterrizaje que contiene el contenido predeterminado de la plantilla para cada sección de contenido.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -320,7 +320,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 Para rellenar el contenido de una página de aterrizaje, debe recuperar la lista de secciones de contenido y, a continuación, realizar actualizaciones individuales para cualquier sección que se desvíe de la plantilla.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -352,7 +352,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 #### Actualizar sección
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 ```
 
@@ -374,7 +374,7 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 Muchos tipos de recursos tienen asociado un sistema de borrador y aprobación, que incluye correos electrónicos, páginas de aterrizaje, fragmentos de código, Forms y sus plantillas correspondientes.  Si intenta aprobar un recurso, se evaluará con un conjunto específico de reglas de validación y, a continuación, se establecerá en un estado aprobado o se devolverá un motivo de error.  Para estos tipos de recursos, cada vez que se realiza una actualización del contenido de un recurso concreto, los cambios se realizan en un borrador del recurso, lo que no afecta a la versión aprobada.  Esto permite realizar cambios en el contenido de forma segura sin afectar a las versiones activas del recurso.  Los cambios se pueden aplicar a la versión activa utilizando el punto de conexión de aprobación.  Esto también borra el estado de borrador del recurso hasta que se apliquen actualizaciones adicionales.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -406,7 +406,7 @@ La aprobación correcta reemplaza la versión activa anterior con la versión ac
 
 La eliminación de borradores también está disponible a través de un punto final para cada tipo de recurso válido.  Si se utiliza en un recurso que está en un estado aprobado con borrador, se descartará el borrador actual y los cambios pendientes que tenga.  Si se utiliza en un recurso que actualmente no tiene una versión aprobada, no hará nada y devolverá un error.  Los recursos solo de borrador se pueden eliminar, pero no se pueden descartar.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -436,7 +436,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 Assets también se puede desaprobar si está en un estado de solo aprobación.  Esto eliminará cualquier versión activa del recurso y devolverá el recurso a un estado de solo borrador, al tiempo que descartará cualquier borrador asociado.  Esta acción solo se puede realizar en la mayoría de los recursos si no se está utilizando en ninguna parte de Marketo, como un correo electrónico al que se hace referencia en un paso de flujo de envío de correo electrónico o un fragmento incrustado en un correo electrónico.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -458,7 +458,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 Assets con estados de aprobación y borrador, excepto para formularios, no se puede eliminar mientras se aprueba y debe desaprobarse antes de eliminarse.  Por lo general, las eliminaciones solo se pueden realizar cuando un recurso no está aprobado y está fuera de uso, y en el caso de las carpetas, está vacío de recursos.  Una excepción notable son los programas, que pueden ser eliminados junto con todo su contenido secundario, siempre y cuando el programa y su contenido no estén en uso en ningún lugar fuera de los límites del programa.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

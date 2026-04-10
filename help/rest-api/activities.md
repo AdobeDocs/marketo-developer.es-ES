@@ -3,9 +3,9 @@ title: Actividades
 feature: REST API
 description: Utilice la API de REST de actividades de Marketo Engage para enumerar tipos de actividades, recuperar actividades de posible cliente con tokens de paginación y gestionar cambios personalizados y de valor de datos.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '2046'
+source-wordcount: '2139'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ La mayoría de las actividades se purgarán después de algún período de tiemp
 
 Para recuperar una lista de tipos disponibles y sus definiciones para una instancia, puede utilizar el punto de conexión [Obtener tipos de actividades](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET).
 
-```
+```http
 GET /rest/v1/activities/types.json
 ```
 
@@ -79,7 +79,7 @@ Para recuperar actividades de Marketo, llame al extremo [Obtener actividades de 
 
 Si lo desea, puede incluir un parámetro de consulta listId para restringir la búsqueda únicamente a los registros incluidos en una lista estática específica, o un parámetro de consulta leadIds y buscar actividades únicamente de un conjunto especificado de posibles clientes. Puede pasar hasta 30 leadIds como una lista separada por comas.
 
-```
+```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -140,7 +140,7 @@ Para las actividades de Cambio de valor de datos, se proporciona una versión es
 * No hay parámetro `activityTypeIds`, ya que el extremo solo devuelve las actividades Cambio de valor de datos y Nuevo posible cliente.
 * El parámetro de consulta `fields` es obligatorio, donde puede pasar una lista de campos separados por comas para indicar para qué campos desea recuperar los cambios.
 
-```
+```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
 ```
 
@@ -192,7 +192,7 @@ Tenga en cuenta que dentro de cada elemento de matriz de resultados, el atributo
 
 También hay un punto final especial [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) para recuperar las actividades eliminadas de Marketo.
 
-```
+```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
 ```
 
@@ -250,7 +250,7 @@ Además del extremo estándar de Obtener tipos de actividad, los extremos de [Ob
 
 ### Obtener tipos
 
-```
+```http
 GET /rest/v1/activities/external/types.json
 ```
 
@@ -278,7 +278,7 @@ GET /rest/v1/activities/external/types.json
 
 Para las descripciones de tipo, debe pasar `apiName` como parámetro de ruta de acceso. De forma predeterminada, obtiene la versión aprobada de la actividad. Opcionalmente, puede pasar el parámetro `draft=true` para recuperar la versión de borrador de la actividad.
 
-```
+```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
 ```
 
@@ -344,7 +344,7 @@ Cuando se crea una actividad personalizada, se crea como borrador y debe aprobar
 
 Al crear un tipo, el parámetro description es opcional, mientras que se requieren todos los parámetros siguientes: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute`.
 
-```
+```http
 POST /rest/v1/activities/external/type.json
 ```
 
@@ -390,7 +390,7 @@ POST /rest/v1/activities/external/type.json
 
 La actualización de un tipo es muy similar, excepto que apiName es el único parámetro requerido como parámetro de ruta.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}.json
 ```
 
@@ -451,7 +451,7 @@ Al cambiar el atributo principal de un tipo de actividad, cualquier atributo pri
 
 La creación de un atributo toma un parámetro de ruta de acceso `apiName` necesario. También se requieren los parámetros `name` y `dataType`.`The description and` `isPrimary` parámetros son opcionales.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 ```
 
@@ -518,7 +518,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 
 Al realizar actualizaciones en los atributos, el `apiName` del atributo es la clave principal. El parámetro `apiName` debe existir para que la actualización se realice correctamente (es decir, no puede cambiar el parámetro `apiName` mediante la actualización).
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 ```
 
@@ -585,7 +585,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 
 Al eliminar un atributo, se toma un parámetro de ruta de acceso `apiName` requerido que es el nombre de API de actividad personalizado.  También se requiere un parámetro de atributo que sea una matriz de objetos de atributo.  Cada objeto debe contener un parámetro `apiName` que sea el nombre de API del tipo de actividad personalizada.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 ```
 
@@ -629,7 +629,7 @@ El miembro de entrada es una matriz de objetos de actividad. Se puede enviar un
 
 Se requieren los miembros `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue` y atributos. La matriz de atributos debe contener el atributo no principal. Esto se puede especificar con name (nombre de campo) o apiName (nombre de API) y el valor que corresponde al valor que está configurando.
 
-```
+```http
 POST /rest/v1/activities/external.json
 ```
 

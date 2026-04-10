@@ -3,7 +3,7 @@ title: Correos electrónicos
 feature: REST API
 description: Utilice la API de REST de Marketo Asset para consultar, crear, actualizar, clonar, eliminar, aprobar e inspeccionar las dependencias de los recursos de correo electrónico.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '497'
 ht-degree: 5%
@@ -38,7 +38,7 @@ Puede recuperar metadatos de correo electrónico por el recurso `id` o con el ex
 
 #### Solicitud
 
-```text
+```http
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -95,7 +95,7 @@ Parámetros de consulta admitidos:
 
 #### Solicitud
 
-```text
+```http
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -125,7 +125,7 @@ Cree un correo electrónico enviando una carga útil JSON. Se requieren `name`, 
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -192,7 +192,7 @@ Actualizar un correo electrónico por ID de recurso. El cuerpo de la solicitud u
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -240,7 +240,7 @@ Los valores válidos de `action` son:
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -260,7 +260,7 @@ Utilice el extremo de clonación para crear una copia de un correo electrónico 
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -283,7 +283,7 @@ Eliminar un correo electrónico por ID de recurso.
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
@@ -296,7 +296,7 @@ Utilice el extremo `usedby` para recuperar recursos que hagan referencia a un co
 
 ### Solicitud
 
-```text
+```http
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```

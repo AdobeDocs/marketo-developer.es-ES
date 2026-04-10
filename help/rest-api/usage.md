@@ -2,7 +2,8 @@
 title: Uso
 feature: REST API
 description: Supervise el uso y los errores de la API de REST de Marketo con puntos finales de estado diarios y de los últimos 7 días, incluidos los recuentos por usuario y los totales de código de error.
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+exl-id: 935a00a4-1e1e-4b48-ae9c-72c5e578312a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '393'
 ht-degree: 9%
@@ -32,7 +33,7 @@ Las API Usage utilizan el mismo método de autenticación que otras API REST de 
 
 Recupera el uso de la API para el día actual.
 
-```
+```http
 GET /rest/v1/stats/usage.json
 ```
 
@@ -69,7 +70,7 @@ Cada objeto de la matriz `result` contiene un día de totales de uso y un desglo
 
 Recupera el uso de la API durante los últimos 7 días. Cada elemento de la matriz `result` representa un día.
 
-```
+```http
 GET /rest/v1/stats/usage/last7days.json
 ```
 
@@ -77,7 +78,7 @@ GET /rest/v1/stats/usage/last7days.json
 
 Recupera los errores de API del día actual.
 
-```
+```http
 GET /rest/v1/stats/errors.json
 ```
 
@@ -114,7 +115,7 @@ Cada objeto de la matriz `result` contiene un día de totales de errores y un de
 
 Recupera errores de API de los últimos 7 días. Cada elemento de la matriz `result` representa un día.
 
-```
+```http
 GET /rest/v1/stats/errors/last7days.json
 ```
 
@@ -125,7 +126,7 @@ GET /rest/v1/stats/errors/last7days.json
 | Nombre | Tipo de datos | Descripción |
 | --- | --- | --- |
 | `date` | Cadena | La fecha del resumen de uso en formato `YYYY-MM-DD`. |
-| `total` | Número entero | Número total de llamadas de API para ese día. |
+| `total` | Entero | Número total de llamadas de API para ese día. |
 | `users` | Matriz | Lista de recuentos de uso por usuario para ese día. |
 
 ### Objeto de usuario de uso
@@ -133,14 +134,14 @@ GET /rest/v1/stats/errors/last7days.json
 | Nombre | Tipo de datos | Descripción |
 | --- | --- | --- |
 | `userId` | Cadena | Identificador de usuario de API. |
-| `count` | Número entero | Número de llamadas de API realizadas por ese usuario durante el día. |
+| `count` | Entero | Número de llamadas de API realizadas por ese usuario durante el día. |
 
 ### Objeto de resultado de error
 
 | Nombre | Tipo de datos | Descripción |
 | --- | --- | --- |
 | `date` | Cadena | La fecha del resumen del error en formato `YYYY-MM-DD`. |
-| `total` | Número entero | Número total de errores de API para ese día. |
+| `total` | Entero | Número total de errores de API para ese día. |
 | `errors` | Matriz | Lista de recuentos de código de error por día. |
 
 ### Objeto de error
@@ -148,7 +149,7 @@ GET /rest/v1/stats/errors/last7days.json
 | Nombre | Tipo de datos | Descripción |
 | --- | --- | --- |
 | `errorCode` | Cadena | Código de error de Marketo. |
-| `count` | Número entero | Número de veces que se produjo ese error durante el día. |
+| `count` | Entero | Número de veces que se produjo ese error durante el día. |
 
 ## Notas
 

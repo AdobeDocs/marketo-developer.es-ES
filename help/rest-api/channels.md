@@ -3,9 +3,9 @@ title: Canales
 feature: REST API
 description: Obtenga información sobre cómo consultar canales de Marketo a través de la API de REST de recursos, examinar con paginación o recuperar por nombre, ver estados de progresión y comprender las reglas de tipo de programa.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '144'
+source-wordcount: '151'
 ht-degree: 2%
 
 ---
@@ -22,7 +22,7 @@ Los canales se pueden consultar como recursos estándar, pero no tienen un punto
 
 ### Examinar
 
-```
+```http
 GET /rest/asset/v1/channels.json?offset=10
 ```
 
@@ -120,7 +120,7 @@ GET /rest/asset/v1/channels.json?offset=10
 
 ### Por nombre
 
-```
+```http
 GET /rest/asset/v1/channel/byName.json?name=Online Advertising
 ```
 

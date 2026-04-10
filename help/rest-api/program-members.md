@@ -3,7 +3,7 @@ title: Miembros del programa
 feature: REST API
 description: Utilice la API de REST de Marketo para leer, crear, actualizar y eliminar miembros del programa, administrar campos estándar y personalizados, y consultar mediante campos en los que se puede buscar.
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1924'
 ht-degree: 2%
@@ -14,13 +14,13 @@ ht-degree: 2%
 
 [Referencia de extremo de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo expone las API para leer, crear, actualizar y eliminar registros de miembros del programa. Los registros de miembros del programa están relacionados con los registros de posibles clientes a través del campo de ID de posible cliente. Los registros están compuestos por un conjunto de campos estándar y, opcionalmente, hasta 20 campos personalizados adicionales. Los campos contienen datos específicos del programa para cada miembro y se pueden utilizar en formularios, filtros, déclencheur y acciones de flujo. Estos datos se pueden ver en la [ficha de miembros](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) del programa en la interfaz de usuario de Marketo Engage.
+Marketo expone las API para leer, crear, actualizar y eliminar registros de miembros del programa. Los registros de miembros del programa están relacionados con los registros de posibles clientes a través del campo de ID de posible cliente. Los registros están compuestos por un conjunto de campos estándar y, opcionalmente, hasta 20 campos personalizados adicionales. Los campos contienen datos específicos del programa para cada miembro y se pueden utilizar en formularios, filtros, déclencheur y acciones de flujo. Estos datos se pueden ver en la [ficha de miembros](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) del programa en la interfaz de usuario de Marketo Engage.
 
 ## Describir
 
 El extremo [Describir miembro del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) sigue el patrón estándar para los objetos de la base de datos de posibles clientes. La matriz `searchableFields` le proporciona el conjunto de campos válidos para la consulta. La matriz `fields` contiene metadatos de campo, incluido el nombre de la API de REST, el nombre para mostrar y la capacidad de actualización de campos.
 
-```
+```http
 GET /rest/v1/programs/members/describe.json
 ```
 
@@ -230,7 +230,7 @@ De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el 
 
 Si la longitud total de la solicitud de GET supera los 8 KB, se devuelve el siguiente error HTTP: &quot;414, URI too long&quot;. Como solución alternativa, puede cambiar su GET a POST, agregar el parámetro `_method=GET` y colocar la cadena de consulta en el cuerpo de la solicitud.
 
-```
+```http
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced
 ```
 
@@ -358,11 +358,11 @@ El extremo responde con un `status` de &quot;actualizado&quot;, &quot;creado&quo
 
 Si la llamada se realiza correctamente, se escribe la actividad &quot;Cambiar estado del programa&quot; en el registro de actividades del posible cliente.
 
-```
+```http
 POST /rest/v1/programs/{programId}/members/status.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -424,11 +424,11 @@ El extremo responde con un `status` de &quot;actualizado&quot; u &quot;omitido&q
 
 Si la llamada se realiza correctamente, se escribe la actividad &quot;Cambiar datos de miembros del programa&quot; en el registro de actividades del posible cliente.
 
-```
+```http
 POST /rest/v1/programs/{programId}/members.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -494,7 +494,7 @@ La consulta de los campos de miembros del programa es sencilla. Puede consultar 
 
 El extremo [Obtener campo de miembro del programa por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de miembro del programa. El parámetro de ruta de acceso obligatorio `fieldApiName` especifica el nombre de API del campo. La respuesta es como el extremo Describir miembro del programa, pero contiene metadatos adicionales como el atributo `isCustom` que indica si el campo es un campo personalizado.
 
-```
+```http
 GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 ```
 
@@ -523,7 +523,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 El extremo [Obtener campos de miembros del programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) recupera los metadatos de todos los campos del objeto de miembro del programa. De forma predeterminada, se devuelve un máximo de 300 registros. Puede usar el parámetro de consulta `batchSize` para reducir este número. Si el atributo `moreResult` es true, significa que hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. Los `nextPageToken` devueltos por esta API siempre se deben reutilizar para la siguiente iteración de esta llamada.
 
-```
+```http
 GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 ```
 
@@ -597,15 +597,15 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Crear campos
 
-El extremo [Crear campos de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) crea uno o varios campos personalizados en el objeto de miembro de programa. Este extremo proporciona una funcionalidad comparable a la que está [disponible en la interfaz de usuario de Marketo Engage](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Puede crear un máximo de 20 campos personalizados con este extremo.
+El extremo [Crear campos de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) crea uno o varios campos personalizados en el objeto de miembro de programa. Este extremo proporciona una funcionalidad comparable a la que está [disponible en la interfaz de usuario de Marketo Engage](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Puede crear un máximo de 20 campos personalizados con este extremo.
 
-Tenga en cuenta cuidadosamente cada campo que cree en la instancia de producción de Marketo Engage mediante la API. Una vez creado un campo, no se puede eliminar ([sólo se puede ocultar](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). La proliferación de campos no utilizados es una mala práctica que añadirá desorden a su instancia.
+Tenga en cuenta cuidadosamente cada campo que cree en la instancia de producción de Marketo Engage mediante la API. Una vez creado un campo, no se puede eliminar ([sólo se puede ocultar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). La proliferación de campos no utilizados es una mala práctica que añadirá desorden a su instancia.
 
 El parámetro `input` requerido es una matriz de objetos de campo de miembros de programa. Cada objeto contiene uno o más atributos. Los atributos requeridos son `displayName`, `name` y `dataType`, que corresponden al nombre para mostrar del campo en la interfaz de usuario, el nombre de API del campo y el tipo de campo respectivamente. Opcionalmente, puede especificar `description`, `isHidden`, `isHtmlEncodingInEmail` y `isSensitive`.
 
 Hay algunas reglas asociadas con el nombre de `name` y `displayName`. El atributo `name` debe ser único, comenzar con una letra y contener solo letras, números o guiones bajos. *`isplayName` debe ser único y no puede contener caracteres especiales. Una convención de nombres común es aplicar [minúscula](https://en.wikipedia.org/wiki/Camel_case#) a `displayName` para generar `name`. Por ejemplo, un `displayName` de &quot;Mi campo personalizado&quot; produciría un `name` de &quot;myCustomField&quot;.
 
-```
+```http
 POST /rest/v1/programs/members/schema/fields.json
 ```
 
@@ -653,7 +653,7 @@ El extremo [Actualizar campo de miembro de programa](https://developer.adobe.com
 
 El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de API del campo que se va a actualizar. El parámetro `input` requerido es una matriz que contiene un solo objeto de campo de posible cliente. El objeto de campo contiene uno o varios atributos.
 
-```
+```http
 POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 ```
 
@@ -688,11 +688,11 @@ El punto de conexión [Eliminar miembros del programa](https://developer.adobe.c
 
 El extremo responde con un `status` de &quot;eliminado&quot; u &quot;omitido&quot;. Si se omite, también se incluirá una matriz `reasons`. El extremo también responderá con un campo `seq`, que es un índice que se puede utilizar para correlacionar los registros enviados con el orden de la respuesta.
 
-```
+```http
 POST /rest/v1/programs/{programId}/members/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

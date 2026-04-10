@@ -3,7 +3,7 @@ title: Extracción en lote
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Bulk Extract para exportar posibles clientes, actividades, miembros de programa y objetos personalizados, con OAuth, colas de trabajos y límites diarios de 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1723'
 ht-degree: 0%
@@ -69,7 +69,7 @@ Los extremos de extracción masiva no tienen en cuenta los espacios de trabajo d
 
 Las API de extracción masiva de Marketo utilizan el concepto de trabajo para iniciar y ejecutar la extracción de datos. Veamos la creación de un trabajo de exportación de posibles clientes simple.
 
-```
+```http
 POST /bulk/v1/leads/export/create.json
 ```
 
@@ -127,7 +127,7 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 
 A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un campo de filtro `status`, un  `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
 
-```
+```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
 ```
 
@@ -159,7 +159,7 @@ El extremo responde con `status` respuesta de cada trabajo creado en los último
 
 Con nuestro id de trabajo en la mano, vamos a comenzar el trabajo:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
@@ -171,7 +171,7 @@ Determinar el estado del trabajo es sencillo.
 
 El estado solo se puede sondear para los trabajos creados por el mismo usuario de API que los creó.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/status.json
 ```
 
@@ -202,7 +202,7 @@ El miembro interno `status` indica el progreso del trabajo y puede ser uno de lo
 
 Una vez finalizado el trabajo, puede recuperar fácilmente el archivo.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
@@ -210,13 +210,13 @@ La respuesta contiene un archivo con el formato que tenía el trabajo configurad
 
 Para admitir la recuperación parcial y fácil de reanudar de los datos extraídos, el extremo de archivo admite opcionalmente el encabezado HTTP `Range` del tipo `bytes` (según [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Si no se establece el encabezado, se devuelve todo el contenido. Para recuperar los primeros 10 000 bytes de un archivo, pasaría el siguiente encabezado como parte de la petición GET al extremo, empezando por el byte 0:
 
-```
+```text
 Range: bytes=0-9999
 ```
 
 Al recuperar el archivo parcial, el extremo responde con el código de estado 206 y devuelve los encabezados Accept-range, Content-Length y Content-Range:
 
-```
+```text
 Accept-Ranges: bytes
 Content-Length: 1000
 Content-Range: bytes 0-9999/123424
@@ -226,7 +226,7 @@ Content-Range: bytes 0-9999/123424
 
 Los archivos se pueden recuperar en parte o reanudar más tarde mediante el encabezado `Range`. El intervalo de un archivo comienza en el byte 0 y finaliza en el valor de `fileSize` menos 1. La longitud del archivo también se indica como denominador en el valor del encabezado de respuesta `Content-Range` al llamar a un extremo de Obtener archivo de exportación. Si una recuperación falla parcialmente, se puede reanudar más adelante. Por ejemplo, si intenta recuperar un archivo de 1000 bytes de longitud, pero solo se recibieron los primeros 725 bytes, la recuperación se puede volver a intentar desde el punto del error llamando de nuevo al extremo y pasando un nuevo intervalo:
 
-```
+```text
 Range: bytes 724-999
 ```
 
@@ -255,7 +255,7 @@ Esta es una respuesta de ejemplo que contiene la suma de comprobación:
 
 A continuación se muestra un ejemplo de creación del hash SHA-256 de un archivo recuperado denominado &quot;bulk_lead_export.csv&quot; mediante la utilidad de línea de comandos sha256sum:
 
-```
+```bash
 $ sha256sum bulk_lead_export.csv
 83aca1351c9398d2770330e21a9e278880fd2f1eeaf8c8238bf7676d5c21d1c6 *bulk_lead_export.csv
 ```
@@ -264,7 +264,7 @@ $ sha256sum bulk_lead_export.csv
 
 Si un trabajo se ha configurado incorrectamente o se vuelve innecesario, se puede cancelar fácilmente:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
 ```
 
