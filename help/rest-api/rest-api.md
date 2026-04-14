@@ -3,9 +3,9 @@ title: API de REST
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo, configurar usuarios de API y LaunchPoint, ver cuotas y límites, autenticarse con el encabezado Autorización y recuperar posibles clientes.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '897'
+source-wordcount: '896'
 ht-degree: 2%
 
 ---
@@ -14,13 +14,15 @@ ht-degree: 2%
 
 Marketo expone una API de REST que permite la ejecución remota de muchas de las funcionalidades del sistema. Desde la creación de programas hasta la importación masiva de posibles clientes, hay muchas opciones que permiten un control preciso de una instancia de Marketo.
 
-Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset/). Las API de base de datos de posibles clientes permiten recuperar e interactuar con los registros de personas de Marketo y los tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
+Estas API generalmente se dividen en dos categorías amplias: [Base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi) y [Recurso](https://developer.adobe.com/marketo-apis/api/asset). Las API de base de datos de posibles clientes permiten recuperar e interactuar con los registros de personas de Marketo y los tipos de objetos asociados, como Oportunidades y Compañías. Las API de activos permiten la interacción con material promocional y registros relacionados con el flujo de trabajo.
 
 >[!NOTE]
+>
 >La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de julio de 2026. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración](../soap-api/migration.md) de la API de SOAP para obtener información sobre cómo migrar.
 >
 
 >[!IMPORTANT]
+>
 >Vea esta [publicación nacional](https://nation.marketo.com/t5/product-blogs/rest-api-double-slash-deprecation/ba-p/358616) sobre la obsolescencia de la doble barra en las URL de puerta de enlace de API.
 >
 
@@ -38,31 +40,31 @@ Para la primera llamada a Marketo, recupera un registro de posibles clientes. Pa
 
 ![Usuarios y roles de administrador](assets/admin-users-and-roles.png)
 
-Haga clic en la ficha **[!UICONTROL Roles]** y, a continuación, en Nuevo rol y asigne al menos el permiso &quot;Posible cliente de solo lectura&quot; (o &quot;Persona de solo lectura&quot;) al rol en el grupo de API de acceso. Asegúrese de darle un nombre descriptivo y haga clic en **[!UICONTROL Crear]**.
+Haga clic en la ficha **[!UICONTROL Roles]** y, a continuación, en Nuevo rol y asigne al menos el permiso &quot;Posible cliente de solo lectura&quot; (o &quot;Persona de solo lectura&quot;) al rol en el grupo de API de acceso. Asegúrese de darle un nombre descriptivo y seleccionar **[!UICONTROL Crear]**.
 
 ![Nuevo rol](assets/new-role.png)
 
-Ahora, vuelve a la ficha [!UICONTROL Usuarios] y haz clic en **[!UICONTROL Invitar nuevo usuario]**. Asigne un nombre descriptivo al usuario que indique que es un usuario de API y una dirección de correo electrónico. Luego, haga clic en **[!UICONTROL Siguiente]**.
+Ahora, vuelve a la pestaña [!UICONTROL Usuarios] y selecciona **[!UICONTROL Invitar nuevo usuario]**. Asigne a su usuario un nombre descriptivo que indique que es un usuario de API y una dirección de correo electrónico, y seleccione **[!UICONTROL Siguiente]**.
 
 ![Nueva información de usuario](assets/new-user-info.png)
 
-A continuación, marque la opción [!UICONTROL Solo API], asigne al usuario la función de API que creó y haga clic en **[!UICONTROL Siguiente]**.
+A continuación, marque la opción [!UICONTROL Solo API] y otorgue a su usuario la función de API que creó. Después, seleccione **[!UICONTROL Siguiente]**.
 
 ![Nuevos permisos de usuario](assets/new-user-permissions.png)
 
-Para completar el proceso de creación de usuarios, haga clic en **[!UICONTROL Enviar]**.
+Para completar el proceso de creación de usuarios, seleccione **[!UICONTROL Enviar]**.
 
 ![Nuevo mensaje de usuario](assets/new-user-message.png)
 
-A continuación, vaya al menú [!UICONTROL Administrador] y haga clic en **[!UICONTROL LaunchPoint]**.
+A continuación, vaya al menú [!UICONTROL Administrador] y seleccione **[!UICONTROL LaunchPoint]**.
 
 ![Punto de inicio](assets/admin-launchpoint.png)
 
-Haga clic en el menú **[!UICONTROL Nuevo]** y seleccione **[!UICONTROL Nuevo servicio]**. Asigne un nombre descriptivo al servicio y seleccione **[!UICONTROL Personalizado]** en el menú desplegable [!UICONTROL Servicio]. Asígnele una descripción y, a continuación, seleccione el nuevo usuario en el menú desplegable [!UICONTROL Usuario solo de API] y haga clic en **[!UICONTROL Crear]**.
+Haga clic en el menú **[!UICONTROL Nuevo]** y seleccione **[!UICONTROL Nuevo servicio]**. Asigne un nombre descriptivo al servicio y seleccione **[!UICONTROL Personalizado]** en el menú desplegable [!UICONTROL Servicio]. Asígnele una descripción y, a continuación, seleccione el nuevo usuario en el menú desplegable [!UICONTROL Usuario solo de API] y seleccione **[!UICONTROL Crear]**.
 
 ![Nuevo servicio de punto de inicio](assets/admin-launchpoint-new-service.png)
 
-Haga clic en **[!UICONTROL Ver detalles]** para que el nuevo servicio acceda al ID de cliente y al Secreto de cliente. Por ahora, puede hacer clic en el botón **[!UICONTROL Obtener token]** para generar un token de acceso válido por una hora. Guarde el token en una nota por ahora.
+Seleccione **[!UICONTROL Ver detalles]** para que su nuevo servicio acceda al ID de cliente y al Secreto de cliente. Por ahora, puede seleccionar **[!UICONTROL Obtener token]** para generar un token de acceso válido por una hora. Guarde el token en una nota por ahora.
 
 ![Obtener token](assets/get-token.png)
 
@@ -84,7 +86,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 >
 >El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
-Abra una nueva ficha del explorador e introduzca lo siguiente, con la información apropiada para llamar a [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
+Abra una nueva ficha del explorador e introduzca lo siguiente, con la información apropiada para llamar a [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)
 
 ```text
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>

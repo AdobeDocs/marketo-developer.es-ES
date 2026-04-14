@@ -2,9 +2,9 @@
 title: Flujos de datos
 description: Información general sobre los flujos de datos de Marketo Engage que permiten eventos de actividad de clientes potenciales y de auditoría de usuarios casi en tiempo real, lo que reduce los límites de API para los clientes de nivel de rendimiento
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1719'
+source-wordcount: '1721'
 ht-degree: 3%
 
 ---
@@ -12,10 +12,11 @@ ht-degree: 3%
 # Flujos de datos
 
 >[!NOTE]
-> La información actual sobre los flujos de datos ahora se encuentra en [Usando flujos de datos](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
+>
+>La información actual sobre los flujos de datos ahora se encuentra en [Usando flujos de datos](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
-Las organizaciones de marketing de nuestros clientes dependen de las campañas de marketing oportunas y centradas para mantenerse al día con su negocio y ser competitivas. Para apoyar las decisiones rápidas y permitir el cambio estratégico a gran velocidad, es importante tener datos para apoyar e impulsar esas decisiones clave que ofrecen campañas centradas y segmentadas. También hay algunos clientes que realizan esfuerzos de marketing en niveles de sus segmentos de clientes tanto dentro como fuera de Marketo Engage. Para apoyar estos diferentes esfuerzos, Marketo ha creado la capacidad de adquirir grandes volúmenes de datos en tiempo casi real mediante flujos de datos.
+Las organizaciones de marketing de nuestros clientes dependen de las campañas de marketing oportunas y centradas para mantenerse al día con su negocio y ser competitivas. Para apoyar las decisiones a ritmo rápido y permitir el cambio estratégico a gran velocidad, es importante tener datos para apoyar e impulsar esas decisiones clave que ofrecen campañas centradas y segmentadas. También hay algunos clientes que realizan esfuerzos de marketing en niveles de sus segmentos de clientes tanto dentro como fuera de Marketo Engage. Para apoyar estos diferentes esfuerzos, Marketo ha creado la capacidad de adquirir grandes volúmenes de datos en tiempo casi real mediante flujos de datos.
 
 Además de las ventajas de los datos casi en tiempo real, existen ventajas relacionadas con el producto:
 

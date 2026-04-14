@@ -3,7 +3,7 @@ title: Etiquetas
 feature: REST API, Tags
 description: Consulte los tipos de etiquetas, obtenga valores permitidos por nombre, actualice o elimine etiquetas de programa en Marketo mediante la API de recursos REST, con ejemplos de solicitudes.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '258'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # Etiquetas
 
-[Referencia de extremo de etiquetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[Referencia de extremo de etiquetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags)
 
 Las etiquetas son campos definidos por el usuario para programas. Cada etiqueta puede aplicarse a uno o más tipos de programa y puede ser obligatoria u opcional, según cómo se haya definido la etiqueta. Las etiquetas también pueden proporcionar una lista de valores permitidos que deben seleccionarse entre para su uso.
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Actualización
 
-El punto de conexión [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) le permite actualizar el valor de un tipo de etiqueta determinado. El extremo toma un parámetro de ruta de acceso `id` y `tagType` que especifican el identificador de programa y el tipo de etiqueta que se va a actualizar. Se usa un parámetro de consulta `tagValue` para especificar el nuevo valor del tipo de etiqueta. Todos los parámetros son obligatorios.
+El punto de conexión [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) le permite actualizar el valor de un tipo de etiqueta determinado. El extremo toma un parámetro de ruta de acceso `id` y `tagType` que especifican el identificador de programa y el tipo de etiqueta que se va a actualizar. Se usa un parámetro de consulta `tagValue` para especificar el nuevo valor del tipo de etiqueta. Todos los parámetros son obligatorios.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Las etiquetas se pueden actualizar en masa mediante el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST). Hay un ejemplo disponible en la [sección de actualización de programas](programs.md#update).
+Las etiquetas se pueden actualizar en masa mediante el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST). Hay un ejemplo disponible en la [sección de actualización de programas](programs.md#update).
 
 ## Eliminar
 
-El punto de conexión [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) le permite eliminar un tipo de etiqueta no obligatorio. El extremo toma `id` y `tagType` parámetros de ruta que especifican el id. de programa y el tipo de etiqueta que se va a eliminar.
+El punto de conexión [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST) le permite eliminar un tipo de etiqueta no obligatorio. El extremo toma `id` y `tagType` parámetros de ruta que especifican el id. de programa y el tipo de etiqueta que se va a eliminar.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

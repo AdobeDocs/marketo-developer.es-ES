@@ -3,7 +3,7 @@ title: Extracción de actividades en lotes
 feature: REST API
 description: La API de REST de extracción masiva de actividades de Marketo para exportar datos de actividad de gran volumen mediante filtros de intervalo de fechas, actividad y atributo principal de 31 días para ETL y CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1564'
 ht-degree: 6%
@@ -12,7 +12,7 @@ ht-degree: 6%
 
 # Extracción de actividades en lotes
 
-[Referencia de extremo de extracción de actividades en lotes](https://developer.adobe.com/marketo-apis/api/mapi/)
+[Referencia de extremo de extracción de actividades en lotes](https://developer.adobe.com/marketo-apis/api/mapi)
 
 El conjunto de API de REST de extracción masiva de actividades proporciona una interfaz de programación para recuperar grandes cantidades de datos de actividad de Marketo.  Para casos que no requieren baja latencia y deben transferir volúmenes significativos de datos de actividad fuera de Marketo, como integración de CRM, ETL, almacenamiento de datos y archivado de datos.
 
@@ -25,20 +25,20 @@ Las API de extracción masiva requieren que el usuario de la API tenga los permi
 | Tipo de filtro | Tipo de datos | Obligatorio | Notas |
 | --- | --- | --- | --- |
 | `createdAt` | Date Range | Sí | Acepta un objeto JSON con los miembros `startAt` y `endAt`. `startAt` acepta una fecha y hora que representa la marca de agua baja y `endAt` acepta una fecha y hora que representa la marca de agua alta. El intervalo debe ser de 31 días o menos. Los trabajos con este tipo de filtro devuelven todos los registros accesibles que se crearon dentro del intervalo de fechas. Las horas de la fecha deben estar en formato ISO-8601, sin milisegundos. |
-| `activityTypeIds` | Matriz\[Entero\] | No | Acepta un objeto JSON con un miembro, `activityTypeIds`. El valor debe ser una matriz de enteros, correspondientes a los tipos de actividad deseados. No se admite la actividad &quot;Eliminar posible cliente&quot; (use el extremo [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) en su lugar). Recupere los identificadores de tipo de actividad usando el [Obtener extremo de tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
-| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Matriz\[Entero\] | No | Acepta un objeto JSON con un miembro, `primaryAttributeValueIds`. El valor es una matriz de ID que especifica los atributos principales por los que filtrar. Se puede especificar un máximo de 50 ID. Los ID son el identificador único de un campo de posible cliente o de un recurso y se pueden recuperar llamando al punto final de la API de REST adecuado. Por ejemplo, para filtrar un formulario específico para la actividad &quot;Rellenar formulario&quot;, pase el nombre del formulario al extremo [Obtener formulario por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) para recuperar el ID del formulario. A continuación se muestra una lista de tipos de actividades donde se admite el filtrado de atributos principales. |
-| [`primaryAttributeValues`](#primaryattributevalues-options) | Matriz\[Cadena\] | No | Acepta un objeto JSON con un miembro, `primaryAttributeValues`. El valor es una matriz de nombres que especifica los atributos principales por los que filtrar. Se puede especificar un máximo de 50 nombres. Los nombres son el identificador único de un campo de posible cliente o de un recurso y se pueden recuperar llamando al punto final de la API de REST adecuado. Por ejemplo, para filtrar un formulario específico para la actividad &quot;Rellenar formulario&quot;, pase el ID del formulario a [Obtener formulario por ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) para recuperar el nombre del formulario. A continuación se muestra una lista de tipos de actividades donde se admite el filtrado de atributos principales. |
+| `activityTypeIds` | Matriz\[Entero\] | No | Acepta un objeto JSON con un miembro, `activityTypeIds`. El valor debe ser una matriz de enteros, correspondientes a los tipos de actividad deseados. No se admite la actividad &quot;Eliminar posible cliente&quot; (use el extremo [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) en su lugar). Recupere los identificadores de tipo de actividad usando el [Obtener extremo de tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
+| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Matriz\[Entero\] | No | Acepta un objeto JSON con un miembro, `primaryAttributeValueIds`. El valor es una matriz de ID que especifica los atributos principales por los que filtrar. Se puede especificar un máximo de 50 ID. Los ID son el identificador único de un campo de posible cliente o de un recurso y se pueden recuperar llamando al punto final de la API de REST adecuado. Por ejemplo, para filtrar un formulario específico para la actividad &quot;Rellenar formulario&quot;, pase el nombre del formulario al extremo [Obtener formulario por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) para recuperar el ID del formulario. A continuación se muestra una lista de tipos de actividades donde se admite el filtrado de atributos principales. |
+| [`primaryAttributeValues`](#primaryattributevalues-options) | Matriz\[Cadena\] | No | Acepta un objeto JSON con un miembro, `primaryAttributeValues`. El valor es una matriz de nombres que especifica los atributos principales por los que filtrar. Se puede especificar un máximo de 50 nombres. Los nombres son el identificador único de un campo de posible cliente o de un recurso y se pueden recuperar llamando al punto final de la API de REST adecuado. Por ejemplo, para filtrar un formulario específico para la actividad &quot;Rellenar formulario&quot;, pase el ID del formulario a [Obtener formulario por ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) para recuperar el nombre del formulario. A continuación se muestra una lista de tipos de actividades donde se admite el filtrado de atributos principales. |
 
 ### primaryAttributeValueIds, opciones {#primaryattributevalueids-options}
 
 | Tipo de actividad | Identificador de valor de atributo principal | Extremo de recuperación | Grupo de recursos |
 | --- | --- | --- | --- |
-| Cambiar valor de datos | ID de campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
-| Cambiar calificación | ID de campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
-| Cambio de estado en progreso | ID de programa | [Obtener programa por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | Programa de marketing |
-| Añadir a la lista | ID de lista estática | [Obtener lista estática por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Lista estática |
-| Quitar de la lista | ID de lista estática | [Obtener lista estática por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Lista estática |
-| Completar formulario | ID de formulario | [Obtener formulario por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Formulario web |
+| Cambiar valor de datos | ID de campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
+| Cambiar calificación | ID de campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
+| Cambio de estado en progreso | ID de programa | [Obtener programa por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET) | Programa de marketing |
+| Añadir a la lista | ID de lista estática | [Obtener lista estática por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Lista estática |
+| Quitar de la lista | ID de lista estática | [Obtener lista estática por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Lista estática |
+| Completar formulario | ID de formulario | [Obtener formulario por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) | Formulario web |
 
 Al usar `primaryAttributeValueIds`, el filtro `activityTypeIds` debe estar presente y solo contener los identificadores de actividad que coincidan con el grupo de recursos correspondiente. Por ejemplo, si está filtrando recursos de formularios web, solo se permite el ID de tipo de actividad &quot;Rellenar formulario&quot; en `activityTypeIds`.
 
@@ -67,12 +67,12 @@ Ejemplo de cuerpo de la solicitud:
 
 | Tipo de actividad | Valor de atributo principal | Extremo de recuperación | Grupo de recursos |
 | --- | --- | --- | --- |
-| Cambiar valor de datos | DisplayName del campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
-| Cambiar calificación | DisplayName del campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
-| Cambio de estado en progreso | Nombre del programa | [Obtener programa por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | Programa de marketing |
-| Añadir a la lista | Nombre de lista estática | [Obtener lista estática por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Lista estática |
-| Quitar de la lista | Nombre de lista estática | [Obtener lista estática por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Lista estática |
-| Completar formulario | Nombre del formulario | [Obtener formulario por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Formulario web |
+| Cambiar valor de datos | DisplayName del campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
+| Cambiar calificación | DisplayName del campo de posible cliente | [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Nombre del atributo |
+| Cambio de estado en progreso | Nombre del programa | [Obtener programa por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) | Programa de marketing |
+| Añadir a la lista | Nombre de lista estática | [Obtener lista estática por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Lista estática |
+| Quitar de la lista | Nombre de lista estática | [Obtener lista estática por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Lista estática |
+| Completar formulario | Nombre del formulario | [Obtener formulario por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) | Formulario web |
 
 Tenga en cuenta que debe utilizar la notación `&lt;program&gt;.&lt;asset&gt;` para especificar el nombre para los siguientes grupos de recursos: Programa de marketing, Lista estática, Formulario web. Por ejemplo, un formulario con el nombre &quot;MPS saliente&quot; que reside debajo de un programa con el nombre &quot;GL_OP_ALL_2021&quot; se especificaría como &quot;GL_OP_ALL_2021.MPS saliente&quot;.
 
@@ -108,7 +108,7 @@ Al usar `primaryAttributeValues`, el filtro `activityTypeIds` debe estar present
 
 ## Creación de un trabajo
 
-Para exportar registros, primero debe definir el trabajo y el conjunto de registros que desea recuperar.  Cree el trabajo con el extremo [Crear trabajo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  Al exportar actividades, se pueden aplicar dos filtros principales: `createdAt`, que siempre es obligatorio, y `activityTypeIds`, que es opcional.  El filtro `createdAt` se usa para definir un intervalo de fechas en el que se crearon las actividades, utilizando los parámetros `startAt` y `endAt`, los cuales son campos de fecha y hora, y representan la fecha de creación permitida más temprana y la fecha de creación permitida más reciente, respectivamente.  Opcionalmente, también puede filtrar solo ciertos tipos de actividades, usando el filtro `activityTypeIds`.  Esto resulta útil para eliminar resultados que no son relevantes para su caso de uso.
+Para exportar registros, primero debe definir el trabajo y el conjunto de registros que desea recuperar.  Cree el trabajo con el extremo [Crear trabajo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  Al exportar actividades, se pueden aplicar dos filtros principales: `createdAt`, que siempre es obligatorio, y `activityTypeIds`, que es opcional.  El filtro `createdAt` se usa para definir un intervalo de fechas en el que se crearon las actividades, utilizando los parámetros `startAt` y `endAt`, los cuales son campos de fecha y hora, y representan la fecha de creación permitida más temprana y la fecha de creación permitida más reciente, respectivamente.  Opcionalmente, también puede filtrar solo ciertos tipos de actividades, usando el filtro `activityTypeIds`.  Esto resulta útil para eliminar resultados que no son relevantes para su caso de uso.
 
 ```http
 POST /bulk/v1/activities/export/create.json
@@ -147,7 +147,7 @@ POST /bulk/v1/activities/export/create.json
 }
 ```
 
-El trabajo ahora tiene el estado &quot;Creado&quot;, pero aún no está en la cola de procesamiento.  Para ponerlo en cola para que pueda comenzar a procesarse, llame al extremo [Enqueue Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) mediante exportId desde la respuesta de estado de creación.
+El trabajo ahora tiene el estado &quot;Creado&quot;, pero aún no está en la cola de procesamiento.  Para ponerlo en cola para que pueda comenzar a procesarse, llame al extremo [Enqueue Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) mediante exportId desde la respuesta de estado de creación.
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -175,7 +175,7 @@ Ahora, el estado indica que el trabajo se ha puesto en cola.  Cuando un trabaja
 
 El estado del trabajo solo se puede recuperar para trabajos creados por el mismo usuario de API.
 
-La extracción de actividades por lotes de Marketo es un extremo asincrónico, por lo que el estado del trabajo debe sondearse para determinar cuándo se ha completado el trabajo.  Encuesta usando el punto de conexión [Obtener estado del trabajo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) de la siguiente manera:
+La extracción de actividades por lotes de Marketo es un extremo asincrónico, por lo que el estado del trabajo debe sondearse para determinar cuándo se ha completado el trabajo.  Encuesta usando el punto de conexión [Obtener estado del trabajo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) de la siguiente manera:
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -213,7 +213,7 @@ El campo de estado puede responder con uno de los siguientes valores:
 
 ## Recuperación de datos
 
-Una vez completado el trabajo, recupere los datos mediante el punto de conexión [Obtener archivo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET).
+Una vez completado el trabajo, recupere los datos mediante el punto de conexión [Obtener archivo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET).
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -235,7 +235,7 @@ Para admitir la recuperación parcial y fácil de reanudar de los datos extraíd
 
 ## Cancelación de un trabajo
 
-Si un trabajo se configuró incorrectamente o se vuelve innecesario, se puede cancelar fácilmente usando el punto de conexión [Cancelar trabajo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST):
+Si un trabajo se configuró incorrectamente o se vuelve innecesario, se puede cancelar fácilmente usando el punto de conexión [Cancelar trabajo de actividad de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST):
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json

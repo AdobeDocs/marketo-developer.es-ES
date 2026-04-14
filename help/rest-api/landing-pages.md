@@ -3,7 +3,7 @@ title: Páginas de destino
 feature: REST API, Landing Pages
 description: Utilice la API de REST de Marketo para consultar metadatos y contenido, crear, actualizar, aprobar, eliminar y clonar páginas de aterrizaje, incluidos los tipos guiados y de forma libre.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1221'
 ht-degree: 1%
@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # Páginas de destino
 
-[Referencia de extremo de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
+[Referencia de extremo de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages)
 
 Las páginas de aterrizaje son páginas web alojadas por Marketo.
 
 ## Consulta
 
-Al igual que la mayoría de los demás recursos, las páginas de aterrizaje se pueden consultar [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) y por [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Estas consultas solo devolverán metadatos, y la lista de secciones de contenido para una página de aterrizaje debe consultarse por separado mediante el ID de la página de aterrizaje.
+Al igual que la mayoría de los demás recursos, las páginas de aterrizaje se pueden consultar [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) y por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Estas consultas solo devolverán metadatos, y la lista de secciones de contenido para una página de aterrizaje debe consultarse por separado mediante el ID de la página de aterrizaje.
 
 Si se consulta el contenido de la página de aterrizaje, se devuelve una lista de las secciones de contenido disponibles en la página de aterrizaje. Debe haber una sección en la lista de contenido de una página para actualizar el contenido:
 
@@ -56,9 +56,9 @@ Los resultados diferirán entre las plantillas de formulario guiado y las de for
 
 ## Crear y actualizar
 
-[Se crean páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/createLandingPageUsingPOST) haciendo referencia a una plantilla. Los únicos campos obligatorios para la creación son nombre, plantilla (el ID de la plantilla) y la carpeta en la que colocar la página. Para ver los metadatos adicionales que se pueden rellenar, consulte la referencia del extremo.
+[Se crean páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/createLandingPageUsingPOST) haciendo referencia a una plantilla. Los únicos campos obligatorios para la creación son nombre, plantilla (el ID de la plantilla) y la carpeta en la que colocar la página. Para ver los metadatos adicionales que se pueden rellenar, consulte la referencia del extremo.
 
-Los tipos de contenido válidos para [contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) son: richText, HTML, Form, Image, Rectangle, Snippet.
+Los tipos de contenido válidos para [contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content) son: richText, HTML, Form, Image, Rectangle, Snippet.
 
 ```http
 POST rest/asset/v1/landingPages.json
@@ -105,7 +105,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Los metadatos de la página de aterrizaje se pueden actualizar con [Actualizar extremo de metadatos de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Los metadatos de la página de aterrizaje se pueden actualizar con [Actualizar extremo de metadatos de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
 
 ## Aprobación
 
@@ -113,7 +113,7 @@ Las páginas de aterrizaje siguen el modelo estándar de borrador aprobado, dond
 
 ## Eliminar
 
-Para eliminar una página de aterrizaje, primero debe estar fuera de uso y ningún otro recurso de Marketo debe hacer referencia a ella, así como estar desaprobada. Las páginas se eliminan individualmente con el extremo [Eliminar página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST). Las páginas de aterrizaje con botones sociales incrustados no se pueden eliminar a través de esta API.
+Para eliminar una página de aterrizaje, primero debe estar fuera de uso y ningún otro recurso de Marketo debe hacer referencia a ella, así como estar desaprobada. Las páginas se eliminan individualmente con el extremo [Eliminar página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST). Las páginas de aterrizaje con botones sociales incrustados no se pueden eliminar a través de esta API.
 
 ## Clonar
 
@@ -173,7 +173,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Sección Administrar contenido
 
-Las secciones de contenido se ordenan por su propiedad de índice y, en última instancia, se presentan según las reglas CSS que se apliquen cuando el cliente las muestre. Las secciones de contenido se incluyen y administran con los puntos finales de sección de contenido de la página de aterrizaje [Add](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Update](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) y [Delete](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) correspondientes, y se pueden consultar usando [Obtener contenido de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Cada sección tiene un tipo y un parámetro de valor. El tipo determina lo que se debe colocar en el valor.  Para estos extremos, los datos se pasan como POST x-www-form-urlencoded, no como JSON.
+Las secciones de contenido se ordenan por su propiedad de índice y, en última instancia, se presentan según las reglas CSS que se apliquen cuando el cliente las muestre. Las secciones de contenido se incluyen y administran con los puntos finales de sección de contenido de la página de aterrizaje [Add](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Update](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) y [Delete](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) correspondientes, y se pueden consultar usando [Obtener contenido de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Cada sección tiene un tipo y un parámetro de valor. El tipo determina lo que se debe colocar en el valor.  Para estos extremos, los datos se pasan como POST x-www-form-urlencoded, no como JSON.
 
 **Tipos de sección**
 
@@ -189,11 +189,11 @@ Las secciones de contenido se ordenan por su propiedad de índice y, en última 
 | SocialButton | El ID de  el botón social. |
 | Vídeo | El ID del vídeo. |
 
-Para las páginas de forma libre, se deben agregar todas las secciones de contenido que desee y se incrustarán en el elemento div con el ID `mktoContent`. Para las páginas guiadas, puede haber una lista de elementos predefinidos en la lista del extremo [Obtener contenido de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Se pueden agregar más o [actualizar el contenido](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) a través de sus respectivos extremos.
+Para las páginas de forma libre, se deben agregar todas las secciones de contenido que desee y se incrustarán en el elemento div con el ID `mktoContent`. Para las páginas guiadas, puede haber una lista de elementos predefinidos en la lista del extremo [Obtener contenido de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Se pueden agregar más o [actualizar el contenido](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) a través de sus respectivos extremos.
 
 ### Contenido dinámico
 
-Para crear una sección de contenido dinámico, debe estar presente en la lista de contenido de la página de aterrizaje. A continuación, el punto de conexión [Actualizar sección de contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) debe usarse para establecer el tipo en &#39;DynamicContent&#39;. Cuando una sección se establece en contenido dinámico, crea secciones dinámicas subyacentes dentro de la sección de contenido, que heredan el tipo base del elemento convertido. Cada sección dinámica también hereda el contenido de la sección convertida.
+Para crear una sección de contenido dinámico, debe estar presente en la lista de contenido de la página de aterrizaje. A continuación, el punto de conexión [Actualizar sección de contenido de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) debe usarse para establecer el tipo en &#39;DynamicContent&#39;. Cuando una sección se establece en contenido dinámico, crea secciones dinámicas subyacentes dentro de la sección de contenido, que heredan el tipo base del elemento convertido. Cada sección dinámica también hereda el contenido de la sección convertida.
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
@@ -229,7 +229,7 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 }
 ```
 
-[La actualización del contenido](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) para cada segmento individual se realiza según el ID del segmento.
+[La actualización del contenido](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) para cada segmento individual se realiza según el ID del segmento.
 
 ```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
@@ -274,7 +274,7 @@ Las variables se definen como metaetiquetas dentro del elemento `<head>` de una 
 </head>
 ```
 
-Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Consulta
 
@@ -338,7 +338,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 
 ## Previsualizar página de aterrizaje
 
-Marketo proporciona el punto de conexión [Obtener contenido completo de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) para recuperar una vista previa activa de una página de aterrizaje tal como se representaría en un explorador. Hay un parámetro requerido, el parámetro de ruta de acceso `id` que es el identificador de la página de aterrizaje que desea previsualizar. Hay dos parámetros de consulta opcionales adicionales:
+Marketo proporciona el punto de conexión [Obtener contenido completo de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) para recuperar una vista previa activa de una página de aterrizaje tal como se representaría en un explorador. Hay un parámetro requerido, el parámetro de ruta de acceso `id` que es el identificador de la página de aterrizaje que desea previsualizar. Hay dos parámetros de consulta opcionales adicionales:
 
 - segmentation: acepta una matriz de objetos JSON que contienen los atributos segmentationId y segmentId. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera un posible cliente que coincide con esos segmentos.
 - leadId:  Acepta el ID entero de un posible cliente. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera vista por el posible cliente designado.

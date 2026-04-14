@@ -3,7 +3,7 @@ title: Correos electrónicos
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Asset para consultar y administrar recursos de correo electrónico por ID, nombre o explorador de carpetas, con notas sobre el contenido predictivo y los límites de las pruebas A/B.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '2301'
 ht-degree: 1%
@@ -12,15 +12,15 @@ ht-degree: 1%
 
 # Correos electrónicos
 
-[Referencia de extremo de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) Se proporciona un conjunto completo de extremos REST para manipular los recursos de correo electrónico.
+[Referencia de extremo de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails) Se proporciona un conjunto completo de extremos REST para manipular los recursos de correo electrónico.
 
-Nota: si usa [Contenido predictivo de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), los siguientes extremos fallarán si hacen referencia a un correo electrónico que contiene contenido predictivo: [Obtener contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Actualizar la sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). La llamada devuelve un código de error 709 y el mensaje de error correspondiente.
+Nota: si usa [Contenido predictivo de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), los siguientes extremos fallarán si hacen referencia a un correo electrónico que contiene contenido predictivo: [Obtener contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET), [Actualizar la sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Aprobar borrador de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/approveDraftUsingPOST). La llamada devuelve un código de error 709 y el mensaje de error correspondiente.
 
 ## Consulta
 
-El patrón de consulta de los mensajes de correo electrónico es idéntico al de las plantillas, ya que permite consultas [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET), así como filtros basados en carpetas con las API examinar y por nombre.
+El patrón de consulta de los mensajes de correo electrónico es idéntico al de las plantillas, ya que permite consultas [por id](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET), así como filtros basados en carpetas con las API examinar y por nombre.
 
-Nota: Si un correo electrónico es parte de un programa de correo electrónico que usa [Pruebas A/B](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), ese correo electrónico no está disponible para consultas mediante los siguientes extremos: [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Obtener correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). La llamada indica que se ha realizado correctamente, pero contiene la siguiente advertencia: &quot;No se han encontrado recursos para los criterios de búsqueda especificados&quot;.
+Nota: Si un correo electrónico es parte de un programa de correo electrónico que usa [Pruebas A/B](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), ese correo electrónico no está disponible para consultas mediante los siguientes extremos: [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET), [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET), [Obtener correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET). La llamada indica que se ha realizado correctamente, pero contiene la siguiente advertencia: &quot;No se han encontrado recursos para los criterios de búsqueda especificados&quot;.
 
 ### Por identificador
 
@@ -218,7 +218,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 ## Contenido de consulta
 
-Puede [recuperar las secciones editables disponibles](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) para un correo electrónico consultando su contenido y, opcionalmente, filtrar el estado para obtener las secciones para las versiones Aprobado o Borrador.
+Puede [recuperar las secciones editables disponibles](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET) para un correo electrónico consultando su contenido y, opcionalmente, filtrar el estado para obtener las secciones para las versiones Aprobado o Borrador.
 
 ```http
 GET /rest/asset/v1/email/1356/content.json
@@ -253,7 +253,7 @@ Las secciones pueden devolver un tipo de contenido dinámico. Consulte la secci�
 
 ## Campos CC de consulta
 
-Puede recuperar el conjunto de campos habilitados para CC de correo electrónico en la instancia de destino llamando al extremo [Obtener campos CC de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailCCFieldsUsingGET).
+Puede recuperar el conjunto de campos habilitados para CC de correo electrónico en la instancia de destino llamando al extremo [Obtener campos CC de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailCCFieldsUsingGET).
 
 ```http
 GET /rest/asset/v1/email/ccFields.json
@@ -284,7 +284,7 @@ GET /rest/asset/v1/email/ccFields.json
 
 ## Crear y actualizar
 
-[Los correos electrónicos se han creado](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) a partir de una plantilla de origen y tienen una lista de secciones editables derivadas de cada elemento HTML independiente de esa plantilla con una clase &quot;mktEditable&quot; y una propiedad de ID única. Al crear un correo electrónico con la API, se crea un registro basado en la plantilla junto con los metadatos adicionales pasados. Se requieren los siguientes parámetros para una llamada de correo electrónico de creación correcta: nombre, plantilla, carpeta.
+[Los correos electrónicos se han creado](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/createEmailUsingPOST) a partir de una plantilla de origen y tienen una lista de secciones editables derivadas de cada elemento HTML independiente de esa plantilla con una clase &quot;mktEditable&quot; y una propiedad de ID única. Al crear un correo electrónico con la API, se crea un registro basado en la plantilla junto con los metadatos adicionales pasados. Se requieren los siguientes parámetros para una llamada de correo electrónico de creación correcta: nombre, plantilla, carpeta.
 
 Los siguientes parámetros son opcionales para la creación: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. Si no se establece, `subject` estará vacío, `fromName`, `fromEmail` y `replyEmail` se establecerán en valores predeterminados de instancia, y `operational` y `isOpenTrackingDisabled` serán falsos. `isOpenTrackingDisabled` determina si el píxel de seguimiento abierto se incluye en un mensaje de correo electrónico cuando se envía.
 
@@ -352,7 +352,7 @@ name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&d
 }
 ```
 
-[La actualización de un registro de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) se puede realizar mediante el identificador. Esto permite actualizar la descripción o el nombre del correo electrónico.
+[La actualización de un registro de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailContentUsingPOST) se puede realizar mediante el identificador. Esto permite actualizar la descripción o el nombre del correo electrónico.
 
 ```http
 POST /rest/asset/v1/email/{id}.json
@@ -420,7 +420,7 @@ description=This is an Email&name=Updated Email
 
 ### Sección de contenido, tipo y actualización
 
-El contenido de cada sección de un correo electrónico se debe actualizar de forma individual, aparte del asunto, fromName, fromEmail y replyEmail, que se actualizan con el punto de conexión [Actualizar contenido del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST). Al utilizar este punto de conexión, estos valores también se pueden configurar para utilizar contenido dinámico en lugar de contenido estático. Cada parámetro es un objeto JSON de tipo/valor, donde el tipo es &quot;Text&quot; o &quot;DynamicContent&quot; y el valor es el valor de texto adecuado o el ID de la segmentación que se utilizará para el contenido dinámico. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.  isOpenTrackingDisabled se puede configurar con Actualizar contenido de correo electrónico
+El contenido de cada sección de un correo electrónico se debe actualizar de forma individual, aparte del asunto, fromName, fromEmail y replyEmail, que se actualizan con el punto de conexión [Actualizar contenido del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailContentUsingPOST). Al utilizar este punto de conexión, estos valores también se pueden configurar para utilizar contenido dinámico en lugar de contenido estático. Cada parámetro es un objeto JSON de tipo/valor, donde el tipo es &quot;Text&quot; o &quot;DynamicContent&quot; y el valor es el valor de texto adecuado o el ID de la segmentación que se utilizará para el contenido dinámico. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.  isOpenTrackingDisabled se puede configurar con Actualizar contenido de correo electrónico
 
 ```http
 POST /rest/asset/v1/email/{id}/content.json
@@ -484,15 +484,15 @@ Nota: Si la copia automática a texto está desactivada para un fragmento incrus
 
 ## Módulos
 
-En el Editor de correo electrónico 1.0, un módulo es una sección del correo electrónico que se define en la plantilla. Los módulos pueden contener cualquier combinación de elementos, variables y otro contenido de HTML como se describe [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo ofrece un conjunto de API para administrar módulos dentro de un correo electrónico. Para los extremos relacionados con módulos que requieren el método HTTP POST, el cuerpo tiene el formato &quot;application/x-www-form-urlencoded&quot; (no JSON).
+En el Editor de correo electrónico 1.0, un módulo es una sección del correo electrónico que se define en la plantilla. Los módulos pueden contener cualquier combinación de elementos, variables y otro contenido de HTML como se describe [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo ofrece un conjunto de API para administrar módulos dentro de un correo electrónico. Para los extremos relacionados con módulos que requieren el método HTTP POST, el cuerpo tiene el formato &quot;application/x-www-form-urlencoded&quot; (no JSON).
 
-La mayoría de los extremos relacionados con módulos requieren un &quot;moduleId&quot; como parámetro de ruta. Es una cadena que describe el módulo. El extremo [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) devuelve moduleIds como atributo &quot;htmlId&quot; (consulte la sección [Consulta](#modules_query) más abajo).
+La mayoría de los extremos relacionados con módulos requieren un &quot;moduleId&quot; como parámetro de ruta. Es una cadena que describe el módulo. El extremo [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET) devuelve moduleIds como atributo &quot;htmlId&quot; (consulte la sección [Consulta](#modules_query) más abajo).
 
 ### Consulta
 
 Para trabajar con módulos, debe especificar un parámetro moduleId, que identifica de forma exclusiva el módulo. También puede especificar el parámetro de índice del módulo, que es un número entero que describe el orden del módulo en el correo electrónico.
 
-[Recupere moduleIds y sus índices](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) especificando el ID de correo electrónico como parámetro de ruta.
+[Recupere moduleIds y sus índices](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET) especificando el ID de correo electrónico como parámetro de ruta.
 
 El siguiente ejemplo consulta un correo electrónico 1.0 basado en la plantilla &quot;Esqueleto&quot; encontrada en la sección &quot;Plantillas iniciales&quot; de la interfaz de usuario del selector de plantillas.
 
@@ -669,11 +669,11 @@ GET /rest/asset/v1/email/{moduleId}/content.json
       "value": [
         {
           "type": "HTML",
-          "value": "<p style=\"text-align: center;\"><span style=\"color: #333333;\"><strong>Acme, Inc<\/strong><\/span><\/p> \n<div style=\"text-align: center;\">\n  You received this because you've subscribed to our newsletter. Click \n <a href=\"{{system.unsubscribeLink}}\" target=\"_blank\" class=\"mktNoTrack\">here<\/a> to unsubscribe. \n <br> \n<\/div>"
+          "value": "<p style=\"text-align: center;\"><span style=\"color: #333333;\"><strong>Acme, Inc<\/strong><\/span><\/p> \n<div style=\"text-align: center;\">\n  You received this because you have subscribed to our newsletter. Click \n <a href=\"{{system.unsubscribeLink}}\" target=\"_blank\" class=\"mktNoTrack\">here<\/a> to unsubscribe. \n <br> \n<\/div>"
         },
         {
           "type": "Text",
-          "value": "Acme, Inc \n You received this because you've subscribed to our newsletter. Click here <{{system.unsubscribeLink}}> to unsubscribe."
+          "value": "Acme, Inc \n You received this because you have subscribed to our newsletter. Click here <{{system.unsubscribeLink}}> to unsubscribe."
         }
       ],
       "contentType": "Text",
@@ -722,7 +722,7 @@ Continuando con el ejemplo &quot;Esqueleto&quot; anterior, la siguiente tabla co
 
 #### Add
 
-[Agregue un módulo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/addModuleUsingPOST) a un correo electrónico seleccionando uno de los módulos existentes contenidos en la plantilla de correo electrónico que está en uso. Para ello, especifique el ID de correo electrónico y el moduleId como parámetros de ruta. El parámetro de consulta de índice es obligatorio y determina el orden del módulo en el correo electrónico. Si el valor del índice supera el valor de índice existente más grande, el módulo se adjunta al correo electrónico.
+[Agregue un módulo](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/addModuleUsingPOST) a un correo electrónico seleccionando uno de los módulos existentes contenidos en la plantilla de correo electrónico que está en uso. Para ello, especifique el ID de correo electrónico y el moduleId como parámetros de ruta. El parámetro de consulta de índice es obligatorio y determina el orden del módulo en el correo electrónico. Si el valor del índice supera el valor de índice existente más grande, el módulo se adjunta al correo electrónico.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/add.json
@@ -752,7 +752,7 @@ index=10
 
 #### Eliminar
 
-[Elimine un módulo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/deleteModuleUsingPOST) especificando el ID de correo electrónico y el moduleId como parámetros de ruta.
+[Elimine un módulo](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/deleteModuleUsingPOST) especificando el ID de correo electrónico y el moduleId como parámetros de ruta.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
@@ -774,7 +774,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 #### Duplicado
 
-[Duplique un módulo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST) especificando el ID de correo electrónico y el moduleId como parámetros de ruta. Esta llamada duplica el módulo, lo coloca debajo del módulo original y empuja hacia abajo a los demás módulos.
+[Duplique un módulo](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/duplicateModuleUsingPOST) especificando el ID de correo electrónico y el moduleId como parámetros de ruta. Esta llamada duplica el módulo, lo coloca debajo del módulo original y empuja hacia abajo a los demás módulos.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
@@ -796,7 +796,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### Reorganizar
 
-[Reorganice los módulos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)matriz que contiene todos los módulos y la posición deseada dentro del correo electrónico para cada uno. Cada elemento de matriz contiene un objeto JSON del siguiente formato:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, donde &lt;_index_> es el número de orden de módulo basado en cero y &lt;_moduleId_> es moduleId.
+[Reorganice los módulos](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)matriz que contiene todos los módulos y la posición deseada dentro del correo electrónico para cada uno. Cada elemento de matriz contiene un objeto JSON del siguiente formato:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, donde &lt;_index_> es el número de orden de módulo basado en cero y &lt;_moduleId_> es moduleId.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
@@ -826,7 +826,7 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 #### Cambiar nombre
 
-[Cambiar el nombre de un módulo](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) en un correo electrónico al pasar el nuevo nombre a través del parámetro name. Especifique el ID de correo electrónico y el moduleId (nombre existente) como parámetros de ruta.
+[Cambiar el nombre de un módulo](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/renameUsingPOST) en un correo electrónico al pasar el nuevo nombre a través del parámetro name. Especifique el ID de correo electrónico y el moduleId (nombre existente) como parámetros de ruta.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
@@ -856,11 +856,11 @@ name=MarketoVideo
 
 ## Variables
 
-En el Editor de correo electrónico 1.0, las variables se utilizan para almacenar valores de elementos en el correo electrónico. Cada variable se define agregando sintaxis específica de Marketo a su HTML como se describe [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo ofrece un conjunto de API para administrar variables dentro de un correo electrónico.
+En el Editor de correo electrónico 1.0, las variables se utilizan para almacenar valores de elementos en el correo electrónico. Cada variable se define agregando sintaxis específica de Marketo a su HTML como se describe [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo ofrece un conjunto de API para administrar variables dentro de un correo electrónico.
 
 ### Consulta
 
-[Recupere variables](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailVariablesUsingGET) de un correo electrónico especificando el ID de correo electrónico como parámetro de ruta.
+[Recupere variables](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailVariablesUsingGET) de un correo electrónico especificando el ID de correo electrónico como parámetro de ruta.
 
 El siguiente ejemplo consulta un correo electrónico 1.0 basado en la plantilla &quot;Esqueleto&quot; encontrada en la sección &quot;Plantillas iniciales&quot; de la interfaz de usuario del selector de plantillas.
 
@@ -1080,7 +1080,7 @@ Las variables se pueden vincular globalmente a todo el correo electrónico o loc
 
 #### Actualización
 
-[Actualice una variable](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateVariableUsingPOST) en un mensaje de correo electrónico pasando el nuevo valor deseado a través del parámetro value. Especifique el ID de correo electrónico y el nombre de la variable como parámetros de ruta. Si actualiza una variable de módulo, también debe pasar el parámetro moduleId para especificar el módulo al que está asociada la variable.
+[Actualice una variable](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateVariableUsingPOST) en un mensaje de correo electrónico pasando el nuevo valor deseado a través del parámetro value. Especifique el ID de correo electrónico y el nombre de la variable como parámetros de ruta. Si actualiza una variable de módulo, también debe pasar el parámetro moduleId para especificar el módulo al que está asociada la variable.
 
 En el siguiente ejemplo, se actualiza una variable global denominada &quot;hrBorderSize&quot; a un valor de 1.
 
@@ -1329,7 +1329,7 @@ emailAddress=abe@testmail.com&textOnly=true
 
 ## Obtener vista previa del email
 
-Marketo proporciona el extremo [Obtener contenido completo del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailFullContentUsingGET) para recuperar una vista previa activa de un correo electrónico tal como se enviaría a un destinatario. Este extremo solo se puede utilizar en correos electrónicos de la versión 1.0. Hay un parámetro requerido, el parámetro de ruta de ID, que es el ID del recurso de correo electrónico que desea previsualizar. Hay tres parámetros de consulta opcionales adicionales:
+Marketo proporciona el extremo [Obtener contenido completo del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailFullContentUsingGET) para recuperar una vista previa activa de un correo electrónico tal como se enviaría a un destinatario. Este extremo solo se puede utilizar en correos electrónicos de la versión 1.0. Hay un parámetro requerido, el parámetro de ruta de ID, que es el ID del recurso de correo electrónico que desea previsualizar. Hay tres parámetros de consulta opcionales adicionales:
 
 - estado: acepta los valores &quot;borrador&quot; o &quot;aprobado&quot;, que tomarán por defecto la versión aprobada, si se aprueba, o el borrador, si no se aprueba
 - Tipo: acepta &quot;Texto&quot; o &quot;HTML&quot; y el valor predeterminado es HTML
@@ -1357,7 +1357,7 @@ GET /rest/asset/v1/email/{id}/fullContent.json
 
 ## Reemplazar HTML
 
-Marketo proporciona el extremo [Actualizar contenido completo del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailFullContentUsingPOST) para reemplazar todo el contenido de un recurso de correo electrónico. Este punto de conexión solo se puede utilizar en correos electrónicos de la versión 1.0 que tengan la función de interfaz de usuario &quot;Editar código&quot; utilizada y en los que se haya roto la relación con la plantilla principal. Esta API está diseñada principalmente para utilizarse en recursos que se han clonado como parte de un programa y no se puede modificar con los extremos de contenido estándar. No se admiten correos electrónicos con contenido dinámico. Además, si intenta reemplazar HTML en un correo electrónico en el que la relación esté intacta, se devuelve un error.
+Marketo proporciona el extremo [Actualizar contenido completo del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/createEmailFullContentUsingPOST) para reemplazar todo el contenido de un recurso de correo electrónico. Este punto de conexión solo se puede utilizar en correos electrónicos de la versión 1.0 que tengan la función de interfaz de usuario &quot;Editar código&quot; utilizada y en los que se haya roto la relación con la plantilla principal. Esta API está diseñada principalmente para utilizarse en recursos que se han clonado como parte de un programa y no se puede modificar con los extremos de contenido estándar. No se admiten correos electrónicos con contenido dinámico. Además, si intenta reemplazar HTML en un correo electrónico en el que la relación esté intacta, se devuelve un error.
 
 Este extremo espera un Content-Type : multipart/form-data con el parámetro id en la ruta, el ID del correo electrónico y un parámetro en el cuerpo, contenido como un documento de correo electrónico completo de HTML con el Content-Type &quot;text/html&quot;. Un documento de HTML con formato incorrecto emite una advertencia, pero es posible que no permita la aprobación, mientras que la inclusión de JavaScript y/o `<script>`tags en el documento provoca que la llamada falle y emita un error.
 

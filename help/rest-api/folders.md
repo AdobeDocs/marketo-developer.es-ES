@@ -3,7 +3,7 @@ title: Carpetas
 feature: REST API
 description: Guía de API de REST de Marketo para carpetas que abarcan crear, actualizar, eliminar, consultar por id y nombre, examinar por lotes con raíz, espacio de trabajo, maxDepth y paginación.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1099'
 ht-degree: 1%
@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # Carpetas
 
-[Referencia de extremo de carpetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Referencia de extremo de carpetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders)
 
 Las carpetas son el recurso organizativo principal en Marketo y todos los demás tipos de recursos tienen al menos una carpeta como elemento principal. Esta carpeta principal puede ser una carpeta puramente organizativa o un programa, que tiene una relación funcional con otros tipos de recursos y también puede ser la carpeta principal de otros recursos. Las carpetas se pueden crear, consultar, actualizar y eliminar a través de la API, y también permiten recuperar una lista de su contenido. Aunque los programas se pueden devolver consultando la API de carpetas, la creación, actualización y eliminación de programas se deben realizar mediante la API de programas.
 
 ## Consulta
 
-La consulta de carpetas sigue los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
+La consulta de carpetas sigue los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
 
 ### Por ID
 
@@ -70,7 +70,7 @@ El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Prog
 
 ### Por nombre
 
-[También se permite la consulta por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). La consulta por extremo de nombre tiene nombre como único parámetro requerido. Nombre realiza una coincidencia de cadena exacta con el campo de nombre de las carpetas de la instancia y devuelve los resultados de cada carpeta que coincida con ese nombre. También tiene los parámetros de consulta opcionales de &quot;tipo&quot;, que pueden ser Carpeta o Programa, &quot;raíz&quot;, el ID de la carpeta para buscar o &quot;espacio de trabajo&quot;, el nombre del espacio de trabajo en el que buscar. Si se establece el parámetro root, también se debe establecer el parámetro type.
+[También se permite la consulta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET). La consulta por extremo de nombre tiene nombre como único parámetro requerido. Nombre realiza una coincidencia de cadena exacta con el campo de nombre de las carpetas de la instancia y devuelve los resultados de cada carpeta que coincida con ese nombre. También tiene los parámetros de consulta opcionales de &quot;tipo&quot;, que pueden ser Carpeta o Programa, &quot;raíz&quot;, el ID de la carpeta para buscar o &quot;espacio de trabajo&quot;, el nombre del espacio de trabajo en el que buscar. Si se establece el parámetro root, también se debe establecer el parámetro type.
 
 ```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -113,12 +113,12 @@ Al buscar por nombre, es importante tener en cuenta que tanto Marketing Activiti
 
 ### Examinar
 
-Las carpetas también se pueden [recuperar de forma masiva](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). El parámetro &quot;root&quot; se puede utilizar para especificar la carpeta principal en la que se realizará la consulta y tiene el formato de un objeto JSON incrustado como el valor del parámetro de consulta. La raíz tiene dos miembros:
+Las carpetas también se pueden [recuperar de forma masiva](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). El parámetro &quot;root&quot; se puede utilizar para especificar la carpeta principal en la que se realizará la consulta y tiene el formato de un objeto JSON incrustado como el valor del parámetro de consulta. La raíz tiene dos miembros:
 
 1. id: el ID de la carpeta o el programa.
 1. type: Carpeta o Programa, según el tipo de carpeta raíz que se va a examinar.
 
-Si no se conoce la carpeta raíz o si se desea recuperar todas las carpetas de un área determinada, la raíz se puede especificar como las áreas &quot;Actividades de marketing&quot;, &quot;Design Studio&quot; o &quot;Base de datos de posibles clientes&quot;. Los identificadores de cada uno de ellos se pueden recuperar a través de la API [Obtener carpeta por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) y especificando el nombre del área deseada.
+Si no se conoce la carpeta raíz o si se desea recuperar todas las carpetas de un área determinada, la raíz se puede especificar como las áreas &quot;Actividades de marketing&quot;, &quot;Design Studio&quot; o &quot;Base de datos de posibles clientes&quot;. Los identificadores de cada uno de ellos se pueden recuperar a través de la API [Obtener carpeta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) y especificando el nombre del área deseada.
 
 Al igual que otros extremos de recuperación masiva de recursos, offset y maxReturn son parámetros opcionales para la paginación.   Otros parámetros opcionales son:
 
@@ -211,7 +211,7 @@ La ruta de una carpeta muestra su jerarquía en el árbol de carpetas, de forma 
 
 ## Crear y actualizar
 
-[La creación de carpetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) es sencilla y se ejecuta con un POST application/x-www-form-urlencoded que tiene dos parámetros obligatorios, &quot;name&quot; (nombre), una cadena y &quot;parent&quot; (padre), el padre en el que crear la carpeta, que es un objeto JSON incrustado con dos miembros, id y type (carpeta o programa), según el tipo de carpeta de destino. Opcionalmente, también se puede incluir una &quot;descripción&quot; o una cadena que puede tener hasta 2000 caracteres.
+[La creación de carpetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) es sencilla y se ejecuta con un POST application/x-www-form-urlencoded que tiene dos parámetros obligatorios, &quot;name&quot; (nombre), una cadena y &quot;parent&quot; (padre), el padre en el que crear la carpeta, que es un objeto JSON incrustado con dos miembros, id y type (carpeta o programa), según el tipo de carpeta de destino. Opcionalmente, también se puede incluir una &quot;descripción&quot; o una cadena que puede tener hasta 2000 caracteres.
 
 ```http
 POST /rest/asset/v1/folders.json

@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Instale y configure Marketo SDK en aplicaciones de React Native con pasos de Android Gradle y iOS CocoaPods, puente de módulo nativo, push y asociación de posibles clientes.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '854'
+source-wordcount: '857'
 ht-degree: 1%
 
 ---
@@ -16,7 +16,7 @@ Este artículo proporciona información sobre cómo instalar y configurar SDK na
 
 ## Requisitos previos
 
-[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
+[Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
 
 ## Integración de SDK
 
@@ -83,7 +83,7 @@ Para descargarlo e instalarlo, inicie un terminal de línea de comandos en su Ma
 
 A veces, una aplicación de React Native necesita acceder a una API nativa de plataforma que no está disponible de forma predeterminada en JavaScript, por ejemplo, las API nativas para acceder a Apple o Google Pay. Tal vez quiera reutilizar algunas bibliotecas Objective-C, Swift, Java o C++ existentes sin tener que volver a implementarlas en JavaScript o escribir código de alto rendimiento con subprocesos múltiples para tareas como el procesamiento de imágenes.
 
-El sistema NativeModule expone instancias de clases Java/Objective-C/C++ (nativas) a JavaScript (JS) como objetos JS, lo que permite ejecutar código nativo arbitrario desde JS. Aunque no esperamos que esta característica forme parte del proceso de desarrollo habitual, es esencial que exista. Si React Native no exporta una API nativa que su aplicación JS necesita, debe poder exportarla usted mismo.
+El sistema NativeModule expone instancias de clases Java/Objective-C/C++ (nativas) a JavaScript (JS) como objetos JS, lo que permite ejecutar código nativo arbitrario desde JS. Si bien no esperamos que esta característica forme parte del proceso de desarrollo habitual, es esencial que exista. Si React Native no exporta una API nativa que su aplicación JS necesita, debe poder exportarla usted mismo.
 
 React Native Bridge se utiliza para la comunicación entre el JSX y las capas de aplicación nativas. En nuestro caso, la aplicación host podrá escribir el código JSX que puede invocar los métodos de Marketo SDK.
 

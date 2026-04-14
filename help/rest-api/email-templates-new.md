@@ -3,7 +3,7 @@ title: Plantillas de correo electrónico
 feature: REST API
 description: Utilice la API de REST de Marketo Asset para consultar, crear, actualizar, clonar, eliminar, aprobar e inspeccionar las dependencias de las plantillas de correo electrónico.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 9%
@@ -12,7 +12,7 @@ ht-degree: 9%
 
 # Plantillas de correo electrónico
 
-[Referencia de extremo de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[Referencia de extremo de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
 Las plantillas de correo electrónico definen la estructura y el diseño reutilizables utilizados al crear correos electrónicos.
 

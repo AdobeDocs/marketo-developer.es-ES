@@ -3,7 +3,7 @@ title: Listas de cuentas con nombre
 feature: REST API
 description: Obtenga información sobre cómo administrar Listas de cuentas con nombre de Marketo con la API de REST, incluidos permisos, campos, filtros y extremos para consultar, crear, actualizar y eliminar.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 2%
@@ -12,9 +12,9 @@ ht-degree: 2%
 
 # Listas de cuentas con nombre
 
-[Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Listas de cuentas con nombre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
+[Listas de cuentas con nombre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
 `Content`
 
 ## Permisos

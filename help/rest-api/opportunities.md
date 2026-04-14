@@ -3,7 +3,7 @@ title: Oportunidades
 feature: REST API
 description: La API de REST de Marketo permite describir, consultar, crear y actualizar oportunidades, desduplicar y buscar campos, límites y comportamientos de solo lectura con la sincronización de SFDC o Dynamics.
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '879'
 ht-degree: 0%
@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Oportunidades
 
-[Referencia de extremo de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
+[Referencia de extremo de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
 
 Marketo expone las API para leer, escribir, crear y actualizar registros de oportunidades. En Marketo, los registros de oportunidad están vinculados a los registros de posibles clientes y contactos a través del objeto de función de oportunidad intermedio, por lo que una oportunidad puede estar vinculada a muchos posibles clientes individuales.  Ambos tipos de objetos se exponen a través de la API y, como la mayoría de los tipos de objetos de la base de datos de posibles clientes, ambos tienen la llamada Describir correspondiente, que devuelve metadatos sobre los tipos de objetos.
 
-Las API de oportunidad son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitadas.
+Las API de oportunidad son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitadas.
 
 ## Describir
 
@@ -85,7 +85,7 @@ Los campos más importantes para este tipo de respuesta son `idField`, `dedupeFi
 
 ## Consulta
 
-El patrón para [oportunidades de consulta](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) sigue de cerca el de la API de posibles clientes con la restricción agregada de que el parámetro `filterType` acepta los campos enumerados en la matriz `searchableFields` o de la llamada descrita o deduplicada correspondiente.  Tenga en cuenta que si utiliza campos de oportunidad personalizados, solo los campos de oportunidad personalizados de tipo cadena o entero se enumerarán en la matriz searchableFields.
+El patrón para [oportunidades de consulta](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) sigue de cerca el de la API de posibles clientes con la restricción agregada de que el parámetro `filterType` acepta los campos enumerados en la matriz `searchableFields` o de la llamada descrita o deduplicada correspondiente.  Tenga en cuenta que si utiliza campos de oportunidad personalizados, solo los campos de oportunidad personalizados de tipo cadena o entero se enumerarán en la matriz searchableFields.
 
 ```http
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
@@ -188,7 +188,7 @@ La consulta de los campos de oportunidad es sencilla.  Puede consultar un únic
 
 #### Por nombre
 
-El extremo [Obtener campo de oportunidad por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de la compañía.  El parámetro de ruta de acceso obligatorio `fieldApiName` especifica el nombre de API del campo.  La respuesta es como el extremo Describir oportunidad, pero contiene metadatos adicionales, como el atributo `isCustom`, que indica si el campo es un campo personalizado.
+El extremo [Obtener campo de oportunidad por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de la compañía.  El parámetro de ruta de acceso obligatorio `fieldApiName` especifica el nombre de API del campo.  La respuesta es como el extremo Describir oportunidad, pero contiene metadatos adicionales, como el atributo `isCustom`, que indica si el campo es un campo personalizado.
 
 ```http
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
@@ -217,7 +217,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Examinar
 
-El extremo [Obtener campos de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa.  De forma predeterminada, se devuelve un máximo de 300 registros.  Puede usar el parámetro de consulta `batchSize` para reducir este número.  Si el atributo `moreResult` es true, significa que hay más resultados disponibles.  Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles.  Los `nextPageToken` devueltos por esta API siempre se deben reutilizar para la siguiente iteración de esta llamada.
+El extremo [Obtener campos de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa.  De forma predeterminada, se devuelve un máximo de 300 registros.  Puede usar el parámetro de consulta `batchSize` para reducir este número.  Si el atributo `moreResult` es true, significa que hay más resultados disponibles.  Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles.  Los `nextPageToken` devueltos por esta API siempre se deben reutilizar para la siguiente iteración de esta llamada.
 
 ```http
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5

@@ -3,7 +3,7 @@ title: Tókenes
 feature: REST API, Tokens
 description: Administre Mis tokens de Marketo con la API de REST de recursos. Consulte Tipos de datos admitidos, obtener por carpeta o programa, crear o actualizar mediante POST con codificación de formulario y eliminar por nombre.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '364'
 ht-degree: 3%
@@ -12,7 +12,7 @@ ht-degree: 3%
 
 # Tókenes
 
-[Referencia de extremo de token](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
+[Referencia de extremo de token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 
 Los tokens de Marketo son cadenas especiales similares a los códigos abreviados, que se reemplazan por un fragmento de datos independiente en el tiempo de ejecución. Hay varios tipos de tokens disponibles en Marketo, pero solo Mis tokens se pueden editar mediante la API. Mis tokens son tokens secundarios que son locales de una carpeta o programa en particular. Los tokens se pueden leer, crear y eliminar mediante la API.
 
@@ -33,7 +33,7 @@ Son los únicos tipos de datos que se pueden utilizar al crear un token mediante
 
 ## Consulta
 
-[Obtener tokens por id. de carpeta](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) toma un `id` como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo.
+[Obtener tokens por id. de carpeta](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET) toma un `id` como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo.
 
 ```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -66,7 +66,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Crear y actualizar
 
-El extremo [Create Token](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) crea tokens o, si existen, los actualiza con los valores enviados. Los tokens se crean en el contexto de una carpeta o un programa. El parámetro de ruta de acceso `id` requerido es el identificador de la carpeta a la que se asociará el token. `name`, `type`, `value` y `folderType` son todos parámetros obligatorios del token. Los datos se pasan como POST x-www-form-urlencoded, no como JSON. El campo `name` del token no puede superar los 50 caracteres.
+El extremo [Create Token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST) crea tokens o, si existen, los actualiza con los valores enviados. Los tokens se crean en el contexto de una carpeta o un programa. El parámetro de ruta de acceso `id` requerido es el identificador de la carpeta a la que se asociará el token. `name`, `type`, `value` y `folderType` son todos parámetros obligatorios del token. Los datos se pasan como POST x-www-form-urlencoded, no como JSON. El campo `name` del token no puede superar los 50 caracteres.
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -107,7 +107,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Eliminar
 
-[Eliminar token por nombre](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) toma un identificador como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo. Los tokens se eliminan en función de su carpeta principal, `name`, y `type` del token, cada uno de los cuales es obligatorio. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.
+[Eliminar token por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST) toma un identificador como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo. Los tokens se eliminan en función de su carpeta principal, `name`, y `type` del token, cada uno de los cuales es obligatorio. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

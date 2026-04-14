@@ -3,7 +3,7 @@ title: Base de datos de posible clientes
 feature: REST API, Database
 description: Guía de las API de base de datos de posibles clientes de Marketo que abarcan objetos, métodos CRUD y Describe, patrones de consulta, límites de lotes y restricciones de integración de CRM.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1373'
 ht-degree: 1%
@@ -32,7 +32,7 @@ La mayoría de estos objetos incluyen al menos los métodos Create, Read, Update
 
 ## API
 
-Para obtener una lista completa de los extremos de la API de la base de datos de posibles clientes, incluidos los parámetros y la información de modelado, consulte la [Referencia de extremo de la API de la base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/).
+Para obtener una lista completa de los extremos de la API de la base de datos de posibles clientes, incluidos los parámetros y la información de modelado, consulte la [Referencia de extremo de la API de la base de datos de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi).
 
 En las instancias con una integración nativa de CRM habilitada (Microsoft Dynamics o Salesforce.com), las API Compañía, Oportunidad, Rol de oportunidad y Vendedor están deshabilitadas. Los registros se administran mediante el CRM cuando están habilitados y no se puede acceder ni actualizar a través de las API de Marketo.
 

@@ -3,16 +3,16 @@ title: Códigos de error
 feature: SOAP
 description: Guía de referencia sobre los códigos de error de API de Marketo SOAP con mensajes y notas, que cubre errores de autenticación, límites de tasa y concurrencia y problemas de solicitud.
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '408'
+source-wordcount: '409'
 ht-degree: 10%
 
 ---
 
 # Códigos de error
 
-Al desarrollar para Marketo, es muy importante que las solicitudes y respuestas se registren cuando se encuentra una excepción inesperada.  Aunque algunos tipos de excepciones, como la autenticación caducada, se pueden controlar de forma segura mediante la reautenticación, otros pueden requerir interacciones de soporte, y las solicitudes y respuestas siempre se solicitarán en este escenario.
+Al desarrollar para Marketo, es muy importante que las solicitudes y respuestas se registren cuando se encuentre una excepción inesperada.  Aunque algunos tipos de excepciones, como la autenticación caducada, se pueden controlar de forma segura mediante la reautenticación, otros pueden requerir interacciones de soporte, y las solicitudes y respuestas siempre se solicitarán en este escenario.
 
 A continuación se muestra una lista de códigos de error de API de SOAP.
 

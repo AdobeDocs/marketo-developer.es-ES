@@ -3,22 +3,22 @@ title: Fragmentos
 feature: REST API, Snippets
 description: API de REST de recursos de Marketo para fragmentos de código, que abarcan la consulta por ID y la exploración con estado, la obtención de contenido, la creación y actualización de HTML, texto y contenido dinámico.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '511'
+source-wordcount: '512'
 ht-degree: 2%
 
 ---
 
 # Fragmentos
 
-[Referencia de extremo de fragmento](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[Referencia de extremo de fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets)
 
 Los fragmentos de código son componentes de HTML reutilizables que se pueden incrustar en correos electrónicos y páginas de destino y que se pueden segmentar para obtener contenido dinámico. Los fragmentos de código no tienen plantillas asociadas y se pueden crear e implementar dentro de otros recursos en Marketo.
 
 ## Consulta
 
-La consulta de fragmentos sigue el patrón estándar de los recursos, excepto que no tiene un método By Name. Los métodos [By Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) y [Browse](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) permiten el uso del campo de estado para recuperar versiones aprobadas o en borrador del fragmento.
+La consulta de fragmentos sigue el patrón estándar de los recursos, excepto que no tiene un método By Name. Los métodos [By Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) y [Browse](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET) permiten el uso del campo de estado para recuperar versiones aprobadas o en borrador del fragmento.
 
 ### Por ID
 
@@ -143,7 +143,7 @@ La llamada devuelve una lista de secciones de contenido,  que constan de seccio
 
 ## Crear y actualizar
 
-Los fragmentos de código siguen el complejo patrón de creación de recursos, donde la llamada a [crear fragmento](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) y su contenido se realizan por separado, por lo que la primera llamada debe realizarse al extremo de creación, con una descripción opcional.   Los datos se pasan como x-www-form-urlencoded, no como JSON.
+Los fragmentos de código siguen el complejo patrón de creación de recursos, donde la llamada a [crear fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST) y su contenido se realizan por separado, por lo que la primera llamada debe realizarse al extremo de creación, con una descripción opcional.   Los datos se pasan como x-www-form-urlencoded, no como JSON.
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -211,7 +211,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[La actualización de metadatos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) también se realiza mediante el identificador. Solo se pueden actualizar el nombre y la descripción:
+[La actualización de metadatos](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST) también se realiza mediante el identificador. Solo se pueden actualizar el nombre y la descripción:
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -400,7 +400,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Clonar
 
-[Clonar un fragmento](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) con la API es sencillo y sigue el patrón estándar, con un nombre, un identificador del fragmento y la carpeta originales, así como una descripción opcional.  Si no existe ninguna versión aprobada, se clona la versión en borrador.
+[Clonar un fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST) con la API es sencillo y sigue el patrón estándar, con un nombre, un identificador del fragmento y la carpeta originales, así como una descripción opcional.  Si no existe ninguna versión aprobada, se clona la versión en borrador.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json

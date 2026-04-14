@@ -3,7 +3,7 @@ title: Importación masiva de posibles clientes
 feature: REST API
 description: Cree y supervise importaciones asíncronas masivas de posibles clientes en Marketo con CSV o CSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '825'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Importación masiva de posibles clientes
 
-[Referencia de extremo de importación masiva de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Referencia de extremo de importación masiva de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-Para grandes cantidades de registros de posibles clientes, los posibles clientes se pueden importar asincrónicamente con la [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Esto permite importar una lista de registros en Marketo mediante un archivo plano con delimitadores (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que el tamaño total del archivo sea inferior a 10 MB. La operación de registro es sólo &quot;insertar o actualizar&quot;.
+Para grandes cantidades de registros de posibles clientes, los posibles clientes se pueden importar asincrónicamente con la [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Esto permite importar una lista de registros en Marketo mediante un archivo plano con delimitadores (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que el tamaño total del archivo sea inferior a 10 MB. La operación de registro es sólo &quot;insertar o actualizar&quot;.
 
 ## Límites de procesamiento
 

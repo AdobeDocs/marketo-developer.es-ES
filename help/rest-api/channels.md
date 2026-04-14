@@ -3,7 +3,7 @@ title: Canales
 feature: REST API
 description: Obtenga información sobre cómo consultar canales de Marketo a través de la API de REST de recursos, examinar con paginación o recuperar por nombre, ver estados de progresión y comprender las reglas de tipo de programa.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '151'
 ht-degree: 2%
@@ -12,7 +12,7 @@ ht-degree: 2%
 
 # Canales
 
-[Referencia de extremo de canales](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[Referencia de extremo de canales](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels)
 
 Los canales son un campo estándar y obligatorio para todos los tipos de programas. Cada tipo de canal solo se puede usar con el(la) `applicableProgramType` dado(a) y proporciona la lista de los estados de programa disponibles que son válidos para los miembros de programa de cada programa. Si los estados de programa de un canal se cambian después de que se cree un programa, la lista de estados de programa a los que se puede cambiar un posible cliente coincidirá con la lista proporcionada por el canal en ese momento, pero no cambiará de forma retroactiva el estado del programa para ningún registro de pertenencia a programa existente.
 

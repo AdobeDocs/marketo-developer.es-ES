@@ -3,7 +3,7 @@ title: Contenido dinámico
 feature: REST API, Dynamic Content
 description: Configure contenido dinámico de Marketo de nivel de sección mediante las API de REST mediante segmentaciones para personalizar correos electrónicos, páginas de aterrizaje y fragmentos de código con extremos y ejemplos
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '463'
 ht-degree: 2%
@@ -24,7 +24,7 @@ El contenido dinámico se implementa en el nivel de sección, mediante la design
 
 ## Ejemplo
 
-Para demostrarlo, veamos un ejemplo de correo electrónico, en el que tenemos una segmentación de Región (EE. UU.) y queremos mostrar una promoción de evento solo para los posibles clientes que se incluyen en el segmento Suroeste, que incluye posibles clientes de California, Nevada, Utah, Colorado, Arizona y Nuevo México. Para ello, realizamos una sección editable en nuestro correo electrónico con el ID &quot;Q1-promotion-banner&quot; en una sección DynamicContent. Para ello, debemos usar el punto de conexión [Actualizar sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) para nuestro correo electrónico. El parámetro `value` se usa para especificar el identificador de la segmentación.
+Para demostrarlo, veamos un ejemplo de correo electrónico, en el que tenemos una segmentación de Región (EE. UU.) y queremos mostrar una promoción de evento solo para los posibles clientes que se incluyen en el segmento Suroeste, que incluye posibles clientes de California, Nevada, Utah, Colorado, Arizona y Nuevo México. Para ello, realizamos una sección editable en nuestro correo electrónico con el ID &quot;Q1-promotion-banner&quot; en una sección DynamicContent. Para ello, debemos usar el punto de conexión [Actualizar sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) para nuestro correo electrónico. El parámetro `value` se usa para especificar el identificador de la segmentación.
 
 Nota: Tanto los correos electrónicos como las páginas de aterrizaje siguen este patrón. Los fragmentos de código tienen un patrón diferente, detallado en la Documentación de la API de fragmentos de código.
 
@@ -52,7 +52,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-Para agregar contenido para segmentos individuales, debemos llamar al punto de conexión [Actualizar sección de contenido dinámico de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) para la sección específica.
+Para agregar contenido para segmentos individuales, debemos llamar al punto de conexión [Actualizar sección de contenido dinámico de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST) para la sección específica.
 
 El siguiente ejemplo establece la sección para mostrar nuestra imagen de titular especial para posibles clientes en el segmento Suroeste en lugar del predeterminado. Si queremos crear más variaciones para más segmentos, volveríamos a llamar a este punto final para cada segmento y sección.
 

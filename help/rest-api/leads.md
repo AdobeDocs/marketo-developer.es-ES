@@ -3,16 +3,16 @@ title: Clientes potenciales
 feature: REST API
 description: Explore las funciones de la API de REST de Marketo Leads, incluida la descripción, la consulta por ID o filtro, los campos predeterminados, los límites y la recuperación de ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '3457'
+source-wordcount: '3460'
 ht-degree: 3%
 
 ---
 
 # Clientes potenciales
 
-[Referencia de extremo de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Referencia de extremo de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 La API del posible cliente de Marketo proporciona un gran conjunto de funcionalidades para aplicaciones CRUD sencillas con registros de posibles clientes, así como la capacidad de modificar la pertenencia de un posible cliente a listas y programas estáticos e iniciar el procesamiento de campañas inteligentes para posibles clientes.
 
@@ -95,7 +95,7 @@ Para este método, siempre habrá un único registro en la primera posición de 
 
 Obtener posibles clientes por tipo de filtro devolverá el mismo tipo de registros, pero puede devolver hasta 300 por página. Requiere los parámetros de consulta `filterType` y `filterValues`.
 
-`filterType` acepta cualquier campo personalizado o la mayoría de los campos utilizados con frecuencia. Llame al extremo `Describe2` para obtener una lista completa de los campos en los que se pueden realizar búsquedas que se pueden usar en `filterType`. Al buscar por campo personalizado, solo se admiten los siguientes tipos de datos: `string`, `email`, `integer`. Puede obtener detalles de campo (descripción, tipo, etc.) mediante el método mencionado Describir.
+`filterType` acepta cualquier campo personalizado o la mayoría de los campos utilizados con frecuencia. Llame al extremo `Describe2` para obtener una lista completa de los campos en los que se pueden realizar búsquedas que se pueden usar en `filterType`. Al buscar por campo personalizado, solo se admiten los siguientes tipos de datos: `string`, `email`, `integer`. Puede obtener detalles de campo (descripción, tipo, etc.) utilizando el método mencionado Describir.
 
 `filterValues` acepta hasta 300 valores en formato separado por comas. La llamada busca los registros donde el campo del posible cliente coincide con uno de los `filterValues` incluidos. Si el número de posibles clientes que coinciden con el filtro de posibles clientes es mayor que 1000, se devuelve el siguiente error: &quot;1003, Demasiados resultados coinciden con el filtro&quot;.
 
@@ -160,7 +160,7 @@ Además de recuperar los datos de posibles clientes, puede crear, actualizar y e
 
 >[!NOTE]
 >
-> No se admite la actualización de los campos de la compañía mediante el extremo [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST). En su lugar, use el punto de conexión [Compañías de sincronización](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST).
+> No se admite la actualización de los campos de la compañía mediante el extremo [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST). En su lugar, use el punto de conexión [Compañías de sincronización](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST).
 
 >[!NOTE]
 >
@@ -767,6 +767,7 @@ Aquí podemos ver los detalles de la actividad &quot;Rellenar formulario&quot; c
 ## Combinar
 
 >[!NOTE]
+>
 >A partir del 31 de marzo de 2026, las llamadas que incluyan más de 25 ID en el parámetro `leadIds` de una llamada a la API de Merge Leads generarán un código de error 1080, y se omitirá la llamada. Los trabajos que requieren la fusión de más de 25 registros en uno deben dividirse en varios trabajos para garantizar el éxito de esas llamadas.
 >
 
@@ -817,7 +818,7 @@ Membresía
 Los registros de posibles clientes también se pueden recuperar en función de su pertenencia a una lista estática o a un programa. Además, puede recuperar todas las listas estáticas, programas o campañas inteligentes a los que pertenece un posible cliente.
 
 La estructura de respuesta y los parámetros opcionales son idénticos a los de Obtener posibles clientes por tipo de filtro, aunque `filterType` y `filterValues` no se pueden usar con esta API.
-Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-**&#x200B;**.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
+Para acceder al ID de lista a través de la IU de Marketo, vaya a la lista. La lista `id` se encuentra en la dirección URL de la lista estática `https://app-****.marketo.com/#ST1001A1`. En este ejemplo, 1001 es `id` para la lista.
 
 ## Obtener programas por ID de posible cliente
 

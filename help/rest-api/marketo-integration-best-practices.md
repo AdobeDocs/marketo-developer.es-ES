@@ -3,9 +3,9 @@ title: Prácticas recomendadas de integración de Marketo
 feature: REST API
 description: Prácticas recomendadas para integraciones de la API de Marketo que abarcan cuotas, límites de tasa y concurrencia, agrupamiento, importación y exportación masivas, almacenamiento en caché y planificación de latencia.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1013'
 ht-degree: 0%
 
 ---
@@ -48,15 +48,15 @@ La determinación de las tolerancias de latencia o de la cantidad máxima de tie
 
 Cada instancia de Marketo habilitada para la API tiene una asignación diaria de al menos 10 000 llamadas de API REST al día, pero normalmente 50 000 o más, y 500 MB o más de capacidad de extracción masiva. Aunque se puede adquirir capacidad diaria adicional como parte de una suscripción a Marketo, el diseño de la aplicación debe tener en cuenta los límites comunes de las suscripciones a Marketo.
 
-Como la capacidad se comparte entre todos los servicios de API y los usuarios de una instancia, la práctica recomendada es eliminar llamadas redundantes y agrupar registros en el menor número posible de llamadas. La manera más eficiente de importar registros es usando las API de importación masiva de Marketo, que están disponibles para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
+Como la capacidad se comparte entre todos los servicios de API y los usuarios de una instancia, la práctica recomendada es eliminar llamadas redundantes y agrupar registros en el menor número posible de llamadas. La manera más eficiente de importar registros es usando las API de importación masiva de Marketo, que están disponibles para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
 
 ### Almacenamiento en caché
 
 Los resultados de las siguientes operaciones se pueden almacenar en caché en el lado del cliente durante un día o más, ya que cambian con poca frecuencia:
 
 - Resultados de las operaciones de descripción
-- [Tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Particiones](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Particiones](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 El almacenamiento en caché de ciertos tipos de recursos, como programas, correos electrónicos y carpetas, también es adecuado para determinados casos de uso, como el enriquecimiento de datos para registros de posibles clientes o de actividades.
 

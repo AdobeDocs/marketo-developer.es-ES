@@ -3,7 +3,7 @@ title: Pertenencia a una lista (listas estáticas)
 feature: REST API, Static Lists
 description: Utilice las API de REST de la base de datos de posibles clientes de Marketo para añadir posibles clientes a listas estáticas, eliminar posibles clientes, recuperar miembros de listas y comprobar la pertenencia a listas.
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '482'
 ht-degree: 5%
@@ -12,7 +12,7 @@ ht-degree: 5%
 
 # Pertenencia a una lista (listas estáticas)
 
-[Referencia de extremo de pertenencia a lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[Referencia de extremo de pertenencia a lista](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)
 
 Las API de pertenencia a listas proporcionan puntos finales de base de datos de posibles clientes para trabajar con miembros de listas estáticas. Estos extremos se pueden utilizar para agregar posibles clientes a una lista, quitar posibles clientes de una lista, recuperar miembros de una lista y determinar si uno o varios posibles clientes son miembros de una lista.
 
@@ -27,7 +27,7 @@ Las API de pertenencia a listas proporcionan puntos finales de base de datos de 
 
 ## Añadir a la lista
 
-El extremo [Add to List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) se usa para agregar uno o varios miembros a una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
+El extremo [Add to List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST) se usa para agregar uno o varios miembros a una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
 
 La respuesta contiene una matriz `result` compuesta por objetos JSON con el estado para cada ID de posible cliente especificado en la solicitud.
 
@@ -60,7 +60,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## Quitar de la lista
 
-El extremo [Remove from List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) se usa para quitar uno o varios miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
+El extremo [Remove from List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) se usa para quitar uno o varios miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
 
 La respuesta contiene una matriz `result` compuesta por objetos JSON con el estado para cada ID de posible cliente especificado en la solicitud.
 
@@ -97,7 +97,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## Obtener posibles clientes por ID de lista
 
-El punto de conexión [Obtener posibles clientes por id. de lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) se usa para recuperar miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` necesario y permite que varios parámetros de consulta opcionales especifiquen criterios de filtrado.
+El punto de conexión [Obtener posibles clientes por id. de lista](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) se usa para recuperar miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` necesario y permite que varios parámetros de consulta opcionales especifiquen criterios de filtrado.
 
 El parámetro `batchSize` se usa para especificar el número de registros de posibles clientes que se van a devolver en una sola llamada. El valor predeterminado y máximo es 300.
 
@@ -147,7 +147,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## Miembro de la lista
 
-El extremo [Member of List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) se usa para ver si uno o más posibles clientes son miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
+El extremo [Member of List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) se usa para ver si uno o más posibles clientes son miembros de una lista. El extremo toma un parámetro de ruta de acceso `listId` requerido y uno o más parámetros de consulta `id` que contienen identificadores de posibles clientes (el máximo permitido es 300).
 
 La respuesta contiene una matriz `result` compuesta por objetos JSON con el estado para cada ID de posible cliente especificado en la solicitud.
 

@@ -3,10 +3,10 @@ title: Campos estándar
 feature: REST API, Field Management
 description: Examine la lista completa de campos de posibles clientes estándar de Marketo con nombres, etiquetas y descripciones REST y SOAP, además de cómo recuperarlos mediante la API Describir posible cliente.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '727'
-ht-degree: 24%
+source-wordcount: '742'
+ht-degree: 23%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 24%
 
 Esta es una lista de campos estándar disponibles en Marketo a los que se puede acceder mediante la API.
 
-Puede recuperar la lista de todos los nombres de campo admitidos disponibles en los registros de posibles clientes mediante el punto de conexión REST [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/).
+Puede recuperar la lista de todos los nombres de campo admitidos disponibles en los registros de posibles clientes mediante el punto de conexión REST [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi).
 
 | Nombre de REST API | Nombre de SOAP API | Etiqueta descriptiva | Descripción |
 | --- | --- | --- | --- |
@@ -53,7 +53,7 @@ Puede recuperar la lista de todos los nombres de campo admitidos disponibles en 
 | teléfono | Teléfono | Número de teléfono | Número de teléfono del posible cliente |
 | postalCode | PostalCode | Código postal | Código postal del posible cliente |
 | clasificación | Calificación | Calificación de lead | Calificación de marketing/ventas del posible cliente |
-| salutación | Saludo | Saludo | Saludo preferido del jefe, es decir, señor, señorita... etc. |
+| salutación | Saludo | Saludo | El saludo preferido de Lead, es decir, Señor, Señoritas... y así sucesivamente |
 | sicCode | SICCode | Código SIC | Código de clasificación industrial estándar de la compañía del posible cliente |
 | sitio | Sitio | Sitio |  |
 | estado | Estado | Estado | Estado del posible cliente |

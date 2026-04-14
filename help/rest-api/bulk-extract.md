@@ -3,9 +3,9 @@ title: Extracción en lote
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Bulk Extract para exportar posibles clientes, actividades, miembros de programa y objetos personalizados, con OAuth, colas de trabajos y límites diarios de 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '1723'
+source-wordcount: '1724'
 ht-degree: 0%
 
 ---
@@ -53,7 +53,7 @@ Las API de extracción masiva se miden en función del tamaño en disco de los d
 
 La cuota diaria es de un máximo de 500 MB por día, que se comparten entre posibles clientes, actividades, miembros de programa y objetos personalizados. Cuando se supera la cuota, no puede crear ni poner en cola otro trabajo hasta que la cuota diaria se restablezca a medianoche [hora central](https://en.wikipedia.org/wiki/Central_Time_Zone). Hasta ese momento, se devuelve el error &quot;1029, Export daily quota expanded&quot;. Aparte de la cuota diaria, no hay un tamaño de archivo máximo.
 
-Una vez que un trabajo se pone en cola o se procesa, se ejecuta hasta su finalización (salvo error o cancelación del trabajo). Si un trabajo falla por algún motivo, debe volver a crearlo. Los archivos sólo se escriben completamente cuando un trabajo alcanza el estado completado (los archivos parciales nunca se escriben). Puede verificar que un archivo se escribió completamente calculando su hash SHA-256 y comparándolo con la suma de comprobación que devuelven los extremos de estado del trabajo.
+Una vez que un trabajo se pone en cola o se procesa, se ejecuta hasta su finalización (salvo error o cancelación del trabajo). Si un trabajo falla por algún motivo, debe volver a crearlo. Los archivos sólo se escriben completamente cuando un trabajo alcanza el estado completado (los archivos parciales nunca se escriben). Puede verificar que un archivo se escribió completamente calculándolo es un hash SHA-256 y comparándolo con la suma de comprobación que devuelven los extremos de estado del trabajo.
 
 Puede determinar la cantidad total de disco utilizado para el día actual llamando a Obtener resultados de cliente potencial/Actividad/Trabajos de miembro del programa. Estos extremos devuelven una lista de todos los trabajos de los últimos siete días. Puede filtrar esa lista para que solo se muestren los trabajos que se completaron en el día actual (con los atributos `status` y `finishedAt`). A continuación, sume los tamaños de archivo de esos trabajos para obtener la cantidad total utilizada. No hay forma de eliminar un archivo para recuperar espacio en disco.
 

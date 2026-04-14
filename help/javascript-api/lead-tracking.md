@@ -3,9 +3,9 @@ title: Seguimiento de leads
 description: Obtenga información sobre cómo incrustar Marketo Munchkin JavaScript, rastrear visitas y clics, administrar posibles clientes conocidos frente a anónimos, cookies entre dominios y desactivar campañas inteligentes.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '787'
+source-wordcount: '820'
 ht-degree: 0%
 
 ---
@@ -74,7 +74,7 @@ En la primera visita de un posible cliente a una página de su dominio, se crea 
 
 - El posible cliente debe visitar una página con seguimiento de Munchkin con un parámetro `mkt_tok` en la cadena de consulta desde un vínculo de correo electrónico de Marketo al que se ha hecho un seguimiento.
 - El posible cliente debe rellenar un formulario de Marketo.
-- Se debe enviar una llamada de REST [Asociar posible cliente](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST).
+- Se debe enviar una llamada de REST [Asociar posible cliente](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST).
 
 Cuando se cumple una de estas condiciones, la cookie y toda la actividad web asociada se asocian con el posible cliente conocido.
 
@@ -100,7 +100,7 @@ Las cookies de Munchkin son específicas de cada dominio de segundo nivel, es de
 
 ## Beta
 
-Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
+Para activar el canal beta de Munchkin en tus páginas de aterrizaje, ve al menú [Administrador -> Cofre del tesoro](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) y activa la configuración &quot;Munchkin Beta en páginas de aterrizaje&quot;. Esto proporciona nuevos fragmentos de código en **[!UICONTROL Admin]** ->  Menú **[!UICONTROL Munchkin]** para permitirle usar la versión beta en sitios externos.
 
 ## Opción de exclusión
 

@@ -3,7 +3,7 @@ title: Cuentas nombradas
 feature: REST API
 description: Guía de Marketo REST para CRUD sobre cuentas con nombre para ABM, con descripción, consultas, creación de ejemplos de actualización, campos en los que se puede buscar, reglas de desduplicación y sin vinculación de posibles clientes.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '730'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # Cuentas nombradas
 
-[Referencia de extremo de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[Referencia de extremo de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts)
 
 Marketo ofrece un conjunto de API para realizar operaciones de CRUD en cuentas con nombre para su uso con Marketo ABM. Estas API siguen el patrón de interfaz estándar para las API de la base de datos de posibles clientes, y proporcionan las opciones Describir, Crear/actualizar, Eliminar y Consulta.
 
@@ -224,7 +224,7 @@ La consulta de campos de cuenta con nombre es sencilla. Puede consultar un únic
 
 #### Por nombre
 
-El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo. La respuesta es como el extremo de Describir cuenta con nombre, pero contiene metadatos adicionales como el atributo isCustom que indica si el campo es un campo personalizado.
+El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo. La respuesta es como el extremo de Describir cuenta con nombre, pero contiene metadatos adicionales como el atributo isCustom que indica si el campo es un campo personalizado.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Examinar
 
-El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, se devuelve un máximo de 300 registros. Puede utilizar el parámetro de consulta batchSize para reducir este número. Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El nextPageToken devuelto desde esta API siempre debe reutilizarse para la siguiente iteración de esta llamada.
+El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, se devuelve un máximo de 300 registros. Puede utilizar el parámetro de consulta batchSize para reducir este número. Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El nextPageToken devuelto desde esta API siempre debe reutilizarse para la siguiente iteración de esta llamada.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

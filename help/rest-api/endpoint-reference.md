@@ -3,7 +3,7 @@ title: Referencia de extremo
 feature: REST API
 description: Lista completa de extremos de la API de REST de Marketo con métodos, URI y permisos necesarios en todas las actividades, exportación masiva, identidad, posibles clientes, recursos y usuarios.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
 source-wordcount: '4793'
 ht-degree: 29%
@@ -14,9 +14,9 @@ ht-degree: 29%
 
 A continuación se muestran vínculos a las referencias de la API de REST de Marketo.
 
-- [Recurso](https://developer.adobe.com/marketo-apis/api/asset/)
+- [Recurso](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identidad](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Base de datos de posible clientes](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Base de datos de posible clientes](https://developer.adobe.com/marketo-apis/api/mapi)
 - [Gestión de usuarios](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Lista de extremos {#endpoint_list}
