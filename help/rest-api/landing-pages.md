@@ -274,7 +274,7 @@ Las variables se definen como metaetiquetas dentro del elemento `<head>` de una 
 </head>
 ```
 
-Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Para obtener más información, consulte la sección &quot;Variable editable&quot; en la documentación de [Crear una plantilla de página de aterrizaje guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Consulta
 
