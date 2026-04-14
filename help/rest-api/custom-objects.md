@@ -890,7 +890,7 @@ El extremo [Agregar campos de tipo de objeto personalizados](https://developer.a
 Para una estructura de objeto personalizada de uno a varios, utilice un campo de vínculo en un objeto personalizado para conectarlo a un objeto estándar: Posible cliente o Empresa. Utilizando el ejemplo del propietario del automóvil de la documentación del producto de Marketo [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure), creamos un objeto personalizado que contiene información relacionada con el automóvil para conectarnos con posibles clientes.
 
 1. Crear un objeto **Car**
-1. Agregar campos al objeto **Car**: desduplicación en **VIN**, vínculo a **posible cliente****/ID de posible cliente**
+1. Agregar campos al objeto **Car**: desduplicación en **VIN**, vínculo a **posible cliente**&#x200B;**/ID de posible cliente**
 1. Aprobar objeto **Car**
 
 En primer lugar, cree el tipo de objeto personalizado para que contenga información específica del coche.
@@ -994,7 +994,7 @@ Las relaciones &quot;varios a varios&quot; se representan mediante un &quot;puen
 1. Agregar campos a **Curso:** desduplicación en **ID de curso**
 1. Aprobar **curso**
 1. Crear un objeto de puente **Enrollment**
-1. Agregar campos a **Inscripción:** desduplicada en **ID de inscripción**, vínculo al campo **Curso****/ID de curso** y vínculo a **ID de posible cliente****/ID de posible cliente**
+1. Agregar campos a **Inscripción:** desduplicada en **ID de inscripción**, vínculo al campo **Curso**&#x200B;**/ID de curso** y vínculo a **ID de posible cliente**&#x200B;**/ID de posible cliente**
 1. Aprobar **inscripción**
 
 En primer lugar, cree el tipo de objeto edge para contener información específica del curso:
