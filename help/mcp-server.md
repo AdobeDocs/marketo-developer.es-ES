@@ -4,9 +4,9 @@ description: Aprenda a conectar un asistente de IA a Marketo mediante el servido
 hidefromtoc: true
 badgeBeta: label="Beta" type="informative" tooltip="Actualmente, esta función se encuentra en su versión beta preliminar"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: ad7c64f3e2cbc25db1c2ffe61e2d42b0acbbd573
+source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
 workflow-type: tm+mt
-source-wordcount: '1312'
+source-wordcount: '1431'
 ht-degree: 1%
 
 ---
@@ -16,6 +16,12 @@ ht-degree: 1%
 El Protocolo de contexto de modelo (MCP) es un estándar abierto que permite a las herramientas de IA comunicarse con servicios externos. El servidor MCP [!DNL Marketo] actúa como un puente entre su asistente de IA y [!DNL Marketo]. Expone más de 100 operaciones en formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
 Cuando la herramienta de IA llama al servidor MCP, el servidor ejecuta la llamada de API de REST correspondiente en su nombre, utilizando las credenciales proporcionadas en cada solicitud. No es necesario instalar, implementar ni ejecutar ningún software del lado del servidor.
+
+>[!IMPORTANT]
+>
+>El Modelo de Protocolo de Contexto (MCP) es un estándar de código abierto emergente y puede presentar riesgos de seguridad o fiabilidad. Las integraciones del servidor de Adobe MCP y la documentación relacionada se proporcionan &quot;tal cual&quot;, sin garantías de ningún tipo.
+>La conexión de clientes o servidores MCP a los productos de Adobe es una configuración elegida por el cliente, y los clientes son responsables de evaluar la seguridad y la idoneidad de cualquier integración MCP. Adobe no se responsabiliza de los problemas que se deriven de una configuración incorrecta, un uso incorrecto del MCP, vulnerabilidades en implementaciones de terceros o acciones no deseadas realizadas a través de flujos de trabajo habilitados para MCP.
+>Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de zona protegida antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o depender de ellas.
 
 ## Requisitos previos
 
