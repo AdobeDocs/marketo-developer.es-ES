@@ -2,16 +2,20 @@
 title: Servidor MCP
 description: Aprenda a conectar un asistente de IA a Marketo mediante el servidor MCP. Configure Claude Desktop, Cursor, Claude Code o VS Code con sus credenciales de Marketo.
 hidefromtoc: true
-badgeBeta: label="Beta" type="informative" tooltip="Actualmente, esta función se encuentra en su versión beta preliminar"
+badgeBeta: label="Beta" type="informative" tooltip="Esta función se encuentra actualmente en una versión beta cerrada"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
+source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
 workflow-type: tm+mt
-source-wordcount: '1431'
+source-wordcount: '1428'
 ht-degree: 1%
 
 ---
 
 # Servidor MCP [!DNL Marketo]
+
+>[!NOTE]
+>
+>El servidor MCP está actualmente en una versión beta cerrada. No está disponible para todos los usuarios en este momento.
 
 El Protocolo de contexto de modelo (MCP) es un estándar abierto que permite a las herramientas de IA comunicarse con servicios externos. El servidor MCP [!DNL Marketo] actúa como un puente entre su asistente de IA y [!DNL Marketo]. Expone más de 100 operaciones en formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
@@ -222,7 +226,6 @@ Ejemplos de peticiones de datos:
 
 | Error | Causa | Corregir |
 | ------- | ------- | ----- |
-| &quot;Extremo de Marketo no proporcionado&quot; | Falta el encabezado `X-Marketo-Endpoint` en la configuración. | Vuelva a comprobar la configuración de MCP y confirme que los cuatro encabezados están presentes. |
 | &quot;No se han proporcionado las credenciales de Marketo&quot; | Falta uno o más de `X-Marketo-Client-Id`, `X-Marketo-Client-Secret` o `X-Marketo-Munchkin-Id`. | Compruebe que los cuatro encabezados estén presentes en la configuración. |
 | &quot;Error de autenticación&quot; | Las credenciales no son válidas o han caducado. | Vuelva a comprobar el ID de cliente y el secreto de cliente en **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**. |
 | &quot;403 Prohibido&quot; | Su Munchkin ID no está en la lista de permitidos del servidor. | Póngase en contacto con su administrador de MCP [!DNL Marketo] para agregar su Munchkin ID. |
