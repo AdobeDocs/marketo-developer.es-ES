@@ -2,7 +2,7 @@
 title: Archivo de blog
 description: Marketo Developer Blog archive 2014-2023 que ofrece publicaciones históricas sobre Forms 2.0, Zapier, actualizaciones de la API, desaprobación de SOAP y migración a REST.
 exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 9c6aa420e451d529f3a1618fafe70b59392a4670
 workflow-type: tm+mt
 source-wordcount: '65019'
 ht-degree: 0%
@@ -1606,7 +1606,7 @@ Publicado el _2014-10-08_ por _Josh_
 
 ### Relleno previo de página externa
 
-Los formularios Marketo Forms no proporcionan la funcionalidad de relleno previo nativa cuando se cargan fuera de una página de aterrizaje de Marketo. Sin embargo, aún podemos implementar esto usando las [API de Marketo](/help/rest-api/rest-api.md) y la [API de JavaScript de Forms 2.0](/help/javascript-api/forms-api-reference.md/). El primer paso es recuperar los datos de posibles clientes de Marketo a través de una llamada REST desde el servidor. Suponiendo que no tengamos una forma inmediata de cruzar ID de posibles clientes u otro identificador único del servidor, necesitamos usar la cookie de Munchkin, &#39;_mkto_trk&#39;, para recuperar datos del servidor de Marketo, usando el método [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET).
+Los formularios Marketo Forms no proporcionan la funcionalidad de relleno previo nativa cuando se cargan fuera de una página de aterrizaje de Marketo. Sin embargo, aún podemos implementar esto usando las [API de Marketo](/help/rest-api/rest-api.md) y la [API de JavaScript de Forms 2.0](/help/javascript-api/forms-api-reference.md). El primer paso es recuperar los datos de posibles clientes de Marketo a través de una llamada REST desde el servidor. Suponiendo que no tengamos una forma inmediata de cruzar ID de posibles clientes u otro identificador único del servidor, necesitamos usar la cookie de Munchkin, &#39;_mkto_trk&#39;, para recuperar datos del servidor de Marketo, usando el método [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET).
 
 Para realizar esta llamada, necesitamos sus puntos finales de autenticación y REST de su instancia. Una vez que se haya autenticado con su instancia de Marketo, tendremos que realizar una llamada a la API de posibles clientes en `https://<host>/rest/v1/leads.json`. Luego necesitamos crear una cadena de consulta para filtrar la cookie de Marketo como esta `?filterType=cookie&filterValues=`. Debe recuperar el valor específico de la clave &#39;_mkto_trk&#39; que el cliente envía al servidor. NOTA: El valor de la cookie _mkto_trk incluye un signo &amp; y debe codificarse con la dirección URL `%26` para que el extremo de Marketo lo acepte correctamente. De forma predeterminada, la API de posibles clientes devuelve cuatro campos: `id`, `email`, `firstName` y `updatedAt`. Para establecer un conjunto específico de campos, debe incluir un parámetro de consulta `fields`, con nombres de campo separados por comas como este: `&fields=email,firstName,lastName,company`. Finalmente, nuestra llamada va a tener este aspecto:
 
