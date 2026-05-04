@@ -3,10 +3,10 @@ title: Servidor MCP
 description: Aprenda a conectar un asistente de IA a Marketo mediante el servidor MCP. Configure Claude Desktop, Cursor, Claude Code o VS Code con sus credenciales de Marketo.
 badgeBeta: label="Beta" type="informative" tooltip="Esta función se encuentra actualmente en una versión beta cerrada"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 74f277aa200fa54bc386c067ec3302d144ec250a
+source-git-commit: 738fabea9eefbc6aafee4ffa7972c9e3e2bd430c
 workflow-type: tm+mt
-source-wordcount: '1428'
-ht-degree: 1%
+source-wordcount: '1478'
+ht-degree: 0%
 
 ---
 
@@ -26,28 +26,60 @@ Cuando la herramienta de IA llama al servidor MCP, el servidor ejecuta la llamad
 >La conexión de clientes o servidores MCP a los productos de Adobe es una configuración elegida por el cliente, y los clientes son responsables de evaluar la seguridad y la idoneidad de cualquier integración MCP. Adobe no se responsabiliza de los problemas que se deriven de una configuración incorrecta, un uso incorrecto del MCP, vulnerabilidades en implementaciones de terceros o acciones no deseadas realizadas a través de flujos de trabajo habilitados para MCP.
 >Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de zona protegida antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o depender de ellas.
 
+## Conceptos básicos de MCP
+
+>Piense en MCP como un puerto USB-C para aplicaciones de IA. Al igual que USB-C ofrece una forma estandarizada de conectar sus dispositivos a varios periféricos y accesorios, MCP ofrece una forma estandarizada de conectar modelos de IA a diferentes fuentes de datos y herramientas. — [Protocolo de contexto de modelo](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+
+MCP permite que una herramienta de IA se conecte a varios servicios externos al mismo tiempo. Por ejemplo, un asistente de IA podría:
+
+* Conectarse a un procesador de textos para generar documentos con asistencia de IA
+* Conéctese a aplicaciones de modelado 3D como Blender para crear animaciones
+* Conectar con After Effects para la edición de vídeo
+
+MCP es un protocolo de comunicación: un estándar abierto que cualquier aplicación puede implementar para exponer sus datos y acciones a las herramientas de IA.
+
+## Qué hace y no hace [!DNL Marketo] MCP
+
+Comprender el ámbito de MCP ayuda a establecer expectativas antes de conectar la herramienta de IA.
+
+**MCP no:**
+
+* Proporcionar acceso a los datos y las capacidades de [!DNL Marketo] mediante las API de REST estándar
+* Ejecutar llamadas de API en su nombre mediante las credenciales que proporciona con cada solicitud
+* Admitir varios usuarios simultáneos, cada uno conectado con sus propias credenciales
+* Controlar la actualización del token de OAuth automáticamente: no es necesario administrar la caducidad del token
+* Opere dentro de entornos aislados del inquilino para que los datos nunca se intersecten con la sesión de otro usuario
+
+**MCP no:**
+
+* Utilice, aloje o ejecute cualquier modelo de IA o aprendizaje automático: todo el procesamiento de IA se realiza en la herramienta de IA, no en MCP
+* Capacite o aprenda de cualquier dato, incluidos los datos de sus clientes
+* Generar predicciones, recomendaciones o decisiones: la toma de decisiones es responsabilidad de la herramienta de IA descendente o del usuario
+* Almacenar o conservar credenciales, datos de solicitud o estados de sesión entre solicitudes
+* Requerir que instale, implemente o administre cualquier software del lado del servidor
+
 ## Requisitos previos
 
-- Una instancia de [!DNL Marketo] con acceso a la API de REST habilitado
-- Acceso de administrador para crear credenciales de API en [!DNL Marketo] LaunchPoint
-- Una de las siguientes herramientas de IA: Claude Desktop, Cursor, Claude Code (CLI) o VS Code con GitHub Copilot
-- Acceso de red a la URL del servidor MCP: `https://marketo-mcp.adobe.io/mcp`
+* Una instancia de [!DNL Marketo] con acceso a la API de REST habilitado
+* Acceso de administrador para crear credenciales de API en [!DNL Marketo] LaunchPoint
+* Una de las siguientes herramientas de IA: Claude Desktop, Cursor, Claude Code (CLI) o VS Code con GitHub Copilot
+* Acceso de red a la URL del servidor MCP: `https://marketo-mcp.adobe.io/mcp`
 
 ## Obtener credenciales de Marketo
 
 Necesita los siguientes valores de su instancia de [!DNL Marketo]:
 
-- **ID de cliente**
-- **Secreto de cliente**
-- **ID de cuenta de Munchkin**
+* **ID de cliente**
+* **Secreto de cliente**
+* **ID de cuenta de Munchkin**
 
 Si ya los tiene, vaya a [Configurar la herramienta de IA](#configure-your-ai-tool).
 
 ### ID de cliente y secreto de cliente
 
 1. Vaya a **[!UICONTROL Administración]** > **[!UICONTROL LaunchPoint]**.
-1. Haga clic en su servicio API. Si no tiene uno, seleccione **[!UICONTROL Nuevo]** > **[!UICONTROL Nuevo servicio]**, elija **[!UICONTROL Personalizado]** como tipo de servicio y asigne un usuario de API dedicado.
-1. Haga clic en **[!UICONTROL Ver detalles]** y copie los valores de **[!UICONTROL ID de cliente]** y **[!UICONTROL Secreto de cliente]**.
+1. Seleccione su servicio API. Si no tiene uno, seleccione **[!UICONTROL Nuevo]** > **[!UICONTROL Nuevo servicio]**, elija **[!UICONTROL Personalizado]** como tipo de servicio y asigne un usuario de API dedicado.
+1. Seleccione **[!UICONTROL Ver detalles]** y copie los valores **[!UICONTROL ID de cliente]** y **[!UICONTROL Secreto de cliente]**.
 
 ### ID de cuenta de Munchkin
 
@@ -58,13 +90,16 @@ Si ya los tiene, vaya a [Configurar la herramienta de IA](#configure-your-ai-too
 
 Cada herramienta de IA lee la configuración del servidor MCP desde una ubicación diferente. Busque la herramienta a continuación y siga los pasos para agregar el servidor MCP [!DNL Marketo].
 
+>[!TIP]
+>
+>Para conectarse a varias instancias de [!DNL Marketo], agregue entradas independientes en la configuración de MCP con nombres únicos (por ejemplo, `marketo-prod` y `marketo-staging`), cada una con las credenciales correspondientes.
+
 ### Claude Desktop
 
 El archivo de configuración es `claude_desktop_config.json`. Ábralo desde una de estas ubicaciones:
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **Linux**: `~/.config/Claude/claude_desktop_config.json`
+* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 Si el archivo ya contiene otros servidores MCP, agregue la entrada `marketo` en `mcpServers`. El siguiente ejemplo muestra el bloque `mcpServers` completo:
 
@@ -122,27 +157,23 @@ claude mcp add --transport http marketo \
 
 ### Código VS con el copiloto de GitHub
 
-Abra el código VS `settings.json` presionando **[!UICONTROL Ctrl+Mayús+P]** o **[!UICONTROL Cmd+Mayús+P]** en macOS y, a continuación, seleccionando **[!UICONTROL Preferencias: Abrir configuración de usuario (JSON)]**. Añada el siguiente ejemplo:
+Presione **[!UICONTROL Ctrl+Mayús+P]** (o **[!UICONTROL Cmd+Mayús+P]** en macOS), escriba **[!UICONTROL MCP: Abrir configuración de usuario]** y presione Entrar. Se abre `mcp.json`. Agregar la entrada `marketo` dentro del objeto `servers`:
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "marketo": {
-        "type": "http",
-        "url": "https://marketo-mcp.adobe.io/mcp",
-        "headers": {
-          "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
-          "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-          "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
-        }
+  "servers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
+        "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
+        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
       }
     }
   }
 }
 ```
-
-Presione **[!UICONTROL Ctrl+Mayús+P]** (o **[!UICONTROL Cmd+Mayús+P]** en macOS), escriba **[!UICONTROL Volver a cargar la ventana]** y presione Entrar.
 
 >[!NOTE]
 >
@@ -158,9 +189,9 @@ Examinar, crear, clonar y aprobar formularios. Agregue o quite campos, configure
 
 Ejemplos de peticiones de datos:
 
-- &quot;Mostrar todos los formularios aprobados&quot;
-- &quot;Clone el formulario Contact Us en la carpeta Q2 Campaign&quot;
-- &quot;Agregar un campo Compañía al formulario de solicitud de demostración&quot;
+* &quot;Mostrar todos los formularios aprobados&quot;
+* &quot;Clone el formulario Contact Us en la carpeta Q2 Campaign&quot;
+* &quot;Agregar un campo Compañía al formulario de solicitud de demostración&quot;
 
 ### Campañas inteligentes
 
@@ -168,9 +199,9 @@ Cree campañas inteligentes, configure filtros de listas inteligentes, agregue p
 
 Ejemplos de peticiones de datos:
 
-- &quot;¿Qué campañas inteligentes están activas ahora?&quot;
-- &quot;Cree una nueva campaña inteligente llamada Actualización de puntuación de posibles clientes en la carpeta Operaciones&quot;
-- &quot;Mostrarme los pasos de flujo en la campaña de correo electrónico de bienvenida&quot;
+* &quot;¿Qué campañas inteligentes están activas ahora?&quot;
+* &quot;Cree una nueva campaña inteligente llamada Actualización de puntuación de posibles clientes en la carpeta Operaciones&quot;
+* &quot;Mostrarme los pasos de flujo en la campaña de correo electrónico de bienvenida&quot;
 
 ### Posibles clientes y listas
 
@@ -178,9 +209,9 @@ Buscar posibles clientes por dirección de correo electrónico, crear o actualiz
 
 Ejemplos de peticiones de datos:
 
-- &quot;Encontrar el posible cliente con el correo electrónico jane@example.com&quot;
-- &quot;Agregar ID de posible cliente 12345 a la lista de MQL del segundo trimestre&quot;
-- &quot;Crear una nueva lista estática llamada Asistentes al evento de verano&quot;
+* &quot;Encontrar el posible cliente con el correo electrónico jane@example.com&quot;
+* &quot;Agregar ID de posible cliente 12345 a la lista de MQL del segundo trimestre&quot;
+* &quot;Crear una nueva lista estática llamada Asistentes al evento de verano&quot;
 
 ### Programas
 
@@ -188,9 +219,9 @@ Crear, clonar y etiquetar programas. Examinar programas por tipo, canal o interv
 
 Ejemplos de peticiones de datos:
 
-- &quot;Clonar el programa de seminario web del cuarto trimestre en la carpeta Eventos de 2026&quot;
-- &quot;Cree un nuevo programa de correo electrónico llamado Rebajas de verano en la carpeta Campañas&quot;
-- &quot;Mostrar todos los programas etiquetados como seminario web&quot;
+* &quot;Clonar el programa de seminario web del cuarto trimestre en la carpeta Eventos de 2026&quot;
+* &quot;Cree un nuevo programa de correo electrónico llamado Rebajas de verano en la carpeta Campañas&quot;
+* &quot;Mostrar todos los programas etiquetados como seminario web&quot;
 
 ### Correos electrónicos y fragmentos
 
@@ -198,9 +229,9 @@ Examine correos electrónicos, cree correos electrónicos a partir de plantillas
 
 Ejemplos de peticiones de datos:
 
-- &quot;Mostrar todos los borradores de correos electrónicos&quot;
-- &quot;Actualizar la sección de encabezado del correo electrónico de bienvenida&quot;
-- &quot;¿Qué recursos utilizan el fragmento de promoción de vacaciones?&quot;
+* &quot;Mostrar todos los borradores de correos electrónicos&quot;
+* &quot;Actualizar la sección de encabezado del correo electrónico de bienvenida&quot;
+* &quot;¿Qué recursos utilizan el fragmento de promoción de vacaciones?&quot;
 
 ### Estructura de instancia
 
@@ -208,9 +239,9 @@ Examine carpetas, canales, tipos de etiquetas y tipos de actividades para compre
 
 Ejemplos de peticiones de datos:
 
-- &quot;Enumerar todas las carpetas en Marketo&quot;
-- &quot;Mostrar todos los canales disponibles&quot;
-- &quot;¿Qué tipos de etiquetas están configurados?&quot;
+* &quot;Enumerar todas las carpetas en Marketo&quot;
+* &quot;Mostrar todos los canales disponibles&quot;
+* &quot;¿Qué tipos de etiquetas están configurados?&quot;
 
 ### Operaciones masivas
 
@@ -218,8 +249,8 @@ Exportar datos de posibles clientes de forma masiva y comprobar el estado del tr
 
 Ejemplos de peticiones de datos:
 
-- &quot;Crear una exportación masiva de posibles clientes creada en los últimos 30 días&quot;
-- &quot;Comprobar el estado del trabajo de exportación xx&quot;
+* &quot;Crear una exportación masiva de posibles clientes creada en los últimos 30 días&quot;
+* &quot;Comprobar el estado del trabajo de exportación xx&quot;
 
 ## Resolución de problemas
 
@@ -231,63 +262,14 @@ Ejemplos de peticiones de datos:
 | Tiempo de espera de conexión o rechazado | No se puede acceder al servidor MCP desde la red. | Confirme que puede acceder a la URL del servidor desde su entorno. Compruebe los requisitos de VPN si corresponde. |
 | Las llamadas a herramientas devuelven resultados vacíos | El usuario de la API carece de permisos para el tipo de recurso solicitado. | Pida al administrador de [!DNL Marketo] que revise la función de usuario y los permisos de la API. |
 
-## Preguntas frecuentes
-
-+++¿Mis datos son seguros?
-
-Las credenciales se transmiten en encabezados HTTP con cada solicitud individual. El servidor no almacena ni almacena en caché las credenciales entre sesiones y cada solicitud está completamente aislada.
-
-+++
-
-+++¿Pueden utilizarlo varias personas al mismo tiempo?
-
-Sí. El servidor es de varios usuarios. Cada usuario se conecta con sus propias credenciales y las solicitudes están aisladas entre sí.
-
-+++
-
-+++¿Qué sucede si caduca mi token de acceso?
-
-Cuando se autentica con ID de cliente y Secreto de cliente, el servidor gestiona la actualización de tokens automáticamente. No es necesario que realice ninguna acción.
-
-+++
-
-+++¿Necesito instalar o ejecutar algo?
-
-No. El servidor MCP se aloja en Adobe. Solo es necesario configurar la herramienta de IA para conectarse a ella.
-
-+++
-
-+++¿Qué permisos de [!DNL Marketo] necesita mi usuario de API?
-
-El usuario de API necesita acceder a los tipos de recursos que desea administrar. Como mínimo, asigne una función de solo lectura a las operaciones de exploración y una función de lectura y escritura a la creación o modificación de recursos. Trabaje con el administrador de [!DNL Marketo] para asignar los permisos adecuados.
-
-+++
-
-+++¿Cuáles son los límites de tasa?
-
-El servidor MCP hereda los límites de tasa de API de la instancia [!DNL Marketo]. Utilice un usuario de API dedicado para rastrear y administrar el consumo de cuotas.
-
-+++
-
-+++¿Qué herramientas de IA son compatibles?
-
-Claude Desktop, Cursor, Claude Code (CLI) y VS Code con GitHub Copilot. Cualquier herramienta de IA que admita el protocolo de contexto de modelo a través de HTTP debe funcionar.
-
-+++
-
-+++¿Puedo conectarme a varias instancias de [!DNL Marketo]?
-
-Sí. Añada varias entradas en la configuración de MCP de la herramienta AI, cada una con un nombre único y las credenciales de la instancia correspondiente. Por ejemplo, puede configurar `marketo-prod` y `marketo-staging` como servidores independientes.
-
-+++
-
 ## Consideraciones de seguridad
 
 >[!IMPORTANT]
 >
 >Use un usuario de API dedicado en [!DNL Marketo] con solo los permisos necesarios para su trabajo. No reutilice las credenciales de administrador para el acceso a la API.
 
-- **Credenciales por solicitud.** El ID del cliente, el Secreto del cliente, el ID de Munchkin y el extremo de la API de REST se transmiten en encabezados HTTP con cada solicitud. El servidor no los almacena en caché.
-- **Aislamiento de varios inquilinos.** Cada solicitud utiliza su propio conjunto de credenciales. Los datos no se cruzan con la sesión de ningún otro usuario.
-- **lista de permitidos de Munchkin ID.** El servidor solo acepta solicitudes para instancias de [!DNL Marketo] aprobadas. Las solicitudes que utilizan un ID de Munchkin no autorizado se rechazan con un error 403.
-- **Mantener credenciales fuera del control de versiones.** Utilice la interpolación de variables de entorno (`${MARKETO_CLIENT_SECRET}`) si la herramienta de IA la admite, de modo que las credenciales no se almacenen en texto sin formato en los archivos enviados a un repositorio.
+* **Credenciales por solicitud.** El ID del cliente, el Secreto del cliente, el ID de Munchkin y el extremo de la API de REST se transmiten en encabezados HTTP con cada solicitud. El servidor no los almacena en caché.
+* **Aislamiento de varios inquilinos.** Cada solicitud utiliza su propio conjunto de credenciales. Los datos no se cruzan con la sesión de ningún otro usuario.
+* **lista de permitidos de Munchkin ID.** El servidor solo acepta solicitudes para instancias de [!DNL Marketo] aprobadas. Las solicitudes que utilizan un ID de Munchkin no autorizado se rechazan con un error 403.
+* **límites de tasa de API.** El servidor MCP hereda los límites de tasa de API de su instancia [!DNL Marketo]. Utilice un usuario de API dedicado para rastrear y administrar el consumo de cuotas.
+* **Mantener credenciales fuera del control de versiones.** Utilice la interpolación de variables de entorno (`${MARKETO_CLIENT_SECRET}`) si la herramienta de IA la admite, de modo que las credenciales no se almacenen en texto sin formato en los archivos enviados a un repositorio.
