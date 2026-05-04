@@ -3,9 +3,9 @@ title: Asignaciones de respuesta
 feature: Webhooks
 description: Asignaciones de respuestas de Webhooks de Marketo para JSON y XML, asignación de atributos a campos de posible cliente con nombres de API de SOAP, notación de puntos y matrices y compatibilidad de tipos.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d84b9d0f60734500f16bba237bdd95692d22abbb
 workflow-type: tm+mt
-source-wordcount: '481'
+source-wordcount: '485'
 ht-degree: 1%
 
 ---
@@ -28,11 +28,11 @@ Se accede a las propiedades JSON con notación de puntos y notación de matrices
 { "foo":"bar"}
 ```
 
-Para tener acceso a la propiedad `foo` en una asignación de respuesta, utilice `name` de la propiedad, ya que se encuentra en el primer nivel del objeto JSON, `foo`. Este es el aspecto que tiene Marketo:
+Para tener acceso a la propiedad `foo` en una asignación de respuesta, utilice `name` de la propiedad, ya que se encuentra en el primer nivel del objeto JSON, `foo`. A continuación, se muestra el aspecto que tiene en Marketo:
 
 ![Asignación de respuestas](assets/json-resp.png)
 
-Este es un ejemplo más complicado con una matriz:
+El siguiente es un ejemplo más complicado con una matriz:
 
 ```json
 {
@@ -58,7 +58,7 @@ Queremos acceder a orderDate desde el primer elemento de la matriz de pedidos. P
 
 ## Asignaciones XML
 
-Se puede acceder a los valores desde elementos individuales de documentos XML. Utiliza notación de puntos similar a las asignaciones JSON. Veamos este ejemplo sencillo:
+Se puede acceder a los valores desde elementos individuales de documentos XML. Utiliza notación de puntos similar a las asignaciones JSON. Consideremos este ejemplo sencillo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
