@@ -3,7 +3,7 @@ title: Scripts de correo electrónico
 feature: Email Programs
 description: Aprenda a crear secuencias de comandos de correos electrónicos dinámicos de Marketo mediante tokens, variables y herramientas de Velocity de Apache Velocity y realice pruebas con Enviar muestra y Vista previa de correo electrónico.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
+source-git-commit: 6b813020fec6727dc2fe3b4dfe1c98146447e704
 workflow-type: tm+mt
 source-wordcount: '1116'
 ht-degree: 0%
@@ -32,7 +32,9 @@ $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
 
-También existe la notación de referencia silenciosa, donde hay un `!` incluido después de `$`. Normalmente, cuando velocity encuentra una referencia indefinida, la cadena que representa la referencia se deja en su lugar. Con la notación de referencia silenciosa, si se encuentra una referencia indefinida, no se emite ningún valor:
+
+
+También existe la notación de referencia silenciosa, donde hay un `!` incluido después de `$`. Normalmente, cuando velocity encuentra una referencia indefinida, la cadena que representa la referencia se deja en su lugar. Con la notación rkjeference silenciosa, si se encuentra una referencia indefinida, no se emite ningún valor:
 
 ```velocity
 ##Defined Reference
@@ -111,7 +113,7 @@ La longitud combinada de todos los tokens de script de correo electrónico de un
 - Puede hacer referencia a objetos personalizados conectados a un posible cliente, contacto o cuenta, pero no a más de uno.
 - Solo se puede hacer referencia a los objetos personalizados a través de una única conexión, posible cliente, contacto o cuenta
 - Marque la casilla en el editor de scripts para los campos que está utilizando o que no se procesan
-- Para cada objeto personalizado, los diez registros actualizados más recientemente por persona/contacto están disponibles en tiempo de ejecución y se ordenan desde los más recientes (en 0) a los más antiguos (en 9). Puede aumentar el número de registros disponibles en [siguiendo las instrucciones](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Para cada objeto personalizado, los diez registros actualizados más recientemente por persona/contacto están disponibles en tiempo de ejecución y se ordenan desde los más recientes (en 0) a los más antiguos (en 9). Puede aumentar el número de registros disponibles en [siguiendo las instrucciones](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Si incluye más de un script de correo electrónico en un correo electrónico, se ejecutan de arriba a abajo. El ámbito de las variables definidas en el primer script que se va a ejecutar está disponible en los scripts posteriores.
 - Referencia de herramientas: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Una nota relativa a los tokens que contienen los caracteres de línea nueva &quot;\n&quot; o &quot;\r\n&quot;. Cuando se envía un correo electrónico mediante Enviar muestra o una campaña por lotes, los caracteres de línea nueva de los tokens se sustituyen por espacios. Cuando se envía un correo electrónico a través de la campaña de Déclencheur, los caracteres de línea nueva no se tocan.
