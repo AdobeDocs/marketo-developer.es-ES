@@ -3,7 +3,7 @@ title: Objetos Marketo
 feature: Email Programs
 description: Guía para utilizar Marketo Velocity con posibles clientes, oportunidades y objetos personalizados, carga de campos, acceso a las 10 listas principales, relaciones de SFDC y $TriggerObject.
 exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+source-git-commit: a8bf6680a212dd665841896e4550a755dcdf745d
 workflow-type: tm+mt
 source-wordcount: '532'
 ht-degree: 0%
@@ -34,7 +34,7 @@ Para estar disponible para su uso, un objeto personalizado de SFDC debe tener so
 
 ## Objetos de déclencheur
 
-Cuando se activa una campaña a través de los déclencheur Agregar a oportunidad, Oportunidad se actualiza o Se agrega a `<Custom Object Name>`, una variable especial está disponible en Tokens de script ejecutados en el contexto de la campaña de déclencheur: `$TriggerObject `(no compatible con el déclencheur `<Custom Object Name>` se ha actualizado).  Si se usa un token con una referencia `$TriggerObject` en una campaña por lotes, el envío de correo electrónico fallará, ya que este objeto no está disponible en campañas por lotes de ningún tipo.  Esta es una referencia al objeto que activó la campaña. El objeto contiene todos los datos a los que se tiene acceso en el registro mediante un nombre de variable diferente.
+Cuando se activa una campaña a través de los déclencheur Agregar a oportunidad, Oportunidad se actualiza o Se agrega a `<Custom Object Name>`, una variable especial está disponible en Tokens de script ejecutados en el contexto de la campaña de déclencheur: `$TriggerObject`(no compatible con el déclencheur `<Custom Object Name>` se ha actualizado).  Si se usa un token con una referencia `$TriggerObject` en una campaña por lotes, el envío de correo electrónico fallará, ya que este objeto no está disponible en campañas por lotes de ningún tipo.  Esta es una referencia al objeto que activó la campaña. El objeto contiene todos los datos a los que se tiene acceso en el registro mediante un nombre de variable diferente.
 
 Por ejemplo, si una campaña se activó mediante un objeto personalizado para un pedido de producto, el orden al que se agregó el posible cliente se expone en la variable `$TriggerObject`.
 
