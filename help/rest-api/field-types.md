@@ -3,9 +3,22 @@ title: Tipos de campo
 feature: REST API
 description: Lista completa de tipos de campos de Marketo con definiciones, ejemplos y formatos, incluida la fecha y hora en formato ISO 8601, los límites de área de texto, la moneda y el valor booleano.
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/Q-L1NCCS1caYip-niSrBAkp6k37ErzmsLCFvn7fRJW0
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2:
+  - id: ad89fb33-8541-4339-afe7-bb13d1633714
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '373'
+source-wordcount: 373
 ht-degree: 8%
 
 ---
@@ -24,7 +37,7 @@ Esta es una descripción de los tipos de campo en Marketo. Encontrará informac
 | Porcentaje | Un porcentaje expresado como un entero | 30 |
 | URL | Campo de texto que restringe la entrada a direcciones URL, incluido el protocolo de la dirección URL. | <http://example.com/> |
 | Teléfono | Número de teléfono | 111-111-1111 |
-| Área de texto | Texto más largo. | Admite hasta 30 000 bytes. Los caracteres ASCII estándar utilizan 1 byte por carácter (lo que permite hasta 30.000 caracteres). Los caracteres Unicode pueden utilizar hasta 4 bytes por carácter (lo que reduce el  número de caracteres permitido (inferior a 30 000 caracteres). |
+| Área de texto | Texto más largo. | Admite hasta 30 000 bytes. Los caracteres ASCII estándar utilizan 1 byte por carácter (lo que permite hasta 30.000 caracteres). Los caracteres Unicode pueden utilizar hasta 4 bytes por carácter (lo que reduce el número de caracteres permitidos a menos de 30 000). |
 | Cadena | Texto más corto | Texto de hasta 255 caracteres |
 | Puntuación | Un campo entero que se puede manipular con el paso de flujo Cambiar puntuación | 10 |
 | Booleano (anteriormente Casilla de verificación) | Permite a los usuarios seleccionar un valor Verdadero (marcado) o Falso (desmarcado). | True |

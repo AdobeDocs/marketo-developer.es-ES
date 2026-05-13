@@ -3,9 +3,19 @@ title: Páginas de destino
 feature: REST API, Landing Pages
 description: Utilice la API de REST de Marketo para consultar metadatos y contenido, crear, actualizar, aprobar, eliminar y clonar páginas de aterrizaje, incluidos los tipos guiados y de forma libre.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1221'
+source-wordcount: 1221
 ht-degree: 1%
 
 ---
@@ -186,7 +196,7 @@ Las secciones de contenido se ordenan por su propiedad de índice y, en última 
 | Rectángulo | Vacío. |
 | Texto enriquecido | Contenido de HTML de texto.  Solo puede contener elementos de texto enriquecido. |
 | Fragmento | El ID del fragmento. |
-| SocialButton | El ID de  el botón social. |
+| SocialButton | El ID del botón social. |
 | Vídeo | El ID del vídeo. |
 
 Para las páginas de forma libre, se deben agregar todas las secciones de contenido que desee y se incrustarán en el elemento div con el ID `mktoContent`. Para las páginas guiadas, puede haber una lista de elementos predefinidos en la lista del extremo [Obtener contenido de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Se pueden agregar más o [actualizar el contenido](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) a través de sus respectivos extremos.
@@ -310,7 +320,7 @@ GET /rest/asset/v1/landingPage/{id}/variables.json
 }
 ```
 
-Entrada  En este ejemplo, la página de aterrizaje guiada contiene 3 variables: stringVar, colorVar y boolVar.
+En este ejemplo, la página de aterrizaje guiada contiene 3 variables: stringVar, colorVar y boolVar.
 
 ### Actualización
 
@@ -341,7 +351,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 Marketo proporciona el punto de conexión [Obtener contenido completo de la página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) para recuperar una vista previa activa de una página de aterrizaje tal como se representaría en un explorador. Hay un parámetro requerido, el parámetro de ruta de acceso `id` que es el identificador de la página de aterrizaje que desea previsualizar. Hay dos parámetros de consulta opcionales adicionales:
 
 - segmentation: acepta una matriz de objetos JSON que contienen los atributos segmentationId y segmentId. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera un posible cliente que coincide con esos segmentos.
-- leadId:  Acepta el ID entero de un posible cliente. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera vista por el posible cliente designado.
+- leadId: acepta el ID entero de un posible cliente. Cuando se establece, obtiene una vista previa de la página de aterrizaje como si fuera vista por el posible cliente designado.
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]

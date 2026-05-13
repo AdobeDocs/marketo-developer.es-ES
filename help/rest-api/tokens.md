@@ -3,9 +3,14 @@ title: Tókenes
 feature: REST API, Tokens
 description: Administre Mis tokens de Marketo con la API de REST de recursos. Consulte Tipos de datos admitidos, obtener por carpeta o programa, crear o actualizar mediante POST con codificación de formulario y eliminar por nombre.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/uqOpu2vDuiQiZhILKuxZJQGadd0K14zwIaAdmNfK1-I
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '364'
+source-wordcount: 364
 ht-degree: 3%
 
 ---

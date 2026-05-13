@@ -3,9 +3,16 @@ title: Extracción en lote
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Bulk Extract para exportar posibles clientes, actividades, miembros de programa y objetos personalizados, con OAuth, colas de trabajos y límites diarios de 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/ECSchsjqp8fyxXbUGl5DgXHUkXuN0sIUc3yJfVaIe1E
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1724'
+source-wordcount: 1724
 ht-degree: 0%
 
 ---
@@ -125,7 +132,7 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 
 ## Recuperando trabajos
 
-A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un campo de filtro `status`, un  `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
+A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un campo de filtro `status`, un `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
 
 ```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed

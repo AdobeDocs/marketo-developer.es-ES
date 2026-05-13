@@ -3,9 +3,18 @@ title: Importación masiva de objetos personalizados
 feature: Custom Objects
 description: Obtenga información sobre cómo importar por lotes objetos personalizados de Marketo a través de REST mediante archivos CSV, TSV o SSV.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/C1LKLZDEvv95XXH3AEoxIXsLK55tgKTrvyxvs4LnYWw
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '953'
+source-wordcount: 953
 ht-degree: 0%
 
 ---
@@ -14,7 +23,7 @@ ht-degree: 0%
 
 [Referencia de extremo de importación de objeto personalizado masivo](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects)
 
-Cuando tiene muchos registros de objeto personalizados para  Para la importación, se recomienda importarlos de forma asíncrona mediante la API en bloque. Para ello, importe un archivo plano que contenga registros delimitados (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que su tamaño sea inferior a 10 MB (de lo contrario, un archivo HTTP  413 (se devuelve el código de estado). El contenido del archivo depende de la definición de objeto personalizada. La primera fila siempre contiene un encabezado que enumera los campos a los que asignar valores de cada fila. Todos los nombres de campo del encabezado deben coincidir con un nombre de API (como se describe a continuación). Las filas restantes contienen los datos que se van a importar, un registro por fila. La operación de registro es sólo &quot;insertar o actualizar&quot;.
+Cuando tiene que importar muchos registros de objeto personalizados, es recomendable importarlos de forma asíncrona mediante la API masiva. Para ello, importe un archivo plano que contenga registros delimitados (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que su tamaño sea inferior a 10 MB (de lo contrario, se devuelve un código de estado HTTP 413). El contenido del archivo depende de la definición de objeto personalizada. La primera fila siempre contiene un encabezado que enumera los campos a los que asignar valores de cada fila. Todos los nombres de campo del encabezado deben coincidir con un nombre de API (como se describe a continuación). Las filas restantes contienen los datos que se van a importar, un registro por fila. La operación de registro es sólo &quot;insertar o actualizar&quot;.
 
 ## Límites de procesamiento
 

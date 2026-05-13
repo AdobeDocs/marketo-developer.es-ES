@@ -3,10 +3,17 @@ title: getChannels
 feature: SOAP
 description: Descubra cómo Marketo SOAP getChannels recupera estados de progresión de canal, números de paso y indicadores de éxito, con ejemplos XML de solicitud y respuesta.
 exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/J5K9bcrV1JA65m99qxG9h2z5Wxs5KhHR6cI-Fq5UGBQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '109'
-ht-degree: 4%
+source-wordcount: 109
+ht-degree: 6%
 
 ---
 
@@ -22,7 +29,7 @@ Puede obtener información sobre todos los canales o especificar una lista espec
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | tag->values->stringItem | Opcional | Lista de canales que desea consultar. Si se omite `<tag>`, recibirá información sobre todos los canales |
 

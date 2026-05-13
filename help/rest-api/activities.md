@@ -3,9 +3,18 @@ title: Actividades
 feature: REST API
 description: Utilice la API de REST de actividades de Marketo Engage para enumerar tipos de actividades, recuperar actividades de posible cliente con tokens de paginación y gestionar cambios personalizados y de valor de datos.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 5260338681c4ea670f6f1b1a1603e30f6acc0865
+TQID: https://experienceleague.adobe.com/62keaj4uNoxIPCzr9AQzKrIsfuHBvC25knYisZRUvF4
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '2218'
+source-wordcount: 2218
 ht-degree: 0%
 
 ---
@@ -196,9 +205,9 @@ Cada actividad de la respuesta tiene una matriz de campos, incluida una lista de
 
 Tenga en cuenta que dentro de cada elemento de matriz de resultados, el atributo entero `id` se reemplaza por el atributo de cadena `marketoGUID` como identificador único.
 
-### Deleted leads
+### Posibles clientes eliminados
 
-There is also a special endpoint [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) for retrieving deleted activities from Marketo.
+También hay un punto final especial [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) para recuperar las actividades eliminadas de Marketo.
 
 ```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -235,28 +244,28 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 }
 ```
 
-Note that within each result array item, the `id` integer attribute is being replaced by the `marketoGUID` string attribute as unique identifier.
+Tenga en cuenta que dentro de cada elemento de matriz de resultados, el atributo entero `id` se reemplaza por el atributo de cadena `marketoGUID` como identificador único.
 
-### Page through results
+### Página a través de resultados
 
-By default, the endpoints mentioned in this section return 300 activity items at a time.  If the `moreResult` attribute is true, more results are available. Call the endpoint until the `moreResult` attribute returns false, which means that there are no more results available. The `nextPageToken` returned from this endpoint should always be reused for the next iteration of this call.
+De forma predeterminada, los extremos mencionados en esta sección devuelven 300 elementos de actividad a la vez.  Si el atributo `moreResult` es verdadero, hay más resultados disponibles. Llame al extremo hasta que el atributo `moreResult` devuelva el valor &quot;false&quot;, lo que significa que no hay más resultados disponibles. El `nextPageToken` devuelto desde este extremo siempre se debe reutilizar para la siguiente iteración de esta llamada.
 
-In some cases, this endpoint may respond with fewer than 300 activity items, but also have the `moreResult` attribute set to true.  This indicates that there are additional activities that can be returned and that the endpoint can be queried for more recent activities by including the returned `nextPageToken` in a subsequent call. Note that the `nextPageToken` needs to be URL Encoded in the request.
+En algunos casos, este extremo puede responder con menos de 300 elementos de actividad, pero también tiene el atributo `moreResult` establecido en true.  Esto indica que hay actividades adicionales que se pueden devolver y que se pueden consultar actividades más recientes en el extremo incluyendo el elemento devuelto `nextPageToken` en una llamada posterior. Tenga en cuenta que `nextPageToken` debe estar codificado en la dirección URL de la solicitud.
 
-## Custom Activity Types
+## Tipos de actividades personalizadas
 
-Custom Activities function just like standard activities, except the schema is managed by third-parties, and not by Marketo. Instances of custom activities are linked to lead records through the `leadId` just as standard activities, but both primary and secondary attributes are arbitrarily defined. When a custom activity type is approved, a corresponding Smart List trigger and filter are created, so that leads can be processed based on current or historical custom activity data.
+Las actividades personalizadas funcionan igual que las actividades estándar, excepto que el esquema lo administran terceros y no Marketo. Las instancias de actividades personalizadas están vinculadas a registros de posibles clientes a través de `leadId` del mismo modo que las actividades estándar, pero tanto los atributos primarios como los secundarios se definen arbitrariamente. Cuando se aprueba un tipo de actividad personalizada, se crean un déclencheur y un filtro de listas inteligentes correspondientes, de modo que los posibles clientes se puedan procesar en función de los datos de actividad personalizados actuales o históricos.
 
-* Maximum number of Custom Activities: 10
-* Maximum number of attributes per Custom Activity: 20
+* Número máximo de actividades personalizadas: 10
+* Número máximo de atributos por actividad personalizada: 20
 
-Retrieving custom activity data is done in the same way as standard activities, through the [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API.
+La recuperación de datos de actividad personalizados se realiza de la misma manera que las actividades estándar, a través de la API [Obtener actividades principales](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET).
 
-## Query Types
+## Tipos de consulta
 
-In addition to the standard Get Activity Types endpoint, the [Get Custom Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) and [Describe Custom Activity Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) endpoints returns details about the activity types provisioned in the Marketo instance, and metadata regarding the attributes for a given type. The normal [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) still returns metadata regarding custom activities, but does not indicate whether a given type is custom.
+Además del extremo estándar de Obtener tipos de actividad, los extremos de [Obtener tipos de actividad personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) y [Describir tipo de actividad personalizada](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) devuelven detalles sobre los tipos de actividad aprovisionados en la instancia de Marketo y metadatos sobre los atributos de un tipo determinado. El objeto [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) normal sigue devolviendo metadatos sobre las actividades personalizadas, pero no indica si un tipo determinado es personalizado.
 
-### Get types
+### Obtener tipos
 
 ```http
 GET /rest/v1/activities/external/types.json
@@ -282,9 +291,9 @@ GET /rest/v1/activities/external/types.json
 }
 ```
 
-### Describe types
+### Describir tipos
 
-For type descriptions you must pass `apiName` as a path parameter. By default you get the approved version of the activity. Opcionalmente, puede pasar el parámetro `draft=true` para recuperar la versión de borrador de la actividad.
+Para las descripciones de tipo, debe pasar `apiName` como parámetro de ruta de acceso. De forma predeterminada, obtiene la versión aprobada de la actividad. Opcionalmente, puede pasar el parámetro `draft=true` para recuperar la versión de borrador de la actividad.
 
 ```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
@@ -344,7 +353,7 @@ Para garantizar la coherencia de los tipos con las convenciones de Marketo y evi
 
 **Nombre de Déclencheur:** Cada tipo de actividad debe tener un nombre de déclencheur único legible en lenguaje natural. Los nombres de los déclencheur deben estar en el tiempo presente de la tercera persona, como &quot;Asiste a un evento&quot;. Los socios de LaunchPoint deben incluir el nombre de su empresa en la actividad, como &quot;Asiste al seminario web - Empresa Acme&quot;.
 
-**Nombre de filtro:**  Cada tipo de actividad debe tener un nombre de filtro único legible en lenguaje natural. Los nombres de los filtros deben estar en tiempo pasado en tercera persona, como &quot;Ha asistido a un evento&quot;. Los socios de LaunchPoint deben incluir el nombre de su empresa en la actividad, que es &quot;Seminario web al que asistió: empresa Acme&quot;.
+**Nombre de filtro:** Cada tipo de actividad debe tener un nombre de filtro único, legible en lenguaje natural. Los nombres de los filtros deben estar en tiempo pasado en tercera persona, como &quot;Ha asistido a un evento&quot;. Los socios de LaunchPoint deben incluir el nombre de su empresa en la actividad, que es &quot;Seminario web al que asistió: empresa Acme&quot;.
 
 **Atributo principal:** El atributo principal de una actividad personalizada debe ser el campo más significativo para el tipo de actividad. Por ejemplo, para una actividad &quot;Evento al que asistió&quot; este sería el nombre del evento. Los atributos principales se incluyen como parámetros de forma predeterminada en cada instancia de un déclencheur o filtro para ese tipo de actividad y el valor se muestra en el registro de actividad de una persona sin necesidad de profundizar en la actividad.
 

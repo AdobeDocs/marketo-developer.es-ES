@@ -3,9 +3,16 @@ title: SOAP API
 feature: SOAP
 description: La API de Marketo SOAP quedará obsoleta el 31 de octubre de 2025. Obtenga información sobre cómo migrar a REST, recuperar su WSDL, ver cuotas, límites de tasa y configuración de autenticación.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+TQID: https://experienceleague.adobe.com/Atnarr7XLzW3B2R5I8nLtayeE5kt3Bd4T46K6yIPc-8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '269'
+source-wordcount: 269
 ht-degree: 1%
 
 ---
@@ -30,7 +37,7 @@ No utilice el punto final definido en el WSDL. Cada instancia de Marketo tiene u
 
 - **Cuota diaria:** A la mayoría de las suscripciones se les asignan 10 000 llamadas de API al día (que se restablece diariamente a 12:00AM CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
 - **Límite de velocidad:** Acceso a API por instancia limitado a 100 llamadas por 20 segundos.
-- **Límite de simultaneidad:**  Máximo de diez llamadas API simultáneas.
+- **Límite de concurrencia:** Máximo de diez llamadas API simultáneas.
 
 Nuestra recomendación es que los tamaños de lote no sean más grandes que 300. Los tamaños más grandes no son compatibles y pueden provocar tiempos de espera y, en casos extremos, restricciones.
 

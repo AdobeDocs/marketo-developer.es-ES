@@ -3,9 +3,16 @@ title: syncLead
 feature: SOAP
 description: Aprenda a utilizar Marketo SOAP syncLead para insertar o actualizar un solo posible cliente, gestionar identificadores y espacios de trabajo, con campos de solicitud, ejemplos XML y PHP.
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/SecUbvn0SKgWEGHMKbSNJqMvy1QoM3u-4tVchq-T3xQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '540'
+source-wordcount: 540
 ht-degree: 2%
 
 ---
@@ -40,7 +47,7 @@ Si los espacios de trabajo de Marketo NO están activados, el espacio de trabajo
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | leadRecord->Id | Obligatorio: solo cuando el correo electrónico o `foreignSysPersonId` no están presentes | El ID de Marketo del registro de posibles clientes |
 | leadRecord->Correo electrónico | Obligatorio: solo cuando el identificador o `foreignSysPersonId` no están presentes | La dirección de correo electrónico asociada al registro de posibles clientes |

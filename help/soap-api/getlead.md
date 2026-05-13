@@ -3,10 +3,15 @@ title: getLead
 feature: SOAP
 description: Utilice Marketo SOAP getLead para recuperar un solo posible cliente y todos los valores de campo por IDNUM, correo electrónico, cookie o ID de SFDC, con XML de solicitud y respuesta más un ejemplo de PHP.
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/HJ28-Gr78FqFm2KuvDdoAclkHVBSV6GwDjnUwQcJqVw
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '152'
-ht-degree: 3%
+source-wordcount: 153
+ht-degree: 5%
 
 ---
 
@@ -18,7 +23,7 @@ NOTA: Los atributos del posible cliente que son del tipo de datos de cadena y es
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | leadKey->keyType | Obligatorio | keyType permite especificar el campo por el que desea consultar el posible cliente. Los valores posibles incluyen: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Obligatorio | keyValue es el valor por el que desea consultar el posible cliente. |

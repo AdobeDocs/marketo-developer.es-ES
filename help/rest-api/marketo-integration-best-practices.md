@@ -3,9 +3,21 @@ title: Prácticas recomendadas de integración de Marketo
 feature: REST API
 description: Prácticas recomendadas para integraciones de la API de Marketo que abarcan cuotas, límites de tasa y concurrencia, agrupamiento, importación y exportación masivas, almacenamiento en caché y planificación de latencia.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+TQID: https://experienceleague.adobe.com/Ld-rmFCwKSx-0W2-ceYICu0FQHK8BKAC1QgqtiOWDn4
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1013'
+source-wordcount: 1013
 ht-degree: 0%
 
 ---
@@ -16,7 +28,7 @@ ht-degree: 0%
 
 - **Cuota diaria:** A la mayoría de las suscripciones se les asignan 50.000 llamadas API por día (que se restablece diariamente a 12:00AM CST). Puede aumentar su cuota diaria a través de su administrador de cuentas.
 - **Límite de velocidad:** Acceso a API por instancia limitado a 100 llamadas por 20 segundos.
-- **Límite de simultaneidad:**  Máximo de diez llamadas API simultáneas.
+- **Límite de concurrencia:** Máximo de diez llamadas API simultáneas.
 - **Tamaño del lote:** Base de datos de posibles clientes - 300 registros; Consulta de recursos - 200 registros
 - **Tamaño de carga útil de API de REST:** 1 MB
 - **Tamaño de archivo de importación masiva:** 10 MB

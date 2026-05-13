@@ -3,9 +3,20 @@ title: Correos electrónicos
 feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Asset para consultar y administrar recursos de correo electrónico por ID, nombre o explorador de carpetas, con notas sobre el contenido predictivo y los límites de las pruebas A/B.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/t2FyPbwS836MvOe5rL0rVS7ibtzzZMmXwmgHBDZEr8Q
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '2301'
+source-wordcount: 2301
 ht-degree: 1%
 
 ---
@@ -796,7 +807,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### Reorganizar
 
-[Reorganice los módulos](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)matriz que contiene todos los módulos y la posición deseada dentro del correo electrónico para cada uno. Cada elemento de matriz contiene un objeto JSON del siguiente formato:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, donde &lt;_index_> es el número de orden de módulo basado en cero y &lt;_moduleId_> es moduleId.
+[Reorganice los módulos](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)matriz que contiene todos los módulos y la posición deseada dentro del correo electrónico para cada uno. Cada elemento de matriz contiene un objeto JSON con el siguiente formato: { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, donde &lt;_index_> es el número de orden de módulo basado en cero y &lt;_moduleId_> es el moduleId.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
