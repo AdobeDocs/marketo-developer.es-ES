@@ -4,10 +4,15 @@ feature: REST API
 description: Obtenga información sobre cómo crear y administrar plantillas de correo electrónico de la API de REST de Marketo, incluidos los requisitos de HTML, la consulta por ID o nombre y la exploración de carpetas
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
 TQID: https://experienceleague.adobe.com/jKQpibaRP7nAyIsDdjMf8VkNPi5AMFbe7I4Iiy3MGc0
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 725
@@ -506,7 +511,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Consultar dependencias de correo electrónico
 
-Use la plantilla de obtención de correo electrónico [utilizada por el extremo ](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) para recuperar una lista de correos electrónicos que dependen de una plantilla de correo electrónico determinada.  El parámetro de ruta de acceso `id` especifica la plantilla de correo electrónico principal.
+Use la plantilla de obtención de correo electrónico [utilizada por el extremo &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) para recuperar una lista de correos electrónicos que dependen de una plantilla de correo electrónico determinada.  El parámetro de ruta de acceso `id` especifica la plantilla de correo electrónico principal.
 
 Hay 2 parámetros opcionales. `maxReturn` es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200) y `offset` es un entero que se puede usar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
 

@@ -4,8 +4,10 @@ feature: SOAP
 description: Utilice Marketo SOAP getLead para recuperar un solo posible cliente y todos los valores de campo por IDNUM, correo electrónico, cookie o ID de SFDC, con XML de solicitud y respuesta más un ejemplo de PHP.
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
 TQID: https://experienceleague.adobe.com/HJ28-Gr78FqFm2KuvDdoAclkHVBSV6GwDjnUwQcJqVw
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 153

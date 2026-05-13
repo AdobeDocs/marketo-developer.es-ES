@@ -4,11 +4,19 @@ feature: REST API, Custom Objects
 description: Obtenga información sobre cómo crear y administrar objetos personalizados de Marketo mediante la API de REST, incluidos extremos de lista y descripción, metadatos, relaciones, campos y consultas.
 exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
 TQID: https://experienceleague.adobe.com/NWm9CjFVqQdVDJRrnE4nA299-Lg53-JR7xvY-82dUqY
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-subfeature_v2: id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2:
+  - id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 3346
@@ -896,7 +904,7 @@ El extremo [Agregar campos de tipo de objeto personalizados](https://developer.a
 Para una estructura de objeto personalizada de uno a varios, utilice un campo de vínculo en un objeto personalizado para conectarlo a un objeto estándar: Posible cliente o Empresa. Utilizando el ejemplo del propietario del automóvil de la documentación del producto de Marketo [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure), creamos un objeto personalizado que contiene información relacionada con el automóvil para conectarnos con posibles clientes.
 
 1. Crear un objeto **Car**
-1. Agregar campos al objeto **Car**: desduplicación en **VIN**, vínculo a **posible cliente****/ID de posible cliente**
+1. Agregar campos al objeto **Car**: desduplicación en **VIN**, vínculo a **posible cliente**&#x200B;**/ID de posible cliente**
 1. Aprobar objeto **Car**
 
 En primer lugar, cree el tipo de objeto personalizado para que contenga información específica del coche.
@@ -1000,7 +1008,7 @@ Las relaciones &quot;varios a varios&quot; se representan mediante un &quot;puen
 1. Agregar campos a **Curso:** desduplicación en **ID de curso**
 1. Aprobar **curso**
 1. Crear un objeto de puente **Enrollment**
-1. Agregar campos a **Inscripción:** desduplicada en **ID de inscripción**, vínculo al campo **Curso****/ID de curso** y vínculo a **ID de posible cliente****/ID de posible cliente**
+1. Agregar campos a **Inscripción:** desduplicada en **ID de inscripción**, vínculo al campo **Curso**&#x200B;**/ID de curso** y vínculo a **ID de posible cliente**&#x200B;**/ID de posible cliente**
 1. Aprobar **inscripción**
 
 En primer lugar, cree el tipo de objeto edge para contener información específica del curso:

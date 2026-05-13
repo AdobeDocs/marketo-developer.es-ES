@@ -4,9 +4,12 @@ feature: REST API, Landing Pages
 description: Utilice las API de REST de Marketo Asset para crear, consultar, actualizar y eliminar reglas de redireccionamiento de páginas de aterrizaje con filtros, paginación, opciones de nombre de host y destinos que no sean de Marketo.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
 TQID: https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 776
