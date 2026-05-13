@@ -3,10 +3,13 @@ title: syncCustomObjects
 feature: SOAP
 description: Utilice Marketo syncCustomObjects SOAP para insertar, actualizar o actualizar hasta 100 objetos personalizados por llamada con resultados de estado por registro y ejemplos XML y PHP.
 exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/x-ijocpuVSFTNAQJY9zXVJMtVUZqI6YsjMPvKFNNA5g
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '248'
-ht-degree: 3%
+source-wordcount: 249
+ht-degree: 4%
 
 ---
 
@@ -24,7 +27,7 @@ Para los objetos personalizados aprovisionados con la nueva interfaz de usuario 
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | operación | Obligatorio | &quot;INSERT&quot;, &quot;UPDATE&quot; o &quot;UPSERT&quot; |
 | objectTypeName | Obligatorio | Nombre del objeto personalizado |

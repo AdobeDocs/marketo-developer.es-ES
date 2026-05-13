@@ -3,9 +3,14 @@ title: Plantillas de correo electrónico
 feature: REST API
 description: Obtenga información sobre cómo crear y administrar plantillas de correo electrónico de la API de REST de Marketo, incluidos los requisitos de HTML, la consulta por ID o nombre y la exploración de carpetas
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/jKQpibaRP7nAyIsDdjMf8VkNPi5AMFbe7I4Iiy3MGc0
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '725'
+source-wordcount: 725
 ht-degree: 1%
 
 ---
@@ -14,7 +19,7 @@ ht-degree: 1%
 
 [Referencia de extremo de plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
-Las plantillas de correo electrónico forman la base de cada nuevo correo electrónico en Marketo.  Aunque los correos electrónicos se pueden desvincular de las plantillas mediante el reemplazo de HTML, los correos electrónicos deben crearse inicialmente con una plantilla como base.  Las plantillas se crean como documentos HTML puros en Marketo con metadatos como nombres y descripciones.  Hay pocas restricciones en el contenido, pero el HTML de la plantilla debe ser válido y contener al menos una sección editable, que cumpla los requisitos [descritos aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Las plantillas de correo electrónico forman la base de cada nuevo correo electrónico en Marketo.  Aunque los correos electrónicos se pueden desvincular de las plantillas mediante el reemplazo de HTML, los correos electrónicos deben crearse inicialmente con una plantilla como base.  Las plantillas se crean como documentos HTML puros en Marketo con metadatos como nombres y descripciones.  Hay pocas restricciones en el contenido, pero el HTML de la plantilla debe ser válido y contener al menos una sección editable, que cumpla los requisitos [descritos aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Consulta
 
@@ -501,9 +506,9 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Consultar dependencias de correo electrónico
 
-Use la plantilla de obtención de correo electrónico [utilizada por el extremo &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) para recuperar una lista de correos electrónicos que dependen de una plantilla de correo electrónico determinada.  El parámetro de ruta de acceso `id` especifica la plantilla de correo electrónico principal.
+Use la plantilla de obtención de correo electrónico [utilizada por el extremo ](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) para recuperar una lista de correos electrónicos que dependen de una plantilla de correo electrónico determinada.  El parámetro de ruta de acceso `id` especifica la plantilla de correo electrónico principal.
 
-Hay 2 parámetros opcionales. `maxReturn`  es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200) y `offset` es un entero que se puede usar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
+Hay 2 parámetros opcionales. `maxReturn` es un entero que limita el número de resultados (el valor predeterminado es 20, el máximo es 200) y `offset` es un entero que se puede usar con `maxReturn` para leer conjuntos de resultados grandes (el valor predeterminado es 0).
 
 ```http
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json

@@ -3,10 +3,13 @@ title: getImportToListStatus
 feature: SOAP
 description: Utilice getImportToListStatus para comprobar el estado de importación de la lista estática de Marketo, los campos obligatorios, la solicitud y respuesta XML, el código PHP y Java y las prácticas recomendadas de sondeo.
 exl-id: 17a62f65-dfa0-4f40-89b2-154f7734a2dc
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/6pSW-VrcGNpPU5W2tRzwGsvmk7LwcYyfeMIPKh44Wz4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '96'
-ht-degree: 6%
+source-wordcount: 96
+ht-degree: 8%
 
 ---
 
@@ -18,7 +21,7 @@ Complete primero la llamada a la API `importToList` y, a continuación, sondee `
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | programName | Obligatorio | Nombre del programa que contiene la lista estática |
 | listName | Obligatorio | Nombre de la lista estática de Marketo para la que se recuperará el estado de importación. |

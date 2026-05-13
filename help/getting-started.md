@@ -2,9 +2,14 @@
 title: Introducción
 description: Empiece con las API de Marketo Engage y el modelo de datos, que incluye posibles clientes, actividades, programas, etiquetas, listas, directrices de REST y aviso de obsolescencia de SOAP.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: e3fd965eb0c1fe0968933577963bc6a935c0f26d
+TQID: https://experienceleague.adobe.com/0lfzor5EQJ0VqIh4fqlK29OiPmRCy6fnEtncJ38r-OM
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c954475c-8548-4e33-a0b8-6b550d956115id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550ccid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1510'
+source-wordcount: 1510
 ht-degree: 1%
 
 ---
@@ -32,7 +37,7 @@ API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/L
 
 Los posibles clientes interactúan con su organización de varias formas. Un posible cliente puede visitar una página del sitio web de su empresa, asistir a una feria o descargar un documento técnico. Cada una de estas acciones se puede capturar dentro de Marketo para ayudar a un experto en marketing a comprender mejor qué actividades realizó un posible cliente y cuándo lo hizo para que pueda coordinar comunicaciones oportunas y relevantes. Las actividades siempre están relacionadas con los posibles clientes mediante leadId.
 
-Puede definir sus propias actividades personalizadas. Una vez creada y publicada una actividad personalizada, puede añadir actividades personalizadas mediante la API de Marketo. Encontrará más información sobre actividades personalizadas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+Puede definir sus propias actividades personalizadas. Una vez creada y publicada una actividad personalizada, puede añadir actividades personalizadas mediante la API de Marketo. Encontrará más información sobre actividades personalizadas [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -50,7 +55,7 @@ Las etiquetas son una forma de agrupar datos para la creación de informes. Esto
 
 Como administrador de Marketo, tiene la capacidad de crear los tipos de etiquetas opcionales y requeridos que están disponibles para su selección cuando un usuario de Marketo crea un programa. Usted define los valores posibles para cada uno de estos tipos de etiquetas y reflejan cómo su empresa desea utilizar etiquetas personalizadas con fines de creación de informes.
 
-Por ejemplo, es posible que desee crear un tipo de etiqueta &quot;Región&quot; personalizado con varios valores de etiqueta (por ejemplo, Noreste, Sureste) que le permitan analizar qué región genera la mayor cantidad de posibles clientes. O, por ejemplo, puede crear un tipo de etiqueta &quot;Propietario&quot;, que le permite evaluar y comprender qué propietarios de programa (por ejemplo, María, David o Juan) tienen el mayor impacto en la creación de posibles clientes y oportunidades. Encontrará más información sobre las etiquetas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Por ejemplo, es posible que desee crear un tipo de etiqueta &quot;Región&quot; personalizado con varios valores de etiqueta (por ejemplo, Noreste, Sureste) que le permitan analizar qué región genera la mayor cantidad de posibles clientes. O, por ejemplo, puede crear un tipo de etiqueta &quot;Propietario&quot;, que le permite evaluar y comprender qué propietarios de programa (por ejemplo, María, David o Juan) tienen el mayor impacto en la creación de posibles clientes y oportunidades. Encontrará más información sobre las etiquetas [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
@@ -86,7 +91,7 @@ Los tokens definidos en el nivel de programa o carpeta se denominan &quot;Mis to
 
 Mis tokens creados localmente en una carpeta o programa de campaña específico están disponibles para ese programa o carpeta de campaña específica (local). Mis tokens creados en el nivel de carpeta de campaña están disponibles para su uso en todos los programas contenidos en esa carpeta de campaña (heredados). Mis tokens modificados en el nivel de programa con valores personalizados no cambian el valor Mi token principal del token en el nivel de carpeta de programa (anulado).
 
-Mis tokens utilizan la convención de nombres `{{my.My Token}}`, con la palabra &quot;my&quot; agregada al principio del nombre del token. Por ejemplo, si crea un tipo de fecha Mi token con el nombre EventDate, el nombre del token es `{{my.EventDate}}`. Encontrará más información sobre Mis tokens [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Mis tokens utilizan la convención de nombres `{{my.My Token}}`, con la palabra &quot;my&quot; agregada al principio del nombre del token. Por ejemplo, si crea un tipo de fecha Mi token con el nombre EventDate, el nombre del token es `{{my.EventDate}}`. Encontrará más información sobre Mis tokens [aquí](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 

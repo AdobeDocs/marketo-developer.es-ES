@@ -3,10 +3,13 @@ title: syncMultipleLeads
 feature: SOAP
 description: Aprenda a utilizar syncMultipleLeads para actualizar varios posibles clientes de Marketo a través de SOAP, claves y reglas de desduplicación, límites de tamaño por lotes y código XML, PHP y Java de muestra.
 exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/wKdqd4hC3soaYoZ4-Vsx5JLL-me-7PmU-VUn-nXFDpw
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '244'
-ht-degree: 3%
+source-wordcount: 247
+ht-degree: 4%
 
 ---
 
@@ -26,7 +29,7 @@ Puede desactivar la función de deduplicación con esta llamada a la función. S
 
 ## Solicitud
 
-| Nombre del campo | Obligatorio/Opcional | Descripción |
+| Nombre del campo | Obligatorio/opcional | Descripción |
 | --- | --- | --- |
 | leadRecordList->leadRecord | Obligatorio | Matriz de registros de posibles clientes que desea sincronizar. LeadRecords debe especificar el ID del posible cliente, el correo electrónico o ForeignSysPersonId |
 | dedupEnabled | opcional | Valor opcional con el que puede desactivar la función de deduplicación. Pasar un valor de `false` creará duplicados en Marketo |
