@@ -1,71 +1,71 @@
 ---
 user-guide-title: Guía para desarrolladores de [!DNL Marketo]
-user-guide-description: This guide provides instructions for using [!DNL Marketo] APIs.
+user-guide-description: Esta guía proporciona instrucciones para usar  [!DNL Marketo] API.
 breadcrumb-title: Guía para desarrolladores de [!DNL Marketo]
 role: Admin
 feature-set: "Marketo Engage"
 index: true
 author: Donald
-source-git-commit: d70e61cab3a0e929a85b8ac57836438470988944
+source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
 workflow-type: tm+mt
-source-wordcount: '286'
-ht-degree: 37%
+source-wordcount: '288'
+ht-degree: 36%
 
 ---
 
 
-# [!DNL Marketo] Developer {#marketo}
+# Desarrollador de [!DNL Marketo] {#marketo}
 
 - [Inicio](home.md)
 - [Introducción](getting-started.md)
-- Javascript API {#javascriptapi}
-   - [Custom Data Events](javascript-api/custom-data-events.md)
+- API de JavaScript {#javascriptapi}
+   - [Eventos de datos personalizados](javascript-api/custom-data-events.md)
    - [Ejemplos](javascript-api/examples.md)
-   - [Forms API Reference](javascript-api/forms-api-reference.md)
-   - [Get Visitor Data](javascript-api/get-visitor-data.md)
-   - [Javascript API](javascript-api/javascript-api.md)
+   - [Referencia de API de Forms](javascript-api/forms-api-reference.md)
+   - [Obtener datos del visitante](javascript-api/get-visitor-data.md)
+   - [API de JavaScript](javascript-api/javascript-api.md)
    - Seguimiento de leads {#leadtracking}
       - [Seguimiento de leads](javascript-api/lead-tracking.md)
       - [Configuración](javascript-api/configuration.md)
-      - [Munchkin API Reference](javascript-api/api-reference.md)
-   - [Pattern Match](javascript-api/pattern-match.md)
+      - [Referencia de API de Munchkin](javascript-api/api-reference.md)
+   - [Coincidencia de motivo](javascript-api/pattern-match.md)
    - [Contenido predictivo](javascript-api/predictive-content.md)
-   - [Redirects](javascript-api/redirect.md)
-   - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Redirecciones](javascript-api/redirect.md)
+   - [Recomendaciones de medios enriquecidos](javascript-api/rich-media-recommendation.md)
    - [Activadores](javascript-api/triggers.md)
    - [Personalización web](javascript-api/web-personalization.md)
 - Dispositivo móvil {#mobile}
-   - [Install [!DNL Adobe Launch] Extension](mobile/adobe-launch-extension-installation.md)
+   - [Instalar [!DNL Adobe Launch] extensión](mobile/adobe-launch-extension-installation.md)
    - [Extensión de [!DNL Adobe Launch]](mobile/adobe-launch-extension.md)
-   - [Advanced Security Mode](mobile/advanced-security-access-mode.md)
-   - [Custom Actions](mobile/custom-actions.md)
-   - [Deep Links](mobile/enabling-deep-links-in-your-app.md)
+   - [Modo de seguridad avanzado](mobile/advanced-security-access-mode.md)
+   - [Acciones personalizadas](mobile/custom-actions.md)
+   - [Vínculos profundos](mobile/enabling-deep-links-in-your-app.md)
    - [Mensajería en la aplicación](mobile/in-app-messages.md)
    - [Instalación](mobile/installation.md)
    - [[!DNL Ionic]](mobile/ionic.md)
    - [Dispositivo móvil](mobile/mobile.md)
-   - [Phonegap](mobile/phonegap.md)
+   - [PhoneGap](mobile/phonegap.md)
    - [Notificaciones push](mobile/push-notifications.md)
    - [React Native](mobile/react-native.md)
-   - [User Profiles](mobile/user-profiles.md)
+   - [Perfiles de usuario](mobile/user-profiles.md)
 - REST{#rest}
-   - [REST API overview](rest-api/rest-api.md)
-   - [REST API reference](https://developer.adobe.com/marketo-apis/)
+   - [Resumen de API de REST](rest-api/rest-api.md)
+   - [Referencia de API de REST](https://developer.adobe.com/marketo-apis/)
    - Recursos {#assets}
       - [Recursos](rest-api/assets.md)
       - [Contenido dinámico](rest-api/dynamic-content.md)
       - [Correos electrónicos](rest-api/emails.md)
-      - [Emails (New)](rest-api/emails-new.md)
+      - [Correos electrónicos (nuevos)](rest-api/emails-new.md)
       - [Plantillas de correo electrónico](rest-api/email-templates.md)
-      - [Email Templates (New)](rest-api/email-templates-new.md)
+      - [Plantillas de correo electrónico (nuevas)](rest-api/email-templates-new.md)
       - [Archivos](rest-api/files.md)
       - [Carpetas](rest-api/folders.md)
       - [Formularios](rest-api/forms.md)
-      - [Fragments (New)](rest-api/fragments.md)
+      - [Fragmentos (nuevos)](rest-api/fragments.md)
       - [Páginas de destino](rest-api/landing-pages.md)
       - [Reglas de redireccionamiento de la página de destino](rest-api/landing-page-redirect-rules.md)
       - [Plantillas de la página de destino](rest-api/landing-page-templates.md)
-      - [List of Standard Fields](rest-api/list-of-standard-fields.md)
+      - [Lista de campos estándar](rest-api/list-of-standard-fields.md)
       - [Programas](rest-api/programs.md)
       - [Campañas inteligentes](rest-api/smart-campaigns.md)
       - [Listas inteligentes](rest-api/smart-lists.md)
@@ -100,6 +100,7 @@ ht-degree: 37%
       - [Tipos de campo](rest-api/field-types.md)
       - [Base de datos de posible clientes](rest-api/lead-database.md)
       - [Clientes potenciales](rest-api/leads.md)
+      - [Guía de migración](rest-api/migration.md)
       - [Cuentas nombradas](rest-api/named-accounts.md)
       - [Listas de cuentas con nombre](rest-api/named-account-lists.md)
       - [Oportunidades](rest-api/opportunities.md)
