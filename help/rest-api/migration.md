@@ -26,7 +26,7 @@ Debe compartir este documento con las personas o el equipo responsable de sus in
 Según el caso de uso, hay dos opciones básicas para migrar la aplicación a:
 
 * Limite las listas estáticas de las que extrae actividades a un máximo de 10 000 miembros. Puede dividir cualquiera de las listas existentes en listas más pequeñas para seguir encuestando las mismas audiencias para las actividades.
-* Extraiga sus actividades o cambios en el valor de los datos mediante la extracción masiva de actividades o flujos de datos y una esos resultados a la pertenencia a una lista estática con [getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) o [Extracción masiva de posibles clientes](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)
+* Extraiga sus actividades o cambios en el valor de los datos mediante la extracción masiva de actividades o flujos de datos y una esos resultados a la pertenencia a una lista estática con [getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) o [Extracción masiva de posibles clientes](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)
 
 ## ¿Qué Pasará Si No Hago Nada?
 
