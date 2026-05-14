@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
 workflow-type: tm+mt
-source-wordcount: 2218
+source-wordcount: 2226
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ La mayoría de las actividades se purgarán después de algún período de tiemp
 
 Para recuperar una lista de tipos disponibles y sus definiciones para una instancia, puede utilizar el punto de conexión [Obtener tipos de actividades](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET).
 
-```http
+```
 GET /rest/v1/activities/types.json
 ```
 
@@ -90,9 +90,9 @@ Si lo desea, puede incluir un parámetro de consulta `listId` para restringir la
 
 >[!CAUTION]
 >
->A partir del 30 de diciembre de 2026, las llamadas a los extremos `Get Lead Activities` y `Get Lead Changes`, que incluye el parámetro `listId`, producirán un error (código de error 1003) si las listas de destino contienen 10 000 posibles clientes o más. Para evitar interrupciones en el servicio, asegúrese de que las llamadas de se dirijan correctamente a fin de evitar este límite.
+>A partir del 30 de diciembre de 2026, las llamadas a los extremos `Get Lead Activities` y `Get Lead Changes`, que incluye el parámetro `listId`, producirán un error (código de error 1003) si las listas de destino contienen 10 000 posibles clientes o más. Para evitar interrupciones en el servicio, asegúrese de que las llamadas de se dirijan correctamente a fin de evitar este límite. Consulte la [guía de migración](migration.md).
 
-```http
+```
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -155,7 +155,7 @@ Para las actividades de Cambio de valor de datos, se proporciona una versión es
 
 >[!CAUTION]
 >
->A partir del 30 de diciembre de 2026, las llamadas a los extremos `Get Lead Activities` y `Get Lead Changes`, que incluye el parámetro `listId`, producirán un error (código de error 1003) si las listas de destino contienen 10 000 posibles clientes o más. Para evitar interrupciones en el servicio, asegúrese de que las llamadas de se dirijan correctamente a fin de evitar este límite.
+>A partir del 30 de diciembre de 2026, las llamadas a los extremos `Get Lead Activities` y `Get Lead Changes`, que incluye el parámetro `listId`, producirán un error (código de error 1003) si las listas de destino contienen 10 000 posibles clientes o más. Para evitar interrupciones en el servicio, asegúrese de que las llamadas de se dirijan correctamente a fin de evitar este límite. Consulte la [guía de migración](migration.md).
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
