@@ -1,10 +1,10 @@
 ---
 title: Prueba de previsualización de EXL
 description: Ejemplos de sintaxis de Markdown de Adobe EXL para probar la previsualización de la extensión.
-source-git-commit: 8f7ff2e1b6d0a4d8f63affb7bd1a2d0abbcc118c
+source-git-commit: 87d2584ed0ef2c1fa219f2a3ad120c91dc5491e0
 workflow-type: tm+mt
-source-wordcount: '343'
-ht-degree: 8%
+source-wordcount: '359'
+ht-degree: 11%
 
 ---
 
@@ -93,6 +93,14 @@ Utilice secciones contraíbles para contenido opcional o avanzado que, de lo con
 
 +++
 
+## Ayuda contextual
+
+La Ayuda contextual está oculta en la vista previa. ¡Mira!
+>[!CONTEXTUALHELP]
+>id="models_insights_undefinedchannels"
+>title="Canales no definidos"
+>abstract="Se incluyen los canales no definidos, pero no tienen conversiones atribuidas."
+
 ## Vídeo incrustado
 
 >[!VIDEO](https://video.tv.adobe.com/v/3427028/?quality=12&learn=on)
@@ -173,5 +181,6 @@ function greet(name) {
 
 | Columna uno | Columna dos | Columna tres |
 | --- | --- | --- |
-| Fila 1, celda 1 | Fila 1, celda 2 | Fila 1, celda 3 |
+| [!UICONTROL Fila 1], celda 1 | Fila 1, celda 2 | [!DNL Row 1, cell 3] |
 | Fila 2, celda 1 | Fila 2, celda 2 | Fila 2, celda 3 |
+

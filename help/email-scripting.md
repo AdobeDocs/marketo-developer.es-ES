@@ -13,7 +13,7 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
 workflow-type: tm+mt
 source-wordcount: 1116
 ht-degree: 0%
@@ -22,7 +22,7 @@ ht-degree: 0%
 
 # Scripts de correo electrónico
 
-NOTA: Se recomienda que lea la [Guía del usuario de Velocity](https://velocity.apache.org/engine/devel/user-guide.html) para obtener una explicación detallada del comportamiento del idioma de la plantilla de Velocity.
+NOTA: Se recomienda que lea la [Guía del usuario de Velocity](https://velocity.apadche.org/engine/devel/user-guide.html) para obtener una explicación detallada del comportamiento del idioma de la plantilla de Velocity.
 
 [Apache Velocity](https://velocity.apache.org/) es un lenguaje creado en Java que está diseñado para crear plantillas y scripts de contenido de HTML. Marketo permite utilizarlo en el contexto de los correos electrónicos mediante tokens de script. Esta función proporciona acceso a los datos almacenados en oportunidades y objetos personalizados, y permite la creación de contenido dinámico en correos electrónicos. Velocity ofrece un flujo de control de alto nivel estándar con if/else, for y for each para permitir la manipulación condicional e iterativa del contenido.
 
@@ -44,7 +44,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-También existe la notación de referencia silenciosa, donde hay un `!` incluido después de `$`. Normalmente, cuando velocity encuentra una referencia indefinida, la cadena que representa la referencia se deja en su lugar. Con la notación rkjeference silenciosa, si se encuentra una referencia indefinida, no se emite ningún valor:
+También existe la notación de referencia silenciosa, donde hay un(a) `!` incluido(a) después de `$`. Normalmente, cuando velocity encuentra una referencia indefinida, la cadena que representa la referencia se deja en su lugar. Con la notación de referencia silenciosa, si se encuentra una referencia indefinida, no se emite ningún valor:
 
 ```velocity
 ##Defined Reference

@@ -1,17 +1,17 @@
 ---
 title: Ingesta de datos
-feature: REST API, Dynamic Content
-description: Utilice la API de ingesta de datos de Marketo para la ingesta de gran volumen y baja latencia de Personas, Objetos personalizados, Compañías y Miembros del programa.
+feature: REST API, Dynamic Content, Static Lists
+description: Utilice la API de ingesta de datos de Marketo para la ingesta de gran volumen y baja latencia de Personas, Objetos personalizados, Compañías, Miembros del programa y Listas.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
 workflow-type: tm+mt
-source-wordcount: 1789
-ht-degree: 15%
+source-wordcount: 2178
+ht-degree: 16%
 
 ---
 
@@ -21,7 +21,7 @@ La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta 
 
 Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
 
-Las interfaces se ofrecen para cuatro tipos de objetos: Personas, Objetos personalizados, Compañías y Miembros del programa. La operación de registro es &quot;insertar o actualizar&quot; solamente, excepto para Miembros del programa que también admite la eliminación.
+Se ofrecen interfaces para cinco tipos de objetos: Personas, Objetos personalizados, Compañías, Miembros de programa y Listas (Listas estáticas). La operación de registro es sólo &quot;insertar o actualizar&quot;, excepto para Miembros del programa que también admite eliminar y Listas que admiten operaciones de agregar y quitar.
 
 >[!NOTE]
 >
@@ -45,6 +45,7 @@ La ingesta de datos utiliza el mismo modelo de permisos que la API de REST de Ma
 | Objetos personalizados | Objeto personalizado habilitado para lectura y escritura |
 | Compañías | Compañía habilitada para lectura y escritura |
 | Miembros del programa | Guía de solo escritura |
+| Listas | Guía de solo escritura |
 
 ## Tipos de objetos admitidos
 
@@ -54,6 +55,7 @@ La ingesta de datos utiliza el mismo modelo de permisos que la API de REST de Ma
 | Objetos personalizados | Actualizar (insertar o actualizar) |
 | Compañías | Sincronizar (`createOnly`, `updateOnly`, `createOrUpdate`) |
 | Miembros del programa | Sincronizar (actualizar estado), Eliminar (eliminar del programa) |
+| Listas | Agregar a la lista, Quitar de la lista |
 
 ## Encabezados
 
@@ -97,6 +99,10 @@ URL de ejemplo para compañías:
 Ejemplo de URL para miembros del programa:
 
 `https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/programmembers`
+
+Ejemplo de URL para listas:
+
+`https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/lists`
 
 ### Respuestas
 
@@ -157,7 +163,7 @@ Intervalos de reintento:
 
 ## Puntos de conexión
 
-Los extremos de ingesta están disponibles para Personas, Objetos personalizados, Compañías y Miembros del programa.
+Los extremos de ingesta están disponibles para Personas, Objetos personalizados, Compañías, Miembros del programa y Listas.
 
 ### Personas
 
@@ -181,7 +187,7 @@ Punto final utilizado para actualizar registros de persona.
 | `priority` | Cadena | No | Prioridad de la solicitud: normal o alta | normal |
 | `partitionName` | Cadena | No | Nombre de la partición de persona | Predeterminado |
 | `dedupeFields` | Objeto | No | Atributos en los que deduplicar. Se permiten uno o dos nombres de atributo. <br/> En una operación AND se utilizan dos atributos. Por ejemplo, si se especifican `email` y `firstName`, ambos se usan para buscar a una persona mediante la operación AND. <br/>Los atributos admitidos son: `id`, `email`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId` `sfdcLeadOwnerId`, atributos personalizados (&quot;cadena&quot; y tipo &quot;entero&quot; solamente), `email` |  |
-| `persons` | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo de la persona | - |
+| `persons` | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo de la persona | – |
 
 Los permisos requeridos son `Read-Write Lead`.
 
@@ -249,7 +255,7 @@ Punto final utilizado para actualizar registros de objeto personalizados.
 | --- | --- | --- | --- | --- |
 | `priority` | Cadena | No | Prioridad de la solicitud: normal, alta | normal |
 | `dedupeBy` | Cadena | No | Atributos para anular la duplicación en: dedupeFields, marketoGUID | deduplicarCampos |
-| `customObjects` | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo para el objeto. | - |
+| `customObjects` | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo para el objeto. | – |
 
 Los permisos requeridos son `Read-Write Custom Object`.
 
@@ -319,7 +325,7 @@ Extremo utilizado para sincronizar registros de empresa. Admite operaciones de c
 | --- | --- | --- | --- | --- |
 | `action` | Cadena | No | Acción de sincronización: `createOnly`, `updateOnly` o `createOrUpdate` | `createOrUpdate` |
 | `dedupeBy` | Cadena | No | Campo para deduplicar en: `dedupeFields` o `idField` (sin distinción de mayúsculas y minúsculas). Para `createOnly` y `createOrUpdate`, solo se permite `dedupeFields`. Para `updateOnly`, se permiten ambos. | `dedupeFields` |
-| `input` | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo de compañía. Acepta la clave JSON `input` o `companies`. | - |
+| `input` | Matriz de objeto | Sí | Lista de pares de nombre-valor de atributo de compañía. Acepta la clave JSON `input` o `companies`. | – |
 
 Cada objeto de empresa de la matriz `input` admite los campos siguientes:
 
@@ -421,7 +427,7 @@ Punto final utilizado para sincronizar el estado de miembro del programa, agrega
 
 | Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| Programas | Matriz de objeto | Sí | Lista de operaciones del programa. Cada uno especifica un programa, un estado de destino y los posibles clientes que se sincronizarán. | - |
+| Programas | Matriz de objeto | Sí | Lista de operaciones del programa. Cada uno especifica un programa, un estado de destino y los posibles clientes que se sincronizarán. | – |
 
 Cada objeto de la matriz `programs` contiene:
 
@@ -522,7 +528,7 @@ Extremo utilizado para eliminar posibles clientes de los programas. Esto estable
 
 | Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| Programas | Matriz de objeto | Sí | Lista de operaciones de eliminación de programas. Cada uno especifica un programa y los posibles clientes que se van a eliminar. | - |
+| Programas | Matriz de objeto | Sí | Lista de operaciones de eliminación de programas. Cada uno especifica un programa y los posibles clientes que se van a eliminar. | – |
 
 Cada objeto de la matriz `programs` contiene:
 
@@ -593,6 +599,159 @@ Los permisos requeridos son `Read-Write Lead`.
 | leadId | Necesario para cada miembro de la matriz de entrada. |
 | Máximo de posibles clientes por solicitud | Un total de 1.000 miembros en todos los programas. |
 
+### Listas (Agregar a lista)
+
+Punto final utilizado para agregar posibles clientes a una lista estática. Los posibles clientes se identifican con su ID de posible cliente de Marketo.
+
+| Método | Ruta |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists` |
+
+#### Encabezados
+
+| Clave | Valor | Obligatorio |
+| --- | --- | --- |
+| `Content-Type` | application/json | Sí |
+| `X-Mkto-User-Token` | {accessToken} | Sí |
+| `X-Correlation-Id` | Cadena arbitraria (longitud máxima de 255 caracteres) | No |
+| `X-Request-Source` | Cadena arbitraria (longitud máxima 50 caracteres) | No |
+
+#### Cuerpo de solicitud
+
+| Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
+| --- | --- | --- | --- | --- |
+| `listId` | Largo | Sí | El ID de la lista estática de Marketo. Debe ser un entero positivo. | – |
+| `leads` | Matriz de objeto | Sí | Lista de referencias de posibles clientes para agregar a la lista. Acepta la clave JSON `input` o `leads`. | – |
+
+Cada objeto de la matriz de entrada contiene:
+
+| Clave | Tipo de datos | Obligatorio | Descripción |
+| --- | --- | --- | --- |
+| `leadId` | Largo | Sí | El ID del posible cliente de Marketo. Acepta la clave JSON `leadId` o `id`. |
+
+Los permisos requeridos son `Read-Write Lead`.
+
+### Ejemplo de adición de listas a lista
+
+#### Solicitud
+
+`POST /subscriptions/{munchkinId}/lists`
+
+#### Encabezados
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### Cuerpo
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      },
+      {
+         "leadId": 10003
+      }
+   ]
+}
+```
+
+#### Respuesta
+
+`HTTP/1.1 202`
+`X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
+
+### Enumera las reglas de validación de adición a lista
+
+| Regla | Detalles |
+| --- | --- |
+| listId | Requerido. Debe ser un entero positivo (> 0). |
+| posibles clientes | Requerido. No debe ser nulo ni estar vacío. |
+| leadId | Necesario para cada posible cliente de la matriz de entrada. |
+| Máximo de posibles clientes por solicitud | 1000 posibles clientes totales en la matriz de entrada. |
+
+### Listas (Quitar de la lista)
+
+Extremo utilizado para eliminar posibles clientes de una lista estática. Los posibles clientes se identifican con su ID de posible cliente de Marketo.
+
+>[!NOTE]
+>
+>Este extremo utiliza POST en lugar de DELETE porque la solicitud requiere un cuerpo JSON con datos estructurados.
+
+| Método | Ruta |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists/remove` |
+
+#### Encabezados
+
+| Clave | Valor | Obligatorio |
+| --- | --- | --- |
+| `Content-Type` | application/json | Sí |
+| `X-Mkto-User-Token` | {accessToken} | Sí |
+| `X-Correlation-Id` | Cadena arbitraria (longitud máxima de 255 caracteres) | No |
+| `X-Request-Source` | Cadena arbitraria (longitud máxima 50 caracteres) | No |
+
+#### Cuerpo de solicitud
+
+| Clave | Tipo de datos | Obligatorio | Valor | Valor predeterminado |
+| --- | --- | --- | --- | --- |
+| `listId` | Largo | Sí | El ID de la lista estática de Marketo. Debe ser un entero positivo. | – |
+| `leads` | Matriz de objeto | Sí | Lista de referencias de posibles clientes que se van a quitar de la lista. Acepta la clave JSON `input` o `leads`. | – |
+
+Cada objeto de la matriz de entrada contiene:
+
+| Clave | Tipo de datos | Obligatorio | Descripción |
+| --- | --- | --- | --- |
+| `leadId` | Largo | Sí | El ID del posible cliente de Marketo. Acepta la clave JSON `leadId` o `id`. |
+
+Los permisos requeridos son `Read-Write Lead`.
+
+### Ejemplo de Listas eliminadas de la lista
+
+#### Solicitud
+
+`POST /subscriptions/{munchkinId}/lists/remove`
+
+#### Encabezados
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### Cuerpo
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      }
+   ]
+}
+```
+
+#### Respuesta
+
+`HTTP/1.1 202`
+`X-Request-ID: e3d92152-0fb1-444a-8f8f-29d5a2338598`
+
+### Listas eliminadas de las reglas de validación de lista
+
+| Regla | Detalles |
+| --- | --- |
+| listId | Requerido. Debe ser un entero positivo (> 0). |
+| posibles clientes | Requerido. No debe ser nulo ni estar vacío. |
+| leadId | Necesario para cada posible cliente de la matriz de entrada. |
+| Máximo de posibles clientes por solicitud | 1000 posibles clientes totales en la matriz de entrada. |
+
 ## Límites
 
 Esta es una lista actualizada de protecciones:
@@ -602,7 +761,7 @@ Esta es una lista actualizada de protecciones:
 * Solicitudes máximas por segundo por ID de cliente: 5000
 * Número máximo de objetos por día: 10.000.000
 
-Estos límites se aplican de forma uniforme a todas las personas, los objetos personalizados, las empresas y los miembros del programa. Para los miembros del programa, &quot;objetos por solicitud&quot; es el número total de referencias de posibles clientes en todos los programas de una sola solicitud.
+Estos límites se aplican de forma uniforme a Personas, Objetos personalizados, Compañías, Miembros del programa y Listas. Para los miembros del programa, &quot;objetos por solicitud&quot; es el número total de referencias de posibles clientes en todos los programas de una sola solicitud. En el caso de las listas, &quot;objetos por solicitud&quot; es el número de referencias de posibles clientes en la matriz de entrada.
 
 ## API de ingesta de datos frente a API de REST
 
