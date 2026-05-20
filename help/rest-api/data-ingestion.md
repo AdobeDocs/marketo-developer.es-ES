@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
+source-git-commit: 1a8345909b679b5651c94a68f8d29950ed47f6ed
 workflow-type: tm+mt
-source-wordcount: 2178
+source-wordcount: 2191
 ht-degree: 16%
 
 ---
@@ -22,6 +22,8 @@ La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta 
 Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
 
 Se ofrecen interfaces para cinco tipos de objetos: Personas, Objetos personalizados, Compañías, Miembros de programa y Listas (Listas estáticas). La operación de registro es sólo &quot;insertar o actualizar&quot;, excepto para Miembros del programa que también admite eliminar y Listas que admiten operaciones de agregar y quitar.
+
+Lea la [documentación de la API de ingesta de datos](https://developer.adobe.com/marketo-apis/api/data-ingestion).
 
 >[!NOTE]
 >
