@@ -1,22 +1,20 @@
 ---
-title: Servidor MCP
-description: Aprenda a conectar un asistente de IA a Marketo mediante el servidor MCP. Configure Claude Desktop, Cursor, Claude Code o VS Code con sus credenciales de Marketo.
-badgeBeta: label="Beta" type="informative" tooltip="Esta función se encuentra actualmente en una versión beta cerrada"
+title: Servidor MCP de Marketo Engage
+description: Aprenda a conectar un asistente de IA a Marketo mediante el servidor MCP de Marketo Engage. Configure Claude Desktop, Cursor, Claude Code o VS Code con sus credenciales de Marketo.
+badgeBeta: label="Disponibilidad limitada" type="informative" tooltip="Actualmente, esta función está en versión beta limitada"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-hidefromtoc: true
-hide: true
-source-git-commit: a8bf6680a212dd665841896e4550a755dcdf745d
+source-git-commit: d481dc061cbb59139edf971915b13bd0c8e861d3
 workflow-type: tm+mt
-source-wordcount: '1478'
-ht-degree: 0%
+source-wordcount: '1419'
+ht-degree: 1%
 
 ---
 
-# Servidor MCP [!DNL Marketo]
+# Servidor MCP [!DNL Marketo Engage]
 
->[!NOTE]
+>[!AVAILABILITY]
 >
->El servidor MCP está actualmente en una versión beta cerrada. No está disponible para todos los usuarios en este momento.
+> Esta función tiene disponibilidad limitada. Para solicitar acceso, rellene [este formulario](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Asegúrese de tener preparado el Munchkin ID de su suscripción.
 
 El Protocolo de contexto de modelo (MCP) es un estándar abierto que permite a las herramientas de IA comunicarse con servicios externos. El servidor MCP [!DNL Marketo] actúa como un puente entre su asistente de IA y [!DNL Marketo]. Expone más de 100 operaciones en formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
@@ -26,7 +24,7 @@ Cuando la herramienta de IA llama al servidor MCP, el servidor ejecuta la llamad
 >
 >El Modelo de Protocolo de Contexto (MCP) es un estándar de código abierto emergente y puede presentar riesgos de seguridad o fiabilidad. Las integraciones del servidor de Adobe MCP y la documentación relacionada se proporcionan &quot;tal cual&quot;, sin garantías de ningún tipo.
 >La conexión de clientes o servidores MCP a los productos de Adobe es una configuración elegida por el cliente, y los clientes son responsables de evaluar la seguridad y la idoneidad de cualquier integración MCP. Adobe no se responsabiliza de los problemas que se deriven de una configuración incorrecta, un uso incorrecto del MCP, vulnerabilidades en implementaciones de terceros o acciones no deseadas realizadas a través de flujos de trabajo habilitados para MCP.
->Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de zona protegida antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o depender de ellas.
+>Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de espacio aislado antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o confiar en ellas.
 
 ## Conceptos básicos de MCP
 
@@ -40,7 +38,7 @@ MCP permite que una herramienta de IA se conecte a varios servicios externos al 
 
 MCP es un protocolo de comunicación: un estándar abierto que cualquier aplicación puede implementar para exponer sus datos y acciones a las herramientas de IA.
 
-## Qué hace y no hace [!DNL Marketo] MCP
+## Qué hace y no hace [!DNL Marketo Engage] MCP
 
 Comprender el ámbito de MCP ayuda a establecer expectativas antes de conectar la herramienta de IA.
 
@@ -59,6 +57,8 @@ Comprender el ámbito de MCP ayuda a establecer expectativas antes de conectar l
 * Generar predicciones, recomendaciones o decisiones: la toma de decisiones es responsabilidad de la herramienta de IA descendente o del usuario
 * Almacenar o conservar credenciales, datos de solicitud o estados de sesión entre solicitudes
 * Requerir que instale, implemente o administre cualquier software del lado del servidor
+
+MCP puede transmitir datos, incluidos campos potencialmente confidenciales, según el uso de API, pero los datos B2B implican datos empresariales del cliente y no implican datos PII.
 
 ## Requisitos previos
 
