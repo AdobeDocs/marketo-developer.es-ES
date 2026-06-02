@@ -1,32 +1,26 @@
 ---
-title: Operaciones de MCP compatibles
+title: Operaciones de MCP de Marketo Engage
 description: Descubra qué operaciones de MCP de Marketo Engage están disponibles para su uso con asistentes de IA.
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: bef569a714bfb797bcf8bb82a406ca6df26facb0
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: dca84292-69e9-4116-a575-667d31fa060did: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: 08abe412b9750585f0b75364f20488bea767dcc2
 workflow-type: tm+mt
-source-wordcount: 234
+source-wordcount: 231
 ht-degree: 4%
 
 ---
 
 
-# Se admitieron [!DNL Marketo Engage] operaciones MCP
+# [!DNL Marketo Engage] operaciones de MCP
 
 Las siguientes operaciones están disponibles a través del servidor MCP [!DNL Marketo Engage]. En general, los extremos que son de solo lectura o no destructivos están disponibles. `Delete` u otras operaciones destructivas no están disponibles para el sistema de IA.
 
 >[!NOTE]
 >
->Esta lista no es final y seguirá creciendo a medida que añadamos herramientas.
+>Esta lista seguirá creciendo a medida que añadamos herramientas adicionales.
 
 ## Exportación masiva
 
