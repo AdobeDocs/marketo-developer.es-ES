@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: ccb8e413ee758584c082a272901d2e76b6b1d193
+source-git-commit: 6ec3c35ba988834f3a66b45acaa42af7a92cce20
 workflow-type: tm+mt
-source-wordcount: 1718
+source-wordcount: 1765
 ht-degree: 1%
 
 ---
@@ -116,6 +116,7 @@ Cada herramienta de IA tiene una configuración ligeramente diferente. Se propor
 * [CLI de código Claude](#claude-code)
 * [Códice OpenAI](#codex)
 * [VSCode con el copiloto de GitHub](#vscode)
+* [Espigar](#glean)
 * [Otras herramientas](#other-tools)
 
 >[!TIP]
@@ -299,6 +300,16 @@ Presione **[!UICONTROL Ctrl+Mayús+P]** (o **[!UICONTROL Cmd+Mayús+P]** en macO
 >[!NOTE]
 >
 >Por motivos de seguridad, utilice la interpolación de variables de entorno en archivos de configuración en lugar de pegar las credenciales directamente. Puede hacer referencia a variables mediante sintaxis como `${MARKETO_CLIENT_SECRET}` y establecerlas en su entorno. Esto evita que las credenciales se almacenen en texto sin formato en archivos con control de versiones.
+
+### Espigar {#glean}
+
+Para conectar Glean al servidor MCP de Marketo Engage, el [equipo de soporte técnico de Glean](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) debe configurar los siguientes encabezados personalizados.
+
+| Encabezado | Valor |
+| ------ | ----- |
+| `X-Marketo-Client-Id` | Su ID de cliente |
+| `X-Marketo-Client-Secret` | Secreto de cliente |
+| `X-Marketo-Munchkin-Id` | Su ID de cuenta de Munchkin |
 
 ### Otras herramientas {#other-tools}
 
