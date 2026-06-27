@@ -28,7 +28,7 @@ Las siguientes operaciones están disponibles a través del servidor MCP [!DNL M
 >
 >Esta lista seguirá creciendo a medida que añadamos herramientas adicionales.
 
-Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Exportación masiva
 
