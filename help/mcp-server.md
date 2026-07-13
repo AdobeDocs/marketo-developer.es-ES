@@ -5,25 +5,13 @@ badgeBeta: label="Disponibilidad limitada" type="informative" tooltip="Actualmen
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: c2dbad80-0f5c-4d96-a798-2a65f93b8721id: dca84292-69e9-4116-a575-667d31fa060did: e2290edd-b061-4880-9d79-dee306cf5aa9id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: b28708e92f44082eb247d9053d6ebf2306739b38
 workflow-type: tm+mt
-source-wordcount: 1956
+source-wordcount: 2199
 ht-degree: 1%
 
 ---
@@ -38,7 +26,7 @@ El Protocolo de contexto de modelo (MCP) es un estándar abierto que permite a l
 
 Cuando la herramienta de IA llama al servidor MCP, el servidor ejecuta la llamada de API de REST correspondiente en su nombre, utilizando las credenciales proporcionadas en cada solicitud. No es necesario instalar, implementar ni ejecutar ningún software del lado del servidor.
 
-Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
@@ -46,7 +34,7 @@ Para obtener más información sobre cómo se gestionan los datos con la IA de M
 
 ## Conceptos básicos de MCP
 
->Piense en MCP como un puerto USB-C para aplicaciones de IA. Al igual que USB-C ofrece una forma estandarizada de conectar sus dispositivos a varios periféricos y accesorios, MCP ofrece una forma estandarizada de conectar modelos de IA a fuentes de datos y herramientas. — [Protocolo de contexto de modelo](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>Piense en MCP como un puerto USB-C para aplicaciones de IA. USB-C proporciona una forma estandarizada de conectar sus dispositivos a varios periféricos y accesorios, y MCP proporciona una forma estandarizada de conectar modelos de IA a fuentes de datos y herramientas. — [Protocolo de contexto de modelo](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP permite que una herramienta de IA se conecte a varios servicios externos al mismo tiempo. Por ejemplo, un asistente de IA podría:
 
@@ -297,7 +285,7 @@ Presione **[!UICONTROL Ctrl+Mayús+P]** (o **[!UICONTROL Cmd+Mayús+P]** en macO
 
 >[!NOTE]
 >
->Por motivos de seguridad, utilice la interpolación de variables de entorno en archivos de configuración en lugar de pegar las credenciales directamente. Puede hacer referencia a variables mediante sintaxis como `${MARKETO_CLIENT_SECRET}` y establecerlas en su entorno. Esto evita que las credenciales se almacenen en texto sin formato en archivos con control de versiones.
+>Por motivos de seguridad, utilice la interpolación de variables de entorno en archivos de configuración en lugar de pegar las credenciales directamente. Puede hacer referencia a variables mediante sintaxis como `${MARKETO_CLIENT_SECRET}` y establecerlas en su entorno. Esto evita almacenar las credenciales en texto sin formato en archivos con control de versiones.
 
 ### Espigar {#glean}
 
@@ -311,7 +299,7 @@ Para conectar Glean al servidor MCP de Marketo Engage, el [equipo de soporte té
 
 ### Otras herramientas {#other-tools}
 
-El servidor MCP [!DNL Marketo] está alojado por Adobe y expuesto en una dirección URL pública. Cualquier cliente MCP que admita servidores remotos a través de transporte HTTP transmisible puede conectarse a él.No necesita un puente específico de la herramienta ni ningún software instalado localmente. Si la herramienta no aparece en la lista anterior, utilice los detalles de conexión siguientes para configurarla manualmente.
+Adobe aloja el servidor MCP [!DNL Marketo] y lo expone en una dirección URL pública. Cualquier cliente MCP que admita servidores remotos a través de transporte HTTP transmisible puede conectarse a él.No necesita un puente específico de la herramienta ni ningún software instalado localmente. Si la herramienta no aparece en la lista anterior, utilice los detalles de conexión siguientes para configurarla manualmente.
 
 **Detalles de conexión:**
 
@@ -440,3 +428,28 @@ Ejemplos de peticiones de datos:
 * **lista de permitidos de Munchkin ID.** El servidor solo acepta solicitudes para instancias de [!DNL Marketo] aprobadas. Las solicitudes que utilizan un ID de Munchkin no autorizado se rechazan con un error 403.
 * **límites de tasa de API.** El servidor MCP hereda los límites de tasa de API de su instancia [!DNL Marketo]. Utilice un usuario de API dedicado para rastrear y administrar el consumo de cuotas.
 * **Mantener credenciales fuera del control de versiones.** Utilice la interpolación de variables de entorno (`${MARKETO_CLIENT_SECRET}`) si la herramienta de IA la admite, de modo que las credenciales no se almacenen en texto sin formato en los archivos del repositorio.
+
+## Gobernanza y retención de datos
+
+### Administración de credenciales
+
+* Las credenciales del cliente no se mantienen en el lado del servidor y las proporciona el cliente por solicitud, lo que ayuda a limitar la exposición de las credenciales dentro del servicio.
+
+### Modelo de interacción de API
+
+* Uso del agente: los agentes pueden utilizar el servidor MCP para invocar las API de Marketo admitidas.
+* Alineación del modelo de autenticación: El servicio utiliza el mismo modelo de autenticación de API externa documentado para las API de Marketo.
+
+### Autenticación y autorización
+
+* Privilegio Least: los permisos efectivos se heredan del usuario solo de la API de Marketo asignado al servicio LaunchPoint del cliente, lo que permite una administración de menos privilegios dentro de la configuración de Marketo del cliente.
+* Sin persistencia de tokens del lado del servidor: El servicio sigue evitando el almacenamiento del lado del servidor de credenciales de cliente o tokens.  
+
+### Registro y monitorización
+
+* Registro de seguridad: los registros JSON estructurados se enrutan a través de Bit fluido a Splunk, con enmascaramiento de datos confidenciales y filtrado adicional para admitir requisitos de cumplimiento.
+* Soporte de auditoría: estos controles admiten la monitorización continua de la disponibilidad del servicio, los eventos relevantes para la seguridad y la calidad operativa.
+* Sin almacenamiento secreto del lado del servidor: la implementación de MCP no almacena las credenciales del cliente, que deben proporcionarlas los clientes por cada solicitud.
+* Administración de tokens: los tokens de acceso son de corta duración, las respuestas de tokens se marcan como sin almacenamiento y los tokens se aceptan a través de mecanismos de autorización estándar en lugar de transmisión de cadena de consulta.
+* Acceso operativo basado en funciones: el acceso de implementación administrativa se rige por las funciones de infraestructura de Adobe y los controles basados en grupos, mientras que los permisos del plano de datos se heredan de la configuración de usuario de la API de Marketo del cliente.
+* Auditoría y observabilidad: el registro, el enmascaramiento, la monitorización y las alertas de seguridad están habilitados para admitir la investigación, el seguimiento del estado del servicio y la supervisión operativa.
