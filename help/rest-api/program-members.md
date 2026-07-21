@@ -29,7 +29,7 @@ ht-degree: 2%
 
 Marketo proporciona API para leer, crear, actualizar y eliminar registros de miembros del programa. El campo de ID de posible cliente relaciona los registros de miembros del programa con los registros de posibles clientes.
 
-Cada registro contiene campos estándar y puede contener hasta 20 campos personalizados. Estos campos almacenan datos de miembros específicos del programa para su uso en formularios, filtros, déclencheur y acciones de flujo. Puede ver estos datos en la [ficha de miembros](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) del programa en la interfaz de usuario de Marketo Engage.
+Cada registro contiene campos estándar y puede contener hasta 20 campos personalizados. Estos campos almacenan datos de miembros específicos del programa para su uso en formularios, filtros, déclencheur y acciones de flujo. Puede ver estos datos en la [ficha de miembros](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) del programa en la interfaz de usuario de Marketo Engage.
 
 ## Describir
 
@@ -635,9 +635,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Crear campos
 
-El extremo [Crear campos de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) crea campos personalizados en el objeto de miembro de programa. Proporciona una funcionalidad comparable a la de [Marketo Engage UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Puede crear hasta 20 campos personalizados con este punto de conexión.
+El extremo [Crear campos de miembros de programa](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) crea campos personalizados en el objeto de miembro de programa. Proporciona una funcionalidad comparable a la de [Marketo Engage UI](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Puede crear hasta 20 campos personalizados con este punto de conexión.
 
-Tenga en cuenta cada campo antes de crearlo en una instancia de Marketo Engage de producción. Después de crear un campo, no se puede eliminar; [sólo se puede ocultar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Los campos no utilizados añaden desorden a la instancia.
+Tenga en cuenta cada campo antes de crearlo en una instancia de Marketo Engage de producción. Después de crear un campo, no se puede eliminar; [sólo se puede ocultar](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Los campos no utilizados añaden desorden a la instancia.
 
 El parámetro `input` requerido es una matriz de objetos de campo de miembros de programa. Cada objeto contiene uno o más atributos.
 

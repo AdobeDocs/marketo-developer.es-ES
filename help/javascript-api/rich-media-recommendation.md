@@ -28,7 +28,7 @@ Para mostrar una plantilla de Recomendación de medios enriquecidos, agregue las
 1. En el cuerpo de la página:
    1. Coloque la etiqueta de plantilla (clase div) donde desee que aparezca la plantilla.
 
-Para obtener más información, consulte [Habilitar contenido predictivo para medios enriquecidos en web](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Para obtener más información, consulte [Habilitar contenido predictivo para medios enriquecidos en web](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 

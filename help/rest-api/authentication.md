@@ -61,7 +61,7 @@ Cada llamada a la API de REST debe incluir un token de acceso en un encabezado H
 
 >[!IMPORTANT]
 >
->La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminará el 31 de agosto de 2026. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
+>La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminará el 31 de agosto de 2026. Si su proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el [encabezado de autorización](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) lo antes posible. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
 
 ### Cambio al encabezado Autorización
 

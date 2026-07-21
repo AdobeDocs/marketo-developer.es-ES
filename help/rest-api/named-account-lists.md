@@ -21,7 +21,7 @@ ht-degree: 3%
 
 [Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Listas de cuentas con nombre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) son colecciones de cuentas con nombre en Marketo. Utilícelos para la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes.
+[Listas de cuentas con nombre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/target-account-management/target/account-lists) son colecciones de cuentas con nombre en Marketo. Utilícelos para la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes.
 
 Las API de lista de cuentas con nombre le permiten administrar de forma remota los recursos de la lista y su pertenencia.
 `Content`

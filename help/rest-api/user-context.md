@@ -29,7 +29,7 @@ La API de JavaScript de contexto de usuario expone los datos de nivel de usuario
 
 La API también proporciona variables personalizadas para enviar datos y eventos al servidor RTP para la segmentación y personalización. Ver las capacidades relacionadas de [Déclencheur](../javascript-api/triggers.md) y [Coincidencia de patrones](../javascript-api/pattern-match.md).
 
-- Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio.
+- Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio.
 - Debe solicitar al Soporte técnico de Marketo que habilite la API de contexto de usuario. Después de la habilitación, un objeto userContext se expone en el objeto global RTP.
 
 ## Atributos de contexto de usuario

@@ -25,7 +25,7 @@ ht-degree: 4%
 
 RTP proporciona una función de utilidad que comprueba si un patrón coincide con una cadena. La utilidad devuelve un resultado de coincidencia sincrónicamente y no se puede utilizar asincrónicamente.
 
-Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
+Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 
 ## Uso
 

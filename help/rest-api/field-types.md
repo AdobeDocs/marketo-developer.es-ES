@@ -25,7 +25,7 @@ ht-degree: 8%
 
 # Tipos de campo
 
-En la tabla siguiente se describen los tipos de campo disponibles en Marketo. Para obtener más información, vea el [glosario de tipo de campo personalizado](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) y [Límites de campo de Marketo por tipo de campo](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+En la tabla siguiente se describen los tipos de campo disponibles en Marketo. Para obtener más información, vea el [glosario de tipo de campo personalizado](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) y [Límites de campo de Marketo por tipo de campo](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Tipo de campo | Descripción | Ejemplo |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ En la tabla siguiente se describen los tipos de campo disponibles en Marketo. Pa
 | Correo electrónico | Campo de cadena que acepta direcciones de correo electrónico | <example@example.com> |
 | Flotante | Un campo numérico que contiene números reales y puede utilizar un decimal. | 10,4 |
 | Entero | Números enteros | 10 |
-| Fórmula | Campos cuyos valores se generan manipulando los datos de otros campos presentes en un registro de posibles clientes. No se exportan y no se pueden utilizar en campañas inteligentes. | Ver este [artículo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Fórmula | Campos cuyos valores se generan manipulando los datos de otros campos presentes en un registro de posibles clientes. No se exportan y no se pueden utilizar en campañas inteligentes. | Ver este [artículo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Porcentaje | Un porcentaje expresado como un entero | 30 |
 | URL | Campo de texto que restringe la entrada a direcciones URL, incluido el protocolo de la dirección URL. | <http://example.com/> |
 | Teléfono | Número de teléfono | 111-111-1111 |

@@ -21,7 +21,7 @@ ht-degree: 0%
 
 [Referencia de extremo de vendedor](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-Las API del vendedor proporcionan acceso de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitado.
+Las API del vendedor proporcionan acceso de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitado.
 
 Los vendedores son registros de personas que representan a los propietarios de ventas de los registros de posibles clientes. El campo externalSalesPersonId de cada registro de posibles clientes relaciona un posible cliente con un vendedor. Cuando se rellena este campo, Marketo rellena los campos de búsqueda correspondientes Propietario del posible cliente en el registro de posible cliente. A continuación, puede utilizar los filtros y tokens asociados.
 

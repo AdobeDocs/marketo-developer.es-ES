@@ -25,7 +25,7 @@ ht-degree: 2%
 
 Las acciones personalizadas rastrean las interacciones del usuario en la aplicación móvil. Cuando la aplicación llama al SDK de Marketo para enviar una acción personalizada, el SDK guarda primero la acción en el dispositivo. SDK envía la acción una vez que detecta una conectividad adecuada a Internet, por lo que Marketo podría recibir la acción después de un retraso.
 
-Las acciones personalizadas se pueden utilizar como déclencheur en campañas inteligentes. Para obtener más información, consulte [Actividad de aplicaciones móviles](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Las acciones personalizadas se pueden utilizar como déclencheur en campañas inteligentes. Para obtener más información, consulte [Actividad de aplicaciones móviles](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Envío de acciones personalizadas en iOS
 

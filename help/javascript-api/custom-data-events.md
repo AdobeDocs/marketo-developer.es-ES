@@ -27,7 +27,7 @@ Utilice este método para enviar eventos personalizados para el seguimiento y la
 
 Cada evento de datos personalizados se cuenta una vez durante la sesión del visitante.
 
-Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
+Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |

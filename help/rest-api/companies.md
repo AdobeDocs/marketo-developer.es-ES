@@ -27,7 +27,7 @@ Las compañías representan las organizaciones a las que pertenecen los registro
 
 No puede eliminar un posible cliente de una compañía a menos que agregue el posible cliente a otra compañía. Los posibles clientes vinculados a un registro de compañía heredan los valores de ese registro como si existieran en el registro de posibles clientes.
 
-Las API de empresa proporcionan acceso de solo lectura a las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitado.
+Las API de empresa proporcionan acceso de solo lectura a las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitado.
 
 ## Describir
 

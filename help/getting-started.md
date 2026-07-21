@@ -59,7 +59,7 @@ Los posibles clientes pueden interactuar con su organización de varias formas, 
 
 Las actividades siempre están relacionadas con los posibles clientes mediante leadId.
 
-También puede definir actividades personalizadas. Después de crear y publicar una actividad personalizada, puede agregar instancias de ella a través de la API de Marketo. Para obtener más información, consulte [Explicación de las actividades personalizadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+También puede definir actividades personalizadas. Después de crear y publicar una actividad personalizada, puede agregar instancias de ella a través de la API de Marketo. Para obtener más información, consulte [Explicación de las actividades personalizadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -79,7 +79,7 @@ Las etiquetas agrupan y categorizan los datos del programa para la creación de 
 
 Como administrador de Marketo, puede crear los tipos de etiquetas opcionales y requeridos que los usuarios seleccionan cuando crean un programa. Puede definir los valores posibles para cada tipo de etiqueta en función de los requisitos de informes de su empresa.
 
-Por ejemplo, cree un tipo de etiqueta &quot;Región&quot; personalizado con valores como Noreste y Sureste para analizar qué región genera la mayor cantidad de posibles clientes. Cree un tipo de etiqueta &quot;Propietario&quot; para comparar qué propietarios de programa, como María, David o Juan, tienen el mayor impacto en la creación de posibles clientes y oportunidades. Para obtener más información, consulte [Explicación de las etiquetas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Por ejemplo, cree un tipo de etiqueta &quot;Región&quot; personalizado con valores como Noreste y Sureste para analizar qué región genera la mayor cantidad de posibles clientes. Cree un tipo de etiqueta &quot;Propietario&quot; para comparar qué propietarios de programa, como María, David o Juan, tienen el mayor impacto en la creación de posibles clientes y oportunidades. Para obtener más información, consulte [Explicación de las etiquetas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
@@ -128,7 +128,7 @@ Los tokens definidos en el nivel de programa o carpeta se denominan &quot;Mis to
 - Heredado: se crea en el nivel de carpeta de campaña y está disponible para todos los programas de esa carpeta.
 - Anulado: se modifica con un valor personalizado en el nivel de programa sin cambiar el valor principal de Mi token en el nivel de carpeta de programa.
 
-Mis tokens utilizan la convención de nombres `{{my.My Token}}`, con la palabra &quot;my&quot; al principio del nombre del token. Por ejemplo, un tipo de fecha My Token denominado EventDate tiene el nombre de token `{{my.EventDate}}`. Para obtener más información, consulte [Explicación de mis tokens en un programa](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Mis tokens utilizan la convención de nombres `{{my.My Token}}`, con la palabra &quot;my&quot; al principio del nombre del token. Por ejemplo, un tipo de fecha My Token denominado EventDate tiene el nombre de token `{{my.EventDate}}`. Para obtener más información, consulte [Explicación de mis tokens en un programa](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 

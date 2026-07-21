@@ -27,7 +27,7 @@ ht-degree: 1%
 
 Utilice los extremos REST de correo electrónico para consultar y administrar recursos de correo electrónico.
 
-Si un mensaje de correo electrónico contiene [Contenido predictivo de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), los siguientes extremos fallan con el código de error 709 y el mensaje de error correspondiente:
+Si un mensaje de correo electrónico contiene [Contenido predictivo de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), los siguientes extremos fallan con el código de error 709 y el mensaje de error correspondiente:
 
 - [Obtener contenido del correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET)
 - [Actualizar sección de contenido de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST)
@@ -37,7 +37,7 @@ Si un mensaje de correo electrónico contiene [Contenido predictivo de Marketo](
 
 Los correos electrónicos admiten los mismos patrones de consulta que las plantillas: [por id](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET), [por name](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET) y por [explorar](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET). Los extremos de exploración y por nombre también admiten el filtrado de carpetas.
 
-Si un correo electrónico pertenece a un programa de correo electrónico que usa [Pruebas A/B](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), los siguientes extremos no devuelven ese correo electrónico:
+Si un correo electrónico pertenece a un programa de correo electrónico que usa [Pruebas A/B](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), los siguientes extremos no devuelven ese correo electrónico:
 
 - [Obtener correo electrónico por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET)
 - [Obtener correo electrónico por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET)
@@ -535,7 +535,7 @@ Si la copia automática a texto está desactivada para un fragmento incrustado, 
 
 ## Módulos
 
-En el Editor de correo electrónico 1.0, un módulo es una sección de correo electrónico definida en la plantilla. Los módulos pueden contener elementos, variables y otro contenido de HTML tal como se describe en [Sintaxis de plantillas de correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules).
+En el Editor de correo electrónico 1.0, un módulo es una sección de correo electrónico definida en la plantilla. Los módulos pueden contener elementos, variables y otro contenido de HTML tal como se describe en [Sintaxis de plantillas de correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules).
 
 Utilice las API de módulo para administrar los módulos de un correo electrónico. Para los extremos de módulo que utilizan HTTP POST, dé formato al cuerpo de la solicitud como `application/x-www-form-urlencoded`, no como JSON.
 
@@ -909,7 +909,7 @@ name=MarketoVideo
 
 ## Variables
 
-En el Editor de correo electrónico 1.0, las variables almacenan valores para los elementos de correo electrónico. Defina cada variable agregando sintaxis específica de Marketo a HTML, tal como se describe en [Sintaxis de plantillas de correo electrónico](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Utilice las API de variables para administrar variables dentro de un correo electrónico.
+En el Editor de correo electrónico 1.0, las variables almacenan valores para los elementos de correo electrónico. Defina cada variable agregando sintaxis específica de Marketo a HTML, tal como se describe en [Sintaxis de plantillas de correo electrónico](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Utilice las API de variables para administrar variables dentro de un correo electrónico.
 
 ### Consulta
 
