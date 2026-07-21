@@ -4,28 +4,34 @@ feature: Mobile Marketing
 description: Descubra el modo de acceso de seguridad avanzado para Marketo Mobile SDK, con generación de firmas HMAC, configuración de extremos de servidor, uso de ID de dispositivo y ejemplos de iOS y Android
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
 TQID: https://experienceleague.adobe.com/F6lH1aGbCakK-E6IU4wLwYw58BG2-CRE-Ras2bMHeO8
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: d095671a-1355-40aa-8b5f-06c33c68080b
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 322
-ht-degree: 0%
+source-wordcount: 217
+ht-degree: 1%
 
 ---
 
 # Modo de acceso de seguridad avanzado
 
-Marketo SDK expone métodos para establecer y quitar la firma de seguridad. También existe un método de utilidad para recuperar el ID del dispositivo. El ID del dispositivo debe pasarse junto con el correo electrónico, al iniciar sesión, al servidor del cliente para su uso en el cálculo de la firma de seguridad. La SDK debe mostrar el nuevo extremo de visita, que señala al algoritmo mencionado anteriormente, para recuperar los campos necesarios para crear una instancia del objeto de firma. La configuración de esta firma en SDK es un paso necesario si el modo de acceso de seguridad se ha habilitado en Marketo Mobile Admin.
+El modo de acceso de seguridad avanzado requiere que Marketo SDK recupere y establezca una firma de seguridad. SDK proporciona métodos para establecer y quitar la firma y un método de utilidad para recuperar el ID del dispositivo.
+
+Al iniciar sesión, envíe el ID de dispositivo y la dirección de correo electrónico al servidor del cliente para calcular la firma de seguridad. A continuación, SDK llama al extremo del cliente para recuperar los campos necesarios para crear una instancia del objeto de firma. Si el modo de acceso de seguridad está habilitado en Marketo Mobile Admin, debe establecer esta firma en SDK.
 
 ## Configuración del modo de acceso seguro
 
-Esta configuración debe implementarse antes de habilitar el modo de acceso seguro en la página Administración de Marketo > Aplicaciones y dispositivos móviles. Los siguientes pasos describen el proceso necesario para completar el proceso de validación de seguridad:
+Implemente esta configuración antes de activar el modo de acceso seguro en la página Administración de Marketo > Aplicaciones y dispositivos móviles.
 
-El modo de acceso seguro requiere la implementación del algoritmo de firma en el lado del servidor del cliente que proporcionará un punto final para recuperar la clave de acceso, la firma calculada, la marca de tiempo de caducidad y el correo electrónico. Este algoritmo requiere la clave de acceso del usuario, el secreto de acceso, el correo electrónico, la marca de tiempo y el ID de dispositivo para realizar el cálculo. El cliente es responsable de configurar el punto de conexión, implementar el algoritmo para realizar cálculos de firma y mantener la marca de tiempo de caducidad fresca.
+El modo de acceso seguro requiere un algoritmo de firma del lado del servidor y un punto final de cliente. El extremo devuelve los siguientes valores:
+
+- Clave de acceso
+- Firma calculada
+- Marca de tiempo de caducidad
+- Dirección de correo electrónico
+
+El algoritmo utiliza la clave de acceso de usuario, el secreto de acceso, la dirección de correo electrónico, la marca de tiempo y el ID de dispositivo. El cliente debe configurar el punto de conexión, implementar el cálculo de firma y mantener la marca de tiempo de caducidad actualizada.
 
 ```python
 import argparse
@@ -68,7 +74,7 @@ if __name__ == '__main__':
     print 'HMAC is ', hmac_string
 ```
 
-Marketo SDK expone nuevos métodos para establecer y quitar la firma de seguridad. También existe un método de utilidad para recuperar el ID del dispositivo. El ID del dispositivo debe pasarse junto con el correo electrónico, al iniciar sesión, al servidor del cliente para su uso en el cálculo de la firma de seguridad. La SDK debe mostrar el nuevo extremo de visita, que señala al algoritmo mencionado anteriormente, para recuperar los campos necesarios para crear una instancia del objeto de firma. La configuración de esta firma en SDK es un paso necesario si el modo de acceso de seguridad se ha habilitado en Marketo Mobile Admin.
+Utilice los métodos específicos de la plataforma para establecer o quitar la firma de seguridad y recuperar el ID del dispositivo.
 
 ### iOS
 

@@ -4,24 +4,26 @@ feature: REST API, Dynamic Content, Static Lists
 description: Utilice la API de ingesta de datos de Marketo para la ingesta de gran volumen y baja latencia de Personas, Objetos personalizados, Compañías, Miembros del programa y Listas.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 1a8345909b679b5651c94a68f8d29950ed47f6ed
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 2191
+source-wordcount: 2151
 ht-degree: 16%
 
 ---
 
 # API de ingesta de datos
 
-La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad diseñado para gestionar de forma eficaz y con mínimos retrasos la ingesta de grandes cantidades de datos relacionados con personas y personas.
+La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad. Utilícelo para introducir grandes cantidades de datos relacionados con personas y personas con un retraso mínimo.
 
-Los datos se incorporan enviando solicitudes que se ejecutan de forma asíncrona. El estado de la solicitud se puede recuperar mediante la suscripción a eventos de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
+Las solicitudes de ingesta de datos se ejecutan asincrónicamente. Para recuperar el estado de la solicitud, suscríbase a eventos de la [secuencia de datos de observabilidad de Marketo](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
 
-Se ofrecen interfaces para cinco tipos de objetos: Personas, Objetos personalizados, Compañías, Miembros de programa y Listas (Listas estáticas). La operación de registro es sólo &quot;insertar o actualizar&quot;, excepto para Miembros del programa que también admite eliminar y Listas que admiten operaciones de agregar y quitar.
+La API proporciona interfaces para cinco tipos de objetos:
+
+- Personas, Objetos personalizados y Compañías admiten operaciones de &quot;inserción o actualización&quot;.
+- Los miembros del programa admiten las operaciones de &quot;insertar o actualizar&quot; y eliminación.
+- Las listas (listas estáticas) admiten operaciones de adición y eliminación.
 
 Lea la [documentación de la API de ingesta de datos](https://developer.adobe.com/marketo-apis/api/data-ingestion).
 
@@ -31,15 +33,15 @@ Lea la [documentación de la API de ingesta de datos](https://developer.adobe.co
 
 ## Autenticación
 
-La API de ingesta de datos utiliza el mismo método de autenticación OAuth 2.0 que la API de REST de Marketo para generar un token de acceso, pero este debe pasarse a través del encabezado HTTP `X-Mkto-User-Token`. No se puede pasar el token de acceso a través de un parámetro de consulta.
+La API de ingesta de datos utiliza el mismo método de autenticación OAuth 2.0 que la API de REST de Marketo para generar un token de acceso. Pase el token de acceso en el encabezado HTTP `X-Mkto-User-Token`. No se puede pasar como parámetro de consulta.
 
-Ejemplo de token de acceso mediante encabezado:
+El siguiente ejemplo pasa un token de acceso en el encabezado:
 
 `X-Mkto-User-Token: 11606815-aa7a-405a-80a1-f9683efa528b:ab`
 
 ## Permisos
 
-La ingesta de datos utiliza el mismo modelo de permisos que la API de REST de Marketo y no requiere ningún permiso especial adicional para su uso, aunque se requieren permisos específicos para cada extremo.
+La ingesta de datos utiliza el modelo de permisos de la API de REST de Marketo y no requiere permisos adicionales. Cada extremo requiere un permiso existente específico, como se muestra en la tabla siguiente.
 
 | Extremo | Permiso |
 | --- | --- |
@@ -61,7 +63,7 @@ La ingesta de datos utiliza el mismo modelo de permisos que la API de REST de Ma
 
 ## Encabezados
 
-La ingesta de datos utiliza los siguientes encabezados HTTP personalizados.
+La ingesta de datos admite los siguientes encabezados HTTP personalizados.
 
 ### Solicitud
 
@@ -78,13 +80,13 @@ La ingesta de datos utiliza los siguientes encabezados HTTP personalizados.
 
 ## Solicitudes
 
-Utilice el método HTTP POST para enviar datos al servidor.
+Enviar datos al servidor con el método HTTP POST.
 
-La representación de datos se incluye en el cuerpo de la solicitud como application/json.
+Incluya los datos en el cuerpo de la solicitud como application/json.
 
-El nombre de dominio es: `mkto-ingestion-api.adobe.io`
+Usar el dominio `mkto-ingestion-api.adobe.io`.
 
-La ruta de acceso comienza por `/subscriptions/MunchkinId`, donde MunchkinId es específico de la instancia de Marketo. Puede encontrar su Munchkin ID en la interfaz de usuario de Marketo Engage en **Administración** > **Mi cuenta** > **Información de asistencia**.  El resto de la ruta se utiliza para especificar el recurso de interés.
+La ruta de acceso comienza por `/subscriptions/MunchkinId`, donde MunchkinId es específico de la instancia de Marketo. Encuentre su Munchkin ID en la interfaz de usuario de Marketo Engage en **Administración** > **Mi cuenta** > **Información de asistencia**. El resto de la ruta especifica el recurso.
 
 Ejemplo de URL para personas:
 
@@ -108,7 +110,7 @@ Ejemplo de URL para listas:
 
 ### Respuestas
 
-Todas las respuestas devuelven un identificador de solicitud único a través del encabezado `X-Request-Id`.
+Cada respuesta devuelve un identificador de solicitud único en el encabezado `X-Request-Id`.
 
 Ejemplo de ID de solicitud mediante encabezado:
 
@@ -116,7 +118,7 @@ Ejemplo de ID de solicitud mediante encabezado:
 
 ### Correcto
 
-Cuando una llamada se realiza correctamente, se devuelve un estado 202.  No se devuelve ningún cuerpo de respuesta.
+Una llamada correcta devuelve el estado 202 y ningún cuerpo de respuesta.
 
 Ejemplo de respuesta de éxito:
 
@@ -129,9 +131,9 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Error
 
-Cuando una llamada produce un error, se devuelve un estado que no es 202 junto con un cuerpo de respuesta con detalles de error adicionales. El cuerpo de la respuesta es `application/json` y contiene un único objeto con los miembros `error_code` y `message`.
+Cuando falla una llamada, devuelve un estado que no es 202 y un cuerpo de respuesta con detalles de error. El cuerpo de respuesta `application/json` contiene un objeto con miembros `error_code` y `message`.
 
-A continuación se muestran códigos de error reutilizados de Adobe Developer Gateway.
+Los siguientes códigos de error se reutilizan desde Adobe Developer Gateway.
 
 | Código de estado HTTP | error_code | Mensaje |
 | --- | --- | --- |
@@ -140,7 +142,7 @@ A continuación se muestran códigos de error reutilizados de Adobe Developer Ga
 | 404 | 404040 | Recurso no encontrado |
 | 429 | 429001 | Límite de uso del servicio alcanzado |
 
-A continuación, se muestran los códigos de error que son únicos para la API de ingesta de datos y que se componen de 3 segmentos.  Los tres primeros dígitos son el estado (devuelto por Adobe Developer Gateway), seguidos de un cero &quot;0&quot;, seguido de tres dígitos.
+Los códigos de error específicos de la API de ingesta de datos contienen tres segmentos: el estado de tres dígitos devuelto por Adobe Developer Gateway, un cero &quot;0&quot; y tres dígitos adicionales.
 
 | Código de estado HTTP | error_code | Mensaje |
 | --- | --- | --- |
@@ -152,24 +154,24 @@ A continuación, se muestran los códigos de error que son únicos para la API d
 
 ## Reintentos
 
-Cuando se detecta un error transitorio, el servicio reintenta la operación. Los reintentos se producen por varios motivos, principalmente cuando se agota el tiempo de espera de un servicio dependiente o cuando este no está disponible temporalmente.
+Cuando el servicio detecta un error transitorio, reintenta la operación. Un reintento se produce principalmente cuando un servicio dependiente agota el tiempo de espera o no está disponible temporalmente.
 
-Intervalos de reintento:
+El servicio utiliza los siguientes intervalos de reintento:
 
-* Operación inicial y primer reintento: 5 min
-* 1º y 2º: 15 min
-* 2º y 3º: 20 min
-* 3º y 4º: 20 min
-* 4º y 5º : 2 horas
-* después del quinto reintento -> 3 horas
+- Operación inicial para el primer reintento: 5 minutos
+- Primer reintento para el segundo: 15 minutos
+- Segundo reintento al tercer reintento: 20 minutos
+- Tercer reintento al cuarto: 20 minutos
+- Cuarto reintento a quinto reintento: 2 horas
+- Después del quinto reintento: 3 horas
 
 ## Puntos de conexión
 
-Los extremos de ingesta están disponibles para Personas, Objetos personalizados, Compañías, Miembros del programa y Listas.
+Los extremos de ingesta están disponibles para Personas, Objetos personalizados, Compañías, Miembros del programa y Listas. Cada sección de extremo define la solicitud y proporciona un ejemplo.
 
 ### Personas
 
-Punto final utilizado para actualizar registros de persona.
+Utilice este punto final para actualizar registros de persona.
 
 | Método | Ruta |
 | --- | --- |
@@ -238,7 +240,7 @@ Los permisos requeridos son `Read-Write Lead`.
 
 ### Objetos personalizados
 
-Punto final utilizado para actualizar registros de objeto personalizados.
+Utilice este extremo para actualizar registros de objeto personalizados.
 
 | Método | Ruta |
 | --- | --- |
@@ -306,7 +308,7 @@ Si se especifica un campo de vínculo a una persona en la solicitud y esa person
 
 ### Compañías
 
-Extremo utilizado para sincronizar registros de empresa. Admite operaciones de creación, actualización y actualización con anulación de duplicación por ID de empresa externo o ID interno de Marketo.
+Utilice este extremo para sincronizar registros de empresa. Admite operaciones de creación, actualización y actualización con anulación de duplicación por ID de empresa externo o ID interno de Marketo.
 
 | Método | Ruta |
 | --- | --- |
@@ -756,23 +758,23 @@ Los permisos requeridos son `Read-Write Lead`.
 
 ## Límites
 
-Esta es una lista actualizada de protecciones:
+La API de ingesta de datos tiene las siguientes protecciones:
 
-* Tamaño máximo de la solicitud: 1 MB
-* Número máximo de objetos por solicitud y tipo de objeto: 1000
-* Solicitudes máximas por segundo por ID de cliente: 5000
-* Número máximo de objetos por día: 10.000.000
+- Tamaño máximo de la solicitud: 1 MB
+- Número máximo de objetos por solicitud para cada tipo de objeto: 1000
+- Número máximo de solicitudes por segundo para cada ID de cliente: 5000
+- Número máximo de objetos por día: 10.000.000
 
 Estos límites se aplican de forma uniforme a Personas, Objetos personalizados, Compañías, Miembros del programa y Listas. Para los miembros del programa, &quot;objetos por solicitud&quot; es el número total de referencias de posibles clientes en todos los programas de una sola solicitud. En el caso de las listas, &quot;objetos por solicitud&quot; es el número de referencias de posibles clientes en la matriz de entrada.
 
 ## API de ingesta de datos frente a API de REST
 
-Esta es una lista de diferencias entre la API de ingesta de datos y otras API de REST de Marketo:
+La API de ingesta de datos difiere de otras API de REST de Marketo en los siguientes aspectos:
 
-* Para autenticarse, debe pasar el token de acceso mediante el encabezado `X-Mkto-User-Token`
-* El nombre de dominio de URL es `mkto-ingestion-api.adobe.io`
-* La ruta de la dirección URL comienza por `/subscriptions/MunchkinId`
-* No hay parámetros de consulta
-* Si la llamada se realiza correctamente, devuelve un estado 202 y el cuerpo de la respuesta está vacío
-* Si falla una llamada, se devuelve un estado que no es 202 y el cuerpo de la respuesta contiene `{ "error_code" : "Error Code", "message" : "Message" }`
-* El identificador de solicitud se devuelve a través del encabezado `X-Request-Id`
+- Pase el token de acceso en el encabezado `X-Mkto-User-Token`.
+- Usar el dominio `mkto-ingestion-api.adobe.io`.
+- Inicie la ruta de acceso de la dirección URL con `/subscriptions/MunchkinId`.
+- No utilice parámetros de consulta.
+- Una llamada correcta devuelve el estado 202 y un cuerpo de respuesta vacío.
+- Una llamada con error devuelve un estado distinto de 202 y un cuerpo de respuesta que contiene `{ "error_code" : "Error Code", "message" : "Message" }`.
+- El encabezado `X-Request-Id` devuelve el identificador de solicitud.

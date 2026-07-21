@@ -4,77 +4,85 @@ feature: REST API
 description: Aprenda a utilizar la API de REST de Marketo Bulk Extract para exportar posibles clientes, actividades, miembros de programa y objetos personalizados, con OAuth, colas de trabajos y límites diarios de 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
 TQID: https://experienceleague.adobe.com/ECSchsjqp8fyxXbUGl5DgXHUkXuN0sIUc3yJfVaIe1E
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1724
-ht-degree: 0%
+source-wordcount: 1549
+ht-degree: 1%
 
 ---
 
 # Extracción en lote
 
-Marketo proporciona interfaces para la recuperación de grandes conjuntos de datos relacionados con personas y otras personas, llamados extracción masiva. Actualmente, se ofrecen interfaces para tres tipos de objetos:
+Marketo Bulk Extract proporciona interfaces para recuperar grandes conjuntos de datos relacionados con personas y personas. Actualmente hay interfaces disponibles para cuatro tipos de objetos:
 
 - Posibles clientes (personas)
 - Actividades
 - Miembros del programa
 - Objetos personalizados
 
-La extracción masiva se realiza creando un trabajo, definiendo el conjunto de datos que se van a recuperar, poniendo el trabajo en cola, esperando a que el trabajo complete la escritura de un archivo y, a continuación, recuperando el archivo a través de HTTP. Estos trabajos se ejecutan de forma asíncrona y se pueden sondear para recuperar el estado de la exportación.
+Para realizar una extracción masiva:
+
+1. Cree un trabajo y defina los datos que desea recuperar.
+1. Ponga el trabajo en cola.
+1. Espere a que el trabajo termine de escribir el archivo.
+1. Recupere el archivo a través de HTTP.
+
+Los trabajos de extracción masiva se ejecutan asincrónicamente. Encueste el trabajo para recuperar el estado de exportación.
 
 `Note:` Los extremos de API en lotes no tienen el prefijo &#39;/rest&#39; como otros extremos.
 
 ## Autenticación
 
-Las API de extracción masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo. Esto requiere que se envíe un token de acceso válido como un encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
+Las API de extracción masiva utilizan el mismo método de autenticación OAuth 2.0 que otras API de REST de Marketo. Envíe un token de acceso válido en el encabezado HTTP `Authorization: Bearer {_AccessToken_}`.
 
 >[!IMPORTANT]
 >
->El 30 de junio de 2025 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
+>El 31 de agosto de 2026 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
 ## Límites
 
 - Máximo de trabajos de exportación simultáneos: 2
-- Máximo de trabajos de exportación en cola (incluidos los trabajos de exportación actuales): 10
+- Máximo de trabajos de exportación en cola, incluidos los trabajos que se están exportando actualmente: 10
 - Período de retención de archivos: siete días
-- Asignación de exportación diaria predeterminada: 500 MB (que se restablece diariamente a 12:00AM CST). Aumentos disponibles para la compra.
-- Intervalo de tiempo máximo para el filtro de intervalo de fechas (createdAt o updatedAt): 31 días
+- Asignación de exportación diaria predeterminada: 500 MB. La asignación se restablece diariamente a las 12:00 (hora central europea). Los incrementos están disponibles para la compra.
+- Intervalo de tiempo máximo para el filtro de intervalo de fecha (`createdAt` o `updatedAt`): 31 días
 
-Los filtros de extracción masiva de posibles clientes para UpdatedAt y Smart List no están disponibles para algunos tipos de suscripción. Si no está disponible, una llamada al extremo del trabajo de creación de posibles clientes de exportación devuelve el error &quot;1035, Unsupported filter type for target subscription&quot;. Los clientes pueden ponerse en contacto con el servicio de asistencia de Marketo para habilitar esta funcionalidad en su suscripción.
+Los filtros de extracción masiva de posibles clientes para UpdatedAt y Smart List no están disponibles para algunos tipos de suscripción. Si estos filtros no están disponibles, el extremo del trabajo de creación de posibles clientes devuelve el error &quot;1035, Unsupported filter type for target subscription&quot;. Póngase en contacto con el Soporte técnico de Marketo para habilitar esta funcionalidad para su suscripción.
 
 ### Cola
 
-Las API de extracción masiva utilizan una cola de trabajos (compartida entre posibles clientes, actividades, miembros de programa y objetos personalizados). Primero deben crearse los trabajos de extracción y, a continuación, ponerlos en cola llamando a los extremos de los trabajos Crear posible cliente/actividad/miembro del programa de exportación y Poner en cola el cliente potencial/actividad/miembro del programa. Una vez puestos en cola, los trabajos se extraen de la cola y se inician cuando los recursos de computación están disponibles.
+Las API de extracción masiva utilizan una cola de trabajos que se comparte entre posibles clientes, actividades, miembros de programa y objetos personalizados. En primer lugar, llame al punto final Crear trabajo de cliente potencial/Actividad/Miembro de programa de exportación para crear un trabajo de extracción. A continuación, llame al punto final del trabajo de cliente potencial/actividad/miembro del programa de exportación en cola correspondiente para poner en cola el trabajo. El trabajo se inicia cuando hay recursos informáticos disponibles.
 
-El número máximo de trabajos en cola es 10. Si intenta poner un trabajo en cola cuando la cola está llena, el punto final del trabajo de exportación en cola devuelve el error &quot;1029, Demasiados trabajos en cola&quot;. Se puede ejecutar un máximo de dos trabajos simultáneamente (el estado es &quot;Procesando&quot;).
+La cola puede contener un máximo de 10 trabajos. Si intenta poner un trabajo en cola cuando la cola está llena, el punto final del trabajo de exportación en cola devuelve el error &quot;1029, Demasiados trabajos en cola&quot;. Un máximo de dos trabajos pueden tener el estado &quot;Procesando&quot; y ejecutarse simultáneamente.
 
 ### Tamaño de archivo
 
-Las API de extracción masiva se miden en función del tamaño en disco de los datos recuperados por un trabajo de extracción masiva. El tamaño explícito en bytes de un trabajo se puede determinar leyendo el atributo `fileSize` de la respuesta de estado completada de un trabajo de exportación.
+Las API de extracción masiva se miden en función del tamaño en disco de los datos que recupera un trabajo de extracción masiva. Para determinar el tamaño del archivo en bytes, lea el atributo `fileSize` en la respuesta de estado completada para un trabajo de exportación.
 
-La cuota diaria es de un máximo de 500 MB por día, que se comparten entre posibles clientes, actividades, miembros de programa y objetos personalizados. Cuando se supera la cuota, no puede crear ni poner en cola otro trabajo hasta que la cuota diaria se restablezca a medianoche [hora central](https://en.wikipedia.org/wiki/Central_Time_Zone). Hasta ese momento, se devuelve el error &quot;1029, Export daily quota expanded&quot;. Aparte de la cuota diaria, no hay un tamaño de archivo máximo.
+La cuota diaria es de 500 MB y se comparte entre posibles clientes, actividades, miembros de programa y objetos personalizados. Cuando se supera la cuota, no se puede crear ni poner en cola otro trabajo hasta que la cuota se restablezca a medianoche [Hora central](https://en.wikipedia.org/wiki/Central_Time_Zone). Hasta el restablecimiento, la API devuelve el error &quot;1029, Export daily quota expanded&quot;. Aparte de la cuota diaria, no hay un tamaño de archivo máximo.
 
-Una vez que un trabajo se pone en cola o se procesa, se ejecuta hasta su finalización (salvo error o cancelación del trabajo). Si un trabajo falla por algún motivo, debe volver a crearlo. Los archivos sólo se escriben completamente cuando un trabajo alcanza el estado completado (los archivos parciales nunca se escriben). Puede verificar que un archivo se escribió completamente calculándolo es un hash SHA-256 y comparándolo con la suma de comprobación que devuelven los extremos de estado del trabajo.
+Una vez que un trabajo se ha puesto en cola o se ha procesado, se ejecuta hasta su finalización a menos que se produzca un error o que cancele el trabajo. Si un trabajo falla, debe volver a crearlo.
 
-Puede determinar la cantidad total de disco utilizado para el día actual llamando a Obtener resultados de cliente potencial/Actividad/Trabajos de miembro del programa. Estos extremos devuelven una lista de todos los trabajos de los últimos siete días. Puede filtrar esa lista para que solo se muestren los trabajos que se completaron en el día actual (con los atributos `status` y `finishedAt`). A continuación, sume los tamaños de archivo de esos trabajos para obtener la cantidad total utilizada. No hay forma de eliminar un archivo para recuperar espacio en disco.
+La API escribe el archivo completo solo cuando el trabajo alcanza el estado completado. No escribe archivos parciales. Para comprobar el archivo, calcule su hash SHA-256 y compárelo con la suma de comprobación que devuelve el extremo de estado del trabajo.
+
+Para determinar el espacio en disco total utilizado para el día actual, llame al punto final Obtener resultados de cliente potencial/Actividad/Trabajos de miembro del programa. Estos extremos devuelven todos los trabajos de los últimos siete días.
+
+Filtre la lista a los trabajos que se completaron durante el día actual utilizando los atributos `status` y `finishedAt`. A continuación, agregue los tamaños de archivo para esos trabajos. No puede eliminar un archivo para recuperar espacio en disco.
 
 ## Permisos
 
-La extracción masiva utiliza el mismo modelo de permisos que la API de REST de Marketo y no requiere ningún permiso especial adicional para su uso, aunque se requieren permisos específicos para cada conjunto de extremos.
+La extracción masiva utiliza el mismo modelo de permisos que la API de REST de Marketo. No requiere permisos especiales adicionales, pero cada conjunto de extremos requiere permisos específicos.
 
-Los trabajos de extracción masiva solo son accesibles para el usuario de API que los creó, incluido el sondeo del estado y la recuperación del contenido del archivo.
+Solo el usuario de API que ha creado un trabajo de extracción masiva puede acceder a él, sondear su estado o recuperar el contenido del archivo.
 
-Los extremos de extracción masiva no tienen en cuenta los espacios de trabajo de Marketo. Las solicitudes de extracción siempre incluyen datos en todos los espacios de trabajo, independientemente de cómo defina el Usuario solo de API para el servicio personalizado.
+Los extremos de extracción masiva no tienen en cuenta los espacios de trabajo de Marketo. Las solicitudes de extracción incluyen datos de todos los espacios de trabajo, independientemente de cómo defina el Usuario solo de API para el servicio personalizado.
 
 ## Creación de un trabajo
 
-Las API de extracción masiva de Marketo utilizan el concepto de trabajo para iniciar y ejecutar la extracción de datos. Veamos la creación de un trabajo de exportación de posibles clientes simple.
+Las API de extracción masiva de Marketo utilizan trabajos para iniciar y ejecutar extracciones de datos. La siguiente solicitud crea un trabajo de exportación de posibles clientes:
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -100,7 +108,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-Esta solicitud simple construirá un trabajo que devolverá los valores contenidos en los campos &quot;firstName&quot; y &quot;lastName&quot;, con los encabezados de columna &quot;First Name&quot; y &quot;Last Name&quot; como archivo CSV, que contienen cada posible cliente creado entre el 1 de enero de 2023 y el 31 de enero de 2023.
+Esta solicitud crea un trabajo que exporta cada posible cliente creado entre el 1 de enero de 2023 y el 31 de enero de 2023. El archivo CSV contiene valores de los campos &quot;firstName&quot; y &quot;lastName&quot;, y utiliza los encabezados de columna &quot;First Name&quot; y &quot;Last Name&quot;.
 
 ```json
 {
@@ -118,11 +126,11 @@ Esta solicitud simple construirá un trabajo que devolverá los valores contenid
 }
 ```
 
-Cuando creamos el trabajo, devuelve un id. de trabajo en el atributo `exportId`. A continuación, podemos utilizar este ID de trabajo para poner el trabajo en cola, cancelarlo, comprobar su estado o recuperar el archivo completado.
+La respuesta devuelve el identificador de trabajo en el atributo `exportId`. Utilice este ID de trabajo para poner en cola o cancelar el trabajo, comprobar su estado o recuperar el archivo completado.
 
 ### Parámetros comunes
 
-Cada extremo de creación de trabajo comparte algunos parámetros comunes para configurar el formato de archivo, los nombres de campo y el filtro de un trabajo de extracción masiva. Cada subtipo del trabajo de extracción puede tener parámetros adicionales:
+Cada extremo de creación de trabajo tiene parámetros comunes para configurar el formato de archivo, los nombres de campo y el filtro. Cada subtipo del trabajo de extracción también puede tener parámetros adicionales:
 
 | Parámetro | Tipo de datos | Notas |
 | --- | --- | --- |
@@ -132,7 +140,13 @@ Cada extremo de creación de trabajo comparte algunos parámetros comunes para c
 
 ## Recuperando trabajos
 
-A veces, es posible que deba recuperar sus trabajos recientes. Esto se realiza fácilmente con Obtener trabajos de exportación para el tipo de objeto correspondiente. Cada extremo de Obtener trabajos de exportación admite un campo de filtro `status`, un `batchSize` para limitar el número de trabajos devueltos y `nextPageToken` para paginar a través de grandes conjuntos de resultados. El filtro de estado admite cada estado válido para un trabajo de exportación: Creado, En cola, Procesando, Cancelado, Completado y Fallido. batchSize tiene un valor máximo y predeterminado de 300. Vamos a obtener la lista de trabajos de exportación de clientes potenciales:
+Utilice el punto final Obtener trabajos de exportación para el tipo de objeto correspondiente para recuperar trabajos recientes. Cada extremo de Obtener trabajos de exportación admite estos parámetros:
+
+- `status` filtra los trabajos por estado de exportación. Los valores válidos son Created, Queued, Processing, Canceled, Completed y Failed.
+- `batchSize` limita el número de trabajos devueltos. El valor predeterminado y máximo es 300.
+- `nextPageToken` páginas a través de grandes conjuntos de resultados.
+
+La siguiente solicitud recupera los trabajos de exportación de posibles clientes con el estado Completado o Error:
 
 ```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
@@ -160,23 +174,23 @@ GET /bulk/v1/leads/export.json?status=Completed,Failed
 }
 ```
 
-El extremo responde con `status` respuesta de cada trabajo creado en los últimos siete días para ese tipo de objeto en la matriz de resultados. La respuesta solo incluirá resultados para trabajos propiedad del usuario de API que realiza la llamada.
+La matriz de resultados contiene la respuesta de estado de cada trabajo creado para ese tipo de objeto durante los últimos siete días. La respuesta solo incluye los trabajos que posee el usuario de API que realiza la llamada.
 
 ## Inicio de trabajos
 
-Con nuestro id de trabajo en la mano, vamos a comenzar el trabajo:
+Después de crear un trabajo, utilice su ID de trabajo para ponerlo en cola e iniciarlo:
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
-Esto inicia la ejecución del trabajo y devuelve una respuesta de estado. Dado que la exportación siempre se realiza de forma asíncrona, debemos sondear el estado del trabajo para determinar si se ha completado. El estado de un trabajo determinado no se actualizará con más frecuencia que una vez cada 60 segundos, por lo que el estado nunca debe sondearse con más frecuencia que eso. Sin embargo, tenga en cuenta que la mayoría de los casos de uso nunca deben requerir sondeo con más frecuencia que una vez cada 5 minutos. Los datos de cada exportación correcta se conservan durante 10 días.
+La solicitud inicia el trabajo y devuelve una respuesta de estado. Dado que las exportaciones se ejecutan de forma asíncrona, sondee el estado del trabajo para determinar cuándo se ha completado la exportación.
 
 ## Estado del trabajo de sondeo
 
-Determinar el estado del trabajo es sencillo.
+Encuesta el punto final de estado para determinar el progreso de un trabajo. Solo el usuario de API que ha creado un trabajo puede sondear su estado.
 
-El estado solo se puede sondear para los trabajos creados por el mismo usuario de API que los creó.
+Un estado de trabajo no se actualiza con más frecuencia que una vez cada 60 segundos. No sondear con más frecuencia que eso. Para la mayoría de los casos de uso, es suficiente sondear una vez cada 5 minutos. Los datos de cada exportación correcta se conservan durante 10 días.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -203,47 +217,53 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 }
 ```
 
-El miembro interno `status` indica el progreso del trabajo y puede ser uno de los siguientes valores: Creado, En cola, Procesando, Cancelado, Completado, Fallido. En este caso, nuestro trabajo se ha completado, por lo que podemos detener el sondeo y continuar con la recuperación del archivo. Cuando se completa, el miembro `fileSize` indica la longitud total del archivo en bytes, y el miembro `fileChecksum` contiene el hash SHA-256 del archivo. El estado del trabajo está disponible durante 30 días después de alcanzar el estado Completado o Error.
+El miembro interno `status` indica el progreso del trabajo. Su valor puede ser Creado, En cola, Procesando, Cancelado, Completado o Error.
+
+En este ejemplo, el trabajo se ha completado, por lo que puede detener el sondeo y recuperar el archivo. Para un trabajo completado, el miembro `fileSize` indica la longitud total del archivo en bytes, y el miembro `fileChecksum` contiene el hash SHA-256 del archivo. El estado del trabajo está disponible durante 30 días después de que el trabajo alcance el estado Completado o Error.
 
 ## Recuperación de datos
 
-Una vez finalizado el trabajo, puede recuperar fácilmente el archivo.
+Una vez finalizado el trabajo, recupere el archivo exportado:
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
-La respuesta contiene un archivo con el formato que tenía el trabajo configurado. El punto final responde con el contenido del archivo. Si no se ha completado un trabajo o se ha pasado un ID de trabajo incorrecto, los extremos de archivo responden con un estado de 404 No encontrado y un mensaje de error de texto sin formato como carga útil, a diferencia de la mayoría de los demás extremos REST de Marketo.
+La respuesta contiene el archivo en el formato configurado para el trabajo. Si el trabajo está incompleto o la solicitud contiene un ID de trabajo no válido, el punto final del archivo devuelve el estado 404 No encontrado y un mensaje de error de texto sin formato. Esta respuesta difiere de la mayoría de las demás respuestas de extremo REST de Marketo.
 
-Para admitir la recuperación parcial y fácil de reanudar de los datos extraídos, el extremo de archivo admite opcionalmente el encabezado HTTP `Range` del tipo `bytes` (según [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Si no se establece el encabezado, se devuelve todo el contenido. Para recuperar los primeros 10 000 bytes de un archivo, pasaría el siguiente encabezado como parte de la petición GET al extremo, empezando por el byte 0:
+Para admitir la recuperación parcial y reanudable, el extremo de archivo admite el encabezado HTTP `Range` opcional con el tipo `bytes`, tal como se define en [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233). Si no establece el encabezado, el extremo devolverá todo el archivo.
+
+Para recuperar los primeros 10 000 bytes de un archivo, pase el siguiente encabezado en la petición GET. El rango comienza en el byte 0:
 
 ```text
 Range: bytes=0-9999
 ```
 
-Al recuperar el archivo parcial, el extremo responde con el código de estado 206 y devuelve los encabezados Accept-range, Content-Length y Content-Range:
+Para un archivo parcial, el punto final devuelve el código de estado 206 y los encabezados Accept-range, Content-Length y Content-Range:
 
 ```text
 Accept-Ranges: bytes
-Content-Length: 1000
+Content-Length: 10000
 Content-Range: bytes 0-9999/123424
 ```
 
 ### Recuperación y reanudación parciales
 
-Los archivos se pueden recuperar en parte o reanudar más tarde mediante el encabezado `Range`. El intervalo de un archivo comienza en el byte 0 y finaliza en el valor de `fileSize` menos 1. La longitud del archivo también se indica como denominador en el valor del encabezado de respuesta `Content-Range` al llamar a un extremo de Obtener archivo de exportación. Si una recuperación falla parcialmente, se puede reanudar más adelante. Por ejemplo, si intenta recuperar un archivo de 1000 bytes de longitud, pero solo se recibieron los primeros 725 bytes, la recuperación se puede volver a intentar desde el punto del error llamando de nuevo al extremo y pasando un nuevo intervalo:
+Utilice el encabezado `Range` para recuperar parte de un archivo o reanudar una recuperación. El intervalo de archivos comienza en el byte 0 y finaliza en el valor de `fileSize` menos 1. El extremo de Obtener archivo de exportación también indica la longitud del archivo como denominador en el encabezado de respuesta `Content-Range`.
+
+Si una recuperación falla parcialmente, puede reanudarla. Por ejemplo, si intenta recuperar un archivo de 1000 bytes pero sólo recibe los primeros 725 bytes, vuelva a llamar al extremo y pase un nuevo intervalo:
 
 ```text
-Range: bytes 724-999
+Range: bytes=725-999
 ```
 
-Devuelve los 275 bytes restantes del archivo.
+Esta solicitud devuelve los 275 bytes restantes del archivo.
 
 #### Comprobación de integridad de archivos
 
-Los extremos de estado del trabajo devuelven una suma de comprobación en el atributo `fileChecksum` cuando `status` está &quot;Completado&quot;. La suma de comprobación es un hash SHA-256 del archivo exportado. Puede comparar la suma de comprobación con el hash SHA-256 del archivo recuperado para comprobar que está completo.
+Cuando `status` está &quot;Completado&quot;, los extremos del estado del trabajo devuelven una suma de comprobación en el atributo `fileChecksum`. La suma de comprobación es el hash SHA-256 del archivo exportado. Compare el archivo con el hash SHA-256 del archivo recuperado para comprobar que el archivo está completo.
 
-Esta es una respuesta de ejemplo que contiene la suma de comprobación:
+La siguiente respuesta contiene una suma de comprobación:
 
 ```json
 {
@@ -260,7 +280,7 @@ Esta es una respuesta de ejemplo que contiene la suma de comprobación:
 }
 ```
 
-A continuación se muestra un ejemplo de creación del hash SHA-256 de un archivo recuperado denominado &quot;bulk_lead_export.csv&quot; mediante la utilidad de línea de comandos sha256sum:
+El ejemplo siguiente utiliza la utilidad de línea de comandos sha256sum para crear el hash SHA-256 de un archivo recuperado denominado &quot;bulk_lead_export.csv&quot;:
 
 ```bash
 $ sha256sum bulk_lead_export.csv
@@ -269,7 +289,7 @@ $ sha256sum bulk_lead_export.csv
 
 ## Cancelación de un trabajo
 
-Si un trabajo se ha configurado incorrectamente o se vuelve innecesario, se puede cancelar fácilmente:
+Si un trabajo está configurado incorrectamente o ya no es necesario, cancele:
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
@@ -290,4 +310,4 @@ POST /bulk/v1/leads/export/{exportId}/cancel.json
 }
 ```
 
-Esto responde con un estado que indica que el trabajo se ha cancelado.
+El estado de respuesta indica que el trabajo se ha cancelado.

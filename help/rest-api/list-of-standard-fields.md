@@ -4,25 +4,21 @@ feature: REST API, Field Management
 description: Examine la lista completa de campos de posibles clientes estándar de Marketo con nombres, etiquetas y descripciones REST y SOAP, además de cómo recuperarlos mediante la API Describir posible cliente.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
 TQID: https://experienceleague.adobe.com/vu2wGk36XJ243vwavhfLE7Vc9vMIJKGx6vmVqMRgEDA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 742
+source-wordcount: 745
 ht-degree: 23%
 
 ---
 
 # Campos estándar
 
-Esta es una lista de campos estándar disponibles en Marketo a los que se puede acceder mediante la API.
+En la siguiente tabla se enumeran los campos estándar de Marketo disponibles a través de la API. Incluye el nombre de la API de REST de cada campo, el nombre de la API de SOAP, la etiqueta y la descripción.
 
-Puede recuperar la lista de todos los nombres de campo admitidos disponibles en los registros de posibles clientes mediante el punto de conexión REST [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi).
+Use el extremo REST [Describir posible cliente](https://developer.adobe.com/marketo-apis/api/mapi) para recuperar todos los nombres de campo admitidos por sus registros de posibles clientes.
 
 | Nombre de REST API | Nombre de SOAP API | Etiqueta descriptiva | Descripción |
 | --- | --- | --- | --- |

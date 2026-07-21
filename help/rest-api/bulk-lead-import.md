@@ -4,18 +4,14 @@ feature: REST API
 description: Cree y supervise importaciones asíncronas masivas de posibles clientes en Marketo con CSV o CSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
 TQID: https://experienceleague.adobe.com/UamXYWis5J1ERqnp5lAnfUf3pFcgfSOLfKRXRB-Yg4I
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 825
-ht-degree: 0%
+source-wordcount: 623
+ht-degree: 1%
 
 ---
 
@@ -23,30 +19,38 @@ ht-degree: 0%
 
 [Referencia de extremo de importación masiva de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-Para grandes cantidades de registros de posibles clientes, los posibles clientes se pueden importar asincrónicamente con la [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Esto permite importar una lista de registros en Marketo mediante un archivo plano con delimitadores (coma, tabulación o punto y coma). El archivo puede contener cualquier número de registros, siempre que el tamaño total del archivo sea inferior a 10 MB. La operación de registro es sólo &quot;insertar o actualizar&quot;.
+Use la [API en bloque](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) para importar grandes cantidades de registros de posibles clientes de forma asíncrona. Proporcione los registros en un archivo plano delimitado por comas, tabuladores o puntos y comas que tenga menos de 10 MB.
+
+La importación masiva de posibles clientes solo admite la operación de registro &quot;insertar o actualizar&quot;.
 
 ## Límites de procesamiento
 
-Se le permite enviar más de una solicitud de importación masiva, con limitaciones. Cada solicitud se agrega como un trabajo a una cola FIFO para su procesamiento. Se procesan un máximo de dos trabajos al mismo tiempo. Se permite un máximo de 10 trabajos en cola en un momento determinado (incluidos los dos que se están procesando actualmente). Si supera el máximo de diez trabajos, se devuelve un error `1016, Too many imports`.
+Cada solicitud de importación masiva se agrega como un trabajo a una cola FIFO (primera entrada, primera salida). Se aplican los límites siguientes:
+
+- Se puede procesar simultáneamente un máximo de dos trabajos.
+- Se pueden colocar un máximo de 10 trabajos en cola, incluidos los dos trabajos que se están procesando.
+
+Si supera el máximo de 10 trabajos, la API devuelve un error de `1016, Too many imports`.
 
 ## Importar archivo
 
-La primera fila del archivo debe ser un encabezado que enumere los campos de API de REST correspondientes para asignar los valores de cada fila a. Un archivo típico seguiría este patrón básico:
+La primera fila del archivo debe ser un encabezado que enumere los campos de API de REST a los que se asignan los valores de cada fila. Un archivo típico sigue este patrón:
 
 ```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-El campo `externalCompanyId` se puede usar para vincular el registro de posible cliente a un registro de empresa. El campo `externalSalesPersonId` se puede usar para vincular el registro de cliente potencial a un registro de vendedor.
+Use `externalCompanyId` para vincular un registro de posible cliente a un registro de empresa. Use `externalSalesPersonId` para vincular un registro de posible cliente a un registro de vendedor.
 
-La llamada en sí se realiza con el tipo de contenido `multipart/form-data`.
-
-Este tipo de solicitud puede ser difícil de implementar, por lo que se recomienda encarecidamente que utilice una implementación de biblioteca existente.
+Envíe la solicitud utilizando el tipo de contenido `multipart/form-data`. Utilice una implementación de biblioteca existente para construir la solicitud de varias partes.
 
 ## Creación de un trabajo
 
-Para realizar una solicitud de importación masiva, debe establecer el encabezado de tipo de contenido en `multipart/form-data` e incluir al menos un parámetro `file` con el contenido del archivo, y un parámetro `format` con el valor `csv`, `tsv` o `ssv`, que indique el formato de archivo.
+Para crear un trabajo de importación masiva, establezca el tipo de contenido en `multipart/form-data` e incluya estos parámetros:
+
+- `file`: el contenido del archivo de importación.
+- `format`: el formato de archivo. Los valores válidos son `csv`, `tsv` y `ssv`.
 
 ```http
 POST /bulk/v1/leads.json?format=csv
@@ -84,13 +88,13 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Se recomienda utilizar una biblioteca de soporte HTTP en el idioma que elija para garantizar el uso correcto. El siguiente ejemplo es una forma sencilla de hacerlo con cURL desde la línea de comandos:
+Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Utilice una biblioteca de soporte HTTP para el idioma preferido para construir la solicitud correctamente. El siguiente ejemplo utiliza cURL desde la línea de comandos:
 
 ```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-Donde el archivo de importación `lead_data.csv` contiene lo siguiente:
+En este ejemplo, el archivo de importación `lead_data.csv` contiene los datos siguientes:
 
 ```text
 firstName,lastName,email,company
@@ -99,13 +103,19 @@ Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
 ```
 
-Opcionalmente, también puede incluir los parámetros `lookupField`, `listId` y `partitionName` en su solicitud. `lookupField` le permite seleccionar un campo específico en el que deduplicar, al igual que Sincronizar posibles clientes, y el valor predeterminado es correo electrónico. Puede especificar `id` como `lookupField` para indicar una operación de &quot;solo actualización&quot;. `listId` le permite seleccionar una lista estática a la que importar la lista de posibles clientes; esto hará que los posibles clientes de la lista se conviertan en miembros de esta lista estática, además de las creaciones o actualizaciones causadas por la importación. `partitionName` selecciona una partición específica a la cual importar. Consulte la sección Espacios de trabajo y particiones para obtener más información.
+También puede incluir estos parámetros opcionales:
 
-Observe en la respuesta a nuestra llamada que no hay un listado de éxitos o errores como con Sincronizar posibles clientes, sino un batchId y un campo de estado para el registro en la matriz de resultados. Esto se debe a que esta API es asíncrona y puede devolver el estado En cola, Importando o Error. Debe conservar batchId para obtener el estado del trabajo de importación y para recuperar errores y/o advertencias tras la finalización. batchId sigue siendo válido durante siete días.
+- `lookupField`: selecciona el campo usado para la deduplicación y el valor predeterminado es `email`. Especifique `id` para realizar una operación de &quot;solo actualización&quot;.
+- `listId`: selecciona una lista estática. Los posibles clientes importados se convierten en miembros de esta lista, además de los registros creados o actualizados por la importación.
+- `partitionName`: selecciona la partición a la que se va a importar. Consulte la sección Espacios de trabajo y particiones para obtener más información.
+
+Como la API es asincrónica, la respuesta contiene `batchId` y `status` campos en lugar de éxitos y errores individuales. El estado puede ser `Queued`, `Importing` o `Failed`.
+
+Conservar `batchId` para comprobar el estado del trabajo y recuperar errores o advertencias una vez finalizado. `batchId` sigue siendo válido por siete días.
 
 ## Estado del trabajo de sondeo
 
-Se recomienda sondear el trabajo cada 5-30 segundos, según la latencia necesaria y las limitaciones de llamadas de API, para ver el estado del trabajo de importación. Puede hacerlo con la API Obtener estado del posible cliente de importación.
+Utilice la API Obtener estado del posible cliente de importación para sondear el trabajo cada 5-30 segundos, según los requisitos de latencia y las limitaciones de llamadas de la API.
 
 ```http
 GET /bulk/v1/leads/batch/{id}.json
@@ -128,35 +138,35 @@ GET /bulk/v1/leads/batch/{id}.json
 }
 ```
 
-Esta respuesta muestra una importación completada, pero el estado puede ser uno de los siguientes:
+Esta respuesta muestra una importación completada. El estado puede ser uno de los siguientes valores:
 
 - Completo
 - En cola
 - Importando
 - Error
 
-Si el trabajo se ha completado, tiene un listado con el número de filas procesadas, con errores y sin advertencias. El parámetro message también puede proporcionar el mensaje de error si el estado es Failed.
+Cuando se completa el trabajo, la respuesta muestra los números de filas procesadas, fallidas y procesadas con advertencias. El parámetro `message` también puede proporcionar un mensaje de error cuando el estado es `Failed`.
 
 ## Errores de
 
-Los errores se indican mediante el atributo `numOfRowsFailed` en la respuesta Obtener estado del posible cliente de importación. Si `numOfRowsFailed` es mayor que cero, ese valor indica el número de errores que se produjeron.
+El atributo `numOfRowsFailed` de la respuesta Obtener estado del posible cliente de importación indica el número de filas con errores. Un valor mayor que cero significa que se produjeron errores.
 
-Para recuperar los registros y las causas de las filas con errores, debe recuperar el archivo de errores:
+Para recuperar los registros con errores y sus causas, solicite el archivo de error:
 
 ```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-La API responde con un archivo que indica qué filas fallaron, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que el especificado en el parámetro `format` durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción del error.
+La API devuelve un archivo que identifica cada fila fallida y explica por qué falló el registro. El archivo utiliza el formato especificado por el parámetro `format` durante la creación del trabajo. Un campo adicional en cada registro describe el error.
 
 ## Advertencias
 
-Las advertencias se indican mediante el atributo `numOfRowsWithWarning` en una respuesta Obtener estado del posible cliente de importación. Si `numOfRowsWithWarning` es mayor que cero, ese valor indica el número de advertencias que se produjeron.
+El atributo `numOfRowsWithWarning` de la respuesta Obtener estado del posible cliente de importación indica el número de filas con advertencias. Un valor mayor que cero significa que se han producido advertencias.
 
-Para recuperar los registros y las causas de las filas de advertencia, recupere el archivo de advertencia:
+Para recuperar los registros afectados y sus causas, solicite el archivo de advertencia:
 
 ```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-La API responde con un archivo que indica qué filas produjeron advertencias, junto con un mensaje que indica por qué falló el registro. El formato del archivo es el mismo que el especificado en el parámetro `format` durante la creación del trabajo. Se anexa un campo adicional a cada registro con una descripción de la advertencia.
+La API devuelve un archivo que identifica cada fila con una advertencia y explica por qué se produjo la advertencia. El archivo utiliza el formato especificado por el parámetro `format` durante la creación del trabajo. Un campo adicional en cada registro describe la advertencia.

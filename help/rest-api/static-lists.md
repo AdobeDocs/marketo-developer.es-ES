@@ -4,13 +4,11 @@ feature: REST API, Static Lists
 description: Utilice las API de REST de Marketo para consultar, crear, actualizar y eliminar listas estáticas, con puntos finales para ID, nombre y examinar, ámbitos de carpetas, paginación y filtros de fecha.
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
 TQID: https://experienceleague.adobe.com/DSV9h6d4F3ZrIUT-VtqlmFAnpdxOuTf05ajCqiGegqk
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 496
+source-wordcount: 360
 ht-degree: 1%
 
 ---
@@ -19,17 +17,17 @@ ht-degree: 1%
 
 [Referencia de extremo de listas estáticas](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists)
 
-Marketo ofrece un conjunto de API de REST para realizar operaciones de CRUD en listas estáticas. Estas API siguen el patrón de interfaz estándar para las API de recursos que proporcionan las opciones de Consulta, Crear, Actualizar y Eliminar.
+Utilice las API de REST de listas estáticas para consultar, crear, actualizar y eliminar listas estáticas.
 
 Para las operaciones de la base de datos de posibles clientes en los miembros de la lista, vea [Pertenencia a la lista](list-membership.md).
 
 ## Consulta
 
-La consulta de listas estáticas sigue los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) y [examinar](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET).
+Consulta listas estáticas [por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET).
 
 ### Por ID
 
-[La consulta del identificador &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) toma una sola lista estática `id` como parámetro de ruta de acceso y devuelve un único registro de lista estática.
+[La consulta por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) toma un parámetro de ruta de acceso de lista estática `id` y devuelve el registro correspondiente.
 
 ```http
 GET /rest/asset/v1/staticList/{id}.json
@@ -58,7 +56,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### Por nombre
 
-[La consulta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) toma una lista estática `name` como parámetro y devuelve un único registro de lista estática. Se realiza una coincidencia de cadena exacta con todos los nombres de lista estática de la instancia y se devuelve un resultado para la lista estática que coincida con ese nombre.
+[La consulta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) toma un parámetro de lista estática `name`. El extremo realiza una coincidencia exacta con nombres de lista estática y devuelve el registro coincidente.
 
 ```http
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -87,7 +85,9 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### Examinar
 
-Las listas estáticas también se pueden [recuperar en lotes](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). El parámetro `folder` se puede usar para especificar la carpeta principal en la que se realizará la consulta y tiene el formato de un objeto JSON que contiene `id` y `type`. Al igual que otros extremos de recuperación masiva de recursos, `offset` y `maxReturn` son parámetros opcionales que se pueden utilizar para la paginación. Los parámetros `earliestUpdatedAt` y `latestUpdatedAt` le permiten establecer marcas de agua de fecha y hora bajas y altas para devolver listas estáticas creadas o actualizadas dentro del intervalo dado. Los valores de fecha y hora deben ser cadenas ISO-8601 válidas y no deben incluir milisegundos.
+Use el extremo del explorador para [recuperar listas estáticas en lotes](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). El parámetro `folder` opcional establece el ámbito de la consulta en una carpeta principal. Pase la carpeta como un objeto JSON que contenga `id` y `type`.
+
+Use `offset` y `maxReturn` para la paginación. Use `earliestUpdatedAt` y `latestUpdatedAt` como límites de fecha y hora altos y bajos. Estos parámetros devuelven listas creadas o actualizadas dentro del intervalo. Utilice valores ISO-8601 sin milisegundos.
 
 ```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -138,7 +138,9 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Crear y actualizar
 
-[La creación de una lista estática](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST) se ejecuta con un POST de `application/x-www-form-urlencoded` con dos parámetros obligatorios. El parámetro `folder` se usa para especificar la carpeta principal en la que se creará la lista estática y tiene el formato de objeto JSON que contiene `id` y `type`. El parámetro `name` se usa para asignar un nombre a la lista estática y debe ser único. Opcionalmente, el parámetro `description` se puede usar para describir la lista estática.
+Enviar una solicitud POST de `application/x-www-form-urlencoded` a [crear una lista estática](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST). Se requieren los parámetros `folder` y `name`.
+
+Pase `folder` como un objeto JSON que contiene `id` y `type`. `name` debe ser único. El parámetro opcional `description` describe la lista.
 
 ```http
 POST /rest/asset/v1/staticLists.json
@@ -173,7 +175,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[La actualización de una lista estática](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST) se realiza a través de un extremo independiente con dos parámetros opcionales. El parámetro `description` se puede usar para actualizar la descripción de la lista estática. El parámetro `name` se puede usar para actualizar el nombre de la lista estática y debe ser único.
+Use el extremo de actualización para [cambiar una lista estática](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST). El parámetro `description` opcional cambia la descripción. El parámetro opcional `name` cambia el nombre y debe ser único.
 
 ```http
 POST /rest/asset/v1/staticList/{id}.json
@@ -211,7 +213,7 @@ description=This is a static list used for testing
 
 ## Eliminar
 
-[Al eliminar una lista estática](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST), se toma una sola lista estática `id` como parámetro de ruta de acceso. Las eliminaciones no se pueden realizar en listas estáticas que estén siendo utilizadas por una operación de importación o exportación, o que estén siendo utilizadas por otros recursos.
+Para [eliminar una lista estática](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST), pase su `id` como parámetro de ruta de acceso. No puede eliminar una lista utilizada por una importación, exportación u otro recurso.
 
 ```http
 POST /rest/asset/v1/staticList/{id}/delete.json

@@ -3,16 +3,13 @@ title: Flujos de datos
 description: Información general sobre los flujos de datos de Marketo Engage que permiten eventos de actividad de clientes potenciales y de auditoría de usuarios casi en tiempo real, lo que reduce los límites de API para los clientes de nivel de rendimiento
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
 TQID: https://experienceleague.adobe.com/JnhN70HexjmNueZa9MAVrxjEhZ5yJatWqZiowl22quA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: e1e0219c-f879-479f-8427-888ed2a6e9c2
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: e1e0219c-f879-479f-8427-888ed2a6e9c2
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1721
-ht-degree: 3%
+source-wordcount: 1347
+ht-degree: 4%
 
 ---
 
@@ -23,31 +20,33 @@ ht-degree: 3%
 >La información actual sobre los flujos de datos ahora se encuentra en [Usando flujos de datos](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
-Las organizaciones de marketing de nuestros clientes dependen de las campañas de marketing oportunas y centradas para mantenerse al día con su negocio y ser competitivas. Para apoyar las decisiones a ritmo rápido y permitir el cambio estratégico a gran velocidad, es importante tener datos para apoyar e impulsar esas decisiones clave que ofrecen campañas centradas y segmentadas. También hay algunos clientes que realizan esfuerzos de marketing en niveles de sus segmentos de clientes tanto dentro como fuera de Marketo Engage. Para apoyar estos diferentes esfuerzos, Marketo ha creado la capacidad de adquirir grandes volúmenes de datos en tiempo casi real mediante flujos de datos.
+Los flujos de datos ofrecen grandes volúmenes de datos de Marketo Engage a sistemas externos en tiempo casi real. Utilice datos transmitidos para apoyar decisiones oportunas, campañas segmentadas, procesos de marketing externo y auditorías.
 
-Además de las ventajas de los datos casi en tiempo real, existen ventajas relacionadas con el producto:
+Los flujos de datos ofrecen estas ventajas:
 
-- Alivia el cuello de botella de los límites de la API porque se utiliza el streaming en su lugar.
-- Reduce el escenario de límites de API y genera menos mensajes de alerta.
-- Ahora debe realizar exportaciones masivas para extraer datos gracias a la capacidad de flujo de datos.
+- Reduzca la dependencia en solicitudes de API limitadas a la velocidad.
+- Reduzca las alertas de límite de API.
+- Ofrezca datos sin ejecutar exportaciones masivas.
 
 Hay flujos de datos disponibles para quienes hayan adquirido un [paquete de nivel de rendimiento de Marketo Engage](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Resumen del flujo de datos de actividad de clientes potenciales
 
-El flujo de datos de actividad de posibles clientes proporciona una transmisión casi en tiempo real del seguimiento de la auditoría de las actividades de posibles clientes, donde se pueden enviar grandes volúmenes de actividades de posibles clientes al sistema externo de un cliente. Los flujos permiten a los clientes auditar de forma eficaz los eventos relacionados con los posibles clientes, los patrones de uso, proporcionar vistas de los cambios de posibles clientes y los procesos y flujos de trabajo de déclencheur en función de los distintos tipos de eventos de posibles clientes. Existen más de 144 tipos de actividades a las que se puede suscribir y enviar mediante el flujo.
+Flujo de datos de actividad de clientes potenciales envía grandes volúmenes de datos de actividad de clientes potenciales a un sistema externo en tiempo casi real. Utilice el flujo para auditar eventos de posibles clientes y patrones de uso, ver cambios de posibles clientes y flujos de trabajo de déclencheur de eventos de posibles clientes.
 
-Tipos de datos de posibles clientes transmitidos:
+Puede suscribirse a más de 144 tipos de actividades.
 
-1. Cambios de posibles clientes: todos los cambios en todos los campos y nuevos posibles clientes
-1. Actividades de posibles clientes: todos los tipos de actividades de posibles clientes descritos en el documento
-1. Posibles clientes eliminados
-1. Todos los objetos personalizados del posible cliente (si se solicita). Es todo o nada en este momento.
+El flujo puede incluir lo siguiente:
 
-Al proporcionar vistas sobre los cambios de los posibles clientes, esto permite a los clientes tomar decisiones más rápidas sobre sus estrategias de marketing generales y crear campañas dirigidas más específicas. Algunos casos de uso populares serían:
+1. Cambios en todos los campos de posibles clientes y en los posibles clientes recién creados.
+1. Todos los tipos de actividades de posibles clientes documentados.
+1. Posibles clientes eliminados.
+1. Todos los objetos personalizados de posibles clientes, cuando se solicite. No se pueden seleccionar objetos personalizados individuales.
 
-- Alerta personalizada: cuando se encuentran ciertos posibles clientes con condiciones incoherentes, se pueden agregar a la lista. Los flujos de actividad pueden detectarlos e insertar la actividad &quot;Agregar a la lista&quot; para que los clientes realicen cualquier acción de seguimiento.
-- Powering ML Models: Algunos clientes planean crear modelos de puntuación que utilicen las perspectivas de actividad y enviarlos de nuevo a Marketo o utilizar en sus propios modelos de puntuación internos como deseen. Al puntuar un posible cliente, los clientes pueden informar a Marketo para que añada clientes a las campañas de Nutrir y aumentar su puntuación.
+Los casos de uso comunes incluyen:
+
+- Alerta personalizada: agregar posibles clientes con condiciones incoherentes a una lista. La secuencia envía la actividad Añadir a la lista a un proceso de seguimiento.
+- Modelos de aprendizaje automático: utilice perspectivas de actividad en modelos de puntuación externos y, a continuación, envíe puntuaciones a Marketo para influir en las campañas de nutrición u otros procesos.
 
 Lista de actividades transmitidas:
 
@@ -74,15 +73,17 @@ Lista de actividades transmitidas:
 | ClickEmail | OpenSalesEmail | VoteInPoll |
 | ClickLink | PushLeadToMarketo | WinSweepstakes |
 
-Tenga en cuenta que si los objetos personalizados deben transmitirse, deben ser todos los objetos personalizados relacionados con el posible cliente. En este momento no hay forma de seleccionar cuáles son las deseadas.
+Al transmitir objetos personalizados, incluya todos los objetos personalizados relacionados con el posible cliente. No se pueden seleccionar objetos personalizados individuales.
 
 ## Resumen del flujo de datos de auditoría de usuarios
 
-La secuencia de datos de auditoría de usuarios proporciona un seguimiento de auditoría casi en tiempo real de los cambios de recursos por parte de los usuarios&#x200B;. Esto permite a un cliente auditar eventos de recursos de forma eficaz, proporcionar una vista de los cambios de los usuarios y déclencheur los procesos o flujos de trabajo en función de diferentes tipos de eventos de auditoría. Los cambios de recursos casi en tiempo real se envían mediante eventos de Adobe I/O a un punto de conexión configurable. Los eventos de auditoría se desglosan por tipo de recurso y pueden suscribirse a eventos de auditoría que son importantes para ellos.
+El flujo de datos de auditoría de usuarios rastrea los cambios de los usuarios en los recursos en tiempo casi real. Utilícelo para auditar eventos de recursos, ver cambios de usuario y procesos de déclencheur desde eventos de auditoría.
 
-Un buen caso de uso para suscribirse a este flujo sería:
+Adobe I/O Events envía los cambios a un punto de conexión configurable. Suscríbase a los tipos de eventos necesarios para cada tipo de recurso.
 
-- Seguimiento de cambios al utilizar varios sistemas de marketing: hay algunos clientes que también realizan algún nivel de actividades de marketing en otro sistema, como un CRM como Salesforce, y luego pasan el posible cliente a Marketo. El posible cliente a veces se actualiza y sincroniza de un lado a otro, por lo que es importante rastrear qué sistema ha realizado cambios recientes.
+Un caso de uso es:
+
+- Seguimiento de cambios en sistemas de marketing: Cuando un CRM u otro sistema intercambia posibles clientes con Marketo, utilice eventos de auditoría para identificar qué sistema realizó el cambio más reciente.
 
 Lista de eventos de auditoría de usuarios transmitidos:
 
@@ -142,7 +143,7 @@ Ejemplo de evento de auditoría de usuario:
 
 El flujo de datos de notificación está disponible como parte de las ofertas de nivel de rendimiento de Marketo Engage.
 
-Actualmente, el centro de notificaciones de Marketo se puede configurar para que envíe notificaciones a una dirección de correo electrónico. La secuencia de datos de notificación permite enviar notificaciones directamente a un extremo configurable a través de eventos de Adobe I/O. Las notificaciones se proporcionan a través de la interfaz de usuario hoy en día y se puede hacer referencia a ellas mediante la campana naranja en la parte superior derecha de la pantalla. Este flujo toma esas notificaciones y las envía a través de un flujo.
+El centro de notificaciones de Marketo puede enviar notificaciones a una dirección de correo electrónico. El flujo de datos de notificación también envía esas notificaciones a un extremo configurable a través de Adobe I/O Events. Estas son las mismas notificaciones disponibles en el icono de campana de la interfaz de usuario de Marketo.
 
 Lista de eventos de notificación:
 
@@ -178,18 +179,18 @@ Ejemplo de evento de notificación:
 
 ## Detalles técnicos
 
-Esta sección proporciona instrucciones sobre lo que se necesita, cómo conectarse y recibir datos de flujo continuo para cada uno de los flujos. Hay algún nivel de codificación y configuración involucrado para cada uno.
+Las secciones siguientes describen la configuración necesaria para recibir datos de cada flujo. Cada flujo requiere la configuración del punto de conexión y el código de integración.
 
 ### Flujo de datos de actividad de clientes potenciales
 
-El flujo de actividad de posibles clientes proporciona una transmisión casi en tiempo real de los eventos de actividad de posibles clientes de Marketo y envía los cambios de tipo de actividad suscrita con atributos configurables:
+Flujo de actividad de posibles clientes envía eventos de actividad de posibles clientes suscritos con estas características de servicio:
 
-- La frecuencia de los datos se inserta cada 2 segundos de forma predeterminada.
-- Lotes de 100 a 500 por suscripción.
-- El tiempo de espera para el servicio REST del cliente es de 20 segundos, con 3 reintentos cada 3 minutos y habilitado automáticamente si se realiza correctamente. De lo contrario, después de esto, se pausan. Una vez en pausa, el servicio se reintenta cada tres minutos en un intento de volver a habilitar, a menos que se anule el aprovisionamiento manualmente.
-- Retención de datos en cola de hasta 7 días.
+- De forma predeterminada, los datos se insertan cada dos segundos.
+- Cada suscripción utiliza lotes de 100 a 500 registros.
+- El servicio REST del cliente tiene un tiempo de espera de 20 segundos y tres reintentos a intervalos de tres minutos. Un reintento correcto habilita automáticamente el servicio. Después de tres errores, el servicio se pausa y vuelve a intentar cada tres minutos a menos que se desactive manualmente.
+- Los datos en cola se conservan durante un máximo de siete días.
 
-Para implementar el flujo de datos de actividad de clientes potenciales, estos son los pasos que deben seguir los clientes:
+Para implementar el flujo de datos de actividad de clientes potenciales:
 
 1. Exponga un extremo HTTP que pueda recibir solicitudes POST con un cuerpo JSON desde la red pública de Internet. El flujo de datos push de actividad envía solicitudes a:
 1. Proporcione a Adobe lo siguiente:
@@ -200,7 +201,7 @@ Para implementar el flujo de datos de actividad de clientes potenciales, estos s
       1. Una URL de proveedor de identidad, un ID de cliente y un secreto de cliente para la autenticación de credenciales de cliente [OAuth](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Un token de API, que se puede incluir en solicitudes enviadas por el flujo de datos de actividad del posible cliente en un encabezado http de autorización
 
-A continuación, Adobe habilita el flujo de datos, momento en el que los clientes empiezan a recibir datos.
+Adobe habilita el flujo de datos después de recibir la información requerida. A continuación, el extremo comienza a recibir datos.
 
 Diagrama de UML de una llamada de flujo de datos de actividad de posibles clientes típica:
 
@@ -251,22 +252,22 @@ app.listen(port,()=>{
 })
 ```
 
-Se puede encontrar [aquí](https://github.com/ihgrant/activity-stream-consumer-example) un ejemplo de código para una aplicación que consume la secuencia de datos de actividad de clientes potenciales de Marketo.
+Consulte el [ejemplo del consumidor de la secuencia de datos de la actividad del posible cliente](https://github.com/ihgrant/activity-stream-consumer-example) para ver el código de aplicación de ejemplo.
 
 ### Flujo de datos de auditoría de usuarios y flujo de datos de notificaciones
 
-Los eventos de auditoría de usuarios se envían a Adobe IO y se pueden consumir iniciando sesión con un Adobe ID. Estos son los pasos a seguir:
+Los eventos de auditoría de usuarios se envían a través de Adobe I/O. Para consumirlos con un Adobe ID:
 
-1. Los clientes proporcionan a Adobe lo siguiente:
+1. Proporcione a Adobe la siguiente información:
    1. Adobe ID
    1. Marketo Munchkin ID para su suscripción
-1. El cliente expone un extremo REST para consumir eventos normalmente en forma de webhook.
-1. Una vez proporcionada, Adobe habilita el flujo para la suscripción del cliente.
-1. A continuación, el cliente configura el flujo en Adobe IO (instrucciones que se proporcionarán)
+1. Exponga un extremo REST, normalmente un gancho web, para consumir eventos.
+1. Después de recibir la información del punto de conexión, Adobe habilita el flujo para la suscripción.
+1. Configure el flujo en Adobe I/O.
    1. Este paso requiere una organización de Adobe
    1. Requiere que el usuario de organización de Adobe tenga la función Desarrollador o Administrador del sistema
 
-Para configurar Adobe IO, consulte [Configuración de flujos de datos de auditoría de usuarios de Marketo con Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#) en la sección Documentación pública.
+Para configurar Adobe I/O, consulte [Configuración de flujos de datos de auditoría de usuarios de Marketo con Adobe I/O](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#).
 
 ### Configuración del flujo de datos de auditoría de usuarios en Marketo
 

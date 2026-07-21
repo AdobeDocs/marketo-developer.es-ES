@@ -3,9 +3,9 @@ title: Correos electrónicos
 feature: REST API
 description: Utilice la API de REST de Marketo Asset para consultar, crear, actualizar, clonar, eliminar, aprobar e inspeccionar las dependencias de los recursos de correo electrónico.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '497'
+source-wordcount: '492'
 ht-degree: 5%
 
 ---
@@ -32,7 +32,7 @@ x-app-type: <app-type>
 
 ## Consulta
 
-Puede recuperar metadatos de correo electrónico por el recurso `id` o con el extremo de filtro.
+Recupere metadatos de correo electrónico por el recurso `id` o con el extremo de filtro.
 
 ### Por identificador
 
@@ -63,7 +63,7 @@ GET /rest/asset/v2/email/{id}
 
 ### Filtro
 
-El punto final del filtro admite la búsqueda dentro de un espacio de trabajo y reduce los resultados con parámetros de consulta adicionales.
+El extremo de filtro busca dentro de un espacio de trabajo y admite parámetros de consulta adicionales.
 
 Se requiere `workspaceId`.
 

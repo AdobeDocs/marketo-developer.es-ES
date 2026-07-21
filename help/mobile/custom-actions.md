@@ -4,32 +4,26 @@ feature: Mobile Marketing
 description: Aprenda a enviar e informar sobre acciones personalizadas con Marketo Mobile SDK para iOS y Android, poner en cola sin conexión, déclencheur campañas inteligentes y cumplir los 20 caracteres...
 exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
 TQID: https://experienceleague.adobe.com/yZKzdm-dH0cYPGGKE-Z-4KcbhGIwyFl0Z9vEqcv1QXI
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: c1579802-ddd4-4214-8a91-97b2066abe11
-  - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: c1579802-ddd4-4214-8a91-97b2066abe11id: d095671a-1355-40aa-8b5f-06c33c68080b
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 336
-ht-degree: 1%
+source-wordcount: 259
+ht-degree: 2%
 
 ---
 
 # Acciones personalizadas
 
-Puede rastrear la interacción del usuario enviando acciones personalizadas. Cuando la aplicación móvil llama a Marketo SDK para enviar una acción personalizada, esta se guarda inicialmente en el dispositivo. A continuación, Marketo SDK comprueba si hay una conectividad a Internet adecuada antes de enviar la acción personalizada. Como resultado, puede haber un retraso entre el momento en que se envía la acción personalizada y el momento en que Marketo la recibe.
+Las acciones personalizadas rastrean las interacciones del usuario en la aplicación móvil. Cuando la aplicación llama al SDK de Marketo para enviar una acción personalizada, el SDK guarda primero la acción en el dispositivo. SDK envía la acción una vez que detecta una conectividad adecuada a Internet, por lo que Marketo podría recibir la acción después de un retraso.
 
-Las acciones personalizadas se pueden utilizar como déclencheur en campañas inteligentes. Para obtener más información, consulte [Actividad de aplicaciones móviles](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Las acciones personalizadas se pueden utilizar como déclencheur en campañas inteligentes. Para obtener más información, consulte [Actividad de aplicaciones móviles](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Envío de acciones personalizadas en iOS
 
-Enviar acción personalizada.
+Envíe una acción personalizada.
 
 >[!BEGINTABS]
 
@@ -48,7 +42,7 @@ sharedInstance.reportAction("Login", withMetaData:nil);
 
 >[!ENDTABS]
 
-Enviar acción personalizada con metadatos.
+Envíe una acción personalizada con metadatos.
 
 >[!BEGINTABS]
 
@@ -78,7 +72,7 @@ sharedInstance.reportAction("Bought Shirt", withMetaData:meta);
 
 >[!ENDTABS]
 
-Notificar todas las acciones inmediatamente (enviar todas las acciones guardadas).
+Notificar todas las acciones guardadas inmediatamente.
 
 >[!BEGINTABS]
 
@@ -98,13 +92,13 @@ sharedInstance.reportAll();
 
 ## Envío de acciones personalizadas en Android
 
-1. Enviar acción personalizada.
+1. Envíe una acción personalizada.
 
    ```
    Marketo.reportAction("Login", null);
    ```
 
-1. Enviar acción personalizada con metadatos.
+1. Envíe una acción personalizada con metadatos.
 
    ```
    MarketoActionMetaData meta = new MarketoActionMetaData();
@@ -116,7 +110,7 @@ sharedInstance.reportAll();
    Marketo.reportAction("Bought Shirt", meta);
    ```
 
-1. Notificar todas las acciones personalizadas inmediatamente (enviar todas las acciones guardadas).
+1. Informar de todas las acciones personalizadas guardadas inmediatamente.
 
    ```
    Marketo.reportAll();
@@ -124,6 +118,8 @@ sharedInstance.reportAll();
 
 ## Solución de problemas de acciones personalizadas
 
-La configuración de acciones personalizadas de dispositivos móviles es sencilla, pero existen restricciones en cuanto al número de caracteres que puede enviar desde Mobile SDK a Marketo. Asegúrese de que todas las acciones personalizadas que informan a Marketo a través de SDK móvil tengan menos de 20 caracteres.
+Los nombres de las acciones personalizadas enviadas desde Mobile SDK a Marketo deben tener menos de 20 caracteres.
 
-**Nota sobre los casos de uso de varios usuarios en un dispositivo compartido:** Cuando un usuario inicia sesión en una aplicación móvil integrada con Marketo SDK, se realiza la primera llamada para asociar al posible cliente con la instalación de la aplicación. Una vez completada correctamente esta llamada, se podrán ver más actividades de usuario en la aplicación en el registro de actividades del posible cliente. Tenga en cuenta que, como se trata de una llamada asincrónica, si hay alguna acción personalizada registrada inmediatamente después del inicio de sesión, puede asociarse con el usuario que inició sesión anteriormente hasta que la llamada asociada se realice correctamente.
+**Casos de uso de varios usuarios en un dispositivo compartido:** Cuando un usuario inicia sesión en una aplicación móvil que usa Marketo SDK, la primera llamada asocia al posible cliente con la instalación de la aplicación. Una vez que la llamada se realiza correctamente, las actividades de usuario subsiguientes aparecen en el registro de actividades del posible cliente.
+
+La llamada de asociación es asincrónica. Las acciones personalizadas registradas inmediatamente después del inicio de sesión pueden asociarse con el usuario que ha iniciado sesión anteriormente hasta que la llamada se realice correctamente.

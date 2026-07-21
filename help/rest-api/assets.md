@@ -4,28 +4,20 @@ feature: REST API
 description: Información general sobre las API de REST de Marketo Asset para consultar por ID o nombre, navegar con la paginación y crear o actualizar carpetas, correos electrónicos, formularios, plantillas, archivos y tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
 TQID: https://experienceleague.adobe.com/gRhXvFtG1FHtGJ4tFQxOyGMkEiOX0K1S0VpjcB6s6xM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 899
-ht-degree: 2%
+source-wordcount: 631
+ht-degree: 3%
 
 ---
 
 # Recursos
 
-Marketo proporciona API para interactuar con la mayoría de los recursos de marketing y organizativos de Marketo.
+Utilice las API de REST de Marketo Asset para consultar y administrar los recursos de marketing y organizativos.
 
 ## Recursos
 
@@ -49,9 +41,11 @@ Para obtener una lista completa de los extremos de Asset API, incluidos los par�
 
 ## Consulta
 
-Assets suele tener tres patrones con los que se pueden recuperar: por id, por nombre y por navegación.  Por ID y por nombre recuperarán un solo recurso para un parámetro determinado, mientras que la exploración devolverá y permitirá la paginación a través de toda la lista de recursos de ese tipo.  Los tipos de recursos individuales tienen parámetros variables por los que se pueden filtrar, por lo que asegúrese de consultar sus documentos individuales para ver información específica.
+Las API de recursos suelen admitir tres patrones de recuperación: por ID, por nombre y por exploración. Las consultas por ID o nombre recuperan un recurso para el parámetro especificado. Los extremos de exploración devuelven una lista paginada de recursos de ese tipo.
 
-En determinados casos, el extremo de exploración para algunos tipos de recursos no devolverá recursos secundarios, como los valores permitidos para una etiqueta y deben recuperarse individualmente mediante el extremo By Name o By Id para devolver el conjunto completo de metadatos.  Otros pueden tener puntos finales independientes por completo para recuperar objetos dependientes como campos de formulario.
+Los parámetros de filtrado varían según el tipo de recurso. Consulte la documentación de cada tipo de recurso para ver los filtros admitidos.
+
+Algunos extremos de exploración no devuelven recursos secundarios, como los valores permitidos para una etiqueta. Recupere estos recursos individualmente por nombre o ID para obtener sus metadatos completos. Otros tipos de recursos proporcionan puntos finales independientes para objetos dependientes, como campos de formulario.
 
 ### Por ID
 
@@ -94,7 +88,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ### Por nombre
 
-Por motivos técnicos, las API de recursos no pueden buscar nombres de recursos que contengan comas (,).  Se recomienda que la convención de nombres excluya las comas para todos los tipos de recursos.
+Las API de recursos no pueden buscar nombres de recursos que contengan comas. Excluir comas de los nombres de recursos.
 
 ```http
 GET /rest/asset/v1/file/byName.json?name=My File
@@ -127,10 +121,10 @@ GET /rest/asset/v1/file/byName.json?name=My File
 
 ### Examinar
 
-La navegación por los recursos siempre permitirá dos parámetros de consulta:
+Los extremos de exploración de recursos admiten estos parámetros de consulta:
 
-- desplazamiento: un desplazamiento entero desde el que se devuelven resultados.
-- maxReturn: Limita el número de registros devueltos.  Si no se establece, el valor predeterminado es 20 y tiene un máximo de 200.
+- `offset`: un desplazamiento entero en el que empezar a devolver resultados.
+- `maxReturn`: el número máximo de registros que se devolverán. El valor predeterminado es 20 y el máximo es 200.
 
 ```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
@@ -188,9 +182,9 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## Crear y actualizar
 
-Para tipos de recursos simples como carpetas, tokens y archivos, normalmente solo hay un único punto de conexión para la creación y, a continuación, un punto de conexión adicional para actualizar registros por ID.  Assets se crean con un nombre que siempre es obligatorio y, a continuación, la respuesta de creación o actualización devuelve todos los metadatos y los ID.
+Los tipos de recursos simples, como carpetas, tokens y archivos, generalmente proporcionan un punto final para la creación y otro para las actualizaciones por ID. Se requiere un nombre al crear un recurso. La respuesta de creación o actualización devuelve los metadatos y el ID del recurso.
 
-Por ejemplo, así es como se crea un token:
+La siguiente solicitud crea un token:
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -229,7 +223,7 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 }
 ```
 
-Para actualizar una carpeta, debe hacer lo siguiente:
+La siguiente solicitud actualiza una carpeta:
 
 ```http
 POST /rest/asset/v1/folder/{id}.json
@@ -276,13 +270,13 @@ type=Folder&description=This is a test (update 01)
 }
 ```
 
-Otros recursos tienen estructuras más complejas y requieren actualizaciones en subsecciones u objetos secundarios adicionales, y finalmente deben someterse a aprobación antes de poder utilizarse.  Estos tipos de recursos incluyen Forms, correos electrónicos, plantillas de correo electrónico, páginas de aterrizaje y plantillas de página de aterrizaje.  Cada una de ellas tendrá un único extremo para crear un registro y, a continuación, extremos adicionales para actualizar las secciones de metadatos, contenido y contenido.
+Forms, los correos electrónicos, las plantillas de correo electrónico, las páginas de aterrizaje y las plantillas de página de aterrizaje tienen estructuras más complejas. Cada tipo proporciona un extremo para crear el recurso y extremos adicionales para actualizar sus secciones de metadatos, contenido y contenido.
 
-Por ejemplo, para crear una página de aterrizaje, debe llamar a su punto de conexión de creación con un ID de plantilla, recuperar sus secciones de contenido y actualizar cada una de ellas individualmente para añadir contenido antes de aprobarla para que se pueda implementar en tiempo real.
+Estos recursos deben aprobarse antes de su uso. Por ejemplo, cree una página de aterrizaje con un ID de plantilla, recupere sus secciones de contenido, actualice cada sección requerida y, a continuación, apruebe la página para su implementación.
 
 ### Creación compleja
 
-Las páginas de aterrizaje primero requieren crear un recurso de página de aterrizaje mediante una plantilla principal.  Esto crea una nueva página de aterrizaje que contiene el contenido predeterminado de la plantilla para cada sección de contenido.
+Cree una página de aterrizaje a partir de una plantilla principal. La nueva página de aterrizaje contiene el contenido predeterminado de la plantilla para cada sección.
 
 ```http
 POST rest/asset/v1/landingPages.json
@@ -331,7 +325,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 #### Obtener secciones
 
-Para rellenar el contenido de una página de aterrizaje, debe recuperar la lista de secciones de contenido y, a continuación, realizar actualizaciones individuales para cualquier sección que se desvíe de la plantilla.
+Recupere las secciones de contenido de la página de aterrizaje. Actualice cada sección que deba diferir de la plantilla.
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/content.json
@@ -385,7 +379,9 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 ## Aprobación
 
-Muchos tipos de recursos tienen asociado un sistema de borrador y aprobación, que incluye correos electrónicos, páginas de aterrizaje, fragmentos de código, Forms y sus plantillas correspondientes.  Si intenta aprobar un recurso, se evaluará con un conjunto específico de reglas de validación y, a continuación, se establecerá en un estado aprobado o se devolverá un motivo de error.  Para estos tipos de recursos, cada vez que se realiza una actualización del contenido de un recurso concreto, los cambios se realizan en un borrador del recurso, lo que no afecta a la versión aprobada.  Esto permite realizar cambios en el contenido de forma segura sin afectar a las versiones activas del recurso.  Los cambios se pueden aplicar a la versión activa utilizando el punto de conexión de aprobación.  Esto también borra el estado de borrador del recurso hasta que se apliquen actualizaciones adicionales.
+Los correos electrónicos, las páginas de aterrizaje, los fragmentos de código, los formularios y sus plantillas utilizan un sistema de borrador y aprobación. Las actualizaciones de contenido cambian el borrador sin afectar a la versión en directo aprobada.
+
+El punto final de aprobación valida el borrador. Si la validación se realiza correctamente, el borrador reemplazará a la versión activa y se borrará el estado del borrador. Si la validación falla, el extremo devuelve el motivo.
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
@@ -417,7 +413,9 @@ POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 
 La aprobación correcta reemplaza la versión activa anterior con la versión actualizada.
 
-La eliminación de borradores también está disponible a través de un punto final para cada tipo de recurso válido.  Si se utiliza en un recurso que está en un estado aprobado con borrador, se descartará el borrador actual y los cambios pendientes que tenga.  Si se utiliza en un recurso que actualmente no tiene una versión aprobada, no hará nada y devolverá un error.  Los recursos solo de borrador se pueden eliminar, pero no se pueden descartar.
+Cada tipo de recurso admitido proporciona un punto final para descartar borradores. Para un recurso aprobado con un borrador, este punto final descarta el borrador y sus cambios pendientes.
+
+El punto final devuelve un error si el recurso no tiene una versión aprobada. Puede eliminar un recurso solo de borrador, pero no puede descartar su borrador.
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
@@ -447,7 +445,9 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-Assets también se puede desaprobar si está en un estado de solo aprobación.  Esto eliminará cualquier versión activa del recurso y devolverá el recurso a un estado de solo borrador, al tiempo que descartará cualquier borrador asociado.  Esta acción solo se puede realizar en la mayoría de los recursos si no se está utilizando en ninguna parte de Marketo, como un correo electrónico al que se hace referencia en un paso de flujo de envío de correo electrónico o un fragmento incrustado en un correo electrónico.
+Puede desaprobar un recurso que esté en estado de solo aprobación. Al anular la aprobación, se elimina la versión activa, el recurso vuelve al estado de solo borrador y se descarta cualquier borrador asociado.
+
+Para la mayoría de los tipos de recursos, el recurso no debe estar en uso. Por ejemplo, no se puede desaprobar un correo electrónico al que se hace referencia mediante un paso de flujo Enviar correo electrónico o un fragmento incrustado en un correo electrónico.
 
 ```http
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -469,7 +469,9 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## Eliminar
 
-Assets con estados de aprobación y borrador, excepto para formularios, no se puede eliminar mientras se aprueba y debe desaprobarse antes de eliminarse.  Por lo general, las eliminaciones solo se pueden realizar cuando un recurso no está aprobado y está fuera de uso, y en el caso de las carpetas, está vacío de recursos.  Una excepción notable son los programas, que pueden ser eliminados junto con todo su contenido secundario, siempre y cuando el programa y su contenido no estén en uso en ningún lugar fuera de los límites del programa.
+Excepto en el caso de los formularios, los recursos con estados de aprobación y borrador deben desaprobarse antes de su eliminación. Un recurso suele estar sin utilizar. Una carpeta debe estar vacía.
+
+Los programas son una excepción. Puede eliminar un programa y su contenido secundario si ni el programa ni su contenido se utilizan fuera del programa.
 
 ```http
 POST /rest/asset/v1/program/{id}/delete.json
@@ -491,4 +493,4 @@ POST /rest/asset/v1/program/{id}/delete.json
 
 ## Tiempos de espera
 
-Las API de recursos tienen un tiempo de espera de 300 segundos
+Las API de recursos tienen un tiempo de espera de 300 segundos.

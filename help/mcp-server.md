@@ -5,25 +5,13 @@ badgeBeta: label="Disponibilidad limitada" type="informative" tooltip="Actualmen
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: b28708e92f44082eb247d9053d6ebf2306739b38
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: c2dbad80-0f5c-4d96-a798-2a65f93b8721id: dca84292-69e9-4116-a575-667d31fa060did: e2290edd-b061-4880-9d79-dee306cf5aa9id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: af0a3c77654f74d7cb5d2077518d764468a53ae0
 workflow-type: tm+mt
-source-wordcount: 2199
+source-wordcount: 2018
 ht-degree: 1%
 
 ---
@@ -34,27 +22,29 @@ ht-degree: 1%
 >
 > Esta función tiene disponibilidad limitada. Para solicitar acceso, rellene [este formulario](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Asegúrese de tener preparado el Munchkin ID de su suscripción.
 
-El Protocolo de contexto de modelo (MCP) es un estándar abierto que permite a las herramientas de IA comunicarse con servicios externos. El servidor MCP [!DNL Marketo] actúa como un puente entre su asistente de IA y [!DNL Marketo]. Expone más de 100 operaciones en formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
+El Protocolo de contexto de modelo (MCP) es un estándar abierto que conecta las herramientas de IA con servicios externos. El servidor MCP [!DNL Marketo] conecta su asistente de IA a [!DNL Marketo]. Proporciona más de 100 operaciones para formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
-Cuando la herramienta de IA llama al servidor MCP, el servidor ejecuta la llamada de API de REST correspondiente en su nombre, utilizando las credenciales proporcionadas en cada solicitud. No es necesario instalar, implementar ni ejecutar ningún software del lado del servidor.
+Cuando la herramienta de IA llama al servidor MCP, el servidor utiliza las credenciales de esa solicitud para ejecutar la llamada de API de REST correspondiente. No es necesario instalar, implementar ni ejecutar software del lado del servidor.
 
-Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
->El Modelo de Protocolo de Contexto (MCP) es un estándar de código abierto emergente y puede presentar riesgos de seguridad o fiabilidad. Las integraciones del servidor de Adobe MCP y la documentación relacionada se proporcionan &quot;tal cual&quot;, sin garantías de ningún tipo.La conexión de clientes o servidores MCP a los productos de Adobe es una configuración elegida por el cliente, y los clientes son responsables de evaluar la seguridad y la idoneidad de cualquier integración MCP. Adobe no se responsabiliza de los problemas que se deriven de una configuración incorrecta, un uso incorrecto del MCP, vulnerabilidades en implementaciones de terceros o acciones no deseadas realizadas a través de flujos de trabajo habilitados para MCP.Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de zona protegida antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o depender de ellas.
+>El Modelo de Protocolo de Contexto (MCP) es un estándar de código abierto emergente y puede presentar riesgos de seguridad o fiabilidad. Las integraciones del servidor de Adobe MCP y la documentación relacionada se proporcionan &quot;tal cual&quot;, sin garantías de ningún tipo.
+>La conexión de clientes o servidores MCP a los productos de Adobe es una configuración elegida por el cliente, y los clientes son responsables de evaluar la seguridad y la idoneidad de cualquier integración MCP. Adobe no se responsabiliza de los problemas que se deriven de una configuración incorrecta, un uso incorrecto del MCP, vulnerabilidades en implementaciones de terceros o acciones no deseadas realizadas a través de flujos de trabajo habilitados para MCP.
+>Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de espacio aislado antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o confiar en ellas.
 
 ## Conceptos básicos de MCP
 
 >Piense en MCP como un puerto USB-C para aplicaciones de IA. USB-C proporciona una forma estandarizada de conectar sus dispositivos a varios periféricos y accesorios, y MCP proporciona una forma estandarizada de conectar modelos de IA a fuentes de datos y herramientas. — [Protocolo de contexto de modelo](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
-MCP permite que una herramienta de IA se conecte a varios servicios externos al mismo tiempo. Por ejemplo, un asistente de IA podría:
+MCP permite que una herramienta de IA se conecte simultáneamente a varios servicios externos. Por ejemplo, un asistente de IA puede:
 
 * Conectarse a un procesador de textos para generar documentos con asistencia de IA
 * Conéctese a herramientas de animación, como Blender, para crear visualizaciones
 * Conectar con Adobe After Effects para la edición de vídeo
 
-MCP es un protocolo de comunicación: un estándar abierto que cualquier aplicación puede implementar para exponer sus datos y acciones a las herramientas de IA.
+Cualquier aplicación puede implementar MCP para exponer los datos y las acciones a las herramientas de IA.
 
 ## Qué hace y no hace [!DNL Marketo Engage] MCP
 
@@ -108,7 +98,7 @@ Si ya los tiene, vaya a [Configurar la herramienta de IA](#configure-your-ai-too
 
 ## Configuración de la herramienta IA
 
-Cada herramienta de IA tiene una configuración ligeramente diferente. Se proporcionan ejemplos de conexión para herramientas comunes.
+La configuración difiere según la herramienta de IA. Las siguientes secciones proporcionan ejemplos de conexión para herramientas comunes.
 
 * [Claude Desktop](#claude-desktop)
 * [Cursor](#cursor)
@@ -131,8 +121,8 @@ También necesitará esto:
 * Node.js v18+
 * npm
 
-1. Abrir Claude Desktop
-1. Vaya a **Configuración > Desarrollador > Editar configuración**
+1. Abra Claude Desktop.
+1. Vaya a **Configuración > Desarrollador > Editar configuración**.
 1. Agregar lo siguiente a `claude_desktop_config.json`:
 
 ```json
@@ -154,11 +144,12 @@ También necesitará esto:
 }
 ```
 
-1. Reiniciar Claude Desktop
+1. Reinicie Claude Desktop.
 
 ### Cursor {#cursor}
 
-Si la configuración de MCP de cursor ya contiene otros servidores, agregue la entrada `marketo` en `mcpServers`.El siguiente ejemplo muestra el bloque `mcpServers` completo en **[!UICONTROL Configuración]** > **[!UICONTROL MCP]** o `.cursor/mcp.json` en el directorio del proyecto:
+Si la configuración de MCP de cursor ya contiene otros servidores, agregue la entrada `marketo` en `mcpServers`.
+El siguiente ejemplo muestra el bloque `mcpServers` completo en **[!UICONTROL Configuración]** > **[!UICONTROL MCP]** o `.cursor/mcp.json` en el directorio del proyecto:
 
 >[!BEGINTABS]
 
@@ -230,8 +221,8 @@ claude mcp add --transport http marketo \
 
 ### Códice OpenAI {#codex}
 
-1. Vaya a Configuración > Servidores MCP > Agregar servidor
-1. Agregar la dirección URL del servidor: `https://marketo-mcp.adobe.io/mcp`
+1. Vaya a Configuración > Servidores MCP > Agregar servidor.
+1. Agregar la dirección URL del servidor: `https://marketo-mcp.adobe.io/mcp`.
 1. Añada los encabezados del método de autenticación:
 
 >[!BEGINTABS]
@@ -249,7 +240,7 @@ claude mcp add --transport http marketo \
 
 >[!ENDTABS]
 
-1. Haga clic en Guardar para completar el proceso.
+1. Seleccione Guardar para completar el proceso.
 
 
 ### Código VS con el copiloto de GitHub {#vscode}
@@ -311,7 +302,8 @@ Para conectar Glean al servidor MCP de Marketo Engage, el [equipo de soporte té
 
 ### Otras herramientas {#other-tools}
 
-Adobe aloja el servidor MCP [!DNL Marketo] y lo expone en una dirección URL pública. Cualquier cliente MCP que admita servidores remotos a través de transporte HTTP transmisible puede conectarse a él.No necesita un puente específico de la herramienta ni ningún software instalado localmente. Si la herramienta no aparece en la lista anterior, utilice los detalles de conexión siguientes para configurarla manualmente.
+Adobe aloja el servidor MCP [!DNL Marketo] y lo expone en una dirección URL pública. Cualquier cliente MCP que admita servidores remotos a través de transporte HTTP transmisible puede conectarse a él.
+No necesita un puente específico de la herramienta ni ningún software instalado localmente. Si la herramienta no aparece en la lista anterior, utilice los detalles de conexión siguientes para configurarla manualmente.
 
 **Detalles de conexión:**
 

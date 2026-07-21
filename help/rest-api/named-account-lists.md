@@ -4,16 +4,13 @@ feature: REST API
 description: Obtenga información sobre cómo administrar Listas de cuentas con nombre de Marketo con la API de REST, incluidos permisos, campos, filtros y extremos para consultar, crear, actualizar y eliminar.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
 TQID: https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 746
-ht-degree: 2%
+source-wordcount: 686
+ht-degree: 3%
 
 ---
 
@@ -21,16 +18,23 @@ ht-degree: 2%
 
 [Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Listas de cuentas con nombre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/target-account-management/target/account-lists) en Marketo representan colecciones de cuentas con nombre. Se pueden utilizar para una amplia variedad de casos, incluida la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes. Las API de lista de cuentas con nombre permiten la administración remota de estos recursos de lista y su pertenencia.
+[Listas de cuentas con nombre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) son colecciones de cuentas con nombre en Marketo. Utilícelos para la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes.
+
+Las API de lista de cuentas con nombre le permiten administrar de forma remota los recursos de la lista y su pertenencia.
 `Content`
 
 ## Permisos
 
-Para consultar Listas de cuentas con nombre, se requiere el permiso Lista de cuentas con nombre de solo lectura o Lista de cuentas con nombre de lectura y escritura. Para crear, actualizar o eliminar listas, se requiere el permiso Leer-escribir lista de cuentas con nombre. La consulta de la pertenencia a listas requiere los permisos Cuenta con nombre de solo lectura o Cuenta con nombre de lectura y escritura, mientras que la administración de la pertenencia requiere los permisos Cuenta con nombre de lectura y escritura.
+El permiso requerido depende de la operación:
+
+- Listas de cuentas con nombre de consulta: Lista de cuentas con nombre de solo lectura o Lista de cuentas con nombre de lectura y escritura.
+- Crear, actualizar o eliminar listas: Lista de cuentas con nombre de lectura y escritura.
+- Pertenencia a la lista de consultas: Cuenta con nombre de solo lectura o Cuenta con nombre de lectura-escritura.
+- Administrar pertenencia a lista: Lectura y escritura de cuenta con nombre.
 
 ## Modelo
 
-Las listas de cuentas con nombre tienen un número limitado de campos estándar y no se pueden ampliar con campos personalizados.
+Las listas de cuentas con nombre tienen un conjunto limitado de campos estándar y no admiten campos personalizados.
 `Named Account List Field`
 
 | Nombre | Tipo de datos | Actualizable | Notas |
@@ -43,7 +47,9 @@ Las listas de cuentas con nombre tienen un número limitado de campos estándar 
 
 ## Consulta
 
-La consulta de listas de cuentas es sencilla y sencilla. Actualmente, solo hay dos filterTypes válidos para consultar listas de cuentas con nombre: &quot;dedupeFields&quot; e &quot;idField&quot;. El campo por el que filtrar se establece en el parámetro `filterType` de la consulta, y los valores se establecen en `filterValues as` en una lista separada por comas. Los filtros `nextPageToken` y `batchSize` también son parámetros opcionales.
+Las consultas de lista de cuentas con nombre admiten dos filterTypes: &quot;dedupeFields&quot; y &quot;idField&quot;. Establezca el campo en el parámetro de consulta `filterType` y proporcione los valores de `filterValues as` en una lista separada por comas.
+
+Los filtros `nextPageToken` y `batchSize` son opcionales.
 
 ```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
@@ -78,11 +84,13 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 ## Crear y actualizar
 
-La creación y actualización de registros de lista de cuentas con nombre sigue los patrones establecidos para otras operaciones de creación y actualización de la base de datos de posibles clientes. Tenga en cuenta que las listas de cuentas con nombre solo tienen un campo actualizable, `name`.
+Cree y actualice registros de lista de cuentas con nombre utilizando el patrón estándar de base de datos de posibles clientes. Las listas de cuentas con nombre solo tienen un campo actualizable: `name`.
 
-El punto de conexión permite los dos tipos de acción estándar: &quot;createOnly&quot; y &quot;updateOnly&quot;.  El `action defaults` a &quot;createOnly&quot;.
+El punto de conexión admite dos tipos de acciones estándar: &quot;createOnly&quot; y &quot;updateOnly&quot;. El `action defaults` a &quot;createOnly&quot;.
 
-Se puede especificar el elemento opcional `dedupeBy parameter` si la acción es `updateOnly`.  Los valores permitidos son &quot;dedupeFields&quot; (correspondiente a &quot;name&quot;) o &quot;idField&quot; (correspondiente a &quot;marketoGUID&quot;).  En los modos `createOnly`, solo se permite &quot;name&quot; como campo `dedupeBy`. Puede enviar hasta 300 registros a la vez.
+Puede especificar el(la) `dedupeBy parameter` opcional(a) cuando la acción sea `updateOnly`. Los valores permitidos son &quot;dedupeFields&quot;, que corresponde a &quot;name&quot;, y &quot;idField&quot;, que corresponde a &quot;marketoGUID&quot;.
+
+En los modos `createOnly`, solo se permite &quot;name&quot; como campo `dedupeBy`. Puede enviar hasta 300 registros a la vez.
 
 ```http
 POST /rest/v1/namedAccountLists.json
@@ -124,7 +132,9 @@ POST /rest/v1/namedAccountLists.json
 
 ## Eliminar
 
-La eliminación de las listas de cuentas con nombre es sencilla y se puede realizar en función de `name` o de `marketoGUID` de la lista. Para seleccionar la clave que desea utilizar, pase &quot;dedupeFields&quot; para name o &quot;idField&quot; para marketoGUID en el miembro `deleteB` de su solicitud. Si no se configura, se desduplicará de forma predeterminada. Puede eliminar hasta 300 registros a la vez.
+Eliminar listas de cuentas con nombre utilizando `name` o `marketoGUID` de la lista. Para seleccionar la clave, pase &quot;dedupeFields&quot; para name o &quot;idField&quot; para marketoGUID en el miembro `deleteB` de la solicitud.
+
+Si no se establece, el valor predeterminado es deduplicarCampos. Puede eliminar hasta 300 registros a la vez.
 
 ```http
 POST /rest/v1/namedAccountLists/delete.json
@@ -176,13 +186,13 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-En caso de que no se encuentre un registro para una clave determinada, el elemento de resultado correspondiente tendrá un `status` de &quot;omitido&quot; y un motivo con un código y un mensaje que describan el error, como se muestra en el ejemplo anterior.
+Si no se encuentra un registro para una clave, el elemento de resultado correspondiente tiene `status` de &quot;omitido&quot;. También incluye un motivo con un código y un mensaje que describen el error.
 
 ## Administración de suscripciones
 
 ### Suscripción a consulta
 
-Consultar la pertenencia a una lista de cuentas con nombre es sencillo y requiere solamente el `i` de la lista de cuentas. Los parámetros opcionales son:
+Consulte la pertenencia a la lista de cuentas con nombre proporcionando `i` de la lista de cuentas. Los parámetros opcionales son:
 
 -`field` - una lista de campos separados por comas para incluir en los registros de respuesta
 -`nextPageToke` - para paginar a través del conjunto de resultados
@@ -219,7 +229,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Añadir miembros
 
-Las cuentas con nombre se pueden agregar fácilmente a una Lista de cuentas con nombre. Las cuentas solo se pueden agregar utilizando su marketoGUID. Puede agregar hasta 300 registros a la vez.
+Agregue cuentas con nombre a una lista de cuentas con nombre utilizando su marketoGUID. Puede agregar hasta 300 registros a la vez.
 
 ```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
@@ -259,7 +269,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Eliminar miembros
 
-La eliminación de registros de una lista de cuentas tiene una ruta diferente, pero la misma interfaz, que requiere un`marketoGUI` para cada registro que desea eliminar. Puede quitar hasta 300 registros a la vez.
+La eliminación de registros de una lista de cuentas utiliza una ruta diferente pero la misma interfaz. Proporcione un`marketoGUI` para cada registro que desee eliminar. Puede quitar hasta 300 registros a la vez.
 
 ```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
@@ -299,10 +309,10 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 
 ## Tiempos de espera
 
-- Los extremos de la lista de cuentas con nombre tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Sincronizar listas de cuentas con nombre: 60 s
-   - Eliminar listas de cuentas con nombre: 60s
-   - Obtener listas de cuentas con nombre: 60s
-   - Añadir miembros de la lista de la cuenta con nombre: 60s
-   - Eliminar miembros de la lista de cuentas con nombre: 60s
-   - Obtener lista de cuentas con nombre Miembros: 60s
+- Los extremos de la lista de cuentas con nombre tienen un tiempo de espera de 30 segundos a menos que se indique lo contrario.
+- La sincronización de listas de cuentas con nombre tiene un tiempo de espera de 60 segundos.
+- Eliminar listas de cuentas con nombre tiene un tiempo de espera de 60 segundos.
+- Obtener listas de cuentas con nombre tiene un tiempo de espera de 60 segundos.
+- Añadir miembros de la lista de cuentas con nombre tiene un tiempo de espera de 60 segundos.
+- Los miembros de la lista Quitar cuenta con nombre tienen un tiempo de espera de 60 segundos.
+- Obtener miembros de la lista de cuentas con nombre tiene un tiempo de espera de 60 segundos.

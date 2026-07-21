@@ -3,18 +3,12 @@ title: Operaciones de MCP de Marketo Engage
 description: Descubra qué operaciones de MCP de Marketo Engage están disponibles para su uso con asistentes de IA.
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: dca84292-69e9-4116-a575-667d31fa060did: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 264
+source-wordcount: 260
 ht-degree: 4%
 
 ---
@@ -22,13 +16,13 @@ ht-degree: 4%
 
 # [!DNL Marketo Engage] operaciones de MCP
 
-Las siguientes operaciones están disponibles a través del servidor MCP [!DNL Marketo Engage]. En general, los extremos que son de solo lectura o no destructivos están disponibles. `Delete` u otras operaciones destructivas no están disponibles para el sistema de IA.
+Las siguientes operaciones están disponibles a través del servidor MCP [!DNL Marketo Engage]. Por lo general, el servidor proporciona extremos de solo lectura o no destructivos. El sistema de IA no puede usar `Delete` u otras operaciones destructivas.
 
 >[!NOTE]
 >
 >Esta lista seguirá creciendo a medida que añadamos herramientas adicionales.
 
-Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Exportación masiva
 

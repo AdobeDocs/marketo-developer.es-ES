@@ -3,116 +3,138 @@ title: Introducción
 description: Empiece con las API de Marketo Engage y el modelo de datos, que incluye posibles clientes, actividades, programas, etiquetas, listas, directrices de REST y aviso de obsolescencia de SOAP.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
 TQID: https://experienceleague.adobe.com/0lfzor5EQJ0VqIh4fqlK29OiPmRCy6fnEtncJ38r-OM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c954475c-8548-4e33-a0b8-6b550d956115
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c954475c-8548-4e33-a0b8-6b550d956115id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550ccid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1510
-ht-degree: 1%
+source-wordcount: 1228
+ht-degree: 2%
 
 ---
 
 # Introducción
 
-Marketo Engage es una plataforma de automatización de marketing que permite a los especialistas en marketing administrar programas y campañas multicanal personalizados a clientes y posibles clientes. La plataforma Marketo Engage se puede ampliar utilizando puntos de integración. A continuación se encuentran las entidades principales y sus relaciones.
+Marketo Engage es una plataforma de automatización de marketing para administrar programas y campañas multicanal personalizados para clientes y posibles clientes. Puede ampliar la plataforma a través de sus puntos de integración.
+
+Esta página presenta las entidades principales de Marketo Engage y sus relaciones.
 
 >[!NOTE]
 >
->La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de julio de 2026. Todo el nuevo desarrollo debe realizarse con la API de Marketo [REST](./rest-api/rest-api.md), y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración](./soap-api/migration.md) de la API de SOAP para obtener información sobre cómo migrar.
+>La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de julio de 2026. Use la API de Marketo [REST](./rest-api/rest-api.md) para todo el desarrollo nuevo. Migrar los servicios existentes en esa fecha para evitar interrupciones del servicio. Si un servicio usa la API de SOAP, consulte la API de SOAP [Guía de migración](./soap-api/migration.md).
 >
 
-Cuando la conexión nativa de SFDC o MS Dynamics CRM está habilitada en una instancia de Marketo Engage, los siguientes objetos son de solo lectura: compañía, oportunidad, rol de oportunidad, vendedor
+Cuando la conexión nativa de SFDC o MS Dynamics CRM está habilitada en una instancia de Marketo Engage, estos objetos son de solo lectura:
+
+- Compañía
+- Oportunidad
+- Rol de la oportunidad
+- Vendedor
 
 ![Modelo de datos](assets/data_model.png)
 
 ## Persona (posibles clientes)
 
-Las personas son la base de cualquier plataforma de automatización de marketing. En Marketo, todos los registros de no vendedores se denominan posibles clientes, independientemente de si están designados como posibles clientes, posibles clientes, sospechosos, contactos, etc., desde el punto de vista de las ventas. El objeto de posible cliente incluye un conjunto de campos estándar, como correo electrónico, nombre y apellidos. Se pueden agregar campos adicionales al tipo de objeto de posible cliente para ampliar los tipos de información asociados con los registros del sistema. Los atributos personalizados se pueden leer y escribir en igual que los campos estándar. Encontrará una lista completa de campos en el menú de Marketo **[!UICONTROL Administración]** > **[!UICONTROL Administración de campos]**. Los posibles clientes se identifican de forma exclusiva en Marketo mediante el campo ID. Otras claves únicas deben aplicarse externamente desde el sistema.
+Las personas son la base de la automatización del marketing. Marketo se refiere a todos los registros de personas que no son vendedores como posibles clientes, independientemente de si las ventas los consideran posibles clientes, posibles clientes, sospechosos o contactos.
+
+El objeto de posible cliente incluye campos estándar como correo electrónico, nombre y apellidos. Puede agregar campos para almacenar otra información, así como leer y escribir atributos personalizados del mismo modo que los campos estándar. Encuentre la lista completa de campos en **[!UICONTROL Administración]** > **[!UICONTROL Administración de campos]** en Marketo.
+
+Marketo identifica de forma exclusiva a los posibles clientes mediante el campo id. Debe aplicar otras claves únicas fuera del sistema.
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
 ## Actividades
 
-Los posibles clientes interactúan con su organización de varias formas. Un posible cliente puede visitar una página del sitio web de su empresa, asistir a una feria o descargar un documento técnico. Cada una de estas acciones se puede capturar dentro de Marketo para ayudar a un experto en marketing a comprender mejor qué actividades realizó un posible cliente y cuándo lo hizo para que pueda coordinar comunicaciones oportunas y relevantes. Las actividades siempre están relacionadas con los posibles clientes mediante leadId.
+Los posibles clientes pueden interactuar con su organización de varias formas, como visitar una página web, asistir a una feria o descargar un documento técnico. Marketo captura estas acciones como actividades para que los especialistas en marketing puedan comprender qué hizo un posible cliente y cuándo se produjo.
 
-Puede definir sus propias actividades personalizadas. Una vez creada y publicada una actividad personalizada, puede añadir actividades personalizadas mediante la API de Marketo. Encontrará más información sobre actividades personalizadas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+Las actividades siempre están relacionadas con los posibles clientes mediante leadId.
+
+También puede definir actividades personalizadas. Después de crear y publicar una actividad personalizada, puede agregar instancias de ella a través de la API de Marketo. Para obtener más información, consulte [Explicación de las actividades personalizadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
 ## Programas y campañas
 
-Un programa es el mecanismo mediante el cual un experto en marketing organiza todos sus diferentes tipos de esfuerzos de marketing desde una ubicación central. Un ejemplo de programa es una explosión de correo electrónico. Un posible cliente puede realizar varias acciones o actividades relacionadas con un programa determinado que se asocian al programa. Esto se conoce como progresión de plomo. Una progresión de ejemplo de un programa de ráfaga de correo electrónico registraría cuándo se envía un correo electrónico a un posible cliente, cuándo lo abre o si hace clic en un vínculo del correo electrónico.
+Un programa organiza los esfuerzos de marketing relacionados con un experto en marketing en una ubicación. Por ejemplo, una explosión de correo electrónico puede ser un programa.
 
-Las campañas se crean para servir un propósito y un objetivo específicos dentro de un programa. Un ejemplo de campaña podría ser reducir un grupo de posibles clientes y enviarles la notificación por correo electrónico o notificar a un representante de ventas para que realice un seguimiento si un posible cliente hace clic en un vínculo dentro del programa de notificación por correo electrónico.
+Un posible cliente puede realizar varias acciones o actividades asociadas a un programa. Este proceso se conoce como progresión del posible cliente. Para un programa de explosión de correo electrónico, la progresión puede registrar cuándo Marketo envía el correo electrónico, cuándo la persona lo abre y si hace clic en un vínculo.
+
+Una campaña tiene un propósito y un objetivo específicos dentro de un programa. Por ejemplo, una campaña puede seleccionar un grupo de posibles clientes y enviar una notificación por correo electrónico. Otra campaña puede notificar a un representante de ventas cuando un posible cliente hace clic en un vínculo en la explosión del correo electrónico.
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns)
 
 ## Etiquetas
 
-Las etiquetas son una forma de agrupar datos para la creación de informes. Estos identificadores proporcionan la capacidad de categorizar los datos y definir cómo desea informar sobre el programa para comprender la eficacia del programa y el ROI.
+Las etiquetas agrupan y categorizan los datos del programa para la creación de informes. Utilice etiquetas para medir la eficacia del programa y el ROI.
 
-Como administrador de Marketo, tiene la capacidad de crear los tipos de etiquetas opcionales y requeridos que están disponibles para su selección cuando un usuario de Marketo crea un programa. Usted define los valores posibles para cada uno de estos tipos de etiquetas y reflejan cómo su empresa desea utilizar etiquetas personalizadas con fines de creación de informes.
+Como administrador de Marketo, puede crear los tipos de etiquetas opcionales y requeridos que los usuarios seleccionan cuando crean un programa. Puede definir los valores posibles para cada tipo de etiqueta en función de los requisitos de informes de su empresa.
 
-Por ejemplo, es posible que desee crear un tipo de etiqueta &quot;Región&quot; personalizado con varios valores de etiqueta (por ejemplo, Noreste, Sureste) que le permitan analizar qué región genera la mayor cantidad de posibles clientes. O, por ejemplo, puede crear un tipo de etiqueta &quot;Propietario&quot;, que le permite evaluar y comprender qué propietarios de programa (por ejemplo, María, David o Juan) tienen el mayor impacto en la creación de posibles clientes y oportunidades. Encontrará más información sobre las etiquetas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Por ejemplo, cree un tipo de etiqueta &quot;Región&quot; personalizado con valores como Noreste y Sureste para analizar qué región genera la mayor cantidad de posibles clientes. Cree un tipo de etiqueta &quot;Propietario&quot; para comparar qué propietarios de programa, como María, David o Juan, tienen el mayor impacto en la creación de posibles clientes y oportunidades. Para obtener más información, consulte [Explicación de las etiquetas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
 ## Listas
 
-Las listas permiten a un experto en marketing organizar una colección de posibles clientes. Existen dos tipos de listas dentro de Marketo: estáticas e inteligentes. Una lista estática es una lista fija de posibles clientes que un experto en marketing puede agregar o quitar a su elección. Una lista inteligente es una colección dinámica de posibles clientes basada en un conjunto de características designadas. Un ejemplo de lista inteligente sería &quot;Todos los posibles clientes que han visitado la página de precios de nuestro sitio web&quot;. Esta lista inteligente sigue creciendo a medida que más posibles clientes visitan la página de precios. Encontrará más información sobre las listas [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/home).
+Las listas organizan colecciones de posibles clientes. Marketo ofrece dos tipos:
+
+- Una lista estática es una colección fija desde la que un experto en marketing puede agregar o quitar posibles clientes.
+- Una lista inteligente es una colección dinámica basada en características definidas.
+
+Por ejemplo, una lista inteligente llamada &quot;Todos los posibles clientes que han visitado la página de precios en nuestro sitio web&quot; sigue creciendo a medida que más posibles clientes visitan esa página. Para obtener más información, consulte la [documentación de Marketo Engage](https://experienceleague.adobe.com/es/docs/marketo/using/home).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists)
 
 ## Oportunidades
 
-Los especialistas en marketing entregan posibles clientes a las ventas en forma de oportunidad. Una oportunidad representa un potencial acuerdo de ventas y está asociada a un posible cliente o contacto y a una organización en Marketo. Una función de oportunidad es la intersección entre un posible cliente determinado y una organización. La función de oportunidad pertenece a la función de un posible cliente dentro de la organización.
+Una oportunidad representa un potencial acuerdo de ventas que los especialistas en marketing ofrecen a las ventas. En Marketo, una oportunidad está asociada a un posible cliente o contacto y a una organización.
+
+Una función de oportunidad conecta un posible cliente con una organización y describe la función del posible cliente en esa organización.
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
 
 ## Compañías
 
-Una organización, a veces denominada cuenta en Marketo, hace referencia a la organización a la que pertenece una persona. Al utilizar los informes de ROI en Marketo o Revenue Cycle Analytics (RCA), es importante asociar a las personas con su organización y sus oportunidades para poder determinar la atribución de ROI adecuada.
+Una organización, a veces denominada cuenta en Marketo, es la organización a la que pertenece una persona.
+
+Para obtener una atribución precisa del retorno de la inversión en los informes de retorno de la inversión de Marketo o en Revenue Cycle Analytics (RCA), asocie a las personas con sus organizaciones y oportunidades.
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
 ## Recursos
 
-Assets se refiere a páginas de aterrizaje, correos electrónicos, formularios e imágenes que se utilizan dentro de un programa. Assets puede ser local para un programa determinado o global. Los recursos globales están disponibles en cualquier programa.
+Assets incluye páginas de aterrizaje, correos electrónicos, formularios e imágenes utilizados en un programa. Un recurso puede ser local para un programa específico o global. Los recursos globales están disponibles para cada programa.
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
 ## Tókenes
 
-Los tokens permiten a un experto en marketing personalizar mensajes con recursos y añadir lógica dentro de las acciones de flujo. Existen tokens para el sistema general, los programas, los posibles clientes y las empresas. Un ejemplo de token de posible cliente es `{{lead.First Name}}`. Este token se puede colocar dentro de un correo electrónico para mostrar el nombre del posible cliente.
+Los tokens permiten a los especialistas en marketing personalizar los mensajes con los recursos y añadir lógica a las acciones de flujo. Marketo proporciona tokens para el sistema general, los programas, los posibles clientes y las empresas.
 
-Los tokens definidos en el nivel de programa o carpeta se denominan &quot;Mis tokens&quot; en Marketo. Mis tokens pueden ser de uno de los tres tipos, locales, heredados o anulados.
+Por ejemplo, coloque el token de posible cliente `{{lead.First Name}}` en un mensaje de correo electrónico para mostrar el nombre del posible cliente.
 
-Mis tokens creados localmente en una carpeta o programa de campaña específico están disponibles para ese programa o carpeta de campaña específica (local). Mis tokens creados en el nivel de carpeta de campaña están disponibles para su uso en todos los programas contenidos en esa carpeta de campaña (heredados). Mis tokens modificados en el nivel de programa con valores personalizados no cambian el valor Mi token principal del token en el nivel de carpeta de programa (anulado).
+Los tokens definidos en el nivel de programa o carpeta se denominan &quot;Mis tokens&quot; en Marketo. Mis tokens tienen tres tipos:
 
-Mis tokens utilizan la convención de nombres `{{my.My Token}}`, con la palabra &quot;my&quot; agregada al principio del nombre del token. Por ejemplo, si crea un tipo de fecha Mi token con el nombre EventDate, el nombre del token es `{{my.EventDate}}`. Encontrará más información sobre Mis tokens [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+- Local: se crea en una carpeta de campaña o programa específico y solo está disponible en esa carpeta o programa.
+- Heredado: se crea en el nivel de carpeta de campaña y está disponible para todos los programas de esa carpeta.
+- Anulado: se modifica con un valor personalizado en el nivel de programa sin cambiar el valor principal de Mi token en el nivel de carpeta de programa.
+
+Mis tokens utilizan la convención de nombres `{{my.My Token}}`, con la palabra &quot;my&quot; al principio del nombre del token. Por ejemplo, un tipo de fecha My Token denominado EventDate tiene el nombre de token `{{my.EventDate}}`. Para obtener más información, consulte [Explicación de mis tokens en un programa](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 
 ## Objetos personalizados
 
-Un objeto personalizado de Marketo permite crear una relación &quot;uno a varios&quot; o &quot;varios a varios&quot; (Edge-Bridge-Edge) entre los posibles clientes de Marketo y los registros de objetos personalizados. Una vez creado y publicado un objeto personalizado de Marketo, puede realizar operaciones CRUD en el objeto personalizado mediante la API de Marketo. Encontrará más información sobre la creación de objetos personalizados [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/home). Cuando se agregan registros nuevos al objeto personalizado, puede utilizar un déclencheur de lista inteligente para responder. También puede usar datos de objeto personalizados como filtro en listas inteligentes (segmentación) o en correos electrónicos usando [Scripts de correo electrónico](email-scripting.md).
+Un objeto personalizado de Marketo crea una relación &quot;uno a varios&quot; o &quot;varios a varios&quot; (Edge-Bridge-Edge) entre Marketo Leads y los registros de objetos personalizados.
+
+Después de crear y publicar un objeto personalizado de Marketo, puede realizar operaciones CRUD en él a través de la API de Marketo. Cuando se agregan registros nuevos, puede utilizar un déclencheur de lista inteligente para responder. También puede usar datos de objeto personalizados como filtro de lista inteligente para la segmentación o en correos electrónicos a través de [Scripts de correo electrónico](email-scripting.md). Para obtener más información sobre cómo crear objetos personalizados, consulte la [documentación de Marketo Engage](https://experienceleague.adobe.com/es/docs/marketo/using/home).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects)
 
 ## Vendedores
 
-Los registros del vendedor y las relaciones con los posibles clientes se pueden administrar en Marketo cuando no hay una integración nativa de CRM habilitada. Estos registros contienen información básica sobre el vendedor, como el nombre, el correo electrónico y el cargo, que se puede utilizar para filtrar y crear tokens en Marketo cuando un posible cliente es propiedad de uno. La relación con un vendedor se administra en el nivel de cliente potencial a través del campo &quot;externalSalesPersonId&quot;, que debe actualizarse mediante la API [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST).
+Puede administrar los registros del vendedor y sus relaciones con los posibles clientes en Marketo cuando no esté habilitada la integración nativa de CRM. Estos registros contienen información como Nombre, Correo electrónico y Puesto. Cuando un vendedor es propietario de un posible cliente, puede utilizar esta información para filtrar y crear tokens.
+
+Administre la relación con un vendedor en el nivel de cliente potencial a través del campo &quot;externalSalesPersonId&quot;. Actualice este campo mediante la API [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
-

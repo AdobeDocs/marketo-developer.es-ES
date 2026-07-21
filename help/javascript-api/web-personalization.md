@@ -4,35 +4,30 @@ description: Guía de la API de JavaScript de Personalization web y la etiqueta 
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
 TQID: https://experienceleague.adobe.com/yplunKmgjOJ7gJTA2TDc9cfJXyXbrVWuM-NdVbDMN4A
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-subfeature_v2:
-  - id: cdd4e0f6-e87e-453f-88ee-2ee54a7de272
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+subfeature_v2: id: cdd4e0f6-e87e-453f-88ee-2ee54a7de272
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 452
+source-wordcount: 435
 ht-degree: 6%
 
 ---
 
 # Personalización web
 
-La API de JavaScript de Web Personalization amplía la capacidad de personalización automatizada de la plataforma. Permite el seguimiento de eventos y la personalización dinámica de una página web. Funciones adicionales: [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md), [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
+La API de JavaScript de Web Personalization rastrea eventos y personaliza páginas web de forma dinámica. Amplía las capacidades de personalización automatizada de la plataforma.
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+Las funciones relacionadas incluyen [Eventos de datos personalizados](custom-data-events.md), [Contenido dinámico](web-personalization.md), [Obtener datos del visitante](get-visitor-data.md) y [Excluir etiqueta para bots específicos](#exclude_tag_for_specific_bots).
+
+- Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Configuración de etiquetas
 
-La etiqueta RTP debe insertarse en el encabezado de la página personalizada.
+Inserte la etiqueta RTP en el encabezado de cada página personalizada.
 
 ```javascript
 <!-- RTP tag -->
@@ -47,7 +42,7 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 
 ## Configuración de cuenta
 
-Se llama automáticamente a este método en el nivel de etiqueta para establecer el ID de cuenta correspondiente. Puede establecer el ID de cuenta cuando desee dividir entre dominios diferentes.
+La etiqueta llama automáticamente a este método para establecer el ID de cuenta correspondiente. Establezca el ID de cuenta explícitamente cuando desee utilizar cuentas diferentes para dominios diferentes.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -61,9 +56,9 @@ rtp('setAccount', accountId);
 
 ## Funciones de envío de eventos
 
-Este método envía un evento de vista, que se utiliza para el seguimiento de páginas. En el ejemplo siguiente, la dirección URL de la página actual se rastrea como una vista de página del visitante.
+Este método envía un evento de vista para el seguimiento de páginas. La primera llamada del siguiente ejemplo rastrea la dirección URL de la página actual como una vista de página del visitante.
 
-Al pasar el parámetro opcional &quot;page&quot; en este método, se puede anular la página actual.
+Pase el parámetro opcional &quot;page&quot; para anular la página actual, como se muestra en la segunda llamada.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -82,9 +77,9 @@ rtp('send', 'view', page);
 
 ## Excluir etiqueta para bots específicos (agentes de usuario)
 
-Para excluir exploradores específicos del envío de datos a la plataforma Web Personalization (en el caso de bots identificados), agregue la siguiente instrucción IF al script de la etiqueta.
+Para evitar que bots identificados envíen datos a la plataforma Web Personalization, agregue la siguiente instrucción `if` al script de etiquetas.
 
-En el ejemplo de código siguiente, &quot;Googlebot|msnbot&quot; se utiliza como ejemplos de bots para excluir de las actividades de Web Personalization.
+Este ejemplo excluye los agentes de usuario &quot;Googlebot|msnbot&quot; de las actividades de Web Personalization.
 
 ```javascript
 <!-- RTP tag -->
@@ -104,7 +99,7 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 
 ## Llamadas de JavaScript explicadas
 
-Descripción de JavaScript que se añade a un sitio web al utilizar Personalization web y contenido predictivo.
+En las tablas siguientes se describe el JavaScript agregado a un sitio web que utiliza Personalization web y contenido predictivo.
 
 ### JavaScript principal/dependiente
 
@@ -115,7 +110,7 @@ Descripción de JavaScript que se añade a un sitio web al utilizar Personalizat
 | jquery-custom-ui-min.js | Versión 1.9.2 | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
 | query-ui-1.8.17-dialog.js | Versión 1.9.2* | Se puede deshabilitar poniéndose en contacto con Asistencia al cliente de Marketo |
 
-*Se utiliza solo si falta el cuadro de diálogo de la IU de jQuery
+*Se utiliza solo si falta el cuadro de diálogo de la interfaz de usuario de jQuery.
 
 ### On Demand JavaScript
 

@@ -4,28 +4,22 @@ description: Utilice la utilidad RTP.checkPattern para probar patrones de cadena
 feature: Javascript
 exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
 TQID: https://experienceleague.adobe.com/-HopUg6-2EchL9kJrPDbz62mRlrqYaXYdufILjkvP1Y
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 171
-ht-degree: 5%
+source-wordcount: 188
+ht-degree: 4%
 
 ---
 
 # Coincidencia de motivo
 
-RTP expone una función de utilidad para comprobar si el patrón coincide con una cadena determinada. La utilidad no se puede utilizar de forma asíncrona porque devuelve una indicación de si hay una coincidencia o no.
+RTP proporciona una función de utilidad que comprueba si un patrón coincide con una cadena. La utilidad devuelve un resultado de coincidencia sincrónicamente y no se puede utilizar asincrónicamente.
 
-Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 
 ## Uso
 
@@ -33,12 +27,12 @@ Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP impl
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
-| check_against | Obligatorio | Cadena | Cadena con la que coincide el patrón. Por ejemplo: URL de la página actual, nombre del producto. |
-| pattern | Obligatorio | Cadena | Agregar % para comodín. El patrón puede ser :start con y contiene una coincidencia completa |
+| check_against | Obligatorio | Cadena | Cadena con la que debe coincidir el patrón, como la dirección URL de la página actual o un nombre de producto. |
+| pattern | Obligatorio | Cadena | Patrón para coincidir. Agregue `%` como comodín para que coincida con el inicio, el final o el contenido de una cadena. Omitir `%` para una coincidencia completa. |
 
 ## Ejemplos
 
-Establezca la variable personalizada en el índice 1 si la dirección URL de la página actual termina con &quot;productA&quot;.
+Este ejemplo establece una variable personalizada en el índice 1 cuando la dirección URL de la página actual termina con productA.
 
 ```javascript
 if (rtp.checkPattern(window.location.href, '%productA')) {
@@ -46,7 +40,7 @@ if (rtp.checkPattern(window.location.href, '%productA')) {
 }
 ```
 
-La ruta de URL actual es &quot;/products/productB&quot;. Este ejemplo comprueba si la ruta contiene &quot;products&quot; y establece una variable personalizada.
+En el ejemplo siguiente, la ruta de URL actual es &quot;/products/productB&quot;. En el ejemplo se comprueba si la ruta de acceso contiene &quot;products&quot; y, a continuación, se establece una variable personalizada.
 
 ```javascript
 var currentURLPath = '/products/productB';

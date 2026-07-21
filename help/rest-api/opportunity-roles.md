@@ -4,15 +4,12 @@ feature: REST API
 description: Administre las funciones de oportunidad de Marketo mediante la API de REST, incluidas las consultas con campos de desduplicación compuestos, la creación de actualizaciones, la eliminación, los tiempos de espera y la ausencia de sincronización de CRM.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
 TQID: https://experienceleague.adobe.com/aE27mBhsrn-0SO41M-pV5NFjoMq--1Lp-L2TQGL7-8Y
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 279
+source-wordcount: 254
 ht-degree: 0%
 
 ---
@@ -21,13 +18,13 @@ ht-degree: 0%
 
 [Referencia de extremo de roles de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-Los posibles clientes están vinculados a oportunidades a través del objeto `opportunityRole` intermedio.
+Los vínculos de objetos `opportunityRole` intermedios conducen a oportunidades.
 
-Las API de funciones de oportunidad solo se exponen para suscripciones que no tienen habilitada una sincronización de CRM nativa.
+Las API de funciones de oportunidad solo están disponibles para suscripciones que no tienen habilitada la sincronización nativa con CRM.
 
 ## Describir
 
-Al igual que las oportunidades, una llamada descrita y las operaciones de CRUD se exponen para roles de oportunidad.
+Al igual que con las oportunidades, la API proporciona una llamada Describir y operaciones CRUD para las funciones de oportunidad.
 
 ```http
 GET /rest/v1/opportunities/roles/describe.json
@@ -113,7 +110,9 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## Consulta
 
-Observe que tanto `dedupeFields` como `searchableFields` son un poco diferentes de las oportunidades. `dedupeFields` proporciona realmente una clave compuesta, donde se requieren los tres de `externalOpportunityId`, `leadId` y `role`. Tanto el vínculo de oportunidad como el de posible cliente por los campos de ID deben existir en la instancia de destino para que la creación del registro se realice correctamente. Para `searchableFields`, `marketoGUID`, `leadId` y `externalOpportunityId` son todos válidos para consultas por su cuenta y utilizan un patrón idéntico al de Oportunidades, pero existe una opción adicional de usar la clave compuesta para la consulta, que requiere enviar un objeto JSON mediante POST, con el parámetro de consulta adicional `_method=GET`.
+Los valores `dedupeFields` y `searchableFields` difieren de las oportunidades. `dedupeFields` proporciona una clave compuesta que requiere `externalOpportunityId`, `leadId` y `role`. Para que la creación de registros se realice correctamente, la oportunidad y el posible cliente a los que hacen referencia los campos de ID deben existir en la instancia de destino.
+
+Los valores `searchableFields` `marketoGUID`, `leadId` y `externalOpportunityId` son válidos para consultas individuales que utilizan el mismo patrón que Oportunidades. También puede consultar por la clave compuesta. Esta consulta requiere un objeto JSON enviado mediante POST con el parámetro de consulta `_method=GET`.
 
 ```http
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -148,11 +147,11 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-Esto produce el mismo tipo de respuesta que una consulta estándar de GET; simplemente tiene una interfaz diferente para realizar la solicitud.
+Esta solicitud produce el mismo tipo de respuesta que una consulta GET estándar, pero utiliza una interfaz de solicitud diferente.
 
 ## Crear y actualizar
 
-Las funciones de oportunidad tienen la misma interfaz para crear y actualizar registros que las oportunidades.
+Cree y actualice las funciones de oportunidad utilizando la misma interfaz que las oportunidades.
 
 ```http
 POST /rest/v1/opportunities/roles.json
@@ -200,7 +199,9 @@ POST /rest/v1/opportunities/roles.json
 
 ## Eliminar
 
-Puede eliminar los roles de oportunidad desduplicando campos o campos de ID. Especifique el uso del parámetro deleteBy con un valor de dedupeFields o idField. Si no se especifica, el valor predeterminado es deduplicarCampos. El cuerpo de la solicitud contiene una matriz de entrada de funciones de oportunidad que se deben eliminar. Se permite un máximo de 300 funciones de oportunidad por llamada.
+Eliminar roles de oportunidad desduplicando campos o campos de ID. Establezca el parámetro deleteBy en deduplicationFields o idField. El valor predeterminado es deduplicarCampos.
+
+El cuerpo de la solicitud contiene una matriz de entrada de funciones de oportunidad que se deben eliminar. Cada llamada permite un máximo de 300 funciones de oportunidad.
 
 ```http
 POST /rest/v1/opportunities/roles/delete.json
@@ -235,6 +236,6 @@ POST /rest/v1/opportunities/roles/delete.json
 
 ## Tiempos de espera
 
-- Los extremos de la función de oportunidad tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Funciones de oportunidad de sincronización: 60 s
-   - Eliminar roles de oportunidad: 60 s
+- Los extremos de la función de oportunidad tienen un tiempo de espera de 30 segundos a menos que se indique lo contrario.
+- Los roles de oportunidad de sincronización tienen un tiempo de espera de 60 segundos.
+- Eliminar roles de oportunidad tiene un tiempo de espera de 60 segundos.
