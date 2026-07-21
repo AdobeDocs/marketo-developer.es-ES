@@ -4,8 +4,10 @@ feature: Webhooks
 description: Conozca los códigos de error de webhook de Marketo, por qué se requieren respuestas 2xx para actualizar los campos de posibles clientes y cómo detectar y gestionar errores con Webhook.
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
 TQID: https://experienceleague.adobe.com/N2jNA4EUMMTUFL9uJHZhOor6Tlz4-EXWciwoXrPml48
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 213
@@ -30,7 +32,7 @@ Marketo asigna los valores de respuesta a un campo solo cuando el servicio web d
 
 Utilice el déclencheur **[!UICONTROL Se llama al webhook]** para detectar y controlar los errores de webhook:
 
-Se llama al webhook ![1}](assets/webhook-called.png)
+Se llama al webhook ![1&rbrace;](assets/webhook-called.png)
 
 * **Respuesta** - La carga de respuesta literal recibida por la solicitud.
 * **Tipo de error** - La frase de razón del mensaje de estado HTTP.
