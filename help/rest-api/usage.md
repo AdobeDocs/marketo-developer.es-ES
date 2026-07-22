@@ -3,9 +3,9 @@ title: Uso
 feature: REST API
 description: Supervise el uso y los errores de la API de REST de Marketo con puntos finales de estado diarios y de los últimos 7 días, incluidos los recuentos por usuario y los totales de código de error.
 exl-id: 935a00a4-1e1e-4b48-ae9c-72c5e578312a
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '382'
 ht-degree: 9%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 9%
 
 [Referencia de extremo de uso](https://developer.adobe.com/marketo-apis/api/mapi#tag/Usage)
 
-Las API de uso proporcionan un resumen del consumo de API de REST y la actividad de error de la suscripción. Estos extremos son útiles para monitorizar las integraciones, rastrear el volumen diario de llamadas e identificar las tendencias de error a lo largo del tiempo.
+Las API de uso resumen el consumo de API de REST y la actividad de error de la suscripción. Utilice estos extremos para monitorizar las integraciones, rastrear el volumen diario de llamadas e identificar las tendencias de error.
 
 Los datos de uso incluyen un recuento total de llamadas de API y un desglose por usuario. Los datos de error incluyen un recuento total de errores y un desglose por código de error.
 
@@ -153,4 +153,4 @@ GET /rest/v1/stats/errors/last7days.json
 
 ## Notas
 
-Cada uno de los usuarios de la API se comunica individualmente en la respuesta de uso. Dividir las integraciones entre usuarios de API independientes facilita la identificación de qué servicio consume cuotas y produce errores.
+La respuesta de uso informa cada usuario de API por separado. Asignar integraciones a usuarios de API independientes facilita la identificación de qué servicio consume cuota y produce errores.

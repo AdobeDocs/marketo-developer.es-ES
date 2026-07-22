@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 730
+source-wordcount: 590
 ht-degree: 1%
 
 ---
@@ -23,13 +23,15 @@ ht-degree: 1%
 
 [Referencia de extremo de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts)
 
-Marketo ofrece un conjunto de API para realizar operaciones de CRUD en cuentas con nombre para su uso con Marketo ABM. Estas API siguen el patrón de interfaz estándar para las API de la base de datos de posibles clientes, y proporcionan las opciones Describir, Crear/actualizar, Eliminar y Consulta.
+Marketo proporciona API para realizar operaciones de CRUD en cuentas con nombre para su uso con Marketo ABM. Estas API siguen el patrón de interfaz de la base de datos de posibles clientes estándar y proporcionan las opciones Describir, Crear/Actualizar, Eliminar y Consulta.
 
-Actualmente, las únicas funciones relacionadas con ABM disponibles a través de las API de Marketo son las operaciones de CRUD para cuentas con nombre; los posibles clientes no se pueden vincular a cuentas con nombre a través de ninguna API.
+Actualmente, las API de Marketo solo admiten operaciones CRUD para cuentas con nombre. No puede vincular posibles clientes a cuentas con nombre a través de las API.
 
 ## Describir
 
-La descripción de cuentas con nombre devuelve metadatos relacionados con el uso de cuentas con nombre mediante las API de Marketo, incluida una lista de los campos válidos que se pueden buscar al consultar y una lista de todos los campos disponibles para el uso de API. El `idField` de una cuenta con nombre siempre es `marketoGUID`, y el único disponible `dedupeField`, y la clave para la creación es el campo `name` del objeto.
+Describir cuentas con nombre devuelve metadatos para utilizar cuentas con nombre a través de las API de Marketo. La respuesta incluye campos válidos para búsqueda y todos los campos disponibles para la API.
+
+El `idField` de una cuenta con nombre siempre es `marketoGUID`. El campo `name` del objeto es la única clave de creación y `dedupeField` disponible.
 
 ```http
 GET /rest/v1/namedaccounts/describe.json
@@ -144,7 +146,9 @@ GET /rest/v1/namedaccounts/describe.json
 
 ### Consulta
 
-La consulta de cuentas con nombre se basa en el uso de un filterType y un conjunto de hasta 300 filterValues separados por comas. `filterType` puede ser cualquier campo único devuelto en el miembro `searchableFields` del resultado de descripción para cuentas con nombre, mientras que filterValues puede ser cualquier entrada válida para el tipo de datos del campo. Para devolver un conjunto específico de campos de, se debe pasar un parámetro fields, donde el valor es una lista de campos separados por comas que se van a devolver en la respuesta. Al igual que otras opciones de consulta, el número máximo de registros para una sola página de consulta es 300 y se deben solicitar registros adicionales en el conjunto con el uso del nextPageToken devuelto por la llamada.
+Consulte las cuentas con nombre mediante un filterType y hasta 300 filterValues separados por comas. filterType puede ser cualquier campo devuelto en el miembro `searchableFields` de la respuesta Describir. Cada entrada filterValues debe ser un valor válido para el tipo de datos del campo.
+
+Para devolver campos específicos, pase un parámetro fields con una lista de campos separados por comas. Una página de consulta contiene un máximo de 300 registros. Para recuperar registros adicionales, utilice el nextPageToken devuelto por la llamada.
 
 ```http
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
@@ -175,7 +179,13 @@ GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 
 ### Crear y actualizar
 
-La creación y actualización de cuentas con nombre sigue el patrón de base de datos de posibles clientes estándar. Los registros deben pasarse en el miembro de entrada de un cuerpo JSON en una petición POST. `input` es el único miembro requerido, con `action` y `dedupeBy` como miembros opcionales. Se pueden incluir hasta 300 registros en la entrada. La acción puede ser createOnly, updateOnly o createOrUpdate. Si no se especifica, el valor predeterminado de action es createOrUpdate. dedupeBy solo se puede especificar cuando action es updateOnly y solo acepta uno de dedupeFields o idField, que corresponden a los campos name y marketoGUID, respectivamente.
+Cree y actualice cuentas con nombre utilizando el patrón estándar de base de datos de posibles clientes. Pase registros en el miembro de entrada del cuerpo JSON de una petición POST. Se pueden incluir hasta 300 registros.
+
+Los miembros de la solicitud son:
+
+- `input`: el único miembro requerido.
+- `action`: un miembro opcional que acepta createOnly, updateOnly o createOrUpdate. El valor predeterminado es createOrUpdate.
+- `dedupeBy`: un miembro opcional disponible solo cuando la acción es updateOnly. Acepta deduplicationFields o idField, que corresponden a los campos name y marketoGUID, respectivamente.
 
 ```http
 POST /rest/v1/namedaccounts.json
@@ -223,17 +233,19 @@ Content-Type: application/json
 
 ### Campos
 
-El objeto de cuenta con nombre contiene un conjunto de campos. Cada definición de campo está compuesta por un conjunto de atributos que describen el campo. Algunos ejemplos de atributos son nombre para mostrar, nombre de API y dataType. Estos atributos se conocen colectivamente como metadatos.
+El objeto de cuenta con nombre contiene campos definidos por atributos como nombre para mostrar, nombre de API y dataType. Juntos, estos atributos se denominan metadatos.
 
-Los siguientes extremos permiten consultar campos en el objeto de compañía. Estas API requieren que el usuario de la API propietaria tenga una función con uno o ambos permisos Campo estándar de esquema de lectura-escritura o Campo personalizado de esquema de lectura-escritura.
+Los siguientes extremos consultan campos en el objeto de compañía. El usuario de API debe tener una función con el permiso Campo estándar de esquema de lectura-escritura, el permiso Campo personalizado de esquema de lectura-escritura o ambos.
 
 ### Campos de consulta
 
-La consulta de campos de cuenta con nombre es sencilla. Puede consultar un único campo de cuenta con nombre por nombre de API o consultar el conjunto de todos los campos de compañía.
+Consulte un campo de cuenta con nombre por nombre de API o recupere todos los campos de empresa.
 
 #### Por nombre
 
-El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un único campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo. La respuesta es como el extremo de Describir cuenta con nombre, pero contiene metadatos adicionales como el atributo isCustom que indica si el campo es un campo personalizado.
+El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo.
+
+La respuesta es similar a la respuesta Describir cuenta con nombre, pero incluye metadatos adicionales. Por ejemplo, el atributo isCustom indica si el campo es personalizado.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -261,7 +273,9 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Examinar
 
-El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, se devuelve un máximo de 300 registros. Puede utilizar el parámetro de consulta batchSize para reducir este número. Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando a este extremo hasta que el atributo moreResult devuelva false, lo que significa que no hay resultados disponibles. El nextPageToken devuelto desde esta API siempre debe reutilizarse para la siguiente iteración de esta llamada.
+El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta batchSize para reducir este número.
+
+Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando al extremo con el nextPageToken devuelto hasta que moreResult sea false.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
@@ -340,7 +354,9 @@ GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 
 ### Eliminar
 
-Las eliminaciones se realizan mediante una solicitud de POST de JSON y tienen un miembro de entrada requerido y un miembro opcional deleteBy. deleteBy puede ser uno de &quot;dedupeFields&quot; o &quot;idField&quot;, correspondiente a name o marketoGUID, respectivamente, y de forma predeterminada dedupeFields si no se establece. El miembro de entrada acepta una matriz de hasta 300 registros, que contienen un miembro cada uno, ya sea name o marketoGUID, según la configuración de deleteBy.
+Elimine las cuentas con nombre enviando una petición POST con un cuerpo JSON. La solicitud incluye un miembro de entrada requerido y un miembro opcional deleteBy.
+
+El miembro deleteBy acepta &quot;dedupeFields&quot; o &quot;idField&quot;, que corresponden a name y marketoGUID, respectivamente. Si no se establece, el valor predeterminado es deduplicarCampos. El miembro de entrada acepta hasta 300 registros. Cada registro contiene name o marketoGUID, según la configuración deleteBy.
 
 ```http
 POST /rest/v1/namedaccounts/delete.json
@@ -398,6 +414,6 @@ Content-Type: application/json
 
 ## Tiempos de espera
 
-- Los extremos de cuenta con nombre tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Sincronizar cuentas con nombre: 120 s
-   - Eliminar cuentas con nombre: 60s
+- Los extremos de cuenta con nombre tienen un tiempo de espera de 30 segundos a menos que se indique lo contrario.
+- La sincronización de cuentas con nombre tiene un tiempo de espera de 120 segundos.
+- Eliminar cuentas con nombre tiene un tiempo de espera de 60 segundos.

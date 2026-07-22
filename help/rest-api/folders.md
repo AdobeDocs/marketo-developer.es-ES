@@ -13,9 +13,9 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1099
+source-wordcount: 806
 ht-degree: 1%
 
 ---
@@ -24,11 +24,13 @@ ht-degree: 1%
 
 [Referencia de extremo de carpetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders)
 
-Las carpetas son el recurso organizativo principal en Marketo y todos los demás tipos de recursos tienen al menos una carpeta como elemento principal. Esta carpeta principal puede ser una carpeta puramente organizativa o un programa, que tiene una relación funcional con otros tipos de recursos y también puede ser la carpeta principal de otros recursos. Las carpetas se pueden crear, consultar, actualizar y eliminar a través de la API, y también permiten recuperar una lista de su contenido. Aunque los programas se pueden devolver consultando la API de carpetas, la creación, actualización y eliminación de programas se deben realizar mediante la API de programas.
+Las carpetas son los recursos organizativos principales de Marketo. Todos los demás tipos de recursos tienen al menos un elemento principal que es una carpeta o un programa. Una carpeta es puramente organizativa, mientras que un programa tiene una relación funcional con otros tipos de recursos y también puede contener recursos.
+
+Utilice la API Folders para crear, consultar, actualizar y eliminar carpetas o recuperar su contenido. Las consultas de carpeta pueden devolver Programas, pero debe utilizar la API de Programas para crear, actualizar o eliminar un Programa.
 
 ## Consulta
 
-La consulta de carpetas sigue los tipos de consulta estándar para los recursos de [por id](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) y [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
+Las carpetas admiten los patrones de consulta de recursos estándar: [por id.](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) y por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
 
 ### Por ID
 
@@ -69,7 +71,11 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Programa&quot;.  El tipo dicta si la búsqueda en la carpeta se realiza con un ID de carpeta o un ID de programa. Para este extremo, sólo se devuelve un único registro en el resultado Array. Observe el parámetro `folderType` en la respuesta. Esto puede indicar muchos tipos diferentes de carpetas. Las carpetas de actividades de Marketo tienen un tipo de carpeta de marketing o de programa, que pueden contener muchos tipos diferentes de recursos, mientras que las carpetas de Design Studio tienen un tipo correspondiente al tipo de recurso que pueden contener. Por ejemplo, una carpeta con `folderType` de &quot;Correo electrónico&quot; puede contener solo correos electrónicos u otras subcarpetas, que podrían tener `folderType` de correo electrónico o plantilla de correo electrónico. Los tipos pueden incluir:
+El parámetro `type` es obligatorio y debe ser `Folder` o `Program`. Determina si el extremo busca un ID de carpeta o un ID de programa. El extremo devuelve un registro en la matriz de resultados.
+
+La respuesta `folderType` identifica lo que la carpeta puede contener. Las carpetas de Actividades de marketing tienen un tipo de Carpeta de marketing o Programa y pueden contener varios tipos de recursos. Las carpetas de Design Studio tienen un tipo que corresponde a los recursos que pueden contener. Por ejemplo, una carpeta Correo electrónico puede contener correos electrónicos y subcarpetas con un tipo de carpeta Correo electrónico o Plantilla de correo electrónico.
+
+Los tipos de carpeta incluyen:
 
 - Correo electrónico
 - Plantilla de correo electrónico
@@ -80,7 +86,13 @@ El parámetro de tipo es obligatorio y debe ser &quot;Carpeta&quot; o &quot;Prog
 
 ### Por nombre
 
-[También se permite la consulta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET). La consulta por extremo de nombre tiene nombre como único parámetro requerido. Nombre realiza una coincidencia de cadena exacta con el campo de nombre de las carpetas de la instancia y devuelve los resultados de cada carpeta que coincida con ese nombre. También tiene los parámetros de consulta opcionales de &quot;tipo&quot;, que pueden ser Carpeta o Programa, &quot;raíz&quot;, el ID de la carpeta para buscar o &quot;espacio de trabajo&quot;, el nombre del espacio de trabajo en el que buscar. Si se establece el parámetro root, también se debe establecer el parámetro type.
+El extremo [query by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) requiere `name`, que realiza una coincidencia exacta con los nombres de carpeta y devuelve todas las carpetas coincidentes.
+
+El extremo también acepta estos parámetros opcionales:
+
+- `type`: el tipo de carpeta, `Folder` o `Program`.
+- `root`: el identificador de la carpeta que se va a buscar. Si establece `root`, también debe establecer `type`.
+- `workspace`: nombre del área de trabajo que se va a buscar.
 
 ```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -119,21 +131,21 @@ GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 }
 ```
 
-Al buscar por nombre, es importante tener en cuenta que tanto Marketing Activities como Design Studio son sus propias carpetas raíz, de modo que se pueden recuperar por nombre y utilizar para recorrer el resto de la jerarquía de carpetas en una instancia de destino.
+Las actividades de marketing y Design Studio son carpetas raíz. Recupere la raíz por su nombre y, a continuación, utilícela para recorrer la jerarquía de carpetas en la instancia de destino.
 
 ### Examinar
 
-Las carpetas también se pueden [recuperar de forma masiva](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). El parámetro &quot;root&quot; se puede utilizar para especificar la carpeta principal en la que se realizará la consulta y tiene el formato de un objeto JSON incrustado como el valor del parámetro de consulta. La raíz tiene dos miembros:
+También puede [recuperar carpetas de forma masiva](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Utilice el parámetro `root` para especificar la carpeta principal en la que desea realizar la consulta. Pase `root` como un objeto JSON incrustado con dos miembros:
 
-1. id: el ID de la carpeta o el programa.
-1. type: Carpeta o Programa, según el tipo de carpeta raíz que se va a examinar.
+1. `id`: ID de la carpeta o programa.
+1. `type`: `Folder` o `Program`, según el tipo de carpeta raíz.
 
-Si no se conoce la carpeta raíz o si se desea recuperar todas las carpetas de un área determinada, la raíz se puede especificar como las áreas &quot;Actividades de marketing&quot;, &quot;Design Studio&quot; o &quot;Base de datos de posibles clientes&quot;. Los identificadores de cada uno de ellos se pueden recuperar a través de la API [Obtener carpeta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) y especificando el nombre del área deseada.
+Si no conoce la carpeta raíz o desea recuperar todas las carpetas de un área, utilice la raíz Marketing Activities, Design Studio o la base de datos de posibles clientes. Recupere el ID raíz pasando el nombre del área a la API [Obtener carpeta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET).
 
-Al igual que otros extremos de recuperación masiva de recursos, offset y maxReturn son parámetros opcionales para la paginación.   Otros parámetros opcionales son:
+Al igual que con otros extremos de recuperación masiva de recursos, utilice los parámetros opcionales `offset` y `maxReturn` para la paginación. Otros parámetros opcionales son:
 
-- workSpace: nombre del espacio de trabajo al que filtrar.
-- maxDepth: el número máximo de niveles que se atravesarán en la jerarquía de carpetas. Si se establece en 0, solo se devuelve la carpeta especificada en la raíz. Si no se especifica, el valor predeterminado es 2.
+- `workSpace`: nombre del área de trabajo por el que filtrar.
+- `maxDepth`: número máximo de niveles que se atravesarán en la jerarquía de carpetas. El valor 0 devuelve solamente la carpeta especificada por `root`. El valor predeterminado es 2.
 
 ```http
 GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
@@ -215,13 +227,21 @@ GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 
 ## Estructura de respuesta
 
-Gran parte de la estructura de respuesta de carpetas se explica por sí misma, pero algunos campos merecen la pena anotarse individualmente. Los campos `folderId` y principal son objetos JSON que incluyen el identificador explícito y el tipo de la carpeta en sí. Este tipo es el que la API utiliza en las consultas, la raíz y los parámetros principales para garantizar una delineación adecuada entre los tipos de carpetas Carpeta y Programa. `folderType` refleja el uso de la carpeta, que puede ser una de &quot;Carpeta de marketing&quot;, &quot;Programa&quot;, &quot;Correo electrónico&quot;, &quot;Plantilla de correo electrónico&quot;, &quot;Página de aterrizaje&quot;, &quot;Plantilla de página de aterrizaje&quot;, &quot;Fragmento&quot;, &quot;Imagen&quot;, &quot;Zona&quot; o &quot;Archivo&quot;.  Los tipos Carpeta y programa de marketing indican que existen en las actividades de marketing y pueden contener varios tipos de recursos. Los demás tipos indican que pueden contener solo ese tipo de recurso, subcarpetas y la versión de plantilla de ese tipo, si corresponde. El tipo Zone representa las carpetas de nivel raíz que se encuentran en las actividades de marketing.
+Los campos `folderId` y `parent` son objetos JSON que contienen el tipo y el identificador de la carpeta. La API usa este tipo en los parámetros de consulta `root` y `parent` para distinguir los tipos de carpeta Carpeta y Programa.
 
-La ruta de una carpeta muestra su jerarquía en el árbol de carpetas, de forma similar a una ruta de estilo Unix. La primera entrada en la ruta siempre será Marketing Activities o Design Studio. Si la instancia de destino tiene espacios de trabajo, la segunda entrada de la ruta será el nombre del espacio de trabajo propietario. El campo `url` muestra la dirección URL explícita del recurso en la instancia designada. Este no es un vínculo universal y debe autenticarse como usuario para funcionar correctamente. `isSystem` indica si la carpeta es una carpeta del sistema. Si se establece en true, la carpeta en sí es de solo lectura, aunque las carpetas se pueden crear como elementos secundarios.
+El campo `folderType` describe cómo se usa la carpeta. Su valor puede ser Carpeta de marketing, Programa, Correo electrónico, Plantilla de correo electrónico, Página de aterrizaje, Plantilla de página de aterrizaje, Fragmento, Imagen, Zona o Archivo. La carpeta y el programa de marketing existen en las actividades de marketing y pueden contener varios tipos de recursos. Los demás tipos de carpeta solo contienen el tipo de recurso, las subcarpetas y la versión de plantilla correspondientes de ese tipo de recurso, cuando corresponda. Zone representa una carpeta de nivel raíz en las actividades de marketing.
+
+La carpeta `path` muestra su jerarquía como una ruta de estilo Unix. La primera entrada es siempre Marketing Activities o Design Studio. Si la instancia tiene espacios de trabajo, la segunda entrada es el nombre del espacio de trabajo propietario.
+
+El campo `url` contiene la dirección URL del recurso para la instancia designada. No es un vínculo universal y requiere la autenticación del usuario. El campo `isSystem` indica si la carpeta es una carpeta del sistema de solo lectura. Puede crear carpetas secundarias en una carpeta del sistema.
 
 ## Crear y actualizar
 
-[La creación de carpetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) es sencilla y se ejecuta con un POST application/x-www-form-urlencoded que tiene dos parámetros obligatorios, &quot;name&quot; (nombre), una cadena y &quot;parent&quot; (padre), el padre en el que crear la carpeta, que es un objeto JSON incrustado con dos miembros, id y type (carpeta o programa), según el tipo de carpeta de destino. Opcionalmente, también se puede incluir una &quot;descripción&quot; o una cadena que puede tener hasta 2000 caracteres.
+Para [crear una carpeta](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con estos parámetros:
+
+- `name`: cadena requerida que contiene el nombre de la carpeta.
+- `parent`: objeto JSON incrustado requerido que contiene `id` y `type`. El tipo es `Folder` o `Program`, según el elemento principal.
+- `description`: cadena opcional de hasta 2000 caracteres.
 
 ```http
 POST /rest/asset/v1/folders.json
@@ -268,7 +288,9 @@ parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a t
 }
 ```
 
-Las actualizaciones de las carpetas se realizan mediante un extremo independiente, y la descripción, el nombre y `isArchive` son parámetros opcionales para la actualización. Si `isArchive` se cambia mediante una actualización, el resultado es que la carpeta se archiva, si se cambia a true, o se desarchiva, si se cambia a false, en la interfaz de usuario de Marketo. Los programas no se pueden actualizar con esta API.
+Use el extremo de actualización para cambiar los parámetros `description`, `name` o `isArchive` opcionales. Al establecer `isArchive` en `true`, se archiva la carpeta en la interfaz de usuario de Marketo. Si se establece en `false`, se eliminará la carpeta del archivo.
+
+No puede actualizar programas con esta API.
 
 ```http
 POST /rest/asset/v1/folder/{id}.json
@@ -317,7 +339,7 @@ type=Folder&description=This is a test (update 01)
 
 ### Eliminar
 
-Las eliminaciones se pueden realizar en carpetas únicas si están vacías, lo que significa que no contienen recursos ni subcarpetas. Si una carpeta es de tipo Programa o tiene el campo isSystem establecido en true, no se puede eliminar con esta API.
+Solo puede eliminar una carpeta si no contiene recursos ni subcarpetas. No puede usar esta API para eliminar un programa o una carpeta cuyo campo `isSystem` sea `true`.
 
 ```http
 POST /rest/asset/v1/folder/{id}/delete.json

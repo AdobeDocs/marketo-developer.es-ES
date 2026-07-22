@@ -12,10 +12,10 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 258
-ht-degree: 1%
+source-wordcount: 227
+ht-degree: 2%
 
 ---
 
@@ -23,11 +23,11 @@ ht-degree: 1%
 
 [Referencia de extremo de etiquetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags)
 
-Las etiquetas son campos definidos por el usuario para programas. Cada etiqueta puede aplicarse a uno o más tipos de programa y puede ser obligatoria u opcional, según cómo se haya definido la etiqueta. Las etiquetas también pueden proporcionar una lista de valores permitidos que deben seleccionarse entre para su uso.
+Las etiquetas son campos definidos por el usuario para programas. Una etiqueta se puede aplicar a uno o varios tipos de programas y puede ser obligatoria u opcional. Una etiqueta también puede definir una lista de valores permitidos entre los que los usuarios deben seleccionar.
 
 ## Consulta
 
-Las etiquetas se consultan con el patrón de recursos estándar, pero no tienen un punto final para Por ID. La lista de valores permitidos para una etiqueta solo se devuelve cuando la etiqueta se consulta por el nombre.
+Consulte las etiquetas con el patrón de recursos estándar. Las etiquetas no tienen un extremo By Id. Para recuperar los valores permitidos para una etiqueta, consulte la etiqueta por nombre.
 
 ### Obtener etiquetas
 
@@ -86,7 +86,11 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Actualización
 
-El punto de conexión [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) le permite actualizar el valor de un tipo de etiqueta determinado. El extremo toma un parámetro de ruta de acceso `id` y `tagType` que especifican el identificador de programa y el tipo de etiqueta que se va a actualizar. Se usa un parámetro de consulta `tagValue` para especificar el nuevo valor del tipo de etiqueta. Todos los parámetros son obligatorios.
+Use el extremo [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) para actualizar el valor de un tipo de etiqueta. Todos los parámetros son obligatorios:
+
+- El parámetro de ruta de acceso `id` especifica el identificador de programa.
+- El parámetro de ruta de acceso `tagType` especifica el tipo de etiqueta que se actualizará.
+- El parámetro de consulta `tagValue` especifica el nuevo valor.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -106,11 +110,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Las etiquetas se pueden actualizar en masa mediante el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST). Hay un ejemplo disponible en la [sección de actualización de programas](programs.md#update).
+Para actualizar varias etiquetas, use el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST). Vea el ejemplo en la [sección de actualización de programas](programs.md#update).
 
 ## Eliminar
 
-El punto de conexión [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST) le permite eliminar un tipo de etiqueta no obligatorio. El extremo toma `id` y `tagType` parámetros de ruta que especifican el id. de programa y el tipo de etiqueta que se va a eliminar.
+Use el extremo [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST) para eliminar un tipo de etiqueta no obligatorio. El parámetro de ruta de acceso `id` especifica el id. de programa y el parámetro de ruta de acceso `tagType` especifica el tipo de etiqueta que se va a eliminar.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

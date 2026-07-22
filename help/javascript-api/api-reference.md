@@ -10,20 +10,24 @@ feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 426
+source-wordcount: 414
 ht-degree: 9%
 
 ---
 
 # Referencia de API de Munchkin
 
-Munchkin proporciona varias funciones a las que se puede llamar manualmente mediante JavaScript. Esto puede permitir un seguimiento personalizado de los eventos del explorador, como reproducciones de vídeo o clics en elementos que no son vínculos.
+Munchkin proporciona funciones de JavaScript para un seguimiento personalizado de los eventos del explorador. Por ejemplo, puede realizar un seguimiento de reproducciones de vídeo o clics en elementos que no son vínculos.
 
 ## Funciones
 
-La API de Munchkin consta de las siguientes funciones: `init`, `createTrackingCookie`, `munchkinFunction`.
+La API de Munchkin incluye las siguientes funciones:
+
+- `init`
+- `createTrackingCookie`
+- `munchkinFunction`
 
 <a name="munchkin_init"></a>
 
@@ -42,7 +46,9 @@ Munchkin.init('299-BYM-827');
 
 ### Munchkin.createTrackingCookie()
 
-Cuando se llama a, se comprueba que existe una cookie `_mkto_trk` en el explorador y, si no es así, se crea una. Esto resulta útil para rastrear usuarios durante acciones específicas, como el registro o la descarga de un recurso, si `cookieAnon` está establecido en falso.
+`Munchkin.createTrackingCookie()` comprueba si existe una cookie `_mkto_trk` en el explorador. Si la cookie no existe, la función crea una.
+
+Cuando `cookieAnon` está establecido en falso, utilice esta función para rastrear a los usuarios durante acciones específicas, como registrar o descargar un recurso.
 
 | Nombre del parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -54,7 +60,7 @@ Munchkin.createTrackingCookie(true);
 
 ### Munchkin.munchkinFunction()
 
-Se utiliza para generar comportamientos de seguimiento personalizados, como reproducciones y pausas del reproductor de vídeo, o visitas a la página para navegación no estándar, como códigos hash.
+Use `Munchkin.munchkinFunction()` para crear comportamientos de seguimiento personalizados. Por ejemplo, rastrea la actividad del reproductor de vídeo o las visitas a la página desde la navegación no estándar, como los cambios de hash.
 
 | Nombre del parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -63,7 +69,7 @@ Se utiliza para generar comportamientos de seguimiento personalizados, como repr
 
 #### visitWebPage
 
-Llamar a `munchkinFunction()` con `visitWebPage` envía una actividad de &quot;visita&quot; para el usuario actual a Marketo. Puede personalizar la dirección URL y `querystring` que se envían con el objeto de datos en el segundo argumento.
+Llamar a `munchkinFunction()` con `visitWebPage` envía una actividad de &quot;visita&quot; para el usuario actual a Marketo. Utilice el objeto de datos en el segundo argumento para personalizar la dirección URL y `querystring`.
 
 | Nombre de propiedad de datos | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -82,7 +88,7 @@ Munchkin.munchkinFunction('visitWebPage', {
 
 #### clickLink
 
-Llamar a `munchkinFunction()` con `clickLink` envía una actividad de clic para el usuario actual a Marketo. Puede personalizar la dirección URL de clic con la propiedad `href` en el objeto de datos.
+Llamar a `munchkinFunction()` con `clickLink` envía una actividad de clic para el usuario actual a Marketo. Utilice la propiedad `href` en el objeto de datos para personalizar la dirección URL del clic.
 
 | Nombre de propiedad de datos | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |

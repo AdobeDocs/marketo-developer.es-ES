@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 396
+source-wordcount: 369
 ht-degree: 0%
 
 ---
@@ -21,19 +21,21 @@ ht-degree: 0%
 
 [Referencia de extremo de vendedor](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-Las API del vendedor son de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitados. Los vendedores son un tipo de registro de persona que son los propietarios de ventas de los registros de posibles clientes. Están relacionados con los registros de posibles clientes por el campo externalSalesPersonId de cada registro de posibles clientes. Cuando un posible cliente está relacionado con un vendedor mediante un campo de ID de persona ventas externo rellenado, los campos de búsqueda correspondientes Propietario del posible cliente se rellenan para ese registro de posible cliente en Marketo, lo que permite el uso de los filtros y tokens correspondientes.
+Las API del vendedor proporcionan acceso de solo lectura para las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) habilitado.
 
-Los vendedores están relacionados con los registros de posibles clientes mediante el punto de conexión [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) y pasando el atributo externalSalesPersonId.
+Los vendedores son registros de personas que representan a los propietarios de ventas de los registros de posibles clientes. El campo externalSalesPersonId de cada registro de posibles clientes relaciona un posible cliente con un vendedor. Cuando se rellena este campo, Marketo rellena los campos de búsqueda correspondientes Propietario del posible cliente en el registro de posible cliente. A continuación, puede utilizar los filtros y tokens asociados.
 
-Los vendedores están relacionados con los registros de oportunidad al usar el punto de conexión [Sincronizar oportunidades](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST) y pasar el atributo externalSalesPersonId.
+Relacione los vendedores con otros registros pasando el atributo externalSalesPersonId al punto de conexión correspondiente:
 
-Los vendedores están relacionados con los registros de la compañía mediante el punto de conexión [Sincronizar compañías](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) y pasando el atributo externalSalesPersonId.
+- Registros de posibles clientes: [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST).
+- Registros de oportunidad: [Sincronizar oportunidades](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST).
+- Registros de compañía: [Sincronizar compañías](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST).
 
 Los registros del vendedor solo se pueden editar mediante la API.
 
 ## Describir
 
-La descripción de los registros del vendedor sigue el patrón estándar para los objetos de base de datos de posibles clientes.
+Describir los registros del vendedor utilizando el patrón estándar para los objetos de la base de datos de posibles clientes.
 
 ```http
 GET /rest/v1/salespersons/describe.json
@@ -102,11 +104,13 @@ GET /rest/v1/salespersons/describe.json
 }
 ```
 
-De manera predeterminada, el `idField` de los vendedores es &quot;id&quot; y el `dedupeFields` es solo &quot;externalSalesPersonId&quot;.
+De manera predeterminada, el vendedor `idField` es &quot;id&quot; y `dedupeFields` es &quot;externalSalesPersonId&quot;.
 
 ## Consulta
 
-Vendedores que utilizan el patrón de consulta estándar para claves simples. Este ejemplo muestra el correo electrónico del usuario que se está utilizando como externalSalesPersonId. De forma predeterminada, la consulta devuelve todos los campos que se rellenan para los registros devueltos.
+Consulte los vendedores utilizando el patrón de consulta estándar para claves simples. El ejemplo siguiente utiliza el correo electrónico del usuario como externalSalesPersonId.
+
+De forma predeterminada, la consulta devuelve todos los campos rellenados para los registros coincidentes.
 
 ```http
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
@@ -137,7 +141,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 
 ## Crear y actualizar
 
-El patrón para las actualizaciones es estándar.
+Cree o actualice vendedores utilizando el patrón de actualización estándar.
 
 ```http
 POST /rest/v1/salespersons.json
@@ -185,12 +189,12 @@ POST /rest/v1/salespersons.json
 
 ## Eliminar
 
-El patrón para eliminaciones es estándar.
+Suprimir Vendedores utilizando el patrón de supresión estándar.
 
-No se permite eliminar Vendedores cuando está &quot;en uso&quot;. En este caso, se omite el vendedor. Ejemplos:
+No puede eliminar un vendedor que esté &quot;en uso&quot;. La solicitud omite el vendedor en los siguientes casos:
 
-- Cuando el vendedor está asociado con posibles clientes activos
-- Cuando el vendedor está asociado con una compañía que se ha eliminado
+- El vendedor está asociado con posibles clientes activos.
+- El vendedor está asociado con una compañía que se ha eliminado.
 
 ```http
 POST /rest/v1/salespersons/delete.json
@@ -244,6 +248,6 @@ POST /rest/v1/salespersons/delete.json
 
 ## Tiempos de espera
 
-- Los puntos finales del vendedor tienen un tiempo de espera de 30 segundos a menos que se indique a continuación
-   - Personas de ventas de sincronización: 60s
-   - Eliminar personas de ventas: 60s
+- Los extremos del vendedor tienen un tiempo de espera de 30 segundos a menos que se indique lo contrario.
+- El tiempo de espera de las personas de ventas de sincronización es de 60 segundos.
+- Eliminar vendedores tiene un tiempo de espera de 60 segundos.

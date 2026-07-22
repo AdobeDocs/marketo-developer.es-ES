@@ -11,13 +11,21 @@ subfeature_v2:
   - id: ad89fb33-8541-4339-afe7-bb13d1633714
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 112
+source-wordcount: 98
 ht-degree: 0%
 
 ---
 
 # Pasos del flujo de autoservicio
 
-Pasos de flujo de autoservicio es un conjunto de funciones que permiten a un integrador implementar una API web que se puede utilizar como paso de flujo en campañas inteligentes de Marketo. Un servicio de pasos de flujo puede recibir posibles clientes y otros datos relacionados, realizar cualquier procesamiento necesario, incluida la invocación de otros servicios web, y escribir posteriormente datos de posibles clientes y de actividad en Marketo mediante una llamada de retorno. La documentación para desarrolladores se encuentra en [GitHub](https://github.com/adobe/Marketo-SSFS-Service-Provider-Interface).
+Los pasos de flujo de autoservicio permiten a un integrador implementar una API web como un paso de flujo en campañas inteligentes de Marketo.
+
+Un servicio de pasos de flujo puede:
+
+- Recibir posible cliente y datos relacionados.
+- Procesar los datos, incluida la llamada a otros servicios web.
+- escribir datos de clientes potenciales y actividades en Marketo mediante una llamada de retorno;
+
+Para obtener más información sobre la implementación, consulte la [documentación para desarrolladores de GitHub](https://github.com/adobe/Marketo-SSFS-Service-Provider-Interface).

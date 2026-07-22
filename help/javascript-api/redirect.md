@@ -15,18 +15,18 @@ topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: cdd65e7e-8839-44a2-bc21-0e03623b5dd1
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 502
-ht-degree: 7%
+source-wordcount: 473
+ht-degree: 8%
 
 ---
 
 # Redirigir
 
-La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas a una dirección URL de destino.
+Utilice la API de redireccionamiento de RTP para enviar audiencias segmentadas a una dirección URL de destino.
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
 ## Uso
@@ -42,7 +42,7 @@ La API de redireccionamiento de RTP permite redirigir las audiencias segmentadas
 | redirect_url | Obligatorio | Cadena | URL de destino para redirigir a los visitantes que cumplieron la condición. |
 | redirect_matched_visitors | Opcional | Booleano | Si el valor es True, se redirigirán los visitantes que cumplan la condición. Si es false, se redirigirá a los visitantes no coincidentes de la condición. Predeterminado: true. |
 
-Organización, Sector, Listas ABM, Ubicación, ISP, Segmentos coincidentes
+Las condiciones de redirección pueden utilizar la organización, el sector, las listas ABM, la ubicación, el ISP o segmentos coincidentes.
 
 | Condición | Jerarquía de datos | Ejemplo |
 | --- | --- | --- |
@@ -59,10 +59,10 @@ Organización, Sector, Listas ABM, Ubicación, ISP, Segmentos coincidentes
 
 ## Notas
 
-- Si la regla/condición de redireccionamiento se basa en Firmographics (empresa, sector, ubicación), puede insertar el código de redireccionamiento antes de rtp(&#39;send&#39;, &#39;view&#39;) y de rtp(&#39;get&#39;,&#39;campaign&#39;) para reducir la latencia.
-- El redireccionamiento a través de JavaScript es un redireccionamiento del lado del navegador y depende de la carga y optimización del sitio web para alcanzar la velocidad máxima.
-- La práctica recomendada es establecer el código de redirección justo después de la etiqueta rtp y colocarlo en el encabezado.
-- Asegúrese de que no está ejecutando una redirección automática (hay una red de seguridad en rtp para bloquear las llamadas de redirección cíclica).
+- Para reducir la latencia de una redirección basada en Firmographics, como compañía, sector o ubicación, inserte el código de redirección antes de rtp(&#39;send&#39;, &#39;view&#39;) y rtp(&#39;get&#39;,&#39;campaign&#39;).
+- Coloque el código de redirección inmediatamente después de la etiqueta rtp en el encabezado de la página.
+- Optimice la carga del sitio web para mejorar la velocidad del redireccionamiento de JavaScript del lado del explorador.
+- Evite las redirecciones automáticas. rtp incluye una protección que bloquea las llamadas de redirección cíclicas.
 
 ```html
 <!DOCTYPE html>
@@ -98,15 +98,15 @@ rtp('get','campaign');
 
 ## Cómo redirigir visitantes rastreados
 
-1. Anexe un parámetro al final de la dirección URL de destino: es decir &lt;www.marketo.com?rtp=redirect>
-1. Cree un segmento llamado: &quot;Redirigido por RTP&quot;
-1. Utilice el parámetro &quot;Páginas específicas&quot; para segmentar los visitantes que vean cualquier página con el parámetro que se muestra a continuación.
+1. Anexe el parámetro a la dirección URL de destino, por ejemplo, &lt;www.marketo.com?rtp=redirect>.
+1. Cree un segmento con el nombre &quot;Redirigido por RTP&quot;.
+1. Utilice el parámetro &quot;Páginas específicas&quot; para segmentar visitantes que vean una página que contenga el parámetro.
 
 ![visitantes-redirigidos-de-seguimiento](assets/tracking-redirected-vistors.png)
 
 ## Definición de más de una condición con distintas direcciones URL de destino
 
-La llamada de redireccionamiento admite varias llamadas. Esto permite redirigir con varios campos y crear condiciones complejas con diferentes direcciones URL y valores.
+La llamada de redireccionamiento admite varias llamadas. Utilice varias llamadas para combinar campos y crear condiciones con distintas direcciones URL y valores.
 
 ### Uso
 

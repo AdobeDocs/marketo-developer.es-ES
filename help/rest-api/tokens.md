@@ -8,10 +8,10 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 364
-ht-degree: 3%
+source-wordcount: 290
+ht-degree: 4%
 
 ---
 
@@ -19,7 +19,9 @@ ht-degree: 3%
 
 [Referencia de extremo de token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 
-Los tokens de Marketo son cadenas especiales similares a los códigos abreviados, que se reemplazan por un fragmento de datos independiente en el tiempo de ejecución. Hay varios tipos de tokens disponibles en Marketo, pero solo Mis tokens se pueden editar mediante la API. Mis tokens son tokens secundarios que son locales de una carpeta o programa en particular. Los tokens se pueden leer, crear y eliminar mediante la API.
+Los tokens son cadenas que Marketo reemplaza con otros datos en tiempo de ejecución. La API solo puede editar Mis tokens, que son tokens secundarios locales de una carpeta o programa.
+
+Utilice la API de tokens para leer, crear, actualizar y eliminar mis tokens.
 
 ## Tipo de datos
 
@@ -34,11 +36,11 @@ Los tokens se pueden crear con los siguientes tipos de datos:
 | campaña de sfdc | Se utiliza en la integración de administración de campañas de Salesforce |
 | texto | Una cadena de texto |
 
-Son los únicos tipos de datos que se pueden utilizar al crear un token mediante API.
+La API solo admite estos tipos de datos al crear un token.
 
 ## Consulta
 
-[Obtener tokens por id. de carpeta](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET) toma un `id` como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo.
+[Obtener tokens por identificador de carpeta](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET) toma el identificador de un programa o carpeta como parámetro de ruta de acceso. Utilice el parámetro `folderType` para especificar el tipo.
 
 ```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -71,7 +73,9 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Crear y actualizar
 
-El extremo [Create Token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST) crea tokens o, si existen, los actualiza con los valores enviados. Los tokens se crean en el contexto de una carpeta o un programa. El parámetro de ruta de acceso `id` requerido es el identificador de la carpeta a la que se asociará el token. `name`, `type`, `value` y `folderType` son todos parámetros obligatorios del token. Los datos se pasan como POST x-www-form-urlencoded, no como JSON. El campo `name` del token no puede superar los 50 caracteres.
+El extremo [Create Token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST) crea un token o actualiza un token existente con los valores enviados. Los tokens pertenecen a una carpeta o programa.
+
+El parámetro de ruta de acceso `id` identifica la carpeta principal. Se requieren los parámetros `name`, `type`, `value` y `folderType`. Pase los datos como POST `x-www-form-urlencoded`, no como JSON. El token `name` no puede superar los 50 caracteres.
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -112,7 +116,9 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Eliminar
 
-[Eliminar token por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST) toma un identificador como parámetro de ruta de acceso de un tipo de programa o carpeta. El parámetro `folderType` especifica este tipo. Los tokens se eliminan en función de su carpeta principal, `name`, y `type` del token, cada uno de los cuales es obligatorio. Los datos se pasan como POST x-www-form-urlencoded, no como JSON.
+[Eliminar token por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST) toma el identificador de un programa o carpeta como parámetro de ruta de acceso. Use `folderType` para especificar el tipo.
+
+Se requiere la carpeta principal, el token `name` y el token `type`. Pase los datos como POST `x-www-form-urlencoded`, no como JSON.
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

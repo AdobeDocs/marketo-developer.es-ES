@@ -10,20 +10,20 @@ feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 228
+source-wordcount: 234
 ht-degree: 0%
 
 ---
 
 # Ejemplos
 
-A continuación, se puede encontrar un conjunto de ejemplos de formularios web demostrativos de Forms 2.0.
+Estos ejemplos muestran flujos de trabajo de formularios web Forms 2.0 comunes.
 
 ## Ocultar formulario tras envío correcto
 
-Este ejemplo no lleva al visitante a la página de seguimiento ni vuelve a cargar la página actual.
+Este ejemplo mantiene al visitante en la página actual después de un envío correcto. No abre la página de seguimiento ni vuelve a cargar la página actual.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -39,7 +39,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Llevar al visitante a la URL definida por el usuario
 
-Este ejemplo lleva al visitante a una dirección URL determinada por JavaScript después del envío correcto, en lugar de a la página de agradecimiento configurada.
+En este ejemplo se envía al visitante a una dirección URL definida en JavaScript después de que el envío se realice correctamente. La URL de JavaScript reemplaza la página de agradecimiento configurada.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -66,7 +66,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Leer valores de campos de formulario al enviar el formulario
 
-En este ejemplo se leen los campos de formulario al enviarlos.
+En este ejemplo se leen los valores de los campos de formulario cuando se envía el formulario.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -84,7 +84,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Enviar formulario en evento de clic que no sea de formulario
 
-En este ejemplo se envía un formulario basado en un evento de clic de otro elemento o evento que no forma parte del formulario.
+En este ejemplo se envía un formulario cuando el visitante selecciona un elemento fuera del formulario.
 
 ```javascript
 // Load the form normally
@@ -102,7 +102,7 @@ btn.onclick = function() {
 
 ## Impedir que un usuario envíe un formulario
 
-Para este ejemplo, debe hacer clic en el botón del contador de clics al menos tres veces antes de que funcione el botón de envío del formulario.
+En este ejemplo, el visitante debe seleccionar el botón del contador de clics al menos tres veces antes de que funcione el botón de envío del formulario.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
@@ -144,7 +144,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Mostrar formulario en LightBox
 
-Este ejemplo muestra el formulario en un cuadro de diálogo de estilo lightbox si la dirección URL contiene un parámetro `lightboxForm=true`.
+Este ejemplo muestra el formulario en un cuadro de diálogo de estilo light box cuando la dirección URL contiene el parámetro `lightboxForm=true`.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
@@ -156,7 +156,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Mostrar mensaje de error personalizado
 
-Este ejemplo muestra un mensaje de error personalizado en el envío basado en la lógica empresarial personalizada.
+En este ejemplo se aplica lógica empresarial personalizada durante el envío y se muestra un mensaje de error personalizado cuando los valores no cumplen la condición requerida.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {

@@ -10,31 +10,33 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 424
-ht-degree: 0%
+source-wordcount: 387
+ht-degree: 1%
 
 ---
 
 # Tokens de paginación
 
-Para recorrer página a página los resultados o recuperar datos actualizados en relación con un dato determinado, Marketo proporciona tokens de paginación.
+Marketo proporciona tokens de paginación para recorrer página a página los resultados o recuperar datos actualizados en relación con una fecha específica.
 
-En algunos casos, se pueden devolver cadenas de token de paginación largas. Esto puede hacer que se encuentre con un código de error HTTP 414. Puede encontrar más información sobre cómo manejar estos [errores](error-codes.md).
+Algunas respuestas devuelven cadenas de token de paginación largas, lo que puede provocar un error HTTP 414. Ver información sobre la administración de estos [errores](error-codes.md).
 
 Consulte la documentación de [API de token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET).
 
 ## Tipos de token
 
-Existen dos tipos de tokens de paginación relacionados, pero distintos, que proporciona Marketo:
+Marketo proporciona dos tipos de tokens de paginación relacionados pero distintos:
 
-- Basado en fecha
-- Basado en puestos
+- Los tokens basados en fechas recuperan registros que se producen después de una fecha y hora especificadas.
+- Los tokens basados en posiciones atraviesan registros en un conjunto de resultados.
 
 ## Basado en fecha
 
-El primero es un token de paginación que representa una fecha. Se utilizan para recuperar actividades, cambios en el valor de los datos y posibles clientes eliminados que se produjeron después de la fecha representada por el token de paginación. Este tipo de token de paginación se genera al llamar al extremo [Obtener token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) y al incluir una fecha y hora.
+Un token de paginación basado en fecha representa una fecha y hora. Utilícelo para recuperar actividades, cambios en el valor de los datos y posibles clientes eliminados que se produzcan después de esa fecha y hora.
+
+Genere un token basado en fecha llamando al extremo [Obtener token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) con una fecha y hora:
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -48,23 +50,25 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-El formato del parámetro `sinceDateTime` debe ajustarse a la notación de fecha estándar [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obtener los mejores resultados, utilice una fecha y hora completa que incluya la zona horaria. La zona horaria se puede representar como un desplazamiento con respecto a la zona GMT mediante el siguiente formato:
+El parámetro `sinceDateTime` debe usar la notación de fecha estándar [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obtener los mejores resultados, proporcione una fecha y hora completa con una zona horaria.
+
+Represente la zona horaria como un desplazamiento con respecto a GMT con el siguiente formato:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
-O usar una &quot;Z&quot; mayúscula como abreviatura para representar UTC como esta:
+Alternativamente, utilice una &quot;Z&quot; mayúscula para representar UTC:
 
 `yyyy-mm-ddThh:mm:ssZ`
 
-Ejemplos
+Por ejemplo:
 
 `2016-09-15T15:53:00+05:00`
 
 `2016-09-15T10:53:00Z`
 
-Como `sinceDateTime` es un parámetro de consulta, debe estar codificado en la dirección URL.
+Dado que `sinceDateTime` es un parámetro de consulta, codifique su valor con URL.
 
-A continuación, se proporciona la cadena `nextPageToken` a una llamada de [Obtener actividades de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET), [Obtener cambios de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) o [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET), y las actividades se recuperan después de la fecha y hora proporcionadas para la API Obtener token de paginación.
+Pase la cadena `nextPageToken` devuelta a una llamada de [Obtener actividades de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET), [Obtener cambios de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) o [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET). La llamada recupera registros que se producen después de la fecha y hora proporcionadas para la API de obtención de token de paginación.
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12
@@ -72,4 +76,8 @@ GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDA
 
 ## Basado en puestos
 
-El segundo tipo de token de paginación se puede devolver mediante cualquier llamada de recuperación por lotes a una API de base de datos de posibles clientes. Este tipo de token de paginación es similar en concepto a un cursor de base de datos que permite el recorrido de registros. Por ejemplo, una llamada Obtener posibles clientes por tipo de filtro puede representar un conjunto mayor que el tamaño de lote dado, normalmente el máximo y el valor predeterminado de 300. Cuando hay más resultados, el campo moreResult es true en la respuesta y se devuelve `nextPageToken`. Para recuperar los registros adicionales en el conjunto de resultados, realice una llamada adicional que incluya `nextPageToken` con el valor recibido de la respuesta anterior en la nueva llamada. La respuesta resultante devolverá la siguiente página del conjunto de resultados.
+Se puede devolver un token de paginación basado en posiciones mediante cualquier llamada de recuperación por lotes a una API de base de datos de posibles clientes. El token funciona como un cursor de base de datos y permite el recorrido de registros.
+
+Por ejemplo, una llamada Obtener posibles clientes por tipo de filtro puede devolver un conjunto de resultados mayor que el tamaño de lote solicitado, que normalmente tiene un valor máximo y predeterminado de 300. Cuando hay más resultados disponibles, la respuesta establece el campo moreResult en true y devuelve un `nextPageToken`.
+
+Para recuperar la página siguiente, realice otra llamada y pase el valor `nextPageToken` de la respuesta anterior. La respuesta devuelve la página siguiente del conjunto de resultados.

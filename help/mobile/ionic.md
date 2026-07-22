@@ -12,32 +12,32 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 663
+source-wordcount: 581
 ht-degree: 2%
 
 ---
 
 # Iónico
 
-En este tema se describe cómo integrar el complemento Marketo Cordova. Actualmente no se admite el condensador [!DNL Ionic].
+Integre el complemento Marketo Cordova con una aplicación [!DNL Ionic]. [!DNL Ionic] El condensador no es compatible actualmente.
 
-## Requisitos previos
+## Prerrequisitos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (obtenga la clave secreta de su aplicación y el ID de Munchkin).
-1. Configurar notificaciones push ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
-1. Instalar [[!DNL Ionic]](https://ionicframework.com/getting-started/) y [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) y obtenga la clave secreta y el Munchkin Id de la aplicación.
+1. Configure notificaciones push para [iOS](push-notifications.md) o [Android](push-notifications.md).
+1. Instale [[!DNL Ionic]](https://ionicframework.com/getting-started/) y [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Instrucciones de instalación
 
 ### Configurar el complemento de Marketo [!DNL Ionic]
 
-1. Si la CLI de Cordova está instalada, vaya al directorio de aplicaciones [!DNL Ionic] y ejecute el siguiente comando para agregar el complemento de Marketo a la aplicación:
+1. Vaya al directorio de aplicaciones [!DNL Ionic] y ejecute el siguiente comando para agregar el complemento de Marketo:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
-1. Para confirmar que el complemento se ha agregado a la aplicación, ejecute el siguiente comando:
+1. Ejecute el siguiente comando para confirmar que se ha agregado el complemento:
 
    `$ ionic plugin list com.marketo.plugin 0.X.0 "MarketoPlugin"`
 
@@ -47,7 +47,7 @@ En este tema se describe cómo integrar el complemento Marketo Cordova. Actualme
 
    `$ ionic plugin remove com.marketo.plugin`
 
-1. Para leer el complemento, ejecute el siguiente comando:
+1. Para volver a agregar el complemento, ejecute el siguiente comando:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -81,9 +81,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Inicializar Marketo Framework
 
-Para asegurarse de que el marco de trabajo de Marketo se inicia al iniciar la aplicación, agregue el siguiente código en la función `onDeviceReady` de su archivo JavaScript principal.
+Para inicializar el marco de Marketo cuando se inicie la aplicación, agregue el siguiente código en la función `onDeviceReady` del archivo JavaScript principal.
 
-Debe pasar `ionicCordova` como tipo de módulo para [!DNL Ionic] aplicaciones Cordova.
+Pase `ionicCordova` como el tipo de módulo para [!DNL Ionic] aplicaciones Cordova.
 
 #### Sintaxis
 
@@ -106,14 +106,14 @@ marketo.onStart(
 
 #### Parámetros
 
-- Llamada de retorno de éxito : función que se ejecuta si el marco de trabajo de Marketo se inicializa correctamente.
-- Callback Failure : función que se ejecuta si el marco de trabajo de Marketo no se puede inicializar.
-- MUNCHKIN ID : Munchkin ID recibido desde Marketo en el momento del registro.
-- CLAVE SECRETA: Clave secreta recibida de Marketo en el momento del registro.
+- Llamada de retorno de éxito: función que se ejecuta si el marco de trabajo de Marketo se inicializa correctamente.
+- Llamada de retorno de error: función que se ejecuta si el marco de trabajo de Marketo no se inicializa.
+- MUNCHKIN ID: Munchkin ID recibido de Marketo durante el registro.
+- CLAVE SECRETA: Clave secreta recibida de Marketo durante el registro.
 
 ### Inicializar notificación push de Marketo
 
-Para asegurarse de que se inicia la notificación push de Marketo, agregue el siguiente código después de la función inicializada en el archivo JavaScript principal.
+Para inicializar las notificaciones push de Marketo, agregue el siguiente código después de la función initialize en el archivo JavaScript principal.
 
 #### Sintaxis
 
@@ -128,11 +128,11 @@ marketo.initializeMarketoPush(
 
 #### Parámetros
 
-- Llamada de retorno de éxito : función que se ejecuta si la notificación push de Marketo se inicializa correctamente.
-- Función de devolución de llamada de error : que se ejecuta si la notificación push de Marketo no se inicializa.
-- GCM_PROJECT_ID : Se encontró el ID del proyecto GCM en [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) después de crear la aplicación.
+- Llamada de retorno de éxito: la función se ejecutará si la notificación push de Marketo se inicializa correctamente.
+- Callback por error: función que se ejecuta si la notificación push de Marketo no se puede inicializar.
+- GCM_PROJECT_ID: Se encontró el ID del proyecto GCM en [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) después de crear la aplicación.
 
-También se puede anular el registro del token al cerrar la sesión.
+También puede anular el registro del token al cerrar la sesión.
 
 ```javascript
 marketo.uninitializeMarketoPush(
@@ -143,7 +143,7 @@ marketo.uninitializeMarketoPush(
 
 ## Asociar posible cliente
 
-Puede crear un posible cliente de Marketo llamando a la función associatedLead.
+Llame a la función associatedLead para crear un posible cliente de Marketo.
 
 ### Sintaxis
 
@@ -158,7 +158,7 @@ marketo.associateLead(
 ### Parámetros
 
 - Llamada de retorno de éxito: función que se ejecuta si el marco de trabajo de Marketo asocia correctamente al posible cliente.
-- Función de devolución de llamada de error : que se ejecuta si el marco de trabajo de Marketo no puede asociar el posible cliente.
+- Llamada de retorno de error: función que se ejecuta si el marco de trabajo de Marketo no asocia el posible cliente.
 - Datos de posibles clientes: datos de posibles clientes en formato de cadena JSON.
 
 ### Ejemplo
@@ -186,7 +186,7 @@ marketo.associateLead(
 
 ## Acción de informe
 
-Puede informar de cualquier acción realizada por un usuario llamando a la función `reportaction`.
+Llame a la función `reportaction` para informar de una acción del usuario.
 
 ### Sintaxis
 
@@ -201,9 +201,9 @@ marketo.reportaction(
 
 ### Parámetros
 
-- Llamada de retorno de éxito : función que se ejecuta si el marco de trabajo de Marketo informa de la acción correctamente.
-- Callback Failure : función que se ejecuta si el marco de trabajo de Marketo no informa de la acción.
-- Nombre de la acción: nombre de la acción.
+- Llamada de retorno de éxito: función que se ejecuta si el marco de trabajo de Marketo informa de la acción correctamente.
+- Llamada de retorno de error: función que se ejecuta si el marco de trabajo de Marketo no informa de la acción.
+- Nombre de la acción: Nombre de la acción.
 - Datos de acción: datos de acción en formato de cadena JSON.
 
 ### Ejemplo
@@ -227,7 +227,7 @@ marketo.reportaction(
 
 ## Informes de sesión
 
-Enlace los tipos de evento de &quot;pausa&quot; y &quot;reanudación&quot; como se muestra a continuación a los eventos de inicio y parada del informe. Se utiliza para rastrear el tiempo empleado en la aplicación móvil. Nota: Esto es obligatorio en Android.
+Enlace los tipos de evento de &quot;pausa&quot; y &quot;reanudación&quot; a los eventos de inicio y parada del informe. Estos eventos rastrean el tiempo empleado en la aplicación móvil y son necesarios en Android.
 
 ```javascript
 //Add the following code in your www/js/index.js
@@ -258,6 +258,9 @@ Existen tres formas de crear posibles clientes a partir de una aplicación híbr
 1. API DE REST DE MARKETO
 1. Envío de formulario
 
-Según el método utilizado, distintos déclencheur y filtros reconocen un posible cliente recién creado. Los posibles clientes creados con la API de MME SDK o REST aparecen en los déclencheur y filtros &quot;Posible cliente creado&quot;. Los posibles clientes creados por los envíos de formularios aparecen en los déclencheur y filtros &quot;Rellena el formulario&quot;.
+Los déclencheur que identifican un posible cliente nuevo dependen del método de creación:
 
-La práctica recomendada es mantener la coherencia con el método utilizado por la aplicación web al crear posibles clientes. Si ya tiene una aplicación web que utiliza el envío de formularios como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. Si ya tiene una aplicación web que utiliza nuestra API de REST como mecanismo para crear posibles clientes, utilice el mismo mecanismo al crear posibles clientes en la aplicación híbrida. En los casos en los que no utilice ni el envío de formularios ni la API de REST como mecanismo para crear posibles clientes en la aplicación web, puede considerar la posibilidad de utilizar MME SDK para crear posibles clientes en Marketo.
+- Los posibles clientes creados con la API de MME SDK o REST aparecen en los déclencheur y filtros &quot;Posible cliente creado&quot;.
+- Los posibles clientes creados por el envío de formularios aparecen en los déclencheur y filtros &quot;Rellena el formulario&quot;.
+
+Utilice el mismo método de creación de posibles clientes en la aplicación híbrida y en la aplicación web. Si la aplicación web utiliza el envío de formularios o la API de REST, utilice ese método en la aplicación híbrida. Si la aplicación web no utiliza ninguno de estos métodos, considere la posibilidad de utilizar MME SDK para crear posibles clientes en Marketo.

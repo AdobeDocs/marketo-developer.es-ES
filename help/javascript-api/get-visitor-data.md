@@ -15,21 +15,21 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 223
+source-wordcount: 214
 ht-degree: 4%
 
 ---
 
 # Obtener datos del visitante
 
-Este método se utiliza para obtener datos de identificación de visitantes en tiempo real.
+Utilice este método para obtener datos de identificación del visitante en tiempo real.
 
-- Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+- Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 - RTP no admite listas de cuentas con nombre de marketing basado en cuentas. Las listas ABM y el código solo pertenecen a las listas de cuentas cargadas (archivos CSV) administradas dentro de RTP.
 
-Si se produce un error, aparecerá un mensaje de error como parte de la respuesta JSON. Si devuelve un código 500, póngase en contacto con el servicio de asistencia técnica con la solicitud que ha realizado.
+Si se produce un error, el JSON de respuesta incluye un mensaje de error. Si la API devuelve un código 500, póngase en contacto con el servicio de asistencia y proporcione la solicitud que provocó el error.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ Si se produce un error, aparecerá un mensaje de error como parte de la respuest
 
 ## Ejemplos
 
-Obtener datos de identificación del visitante:
+El ejemplo siguiente obtiene datos de identificación del visitante.
 
 ```javascript
 function callbackFunction() {
@@ -50,7 +50,7 @@ rtp('get', 'visitor', callbackFunction);
 
 Respuesta con coincidencia de segmentos:
 
-A continuación se muestra una respuesta de ejemplo que se devuelve en caso de que el visitante coincida con segmentos en tiempo real antes de la llamada a la API de obtención de datos del visitante.
+La siguiente respuesta incluye `matchedSegments` porque el visitante coincidió con los segmentos en tiempo real antes de la llamada a la API Obtener datos del visitante.
 
 ```json
 {
@@ -88,7 +88,7 @@ A continuación se muestra una respuesta de ejemplo que se devuelve en caso de q
 
 Respuesta sin coincidencia de segmentos:
 
-A continuación se muestra una respuesta de ejemplo que se devuelve en caso de que el visitante no coincidiera con ningún segmento en tiempo real antes de la llamada a la API de obtención de datos del visitante.
+La siguiente respuesta no incluye `matchedSegments` porque el visitante no coincidió con ningún segmento en tiempo real antes de la llamada a la API Obtener datos del visitante.
 
 ```json
 {

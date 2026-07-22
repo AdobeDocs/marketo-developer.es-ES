@@ -10,37 +10,41 @@ feature_v2:
   - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 420
+source-wordcount: 363
 ht-degree: 1%
 
 ---
 
 # Activación de vínculos profundos
 
-La vinculación profunda le permite redirigir a las personas a contenido específico (recursos) dentro de la aplicación. Por ejemplo, cuando una persona hace clic en un mensaje push de un móvil que anuncia una camiseta morada, puede abrir la aplicación directamente al contenido de la camiseta morada (en lugar de a la página principal).
+La vinculación profunda dirige a las personas a contenido específico en la aplicación. Por ejemplo, cuando una persona selecciona un mensaje push para móvil que anuncia una camiseta morada, la aplicación puede abrir el contenido de la camiseta morada en lugar de la página de inicio.
 
 El proceso funciona de esta manera:
 
-1. El usuario de Marketo coloca un URI personalizado en la acción táctil para su mensaje push.
+1. Un usuario de Marketo coloca un URI personalizado en Acción táctil para un mensaje push.
 1. Cuando una persona pulse el mensaje push en su dispositivo, Marketo ME SDK activará un evento con el URI personalizado.
-1. A continuación, la aplicación procesa el evento y redirige a la persona al contenido adecuado en la aplicación.
+1. La aplicación procesa el evento y dirige a la persona al contenido correspondiente.
 
-Esto requiere definir una estructura de URI personalizada para la aplicación, registrar el esquema en el manifiesto de la aplicación y, a continuación, agregar código para procesar eventos de vínculos profundos y enrutar a la ubicación adecuada en la aplicación.
+Para habilitar este proceso:
+
+1. Defina una estructura de URI personalizada para su aplicación.
+1. Registre el esquema en el manifiesto de la aplicación.
+1. Agregue código que procese eventos de vínculos profundos y dirija a las personas al contenido correspondiente.
 
 Para iOS, consulte la documentación de Apple sobre [Definición de un esquema de URL personalizado para su aplicación](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
 Para Android, consulte la documentación de Google sobre [Habilitar vínculos profundos para el contenido de la aplicación](https://developer.android.com/training/app-links/deep-linking).
 
-En el caso de las aplicaciones de PhoneGap, la vinculación profunda no es tan directa como con las aplicaciones nativas de iOS o Android, pero hay complementos que permiten a la aplicación híbrida responder a esquemas de URL personalizados de vinculación profunda y vínculos universales y de aplicación tanto en iOS como en Android. Considera [estos complementos](https://cordova.apache.org/plugins/?q=deeplink).
+En el caso de las aplicaciones de PhoneGap, utilice un complemento para permitir que la aplicación híbrida responda a esquemas de URL personalizados y vínculos universales y de aplicación en iOS y Android. Ver los [complementos de vinculación profunda](https://cordova.apache.org/plugins/?q=deeplink) disponibles.
 
 Cuando haya habilitado la vinculación profunda en la aplicación, comparta los URI personalizados con los usuarios de Marketo para que puedan insertarlos en la Acción táctil para los mensajes push.
 
-Marketo utiliza una estructura URI predefinida al configurar dispositivos de prueba. Consulte la sección &quot;Dispositivos de prueba&quot; de la [Guía de instalación](installation.md) para obtener más información.
+Marketo utiliza una estructura URI predefinida al configurar dispositivos de prueba. Para obtener más información, consulte &quot;Dispositivos de prueba&quot; en la [Guía de instalación](installation.md).
 
 ## Prácticas recomendadas para definir una estructura de URI
 
-Si la marca tiene un sitio móvil existente, se recomienda seguir también su estructura de URL para el URI de vínculo profundo. Por ejemplo, si `https://myappname.com/products/purple-shirt` es la dirección de su sitio web para el producto en cuestión, `myappname://products/purple-shirt` sería una buena estructura de URI de vínculo profundo para usar en su aplicación.
+Si la marca tiene un sitio móvil, siga su estructura URL cuando defina el URI de vínculo profundo. Por ejemplo, si la dirección URL del producto es `https://myappname.com/products/purple-shirt`, use `myappname://products/purple-shirt` como URI de vínculo profundo correspondiente.
 
-Por lo general, los esquemas deben ser exclusivos de la marca. Aunque actualmente no hay regulaciones para hacer que los esquemas sean únicos en todo el mundo, una manera de garantizar que los esquemas sean únicos es invertir el nombre de dominio (por ejemplo, `org.companyname`).
+Utilice un esquema único para su marca. Aunque ninguna regulación requiere que los esquemas sean únicos a nivel global, puede ayudar a crear un esquema único invirtiendo su nombre de dominio, como `org.companyname`.

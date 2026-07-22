@@ -3,9 +3,9 @@ title: Plantillas de correo electrónico
 feature: REST API
 description: Utilice la API de REST de Marketo Asset para consultar, crear, actualizar, clonar, eliminar, aprobar e inspeccionar las dependencias de las plantillas de correo electrónico.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '292'
+source-wordcount: '307'
 ht-degree: 9%
 
 ---
@@ -63,9 +63,18 @@ GET /rest/asset/v2/emailtemplate/{id}
 
 ### Filtro
 
-El punto final del filtro admite la búsqueda dentro de un espacio de trabajo y reduce los resultados con parámetros de consulta adicionales. Se requiere `workspaceId`.
+El extremo del filtro busca dentro de un espacio de trabajo. El parámetro `workspaceId` es obligatorio.
 
-Los filtros admitidos son `folderId`, `folderIds` repetido, `status` repetido, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable` y `includeArchived`.
+Utilice estos parámetros opcionales para reducir u organizar los resultados:
+
+- Carpeta: `folderId` o `folderIds` repetida
+- Estado: repetido `status`
+- Paginación: `pageIndex` y `pageSize`
+- Creación: `createdBy`, `createdAtStart`, `createdAtEnd` y `isCreatedByMe`
+- Modificación: `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd` y `isModifiedByMe`
+- Propiedades de plantilla: `name`, `scriptEngine` y `isValueNonNullable`
+- Ordenando: `sortKey` y `sortOrder`
+- Contenido archivado: `includeArchived`
 
 #### Solicitud
 

@@ -17,39 +17,40 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: cc72dcf1-72e1-48cc-b434-e7c27d62d67c
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 2475
-ht-degree: 3%
+source-wordcount: 2255
+ht-degree: 4%
 
 ---
 
 # Códigos de error
 
-A continuación se muestran listas de códigos de error de API de REST y una explicación de cómo se devuelven los errores a las aplicaciones.
+Las API de REST de Marketo devuelven errores en el nivel HTTP, de respuesta o de registro. Esta página explica cada tipo de error y enumera los códigos de error asociados.
 
 ## Gestión y registro de excepciones
 
-Al desarrollar para Marketo, es importante que las solicitudes y respuestas se registren cuando se encuentre una excepción inesperada. Aunque algunos tipos de excepciones, como la autenticación caducada, se pueden controlar de forma segura mediante la reautenticación, otros pueden requerir interacciones de soporte, y las solicitudes y respuestas siempre se solicitarán en este escenario.
+Registre solicitudes y respuestas cuando la integración encuentre una excepción inesperada. Algunas excepciones, como la autenticación caducada, se pueden controlar volviendo a autenticarse. Otras excepciones pueden requerir la asistencia del Soporte, que solicitará la solicitud y los detalles de respuesta asociados.
 
 ## Tipos de error
 
-La API de REST de Marketo puede devolver tres tipos diferentes de errores en funcionamiento normal:
+La API de REST de Marketo puede devolver tres tipos de errores durante el funcionamiento normal:
 
-* Nivel HTTP: estos errores se indican mediante un código `4xx`.
-* Response-Level: estos errores se incluyen en la matriz &quot;errors&quot; de la respuesta JSON.
-* Nivel de registro: estos errores se incluyen en la matriz &quot;result&quot; de la respuesta JSON y se indican en un registro individual con el campo &quot;estado&quot; y la matriz &quot;motivos&quot;.
+- **Nivel HTTP:** indicado por un código `4xx`.
+- **Nivel de respuesta:** Incluido en la matriz de &quot;errores&quot; de la respuesta JSON.
+- **Nivel de registro:** Incluido en la matriz &quot;result&quot; de la respuesta JSON e indicado para cada registro por el campo &quot;status&quot; y la matriz &quot;reason&quot;.
 
-Para los tipos de error de nivel de respuesta y nivel de registro, se devuelve un código de estado HTTP de 200. Para todos los tipos de error, la frase de motivo HTTP no debe evaluarse porque es opcional y está sujeta a cambios.
+Los errores de nivel de respuesta y nivel de registro devuelven el código de estado HTTP 200. Para todos los tipos de error, no evalúe la frase de motivo HTTP porque es opcional y está sujeta a cambios.
 
 ### Errores de nivel HTTP
 
-En circunstancias normales de funcionamiento, Marketo solo debería devolver dos errores de código de estado HTTP, `413 Request Entity Too Large` y `414 Request URI Too Long`. Ambos se pueden recuperar detectando el error, modificando la solicitud y reintentando, pero con las prácticas de codificación inteligente, nunca debe encontrarlos en el comodín.
+Durante el funcionamiento normal, Marketo devuelve dos errores de código de estado HTTP: `413 Request Entity Too Large` y `414 Request URI Too Long`. Para recuperarse de cualquier error, modifique la solicitud y vuelva a intentarlo. Puede evitar estos errores comprobando el tamaño de las solicitudes antes del envío.
 
-Marketo devolverá 413 si la carga de la solicitud supera 1 MB o 10 MB en el caso de la importación de posible cliente. En la mayoría de los casos, es poco probable que se alcancen estos límites, pero añadir una comprobación al tamaño de la solicitud y mover cualquier registro, lo que provoca que se supere el límite a una nueva solicitud, debe evitar cualquier circunstancia, que lleve a que este error sea devuelto por cualquier extremo.
+Marketo devuelve 413 cuando la carga útil de la solicitud supera 1 MB o 10 MB para el posible cliente de importación. Compruebe el tamaño de la solicitud antes del envío. Si los registros hacen que la solicitud supere el límite, mueva esos registros a otra solicitud.
 
-414 se devolverá cuando el URI de una solicitud de GET exceda de 8 KB. Para evitarlo, compare la longitud de la cadena de consulta para ver si supera este límite. Si cambia la solicitud a un método POST, escriba la cadena de consulta como el cuerpo de la solicitud con el parámetro adicional `_method=GET`. Esto renuncia a la limitación de URI. Es raro alcanzar este límite en la mayoría de los casos, pero es algo común cuando se recuperan grandes lotes de registros con valores de filtro individuales largos, como un GUID.
-El extremo [Identity](https://developer.adobe.com/marketo-apis/api/identity/) puede devolver un error 401 Unauthorized. Esto suele deberse a un ID de cliente no válido o a un secreto de cliente no válido. Códigos de error de nivel HTTP
+Marketo devuelve 414 cuando el URI de una solicitud GET supera los 8 KB. Compruebe la longitud de la cadena de consulta antes del envío. Si supera el límite, cambie el método de solicitud a POST, coloque la cadena de consulta en el cuerpo de la solicitud y agregue el parámetro `_method=GET`. Los URI largos son más comunes cuando se recuperan lotes de registros grandes con valores de filtro largos, como un GUID.
+
+El extremo [Identity](https://developer.adobe.com/marketo-apis/api/identity/) puede devolver un error 401 Unauthorized, normalmente porque el ID de cliente o el secreto de cliente no son válidos. En la tabla siguiente se enumeran los códigos de error de nivel HTTP.
 
 <table>
   <thead>
@@ -75,7 +76,7 @@ El extremo [Identity](https://developer.adobe.com/marketo-apis/api/identity/) pu
 
 #### Errores de nivel de respuesta
 
-Los errores de nivel de respuesta están presentes cuando el parámetro `success` de la respuesta se establece en false y están estructurados de la siguiente manera:
+Los errores de nivel de respuesta se producen cuando la respuesta establece el parámetro `success` en False. Utilizan la siguiente estructura:
 
 ```json
 {
@@ -90,7 +91,14 @@ Los errores de nivel de respuesta están presentes cuando el parámetro `success
 }
 ```
 
-Cada objeto de la matriz &quot;errors&quot; tiene dos miembros, `code`, que es un entero entre comillas comprendido entre 601 y 799 y un `message` que indica el motivo del error en texto sin formato. Los códigos 6xx siempre indican que una solicitud ha fallado completamente y no se ha ejecutado. Un ejemplo es un 601, &quot;Token de acceso no válido&quot;, que se puede recuperar volviendo a autenticar y pasando el nuevo token de acceso con la solicitud. Los errores 7xx indican que la solicitud falló, ya sea porque no se devolvieron datos o porque se parametrizó incorrectamente la solicitud, como incluir una fecha no válida o faltar un parámetro requerido.
+Cada objeto de la matriz &quot;errors&quot; contiene dos miembros:
+
+- `code`: un entero entre 601 y 799.
+- `message`: el motivo de texto sin formato del error.
+
+Un código 6xx indica que se produjo un error en toda la solicitud y que no se ejecutó. Por ejemplo, para recuperarse de un error 601 &quot;Token de acceso no válido&quot;, vuelva a autenticarse y pase el nuevo token de acceso con la solicitud.
+
+Un código 7xx indica que la solicitud falló porque no se devolvieron datos o porque los parámetros de la solicitud no eran válidos. Las causas incluyen una fecha no válida o la falta de un parámetro requerido.
 
 #### Códigos de error de nivel de respuesta
 
@@ -271,7 +279,7 @@ Cada objeto de la matriz &quot;errors&quot; tiene dos miembros, `code`, que es u
 
 ### Nivel de registro {#record_level_errors}
 
-Los errores de nivel de registro indican que no se pudo completar una operación para un registro individual, pero la solicitud en sí era válida. Una respuesta con errores en el nivel de registro sigue este patrón:
+Los errores de nivel de registro indican que la solicitud era válida, pero no se pudo completar la operación para un registro individual. Una respuesta con errores de nivel de registro sigue este patrón:
 
 #### Respuesta
 
@@ -301,8 +309,11 @@ Los errores de nivel de registro indican que no se pudo completar una operación
 }
 ```
 
-Los registros incluidos en la matriz de llamadas de resultado se ordenan del mismo modo que la matriz de entrada de una solicitud.
-Cada registro de una solicitud correcta puede tener éxito o fallar de forma individual, lo que se indica mediante el campo de estado de cada registro incluido en la matriz de resultados de una respuesta. El campo &quot;estado&quot; de estos registros se &quot;omitirá&quot; y aparecerá una matriz &quot;motivos&quot;. Cada motivo contiene un miembro &quot;code&quot; y un miembro &quot;message&quot;. El código siempre es 1xxx y el mensaje indica por qué se omitió el registro. Un ejemplo sería cuando una solicitud de Sync Leads tiene &quot;action&quot; establecida en &quot;createOnly&quot; pero ya existe un posible cliente para una de las claves de los registros enviados. Este caso devuelve un código de 1005 y un mensaje de &quot;El posible cliente ya existe&quot; como se muestra arriba.
+Los registros de la matriz de resultados aparecen en el mismo orden que los registros de la matriz de entrada de solicitud. Cada registro puede tener éxito o fallar de forma independiente, tal como indica su campo de estado.
+
+Para un registro fallido, el campo &quot;estado&quot; es &quot;omitido&quot; y el registro incluye una matriz &quot;motivos&quot;. Cada motivo contiene un miembro &quot;code&quot; y un miembro &quot;message&quot;. El código siempre es 1xxx y el mensaje explica por qué se omitió el registro.
+
+Por ejemplo, si una solicitud de posible cliente de sincronización establece &quot;action&quot; en &quot;createOnly&quot; y ya existe un posible cliente para una de las claves enviadas, la respuesta devuelve el código 1005 y el mensaje &quot;El posible cliente ya existe&quot;, como se muestra arriba.
 
 #### Códigos de error de nivel de registro
 

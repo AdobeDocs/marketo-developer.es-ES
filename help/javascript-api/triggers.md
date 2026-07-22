@@ -14,16 +14,16 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 116
+source-wordcount: 117
 ht-degree: 8%
 
 ---
 
 # Activadores
 
-Agrega la capacidad a las funciones de déclencheur en cierto estado del objeto rtp global.
+Déclencheur ejecuta funciones cuando el objeto `rtp` global alcanza un estado especificado.
 
 Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 
@@ -38,7 +38,7 @@ Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](h
 
 ### Déclencheur Listo para Contexto de Usuario
 
-Establece una variable personalizada basada en la ubicación del usuario. Se llama a esta función cuando el objeto global &quot;rtpUserContext&quot; está listo.
+El déclencheur `userContextReady` llama a una función cuando el objeto `rtpUserContext` global está listo. En el siguiente ejemplo se establece una variable personalizada basada en la ubicación del usuario.
 
 ```javascript
 rtp('userContextReady', function() {

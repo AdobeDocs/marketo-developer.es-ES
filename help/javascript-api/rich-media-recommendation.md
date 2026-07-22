@@ -10,58 +10,58 @@ feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 854
-ht-degree: 3%
+source-wordcount: 814
+ht-degree: 4%
 
 ---
 
 # Recomendación de medios enriquecidos
 
-Las siguientes etiquetas y llamadas de API deben configurarse en la página que desea que muestre la plantilla Recomendación de medios enriquecidos.
+Para mostrar una plantilla de Recomendación de medios enriquecidos, agregue las etiquetas y llamadas de API necesarias a la página.
 
-1. En el encabezado de la página
-   1. Tener instalada la etiqueta RTP
-   1. Añada la llamada de GET a la página para rellenar las recomendaciones.
-   1. Añada la llamada SET para configurar la plantilla
-1. En el cuerpo de la página
-   1. Coloque la etiqueta de plantilla (clase div) en la ubicación donde desee que aparezca la plantilla
+1. En el encabezado de la página:
+   1. Instale la etiqueta RTP.
+   1. Añada la llamada GET que rellena las recomendaciones.
+   1. Añada la llamada SET que configura la plantilla.
+1. En el cuerpo de la página:
+   1. Coloque la etiqueta de plantilla (clase div) donde desee que aparezca la plantilla.
 
-Encontrará más información [aquí](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Para obtener más información, consulte [Habilitar contenido predictivo para medios enriquecidos en web](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Etiqueta de plantilla
 
 | Atributo | Opcional/Requerida | Descripción |
 | --- | --- | --- |
-| clase | Obligatorio | Especifique que este elemento de HTML de div es un div de recomendación RTP. |
-| data-rtp-template-id | Obligatorio | ID de la plantilla. Esto determina la alineación de la recomendación. Utilice &quot;template1&quot; para la alineación horizontal, &quot;template2&quot; para la alineación vertical o &quot;template3&quot; para la alineación vertical que incluya únicamente el título y la descripción. El script inserta la plantilla coincidente en estos `div.Permissible` valores: template1, template2, template3. |
+| clase | Obligatorio | Identifica el elemento HTML de div como un div de recomendación RTP. |
+| data-rtp-template-id | Obligatorio | Determina la alineación de la recomendación. Utilice &quot;template1&quot; para la alineación horizontal, &quot;template2&quot; para la alineación vertical o &quot;template3&quot; para la alineación vertical con solo un título y una descripción. El script inserta la plantilla coincidente en este(a) `div`. Valores permitidos: template1, template2, template3. |
 
 ### Ejemplos
 
-Para mostrar las recomendaciones en alineación horizontal, utilice &quot;template1&quot;.
+Utilice &quot;template1&quot; para mostrar las recomendaciones horizontalmente.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template1"></div>
 ```
 
-Para mostrar las recomendaciones en alineación vertical, utilice &quot;template2&quot;.
+Utilice &quot;template2&quot; para mostrar las recomendaciones verticalmente.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template2"></div>
 ```
 
-Para mostrar las recomendaciones en alineación vertical solo con título y descripción, utilice &quot;template3&quot;.
+Utilice &quot;template3&quot; para mostrar las recomendaciones verticalmente con solo un título y una descripción.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Vea capturas de pantalla de las alineaciones de plantilla [aquí](#example_of_rich_media_recommendation_template_1).
+Vea los [ejemplos de alineación de plantilla](#example_of_rich_media_recommendation_template_1).
 
 ## Rellenar recomendación
 
-Este método rellena todos los medios enriquecidos `<divs>` de la página con recomendaciones.
+Este método rellena todos los medios enriquecidos `<divs>` en la página con recomendaciones.
 
 ### Uso
 
@@ -75,9 +75,9 @@ Este método rellena todos los medios enriquecidos `<divs>` de la página con re
 
 ## Cambiar configuración de plantilla
 
-Este método cambia la configuración predeterminada de la plantilla.
+Este método cambia la configuración de plantilla predeterminada.
 
-Nota: Cuando se utiliza este método, se debe llamar antes de llamar a rtp(&#39;get&#39;,&#39;rcmd&#39;, &#39;richmedia&#39;);
+Llame a este método antes de llamar a rtp(&#39;get&#39;,&#39;rcmd&#39;, &#39;richmedia&#39;);
 
 ### Uso
 
@@ -93,7 +93,7 @@ Nota: Cuando se utiliza este método, se debe llamar antes de llamar a rtp(&#39;
 
 ### Ejemplos
 
-Este fragmento de código cambia el texto del título de una plantilla.
+En este ejemplo se cambia el texto del título de una plantilla.
 
 ```javascript
 rtp("set", "rcmd", "richmedia","template1",
@@ -103,7 +103,7 @@ rtp("set", "rcmd", "richmedia","template1",
 );
 ```
 
-Este fragmento de código muestra la definición de categorías con varias configuraciones para una plantilla.
+En este ejemplo se establecen categorías y varias propiedades de configuración para una plantilla.
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -124,9 +124,11 @@ rtp("set", "rcmd", "richmedia",
 );
 ```
 
-NOTA: Utilice &quot;category&quot; para filtrar el contenido que se muestra en el resultado de las recomendaciones de contenido predictivo. Para aplicar contenido predictivo a todos los fragmentos de contenido habilitados, deje vacía la &quot;categoría&quot;. Si desea recomendar solo contenido específico para la salida en la plantilla de medios enriquecidos, agregue una categoría para el contenido en la página Definir contenido y asocie esa categoría dentro del código de plantilla de recomendación. Categorizar el contenido relevante según las secciones del sitio web (productos o soluciones).
+Utilice &quot;category&quot; para filtrar el contenido mostrado en las recomendaciones de contenido predictivo. Para utilizar contenido predictivo para todo el contenido habilitado, deje vacío &quot;categoría&quot;.
 
-Este fragmento de código muestra la configuración de varias plantillas para una plantilla.
+Para recomendar solo contenido específico en la plantilla Medios enriquecidos, agregue una categoría para el contenido en la página Definir contenido. A continuación, asocie esa categoría con el código de plantilla de recomendación. Por ejemplo, categorice el contenido relevante por las secciones de productos o soluciones del sitio web.
+
+En este ejemplo se establecen varias propiedades de configuración para una plantilla.
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -156,11 +158,11 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Cambia el texto del botón. El texto es el mismo para todos los botones. |
 | categoría | &quot;categoría&quot; : [&quot;una categoría&quot;] | Cambia la categoría de recomendación que admite esta plantilla. La plantilla solo muestra las recomendaciones con una de las categorías establecidas por esta configuración. |
 
-Nota: La compatibilidad con la configuración puede cambiar por plantilla.
+La compatibilidad con la configuración puede variar según la plantilla.
 
 #### Ejemplo básico
 
-Este ejemplo tiene una plantilla con tres recomendaciones. Copie este ejemplo en una página de HTML y, a continuación, reemplace la etiqueta RTP por la etiqueta.
+Este ejemplo muestra tres recomendaciones en una plantilla. Copie el ejemplo en una página de HTML y, a continuación, reemplace la etiqueta RTP por la etiqueta.
 
 ```html
 <!DOCTYPE>
@@ -192,7 +194,7 @@ rtp('get','rcmd', 'richmedia');
 
 #### Ejemplo avanzado
 
-Este ejemplo tiene una plantilla con tres recomendaciones. El título de la plantilla es &quot;CONTENIDO RECOMENDADO&quot; y el texto del botón será &quot;Más información&quot;. Copie este ejemplo en una página de HTML y, a continuación, reemplace la etiqueta RTP por la etiqueta.
+Este ejemplo muestra tres recomendaciones en una plantilla. El título de la plantilla es &quot;CONTENIDO RECOMENDADO&quot; y el texto del botón es &quot;Más información&quot;. Copie el ejemplo en una página de HTML y, a continuación, reemplace la etiqueta RTP por la etiqueta.
 
 ```html
 <!DOCTYPE>
@@ -236,16 +238,24 @@ rtp('get','rcmd', 'richmedia');
 
 #### Ejemplo de #1 de plantilla de recomendación de medios enriquecidos
 
-**Nombre**: plantilla1 **Descripción**: contenido horizontal que incluye imagen, título, descripción y botón de call to action.
+**Nombre**: plantilla1
+
+**Descripción**: contenido horizontal que incluye una imagen, un título, una descripción y un botón de call-to-action.
 
 ![Plantilla de medios enriquecidos](assets/rich-media-template1.png)
 
 #### Ejemplo de #2 de plantilla de recomendación de medios enriquecidos
 
-**Nombre**: plantilla2 **Descripción**: contenido vertical que incluye imagen, título, descripción y botón de call to action.
+**Nombre**: plantilla2
+
+**Descripción**: contenido vertical que incluye una imagen, título, descripción y botón de call-to-action.
 
 ![Plantilla de medios enriquecidos](assets/rich-media-template2.png)
 
 #### Ejemplo de #3 de plantilla de recomendación de medios enriquecidos
 
-**Nombre**: plantilla3 **Descripción**: contenido vertical que solo incluye título y descripción. Al pasar el ratón por encima, el encabezado cambia de color y aparece un hipervínculo a la dirección URL de contenido. La descripción también vincula al contenido sin cambiar el color. ![Plantilla de medios enriquecidos](assets/rich-media-template3.png)
+**Nombre**: plantilla3
+
+**Descripción**: contenido vertical que incluye solamente un título y una descripción. Al pasar el ratón por encima, el encabezado cambia de color y establece vínculos a la dirección URL de contenido. La descripción también se vincula al contenido sin cambiar el color.
+
+![Plantilla de medios enriquecidos](assets/rich-media-template3.png)

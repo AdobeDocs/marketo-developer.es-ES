@@ -13,10 +13,10 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 512
-ht-degree: 2%
+source-wordcount: 386
+ht-degree: 3%
 
 ---
 
@@ -24,11 +24,11 @@ ht-degree: 2%
 
 [Referencia de extremo de fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets)
 
-Los fragmentos de código son componentes de HTML reutilizables que se pueden incrustar en correos electrónicos y páginas de destino y que se pueden segmentar para obtener contenido dinámico. Los fragmentos de código no tienen plantillas asociadas y se pueden crear e implementar dentro de otros recursos en Marketo.
+Los fragmentos de código son componentes de HTML reutilizables que se pueden incrustar en correos electrónicos y páginas de aterrizaje. Puede segmentar fragmentos de contenido dinámico. Los fragmentos no utilizan plantillas y se pueden crear e implementar dentro de otros recursos de Marketo.
 
 ## Consulta
 
-La consulta de fragmentos sigue el patrón estándar de los recursos, excepto que no tiene un método By Name. Los métodos [By Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) y [Browse](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET) permiten el uso del campo de estado para recuperar versiones aprobadas o en borrador del fragmento.
+Fragmentos de consulta [por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET). La API no proporciona un método de consulta por nombre. Ambos extremos aceptan el campo `status` para recuperar una versión aprobada o borrador.
 
 ### Por ID
 
@@ -124,7 +124,7 @@ GET /rest/asset/v1/snippets.json?maxReturn=3
 
 ## Contenido de consulta
 
-El contenido de un fragmento determinado se puede recuperar en función del ID del fragmento.
+Recuperar contenido de fragmento por ID de fragmento.
 
 ```http
 GET /rest/asset/v1/snippet/{id}/content.json
@@ -149,11 +149,11 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-La llamada devuelve una lista de secciones de contenido, que constan de secciones de tipo HTML o DynamicContent y, opcionalmente, una sección con un tipo de Text.
+La respuesta contiene secciones de tipo `HTML` o `DynamicContent`. También puede contener una sección de tipo `Text`.
 
 ## Crear y actualizar
 
-Los fragmentos de código siguen el complejo patrón de creación de recursos, donde la llamada a [crear fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST) y su contenido se realizan por separado, por lo que la primera llamada debe realizarse al extremo de creación, con una descripción opcional.   Los datos se pasan como x-www-form-urlencoded, no como JSON.
+Cree el recurso de fragmento y su contenido por separado. Primero, llame al extremo [create snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST). La descripción es opcional. Pase datos como `x-www-form-urlencoded`, no como JSON.
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -193,7 +193,11 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 }
 ```
 
-La adición o sustitución de contenido en un fragmento se realiza mediante un ID. El contenido puede ser de los tipos Texto, HTML o Contenido dinámico. Si el tipo es Texto, el parámetro de contenido es el punto de conexión de texto sin formato, mientras que si es HTML, es el texto de marcado deseado. Si el tipo se establece en DynamicContent, el parámetro de contenido debe establecerse en el ID de la segmentación que se asociará al fragmento de código.
+Añadir o reemplazar contenido de fragmento por ID. El tipo de contenido puede ser `Text`, `HTML` o `DynamicContent`.
+
+- Para `Text`, pase texto sin formato en el parámetro `content`.
+- Para `HTML`, pase el marcado en el parámetro `content`.
+- Para `DynamicContent`, establezca `content` en el ID de la segmentación asociada al fragmento.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/content.json
@@ -221,7 +225,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[La actualización de metadatos](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST) también se realiza mediante el identificador. Solo se pueden actualizar el nombre y la descripción:
+Para [actualizar metadatos](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST), especifique el ID del fragmento. Solo puede actualizar el nombre y la descripción.
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -263,7 +267,9 @@ name=Test Snippet&description=New Description
 
 ## Contenido dinámico
 
-Los fragmentos de código siguen el patrón estándar para el contenido dinámico, pero solo representan una sección de contenido completa por sí mismos, por lo que cada fragmento puede contener solo una sección dinámica, con una lista de secciones internas opcionalmente para cada segmento en la segmentación utilizada. El contenido dinámico se puede consultar solo mediante el ID de fragmento, ya que solo puede haber una sección de contenido dinámico en un fragmento.
+Un fragmento de código representa una sección de contenido completa y solo puede contener una sección dinámica. Esa sección puede contener una sección interna para cada segmento de la segmentación asociada.
+
+Dado que un fragmento solo puede tener una sección dinámica, consulte su contenido dinámico por ID de fragmento.
 
 ```http
 GET /rest/asset/v1/snippet/{id}/dynamicContent.json
@@ -318,7 +324,7 @@ GET /rest/asset/v1/snippet/{id}/dynamicContent.json
 
 ## Aprobación
 
-Los fragmentos de código tienen puntos finales disponibles para aprobar, desaprobar y descartar borradores, que siguen el patrón de recursos estándar. Un fragmento debe estar en estado de borrador para que se apruebe.
+Los fragmentos de código proporcionan puntos finales para aprobar, eliminar la aprobación y descartar borradores. Un fragmento debe estar en estado de borrador antes de su aprobación.
 
 ### Aprobar
 
@@ -410,7 +416,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Clonar
 
-[Clonar un fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST) con la API es sencillo y sigue el patrón estándar, con un nombre, un identificador del fragmento y la carpeta originales, así como una descripción opcional.  Si no existe ninguna versión aprobada, se clona la versión en borrador.
+Para [clonar un fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST), proporcione un nombre, el ID del fragmento de origen y una carpeta. La descripción es opcional. Si el origen no tiene una versión aprobada, el extremo clona su borrador.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json

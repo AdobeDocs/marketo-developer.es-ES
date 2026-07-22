@@ -18,16 +18,16 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 4793
+source-wordcount: 4807
 ht-degree: 29%
 
 ---
 
 # Referencia de extremo
 
-A continuación se muestran vínculos a las referencias de la API de REST de Marketo.
+Utilice las siguientes referencias para buscar parámetros de solicitud, esquemas de respuesta y ejemplos para cada grupo de API de REST de Marketo:
 
 - [Recurso](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identidad](https://developer.adobe.com/marketo-apis/api/identity/)
@@ -36,7 +36,7 @@ A continuación se muestran vínculos a las referencias de la API de REST de Mar
 
 ## Lista de extremos {#endpoint_list}
 
-Esta es una lista completa de puntos finales de API de REST.
+En la tabla siguiente se enumeran los extremos de la API de REST, los métodos HTTP, los URI y los permisos necesarios.
 
 | Nombre | Grupo | Método | URI | Permiso requerido |
 | --- | --- | --- | --- | --- |

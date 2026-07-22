@@ -10,36 +10,43 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 485
+source-wordcount: 374
 ht-degree: 1%
 
 ---
 
 # Asignaciones de respuesta
 
-Marketo puede traducir los datos recibidos por un webhook de dos tipos de contenido y devolver estos valores a un campo de posible cliente: JSON y XML. El parámetro Marketo Field siempre usará [SOAP API name](../rest-api/fields.md) del campo. Cada webhook puede tener un número ilimitado de asignaciones de respuestas, las cuales se agregan y editan haciendo clic en el botón [!UICONTROL Editar] en el panel Asignaciones de respuestas de su webhook:
+Marketo puede traducir datos de ganchos web de JSON o XML y escribir los valores en campos de posibles clientes. El parámetro Marketo Field siempre usa el [nombre de API de SOAP](../rest-api/fields.md) del campo.
+
+Cada webhook puede tener un número ilimitado de asignaciones de respuestas. Para agregar o editar asignaciones, seleccione [!UICONTROL Editar] en el panel Asignaciones de respuestas del gancho web:
 
 ![Asignación de respuestas](assets/response-mapping.png)
 
-Las asignaciones de respuesta se crean mediante un emparejamiento de un &quot;Atributo de respuesta&quot;, la ruta a la propiedad deseada en el documento XML o JSON y el &quot;Campo de Marketo&quot;, que especifica el campo de posible cliente que tiene el valor escrito en él desde el Atributo de respuesta.
+Una asignación de respuesta empareja estos valores:
 
-Las claves de las propiedades deben constar de caracteres alfanuméricos, guiones (-), guiones bajos (_), dos puntos (:) y espacios en blanco a los que se accede mediante asignaciones de respuesta de Marketo.
+- &quot;Atributo de respuesta&quot;: la ruta a la propiedad deseada en el documento XML o JSON.
+- &quot;Campo de Marketo&quot;: Campo de posible cliente en el que Marketo escribe el valor del atributo de respuesta.
+
+Para acceder a una propiedad a través de las asignaciones de respuesta de Marketo, su clave debe contener solo caracteres alfanuméricos, guiones (-), guiones bajos (_), dos puntos (:) y espacios en blanco.
 
 ## Asignaciones de JSON
 
-Se accede a las propiedades JSON con notación de puntos y notación de matrices. La notación de matrices en Marketo no aceptará cadenas como entrada y solo aceptará enteros. Para recuperar datos de un documento JSON, el tipo de respuesta debe estar establecido en JSON:
+Acceda a las propiedades JSON con notación de puntos y notación de matrices. La notación de matrices de Marketo solo acepta números enteros, no cadenas.
+
+Para recuperar datos de un documento JSON, establezca el tipo de respuesta en JSON:
 
 ```json
 { "foo":"bar"}
 ```
 
-Para tener acceso a la propiedad `foo` en una asignación de respuesta, utilice `name` de la propiedad, ya que se encuentra en el primer nivel del objeto JSON, `foo`. A continuación, se muestra el aspecto que tiene en Marketo:
+La propiedad `foo` se encuentra en el primer nivel del objeto JSON. Utilice su propiedad `name`, `foo`, en la asignación de respuestas:
 
 ![Asignación de respuestas](assets/json-resp.png)
 
-El siguiente es un ejemplo más complicado con una matriz:
+El siguiente ejemplo contiene una matriz:
 
 ```json
 {
@@ -61,11 +68,11 @@ El siguiente es un ejemplo más complicado con una matriz:
 }
 ```
 
-Queremos acceder a orderDate desde el primer elemento de la matriz de pedidos. Para tener acceso a esta propiedad, use lo siguiente: `orders[0].orderDate`
+Para obtener acceso a orderDate desde el primer elemento de la matriz de pedidos, utilice `orders[0].orderDate`.
 
 ## Asignaciones XML
 
-Se puede acceder a los valores desde elementos individuales de documentos XML. Utiliza notación de puntos similar a las asignaciones JSON. Consideremos este ejemplo sencillo:
+Acceda a valores de elementos XML individuales utilizando notación de puntos, similar a las asignaciones JSON. Consideremos este ejemplo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -74,9 +81,11 @@ Se puede acceder a los valores desde elementos individuales de documentos XML. U
 </example>
 ```
 
-Para tener acceso a la propiedad foo aquí, use lo siguiente: `example.foo`
+Para tener acceso a la propiedad foo, use `example.foo`.
 
-Se debe hacer referencia al elemento de ejemplo antes de obtener acceso a `foo`. Para acceder a una propiedad, se debe hacer referencia a todos los elementos de la jerarquía en la asignación. Los documentos XML con matrices son un poco más complicados. Utilice el siguiente ejemplo:
+Haga referencia al elemento de ejemplo antes de obtener acceso a `foo`. Una asignación debe hacer referencia a todos los elementos de la jerarquía de propiedades.
+
+Para un documento XML con una matriz, tenga en cuenta este ejemplo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,8 +102,12 @@ Se debe hacer referencia al elemento de ejemplo antes de obtener acceso a `foo`.
 </elementList>
 ```
 
-El documento consta de la matriz principal `elementList`, con elementos secundarios, que contiene una propiedad: `foo`. Para los propósitos de las asignaciones de respuesta de Marketo, se hace referencia a la matriz como `elementList.element`, por lo que se tiene acceso a los elementos secundarios de elementList a través de `elementList.element[i]`. Para obtener el valor de foo del primer elemento secundario de elementList, se utiliza este atributo de respuesta: `elementList.element[0].foo` Esto devuelve el valor &quot;baz&quot; al campo designado. Al intentar acceder a las propiedades dentro de elementos que contienen nombres de elementos únicos y no únicos, se produce un comportamiento indefinido. Cada elemento debe ser una sola propiedad o una matriz, los tipos no se pueden mezclar.
+La matriz principal es `elementList`. Cada elemento secundario contiene la propiedad `foo`. Las asignaciones de respuesta de Marketo hacen referencia a la matriz como `elementList.element` y tienen acceso a sus elementos secundarios a través de `elementList.element[i]`.
+
+Para obtener el valor de foo del primer elemento secundario de elementList, use el atributo de respuesta `elementList.element[0].foo`. Esta asignación devuelve el valor &quot;baz&quot; al campo designado.
+
+El acceso a propiedades dentro de elementos que contienen nombres de elemento únicos y no únicos produce un comportamiento indefinido. Cada elemento debe ser una propiedad única o una matriz. No mezcle los tipos.
 
 ## Tipos
 
-Al asignar atributos a campos, debe asegurarse de que el tipo de respuesta del webhook sea compatible con el campo de destino. Por ejemplo, si el valor de la respuesta es una cadena y el campo seleccionado es del tipo entero, el valor no se escribe. Obtenga información sobre [tipos de campo](../rest-api/field-types.md).
+Al asignar atributos a campos, asegúrese de que el tipo de respuesta del gancho web sea compatible con el campo de destino. Por ejemplo, Marketo no escribe un valor de respuesta de cadena en un campo de tipo entero. Para obtener más información, vea [Tipos de campo](../rest-api/field-types.md).

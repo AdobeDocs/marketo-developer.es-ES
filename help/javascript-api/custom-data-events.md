@@ -14,18 +14,20 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 263
+source-wordcount: 241
 ht-degree: 3%
 
 ---
 
 # Eventos de datos personalizados
 
-Este método envía eventos personalizados para el seguimiento y la personalización en tiempo real. Se puede utilizar para enviar datos de terceros o para almacenar en déclencheur su propio evento personalizado en función del comportamiento del visitante. Los eventos de datos personalizados se cuentan una vez en la sesión del visitante.
+Utilice este método para enviar eventos personalizados para el seguimiento y la personalización en tiempo real. Puede enviar datos de terceros o almacenar en déclencheur un evento personalizado basado en el comportamiento del visitante.
 
-Debe convertirse en cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en su sitio antes de usar la API de contexto de usuario.
+Cada evento de datos personalizados se cuenta una vez durante la sesión del visitante.
+
+Debe ser cliente de Web Personalization y tener la etiqueta [RTP implementada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) en el sitio antes de usar la API de contexto de usuario.
 
 | Parámetro | Opcional/Requerida | Tipo | Descripción |
 | --- | --- | --- | --- |
@@ -44,7 +46,7 @@ rtp('send', 'event', customData);
 
 ### Enviar evento con la matriz de cadenas para los datos personalizados
 
-La matriz de datos personalizada puede contener un máximo de cuatro elementos.  Si debe enviar más de cuatro elementos, llame repetidamente a la API Enviar evento (con un máximo de cuatro elementos) hasta que se envíen todos los elementos.
+La matriz de datos personalizada puede contener hasta cuatro elementos. Para enviar más de cuatro elementos, llame repetidamente a la API Send Event sin más de cuatro elementos en cada llamada.
 
 ```javascript
 var customData = {value: ['MyEvent', 'download - example whitepaper']};
@@ -53,7 +55,9 @@ rtp('send', 'event', customData);
 
 ### Enviar evento basado en el clic del botón
 
-Marketo personaliza el contenido de su sitio web para los visitantes que descargan un documento técnico específico. Para ello, registran el clic del visitante en el botón de descarga del documento técnico, que envía un evento de datos personalizados. RTP segmenta en tiempo real a todos los visitantes que hicieron clic en el botón del documento técnico de descarga, mostrando a cada visitante una campaña personalizada que ofrece 2 clics más tarde. Esto se logra mostrando otro fragmento de contenido relacionado con el documento técnico descargado.
+En este ejemplo se envía un evento de datos personalizados cuando un visitante selecciona el botón para descargar un documento técnico específico. RTP puede utilizar el evento para segmentar a estos visitantes en tiempo real.
+
+El sitio web puede mostrar una campaña personalizada después de dos clics más. Por ejemplo, la campaña puede presentar otro fragmento de contenido relacionado con el documento técnico descargado.
 
 ```html
 <button id="download-whitepaper" onclick="rtp('send', 'event', {value :'download - example whitepaper'})">Download</button>
