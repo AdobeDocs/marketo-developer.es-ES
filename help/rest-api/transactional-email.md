@@ -36,7 +36,7 @@ Apruebe el correo electrónico antes de crear la campaña:
 
 ![SolicitarCampaña-Aprobar-Borrador](assets/request-campaign-approve-draft.png)
 
-Si es necesario, consulte [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html). Configure la lista inteligente de la campaña con el déclencheur Campaign is Requested:
+Si es necesario, consulte [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=es). Configure la lista inteligente de la campaña con el déclencheur Campaign is Requested:
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -192,7 +192,7 @@ Esta clase tiene un constructor que toma un Auth y el ID de la campaña. Los pos
 
 ### Creación del correo electrónico
 
-Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) y un [correo electrónico](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=es) en Marketo. Para generar nuestro contenido personalizado, debemos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir.
+Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=es) y un [correo electrónico](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=es) en Marketo. Para generar nuestro contenido personalizado, debemos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir.
 
 ![Nuevo token](assets/New-Token.png)
 
