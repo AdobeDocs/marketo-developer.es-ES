@@ -3,36 +3,30 @@ title: Operaciones de MCP de Marketo Engage
 description: Descubra qué operaciones de MCP de Marketo Engage están disponibles para su uso con asistentes de IA.
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: dca84292-69e9-4116-a575-667d31fa060did: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 260
-ht-degree: 4%
+source-wordcount: 280
+ht-degree: 3%
 
 ---
 
 
 # [!DNL Marketo Engage] operaciones de MCP
 
-Las siguientes operaciones están disponibles a través del servidor MCP [!DNL Marketo Engage]. Por lo general, el servidor proporciona extremos de solo lectura o no destructivos. El sistema de IA no puede usar `Delete` u otras operaciones destructivas.
+Las siguientes operaciones están disponibles a través del servidor MCP [!DNL Marketo Engage]. El servidor proporciona extremos de solo lectura o no destructivos. El sistema de IA no puede usar `Delete` u otras operaciones destructivas.
 
 >[!NOTE]
 >
->Esta lista seguirá creciendo a medida que añadamos herramientas adicionales.
+>El equipo del servidor MCP está trabajando para habilitar las API de Smart List y Smart Campaign Asset para que funcionen con el servidor MCP. Se espera que este trabajo, incluidos los elementos de inclusión en la lista de permitidos, finalice en el tercer trimestre de 2026.
 
-Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Exportación masiva
 
-[Referencia de API de exportación masiva](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export){target="_blank"}
+[Referencia de API de exportación masiva](https://developer.adobe.com/marketo-apis/api/mapi){target="_blank"}
 
 - `bulk_export_create`
 - `bulk_export_enqueue`
@@ -42,7 +36,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Canales y etiquetas
 
-[Referencia de API de canales](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels){target="_blank"} | [Referencia de API de etiquetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags){target="_blank"}
+[Referencia de API de canales](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels){target="_blank"} | [Referencia de API de etiquetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags){target="_blank"}
 
 - `browse_channels`
 - `browse_tag_types`
@@ -51,7 +45,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Correos electrónicos
 
-[Referencia de API de correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails){target="_blank"}
+[Referencia de API de correos electrónicos](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails){target="_blank"}
 
 - `approve_email`
 - `browse_emails`
@@ -63,7 +57,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Carpetas
 
-[Referencia de API de carpetas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders){target="_blank"}
+[Referencia de API de carpetas](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders){target="_blank"}
 
 - `browse_folders`
 - `create_folder`
@@ -75,7 +69,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Formularios
 
-[Referencia de API de Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms){target="_blank"}
+[Referencia de API de Forms](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms){target="_blank"}
 
 - `add_field_set`
 - `add_field_to_form`
@@ -103,7 +97,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Clientes potenciales
 
-[Referencia de API de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads){target="_blank"}
+[Referencia de API de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads){target="_blank"}
 
 - `add_leads_to_list`
 - `describe_lead`
@@ -115,7 +109,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Programas
 
-[Referencia de API de programas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs){target="_blank"}
+[Referencia de API de programas](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs){target="_blank"}
 
 - `approve_program`
 - `browse_email_batch_programs`
@@ -138,7 +132,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Campañas inteligentes
 
-[Referencia de API de campañas inteligentes](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns){target="_blank"}
+[Referencia de API de campañas inteligentes](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns){target="_blank"}
 
 - `activate_smart_campaign`
 - `add_flow_step`
@@ -164,7 +158,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Listas inteligentes
 
-[Referencia de API de listas inteligentes](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists){target="_blank"}
+[Referencia de API de listas inteligentes](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists){target="_blank"}
 
 - `add_smart_list_rule`
 - `browse_smart_lists`
@@ -184,7 +178,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Fragmentos
 
-[Referencia de API de fragmentos](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets){target="_blank"}
+[Referencia de API de fragmentos](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets){target="_blank"}
 
 - `approve_snippet`
 - `browse_snippets`
@@ -203,7 +197,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Listas estáticas
 
-[Referencia de API de listas estáticas](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists){target="_blank"}
+[Referencia de API de listas estáticas](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists){target="_blank"}
 
 - `browse_lists`
 - `create_list`
@@ -215,7 +209,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 
 ## Tókenes
 
-[Referencia de API de tokens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens){target="_blank"}
+[Referencia de API de tokens](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens){target="_blank"}
 
 - `create_calendar_token`
 - `create_token`

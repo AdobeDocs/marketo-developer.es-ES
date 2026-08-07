@@ -4,17 +4,13 @@ feature: REST API
 description: Utilice la API de REST de Compañías de Marketo para describir, consultar y sincronizar registros de compañía, administrar campos y desduplicar por externalCompanyId y anotar la sincronización de CRM de solo lectura.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
 TQID: https://experienceleague.adobe.com/LdJYN4lx9JfcE-02zTz8ktfYXm4EdPtxMYOx9gGR0sg
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 582
+source-wordcount: 572
 ht-degree: 1%
 
 ---
@@ -23,11 +19,11 @@ ht-degree: 1%
 
 [Referencia de extremo de compañías](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
-Las compañías representan las organizaciones a las que pertenecen los registros de posibles clientes. Para agregar un posible cliente a una compañía, rellene su campo `externalCompanyId` mediante los extremos [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) o [Importación masiva de posibles clientes](bulk-lead-import.md).
+Las compañías representan las organizaciones a las que pertenecen los registros de posibles clientes. Para agregar un posible cliente a una compañía, rellene su campo `externalCompanyId` mediante los extremos [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) o [Importación masiva de posibles clientes](bulk-lead-import.md).
 
 No puede eliminar un posible cliente de una compañía a menos que agregue el posible cliente a otra compañía. Los posibles clientes vinculados a un registro de compañía heredan los valores de ese registro como si existieran en el registro de posibles clientes.
 
-Las API de empresa proporcionan acceso de solo lectura a las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=es) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=es) habilitado.
+Las API de empresa proporcionan acceso de solo lectura a las suscripciones que tienen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) o [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) habilitado.
 
 ## Describir
 
@@ -109,7 +105,7 @@ GET /rest/v1/companies/describe.json
 
 ## Consulta
 
-El patrón para [consultar compañías](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET) sigue de cerca la API de posibles clientes. Sin embargo, el parámetro `filterType` solo acepta campos enumerados en la matriz searchableFields de la respuesta Describir compañías o deduplicar campos.
+El patrón para [consultar compañías](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCompaniesUsingGET) sigue de cerca la API de posibles clientes. Sin embargo, el parámetro `filterType` solo acepta campos enumerados en la matriz searchableFields de la respuesta Describir compañías o deduplicar campos.
 
 Los parámetros de consulta son:
 
@@ -152,7 +148,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## Crear y actualizar
 
-El extremo [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) acepta un parámetro `input` requerido que contiene una matriz de objetos de la compañía.
+El extremo [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST) acepta un parámetro `input` requerido que contiene una matriz de objetos de la compañía.
 
 Al igual que con las oportunidades, el punto final admite tres modos de creación y actualización: createOnly, updateOnly y createOrUpdate. Especifique el modo en el parámetro `action` de la solicitud.
 
@@ -214,7 +210,7 @@ Consulte un campo de empresa por nombre de API o recupere todos los campos de em
 
 #### Por nombre
 
-El extremo [Obtener campo de la compañía por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de la compañía. El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de API del campo.
+El extremo [Obtener campo de la compañía por nombre](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCompanyFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de la compañía. El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de API del campo.
 
 La respuesta se parece a la respuesta Describir compañía, pero incluye metadatos adicionales. Por ejemplo, el atributo `isCustom` indica si el campo es personalizado.
 
@@ -245,7 +241,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### Examinar
 
-El extremo [Obtener campos de empresa](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta `batchSize` para reducir este número.
+El extremo [Obtener campos de empresa](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCompanyFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta `batchSize` para reducir este número.
 
 Si el atributo `moreResult` es verdadero, hay más resultados disponibles. Continúe llamando al extremo con el `nextPageToken` devuelto hasta que `moreResult` sea falso.
 

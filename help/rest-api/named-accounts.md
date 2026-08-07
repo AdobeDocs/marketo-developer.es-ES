@@ -4,17 +4,13 @@ feature: REST API
 description: Guía de Marketo REST para CRUD sobre cuentas con nombre para ABM, con descripción, consultas, creación de ejemplos de actualización, campos en los que se puede buscar, reglas de desduplicación y sin vinculación de posibles clientes.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
 TQID: https://experienceleague.adobe.com/iY3UYVelm3aKuuDBCTxaVCbkXfwnJzDjV3Kvn9rcNbA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 590
+source-wordcount: 584
 ht-degree: 1%
 
 ---
@@ -243,7 +239,7 @@ Consulte un campo de cuenta con nombre por nombre de API o recupere todos los ca
 
 #### Por nombre
 
-El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo.
+El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo.
 
 La respuesta es similar a la respuesta Describir cuenta con nombre, pero incluye metadatos adicionales. Por ejemplo, el atributo isCustom indica si el campo es personalizado.
 
@@ -273,7 +269,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Examinar
 
-El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta batchSize para reducir este número.
+El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta batchSize para reducir este número.
 
 Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando al extremo con el nextPageToken devuelto hasta que moreResult sea false.
 

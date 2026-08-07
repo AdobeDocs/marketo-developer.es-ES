@@ -4,17 +4,13 @@ feature: REST API, Landing Pages
 description: Administre las plantillas de página de aterrizaje de Marketo a través de los extremos de la API de REST para obtener forma gratuita y tipos guiados, consultar por ID o nombre, crear, actualizar HTML, clonar, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
 TQID: https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 519
+source-wordcount: 499
 ht-degree: 2%
 
 ---
@@ -29,11 +25,11 @@ Las plantillas de página de aterrizaje son recursos principales para las págin
 
 Marketo proporciona plantillas de página de aterrizaje guiadas y de forma libre. Las plantillas de forma libre proporcionan una experiencia de edición ligeramente estructurada. Las plantillas guiadas pueden restringir los tipos de elementos y las ubicaciones en el nivel de plantilla.
 
-Para ver una comparación detallada, consulte [Explicación de las páginas de aterrizaje de forma libre frente a las páginas de aterrizaje guiadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Para ver una comparación detallada, consulte [Explicación de las páginas de aterrizaje de forma libre frente a las páginas de aterrizaje guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Consulta
 
-Plantillas de página de aterrizaje de consulta [por id.](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Estos extremos devuelven metadatos de plantilla. Recupere el contenido de HTML por separado para cada plantilla por ID.
+Plantillas de página de aterrizaje de consulta [por id.](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET). Estos extremos devuelven metadatos de plantilla. Recupere el contenido de HTML por separado para cada plantilla por ID.
 
 ## Crear y actualizar
 
@@ -79,11 +75,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Agregue contenido de plantilla por separado con el extremo [Actualizar contenido de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST).
+Agregue contenido de plantilla por separado con el extremo [Actualizar contenido de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageTemplateContentUsingPOST).
 
 ### Actualizar metadatos
 
-Use el extremo [Actualizar metadatos de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) para cambiar el nombre, la descripción o la configuración de `enableMunchkin`.
+Use el extremo [Actualizar metadatos de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLpTemplateUsingPOST) para cambiar el nombre, la descripción o la configuración de `enableMunchkin`.
 
 ### Actualizar contenido
 
@@ -180,9 +176,9 @@ Las plantillas de página de aterrizaje utilizan el borrador estándar y el mode
 
 Antes de la aprobación, una plantilla debe cumplir los requisitos para su tipo guiado o de forma libre. Consulte estos recursos:
 
-- [Plantillas de página de aterrizaje de forma libre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Plantillas de la página de destino guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Plantillas de página de aterrizaje de forma libre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Plantillas de la página de destino guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Eliminar
 

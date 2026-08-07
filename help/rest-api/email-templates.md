@@ -4,18 +4,13 @@ feature: REST API
 description: Obtenga información sobre cómo crear y administrar plantillas de correo electrónico de la API de REST de Marketo, incluidos los requisitos de HTML, la consulta por ID o nombre y la exploración de carpetas
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
 TQID: https://experienceleague.adobe.com/jKQpibaRP7nAyIsDdjMf8VkNPi5AMFbe7I4Iiy3MGc0
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 570
+source-wordcount: 543
 ht-degree: 2%
 
 ---
@@ -26,11 +21,11 @@ ht-degree: 2%
 
 Cada nuevo correo electrónico en Marketo se basa inicialmente en una plantilla de correo electrónico. Aunque más adelante puede desvincular un correo electrónico de su plantilla reemplazando HTML, debe seleccionar una plantilla al crear el correo electrónico.
 
-Las plantillas son documentos de HTML con metadatos como un nombre y una descripción. La plantilla HTML debe ser válida y contener al menos una sección editable que cumpla los [requisitos de sección editable](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Las plantillas son documentos de HTML con metadatos como un nombre y una descripción. La plantilla HTML debe ser válida y contener al menos una sección editable que cumpla los [requisitos de sección editable](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Consulta
 
-Las plantillas de correo electrónico admiten los patrones de consulta de recursos estándar: [por id](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByNameUsingGET) y [explorando](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplatesUsingGET) una carpeta.
+Las plantillas de correo electrónico admiten los patrones de consulta de recursos estándar: [por id](https://developer.adobe.com/marketo-apis/api/asset#operation/getTemplateByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#operation/getTemplateByNameUsingGET) y [explorando](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplatesUsingGET) una carpeta.
 
 ### Por ID
 
@@ -204,7 +199,7 @@ Las consultas de plantilla solo devuelven metadatos de registro. Utilice el extr
 
 ## Crear y actualizar
 
-Para [crear](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/createEmailTemplateUsingPOST) o [actualizar](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) una plantilla, envíe el documento de HTML en una solicitud POST de `multipart/form-data`. El encabezado `Content-Type` debe incluir un límite como se describe en las RFC para [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) y [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
+Para [crear](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailTemplateUsingPOST) o [actualizar](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) una plantilla, envíe el documento de HTML en una solicitud POST de `multipart/form-data`. El encabezado `Content-Type` debe incluir un límite como se describe en las RFC para [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) y [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
 
 La creación de una plantilla requiere estos parámetros:
 
@@ -275,7 +270,7 @@ Create email template using API
 }
 ```
 
-Para actualizar el contenido de la plantilla, llame al [extremo de contenido](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) con el ID de la plantilla de correo electrónico. El cuerpo de la solicitud solo acepta el parámetro `content`.
+Para actualizar el contenido de la plantilla, llame al [extremo de contenido](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) con el ID de la plantilla de correo electrónico. El cuerpo de la solicitud solo acepta el parámetro `content`.
 
 El contenido enviado reemplaza completamente el contenido de plantilla existente. Al actualizar una versión aprobada, se crea un nuevo borrador. La actualización de un recurso solo de borrador reemplaza al borrador actual.
 
@@ -319,7 +314,7 @@ Content-Type: text/html
 
 ## Actualizar metadatos
 
-Para [actualizar los metadatos de una plantilla](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con los parámetros `name` y `description`.
+Para [actualizar los metadatos de una plantilla](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con los parámetros `name` y `description`.
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -479,7 +474,7 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## Clonar
 
-Para [clonar una plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/cloneTemplateUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con estos parámetros:
+Para [clonar una plantilla de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneTemplateUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con estos parámetros:
 
 - `name`: obligatorio. El nombre de la plantilla clonada.
 - `folder`: obligatorio. Un objeto JSON incrustado con `id` y `type`.
@@ -525,7 +520,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Consultar dependencias de correo electrónico
 
-Use la plantilla de obtención de correo electrónico [utilizada por el extremo &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) para recuperar correos electrónicos que dependen de una plantilla. El parámetro de ruta de acceso `id` identifica la plantilla de correo electrónico principal.
+Use la plantilla de obtención de correo electrónico [utilizada por el extremo ](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET) para recuperar correos electrónicos que dependen de una plantilla. El parámetro de ruta de acceso `id` identifica la plantilla de correo electrónico principal.
 
 El extremo admite dos parámetros de paginación opcionales:
 

@@ -4,20 +4,13 @@ feature: REST API
 description: Explore las funciones de la API de REST de Marketo Leads, incluida la descripción, la consulta por ID o filtro, los campos predeterminados, los límites y la recuperación de ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 TQID: https://experienceleague.adobe.com/jZ-ecWTmHwq9gvp4fMaeuuGba6cgwYx0QCCyfkrEDHQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2728
+source-wordcount: 2733
 ht-degree: 3%
 
 ---
@@ -72,7 +65,7 @@ GET /rest/v1/leads/describe.json
 
 Las respuestas reales incluyen más campos en la matriz de resultados. Cada elemento representa un campo disponible en el registro de cliente potencial y contiene al menos un id, un displayName y un tipo de datos.
 
-Los objetos secundarios rest y soap solo aparecen cuando el campo es válido para la API correspondiente. La propiedad `readOnly` indica si la API correspondiente puede actualizar el campo. Cuando está presente, la propiedad length proporciona la longitud máxima del campo y la propiedad dataType proporciona el tipo de datos del campo.
+Los objetos secundarios REST aparecen solo cuando el campo es válido para la API correspondiente. La propiedad `readOnly` indica si la API correspondiente puede actualizar el campo. Cuando está presente, la propiedad length proporciona la longitud máxima del campo y la propiedad dataType proporciona el tipo de datos del campo.
 
 ## Consulta
 
@@ -177,7 +170,7 @@ La API de posibles clientes puede crear, actualizar y eliminar registros de posi
 
 >[!NOTE]
 >
-> No se admite la actualización de los campos de la compañía mediante el extremo [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST). En su lugar, use el punto de conexión [Compañías de sincronización](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST).
+> No se admite la actualización de los campos de la compañía mediante el extremo [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST). En su lugar, use el punto de conexión [Compañías de sincronización](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST).
 
 >[!NOTE]
 >
@@ -864,7 +857,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 ```
 
 Si la cookie ya está asociada a un posible cliente conocido, el uso de esta API para un posible cliente diferente registra la nueva actividad web en el nuevo registro. La actividad web existente no se desplaza al nuevo registro.
-Suscripción
+Membresía
 
 Recupere registros de posibles clientes en función de su pertenencia a una lista o programa estático. También puede recuperar todas las listas estáticas, programas o campañas inteligentes que incluyan un posible cliente específico.
 

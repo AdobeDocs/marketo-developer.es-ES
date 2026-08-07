@@ -4,18 +4,12 @@ feature: REST API
 description: Guía de API de REST de Marketo para carpetas que abarcan crear, actualizar, eliminar, consultar por id y nombre, examinar por lotes con raíz, espacio de trabajo, maxDepth y paginación.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 TQID: https://experienceleague.adobe.com/OxCNdy8qW6jwq8u57RF9mqVKPVvH99UmuiOBjFprHCM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 806
+source-wordcount: 792
 ht-degree: 1%
 
 ---
@@ -30,7 +24,7 @@ Utilice la API Folders para crear, consultar, actualizar y eliminar carpetas o r
 
 ## Consulta
 
-Las carpetas admiten los patrones de consulta de recursos estándar: [por id.](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) y por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
+Las carpetas admiten los patrones de consulta de recursos estándar: [por id.](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) y por [exploración](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET).
 
 ### Por ID
 
@@ -77,7 +71,7 @@ La respuesta `folderType` identifica lo que la carpeta puede contener. Las carpe
 
 Los tipos de carpeta incluyen:
 
-- Correo electrónico
+- Email
 - Plantilla de correo electrónico
 - Página de destino
 - Plantilla de la página de destino
@@ -86,7 +80,7 @@ Los tipos de carpeta incluyen:
 
 ### Por nombre
 
-El extremo [query by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) requiere `name`, que realiza una coincidencia exacta con los nombres de carpeta y devuelve todas las carpetas coincidentes.
+El extremo [query by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) requiere `name`, que realiza una coincidencia exacta con los nombres de carpeta y devuelve todas las carpetas coincidentes.
 
 El extremo también acepta estos parámetros opcionales:
 
@@ -135,12 +129,12 @@ Las actividades de marketing y Design Studio son carpetas raíz. Recupere la ra�
 
 ### Examinar
 
-También puede [recuperar carpetas de forma masiva](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Utilice el parámetro `root` para especificar la carpeta principal en la que desea realizar la consulta. Pase `root` como un objeto JSON incrustado con dos miembros:
+También puede [recuperar carpetas de forma masiva](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET). Utilice el parámetro `root` para especificar la carpeta principal en la que desea realizar la consulta. Pase `root` como un objeto JSON incrustado con dos miembros:
 
 1. `id`: ID de la carpeta o programa.
 1. `type`: `Folder` o `Program`, según el tipo de carpeta raíz.
 
-Si no conoce la carpeta raíz o desea recuperar todas las carpetas de un área, utilice la raíz Marketing Activities, Design Studio o la base de datos de posibles clientes. Recupere el ID raíz pasando el nombre del área a la API [Obtener carpeta por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET).
+Si no conoce la carpeta raíz o desea recuperar todas las carpetas de un área, utilice la raíz Marketing Activities, Design Studio o la base de datos de posibles clientes. Recupere el ID raíz pasando el nombre del área a la API [Obtener carpeta por nombre](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET).
 
 Al igual que con otros extremos de recuperación masiva de recursos, utilice los parámetros opcionales `offset` y `maxReturn` para la paginación. Otros parámetros opcionales son:
 
@@ -237,7 +231,7 @@ El campo `url` contiene la dirección URL del recurso para la instancia designad
 
 ## Crear y actualizar
 
-Para [crear una carpeta](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con estos parámetros:
+Para [crear una carpeta](https://developer.adobe.com/marketo-apis/api/asset#operation/createFolderUsingPOST), envíe una petición POST de `application/x-www-form-urlencoded` con estos parámetros:
 
 - `name`: cadena requerida que contiene el nombre de la carpeta.
 - `parent`: objeto JSON incrustado requerido que contiene `id` y `type`. El tipo es `Folder` o `Program`, según el elemento principal.

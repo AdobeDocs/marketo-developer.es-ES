@@ -4,20 +4,13 @@ feature: REST API
 description: Prácticas recomendadas para integraciones de la API de Marketo que abarcan cuotas, límites de tasa y concurrencia, agrupamiento, importación y exportación masivas, almacenamiento en caché y planificación de latencia.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
 TQID: https://experienceleague.adobe.com/Ld-rmFCwKSx-0W2-ceYICu0FQHK8BKAC1QgqtiOWDn4
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 882
+source-wordcount: 866
 ht-degree: 0%
 
 ---
@@ -34,7 +27,6 @@ Diseñe integraciones en torno a los límites de API compartidas para su instanc
 - **Tamaño del lote:** La base de datos de posibles clientes admite 300 registros; la consulta de recursos admite 200 registros.
 - **Tamaño de carga útil de API de REST:** 1 MB.
 - **Tamaño de archivo de importación masiva:** 10 MB.
-- **Tamaño máximo de lote de SOAP:** 300 registros.
 - **Trabajos de extracción masiva:** Dos en ejecución y diez en cola, ambos incluidos.
 
 ## Sugerencias rápidas
@@ -66,15 +58,15 @@ Cada instancia de Marketo habilitada para la API tiene una asignación diaria de
 
 Todos los servicios y usuarios de API comparten la capacidad en una instancia. Elimine llamadas redundantes y registros por lotes en el menor número posible de llamadas.
 
-El método de importación más eficiente para las llamadas es la API de importación masiva de Marketo, disponible para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
+El método de importación más eficiente para las llamadas es la API de importación masiva de Marketo, disponible para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
 
 ### Almacenamiento en caché
 
 Los resultados de las siguientes operaciones se pueden almacenar en caché en el lado del cliente durante un día o más, ya que cambian con poca frecuencia:
 
 - Resultados de las operaciones de descripción
-- [Tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Particiones](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)
+- [Particiones](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadPartitionsUsingGET)
 
 En casos de uso, como el enriquecimiento de datos de clientes potenciales o de actividad, también puede almacenar en caché tipos de recursos como programas, correos electrónicos y carpetas.
 

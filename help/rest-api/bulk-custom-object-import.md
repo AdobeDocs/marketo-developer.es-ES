@@ -4,17 +4,13 @@ feature: Custom Objects
 description: Obtenga información sobre cómo importar por lotes objetos personalizados de Marketo a través de REST mediante archivos CSV, TSV o SSV.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
 TQID: https://experienceleague.adobe.com/C1LKLZDEvv95XXH3AEoxIXsLK55tgKTrvyxvs4LnYWw
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 736
+source-wordcount: 714
 ht-degree: 0%
 
 ---
@@ -40,7 +36,7 @@ Si supera el máximo de 10 trabajos, la API devuelve un error de `1016, Too many
 
 ## Ejemplo de objeto personalizado
 
-Antes de usar la API en bloque, usa la IU de administración de Marketo para [crear tu objeto personalizado](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects).
+Antes de usar la API en bloque, usa la IU de administración de Marketo para [crear tu objeto personalizado](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects).
 
 Este ejemplo utiliza un objeto personalizado `Car` con los campos `Color`, `Make`, `Model` y `VIN`. El campo VIN se utiliza para la deduplicación. Las pantallas de la IU de administración resaltan los nombres de API requeridos por los extremos de API masivos.
 
@@ -150,7 +146,7 @@ La primera línea es el encabezado. Las líneas 2-4 contienen los registros de d
 
 ## Creación de un trabajo
 
-Para crear el trabajo de importación masiva, incluya el nombre de la API de objeto personalizada en la ruta del extremo [Importar objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST). Incluya estos parámetros:
+Para crear el trabajo de importación masiva, incluya el nombre de la API de objeto personalizada en la ruta del extremo [Importar objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Incluya estos parámetros:
 
 - `file`: nombre del archivo de importación.
 - `format`: el formato de delimitador de archivo (`csv`, `tsv` o `ssv`).
@@ -215,7 +211,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## Estado del trabajo de sondeo
 
-Después de crear el trabajo de importación, sondee cada 5-30 segundos. Pase el nombre de API de objeto personalizado y `batchId` en la ruta de acceso al extremo [Obtener estado de objeto personalizado de importación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET).
+Después de crear el trabajo de importación, sondee cada 5-30 segundos. Pase el nombre de API de objeto personalizado y `batchId` en la ruta de acceso al extremo [Obtener estado de objeto personalizado de importación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET).
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -247,9 +243,9 @@ Cuando se completa el trabajo, la respuesta muestra los números de filas proces
 
 ## Errores de
 
-El atributo `numOfRowsFailed` de la respuesta [Obtener estado de objeto personalizado de importación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) indica el número de filas con errores. Un valor mayor que cero significa que se produjeron errores.
+El atributo `numOfRowsFailed` de la respuesta [Obtener estado de objeto personalizado de importación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET) indica el número de filas con errores. Un valor mayor que cero significa que se produjeron errores.
 
-Pase el nombre de API de objeto personalizado y `batchId` en la ruta de acceso al extremo [Obtener errores de importación de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET). El extremo devuelve un archivo con detalles del error. Si no existe ningún archivo de error, devuelve un código de estado HTTP 404.
+Pase el nombre de API de objeto personalizado y `batchId` en la ruta de acceso al extremo [Obtener errores de importación de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectFailuresUsingGET). El extremo devuelve un archivo con detalles del error. Si no existe ningún archivo de error, devuelve un código de estado HTTP 404.
 
 Para mostrar un error, modifique el encabezado cambiando `vin` a ` vin` y agregando un espacio entre la coma y `vin`.
 
@@ -302,7 +298,7 @@ La respuesta muestra que falta el campo de deduplicación `vin`.
 
 El atributo `numOfRowsWithWarning` de la respuesta Obtener estado de objeto personalizado de importación indica el número de filas con advertencias. Un valor mayor que cero significa que se han producido advertencias.
 
-Pase el nombre de API de objeto personalizado y `batchId` en la ruta de acceso al extremo [Obtener advertencias de objeto personalizado de importación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET). El extremo devuelve un archivo con detalles de advertencia. Si no existe ningún archivo de advertencia, devuelve un código de estado HTTP 404.
+Pase el nombre de API de objeto personalizado y `batchId` en la ruta de acceso al extremo [Obtener advertencias de objeto personalizado de importación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectWarningsUsingGET). El extremo devuelve un archivo con detalles de advertencia. Si no existe ningún archivo de advertencia, devuelve un código de estado HTTP 404.
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

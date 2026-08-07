@@ -4,15 +4,12 @@ feature: REST API
 description: Guía de los archivos de API de REST de Marketo consulta por ID o nombre, exploración con carpeta y desplazamiento, creación o actualización mediante carga de varias partes, insertOnly, tipos MIME, sin flujo continuo
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 TQID: https://experienceleague.adobe.com/qH8zFwjJkTWHlCj1VHNiTiLK3mNOJFS83cnjEj2qjpA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 274
+source-wordcount: 263
 ht-degree: 1%
 
 ---
@@ -27,7 +24,7 @@ El almacenamiento de archivos de Marketo no está optimizado para aplicaciones q
 
 ## Consulta
 
-Archivos de consulta [por id.](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET).
+Archivos de consulta [por id.](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByIdUsingGET), [por nombre](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByNameUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#operation/getFilesUsingGET).
 
 ### Por ID
 
@@ -164,7 +161,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Crear y actualizar
 
-Usar una solicitud `multipart/form-data` para [crear un archivo](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST). Se requieren los parámetros `name`, `folder` y `file`. Los parámetros `description` y `insertOnly` son opcionales. Si es true, `insertOnly` impide que la solicitud actualice un archivo existente con el mismo nombre.
+Usar una solicitud `multipart/form-data` para [crear un archivo](https://developer.adobe.com/marketo-apis/api/asset#operation/createFileUsingPOST). Se requieren los parámetros `name`, `folder` y `file`. Los parámetros `description` y `insertOnly` son opcionales. Si es true, `insertOnly` impide que la solicitud actualice un archivo existente con el mismo nombre.
 
 Para el parámetro `file`, incluya un `filename` en el encabezado `Content-Disposition`. Incluya también el encabezado `Content-Type` del archivo. Marketo utiliza este tipo MIME al servir el archivo.
 
@@ -219,7 +216,7 @@ This is a test file
 }
 ```
 
-Para [actualizar un archivo](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST), especifique su ID. El parámetro `file` tiene los mismos requisitos que la creación de archivos.
+Para [actualizar un archivo](https://developer.adobe.com/marketo-apis/api/asset#operation/updateContentUsingPOST), especifique su ID. El parámetro `file` tiene los mismos requisitos que la creación de archivos.
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

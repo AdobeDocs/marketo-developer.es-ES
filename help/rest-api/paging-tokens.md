@@ -4,15 +4,12 @@ feature: REST API
 description: Utilice tokens de paginación de la API de REST de Marketo para recuperar actividades y posibles clientes, lo que abarca tokens basados en fechas y posiciones, errores ISO 8601 sinceDatetime y 414.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
 TQID: https://experienceleague.adobe.com/Ut05n-Y-qPJnvcNRs9liwE3NVBMbJlvaGyv-nExRsek
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 387
+source-wordcount: 377
 ht-degree: 1%
 
 ---
@@ -23,7 +20,7 @@ Marketo proporciona tokens de paginación para recorrer página a página los re
 
 Algunas respuestas devuelven cadenas de token de paginación largas, lo que puede provocar un error HTTP 414. Ver información sobre la administración de estos [errores](error-codes.md).
 
-Consulte la documentación de [API de token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET).
+Consulte la documentación de [API de token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET).
 
 ## Tipos de token
 
@@ -36,7 +33,7 @@ Marketo proporciona dos tipos de tokens de paginación relacionados pero distint
 
 Un token de paginación basado en fecha representa una fecha y hora. Utilícelo para recuperar actividades, cambios en el valor de los datos y posibles clientes eliminados que se produzcan después de esa fecha y hora.
 
-Genere un token basado en fecha llamando al extremo [Obtener token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) con una fecha y hora:
+Genere un token basado en fecha llamando al extremo [Obtener token de paginación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET) con una fecha y hora:
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -68,7 +65,7 @@ Por ejemplo:
 
 Dado que `sinceDateTime` es un parámetro de consulta, codifique su valor con URL.
 
-Pase la cadena `nextPageToken` devuelta a una llamada de [Obtener actividades de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET), [Obtener cambios de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) o [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET). La llamada recupera registros que se producen después de la fecha y hora proporcionadas para la API de obtención de token de paginación.
+Pase la cadena `nextPageToken` devuelta a una llamada de [Obtener actividades de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET), [Obtener cambios de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET) o [Obtener posibles clientes eliminados](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET). La llamada recupera registros que se producen después de la fecha y hora proporcionadas para la API de obtención de token de paginación.
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12

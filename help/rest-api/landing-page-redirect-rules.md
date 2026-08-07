@@ -4,16 +4,13 @@ feature: REST API, Landing Pages
 description: Utilice las API de REST de Marketo Asset para crear, consultar, actualizar y eliminar reglas de redireccionamiento de páginas de aterrizaje con filtros, paginación, opciones de nombre de host y destinos que no sean de Marketo.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
 TQID: https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 626
-ht-degree: 4%
+source-wordcount: 596
+ht-degree: 5%
 
 ---
 
@@ -31,7 +28,7 @@ Reglas de redirección de la página de aterrizaje de consulta [por identificado
 
 ### Por ID
 
-El punto de conexión [Obtener reglas de redireccionamiento de páginas de aterrizaje por id.](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) toma un parámetro de ruta de acceso de regla de redireccionamiento `id` y devuelve el registro correspondiente.
+El punto de conexión [Obtener reglas de redireccionamiento de páginas de aterrizaje por id.](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRuleByIdUsingGET) toma un parámetro de ruta de acceso de regla de redireccionamiento `id` y devuelve el registro correspondiente.
 
 ```http
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -66,7 +63,7 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### Examinar
 
-El extremo [Obtener reglas de redireccionamiento de páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) devuelve registros de reglas de redireccionamiento de páginas de aterrizaje.
+El extremo [Obtener reglas de redireccionamiento de páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRulesUsingGET) devuelve registros de reglas de redireccionamiento de páginas de aterrizaje.
 
 Utilice parámetros de consulta opcionales para filtrar los resultados.
 
@@ -143,7 +140,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Crear
 
-Llame al extremo [Crear regla de redireccionamiento de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) con una solicitud POST de `application/x-www-form-urlencoded`. La solicitud tiene tres parámetros obligatorios.
+Llame al extremo [Crear regla de redireccionamiento de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageRedirectRuleUsingPOST) con una solicitud POST de `application/x-www-form-urlencoded`. La solicitud tiene tres parámetros obligatorios.
 
 El parámetro `hostname` especifica el nombre de host de la página de aterrizaje. Debe pertenecer a un dominio o alias de personalización de marca y no puede superar los 255 caracteres.
 
@@ -162,7 +159,7 @@ El parámetro `redirectTo` especifica el destino como un objeto JSON con un par 
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | No es de Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Para obtener más información, consulte [Redireccionar una página de aterrizaje de Marketo a otra página](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=es).
+Para obtener más información, consulte [Redireccionar una página de aterrizaje de Marketo a otra página](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
 ```http
 POST /rest/asset/v1/redirectRules.json
@@ -205,7 +202,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Actualización
 
-El extremo [Actualizar reglas de redireccionamiento de páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) toma un parámetro de ruta de acceso de regla de redireccionamiento `id`. Envíe la actualización como una solicitud POST de `application/x-www-form-urlencoded`.
+El extremo [Actualizar reglas de redireccionamiento de páginas de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageRedirectRuleUsingPOST) toma un parámetro de ruta de acceso de regla de redireccionamiento `id`. Envíe la actualización como una solicitud POST de `application/x-www-form-urlencoded`.
 
 Pase uno o más de estos parámetros para seleccionar los atributos que desea actualizar: `hostname`, `redirectFrom` o `redirectTo`.
 
@@ -252,7 +249,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## Eliminar
 
-La regla de redireccionamiento de página de aterrizaje [Delete por ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) toma un parámetro de ruta de acceso de regla de redireccionamiento `id`.
+La regla de redireccionamiento de página de aterrizaje [Delete por ID](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageRedirectRuleUsingPOST) toma un parámetro de ruta de acceso de regla de redireccionamiento `id`.
 
 ```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -274,7 +271,7 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 
 ## Explorar dominios de página de aterrizaje
 
-El extremo [Obtener dominios de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) devuelve registros de dominio de página de aterrizaje.
+El extremo [Obtener dominios de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageDomainsUsingGET) devuelve registros de dominio de página de aterrizaje.
 
 Utilice dos parámetros de consulta opcionales para filtrar los resultados.
 

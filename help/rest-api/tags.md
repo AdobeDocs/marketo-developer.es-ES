@@ -4,17 +4,13 @@ feature: REST API, Tags
 description: Consulte los tipos de etiquetas, obtenga valores permitidos por nombre, actualice o elimine etiquetas de programa en Marketo mediante la API de recursos REST, con ejemplos de solicitudes.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
 TQID: https://experienceleague.adobe.com/zjdyfoofVWytE0Q-K4lk598jmleTSFOD7tSRqeAHsjk
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 227
+source-wordcount: 221
 ht-degree: 2%
 
 ---
@@ -86,7 +82,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Actualización
 
-Use el extremo [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) para actualizar el valor de un tipo de etiqueta. Todos los parámetros son obligatorios:
+Use el extremo [Actualizar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST) para actualizar el valor de un tipo de etiqueta. Todos los parámetros son obligatorios:
 
 - El parámetro de ruta de acceso `id` especifica el identificador de programa.
 - El parámetro de ruta de acceso `tagType` especifica el tipo de etiqueta que se actualizará.
@@ -110,11 +106,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Para actualizar varias etiquetas, use el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST). Vea el ejemplo en la [sección de actualización de programas](programs.md#update).
+Para actualizar varias etiquetas, use el extremo [Actualizar metadatos del programa](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST). Vea el ejemplo en la [sección de actualización de programas](programs.md#update).
 
 ## Eliminar
 
-Use el extremo [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST) para eliminar un tipo de etiqueta no obligatorio. El parámetro de ruta de acceso `id` especifica el id. de programa y el parámetro de ruta de acceso `tagType` especifica el tipo de etiqueta que se va a eliminar.
+Use el extremo [Eliminar etiqueta de programa](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteProgramUsingPOST) para eliminar un tipo de etiqueta no obligatorio. El parámetro de ruta de acceso `id` especifica el id. de programa y el parámetro de ruta de acceso `tagType` especifica el tipo de etiqueta que se va a eliminar.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

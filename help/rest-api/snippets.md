@@ -4,18 +4,13 @@ feature: REST API, Snippets
 description: API de REST de recursos de Marketo para fragmentos de código, que abarcan la consulta por ID y la exploración con estado, la obtención de contenido, la creación y actualización de HTML, texto y contenido dinámico.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
 TQID: https://experienceleague.adobe.com/1UpwX-ZzXTzkTRheu8exBDIoIvAGgoZgpA851PuL8sI
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 386
+source-wordcount: 376
 ht-degree: 3%
 
 ---
@@ -28,7 +23,7 @@ Los fragmentos de código son componentes de HTML reutilizables que se pueden in
 
 ## Consulta
 
-Fragmentos de consulta [por identificador](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET). La API no proporciona un método de consulta por nombre. Ambos extremos aceptan el campo `status` para recuperar una versión aprobada o borrador.
+Fragmentos de consulta [por identificador](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetByIdUsingGET) o por [exploración](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetUsingGET). La API no proporciona un método de consulta por nombre. Ambos extremos aceptan el campo `status` para recuperar una versión aprobada o borrador.
 
 ### Por ID
 
@@ -153,7 +148,7 @@ La respuesta contiene secciones de tipo `HTML` o `DynamicContent`. También pued
 
 ## Crear y actualizar
 
-Cree el recurso de fragmento y su contenido por separado. Primero, llame al extremo [create snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST). La descripción es opcional. Pase datos como `x-www-form-urlencoded`, no como JSON.
+Cree el recurso de fragmento y su contenido por separado. Primero, llame al extremo [create snippet](https://developer.adobe.com/marketo-apis/api/asset#operation/createSnippetUsingPOST). La descripción es opcional. Pase datos como `x-www-form-urlencoded`, no como JSON.
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -225,7 +220,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-Para [actualizar metadatos](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST), especifique el ID del fragmento. Solo puede actualizar el nombre y la descripción.
+Para [actualizar metadatos](https://developer.adobe.com/marketo-apis/api/asset#operation/updateSnippetUsingPOST), especifique el ID del fragmento. Solo puede actualizar el nombre y la descripción.
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -416,7 +411,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Clonar
 
-Para [clonar un fragmento](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST), proporcione un nombre, el ID del fragmento de origen y una carpeta. La descripción es opcional. Si el origen no tiene una versión aprobada, el extremo clona su borrador.
+Para [clonar un fragmento](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSnippetUsingPOST), proporcione un nombre, el ID del fragmento de origen y una carpeta. La descripción es opcional. Si el origen no tiene una versión aprobada, el extremo clona su borrador.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json

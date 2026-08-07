@@ -4,23 +4,19 @@ feature: REST API
 description: Aprenda a configurar Marketo para correos electrónicos transaccionales y almacenarlos en déclencheur a través de la campaña de solicitud de API de REST, con pasos de configuración y ejemplos de código Java.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
 TQID: https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 897
+source-wordcount: 891
 ht-degree: 1%
 
 ---
 
 # Correo electrónico transaccional
 
-Utilice la API [Solicitar campaña](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) para enviar correos electrónicos transaccionales a registros específicos de Marketo. Configure la campaña de correo electrónico y déclencheur antes de realizar la solicitud.
+Utilice la API [Solicitar campaña](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST) para enviar correos electrónicos transaccionales a registros específicos de Marketo. Configure la campaña de correo electrónico y déclencheur antes de realizar la solicitud.
 
 - Asegúrese de que el destinatario tenga un registro Marketo.
 - Cree y apruebe un correo electrónico transaccional en la instancia de Marketo.
@@ -36,7 +32,7 @@ Apruebe el correo electrónico antes de crear la campaña:
 
 ![SolicitarCampaña-Aprobar-Borrador](assets/request-campaign-approve-draft.png)
 
-Si es necesario, consulte [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=es). Configure la lista inteligente de la campaña con el déclencheur Campaign is Requested:
+Si es necesario, consulte [Crear una nueva campaña inteligente](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html). Configure la lista inteligente de la campaña con el déclencheur Campaign is Requested:
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -56,7 +52,7 @@ Los ejemplos de Java utilizan el [paquete minimal-json](https://github.com/ralfs
 
 Antes de enviar el correo electrónico, confirme que existe un registro de Marketo para la dirección de correo electrónico y recupere su ID de posible cliente. En este ejemplo se supone que la dirección de correo electrónico ya existe.
 
-Use [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) para recuperar el ID. A continuación, el siguiente método principal solicita la campaña:
+Use [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) para recuperar el ID. A continuación, el siguiente método principal solicita la campaña:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -192,7 +188,7 @@ Esta clase tiene un constructor que toma un Auth y el ID de la campaña. Los pos
 
 ### Creación del correo electrónico
 
-Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=es) y un [correo electrónico](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=es) en Marketo. Para generar nuestro contenido personalizado, debemos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir.
+Para personalizar nuestro contenido, primero debemos configurar un [programa](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) y un [correo electrónico](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=es) en Marketo. Para generar nuestro contenido personalizado, debemos crear tokens dentro del programa y luego colocarlos en el correo electrónico que vamos a enviar. Para simplificar, en este ejemplo utilizamos un solo token, pero puede reemplazar cualquier número de tokens en un mensaje de correo electrónico, en el formulario de correo electrónico, en el nombre del remitente, en la respuesta a o en cualquier parte del contenido del correo electrónico. Así que vamos a crear un texto enriquecido token para el reemplazo y llamarlo &quot;bodyReplacement&quot;. El texto enriquecido nos permite reemplazar cualquier contenido del token con HTML arbitrario que queramos introducir.
 
 ![Nuevo token](assets/New-Token.png)
 
@@ -274,4 +270,4 @@ Result:
 
 ## Ajuste
 
-Este método se puede ampliar de muchas maneras, cambiando el contenido de los correos electrónicos en secciones de diseño individuales o fuera de los correos electrónicos, lo que permite pasar valores personalizados a tareas o momentos interesantes. Se puede personalizar utilizando este método en cualquier lugar donde se pueda utilizar un token desde un programa. También hay una funcionalidad similar disponible con la llamada [Programar campaña](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) que le permitirá procesar tokens en toda una campaña por lotes. No se pueden personalizar por posible cliente, pero son útiles para personalizar el contenido en un amplio conjunto de posibles clientes.
+Este método se puede ampliar de muchas maneras, cambiando el contenido de los correos electrónicos en secciones de diseño individuales o fuera de los correos electrónicos, lo que permite pasar valores personalizados a tareas o momentos interesantes. Se puede personalizar utilizando este método en cualquier lugar donde se pueda utilizar un token desde un programa. También hay una funcionalidad similar disponible con la llamada [Programar campaña](https://developer.adobe.com/marketo-apis/api/mapi#operation/scheduleCampaignUsingPOST) que le permitirá procesar tokens en toda una campaña por lotes. No se pueden personalizar por posible cliente, pero son útiles para personalizar el contenido en un amplio conjunto de posibles clientes.
