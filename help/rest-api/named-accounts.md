@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 590
+source-wordcount: 584
 ht-degree: 1%
 
 ---
@@ -243,7 +243,7 @@ Consulte un campo de cuenta con nombre por nombre de API o recupere todos los ca
 
 #### Por nombre
 
-El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo.
+El extremo [Obtener campo de cuenta con nombre por nombre](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de cuenta con nombre. El parámetro de ruta fieldApiName requerido especifica el nombre de API del campo.
 
 La respuesta es similar a la respuesta Describir cuenta con nombre, pero incluye metadatos adicionales. Por ejemplo, el atributo isCustom indica si el campo es personalizado.
 
@@ -273,7 +273,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Examinar
 
-El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta batchSize para reducir este número.
+El extremo [Obtener campos de cuenta con nombre](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET) recupera los metadatos de todos los campos del objeto de cuenta con nombre. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta batchSize para reducir este número.
 
 Si el atributo moreResult es true, hay más resultados disponibles. Continúe llamando al extremo con el nextPageToken devuelto hasta que moreResult sea false.
 

@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 538
+source-wordcount: 526
 ht-degree: 3%
 
 ---
@@ -57,7 +57,7 @@ La respuesta de importación masiva no indica si se actualizó o insertó un reg
 
 ## Creación de un trabajo
 
-Cree un trabajo de importación de posibles clientes llamando al extremo [Importar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
+Cree un trabajo de importación de posibles clientes llamando al extremo [Importar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST). Este extremo usa [multipart/form-data como tipo de contenido](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
 
 Utilice una biblioteca de soporte HTTP para el idioma preferido para construir la solicitud de varias partes. También puedes usar [curl](https://curl.se/) para comenzar.
 
@@ -112,7 +112,7 @@ Cada extremo de creación de trabajo comparte parámetros para configurar el arc
 
 ## Estado del trabajo de sondeo
 
-Pase `batchId` al extremo [Obtener estado de cliente potencial de importación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) para recuperar el estado del trabajo.
+Pase `batchId` al extremo [Obtener estado de cliente potencial de importación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadStatusUsingGET) para recuperar el estado del trabajo.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -144,7 +144,7 @@ En este ejemplo, el trabajo se ha completado, por lo que el sondeo puede detener
 
 El atributo `numOfRowsFailed` de la respuesta Obtener estado del posible cliente de importación indica el número de filas con errores. Un valor mayor que cero significa que se produjeron errores.
 
-Para recuperar los registros con errores y sus causas, use el extremo [Obtener errores de importación de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET).
+Para recuperar los registros con errores y sus causas, use el extremo [Obtener errores de importación de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadFailuresUsingGET).
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json

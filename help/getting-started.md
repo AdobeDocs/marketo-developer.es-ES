@@ -16,9 +16,9 @@ role_v2:
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1228
+source-wordcount: 1201
 ht-degree: 2%
 
 ---
@@ -31,8 +31,7 @@ Esta página presenta las entidades principales de Marketo Engage y sus relacion
 
 >[!NOTE]
 >
->La API de SOAP se está desaprobando y dejará de estar disponible a partir del 31 de julio de 2026. Use la API de Marketo [REST](./rest-api/rest-api.md) para todo el desarrollo nuevo. Migrar los servicios existentes en esa fecha para evitar interrupciones del servicio. Si un servicio usa la API de SOAP, consulte la API de SOAP [Guía de migración](./soap-api/migration.md).
->
+>A partir del 31 de julio de 2026, la API de SOAP quedará obsoleta y dejará de estar disponible. Use la API de Marketo [REST](./rest-api/rest-api.md) para todo el desarrollo nuevo.
 
 Cuando la conexión nativa de SFDC o MS Dynamics CRM está habilitada en una instancia de Marketo Engage, estos objetos son de solo lectura:
 
@@ -144,6 +143,6 @@ API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/C
 
 Puede administrar los registros del vendedor y sus relaciones con los posibles clientes en Marketo cuando no esté habilitada la integración nativa de CRM. Estos registros contienen información como Nombre, Correo electrónico y Puesto. Cuando un vendedor es propietario de un posible cliente, puede utilizar esta información para filtrar y crear tokens.
 
-Administre la relación con un vendedor en el nivel de cliente potencial a través del campo &quot;externalSalesPersonId&quot;. Actualice este campo mediante la API [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST).
+Administre la relación con un vendedor en el nivel de cliente potencial a través del campo &quot;externalSalesPersonId&quot;. Actualice este campo mediante la API [Sincronizar posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST).
 
 API relacionadas: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)

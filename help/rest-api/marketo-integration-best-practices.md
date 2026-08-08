@@ -15,9 +15,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 882
+source-wordcount: 866
 ht-degree: 0%
 
 ---
@@ -34,7 +34,6 @@ Diseñe integraciones en torno a los límites de API compartidas para su instanc
 - **Tamaño del lote:** La base de datos de posibles clientes admite 300 registros; la consulta de recursos admite 200 registros.
 - **Tamaño de carga útil de API de REST:** 1 MB.
 - **Tamaño de archivo de importación masiva:** 10 MB.
-- **Tamaño máximo de lote de SOAP:** 300 registros.
 - **Trabajos de extracción masiva:** Dos en ejecución y diez en cola, ambos incluidos.
 
 ## Sugerencias rápidas
@@ -66,15 +65,15 @@ Cada instancia de Marketo habilitada para la API tiene una asignación diaria de
 
 Todos los servicios y usuarios de API comparten la capacidad en una instancia. Elimine llamadas redundantes y registros por lotes en el menor número posible de llamadas.
 
-El método de importación más eficiente para las llamadas es la API de importación masiva de Marketo, disponible para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
+El método de importación más eficiente para las llamadas es la API de importación masiva de Marketo, disponible para [posibles clientes/personas](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) y [objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Marketo también proporciona extracción en lotes para [posibles clientes](bulk-lead-extract.md) y [actividades](bulk-activity-extract.md).
 
 ### Almacenamiento en caché
 
 Los resultados de las siguientes operaciones se pueden almacenar en caché en el lado del cliente durante un día o más, ya que cambian con poca frecuencia:
 
 - Resultados de las operaciones de descripción
-- [Tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Particiones](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Tipos de actividad](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)
+- [Particiones](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadPartitionsUsingGET)
 
 En casos de uso, como el enriquecimiento de datos de clientes potenciales o de actividad, también puede almacenar en caché tipos de recursos como programas, correos electrónicos y carpetas.
 

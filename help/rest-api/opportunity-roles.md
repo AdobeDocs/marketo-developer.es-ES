@@ -10,16 +10,16 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 254
+source-wordcount: 252
 ht-degree: 0%
 
 ---
 
 # Funciones de oportunidad
 
-[Referencia de extremo de roles de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Referencia de extremo de roles de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityRolesUsingGET)
 
 Los vínculos de objetos `opportunityRole` intermedios conducen a oportunidades.
 

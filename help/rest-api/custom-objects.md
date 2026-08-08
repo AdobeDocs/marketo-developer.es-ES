@@ -17,9 +17,9 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2938
+source-wordcount: 2844
 ht-degree: 0%
 
 ---
@@ -34,7 +34,7 @@ El acceso a la API de metadatos de objeto personalizada requiere un tipo de susc
 
 ## Lista
 
-Además de las llamadas estándar de describir, consultar, actualizar y eliminar para los objetos de base de datos de posibles clientes, los objetos personalizados proporcionan una [llamada de lista](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET). El extremo devuelve los objetos personalizados disponibles en la instancia de destino y los metadatos sobre cada objeto.
+Además de las llamadas estándar de describir, consultar, actualizar y eliminar para los objetos de base de datos de posibles clientes, los objetos personalizados proporcionan una [llamada de lista](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET). El extremo devuelve los objetos personalizados disponibles en la instancia de destino y los metadatos sobre cada objeto.
 
 ```http
 GET /rest/v1/customobjects.json
@@ -81,7 +81,7 @@ La respuesta enumera las relaciones para cada objeto. Cada relación contiene:
 
 ## Describir
 
-La llamada [Describir](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) para los objetos personalizados sigue el mismo patrón que Oportunidades y Compañías, con dos adiciones:
+La llamada [Describir](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) para los objetos personalizados sigue el mismo patrón que Oportunidades y Compañías, con dos adiciones:
 
 - El parámetro de ruta de acceso `apiName` especifica el nombre de API del tipo de objeto personalizado que se va a describir.
 - La respuesta incluye una matriz `relationships` que enumera las relaciones disponibles para el tipo de objeto personalizado.
@@ -191,7 +191,7 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 
 ## Consulta
 
-[La consulta de objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET) difiere ligeramente de la consulta de otros objetos de base de datos de posibles clientes. Como con Describir, la solicitud toma un parámetro de ruta de acceso `apiName`.
+[La consulta de objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET) difiere ligeramente de la consulta de otros objetos de base de datos de posibles clientes. Como con Describir, la solicitud toma un parámetro de ruta de acceso `apiName`.
 
 Para un filterType normal, envíe una petición GET con los parámetros `filterType` y `filterValues` necesarios. También puede incluir los parámetros opcionales `**fields**`, `batchSize` y `nextPageToken`.
 
@@ -292,9 +292,9 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 ## Crear y actualizar
 
-Use el extremo [Sincronizar objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) para crear o actualizar objetos personalizados. Especifique la operación con el parámetro `action`. Cada llamada puede crear o actualizar hasta 300 registros.
+Use el extremo [Sincronizar objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST) para crear o actualizar objetos personalizados. Especifique la operación con el parámetro `action`. Cada llamada puede crear o actualizar hasta 300 registros.
 
-Base los valores de la matriz `input` en la información devuelta por el extremo [Describir objetos personalizados](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/rest/endpoint-reference#!/Custom_Objects/describeUsingGET_1). En el objeto de automóvil de ejemplo, el único campo de desduplicación es `vin`. Cuando utilice el modo deduplicar campos para crear o actualizar registros, incluya al menos un campo `vin` en cada objeto de la matriz de entrada.
+Base los valores de la matriz `input` en la información devuelta por el extremo [Describir objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1). En el objeto de automóvil de ejemplo, el único campo de desduplicación es `vin`. Cuando utilice el modo deduplicar campos para crear o actualizar registros, incluya al menos un campo `vin` en cada objeto de la matriz de entrada.
 
 ```http
 POST /rest/v1/customobjects/{apiName}.json
@@ -365,7 +365,7 @@ Dado que este campo está administrado por el sistema, `idField` es válido sola
 
 ## Eliminar
 
-Para [eliminar registros](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST), seleccione un modo `deleteBy` de `idField` o `dedupeFields`. Incluya los campos correspondientes en cada registro de la matriz `input`. Cada llamada permite un máximo de 300 registros.
+Para [eliminar registros](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST), seleccione un modo `deleteBy` de `idField` o `dedupeFields`. Incluya los campos correspondientes en cada registro de la matriz `input`. Cada llamada permite un máximo de 300 registros.
 
 ```http
 POST /rest/v1/customobjects/{apiName}/delete.json
@@ -437,7 +437,7 @@ Recupere los metadatos de tipo de objeto personalizado de cualquiera de estas fo
 
 ### Describir tipo
 
-El extremo [Describir tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) devuelve metadatos para un tipo de objeto personalizado. El parámetro de ruta de acceso `apiName` requerido especifica el nombre de API del tipo que se va a describir.
+El extremo [Describir tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) devuelve metadatos para un tipo de objeto personalizado. El parámetro de ruta de acceso `apiName` requerido especifica el nombre de API del tipo que se va a describir.
 
 Si existe una versión aprobada, el extremo la devuelve. De lo contrario, devuelve la versión de borrador. Use el parámetro `state` opcional para solicitar `draft`, `approved` o `approvedWithDraft`.
 
@@ -558,7 +558,7 @@ La respuesta contiene:
 
 ### Tipos de lista
 
-El extremo [List Custom Object Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) devuelve metadatos para todos los tipos de objetos personalizados disponibles en la instancia de destino. Es similar a [Enumerar objetos personalizados](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=es), pero incluye metadatos adicionales como estado, relaciones y campos.
+El extremo [List Custom Object Types](https://developer.adobe.com/marketo-apis/api/mapi#operation/listCustomObjectTypesUsingGET) devuelve metadatos para todos los tipos de objetos personalizados disponibles en la instancia de destino.
 
 Si existe una versión aprobada, el extremo la devuelve. De lo contrario, devuelve la versión de borrador.
 
@@ -744,7 +744,7 @@ GET /rest/v1/customobjects/schema.json?names=purchaseHistory
 
 #### Crear tipo
 
-Use el punto de conexión [Sincronizar tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) para crear o actualizar un tipo de objeto personalizado.
+Use el punto de conexión [Sincronizar tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST) para crear o actualizar un tipo de objeto personalizado.
 
 Los atributos son:
 
@@ -865,7 +865,7 @@ POST /rest/v1/customobjects/schema.json
 
 ## Aprobación del tipo
 
-Apruebe los tipos de objetos personalizados antes de utilizarlos. Cuando crea un tipo con el extremo [Tipo de objeto personalizado de sincronización](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectTypeUsingPOST), Marketo crea una versión de borrador. Después de agregar campos personalizados, apruebe el borrador. Approval crea una versión aprobada y elimina el borrador.
+Apruebe los tipos de objetos personalizados antes de utilizarlos. Cuando crea un tipo con el extremo [Tipo de objeto personalizado de sincronización](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectTypeUsingPOST), Marketo crea una versión de borrador. Después de agregar campos personalizados, apruebe el borrador. Approval crea una versión aprobada y elimina el borrador.
 
 Cuando se modifica un tipo existente con Sincronizar tipo de objeto personalizado o un punto final Agregar/Actualizar/Eliminar tipo de objeto personalizado, Marketo crea un borrador. Los cambios en el tipo o en sus campos afectan únicamente a la versión de borrador. Después de realizar los cambios, apruebe el borrador. Approval reemplaza la versión aprobada por el borrador y lo elimina.
 
@@ -881,7 +881,7 @@ Planifique cuidadosamente el esquema y la convención de nombres antes de aproba
 
 ### Tipo de aprobación
 
-Use el extremo [Aprobar tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/approveCustomObjectTypeUsingPOST) para publicar un borrador como la nueva versión aprobada. El único parámetro requerido es el parámetro de ruta **apiName**.
+Use el extremo [Aprobar tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/approveCustomObjectTypeUsingPOST) para publicar un borrador como la nueva versión aprobada. El único parámetro requerido es el parámetro de ruta **apiName**.
 
 Solo puede aprobar un tipo cuando esté en estado de borrador y cumpla las [reglas de validación](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object) documentadas.
 
@@ -899,7 +899,7 @@ POST /rest/v1/customobjects/schema/{apiName}/approve.json
 
 ### Tipo de descarte
 
-Use el extremo [Descartar tipo de objeto personalizado Borrador](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/discardCustomObjectTypeUsingPOST) para eliminar una versión de borrador. El único parámetro requerido es el parámetro de ruta de acceso `apiName`.
+Use el extremo [Descartar tipo de objeto personalizado Borrador](https://developer.adobe.com/marketo-apis/api/mapi#operation/discardCustomObjectTypeUsingPOST) para eliminar una versión de borrador. El único parámetro requerido es el parámetro de ruta de acceso `apiName`.
 
 Solo se puede descartar un tipo en estado de borrador. No se puede descartar un tipo aprobado.
 
@@ -917,7 +917,7 @@ POST /rest/v1/customobjects/schema/{apiName}/discardDraft.json
 
 ### Eliminar tipo
 
-Use el extremo [Eliminar tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST) para eliminar una versión aprobada. El único parámetro requerido es el parámetro de ruta de acceso `apiName`.
+Use el extremo [Eliminar tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST) para eliminar una versión aprobada. El único parámetro requerido es el parámetro de ruta de acceso `apiName`.
 
 Esta operación es destructiva y no se puede deshacer. Antes de eliminar un tipo, elimine su uso de recursos como déclencheur y filtros. Utilice el punto de conexión de Assets Obtener objeto personalizado dependiente para recuperar los recursos dependientes de un tipo.
 
@@ -950,18 +950,18 @@ Para obtener más información, consulte la [documentación sobre campos de obje
 
 ### Añadir campos
 
-Use el extremo [Agregar campos de tipo de objeto personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST) para agregar uno o más campos a un objeto personalizado. El cuerpo de la solicitud contiene una matriz `input` con uno o más elementos. Cada elemento es un objeto JSON con atributos que describen un campo.
+Use el extremo [Agregar campos de tipo de objeto personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/addCustomObjectTypeFieldsUsingPOST) para agregar uno o más campos a un objeto personalizado. El cuerpo de la solicitud contiene una matriz `input` con uno o más elementos. Cada elemento es un objeto JSON con atributos que describen un campo.
 
 Los atributos de campo son:
 
 - `name`: obligatorio. El nombre de la API del campo, que debe ser único para el objeto personalizado. Utilice minúsculas o camelCase para distinguir el nombre de otras cadenas de texto.
 - `displayName`: obligatorio. El nombre del campo legible en lenguaje natural, que debe ser único para el objeto personalizado.
-- `dataType`: obligatorio. El tipo de datos del campo. Use el extremo [Obtener tipos de datos del campo de tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) para recuperar los tipos de datos permitidos.
+- `dataType`: obligatorio. El tipo de datos del campo. Use el extremo [Obtener tipos de datos del campo de tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeFieldDataTypesUsingGET) para recuperar los tipos de datos permitidos.
 - `description`: Opcional. La descripción del campo.
 - `isDedupeField`: booleano opcional que especifica si el campo se utiliza para la anulación de duplicación durante las operaciones de actualización de objetos personalizados. El valor predeterminado es false. Se requiere un campo de desduplicación para las relaciones uno a varios.
 - `relatedTo`: objeto opcional que especifica un campo de vínculo. Para una relación uno a varios, `name` identifica el &quot;objeto de vínculo&quot; o el objeto principal y `field` identifica el &quot;campo de vínculo&quot; o campo de clave en el objeto principal.
 
-Los objetos personalizados pueden contener campos con el tipo de datos &quot;vínculo&quot;. Los campos de vínculo establecen relaciones entre los objetos personalizados y otros tipos de objeto, como Posible cliente y Compañía. Consulte la [documentación del campo de objeto personalizado](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields) para obtener detalles sobre los campos de vínculo. Use el extremo [Obtener objetos enlazables de objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) para recuperar los objetos de vínculo permitidos.
+Los objetos personalizados pueden contener campos con el tipo de datos &quot;vínculo&quot;. Los campos de vínculo establecen relaciones entre los objetos personalizados y otros tipos de objeto, como Posible cliente y Compañía. Consulte la [documentación del campo de objeto personalizado](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields) para obtener detalles sobre los campos de vínculo. Use el extremo [Obtener objetos enlazables de objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET) para recuperar los objetos de vínculo permitidos.
 
 Un objeto personalizado no puede vincularse a otro objeto personalizado que tenga un campo de vínculo existente. Para obtener más información, consulte la [documentación de campos de vínculo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
 
@@ -1263,7 +1263,7 @@ Rellene registros de objetos personalizados mediante programación usando [Sincr
 
 ## Actualizar campo
 
-Use el extremo [Actualizar campo de tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/updateCustomObjectTypeFieldUsingPOST) para actualizar un campo en un objeto personalizado de borrador.
+Use el extremo [Actualizar campo de tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/updateCustomObjectTypeFieldUsingPOST) para actualizar un campo en un objeto personalizado de borrador.
 
 Los parámetros de ruta requeridos son:
 
@@ -1293,7 +1293,7 @@ POST /rest/v1/customobjects/schema/{apiName}/{fieldApiName}/updateField.json
 
 ## Eliminar campos
 
-Use el extremo [Eliminar campos de tipo de objeto personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectTypeFieldsUsingPOST) para eliminar uno o varios campos de un objeto personalizado. El parámetro de ruta de acceso `apiName` requerido especifica el nombre de API del tipo de objeto personalizado.
+Use el extremo [Eliminar campos de tipo de objeto personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectTypeFieldsUsingPOST) para eliminar uno o varios campos de un objeto personalizado. El parámetro de ruta de acceso `apiName` requerido especifica el nombre de API del tipo de objeto personalizado.
 
 El cuerpo de la solicitud contiene un objeto JSON con una matriz `input` de uno o más elementos. Cada elemento es un objeto JSON cuyo atributo `name` especifica el nombre de API de un campo que se va a eliminar.
 
@@ -1325,7 +1325,7 @@ POST /rest/v1/customobjects/schema/{apiName}/deleteField.json
 
 ## Tipos de datos de campos de lista
 
-El extremo [Obtener tipos de datos de campo de tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) devuelve todos los tipos de datos de campo permitidos. Utilice este extremo para identificar los tipos de datos de campo personalizado disponibles al modelar un tipo de objeto personalizado.
+El extremo [Obtener tipos de datos de campo de tipo de objeto personalizado](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeFieldDataTypesUsingGET) devuelve todos los tipos de datos de campo permitidos. Utilice este extremo para identificar los tipos de datos de campo personalizado disponibles al modelar un tipo de objeto personalizado.
 
 ```http
 GET /rest/v1/customobjects/schema/fieldDataTypes.json
@@ -1353,7 +1353,7 @@ GET /rest/v1/customobjects/schema/fieldDataTypes.json
 
 ## Objetos personalizados enlazables a lista
 
-El extremo [Obtener objetos enlazables de objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) devuelve todos los objetos de vínculo permitidos y sus campos de vínculo. La respuesta incluye objetos estándar, como cliente potencial y compañía, y cualquier objeto personalizado creado en la instancia.
+El extremo [Obtener objetos enlazables de objetos personalizados](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET) devuelve todos los objetos de vínculo permitidos y sus campos de vínculo. La respuesta incluye objetos estándar, como cliente potencial y compañía, y cualquier objeto personalizado creado en la instancia.
 
 ```http
 GET /rest/v1/customobjects/schema/linkableObjects.json
@@ -1543,7 +1543,7 @@ GET /rest/v1/customobjects/schema/linkableObjects.json
 
 ## Obtener Assets dependiente del objeto personalizado
 
-El extremo [Get Custom Object Dependent Assets](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeDependentAssetsUsingGET) devuelve los recursos dependientes de un tipo de objeto personalizado y sus ubicaciones en la instancia. Utilícela al eliminar una integración para identificar en qué lugar se utiliza un tipo de objeto personalizado.
+El extremo [Get Custom Object Dependent Assets](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeDependentAssetsUsingGET) devuelve los recursos dependientes de un tipo de objeto personalizado y sus ubicaciones en la instancia. Utilícela al eliminar una integración para identificar en qué lugar se utiliza un tipo de objeto personalizado.
 
 ```http
 GET /rest/v1/customobjects/schema/{apiName}/dependentAssets.json

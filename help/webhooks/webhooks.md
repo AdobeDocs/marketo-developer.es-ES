@@ -18,9 +18,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: bcf56d2102f2f60eac5ad3318d348fd020391e6b
 workflow-type: tm+mt
-source-wordcount: 614
+source-wordcount: 613
 ht-degree: 4%
 
 ---
@@ -39,7 +39,7 @@ Configure cada webhook con estas propiedades:
 
 - **[!UICONTROL URL]**: URL a la que envía la solicitud de servicio web.
 - **[!UICONTROL Tipo de solicitud]**: método HTTP.
-- **[!UICONTROL Plantilla de carga útil]**: la plantilla para la información enviada en el cuerpo de POST. Utilice cualquier formato de datos que admita HTTP POST, incluidos XML, JSON o SOAP. El formato de serialización debe permitir comillas dobles alrededor de las cadenas. Para insertar un token, seleccione **[!UICONTROL Insertar token]**. Marketo incluye automáticamente tokens de tipo cadena entre comillas dobles.
+- **[!UICONTROL Plantilla de carga útil]**: la plantilla para la información enviada en el cuerpo de POST. Utilice cualquier formato de datos que admita HTTP POST, incluidos XML y JSON. El formato de serialización debe permitir comillas dobles alrededor de las cadenas. Para insertar un token, seleccione **[!UICONTROL Insertar token]**. Marketo incluye automáticamente tokens de tipo cadena entre comillas dobles.
 - **[!UICONTROL Codificación de token de solicitud]**: el formato de solicitud, JSON o Formulario/URL, que se usa para codificar valores de token que incluyen caracteres especiales como un signo &amp;. Seleccione la codificación de cuerpo correcta para que el webhook se comunique correctamente con el servicio web.
 - **[!UICONTROL Tipo de respuesta]**: el formato de respuesta, JSON o XML. Seleccione el tipo correcto para asignar propiedades de respuesta a campos de posibles clientes en Marketo.
 - **[!UICONTROL Encabezados personalizados]**: pares de clave-valor agregados como encabezados HTTP mediante **[!UICONTROL Acciones de webhooks]** > **[!UICONTROL Establecer encabezado personalizado]**. Puede agregar cualquier número de encabezados personalizados.

@@ -14,10 +14,10 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1440
-ht-degree: 6%
+source-wordcount: 1404
+ht-degree: 7%
 
 ---
 
@@ -43,7 +43,7 @@ Las consultas de Administración de usuarios pueden recuperar todos los usuarios
 
 ### Usuario por identificador
 
-El punto de conexión [Obtener usuario por identificador](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserUsingGET) toma un único parámetro de ruta de acceso `userid` y devuelve un único registro de usuario para un usuario que ha aceptado su invitación.
+El punto de conexión [Obtener usuario por identificador](https://developer.adobe.com/marketo-apis/api/user#operation/getUserUsingGET) toma un único parámetro de ruta de acceso `userid` y devuelve un único registro de usuario para un usuario que ha aceptado su invitación.
 
 ```http
 GET /userservice/management/v1/users/{userid}/user.json
@@ -84,7 +84,7 @@ GET /userservice/management/v1/users/{userid}/user.json
 
 ### Usuario invitado por identificador
 
-El punto de conexión [Obtener usuario invitado por el identificador](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getInvitedUserUsingGET) toma un único parámetro de ruta de acceso `userid` y devuelve un único registro de usuario para un usuario &quot;pendiente&quot; (aún no ha aceptado su invitación).
+El punto de conexión [Obtener usuario invitado por el identificador](https://developer.adobe.com/marketo-apis/api/user#operation/getInvitedUserUsingGET) toma un único parámetro de ruta de acceso `userid` y devuelve un único registro de usuario para un usuario &quot;pendiente&quot; (aún no ha aceptado su invitación).
 
 ```http
 GET /userservice/management/v1/users/{userid}/invite.json
@@ -107,7 +107,7 @@ GET /userservice/management/v1/users/{userid}/invite.json
 
 ### Roles y espacios de trabajo por ID
 
-El extremo [Obtener roles y espacios de trabajo por id](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserRolesAndWorkspacesUsingGET) toma un parámetro de ruta de acceso `userid` y devuelve los registros de espacio de trabajo y rol del usuario. Cada objeto de la matriz de respuesta contiene la función, el identificador y el nombre del espacio de trabajo.
+El extremo [Obtener roles y espacios de trabajo por id](https://developer.adobe.com/marketo-apis/api/user#operation/getUserRolesAndWorkspacesUsingGET) toma un parámetro de ruta de acceso `userid` y devuelve los registros de espacio de trabajo y rol del usuario. Cada objeto de la matriz de respuesta contiene la función, el identificador y el nombre del espacio de trabajo.
 
 ```http
 GET /userservice/management/v1/users/{userid}/roles.json
@@ -132,7 +132,7 @@ GET /userservice/management/v1/users/{userid}/roles.json
 
 ### Examinar usuarios
 
-El extremo [Obtener usuarios](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUsersUsingGET) devuelve todos los registros de usuario. Admite estos parámetros enteros opcionales:
+El extremo [Obtener usuarios](https://developer.adobe.com/marketo-apis/api/user#operation/getUsersUsingGET) devuelve todos los registros de usuario. Admite estos parámetros enteros opcionales:
 
 - `pageSize` especifica el número máximo de entradas que se devolverán. El valor predeterminado es 20 y el máximo es 200.
 - `pageOffset` especifica dónde comenzar a recuperar entradas. El valor predeterminado es 0, y se puede usar con `pageSize`.
@@ -176,7 +176,7 @@ GET /userservice/management/v1/users/allusers.json
 
 ### Examinar funciones
 
-El extremo [Get Roles](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getRolesUsingGET) devuelve una lista de todos los registros de roles.
+El extremo [Get Roles](https://developer.adobe.com/marketo-apis/api/user#operation/getRolesUsingGET) devuelve una lista de todos los registros de roles.
 
 ```http
 GET /userservice/management/v1/users/roles.json
@@ -259,7 +259,7 @@ GET /userservice/management/v1/users/roles.json
 
 ### Examinar espacios de trabajo
 
-El extremo [Get Workspaces](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET) devuelve una lista de todos los registros de área de trabajo.
+El extremo [Get Workspaces](https://developer.adobe.com/marketo-apis/api/user#operation/getWorkspacesUsingGET) devuelve una lista de todos los registros de área de trabajo.
 
 ```http
 GET /userservice/management/v1/users/workspaces.json
@@ -314,7 +314,7 @@ GET /userservice/management/v1/users/workspaces.json
 
 En [suscripciones integradas en Adobe IMS](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), este extremo admite la invitación de [usuarios solo de API](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) solamente. Para invitar a [usuarios estándar](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), usa la [API de administración de usuarios de Adobe](https://developer.adobe.com/umapi/).
 
-El extremo [Invitar usuario](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) envía una invitación por correo electrónico de &quot;Bienvenido a Marketo&quot; a un nuevo usuario. El correo electrónico contiene un vínculo &quot;Iniciar sesión en Marketo&quot;. El destinatario selecciona el vínculo, crea una contraseña y obtiene acceso a Marketo.
+El extremo [Invitar usuario](https://developer.adobe.com/marketo-apis/api/user#operation/inviteUserUsingPOST) envía una invitación por correo electrónico de &quot;Bienvenido a Marketo&quot; a un nuevo usuario. El correo electrónico contiene un vínculo &quot;Iniciar sesión en Marketo&quot;. El destinatario selecciona el vínculo, crea una contraseña y obtiene acceso a Marketo.
 
 Hasta que el destinatario acepte la invitación, su estado será &quot;pendiente&quot; y no se podrá editar el registro de usuario. Una invitación pendiente caduca siete días después de enviarse. Consulte la [documentación de administración de usuarios de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) para obtener más información.
 
@@ -370,7 +370,7 @@ Puede actualizar los atributos de usuario o eliminar un usuario una vez que el u
 
 En [suscripciones integradas en Adobe IMS](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), este punto de conexión solo admite la actualización de atributos de [usuarios solo de API](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Para actualizar los atributos de [usuarios estándar](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), use la [API de administración de usuarios de Adobe](https://developer.adobe.com/umapi/).
 
-El extremo [Actualizar atributos de usuario](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST) toma un único parámetro de ruta de acceso `userid` y devuelve un único registro de usuario. El cuerpo de la solicitud contiene uno o más atributos de usuario para actualizar: `emailAddress`, `firstName`, `lastName`, `expiresAt`.
+El extremo [Actualizar atributos de usuario](https://developer.adobe.com/marketo-apis/api/user#operation/updateUserAttributeUsingPOST) toma un único parámetro de ruta de acceso `userid` y devuelve un único registro de usuario. El cuerpo de la solicitud contiene uno o más atributos de usuario para actualizar: `emailAddress`, `firstName`, `lastName`, `expiresAt`.
 
 ```http
 POST /userservice/management/v1/users/{userid}/update.json
@@ -425,7 +425,7 @@ Content-Type: application/json
 
 En [suscripciones integradas en Adobe IMS](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), este extremo admite la eliminación de [usuarios solo de API](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) solamente. Para eliminar [usuarios estándar](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), use la [API de administración de usuarios de Adobe](https://developer.adobe.com/umapi/).
 
-El extremo [Delete User](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST) toma un único parámetro de ruta de acceso `userid` y elimina el usuario correspondiente de la instancia. Se trata de una eliminación destructiva y no se puede deshacer. Si se ejecuta correctamente, se devuelve un código de estado 200; de lo contrario, se devuelve un mensaje de error.
+El extremo [Delete User](https://developer.adobe.com/marketo-apis/api/user#operation/deleteUserUsingPOST) toma un único parámetro de ruta de acceso `userid` y elimina el usuario correspondiente de la instancia. Se trata de una eliminación destructiva y no se puede deshacer. Si se ejecuta correctamente, se devuelve un código de estado 200; de lo contrario, se devuelve un mensaje de error.
 
 ```http
 POST /userservice/management/v1/users/{userid}/delete.json
@@ -433,7 +433,7 @@ POST /userservice/management/v1/users/{userid}/delete.json
 
 #### Eliminar usuario invitado
 
-El punto de conexión [Eliminar usuario invitado](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteInvitedUserUsingPOST) toma un único parámetro de ruta de acceso `userid` y elimina el usuario &quot;pendiente&quot; correspondiente de la instancia (el usuario aún no ha aceptado su invitación). Se trata de una eliminación destructiva y no se puede deshacer. Si se ejecuta correctamente, se devuelve un código de estado 200; de lo contrario, se devuelve un mensaje de error.
+El punto de conexión [Eliminar usuario invitado](https://developer.adobe.com/marketo-apis/api/user#operation/deleteInvitedUserUsingPOST) toma un único parámetro de ruta de acceso `userid` y elimina el usuario &quot;pendiente&quot; correspondiente de la instancia (el usuario aún no ha aceptado su invitación). Se trata de una eliminación destructiva y no se puede deshacer. Si se ejecuta correctamente, se devuelve un código de estado 200; de lo contrario, se devuelve un mensaje de error.
 
 ```http
 POST /userservice/management/v1/users/{userid}/invite/delete.json
@@ -445,7 +445,7 @@ Puede agregar o eliminar roles. Pase atributos como parámetros en el cuerpo de 
 
 ## Agregar roles
 
-El extremo [Add Roles](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST) toma un único parámetro de ruta de acceso `userid` y agrega uno o más roles de usuario al usuario correspondiente. El cuerpo de la solicitud contiene una lista de uno o más objetos, cada uno de los cuales contiene un atributo `accessRoleId` y un atributo `workspaceId`. Si se ejecuta correctamente, se devuelve la lista completa de `accessRoleId/workspaceId` pares para el usuario especificado.
+El extremo [Add Roles](https://developer.adobe.com/marketo-apis/api/user#operation/addRolesUsingPOST) toma un único parámetro de ruta de acceso `userid` y agrega uno o más roles de usuario al usuario correspondiente. El cuerpo de la solicitud contiene una lista de uno o más objetos, cada uno de los cuales contiene un atributo `accessRoleId` y un atributo `workspaceId`. Si se ejecuta correctamente, se devuelve la lista completa de `accessRoleId/workspaceId` pares para el usuario especificado.
 
 ```http
 POST /userservice/management/v1/users/{userid}/roles/create.json
@@ -483,7 +483,7 @@ Content-Type: application/json
 
 ## Eliminar roles
 
-El extremo [Delete Roles](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST) toma un único parámetro de ruta de acceso `userid` y elimina uno o más roles de usuario del usuario correspondiente. El cuerpo de la solicitud contiene una lista de uno o más objetos, cada uno de los cuales contiene un atributo `accessRoleId` y un atributo `workspaceId`. Si se realiza correctamente, se devuelve la lista restante de pares accessRoleId/workspaceId del usuario especificado.
+El extremo [Delete Roles](https://developer.adobe.com/marketo-apis/api/user#operation/deleteRolesUsingPOST) toma un único parámetro de ruta de acceso `userid` y elimina uno o más roles de usuario del usuario correspondiente. El cuerpo de la solicitud contiene una lista de uno o más objetos, cada uno de los cuales contiene un atributo `accessRoleId` y un atributo `workspaceId`. Si se realiza correctamente, se devuelve la lista restante de pares accessRoleId/workspaceId del usuario especificado.
 
 ```http
 POST /userservice/management/v1/users/{userid}/roles/delete.json

@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: af0a3c77654f74d7cb5d2077518d764468a53ae0
+source-git-commit: 2019d398e32790d76735ef672e9ca4b48b8dd2bb
 workflow-type: tm+mt
-source-wordcount: 2018
+source-wordcount: 2216
 ht-degree: 1%
 
 ---
@@ -33,6 +33,10 @@ ht-degree: 1%
 >[!AVAILABILITY]
 >
 > Esta función tiene disponibilidad limitada. Para solicitar acceso, rellene [este formulario](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Asegúrese de tener preparado el Munchkin ID de su suscripción.
+
+>[!NOTE]
+>
+>El equipo del servidor MCP está trabajando para habilitar las API de Smart List y Smart Campaign Asset para que funcionen con el servidor MCP. Se espera que la mayor parte de este trabajo, incluidas las Actividades de inclusión en la lista de permitidos, las Acciones y las Reglas, se complete en el tercer trimestre de 2026.
 
 El Protocolo de contexto de modelo (MCP) es un estándar abierto que conecta las herramientas de IA con servicios externos. El servidor MCP [!DNL Marketo] conecta su asistente de IA a [!DNL Marketo]. Proporciona más de 100 operaciones para formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
@@ -44,7 +48,7 @@ Para obtener más información sobre cómo se gestionan los datos con la IA de M
 >
 >El Modelo de Protocolo de Contexto (MCP) es un estándar de código abierto emergente y puede presentar riesgos de seguridad o fiabilidad. Las integraciones del servidor de Adobe MCP y la documentación relacionada se proporcionan &quot;tal cual&quot;, sin garantías de ningún tipo.
 >La conexión de clientes o servidores MCP a los productos de Adobe es una configuración elegida por el cliente, y los clientes son responsables de evaluar la seguridad y la idoneidad de cualquier integración MCP. Adobe no se responsabiliza de los problemas que se deriven de una configuración incorrecta, un uso incorrecto del MCP, vulnerabilidades en implementaciones de terceros o acciones no deseadas realizadas a través de flujos de trabajo habilitados para MCP.
->Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de espacio aislado antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o confiar en ellas.
+>Para reducir el riesgo, Adobe recomienda probar las integraciones en un entorno de zona protegida antes de usarlas de forma productiva y revisar y validar cuidadosamente todas las acciones y respuestas iniciadas por MCP antes de confirmarlas o depender de ellas.
 
 ## Conceptos básicos de MCP
 

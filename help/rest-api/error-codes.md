@@ -17,9 +17,9 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: cc72dcf1-72e1-48cc-b434-e7c27d62d67c
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2255
+source-wordcount: 2332
 ht-degree: 4%
 
 ---
@@ -384,8 +384,8 @@ Por ejemplo, si una solicitud de posible cliente de sincronización establece &q
 >    <tr>
 >      <td><a name="1012"></a>1012</td>
 >      <td>Valor de cookie '%s' no válido</td>
->      <td>Se puede producir al llamar al <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST">posible cliente asociado</a> con un valor no válido para el parámetro "cookie".
->        Esto también ocurre al llamar a <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET">Obtener posibles clientes por tipo de filtro</a> con "filterType=cookies" y un valor no válido para el parámetro "filterValues".</td>
+>      <td>Se puede producir al llamar al <a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST">posible cliente asociado</a> con un valor no válido para el parámetro "cookie".
+>        Esto también ocurre al llamar a <a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET">Obtener posibles clientes por tipo de filtro</a> con "filterType=cookies" y un valor no válido para el parámetro "filterValues".</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1013"></a>1013</td>
@@ -503,24 +503,24 @@ Por ejemplo, si una solicitud de posible cliente de sincronización establece &q
 >    </tr>
 >    <tr>
 >      <td><a name="1076"></a>1076</td>
->      <td>La llamada de <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Combinar posibles clientes</a> con el indicador mergeInCRM es 4.</td>
+>      <td>La llamada de <a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Combinar posibles clientes</a> con el indicador mergeInCRM es 4.</td>
 >      <td>Está creando un registro duplicado. Se recomienda utilizar un registro existente en su lugar.
 >        Este es el mensaje de error que Marketo recibe al combinar en Salesforce.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1077"></a>1077</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a la longitud del campo SFDC</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a la longitud del campo SFDC</td>
 >      <td>Error en una llamada a MergeLeads con mergeInCRM establecido en true debido a que SFDC Field superaba el límite de caracteres permitidos. Para corregirlo, reduzca la longitud de SFDC Field o establezca mergeInCRM en false.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1078"></a>1078</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a una entidad eliminada, no es un posible cliente/contacto o los criterios de filtro de campo no coinciden.</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a una entidad eliminada, no es un posible cliente/contacto o los criterios de filtro de campo no coinciden.</td>
 >      <td>Error de combinación, no se puede realizar la operación de combinación en CRM sincronizado de forma nativa
 >        Este es el mensaje de error que Marketo recibe al combinar en Salesforce.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1079"></a>1079</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a un conflicto de URL personalizado en registros duplicados</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Error en la llamada de combinación de posibles clientes</a> debido a un conflicto de URL personalizado en registros duplicados</td>
 >      <td>Una llamada de combinación de posibles clientes especificó muchos posibles clientes con la misma dirección URL personalizada. Para resolver, utilice la interfaz de usuario de Marketo Engage para combinar estos registros.</td>
 >    </tr>
 >  </tbody>

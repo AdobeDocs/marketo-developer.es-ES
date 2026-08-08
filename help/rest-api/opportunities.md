@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 708
+source-wordcount: 702
 ht-degree: 0%
 
 ---
@@ -100,7 +100,7 @@ Los campos de respuesta clave son:
 
 ## Consulta
 
-El patrón para [consultar oportunidades](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) sigue de cerca la API de posibles clientes. Sin embargo, el parámetro `filterType` solo acepta campos enumerados en la matriz `searchableFields` de los campos Describe response o dedupeFields correspondientes.
+El patrón para [consultar oportunidades](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunitiesUsingGET) sigue de cerca la API de posibles clientes. Sin embargo, el parámetro `filterType` solo acepta campos enumerados en la matriz `searchableFields` de los campos Describe response o dedupeFields correspondientes.
 
 Para los campos de oportunidad personalizados, solo los campos de tipo cadena o entero aparecen en la matriz searchableFields.
 
@@ -221,7 +221,7 @@ Consulte un campo de empresa por nombre de API o recupere todos los campos de em
 
 #### Por nombre
 
-El extremo [Obtener campo de oportunidad por nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de la compañía. El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de API del campo.
+El extremo [Obtener campo de oportunidad por nombre](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldByNameUsingGET) recupera los metadatos de un campo en el objeto de la compañía. El parámetro de ruta de acceso `fieldApiName` requerido especifica el nombre de API del campo.
 
 La respuesta se parece a la respuesta Describir oportunidad, pero incluye metadatos adicionales. Por ejemplo, el atributo `isCustom` indica si el campo es personalizado.
 
@@ -252,7 +252,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Examinar
 
-El extremo [Obtener campos de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta `batchSize` para reducir este número.
+El extremo [Obtener campos de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldsUsingGET) recupera los metadatos de todos los campos del objeto de empresa. De forma predeterminada, devuelve un máximo de 300 registros. Utilice el parámetro de consulta `batchSize` para reducir este número.
 
 Si el atributo `moreResult` es verdadero, hay más resultados disponibles. Continúe llamando al extremo con el `nextPageToken` devuelto hasta que moreResult sea false.
 

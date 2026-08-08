@@ -8,10 +8,10 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1037
-ht-degree: 2%
+source-wordcount: 1017
+ht-degree: 3%
 
 ---
 
@@ -56,7 +56,7 @@ El punto final Crear trabajo de posible cliente de exportación proporciona opci
 
 ## Creación de un trabajo
 
-Use el extremo [Crear trabajo de posible cliente de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) para definir un trabajo de exportación. Especifique `fields` para exportar, un tipo `filter` y sus parámetros, el archivo `format` y cualquier nombre de encabezado de columna personalizado.
+Use el extremo [Crear trabajo de posible cliente de exportación](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportLeadsUsingPOST) para definir un trabajo de exportación. Especifique `fields` para exportar, un tipo `filter` y sus parámetros, el archivo `format` y cualquier nombre de encabezado de columna personalizado.
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -104,7 +104,7 @@ Esta solicitud crea un trabajo de exportación para los posibles clientes creado
 }
 ```
 
-La respuesta confirma que el trabajo se ha creado pero no se ha iniciado. Para iniciar el trabajo, llame al extremo [Trabajo de cliente potencial de exportación en cola](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) con `exportId` desde la respuesta de creación.
+La respuesta confirma que el trabajo se ha creado pero no se ha iniciado. Para iniciar el trabajo, llame al extremo [Trabajo de cliente potencial de exportación en cola](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportLeadsUsingPOST) con `exportId` desde la respuesta de creación.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -132,7 +132,7 @@ La respuesta en cola tiene un `status` de &quot;En cola&quot;. Cuando hay una ra
 
 Solo puede recuperar el estado de los trabajos creados por el mismo usuario de API.
 
-Los trabajos de exportación de posibles clientes se ejecutan asincrónicamente. Encuesta el extremo [Obtener estado del trabajo del posible cliente de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) para rastrear el progreso del trabajo.
+Los trabajos de exportación de posibles clientes se ejecutan asincrónicamente. Encuesta el extremo [Obtener estado del trabajo del posible cliente de exportación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET) para rastrear el progreso del trabajo.
 
 El estado se actualiza solo una vez cada 60 segundos. No sondee con más frecuencia; en casi todos los casos, ese intervalo sigue siendo excesivo.
 
@@ -169,7 +169,7 @@ El campo `status` puede devolver cualquiera de los siguientes valores:
 
 ## Recuperación de datos
 
-Para recuperar una exportación de posibles clientes completada, llame al extremo [Obtener archivo de posibles clientes de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) con `exportId`.
+Para recuperar una exportación de posibles clientes completada, llame al extremo [Obtener archivo de posibles clientes de exportación](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsFileUsingGET) con `exportId`.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -188,7 +188,7 @@ Para la recuperación parcial o reanudable, el extremo de archivo admite el enca
 
 ## Cancelación de un trabajo
 
-Para cancelar un trabajo innecesario o configurado incorrectamente, llame al extremo [Cancelar trabajo de posible cliente de exportación](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST).
+Para cancelar un trabajo innecesario o configurado incorrectamente, llame al extremo [Cancelar trabajo de posible cliente de exportación](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportLeadsUsingPOST).
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json

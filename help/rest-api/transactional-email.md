@@ -11,16 +11,16 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 897
+source-wordcount: 891
 ht-degree: 1%
 
 ---
 
 # Correo electrónico transaccional
 
-Utilice la API [Solicitar campaña](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) para enviar correos electrónicos transaccionales a registros específicos de Marketo. Configure la campaña de correo electrónico y déclencheur antes de realizar la solicitud.
+Utilice la API [Solicitar campaña](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST) para enviar correos electrónicos transaccionales a registros específicos de Marketo. Configure la campaña de correo electrónico y déclencheur antes de realizar la solicitud.
 
 - Asegúrese de que el destinatario tenga un registro Marketo.
 - Cree y apruebe un correo electrónico transaccional en la instancia de Marketo.
@@ -56,7 +56,7 @@ Los ejemplos de Java utilizan el [paquete minimal-json](https://github.com/ralfs
 
 Antes de enviar el correo electrónico, confirme que existe un registro de Marketo para la dirección de correo electrónico y recupere su ID de posible cliente. En este ejemplo se supone que la dirección de correo electrónico ya existe.
 
-Use [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) para recuperar el ID. A continuación, el siguiente método principal solicita la campaña:
+Use [Obtener posibles clientes por tipo de filtro](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) para recuperar el ID. A continuación, el siguiente método principal solicita la campaña:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -274,4 +274,4 @@ Result:
 
 ## Ajuste
 
-Este método se puede ampliar de muchas maneras, cambiando el contenido de los correos electrónicos en secciones de diseño individuales o fuera de los correos electrónicos, lo que permite pasar valores personalizados a tareas o momentos interesantes. Se puede personalizar utilizando este método en cualquier lugar donde se pueda utilizar un token desde un programa. También hay una funcionalidad similar disponible con la llamada [Programar campaña](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) que le permitirá procesar tokens en toda una campaña por lotes. No se pueden personalizar por posible cliente, pero son útiles para personalizar el contenido en un amplio conjunto de posibles clientes.
+Este método se puede ampliar de muchas maneras, cambiando el contenido de los correos electrónicos en secciones de diseño individuales o fuera de los correos electrónicos, lo que permite pasar valores personalizados a tareas o momentos interesantes. Se puede personalizar utilizando este método en cualquier lugar donde se pueda utilizar un token desde un programa. También hay una funcionalidad similar disponible con la llamada [Programar campaña](https://developer.adobe.com/marketo-apis/api/mapi#operation/scheduleCampaignUsingPOST) que le permitirá procesar tokens en toda una campaña por lotes. No se pueden personalizar por posible cliente, pero son útiles para personalizar el contenido en un amplio conjunto de posibles clientes.

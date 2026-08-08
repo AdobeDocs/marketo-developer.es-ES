@@ -3,16 +3,16 @@ title: Correos electrónicos
 feature: REST API
 description: Utilice la API de REST de Marketo Asset para consultar, crear, actualizar, clonar, eliminar, aprobar e inspeccionar las dependencias de los recursos de correo electrónico.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: '492'
+source-wordcount: '490'
 ht-degree: 5%
 
 ---
 
 # Correos electrónicos
 
-[Referencia de extremo de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails_New)
+[Referencia de extremo de correo electrónico](https://developer.adobe.com/marketo-apis/api/asset)
 
 Los correos electrónicos son registros de recursos que definen los metadatos del mensaje, la configuración del contenido, la configuración y el estado de aprobación.
 
