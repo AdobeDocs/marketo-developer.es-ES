@@ -28,7 +28,7 @@ Las siguientes operaciones están disponibles a través del servidor MCP [!DNL M
 >
 >Las herramientas de listas inteligentes y campañas inteligentes `create` y `update` están destinadas a una versión de septiembre de 2026.
 
-Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Exportación masiva
 
