@@ -1,7 +1,6 @@
 ---
 title: Servidor MCP de Marketo Engage
 description: Aprenda a conectar un asistente de IA a Marketo mediante el servidor MCP de Marketo Engage. Configure Claude Desktop, Cursor, Claude Code o VS Code con sus credenciales de Marketo.
-badgeBeta: label="Disponibilidad limitada" type="informative" tooltip="Actualmente, esta función está en versión beta limitada"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
@@ -21,22 +20,19 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 4d690179b0ff8da03b6eb7d11566f511d491f369
+source-git-commit: 8fc4e9a161decdc0b39a7e98bdb17de035538a6a
 workflow-type: tm+mt
-source-wordcount: 2214
-ht-degree: 1%
+source-wordcount: 2144
+ht-degree: 0%
 
 ---
 
-# Servidor MCP [!DNL Marketo Engage]
 
->[!AVAILABILITY]
->
-> Esta función tiene disponibilidad limitada. Para solicitar acceso, rellene [este formulario](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Asegúrese de tener preparado el Munchkin ID de su suscripción.
+# Servidor MCP [!DNL Marketo Engage]
 
 >[!NOTE]
 >
->El equipo del servidor MCP está trabajando para habilitar las API de Smart List y Smart Campaign Asset para que funcionen con el servidor MCP. Se espera que la mayor parte de este trabajo, incluidas las Actividades de inclusión en la lista de permitidos, las Acciones y las Reglas, se complete en el tercer trimestre de 2026.
+>Las herramientas de listas inteligentes y campañas inteligentes `create` y `update` están destinadas a una versión de septiembre de 2026.
 
 El Protocolo de contexto de modelo (MCP) es un estándar abierto que conecta las herramientas de IA con servicios externos. El servidor MCP [!DNL Marketo] conecta su asistente de IA a [!DNL Marketo]. Proporciona más de 100 operaciones para formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
