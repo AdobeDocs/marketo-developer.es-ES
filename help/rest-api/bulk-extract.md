@@ -10,9 +10,9 @@ feature_v2:
   - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
 workflow-type: tm+mt
-source-wordcount: 1549
+source-wordcount: 1525
 ht-degree: 1%
 
 ---
@@ -43,14 +43,14 @@ Las API de extracción masiva utilizan el mismo método de autenticación OAuth 
 
 >[!IMPORTANT]
 >
->El 31 de agosto de 2026 se eliminará la compatibilidad con la autenticación mediante el parámetro de consulta **access_token**. Si el proyecto usa un parámetro de consulta para pasar el token de acceso, debe actualizarse para usar el encabezado **Autorización** lo antes posible. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
+>La compatibilidad con la autenticación mediante el parámetro de consulta **access_token** se eliminó el 31 de agosto de 2026. El nuevo desarrollo debe usar el encabezado **Authorization** exclusivamente.
 
 ## Límites
 
 - Máximo de trabajos de exportación simultáneos: 2
 - Máximo de trabajos de exportación en cola, incluidos los trabajos que se están exportando actualmente: 10
 - Período de retención de archivos: siete días
-- Asignación de exportación diaria predeterminada: 500 MB. La asignación se restablece diariamente a las 12:00 (hora central europea). Los incrementos están disponibles para la compra.
+- La asignación se restablece diariamente a las 12:00 (CST/CDT), según el horario de verano. Los incrementos están disponibles para la compra.
 - Intervalo de tiempo máximo para el filtro de intervalo de fecha (`createdAt` o `updatedAt`): 31 días
 
 Los filtros de extracción masiva de posibles clientes para UpdatedAt y Smart List no están disponibles para algunos tipos de suscripción. Si estos filtros no están disponibles, el extremo del trabajo de creación de posibles clientes devuelve el error &quot;1035, Unsupported filter type for target subscription&quot;. Póngase en contacto con el Soporte técnico de Marketo para habilitar esta funcionalidad para su suscripción.
