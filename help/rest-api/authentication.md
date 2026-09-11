@@ -4,13 +4,11 @@ feature: REST API
 description: Autentique las API de REST de Marketo con 2 OAuth 2.0 legged, cree y utilice tokens de acceso, cambie al encabezado Autorización, administre la caducidad y gestione los errores 601 y 602.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
 TQID: https://experienceleague.adobe.com/cIeI0m61CyIWq4HEosZ-QAsxzZb0WcrQRpCud2qysfY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: eb4e99aff94f3106b96f999fc56a6db7c5598b1f
 workflow-type: tm+mt
-source-wordcount: 487
+source-wordcount: 563
 ht-degree: 0%
 
 ---
@@ -62,6 +60,8 @@ Cada llamada a la API de REST debe incluir un token de acceso en un encabezado H
 >[!IMPORTANT]
 >
 >La compatibilidad con la autenticación mediante el parámetro de consulta `access_token` se eliminó el 31 de agosto de 2026. El nuevo desarrollo debe utilizar exclusivamente el encabezado `Authorization`.
+>Este cambio es una corrección de seguridad para ajustarse a las Prácticas recomendadas de seguridad del sector y de OAuth 2.0, que recomiendan no transmitir tokens de acceso en las direcciones URL.  Es posible que los flujos de trabajo existentes que se autentican de esta manera ya estén experimentando errores 603 (Acceso denegado).
+>Priorice la actualización de la integración para utilizar la autenticación basada en encabezado antes del 15 de septiembre de 2026.  Si necesita más tiempo, póngase en contacto con el Soporte técnico de Adobe para discutir las opciones disponibles
 
 ### Cambio al encabezado Autorización
 
