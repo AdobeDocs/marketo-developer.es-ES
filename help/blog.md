@@ -6,9 +6,7 @@ source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
 source-wordcount: '65289'
 ht-degree: 0%
-
 ---
-
 # Archivo de blog
 
 >[!INFO]
@@ -18,7 +16,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->A partir del 31 de julio de 2026, la API de SOAP quedará obsoleta y dejará de estar disponible. Todo el nuevo desarrollo debe realizarse con la API de REST de Marketo, y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración de API de SOAP](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/migration) para obtener información sobre cómo migrar.
+>A partir del 31 de julio de 2026, la API de SOAP quedará obsoleta y dejará de estar disponible. Todo el nuevo desarrollo debe realizarse con la API de REST de Marketo, y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración de API de SOAP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) para obtener información sobre cómo migrar.
 >
 
 >[!IMPORTANT]
@@ -326,7 +324,7 @@ Publicado el _2014-04-22_ por _Murta_
 
 ### Actualización de seguridad de Marketo Forms
 
-Hemos introducido un límite en el número y la frecuencia de los envíos de formularios posteriores desde una sola dirección IP. Este límite ahora se aplica a 30 publicaciones por minuto para proteger a nuestros clientes del uso malintencionado de envíos de formularios programáticos. La [API syncLead](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/leads/synclead) es el vehículo de integración recomendado para el envío mediante programación de nuevos contactos en Marketo.
+Hemos introducido un límite en el número y la frecuencia de los envíos de formularios posteriores desde una sola dirección IP. Este límite ahora se aplica a 30 publicaciones por minuto para proteger a nuestros clientes del uso malintencionado de envíos de formularios programáticos. La [API syncLead](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) es el vehículo de integración recomendado para el envío mediante programación de nuevos contactos en Marketo.
 
 Publicado el _2014-04-29_ por _Travis Kaufman_
 
@@ -1048,7 +1046,7 @@ Publicado el _2015-02-20_ por _Murta_
 
 ## Cree un campo personalizado en Marketo y actualice este campo mediante AP
 
-Supongamos que tiene datos adicionales sobre los posibles clientes que no se ajustan a los campos estándar de Marketo. Por ejemplo, este campo personalizado podría ser una puntuación de terceros. Puede crear un campo personalizado en Marketo para la puntuación de terceros y, a continuación, actualizar el valor de este campo mediante las API de Marketo [REST](https://developer.adobe.com/marketo-apis/) o [SOAP](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/activity-type-filters). En primer lugar, se muestra cómo crear un campo personalizado en Marketo y, en segundo, cómo actualizar este campo mediante la API de REST.
+Supongamos que tiene datos adicionales sobre los posibles clientes que no se ajustan a los campos estándar de Marketo. Por ejemplo, este campo personalizado podría ser una puntuación de terceros. Puede crear un campo personalizado en Marketo para la puntuación de terceros y, a continuación, actualizar el valor de este campo mediante las API de Marketo [REST](https://developer.adobe.com/marketo-apis/) o [SOAP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/activity-type-filters). En primer lugar, se muestra cómo crear un campo personalizado en Marketo y, en segundo, cómo actualizar este campo mediante la API de REST.
 
 ### Cómo crear un campo personalizado en Marketo
 
@@ -8042,7 +8040,7 @@ in
 
 Ahora debería poder diseñar todas las consultas que necesite para acceder a cualquier dato específico de Marketo disponible a través de sus API de REST. Esperamos que haya disfrutado de este artículo y que le haya ayudado a aprovechar las grandes ventajas de Excel y Marketo juntos. En el segundo artículo también se proporciona un libro de ejemplo con todas las consultas.
 
-### Referencias
+### Referencias:
 
 #### Power Query
 
@@ -8173,7 +8171,7 @@ Y ya terminaron con el Mapa Mundial 3D, ahora pueden divertirse animando el glob
 
 Acabamos de rascar la superficie de lo que es posible hacer con las herramientas de Excel Power BI. Le recomendamos que busque en la web otros buenos artículos y tutoriales para ampliar sus habilidades con Excel y diseñar los informes que necesite para lograr sus objetivos comerciales. Esperamos que haya disfrutado de estos artículos y que le hayan ayudado a aprovechar las grandes ventajas de Excel y Marketo juntos.
 
-### Referencias
+### Referencias:
 
 #### Power Pivot
 
