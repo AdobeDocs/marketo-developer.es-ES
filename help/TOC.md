@@ -1,18 +1,16 @@
 ---
 user-guide-title: Guía para desarrolladores de [!DNL Marketo]
-user-guide-description: Esta guía proporciona instrucciones para usar  [!DNL Marketo] API.
+user-guide-description: Esta guía proporciona instrucciones para usar las API de [!DNL Marketo].
 breadcrumb-title: Guía para desarrolladores de [!DNL Marketo]
 role: Admin
 feature-set: "Marketo Engage"
 index: true
 author: Donald
-source-git-commit: ece6e257d28839582be659daf0b8ba1a6b6a5c3c
+source-git-commit: 4dffbef0e0ea16393a9e30f5f8e1021331ca9a37
 workflow-type: tm+mt
-source-wordcount: '256'
-ht-degree: 35%
-
+source-wordcount: '262'
+ht-degree: 37%
 ---
-
 
 # Desarrollador de [!DNL Marketo] {#marketo}
 
@@ -71,7 +69,7 @@ ht-degree: 35%
     - [Listas inteligentes](rest-api/smart-lists.md)
     - [Fragmentos](rest-api/snippets.md)
     - [Listas estáticas](rest-api/static-lists.md)
-    - [Tókenes](rest-api/tokens.md)
+    - [Tokens](rest-api/tokens.md)
     - [Correo electrónico transaccional](rest-api/transactional-email.md)
   - [Autenticación](rest-api/authentication.md)
   - [Dirección URL base](rest-api/base-url.md)
@@ -115,6 +113,8 @@ ht-degree: 35%
   - [Etiquetas](rest-api/tags.md)
   - [Contexto de usuario](rest-api/user-context.md)
   - [Gestión de usuarios](rest-api/user-management.md)
+- SOAP {#soap}
+  - [Migración a la API de REST](soap-api/migration.md)
 - [Preguntas frecuentes sobre SOAP](soap-faq.md)
 - Webhooks {#webhooks}
   - [Errores](webhooks/errors.md)
