@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->A partir del 31 de julio de 2026, la API de SOAP quedará obsoleta y dejará de estar disponible. Todo el nuevo desarrollo debe realizarse con la API de REST de Marketo, y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración de API de SOAP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) para obtener información sobre cómo migrar.
+>A partir del 31 de julio de 2026, la API de SOAP quedará obsoleta y dejará de estar disponible. Todo el nuevo desarrollo debe realizarse con la API de REST de Marketo, y los servicios existentes deben migrarse para esa fecha a fin de evitar interrupciones en el servicio. Si tiene un servicio que usa la API de SOAP, consulte la [Guía de migración de API de SOAP](https://experienceleague.adobe.com/es/docs/marketo-developer/marketo/soap/migration) para obtener información sobre cómo migrar.
 >
 
 >[!IMPORTANT]
