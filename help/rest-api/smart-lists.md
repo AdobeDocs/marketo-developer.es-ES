@@ -6,27 +6,33 @@ exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
 TQID: https://experienceleague.adobe.com/wQ2PQFabw8E5XYP4zJ2RMPcurRkoxA7UecpA-YuQuBc
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
 subfeature_v2:
   - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+    internal-label: Smart Lists
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 15a223e2511f405ebaebbba933acac1429514030
 workflow-type: tm+mt
-source-wordcount: 402
-ht-degree: 1%
-
+source-wordcount: '393'
+ht-degree: 2%
 ---
-
 # Listas inteligentes
 
 [Referencia de extremo de listas inteligentes](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists)
 
 Utilice las API de REST de listas inteligentes para consultar, clonar y eliminar listas inteligentes.
 
-Estas API solo admiten listas inteligentes creadas por el usuario. No admiten [listas inteligentes integradas o del sistema](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+>[!NOTE]
+>
+>En la aplicación, si selecciona el operador &quot;en&quot; para Miembro de lista o Miembro de lista inteligente, aparece en la respuesta de la API como &quot;es&quot;.
+> ![En el campo de operador &#x200B;](assets/in-operator.png){width=600}
 
 ## Consulta
 
