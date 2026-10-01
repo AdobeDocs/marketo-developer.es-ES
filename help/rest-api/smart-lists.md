@@ -32,7 +32,7 @@ Utilice las API de REST de listas inteligentes para consultar, clonar y eliminar
 >[!NOTE]
 >
 >En la aplicación, si selecciona el operador &quot;en&quot; para Miembro de lista o Miembro de lista inteligente, aparece en la respuesta de la API como &quot;es&quot;.
-> ![En el campo de operador ](assets/in-operator.png){width=600}
+> ![En el campo de operador &#x200B;](assets/in-operator.png){width=600}
 
 ## Consulta
 
