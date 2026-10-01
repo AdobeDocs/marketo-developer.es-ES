@@ -5,30 +5,30 @@ autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: c631b7c3d571f29083673f9b97d22230d109abfc
+    internal-label: Artificial intelligence
+source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
 workflow-type: tm+mt
-source-wordcount: 1228
-ht-degree: 49%
-
+source-wordcount: '1214'
+ht-degree: 50%
 ---
-
 
 # [!DNL Marketo Engage] operaciones de MCP
 
 Las siguientes operaciones están disponibles a través del servidor MCP [!DNL Marketo Engage]. El servidor proporciona extremos de solo lectura o no destructivos. El sistema de IA no puede usar `Delete` u otras operaciones destructivas.
 
->[!NOTE]
->
->Las herramientas de listas inteligentes y campañas inteligentes `create` y `update` están destinadas a una versión de septiembre de 2026.
-
-Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener información sobre cómo se administran los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Exportación masiva
 
@@ -213,7 +213,7 @@ Para obtener información sobre cómo se administran los datos con la IA de Mark
 - `remove_from_list`
 - `update_list`
 
-## Tókenes
+## Tokens
 
 [Referencia de API de tokens](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens){target="_blank"}
 
