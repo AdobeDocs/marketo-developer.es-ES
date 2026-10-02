@@ -32,17 +32,13 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: b12faeb0cb1a3680f6e0e7a522c54931b3de2c5d
+source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
 workflow-type: tm+mt
-source-wordcount: '2099'
+source-wordcount: '2085'
 ht-degree: 0%
 ---
 
 # Servidor MCP [!DNL Marketo Engage]
-
->[!NOTE]
->
->Las herramientas de listas inteligentes y campañas inteligentes `create` y `update` están destinadas a una versión de septiembre de 2026.
 
 El Protocolo de contexto de modelo (MCP) es un estándar abierto que conecta las herramientas de IA con servicios externos. El servidor MCP [!DNL Marketo] conecta su asistente de IA a [!DNL Marketo]. Proporciona más de 100 operaciones para formularios, programas, campañas inteligentes, posibles clientes, correos electrónicos, fragmentos de código, listas y carpetas.
 
