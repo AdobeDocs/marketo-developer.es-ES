@@ -32,9 +32,9 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
+source-git-commit: 6bbf9fa5b8192e02d7a465a652346545ae216450
 workflow-type: tm+mt
-source-wordcount: '2085'
+source-wordcount: '2209'
 ht-degree: 0%
 ---
 
@@ -44,7 +44,7 @@ El Protocolo de contexto de modelo (MCP) es un estándar abierto que conecta las
 
 Cuando la herramienta de IA llama al servidor MCP, el servidor utiliza las credenciales de esa solicitud para ejecutar la llamada de API de REST correspondiente. No es necesario instalar, implementar ni ejecutar software del lado del servidor.
 
-Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
@@ -90,7 +90,7 @@ MCP puede transmitir datos, incluidos campos potencialmente confidenciales, seg�
 
 * Una instancia de [!DNL Marketo] con acceso a la API de REST habilitado
 * Acceso de administrador para crear credenciales de API en [!DNL Marketo] LaunchPoint
-* Una de las siguientes herramientas de IA: Claude Desktop, Cursor, Codex, Claude Code (CLI) o VS Code con GitHub Copilot
+* Una de las siguientes herramientas de IA: Claude Desktop, Cursor, Codex, Claude Code (CLI), VS Code con GitHub Copilot u otro cliente MCP compatible como Gemini CLI
 * Acceso de red a la URL del servidor MCP: `https://marketo-mcp.adobe.io/mcp`
 
 ## Obtener credenciales de Marketo
@@ -122,6 +122,7 @@ La configuración difiere según la herramienta de IA. Las siguientes secciones 
 * [Cursor](#cursor)
 * [CLI de código Claude](#claude-code)
 * [Códice OpenAI](#codex)
+* [CLI de Gemini](#gemini-cli)
 * [VSCode con el copiloto de GitHub](#vscode)
 * [Espigar](#glean)
 * [Otras herramientas](#other-tools)
@@ -211,6 +212,35 @@ claude mcp add --transport http marketo \
 
 1. Seleccione Guardar para completar el proceso.
 
+### CLI de Gemini
+
+Para agregar el servidor MCP de Marketo Engage a la CLI de Gemini, agregue lo siguiente al `.gemini/mcp.json` del directorio del proyecto.
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "httpUrl": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "X-Marketo-Client-Id": "$MARKETO_CLIENT_ID",
+        "X-Marketo-Client-Secret": "$MARKETO_CLIENT_SECRET",
+        "X-Marketo-Munchkin-Id": "$MARKETO_MUNCHKIN_ID"
+      }
+    }
+  }
+}
+```
+
+O por línea de comandos:
+
+```bash
+gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp \
+  -H "X-Marketo-Client-Id: $MARKETO_CLIENT_ID" \
+  -H "X-Marketo-Client-Secret: $MARKETO_CLIENT_SECRET" \
+  -H "X-Marketo-Munchkin-Id: $MARKETO_MUNCHKIN_ID"
+```
+
+Reinicie la sesión para recoger la nueva configuración del servidor MCP.
 
 ### Código VS con el copiloto de GitHub {#vscode}
 
@@ -269,6 +299,10 @@ Envíe los encabezados de uno de los siguientes métodos de autenticación con c
 | `X-Marketo-Munchkin-Id` | Su ID de cuenta de Munchkin |
 
 Si la herramienta acepta una configuración JSON, comience con los ejemplos de [Cursor](#cursor) o [Código VS](#vscode), y ajuste las claves (`mcpServers`, `servers`) para que coincidan con el esquema de la herramienta.
+
+>[!NOTE]
+>
+>Gemini CLI admite servidores MCP remotos a través de encabezados de autenticación HTTP y personalizados transmisibles. Para conectarlo al servidor MCP [!DNL Marketo], use los detalles de conexión anteriores y siga la [documentación de configuración de MCP de Gemini CLI](https://geminicli.com/docs/tools/mcp-server/){target="_blank"}. Agregue una entrada de servidor bajo `mcpServers` en su `settings.json`, establezca `httpUrl` en `https://marketo-mcp.adobe.io/mcp` y proporcione los tres encabezados de autenticación de Marketo en `headers`. Utilice `httpUrl`, no `url`, que usa la CLI de Gemini para el transporte SSE. Esta guía se aplica a Gemini CLI, no a la aplicación web o móvil de Gemini.
 
 ## Operaciones disponibles
 
