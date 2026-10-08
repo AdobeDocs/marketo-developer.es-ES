@@ -2,13 +2,23 @@
 title: Obtener actualizaciones de API de clientes potenciales
 feature: REST API
 description: Conozca los cambios en los límites de Obtener actividades de posibles clientes y Obtener extremos de cambios de posibles clientes.
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '311'
 ht-degree: 0%
-
 ---
-
 # Obtener actualizaciones de API de clientes potenciales
 
 A partir del 30 de septiembre de 2026, las llamadas a los extremos [Obtener actividades de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET) u [Obtener cambios de posibles clientes](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET) que incluyan el parámetro `listId` generarán un error si las listas de destino contienen 10 000 posibles clientes o más. Los extremos devolverán un código de error 1003 que indica que la lista estática de destino tiene demasiados registros.

@@ -3,26 +3,35 @@ title: Contexto de usuario
 feature: REST API
 description: Aprenda a habilitar y utilizar la API de contexto de usuario de Marketo RTP para establecer variables personalizadas, leer datos de usuarios en visitas y rastrear campañas en las que se ha hecho clic y visualizado.
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
-TQID: https://experienceleague.adobe.com/Ph0Tw-C9jzWaR4bYyUIXyzzoa2yjHQk2gt6tNA8H2mA
+TQID: 'https://experienceleague.adobe.com/Ph0Tw-C9jzWaR4bYyUIXyzzoa2yjHQk2gt6tNA8H2mA'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+    internal-label: Implementation
   - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
 subfeature_v2:
   - id: a1d50dda-6d94-4e16-8c30-5eb7181c4650
+    internal-label: Segmentation
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+    internal-label: Implementation
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Personalization
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 273
+source-wordcount: '273'
 ht-degree: 5%
-
 ---
-
 # Contexto de usuario
 
 La API de JavaScript de contexto de usuario expone los datos de nivel de usuario y de visitante en varias sesiones. Utilice datos y comportamientos históricos para crear una personalización avanzada.
@@ -52,7 +61,7 @@ Configure variables personalizadas para agregar datos al contexto de usuario.
 | --- | --- | --- | --- |
 | `'set'` | Obligatorio | Cadena | Acción de método. |
 | `customVar` | Obligatorio | Cadena | Nombre de variable personalizado. |
-| `my_custom_value` | Obligatorio | Cadena | Valor personalizado para guardar en variable personalizada en los índices 1-5. |
+| `my_custom_value` | Requerido | Cadena | Valor personalizado para guardar en variable personalizada en los índices 1-5. |
 
 Las variables personalizadas se envían a RTP solo en una llamada de vista. Establezca variables personalizadas antes de la llamada de vista. De lo contrario, las variables se envían en la siguiente llamada de vista.
 

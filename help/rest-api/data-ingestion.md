@@ -3,18 +3,30 @@ title: Ingesta de datos
 feature: REST API, Dynamic Content, Static Lists
 description: Utilice la API de ingesta de datos de Marketo para la ingesta de gran volumen y baja latencia de Personas, Objetos personalizados, Compañías, Miembros del programa y Listas.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
+TQID: 'https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c56e5f8f-221f-55c2-8170-b1a9e10687cb
+    internal-label: Static Lists
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: cdd4e0f6-e87e-453f-88ee-2ee54a7de272
+    internal-label: Dynamic content
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 2151
+source-wordcount: '2153'
 ht-degree: 16%
-
 ---
-
 # API de ingesta de datos
 
 La API de ingesta de datos es un servicio de alto volumen, baja latencia y alta disponibilidad. Utilícelo para introducir grandes cantidades de datos relacionados con personas y personas con un retraso mínimo.
@@ -76,7 +88,7 @@ La ingesta de datos admite los siguientes encabezados HTTP personalizados.
 
 ### Respuesta
 
-| Clave | Valor | Obligatorio |
+| Clave | Valor | Requerido |
 | --- | --- | --- |
 | `X-Request-Id` | ID único de solicitud. | Sí |
 
@@ -318,7 +330,7 @@ Utilice este extremo para sincronizar registros de empresa. Admite operaciones d
 
 #### Encabezados
 
-| Clave | Valor | Obligatorio |
+| Clave | Valor | Requerido |
 | --- | --- | --- |
 | `Content-Type` | application/json | Sí |
 | `X-Mkto-User-Token` | {accessToken} | Sí |
@@ -615,7 +627,7 @@ Punto final utilizado para agregar posibles clientes a una lista estática. Los 
 
 #### Encabezados
 
-| Clave | Valor | Obligatorio |
+| Clave | Valor | Requerido |
 | --- | --- | --- |
 | `Content-Type` | application/json | Sí |
 | `X-Mkto-User-Token` | {accessToken} | Sí |
@@ -695,7 +707,7 @@ Extremo utilizado para eliminar posibles clientes de una lista estática. Los po
 
 #### Encabezados
 
-| Clave | Valor | Obligatorio |
+| Clave | Valor | Requerido |
 | --- | --- | --- |
 | `Content-Type` | application/json | Sí |
 | `X-Mkto-User-Token` | {accessToken} | Sí |
