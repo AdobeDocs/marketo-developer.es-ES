@@ -29,10 +29,12 @@ feature_v2:
 role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
     internal-label: Developer
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 6bbf9fa5b8192e02d7a465a652346545ae216450
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '2209'
 ht-degree: 0%
@@ -44,7 +46,7 @@ El Protocolo de contexto de modelo (MCP) es un estándar abierto que conecta las
 
 Cuando la herramienta de IA llama al servidor MCP, el servidor utiliza las credenciales de esa solicitud para ejecutar la llamada de API de REST correspondiente. No es necesario instalar, implementar ni ejecutar software del lado del servidor.
 
-Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/marketo-ai/data-information).
+Para obtener más información sobre cómo se gestionan los datos con la IA de Marketo y el servidor MCP de Marketo Engage, consulte la página [Información de datos](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >

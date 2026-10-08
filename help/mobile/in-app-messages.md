@@ -3,26 +3,30 @@ title: Mensajes en la aplicación
 feature: Mobile Marketing
 description: Configure los mensajes en la aplicación de Marketo con Mobile SDK, configure los déclencheur de evento personalizados, rastree la actividad del toque y corrija los primeros problemas de inicialización de aperturas de aplicaciones.
 exl-id: 73c9f862-d154-4b37-94ce-92311aa756e8
-TQID: https://experienceleague.adobe.com/RVkEUBaFb-PHd0gE9ngzYc5zOojINwSI7ic2TmcU7-8
+TQID: 'https://experienceleague.adobe.com/RVkEUBaFb-PHd0gE9ngzYc5zOojINwSI7ic2TmcU7-8'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: c1579802-ddd4-4214-8a91-97b2066abe11
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Troubleshooting
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 321
+source-wordcount: '321'
 ht-degree: 2%
-
 ---
-
 # Mensajes en la aplicación
 
 Complete estos pasos para utilizar la mensajería en la aplicación de Marketo:
 
 1. Instale Marketo Mobile SDK como se describe en la [Instalación móvil](installation.md).
-1. Agregue su aplicación móvil a Marketo como se describe en [Agregar una aplicación móvil](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app).
+1. Agregue su aplicación móvil a Marketo como se describe en [Agregar una aplicación móvil](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app).
 1. Opcional: agregue código a su aplicación móvil para capturar [acciones personalizadas](custom-actions.md).
 
 Después de instalar Marketo Mobile SDK y agregar la aplicación a Marketo, puede enviar mensajes en la aplicación que aparecen cuando un usuario abre la aplicación.
@@ -43,4 +47,4 @@ Los eventos personalizados se activan mediante la interacción del usuario una v
 
 Para realizar un seguimiento de las actividades de punteo y basar la frecuencia de visualización en el número de punteos, asigne una acción que no sea &quot;descartar&quot; a un botón principal o secundario.
 
-Para obtener más información, consulte [Mensajes en la aplicación](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message) en la documentación del producto.
+Para obtener más información, consulte [Mensajes en la aplicación](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message) en la documentación del producto.

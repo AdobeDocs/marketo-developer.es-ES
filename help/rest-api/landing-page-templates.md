@@ -3,22 +3,33 @@ title: Plantillas de la página de destino
 feature: REST API, Landing Pages
 description: Administre las plantillas de página de aterrizaje de Marketo a través de los extremos de la API de REST para obtener forma gratuita y tipos guiados, consultar por ID o nombre, crear, actualizar HTML, clonar, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-TQID: https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY
+TQID: 'https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: edda586e-0147-48f2-b791-992622a00783
+    internal-label: Landing pages
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 499
+source-wordcount: '499'
 ht-degree: 2%
-
 ---
-
 # Plantillas de la página de destino
 
 [Referencia de extremo de plantilla de página de aterrizaje](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates)
@@ -29,7 +40,7 @@ Las plantillas de página de aterrizaje son recursos principales para las págin
 
 Marketo proporciona plantillas de página de aterrizaje guiadas y de forma libre. Las plantillas de forma libre proporcionan una experiencia de edición ligeramente estructurada. Las plantillas guiadas pueden restringir los tipos de elementos y las ubicaciones en el nivel de plantilla.
 
-Para ver una comparación detallada, consulte [Explicación de las páginas de aterrizaje de forma libre frente a las páginas de aterrizaje guiadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Para ver una comparación detallada, consulte [Explicación de las páginas de aterrizaje de forma libre frente a las páginas de aterrizaje guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Consulta
 
@@ -180,9 +191,9 @@ Las plantillas de página de aterrizaje utilizan el borrador estándar y el mode
 
 Antes de la aprobación, una plantilla debe cumplir los requisitos para su tipo guiado o de forma libre. Consulte estos recursos:
 
-- [Plantillas de página de aterrizaje de forma libre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Plantillas de la página de destino guiada](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Plantillas de página de aterrizaje de forma libre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Plantillas de la página de destino guiada](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Ejemplos de plantillas guiadas](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Eliminar
 

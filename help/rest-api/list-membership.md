@@ -3,13 +3,25 @@ title: Pertenencia a una lista (listas estáticas)
 feature: REST API, Static Lists
 description: Utilice las API de REST de la base de datos de posibles clientes de Marketo para añadir posibles clientes a listas estáticas, eliminar posibles clientes, recuperar miembros de listas y comprobar la pertenencia a listas.
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c56e5f8f-221f-55c2-8170-b1a9e10687cb
+    internal-label: Static Lists
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '415'
 ht-degree: 6%
-
 ---
-
 # Pertenencia a una lista (listas estáticas)
 
 [Referencia de extremo de pertenencia a lista](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)

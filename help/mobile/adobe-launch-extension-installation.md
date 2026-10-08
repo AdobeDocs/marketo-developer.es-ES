@@ -3,30 +3,35 @@ title: Instalación de la extensión [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Instale la extensión de Adobe Launch Marketo para dispositivos móviles. Siga los pasos de configuración de iOS y Android, dispositivos de prueba, permisos y FCM para notificaciones push y en la aplicación.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
+TQID: 'https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Personalization
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 753
+source-wordcount: '753'
 ht-degree: 0%
-
 ---
-
 # Instalación de la extensión [!DNL Adobe Launch]
 
 Instale la extensión de Marketo [!DNL Adobe Launch] para enviar notificaciones push, mensajes en la aplicación o ambos.
 
-## Requisitos previos
+## Prerrequisitos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) y obtenga la clave secreta y el Munchkin Id de la aplicación.
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) y obtenga la clave secreta y el Munchkin Id de la aplicación.
 1. [Configurar la propiedad en el [!DNL Adobe Launch] portal](https://experience.adobe.com/#/@amc/data-collection/home).
 1. Configure la clave secreta de la aplicación y el identificador de Munchkin para la propiedad en el portal [!DNL Adobe Launch].
 1. Opcional: [Configurar notificaciones push](push-notifications.md).
@@ -168,7 +173,7 @@ MME SDK para Android admite el uso directo de [Firebase Cloud Messaging](https:/
 
 1. Integre la última versión de Marketo Android SDK en la aplicación de Android. Consulte los pasos en [GitHub](https://github.com/Marketo/android-sdk).
 1. Configure la aplicación Firebase en la consola de Firebase.
-   1. Cree o agregue un proyecto en [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Cree o agregue un proyecto en [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. En la [consola de Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), seleccione **[!UICONTROL Agregar proyecto]**.
       1. Seleccione el proyecto GCM de la lista de proyectos existentes de Google Cloud y seleccione **[!UICONTROL Agregar Firebase]**.
       1. En la pantalla de bienvenida de Firebase, seleccione **[!UICONTROL Agregar Firebase a su aplicación de Android]**.

@@ -3,29 +3,33 @@ title: '[!DNL Ionic]'
 feature: Mobile Marketing
 description: Guía paso a paso para integrar el complemento Marketo Cordova con Ionic, activar notificaciones push, inicializar SDK, rastrear sesiones y asociar posibles clientes.
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-TQID: https://experienceleague.adobe.com/UTNWd69NliR896RcO-XM2GG35liuLeNNhTXo9GRtB4o
+TQID: 'https://experienceleague.adobe.com/UTNWd69NliR896RcO-XM2GG35liuLeNNhTXo9GRtB4o'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+    internal-label: Reporting
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Reporting
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 581
+source-wordcount: '581'
 ht-degree: 2%
-
 ---
-
 # Iónico
 
 Integre el complemento Marketo Cordova con una aplicación [!DNL Ionic]. [!DNL Ionic] El condensador no es compatible actualmente.
 
 ## Prerrequisitos
 
-1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) y obtenga la clave secreta y el Munchkin Id de la aplicación.
+1. [Agregue una aplicación al administrador de Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) y obtenga la clave secreta y el Munchkin Id de la aplicación.
 1. Configure notificaciones push para [iOS](push-notifications.md) o [Android](push-notifications.md).
 1. Instale [[!DNL Ionic]](https://ionicframework.com/getting-started/) y [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 

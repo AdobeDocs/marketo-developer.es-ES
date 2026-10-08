@@ -3,25 +3,31 @@ title: Listas de cuentas con nombre
 feature: REST API
 description: Obtenga información sobre cómo administrar Listas de cuentas con nombre de Marketo con la API de REST, incluidos permisos, campos, filtros y extremos para consultar, crear, actualizar y eliminar.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-TQID: https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM
+TQID: 'https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 686
+source-wordcount: '686'
 ht-degree: 3%
-
 ---
-
 # Listas de cuentas con nombre
 
 [Referencia de extremo de listas de cuentas con nombre](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Listas de cuentas con nombre](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/target-account-management/target/account-lists) son colecciones de cuentas con nombre en Marketo. Utilícelos para la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes.
+[Listas de cuentas con nombre](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) son colecciones de cuentas con nombre en Marketo. Utilícelos para la categorización, el enriquecimiento de datos y el filtrado de campañas inteligentes.
 
 Las API de lista de cuentas con nombre le permiten administrar de forma remota los recursos de la lista y su pertenencia.
 `Content`
