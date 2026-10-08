@@ -38,7 +38,7 @@ Marketo asigna los valores de respuesta a un campo solo cuando el servicio web d
 
 Utilice el déclencheur **[!UICONTROL Se llama al webhook]** para detectar y controlar los errores de webhook:
 
-Se llama al webhook ![1}](assets/webhook-called.png)
+Se llama al webhook ![1&rbrace;](assets/webhook-called.png)
 
 * **Respuesta** - La carga de respuesta literal recibida por la solicitud.
 * **Tipo de error** - La frase de razón del mensaje de estado HTTP.

@@ -533,7 +533,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Consultar dependencias de correo electrónico
 
-Use la plantilla de obtención de correo electrónico [utilizada por el extremo ](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET) para recuperar correos electrónicos que dependen de una plantilla. El parámetro de ruta de acceso `id` identifica la plantilla de correo electrónico principal.
+Use la plantilla de obtención de correo electrónico [utilizada por el extremo &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET) para recuperar correos electrónicos que dependen de una plantilla. El parámetro de ruta de acceso `id` identifica la plantilla de correo electrónico principal.
 
 El extremo admite dos parámetros de paginación opcionales:
 
