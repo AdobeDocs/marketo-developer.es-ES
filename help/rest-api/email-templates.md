@@ -34,7 +34,7 @@ ht-degree: 2%
 
 Cada nuevo correo electrónico en Marketo se basa inicialmente en una plantilla de correo electrónico. Aunque más adelante puede desvincular un correo electrónico de su plantilla reemplazando HTML, debe seleccionar una plantilla al crear el correo electrónico.
 
-Las plantillas son documentos de HTML con metadatos como un nombre y una descripción. La plantilla HTML debe ser válida y contener al menos una sección editable que cumpla los [requisitos de sección editable](https://experienceleague.adobe.com/es/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Las plantillas son documentos de HTML con metadatos como un nombre y una descripción. La plantilla HTML debe ser válida y contener al menos una sección editable que cumpla los [requisitos de sección editable](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Consulta
 
@@ -533,7 +533,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Consultar dependencias de correo electrónico
 
-Use la plantilla de obtención de correo electrónico [utilizada por el extremo &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET) para recuperar correos electrónicos que dependen de una plantilla. El parámetro de ruta de acceso `id` identifica la plantilla de correo electrónico principal.
+Use la plantilla de obtención de correo electrónico [utilizada por el extremo ](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET) para recuperar correos electrónicos que dependen de una plantilla. El parámetro de ruta de acceso `id` identifica la plantilla de correo electrónico principal.
 
 El extremo admite dos parámetros de paginación opcionales:
 
