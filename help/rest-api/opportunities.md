@@ -21,14 +21,14 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
     internal-label: Metadata
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
 source-wordcount: '702'
 ht-degree: 0%
 ---
 # Oportunidades
 
-[Referencia de extremo de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
+[Referencia de extremo de oportunidad](https://developer.adobe.com/marketo-apis/api/mapi#tag/Oppofrtunities)
 
 Marketo proporciona API para leer, escribir, crear y actualizar registros de oportunidades. En Marketo, el objeto de función de oportunidad intermedia vincula los registros de oportunidad con los registros de posibles clientes y contactos. Por lo tanto, una oportunidad se puede vincular a muchos posibles clientes individuales.
 

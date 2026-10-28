@@ -25,14 +25,14 @@ role_v2:
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
     internal-label: Administration
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
 source-wordcount: '1404'
 ht-degree: 7%
 ---
 # Gestión de usuarios
 
-[Referencia de extremo de User Management](https://developer.adobe.com/marketo-apis/api/user/)
+[Referencia de extremo de User Management](https://developer.adobe.com/marketo-apis/api/user)
 
 Los extremos de administración de usuarios de Marketo realizan operaciones de CRUD en registros de usuarios. Para crear un usuario, envíe una invitación. A continuación, el usuario establece una contraseña y accede a Marketo por primera vez.
 
